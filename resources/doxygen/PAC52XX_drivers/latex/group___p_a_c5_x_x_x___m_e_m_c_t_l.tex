@@ -1,0 +1,871 @@
+\hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l}{}\doxysection{P\+A\+C5\+X\+XX F\+L\+A\+SH Memory Controller (M\+E\+M\+C\+TL)}
+\label{group___p_a_c5_x_x_x___m_e_m_c_t_l}\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+Collaboration diagram for P\+A\+C5\+X\+XX F\+L\+A\+SH Memory Controller (M\+E\+M\+C\+TL)\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___p_a_c5_x_x_x___m_e_m_c_t_l}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_p_a_c5_x_x_x___m_e_m_c_t_l___type_def}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga5f34259ec5884cbf74e00f2c0e28c633}{F\+L\+A\+S\+H\+\_\+\+L\+O\+C\+K\+\_\+\+A\+L\+L\+O\+W\+\_\+\+F\+L\+A\+S\+H\+W\+R\+I\+T\+E\+\_\+\+K\+EY}}~0x\+A\+A\+A\+A\+A\+A\+AA
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga955fecd0a0eea7f5bd0ca26c10a6c106}{F\+L\+A\+S\+H\+\_\+\+L\+O\+C\+K\+\_\+\+A\+L\+L\+O\+W\+\_\+\+P\+E\+R\+A\+S\+E\+\_\+\+K\+EY}}~0x\+A5\+A55\+A5A
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga739272a489b04b4fe3b240aaa619c343}{F\+L\+A\+S\+H\+\_\+\+L\+O\+C\+K\+\_\+\+A\+L\+L\+O\+W\+\_\+\+M\+P\+E\+R\+A\+S\+E\+\_\+\+K\+EY}}~0x\+F\+A\+C\+E1956
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gad743ef7e825da60bfd1940b5751d3537}{F\+L\+A\+S\+H\+\_\+\+L\+O\+C\+K\+\_\+\+A\+L\+L\+O\+W\+\_\+\+F\+L\+A\+S\+H\+D\+B\+G\+\_\+\+K\+EY}}~0x06\+B\+D1556
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga0310e5c61e488c0ad24bf0b02ccf3853}{F\+L\+A\+S\+H\+\_\+\+L\+O\+C\+K\+\_\+\+A\+L\+L\+O\+W\+\_\+\+F\+L\+A\+S\+H\+W\+S\+T\+A\+T\+E\+\_\+\+K\+EY}}~0x12345678
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga35c6ac54ddfc627bf1bdab4d7af3ad17}{F\+L\+A\+S\+H\+\_\+\+L\+O\+C\+K\+\_\+\+A\+L\+L\+O\+W\+\_\+\+B\+W\+R\+I\+T\+E\+\_\+\+K\+EY}}~0x\+C\+A726\+B18
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gae5846628916981e2e7a9d113d4cda2dd}{F\+L\+A\+S\+H\+\_\+\+C\+T\+L\+\_\+\+R\+E\+A\+D\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+B\+IT}}~0x00000010
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga6b5e6f31b750bef87c4611590161bade}{F\+L\+A\+S\+H\+\_\+\+C\+T\+L\+\_\+\+W\+R\+I\+T\+E\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+B\+IT}}~0x00000020
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga3e65d61759424ad2f86ddf54ff031bc2}{F\+L\+A\+S\+H\+\_\+\+C\+T\+L\+\_\+\+P\+E\+R\+A\+S\+E\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+B\+IT}}~0x00000040
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gab4fe617477cd715561a62335049761fe}{F\+L\+A\+S\+H\+\_\+\+C\+T\+L\+\_\+\+M\+P\+E\+R\+A\+S\+E\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+B\+IT}}~0x00000100
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga97b1dd29c2c10a07fd3eb1b3a9a8790f}{F\+L\+A\+S\+H\+\_\+\+D\+B\+G\+\_\+\+S\+W\+R\+\_\+\+P\+O\+R\+\_\+\+EN}}~0x\+F\+F\+FF
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga97bb781a68c2614ea9c807cccb038406}{F\+L\+A\+S\+H\+\_\+\+D\+B\+G\+\_\+\+S\+W\+R\+\_\+\+P\+O\+R\+\_\+\+D\+IS}}~0x6969
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaeae65fb32265e471df7aefe824d0a2a9}{M\+E\+M\+C\+T\+L\+\_\+\+Wait\+State}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ggaeae65fb32265e471df7aefe824d0a2a9aa3369d95eca921f2970370ed9bb27a32}{F\+L\+A\+S\+H\+\_\+\+W\+S\+T\+A\+T\+E\+\_\+\+H\+C\+L\+K\+\_\+\+L\+T\+E\+\_\+25\+M\+HZ}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ggaeae65fb32265e471df7aefe824d0a2a9adb16fb197f2b236cb0418c411577d029}{F\+L\+A\+S\+H\+\_\+\+W\+S\+T\+A\+T\+E\+\_\+25\+M\+H\+Z\+\_\+\+L\+T\+\_\+\+H\+C\+L\+K\+\_\+\+L\+T\+E\+\_\+50\+M\+HZ}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ggaeae65fb32265e471df7aefe824d0a2a9a2d6cdcef78a22947fc5f086e0e596765}{F\+L\+A\+S\+H\+\_\+\+W\+S\+T\+A\+T\+E\+\_\+50\+M\+H\+Z\+\_\+\+L\+T\+\_\+\+H\+C\+L\+K\+\_\+\+L\+T\+E\+\_\+75\+M\+HZ}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ggaeae65fb32265e471df7aefe824d0a2a9aae622c179a753f427cba633fab0b471c}{F\+L\+A\+S\+H\+\_\+\+W\+S\+T\+A\+T\+E\+\_\+75\+M\+H\+Z\+\_\+\+L\+T\+\_\+\+H\+C\+L\+K\+\_\+\+L\+T\+E\+\_\+100\+M\+HZ}} = 3
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gada91e545450b18543a89265576aa4bab}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+F\+L\+A\+S\+H\+L\+O\+CK}}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga2f4e01e43a9eb44399d06f939afad1ad}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::w}}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9f3912dae9a6f378c383b9ac67637d58}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::s}}\+: 16
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 16
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9f3912dae9a6f378c383b9ac67637d58}{PAC5XXX\_MEMCTL\_TypeDef::s}}: 16\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{PAC5XXX\_MEMCTL\_TypeDef::\_\_pad0\_\_}}: 16\\
+\} \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gacb12136a3e515252d0c5a0d93b424605}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::b}}\+: 8
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 24
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gacb12136a3e515252d0c5a0d93b424605}{PAC5XXX\_MEMCTL\_TypeDef::b}}: 8\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{PAC5XXX\_MEMCTL\_TypeDef::\_\_pad0\_\_}}: 24\\
+\} \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga33e73fb07b1eeb4a10eacd7b9ffe2d9c}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+W\+R\+I\+TE}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gabcd7615abb18c8697ead77481684789b}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+P\+E\+R\+A\+SE}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 30
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\_\_I}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga33e73fb07b1eeb4a10eacd7b9ffe2d9c}{PAC5XXX\_MEMCTL\_TypeDef::WRITE}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\_\_I}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gabcd7615abb18c8697ead77481684789b}{PAC5XXX\_MEMCTL\_TypeDef::PERASE}}: 1\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{PAC5XXX\_MEMCTL\_TypeDef::\_\_pad0\_\_}}: 30\\
+\} \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga2f4e01e43a9eb44399d06f939afad1ad}{PAC5XXX\_MEMCTL\_TypeDef::w}}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9f3912dae9a6f378c383b9ac67637d58}{PAC5XXX\_MEMCTL\_TypeDef::s}}: 16\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{PAC5XXX\_MEMCTL\_TypeDef::\_\_pad0\_\_}}: 16\\
+\>\} \\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gacb12136a3e515252d0c5a0d93b424605}{PAC5XXX\_MEMCTL\_TypeDef::b}}: 8\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{PAC5XXX\_MEMCTL\_TypeDef::\_\_pad0\_\_}}: 24\\
+\>\} \\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\_\_I}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga33e73fb07b1eeb4a10eacd7b9ffe2d9c}{PAC5XXX\_MEMCTL\_TypeDef::WRITE}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\_\_I}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gabcd7615abb18c8697ead77481684789b}{PAC5XXX\_MEMCTL\_TypeDef::PERASE}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{PAC5XXX\_MEMCTL\_TypeDef::\_\_pad0\_\_}}: 30\\
+\>\} \\
+\} \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga17885820a0e1a0b0ef3e081d3f428639}{PAC5XXX\_MEMCTL\_TypeDef::FLASHCTL}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga2f4e01e43a9eb44399d06f939afad1ad}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::w}}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9f3912dae9a6f378c383b9ac67637d58}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::s}}\+: 16
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 16
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9f3912dae9a6f378c383b9ac67637d58}{PAC5XXX\_MEMCTL\_TypeDef::s}}: 16\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{PAC5XXX\_MEMCTL\_TypeDef::\_\_pad0\_\_}}: 16\\
+\} \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gacb12136a3e515252d0c5a0d93b424605}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::b}}\+: 8
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 24
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gacb12136a3e515252d0c5a0d93b424605}{PAC5XXX\_MEMCTL\_TypeDef::b}}: 8\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{PAC5XXX\_MEMCTL\_TypeDef::\_\_pad0\_\_}}: 24\\
+\} \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9d23b8f772a65e25dd93a2bad4cf3ce4}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+P\+A\+GE}}\+: 5
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 27
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9d23b8f772a65e25dd93a2bad4cf3ce4}{PAC5XXX\_MEMCTL\_TypeDef::PAGE}}: 5\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{PAC5XXX\_MEMCTL\_TypeDef::\_\_pad0\_\_}}: 27\\
+\} \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga2f4e01e43a9eb44399d06f939afad1ad}{PAC5XXX\_MEMCTL\_TypeDef::w}}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9f3912dae9a6f378c383b9ac67637d58}{PAC5XXX\_MEMCTL\_TypeDef::s}}: 16\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{PAC5XXX\_MEMCTL\_TypeDef::\_\_pad0\_\_}}: 16\\
+\>\} \\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gacb12136a3e515252d0c5a0d93b424605}{PAC5XXX\_MEMCTL\_TypeDef::b}}: 8\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{PAC5XXX\_MEMCTL\_TypeDef::\_\_pad0\_\_}}: 24\\
+\>\} \\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9d23b8f772a65e25dd93a2bad4cf3ce4}{PAC5XXX\_MEMCTL\_TypeDef::PAGE}}: 5\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{PAC5XXX\_MEMCTL\_TypeDef::\_\_pad0\_\_}}: 27\\
+\>\} \\
+\} \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga489794425513b3bb398dddf6dcff4338}{PAC5XXX\_MEMCTL\_TypeDef::FLASHPAGE}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gac140b6f77387f05dead47869f7eb023f}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+R\+E\+S\+E\+R\+V\+E\+D1}} \mbox{[}2\mbox{]}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gadcda919e7018368efd1a3ff62b37021d}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+F\+L\+A\+S\+H\+P\+E\+R\+A\+SE}}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga223f5f78a35b933d82007f6791678277}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+R\+E\+S\+E\+R\+V\+E\+D3}} \mbox{[}3\mbox{]}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga5de6018c3b7beaff6c289cc399fa2378}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+V\+AL}}\+: 16
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 16
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga5de6018c3b7beaff6c289cc399fa2378}{PAC5XXX\_MEMCTL\_TypeDef::VAL}}: 16\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{PAC5XXX\_MEMCTL\_TypeDef::\_\_pad0\_\_}}: 16\\
+\} \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gae52ad655880c844a7f5fae6d6924a6f5}{PAC5XXX\_MEMCTL\_TypeDef::SWDACCESS}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga5de6018c3b7beaff6c289cc399fa2378}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+V\+AL}}\+: 2
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 30
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga5de6018c3b7beaff6c289cc399fa2378}{PAC5XXX\_MEMCTL\_TypeDef::VAL}}: 2\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{PAC5XXX\_MEMCTL\_TypeDef::\_\_pad0\_\_}}: 30\\
+\} \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga64b4b2894d91e6e787ac5294c9f032c5}{PAC5XXX\_MEMCTL\_TypeDef::FLASHWSTATE}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga184ebb29f6e580c81e8920d7b7046f79}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+F\+L\+A\+S\+H\+B\+W\+R\+I\+TE}}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga2734e671c1c8123767e4c67f7ecb2d98}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+D\+A\+TA}}\+: 16
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga21aec244a6d6af2a4485cc637ae05c02}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+A\+D\+D\+R\+E\+SS}}\+: 9
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9d23b8f772a65e25dd93a2bad4cf3ce4}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+P\+A\+GE}}\+: 5
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 2
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga2734e671c1c8123767e4c67f7ecb2d98}{PAC5XXX\_MEMCTL\_TypeDef::DATA}}: 16\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga21aec244a6d6af2a4485cc637ae05c02}{PAC5XXX\_MEMCTL\_TypeDef::ADDRESS}}: 9\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9d23b8f772a65e25dd93a2bad4cf3ce4}{PAC5XXX\_MEMCTL\_TypeDef::PAGE}}: 5\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}{PAC5XXX\_MEMCTL\_TypeDef::\_\_pad0\_\_}}: 2\\
+\} \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gad5fa4c925ebb088bd115478979e98e46}{PAC5XXX\_MEMCTL\_TypeDef::FLASHBWRITEDATA}}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gab4fe617477cd715561a62335049761fe}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gab4fe617477cd715561a62335049761fe}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASH\_CTL\_MPERASE\_ACTIVE\_BIT@{FLASH\_CTL\_MPERASE\_ACTIVE\_BIT}}
+\index{FLASH\_CTL\_MPERASE\_ACTIVE\_BIT@{FLASH\_CTL\_MPERASE\_ACTIVE\_BIT}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASH\_CTL\_MPERASE\_ACTIVE\_BIT}{FLASH\_CTL\_MPERASE\_ACTIVE\_BIT}}
+{\footnotesize\ttfamily \#define F\+L\+A\+S\+H\+\_\+\+C\+T\+L\+\_\+\+M\+P\+E\+R\+A\+S\+E\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+B\+IT~0x00000100}
+
+F\+L\+A\+S\+H\+C\+TL mass page erase active bit ~\newline
+ 
+
+Definition at line 36 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga3e65d61759424ad2f86ddf54ff031bc2}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga3e65d61759424ad2f86ddf54ff031bc2}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASH\_CTL\_PERASE\_ACTIVE\_BIT@{FLASH\_CTL\_PERASE\_ACTIVE\_BIT}}
+\index{FLASH\_CTL\_PERASE\_ACTIVE\_BIT@{FLASH\_CTL\_PERASE\_ACTIVE\_BIT}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASH\_CTL\_PERASE\_ACTIVE\_BIT}{FLASH\_CTL\_PERASE\_ACTIVE\_BIT}}
+{\footnotesize\ttfamily \#define F\+L\+A\+S\+H\+\_\+\+C\+T\+L\+\_\+\+P\+E\+R\+A\+S\+E\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+B\+IT~0x00000040}
+
+F\+L\+A\+S\+H\+C\+TL page erase active bit ~\newline
+ 
+
+Definition at line 35 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gae5846628916981e2e7a9d113d4cda2dd}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gae5846628916981e2e7a9d113d4cda2dd}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASH\_CTL\_READ\_ACTIVE\_BIT@{FLASH\_CTL\_READ\_ACTIVE\_BIT}}
+\index{FLASH\_CTL\_READ\_ACTIVE\_BIT@{FLASH\_CTL\_READ\_ACTIVE\_BIT}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASH\_CTL\_READ\_ACTIVE\_BIT}{FLASH\_CTL\_READ\_ACTIVE\_BIT}}
+{\footnotesize\ttfamily \#define F\+L\+A\+S\+H\+\_\+\+C\+T\+L\+\_\+\+R\+E\+A\+D\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+B\+IT~0x00000010}
+
+F\+L\+A\+S\+H\+C\+TL read active bit ~\newline
+ 
+
+Definition at line 33 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga6b5e6f31b750bef87c4611590161bade}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga6b5e6f31b750bef87c4611590161bade}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASH\_CTL\_WRITE\_ACTIVE\_BIT@{FLASH\_CTL\_WRITE\_ACTIVE\_BIT}}
+\index{FLASH\_CTL\_WRITE\_ACTIVE\_BIT@{FLASH\_CTL\_WRITE\_ACTIVE\_BIT}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASH\_CTL\_WRITE\_ACTIVE\_BIT}{FLASH\_CTL\_WRITE\_ACTIVE\_BIT}}
+{\footnotesize\ttfamily \#define F\+L\+A\+S\+H\+\_\+\+C\+T\+L\+\_\+\+W\+R\+I\+T\+E\+\_\+\+A\+C\+T\+I\+V\+E\+\_\+\+B\+IT~0x00000020}
+
+F\+L\+A\+S\+H\+C\+TL write active bit ~\newline
+ 
+
+Definition at line 34 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga97bb781a68c2614ea9c807cccb038406}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga97bb781a68c2614ea9c807cccb038406}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASH\_DBG\_SWR\_POR\_DIS@{FLASH\_DBG\_SWR\_POR\_DIS}}
+\index{FLASH\_DBG\_SWR\_POR\_DIS@{FLASH\_DBG\_SWR\_POR\_DIS}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASH\_DBG\_SWR\_POR\_DIS}{FLASH\_DBG\_SWR\_POR\_DIS}}
+{\footnotesize\ttfamily \#define F\+L\+A\+S\+H\+\_\+\+D\+B\+G\+\_\+\+S\+W\+R\+\_\+\+P\+O\+R\+\_\+\+D\+IS~0x6969}
+
+S\+WR signals disabled at P\+OR ~\newline
+ 
+
+Definition at line 39 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga97b1dd29c2c10a07fd3eb1b3a9a8790f}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga97b1dd29c2c10a07fd3eb1b3a9a8790f}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASH\_DBG\_SWR\_POR\_EN@{FLASH\_DBG\_SWR\_POR\_EN}}
+\index{FLASH\_DBG\_SWR\_POR\_EN@{FLASH\_DBG\_SWR\_POR\_EN}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASH\_DBG\_SWR\_POR\_EN}{FLASH\_DBG\_SWR\_POR\_EN}}
+{\footnotesize\ttfamily \#define F\+L\+A\+S\+H\+\_\+\+D\+B\+G\+\_\+\+S\+W\+R\+\_\+\+P\+O\+R\+\_\+\+EN~0x\+F\+F\+FF}
+
+S\+WR signals enabled at P\+OR ~\newline
+ 
+
+Definition at line 38 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga35c6ac54ddfc627bf1bdab4d7af3ad17}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga35c6ac54ddfc627bf1bdab4d7af3ad17}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASH\_LOCK\_ALLOW\_BWRITE\_KEY@{FLASH\_LOCK\_ALLOW\_BWRITE\_KEY}}
+\index{FLASH\_LOCK\_ALLOW\_BWRITE\_KEY@{FLASH\_LOCK\_ALLOW\_BWRITE\_KEY}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASH\_LOCK\_ALLOW\_BWRITE\_KEY}{FLASH\_LOCK\_ALLOW\_BWRITE\_KEY}}
+{\footnotesize\ttfamily \#define F\+L\+A\+S\+H\+\_\+\+L\+O\+C\+K\+\_\+\+A\+L\+L\+O\+W\+\_\+\+B\+W\+R\+I\+T\+E\+\_\+\+K\+EY~0x\+C\+A726\+B18}
+
+Allow buffered write ~\newline
+ 
+
+Definition at line 31 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gad743ef7e825da60bfd1940b5751d3537}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gad743ef7e825da60bfd1940b5751d3537}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASH\_LOCK\_ALLOW\_FLASHDBG\_KEY@{FLASH\_LOCK\_ALLOW\_FLASHDBG\_KEY}}
+\index{FLASH\_LOCK\_ALLOW\_FLASHDBG\_KEY@{FLASH\_LOCK\_ALLOW\_FLASHDBG\_KEY}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASH\_LOCK\_ALLOW\_FLASHDBG\_KEY}{FLASH\_LOCK\_ALLOW\_FLASHDBG\_KEY}}
+{\footnotesize\ttfamily \#define F\+L\+A\+S\+H\+\_\+\+L\+O\+C\+K\+\_\+\+A\+L\+L\+O\+W\+\_\+\+F\+L\+A\+S\+H\+D\+B\+G\+\_\+\+K\+EY~0x06\+B\+D1556}
+
+Allow write to F\+L\+A\+S\+H\+D\+BG register to allow S\+WR access at device reset ~\newline
+ 
+
+Definition at line 29 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga5f34259ec5884cbf74e00f2c0e28c633}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga5f34259ec5884cbf74e00f2c0e28c633}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASH\_LOCK\_ALLOW\_FLASHWRITE\_KEY@{FLASH\_LOCK\_ALLOW\_FLASHWRITE\_KEY}}
+\index{FLASH\_LOCK\_ALLOW\_FLASHWRITE\_KEY@{FLASH\_LOCK\_ALLOW\_FLASHWRITE\_KEY}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASH\_LOCK\_ALLOW\_FLASHWRITE\_KEY}{FLASH\_LOCK\_ALLOW\_FLASHWRITE\_KEY}}
+{\footnotesize\ttfamily \#define F\+L\+A\+S\+H\+\_\+\+L\+O\+C\+K\+\_\+\+A\+L\+L\+O\+W\+\_\+\+F\+L\+A\+S\+H\+W\+R\+I\+T\+E\+\_\+\+K\+EY~0x\+A\+A\+A\+A\+A\+A\+AA}
+
+Allow write to any F\+L\+A\+SH pages not protected by RW bits ~\newline
+ 
+
+Definition at line 26 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga0310e5c61e488c0ad24bf0b02ccf3853}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga0310e5c61e488c0ad24bf0b02ccf3853}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASH\_LOCK\_ALLOW\_FLASHWSTATE\_KEY@{FLASH\_LOCK\_ALLOW\_FLASHWSTATE\_KEY}}
+\index{FLASH\_LOCK\_ALLOW\_FLASHWSTATE\_KEY@{FLASH\_LOCK\_ALLOW\_FLASHWSTATE\_KEY}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASH\_LOCK\_ALLOW\_FLASHWSTATE\_KEY}{FLASH\_LOCK\_ALLOW\_FLASHWSTATE\_KEY}}
+{\footnotesize\ttfamily \#define F\+L\+A\+S\+H\+\_\+\+L\+O\+C\+K\+\_\+\+A\+L\+L\+O\+W\+\_\+\+F\+L\+A\+S\+H\+W\+S\+T\+A\+T\+E\+\_\+\+K\+EY~0x12345678}
+
+Allow write to F\+L\+A\+S\+H\+W\+S\+T\+A\+TE register to configure F\+L\+A\+SH wait states ~\newline
+ 
+
+Definition at line 30 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga739272a489b04b4fe3b240aaa619c343}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga739272a489b04b4fe3b240aaa619c343}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASH\_LOCK\_ALLOW\_MPERASE\_KEY@{FLASH\_LOCK\_ALLOW\_MPERASE\_KEY}}
+\index{FLASH\_LOCK\_ALLOW\_MPERASE\_KEY@{FLASH\_LOCK\_ALLOW\_MPERASE\_KEY}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASH\_LOCK\_ALLOW\_MPERASE\_KEY}{FLASH\_LOCK\_ALLOW\_MPERASE\_KEY}}
+{\footnotesize\ttfamily \#define F\+L\+A\+S\+H\+\_\+\+L\+O\+C\+K\+\_\+\+A\+L\+L\+O\+W\+\_\+\+M\+P\+E\+R\+A\+S\+E\+\_\+\+K\+EY~0x\+F\+A\+C\+E1956}
+
+Allow write to F\+L\+A\+S\+H\+M\+P\+E\+R\+A\+SE register to mass erase F\+L\+A\+SH pages ~\newline
+ 
+
+Definition at line 28 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga955fecd0a0eea7f5bd0ca26c10a6c106}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga955fecd0a0eea7f5bd0ca26c10a6c106}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASH\_LOCK\_ALLOW\_PERASE\_KEY@{FLASH\_LOCK\_ALLOW\_PERASE\_KEY}}
+\index{FLASH\_LOCK\_ALLOW\_PERASE\_KEY@{FLASH\_LOCK\_ALLOW\_PERASE\_KEY}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASH\_LOCK\_ALLOW\_PERASE\_KEY}{FLASH\_LOCK\_ALLOW\_PERASE\_KEY}}
+{\footnotesize\ttfamily \#define F\+L\+A\+S\+H\+\_\+\+L\+O\+C\+K\+\_\+\+A\+L\+L\+O\+W\+\_\+\+P\+E\+R\+A\+S\+E\+\_\+\+K\+EY~0x\+A5\+A55\+A5A}
+
+Allow write to F\+L\+A\+S\+H\+P\+E\+R\+A\+SE register to erase F\+L\+A\+SH pages ~\newline
+ 
+
+Definition at line 27 of file pac5xxx\+\_\+\+Memory.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaeae65fb32265e471df7aefe824d0a2a9}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaeae65fb32265e471df7aefe824d0a2a9}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!MEMCTL\_WaitState@{MEMCTL\_WaitState}}
+\index{MEMCTL\_WaitState@{MEMCTL\_WaitState}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{MEMCTL\_WaitState}{MEMCTL\_WaitState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaeae65fb32265e471df7aefe824d0a2a9}{M\+E\+M\+C\+T\+L\+\_\+\+Wait\+State}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FLASH\_WSTATE\_HCLK\_LTE\_25MHZ@{FLASH\_WSTATE\_HCLK\_LTE\_25MHZ}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASH\_WSTATE\_HCLK\_LTE\_25MHZ@{FLASH\_WSTATE\_HCLK\_LTE\_25MHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ggaeae65fb32265e471df7aefe824d0a2a9aa3369d95eca921f2970370ed9bb27a32}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ggaeae65fb32265e471df7aefe824d0a2a9aa3369d95eca921f2970370ed9bb27a32}} 
+F\+L\+A\+S\+H\+\_\+\+W\+S\+T\+A\+T\+E\+\_\+\+H\+C\+L\+K\+\_\+\+L\+T\+E\+\_\+25\+M\+HZ&F\+L\+A\+S\+H\+W\+S\+T\+A\+TE value for H\+C\+LK $<$= 25M\+Hz ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FLASH\_WSTATE\_25MHZ\_LT\_HCLK\_LTE\_50MHZ@{FLASH\_WSTATE\_25MHZ\_LT\_HCLK\_LTE\_50MHZ}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASH\_WSTATE\_25MHZ\_LT\_HCLK\_LTE\_50MHZ@{FLASH\_WSTATE\_25MHZ\_LT\_HCLK\_LTE\_50MHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ggaeae65fb32265e471df7aefe824d0a2a9adb16fb197f2b236cb0418c411577d029}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ggaeae65fb32265e471df7aefe824d0a2a9adb16fb197f2b236cb0418c411577d029}} 
+F\+L\+A\+S\+H\+\_\+\+W\+S\+T\+A\+T\+E\+\_\+25\+M\+H\+Z\+\_\+\+L\+T\+\_\+\+H\+C\+L\+K\+\_\+\+L\+T\+E\+\_\+50\+M\+HZ&F\+L\+A\+S\+H\+W\+S\+T\+A\+TE value for 25M\+Hz $<$ H\+C\+LK $<$= 50M\+Hz ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FLASH\_WSTATE\_50MHZ\_LT\_HCLK\_LTE\_75MHZ@{FLASH\_WSTATE\_50MHZ\_LT\_HCLK\_LTE\_75MHZ}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASH\_WSTATE\_50MHZ\_LT\_HCLK\_LTE\_75MHZ@{FLASH\_WSTATE\_50MHZ\_LT\_HCLK\_LTE\_75MHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ggaeae65fb32265e471df7aefe824d0a2a9a2d6cdcef78a22947fc5f086e0e596765}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ggaeae65fb32265e471df7aefe824d0a2a9a2d6cdcef78a22947fc5f086e0e596765}} 
+F\+L\+A\+S\+H\+\_\+\+W\+S\+T\+A\+T\+E\+\_\+50\+M\+H\+Z\+\_\+\+L\+T\+\_\+\+H\+C\+L\+K\+\_\+\+L\+T\+E\+\_\+75\+M\+HZ&F\+L\+A\+S\+H\+W\+S\+T\+A\+TE value for 50M\+Hz $<$ H\+C\+LK $<$= 75M\+Hz ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FLASH\_WSTATE\_75MHZ\_LT\_HCLK\_LTE\_100MHZ@{FLASH\_WSTATE\_75MHZ\_LT\_HCLK\_LTE\_100MHZ}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASH\_WSTATE\_75MHZ\_LT\_HCLK\_LTE\_100MHZ@{FLASH\_WSTATE\_75MHZ\_LT\_HCLK\_LTE\_100MHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ggaeae65fb32265e471df7aefe824d0a2a9aae622c179a753f427cba633fab0b471c}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ggaeae65fb32265e471df7aefe824d0a2a9aae622c179a753f427cba633fab0b471c}} 
+F\+L\+A\+S\+H\+\_\+\+W\+S\+T\+A\+T\+E\+\_\+75\+M\+H\+Z\+\_\+\+L\+T\+\_\+\+H\+C\+L\+K\+\_\+\+L\+T\+E\+\_\+100\+M\+HZ&F\+L\+A\+S\+H\+W\+S\+T\+A\+TE value for 75M\+Hz $<$ H\+C\+LK $<$= 100M\+Hz ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 41 of file pac5xxx\+\_\+\+Memory.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41              \{}
+\DoxyCodeLine{42   \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ggaeae65fb32265e471df7aefe824d0a2a9aa3369d95eca921f2970370ed9bb27a32}{FLASH\_WSTATE\_HCLK\_LTE\_25MHZ}} = 0,                            }
+\DoxyCodeLine{43   \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ggaeae65fb32265e471df7aefe824d0a2a9adb16fb197f2b236cb0418c411577d029}{FLASH\_WSTATE\_25MHZ\_LT\_HCLK\_LTE\_50MHZ}} = 1,                   }
+\DoxyCodeLine{44   \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ggaeae65fb32265e471df7aefe824d0a2a9a2d6cdcef78a22947fc5f086e0e596765}{FLASH\_WSTATE\_50MHZ\_LT\_HCLK\_LTE\_75MHZ}} = 2,                   }
+\DoxyCodeLine{45   \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ggaeae65fb32265e471df7aefe824d0a2a9aae622c179a753f427cba633fab0b471c}{FLASH\_WSTATE\_75MHZ\_LT\_HCLK\_LTE\_100MHZ}} = 3,                  }
+\DoxyCodeLine{46 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaeae65fb32265e471df7aefe824d0a2a9}{MEMCTL\_WaitState}};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gabe0ca66892ebcaaf2e2bc8d69dff02a2}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gabe0ca66892ebcaaf2e2bc8d69dff02a2}} 
+\doxysubsubsection{\texorpdfstring{"@10}{@10}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9d150e3af8598cf9b64b647f406ff2dd}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9d150e3af8598cf9b64b647f406ff2dd}} 
+\doxysubsubsection{\texorpdfstring{"@12}{@12}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga231978bdf56464176699367481fc7fba}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga231978bdf56464176699367481fc7fba}} 
+\doxysubsubsection{\texorpdfstring{"@14}{@14}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gad9f30df01a107bd56c6561dc6a67b3f0}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gad9f30df01a107bd56c6561dc6a67b3f0}} 
+\doxysubsubsection{\texorpdfstring{"@16}{@16}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga4f39d727616ad2082d4e411b644301ff}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga4f39d727616ad2082d4e411b644301ff}} 
+\doxysubsubsection{\texorpdfstring{"@6}{@6}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga58956f060313c2257abdc88b609085f8}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga58956f060313c2257abdc88b609085f8}} 
+\doxysubsubsection{\texorpdfstring{"@8}{@8}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaf3d6e39b44ba2bc79c67a547cbee0115}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [1/10]}}
+{\footnotesize\ttfamily uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 58 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga10c325bca966b0eff5e76b98886de9af}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga10c325bca966b0eff5e76b98886de9af}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [2/10]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 58 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga600d5417195660fd755faca7f0448635}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga600d5417195660fd755faca7f0448635}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [3/10]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 62 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga1518fad3ea9d4168c8537ca25d949286}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga1518fad3ea9d4168c8537ca25d949286}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [4/10]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 67 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga82fea7ec348a3ab7e186b09efb45b498}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga82fea7ec348a3ab7e186b09efb45b498}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [5/10]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 76 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga50b1fab06a48e2cb6741b06d1eedcc58}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga50b1fab06a48e2cb6741b06d1eedcc58}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [6/10]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 80 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga6d9062a948d205db9e36a62f43746eb7}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga6d9062a948d205db9e36a62f43746eb7}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [7/10]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 84 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9d19b241b3a93c5bb1517ccc3164c619}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9d19b241b3a93c5bb1517ccc3164c619}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [8/10]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 98 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaa77753e7d082258916c79fd9249016a8}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaa77753e7d082258916c79fd9249016a8}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [9/10]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 104 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gab7f7ceadfc200b5efea9acd2d0a25bd5}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gab7f7ceadfc200b5efea9acd2d0a25bd5}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [10/10]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 115 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga21aec244a6d6af2a4485cc637ae05c02}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga21aec244a6d6af2a4485cc637ae05c02}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!ADDRESS@{ADDRESS}}
+\index{ADDRESS@{ADDRESS}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{ADDRESS}{ADDRESS}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+A\+D\+D\+R\+E\+SS}
+
+Relative half-\/word address within page ~\newline
+ 
+
+Definition at line 113 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaef078e278e5106f88204868b087d572d}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaef078e278e5106f88204868b087d572d}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!ADDRESS@{ADDRESS}}
+\index{ADDRESS@{ADDRESS}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{ADDRESS}{ADDRESS}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::A\+D\+D\+R\+E\+SS}
+
+Relative half-\/word address within page ~\newline
+ 
+
+Definition at line 113 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gacb12136a3e515252d0c5a0d93b424605}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gacb12136a3e515252d0c5a0d93b424605}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!b@{b}}
+\index{b@{b}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::b}
+
+
+
+Definition at line 61 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga5d846d4e6b32bddda11a2a557d4d7972}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga5d846d4e6b32bddda11a2a557d4d7972}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!b@{b}}
+\index{b@{b}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::b}
+
+
+
+Definition at line 61 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaa06a88d7b311626e5c4eff4d140612e9}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaa06a88d7b311626e5c4eff4d140612e9}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!b@{b}}
+\index{b@{b}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::b}
+
+
+
+Definition at line 79 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga2734e671c1c8123767e4c67f7ecb2d98}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga2734e671c1c8123767e4c67f7ecb2d98}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!DATA@{DATA}}
+\index{DATA@{DATA}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{DATA}{DATA}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+D\+A\+TA}
+
+Data to write ~\newline
+ 
+
+Definition at line 112 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga2c31b10def333b6047ebba0b48a70161}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga2c31b10def333b6047ebba0b48a70161}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!DATA@{DATA}}
+\index{DATA@{DATA}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{DATA}{DATA}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::D\+A\+TA}
+
+Data to write ~\newline
+ 
+
+Definition at line 112 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga184ebb29f6e580c81e8920d7b7046f79}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga184ebb29f6e580c81e8920d7b7046f79}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASHBWRITE@{FLASHBWRITE}}
+\index{FLASHBWRITE@{FLASHBWRITE}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASHBWRITE}{FLASHBWRITE}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+F\+L\+A\+S\+H\+B\+W\+R\+I\+TE}
+
+F\+L\+A\+S\+H\+B\+W\+D\+A\+TA\+: Offset\+: 0x0030 Buffered F\+L\+A\+SH write data ~\newline
+ 
+
+Definition at line 108 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gad5fa4c925ebb088bd115478979e98e46}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gad5fa4c925ebb088bd115478979e98e46}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASHBWRITEDATA@{FLASHBWRITEDATA}}
+\index{FLASHBWRITEDATA@{FLASHBWRITEDATA}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASHBWRITEDATA}{FLASHBWRITEDATA}}
+{\footnotesize\ttfamily struct \{ ... \}  P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+F\+L\+A\+S\+H\+B\+W\+R\+I\+T\+E\+D\+A\+TA}
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga17885820a0e1a0b0ef3e081d3f428639}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga17885820a0e1a0b0ef3e081d3f428639}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASHCTL@{FLASHCTL}}
+\index{FLASHCTL@{FLASHCTL}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASHCTL}{FLASHCTL}}
+{\footnotesize\ttfamily union \{ ... \}  P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+F\+L\+A\+S\+H\+C\+TL}
+
+F\+L\+A\+S\+H\+P\+A\+GE\+: Offset\+: 0x0008 F\+L\+A\+SH P\+A\+GE Register ~\newline
+ \mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gada91e545450b18543a89265576aa4bab}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gada91e545450b18543a89265576aa4bab}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASHLOCK@{FLASHLOCK}}
+\index{FLASHLOCK@{FLASHLOCK}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASHLOCK}{FLASHLOCK}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+F\+L\+A\+S\+H\+L\+O\+CK}
+
+$<$ F\+L\+A\+S\+H\+L\+O\+CK\+: Offset\+: 0x0000 F\+L\+A\+SH Lock Register ~\newline
+ Lock value to allow F\+L\+A\+SH modifications ~\newline
+ F\+L\+A\+S\+H\+C\+TL\+: Offset\+: 0x0004 F\+L\+A\+SH Control Register ~\newline
+ 
+
+Definition at line 51 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga489794425513b3bb398dddf6dcff4338}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga489794425513b3bb398dddf6dcff4338}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASHPAGE@{FLASHPAGE}}
+\index{FLASHPAGE@{FLASHPAGE}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASHPAGE}{FLASHPAGE}}
+{\footnotesize\ttfamily union \{ ... \}  P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+F\+L\+A\+S\+H\+P\+A\+GE}
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gadcda919e7018368efd1a3ff62b37021d}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gadcda919e7018368efd1a3ff62b37021d}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASHPERASE@{FLASHPERASE}}
+\index{FLASHPERASE@{FLASHPERASE}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASHPERASE}{FLASHPERASE}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+F\+L\+A\+S\+H\+P\+E\+R\+A\+SE}
+
+F\+L\+A\+SH segment erase (1) ~\newline
+ 
+
+Definition at line 91 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga64b4b2894d91e6e787ac5294c9f032c5}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga64b4b2894d91e6e787ac5294c9f032c5}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!FLASHWSTATE@{FLASHWSTATE}}
+\index{FLASHWSTATE@{FLASHWSTATE}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{FLASHWSTATE}{FLASHWSTATE}}
+{\footnotesize\ttfamily struct \{ ... \}  P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+F\+L\+A\+S\+H\+W\+S\+T\+A\+TE}
+
+F\+L\+A\+S\+H\+B\+W\+R\+I\+TE\+: Offset\+: 0x002C Buffered F\+L\+A\+SH write ~\newline
+ \mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9d23b8f772a65e25dd93a2bad4cf3ce4}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9d23b8f772a65e25dd93a2bad4cf3ce4}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!PAGE@{PAGE}}
+\index{PAGE@{PAGE}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{PAGE}{PAGE}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+P\+A\+GE}
+
+F\+L\+A\+SH page to select for erase ~\newline
+
+
+page that contains data to write ~\newline
+ 
+
+Definition at line 83 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gab6517204dd3ced9326c16ff9fac4dc37}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gab6517204dd3ced9326c16ff9fac4dc37}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!PAGE@{PAGE}}
+\index{PAGE@{PAGE}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{PAGE}{PAGE}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::P\+A\+GE}
+
+F\+L\+A\+SH page to select for erase ~\newline
+ 
+
+Definition at line 83 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga5a5dbdfa92fece59f990226aa2ee64b2}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga5a5dbdfa92fece59f990226aa2ee64b2}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!PAGE@{PAGE}}
+\index{PAGE@{PAGE}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{PAGE}{PAGE}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::P\+A\+GE}
+
+page that contains data to write ~\newline
+ 
+
+Definition at line 114 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga89cdff15a149c2971afdacba7f082b8c}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga89cdff15a149c2971afdacba7f082b8c}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!PERASE@{PERASE}}
+\index{PERASE@{PERASE}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{PERASE}{PERASE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+I \{ ... \} \+::P\+E\+R\+A\+SE}
+
+Page erase active ~\newline
+ 
+
+Definition at line 66 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gabcd7615abb18c8697ead77481684789b}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gabcd7615abb18c8697ead77481684789b}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!PERASE@{PERASE}}
+\index{PERASE@{PERASE}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{PERASE}{PERASE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+P\+E\+R\+A\+SE}
+
+Page erase active ~\newline
+ 
+
+Definition at line 66 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gac140b6f77387f05dead47869f7eb023f}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gac140b6f77387f05dead47869f7eb023f}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!RESERVED1@{RESERVED1}}
+\index{RESERVED1@{RESERVED1}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{RESERVED1}{RESERVED1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+R\+E\+S\+E\+R\+V\+E\+D1\mbox{[}2\mbox{]}}
+
+F\+L\+A\+S\+H\+P\+E\+R\+A\+SE\+: Offset\+: 0x0014 F\+L\+A\+SH page erase 
+
+Definition at line 88 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga223f5f78a35b933d82007f6791678277}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga223f5f78a35b933d82007f6791678277}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!RESERVED3@{RESERVED3}}
+\index{RESERVED3@{RESERVED3}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{RESERVED3}{RESERVED3}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+R\+E\+S\+E\+R\+V\+E\+D3\mbox{[}3\mbox{]}}
+
+S\+W\+D\+A\+C\+C\+E\+SS\+: Offset\+: 0x0024 F\+L\+A\+SH lock debug register 
+
+Definition at line 93 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9f3912dae9a6f378c383b9ac67637d58}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga9f3912dae9a6f378c383b9ac67637d58}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!s@{s}}
+\index{s@{s}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{s}{s}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::s}
+
+
+
+Definition at line 57 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga03a6f9c15978e7f01a7f8e45dafd848b}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga03a6f9c15978e7f01a7f8e45dafd848b}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!s@{s}}
+\index{s@{s}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{s}{s}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::s}
+
+
+
+Definition at line 57 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga6b089b26a550c29b689353b7a8bd692d}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga6b089b26a550c29b689353b7a8bd692d}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!s@{s}}
+\index{s@{s}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{s}{s}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::s}
+
+
+
+Definition at line 75 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gae52ad655880c844a7f5fae6d6924a6f5}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gae52ad655880c844a7f5fae6d6924a6f5}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!SWDACCESS@{SWDACCESS}}
+\index{SWDACCESS@{SWDACCESS}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{SWDACCESS}{SWDACCESS}}
+{\footnotesize\ttfamily struct \{ ... \}  P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+S\+W\+D\+A\+C\+C\+E\+SS}
+
+F\+L\+A\+S\+H\+W\+S\+T\+A\+TE\+: Offset\+: 0x0028 F\+L\+A\+SH Wait state register \mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gae525a8b2c8c46b059908f220826b56cb}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gae525a8b2c8c46b059908f220826b56cb}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!VAL@{VAL}}
+\index{VAL@{VAL}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{VAL}{VAL}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::V\+AL}
+
+F\+L\+A\+SH debug access value ~\newline
+ 
+
+Definition at line 97 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga5de6018c3b7beaff6c289cc399fa2378}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga5de6018c3b7beaff6c289cc399fa2378}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!VAL@{VAL}}
+\index{VAL@{VAL}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{VAL}{VAL}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+V\+AL}
+
+F\+L\+A\+SH debug access value ~\newline
+
+
+F\+L\+A\+SH wait state value ~\newline
+ 
+
+Definition at line 97 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga332fad3cb8159b64c20e70877c0353bc}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga332fad3cb8159b64c20e70877c0353bc}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!VAL@{VAL}}
+\index{VAL@{VAL}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{VAL}{VAL}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::V\+AL}
+
+F\+L\+A\+SH wait state value ~\newline
+ 
+
+Definition at line 103 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga2f4e01e43a9eb44399d06f939afad1ad}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga2f4e01e43a9eb44399d06f939afad1ad}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!w@{w}}
+\index{w@{w}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{w}{w}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::w}
+
+
+
+Definition at line 55 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_gae901eb8d8139ce8794bc92c3534d745a}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_gae901eb8d8139ce8794bc92c3534d745a}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!w@{w}}
+\index{w@{w}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{w}{w}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::w}
+
+
+
+Definition at line 55 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga966dad0336c045743e298c294fce85a7}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga966dad0336c045743e298c294fce85a7}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!w@{w}}
+\index{w@{w}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{w}{w}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::w}
+
+
+
+Definition at line 73 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga33e73fb07b1eeb4a10eacd7b9ffe2d9c}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga33e73fb07b1eeb4a10eacd7b9ffe2d9c}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!WRITE@{WRITE}}
+\index{WRITE@{WRITE}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{WRITE}{WRITE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+T\+L\+\_\+\+Type\+Def\+::\+W\+R\+I\+TE}
+
+Buffered write active ~\newline
+ 
+
+Definition at line 65 of file pac5xxx\+\_\+\+Memory.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga4bb084bd5a791d058ef479c6519c7cb6}\label{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga4bb084bd5a791d058ef479c6519c7cb6}} 
+\index{PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}!WRITE@{WRITE}}
+\index{WRITE@{WRITE}!PAC5XXX FLASH Memory Controller (MEMCTL)@{PAC5XXX FLASH Memory Controller (MEMCTL)}}
+\doxysubsubsection{\texorpdfstring{WRITE}{WRITE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+I \{ ... \} \+::W\+R\+I\+TE}
+
+Buffered write active ~\newline
+ 
+
+Definition at line 65 of file pac5xxx\+\_\+\+Memory.\+h.
+

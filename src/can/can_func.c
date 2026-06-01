@@ -1,0 +1,376 @@
+//=============================================================================
+// Copyright (C) 2018-2019, Qorvo, Inc.
+//
+// THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES,
+// AMONG OTHER THINGS:  (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S
+// APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC.;
+// (ii) THAT  IT IS PROVIDED "AS IS" WITHOUT WARRANTY;  (iii) THAT
+// QORVO, INC. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT
+// DAMAGES EXCEEDING US$1,500;  AND (iv) THAT IT CAN BE DISCLOSED TO AND USED
+// ONLY BY CERTAIN AUTHORIZED PERSONS.
+//
+//=============================================================================
+
+#include "can_func.h"
+#include "motor_struct.h"
+#include "config_app.h"
+#include "pac_init.h"
+#include "driver_funcs.h"
+#include "param.h"
+#include "parameter_process.h"
+#include "comm.h"
+#include "fault.h"
+#include "pac5xxx_driver_adc.h"
+#include "pac5xxx_driver_timer.h"
+#include "pac5xxx_driver_socbridge.h"
+#include "pac5xxx_driver_tile.h"
+#include "pac5xxx_driver_system.h"
+#include "pac5xxx_driver_memory.h"
+#include "control_funcs.h"
+#include "mpos_funcs.h"
+#include "app_funcs.h"
+#include "vbus_funcs.h"
+
+
+Struct_CAN User_CAN;
+
+void can_io_config(CAN_IO_TYPE can)
+{
+    switch (can)
+    {
+    case CAN_PC01:
+        // Select CAN peripheral on PC0 and PC1
+        PAC55XX_GPIOC->MODE.P0 = 3;                     //RXD High-Impedance Input
+        PAC55XX_GPIOC->MODE.P1 = 1;                     //TXD Pull-Pull Output
+        PAC55XX_SCC->PCMUXSEL.P0 = 6;                   //CANRXD
+        PAC55XX_SCC->PCMUXSEL.P1 = 6;                   //CANTXD
+        break;
+
+    case CAN_PC45:
+        // Select CAN peripheral on PC4 and PC5
+        PAC55XX_GPIOC->MODE.P4 = 3;                     //RXD High-Impedance Input
+        PAC55XX_GPIOC->MODE.P5 = 1;                     //TXD Pull-Pull Output
+        PAC55XX_SCC->PCMUXSEL.P4 = 6;                   //CANRXD
+        PAC55XX_SCC->PCMUXSEL.P5 = 6;                   //CANTXD
+        break;
+
+    case CAN_PD01:
+        // Select CAN peripheral on PD0 and PD1
+        PAC55XX_GPIOD->MODE.P1 = 3;                     //RXD High-Impedance Input
+        PAC55XX_GPIOD->MODE.P0 = 1;                     //TXD Pull-Pull Output
+        PAC55XX_SCC->PDMUXSEL.P1 = 6;                   //CANRXD
+        PAC55XX_SCC->PDMUXSEL.P0 = 6;                   //CANTXD
+        break;
+
+    case CAN_PD56:
+        // Select CAN peripheral on PD5 and PD6
+        PAC55XX_GPIOD->MODE.P5 = 3;                     //RXD High-Impedance Input
+        PAC55XX_GPIOD->MODE.P6 = 1;                     //TXD Pull-Pull Output
+        PAC55XX_SCC->PDMUXSEL.P5 = 6;                   //CANRXD
+        PAC55XX_SCC->PDMUXSEL.P6 = 6;                   //CANTXD
+        break;
+
+    case CAN_PD67:
+        // Select CAN peripheral on PD6 and PD7
+        PAC55XX_GPIOD->MODE.P7 = 3;                     //RXD High-Impedance Input
+        PAC55XX_GPIOD->MODE.P6 = 1;                     //TXD Pull-Pull Output
+        PAC55XX_SCC->PDMUXSEL.P7 = 6;                   //CANRXD
+        PAC55XX_SCC->PDMUXSEL.P6 = 6;                   //CANTXD
+        break;
+
+    case CAN_PE23:
+        // Select CAN peripheral on PE2 and PE3
+        PAC55XX_GPIOE->MODE.P2 = 3;                     //RXD High-Impedance Input
+        PAC55XX_GPIOE->MODE.P3 = 1;                     //TXD Pull-Pull Output
+        PAC55XX_SCC->PEMUXSEL.P2 = 6;                   //CANRXD
+        PAC55XX_SCC->PEMUXSEL.P3 = 6;                   //CANTXD
+        break;
+
+    case CAN_PE67:
+        // Select CAN peripheral on PE6 and PE7
+        PAC55XX_GPIOE->MODE.P6 = 3;                     //RXD High-Impedance Input
+        PAC55XX_GPIOE->MODE.P7 = 1;                     //TXD Pull-Pull Output
+        PAC55XX_SCC->PEMUXSEL.P6 = 6;                   //CANRXD
+        PAC55XX_SCC->PEMUXSEL.P7 = 6;                   //CANTXD
+        break;
+
+    case CAN_PF67:
+        // Select CAN peripheral on PF6 and PF7
+        PAC55XX_GPIOF->MODE.P6 = 3;                     //RXD High-Impedance Input
+        PAC55XX_GPIOF->MODE.P7 = 1;                     //TXD Pull-Pull Output
+        PAC55XX_SCC->PFMUXSEL.P6 = 6;                   //CANRXD
+        PAC55XX_SCC->PFMUXSEL.P7 = 6;                   //CANTXD
+        break;
+
+    case CAN_PG56:
+        // Select CAN peripheral on PG5 and PG6
+        PAC55XX_GPIOG->MODE.P5 = 3;                     //RXD High-Impedance Input
+        PAC55XX_GPIOG->MODE.P6 = 1;                     //TXD Pull-Pull Output
+        PAC55XX_SCC->PGMUXSEL.P5 = 6;                   //CANRXD
+        PAC55XX_SCC->PGMUXSEL.P6 = 6;                   //CANTXD
+        break;
+    }
+}
+
+void can_baud(CAN_BAUD_TYPE baud)
+{
+    // CAN bit rate = PCLK/(2x(BRP+1)x(TSEG1+TSEG2+3).
+    // For example: 150/(2x(19+1)x(10+2+3)) = 0.250 Mbps
+    switch (baud)
+    {
+    case CAN_BAUD_50KHz:
+        PAC55XX_CAN->BTR0.BRP = 59;
+        PAC55XX_CAN->BTR1.TSEG1 = 15;
+        PAC55XX_CAN->BTR1.TSEG2 = 7;
+        break;
+
+    case CAN_BAUD_100KHz:
+        PAC55XX_CAN->BTR0.BRP = 49;
+        PAC55XX_CAN->BTR1.TSEG1 = 10;
+        PAC55XX_CAN->BTR1.TSEG2 = 2;
+        break;
+
+    case CAN_BAUD_125KHz:
+        PAC55XX_CAN->BTR0.BRP = 39;
+        PAC55XX_CAN->BTR1.TSEG1 = 10;
+        PAC55XX_CAN->BTR1.TSEG2 = 2;
+        break;
+
+    case CAN_BAUD_200KHz:
+        PAC55XX_CAN->BTR0.BRP = 24;
+        PAC55XX_CAN->BTR1.TSEG1 = 10;
+        PAC55XX_CAN->BTR1.TSEG2 = 2;
+        break;
+
+    case CAN_BAUD_250KHz:
+        PAC55XX_CAN->BTR0.BRP = 19;
+        PAC55XX_CAN->BTR1.TSEG1 = 10;
+        PAC55XX_CAN->BTR1.TSEG2 = 2;
+        break;
+
+    case CAN_BAUD_400KHz:
+        PAC55XX_CAN->BTR0.BRP = 11;
+        PAC55XX_CAN->BTR1.TSEG1 = 10;
+        PAC55XX_CAN->BTR1.TSEG2 = 2;
+        break;
+
+    case CAN_BAUD_500KHz:
+        PAC55XX_CAN->BTR0.BRP = 18;
+        PAC55XX_CAN->BTR1.TSEG1 = 3;
+        PAC55XX_CAN->BTR1.TSEG2 = 2;
+        break;
+
+    case CAN_BAUD_800KHz:
+        PAC55XX_CAN->BTR0.BRP = 11;
+        PAC55XX_CAN->BTR1.TSEG1 = 3;
+        PAC55XX_CAN->BTR1.TSEG2 = 2;
+        break;
+
+    case CAN_BAUD_1000KHz:
+        PAC55XX_CAN->BTR0.BRP = 14;
+        PAC55XX_CAN->BTR1.TSEG1 = 1;
+        PAC55XX_CAN->BTR1.TSEG2 = 1;
+        break;
+
+    default:
+        PAC55XX_CAN->BTR0.BRP = 14;
+        PAC55XX_CAN->BTR1.TSEG1 = 1;
+        PAC55XX_CAN->BTR1.TSEG2 = 1;
+        break;
+    }
+}
+
+
+void can_init(void)
+{
+    static Struct_CAN* can_ptr = &User_CAN;
+    can_io_config(CAN_PE23);//CAN_PE23  CAN_PC45
+
+    PAC55XX_CAN->MR.RM = 1;            // CAN in reset mode, in order to configure CAN module
+    PAC55XX_CAN->MR.AFM = 1;           // Single filter scheme
+
+    can_baud(CAN_BAUD_250KHz); //250kbps
+//	  can_baud(CAN_BAUD_500KHz); //500kbps
+//	  can_baud(CAN_BAUD_1000KHz); //1000kbps
+
+    PAC55XX_CAN->BTR0.SJW = 1;        // Synchronization jump width
+    PAC55XX_CAN->BTR1.SAM = 0;        // Bus is sampled once 
+
+    //Filter bit7:0 => ID10:3
+    //Filter bit15:13 => ID2:0
+//    PAC55XX_CAN->AMR = 0xFFFFFFFF;    // Accept incoming messages with odd identifier
+//    PAC55XX_CAN->ACR = 0x00000000;    // Accept ID.0 - ID.10
+
+//    Single filter, Standard Frame。
+    can_ptr->can_amr.w = 0xFFFFFFFF;
+    can_ptr->can_amr.srtr = 1;
+    can_ptr->can_amr.sid0 = 1;
+    can_ptr->can_amr.sid1 = 1;
+    can_ptr->can_amr.sid2 = 1;
+    can_ptr->can_amr.sid3 = 1;
+    can_ptr->can_amr.sid4 = 1;
+    can_ptr->can_amr.sid5 = 1;
+    can_ptr->can_amr.sid6 = 1;
+    can_ptr->can_amr.sid7 = 1;
+    can_ptr->can_amr.sid8 = 1;
+    can_ptr->can_amr.sid9 = 1;
+    can_ptr->can_amr.sid10 = 1;
+    
+    can_ptr->can_acr.w = 0x00000000;    
+    can_ptr->can_acr.srtr = 0;
+    can_ptr->can_acr.sid0 = 0;
+    can_ptr->can_acr.sid1 = 0;
+    can_ptr->can_acr.sid2 = 0;
+    can_ptr->can_acr.sid3 = 0;
+    can_ptr->can_acr.sid4 = 0;
+    can_ptr->can_acr.sid5 = 0;
+    can_ptr->can_acr.sid6 = 0;
+    can_ptr->can_acr.sid7 = 0;
+    can_ptr->can_acr.sid8 = 0;
+    can_ptr->can_acr.sid9 = 0;
+    can_ptr->can_acr.sid10 = 0;    
+    
+////    Single filter, Extended Frame
+//    can_ptr->can_amr.w = 0xFFFFFFFF;
+//    can_ptr->can_amr.ertr = 1;
+//    can_ptr->can_amr.eid0 = 1;
+//    can_ptr->can_amr.eid1 = 1;
+//    can_ptr->can_amr.eid2 = 1;
+//    can_ptr->can_amr.eid3 = 1;
+//    can_ptr->can_amr.eid4 = 1;
+//    can_ptr->can_amr.eid5 = 1;
+//    can_ptr->can_amr.eid6 = 1;
+//    can_ptr->can_amr.eid7 = 1;
+//    can_ptr->can_amr.eid8 = 1;
+//    can_ptr->can_amr.eid9 = 1;
+//    can_ptr->can_amr.eid10 = 1;
+//    can_ptr->can_amr.eid11 = 1;
+//    can_ptr->can_amr.eid12 = 1;
+//    can_ptr->can_amr.eid13 = 1;
+//    can_ptr->can_amr.eid14 = 1;
+//    can_ptr->can_amr.eid15 = 1;
+//    can_ptr->can_amr.eid16 = 1;
+//    can_ptr->can_amr.eid17 = 1;
+//    can_ptr->can_amr.eid18 = 1;
+//    can_ptr->can_amr.eid19 = 1;
+//    can_ptr->can_amr.eid20 = 1;
+//    can_ptr->can_amr.eid21 = 1;
+//    can_ptr->can_amr.eid22 = 1;
+//    can_ptr->can_amr.eid23 = 1;
+//    can_ptr->can_amr.eid24 = 1;
+//    can_ptr->can_amr.eid25 = 1;
+//    can_ptr->can_amr.eid26 = 1;
+//    can_ptr->can_amr.eid27 = 1;
+//    can_ptr->can_amr.eid28 = 1;
+
+//    can_ptr->can_acr.w = 0x00000000;
+//    can_ptr->can_acr.ertr = 0;
+//    can_ptr->can_acr.eid0 = 0;
+//    can_ptr->can_acr.eid1 = 0;
+//    can_ptr->can_acr.eid2 = 0;
+//    can_ptr->can_acr.eid3 = 0;
+//    can_ptr->can_acr.eid4 = 0;
+//    can_ptr->can_acr.eid5 = 0;
+//    can_ptr->can_acr.eid6 = 0;
+//    can_ptr->can_acr.eid7 = 0;
+//    can_ptr->can_acr.eid8 = 0;
+//    can_ptr->can_acr.eid9 = 0;
+//    can_ptr->can_acr.eid10 = 0;
+//    can_ptr->can_acr.eid11 = 0;
+//    can_ptr->can_acr.eid12 = 0;
+//    can_ptr->can_acr.eid13 = 0;
+//    can_ptr->can_acr.eid14 = 0;
+//    can_ptr->can_acr.eid15 = 0;
+//    can_ptr->can_acr.eid16 = 0;
+//    can_ptr->can_acr.eid17 = 0;
+//    can_ptr->can_acr.eid18 = 0;
+//    can_ptr->can_acr.eid19 = 0;
+//    can_ptr->can_acr.eid20 = 0;
+//    can_ptr->can_acr.eid21 = 0;
+//    can_ptr->can_acr.eid22 = 0;
+//    can_ptr->can_acr.eid23 = 0;
+//    can_ptr->can_acr.eid24 = 0;
+//    can_ptr->can_acr.eid25 = 0;
+//    can_ptr->can_acr.eid26 = 0;
+//    can_ptr->can_acr.eid27 = 0;
+//    can_ptr->can_acr.eid28 = 0;
+
+    PAC55XX_CAN->AMR = can_ptr->can_amr.w;
+    PAC55XX_CAN->ACR = can_ptr->can_acr.w;
+
+    //PAC55XX_CAN->IMR.TIM = 1;        // Transmit Interrupt
+	//PAC55XX_CAN->IMR.RIM = 1;        //xuan屏蔽 Receive Interrupt
+	//NVIC_SetPriority(CAN_IRQn,3);//xuan屏蔽
+    //NVIC_EnableIRQ(CAN_IRQn);//xuan屏蔽
+
+    PAC55XX_CAN->MR.RM = 0;            // CAN reset mode inactive    
+}
+
+void can_transmit(uint8_t dataLen, uint32_t id, uint8_t * data)//xuan 改为有符号类型
+{
+    static Struct_CAN* can_ptr = &User_CAN;
+//	  Debug_Test_Number1 = 3;
+
+    if(id > 0x7ff)    // 扩展帧。Extended Frame
+    {
+        while(PAC55XX_CAN->SR.TBS == 0);                   // wait for TX buffer free
+        
+        can_ptr->e_transmit.dlc = dataLen;
+        can_ptr->e_transmit.rtr = 0;
+        can_ptr->e_transmit.ff = 1;
+        can_ptr->e_transmit.id00to04 = (id & 0x1f);
+        can_ptr->e_transmit.id05to12 = ((id>>5) & 0xFF);
+        can_ptr->e_transmit.id13to20 = ((id>>13) & 0xFF);
+        can_ptr->e_transmit.id21to28 = ((id>>21) & 0xFF);
+    
+        can_ptr->e_transmit.data1 = data[0];
+        can_ptr->e_transmit.data2 = data[1];
+        can_ptr->e_transmit.data3 = data[2];
+        
+        PAC55XX_CAN->TXBUF = can_ptr->e_transmit.m1;        
+        PAC55XX_CAN->TXBUF = can_ptr->e_transmit.m2;
+        
+        if(dataLen > 3)
+        {
+            can_ptr->e_transmit.data4 = data[3];
+            can_ptr->e_transmit.data5 = data[4];
+            can_ptr->e_transmit.data6 = data[5];
+            can_ptr->e_transmit.data7 = data[6];
+            PAC55XX_CAN->TXBUF = can_ptr->e_transmit.m3;
+            if(dataLen > 7)
+            {
+                can_ptr->e_transmit.data8 = data[7];
+                PAC55XX_CAN->TXBUF = can_ptr->e_transmit.m4;
+            }                
+        }    
+    }
+    else //标准帧。Standard Frame
+		{//uint8_t dataLen, uint32_t id, uint8_t * data:8, 0x555, tx_dataa
+        while(PAC55XX_CAN->SR.TBS == 0);               // wait for TX buffer free
+        can_ptr->s_transmit.dlc = dataLen;//8
+        can_ptr->s_transmit.rtr = 0;//数据帧
+        can_ptr->s_transmit.ff = 0;//标准帧
+        can_ptr->s_transmit.id00to02 = (id & 0x07);
+        can_ptr->s_transmit.id03to10 = ((id>>3) & 0xFF);
+        
+        can_ptr->s_transmit.data1 = data[0];
+        PAC55XX_CAN->TXBUF = can_ptr->s_transmit.m1;            
+        if(dataLen > 1)
+        {
+            can_ptr->s_transmit.data2 = data[1];
+            can_ptr->s_transmit.data3 = data[2];            
+            can_ptr->s_transmit.data4 = data[3];    
+            can_ptr->s_transmit.data5 = data[4];        
+            PAC55XX_CAN->TXBUF = can_ptr->s_transmit.m2;    
+            if(dataLen > 5)
+            {
+                can_ptr->s_transmit.data6 = data[5];    
+                can_ptr->s_transmit.data7 = data[6];
+                can_ptr->s_transmit.data8 = data[7];
+                PAC55XX_CAN->TXBUF = can_ptr->s_transmit.m3;
+            }            
+        }
+    }
+    PAC55XX_CAN->CMR.TR = 1;    // Request transmit
+}
+

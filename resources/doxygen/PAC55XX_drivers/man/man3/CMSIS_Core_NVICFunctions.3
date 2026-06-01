@@ -1,0 +1,436 @@
+.TH "CMSIS_Core_NVICFunctions" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CMSIS_Core_NVICFunctions \- NVIC Functions
+.PP
+ \- Functions that manage interrupts and exceptions via the NVIC\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBSysTick Functions\fP"
+.br
+.RI "Functions that configure the System\&. "
+.in -1c
+.in +1c
+.ti -1c
+.RI "__STATIC_INLINE void \fBNVIC_SetPriorityGrouping\fP (uint32_t PriorityGroup)"
+.br
+.RI "Set Priority Grouping\&. "
+.ti -1c
+.RI "__STATIC_INLINE uint32_t \fBNVIC_GetPriorityGrouping\fP (void)"
+.br
+.RI "Get Priority Grouping\&. "
+.ti -1c
+.RI "__STATIC_INLINE void \fBNVIC_EnableIRQ\fP (\fBIRQn_Type\fP \fBIRQn\fP)"
+.br
+.RI "Enable External Interrupt\&. "
+.ti -1c
+.RI "__STATIC_INLINE void \fBNVIC_DisableIRQ\fP (\fBIRQn_Type\fP \fBIRQn\fP)"
+.br
+.RI "Disable External Interrupt\&. "
+.ti -1c
+.RI "__STATIC_INLINE uint32_t \fBNVIC_GetPendingIRQ\fP (\fBIRQn_Type\fP \fBIRQn\fP)"
+.br
+.RI "Get Pending Interrupt\&. "
+.ti -1c
+.RI "__STATIC_INLINE void \fBNVIC_SetPendingIRQ\fP (\fBIRQn_Type\fP \fBIRQn\fP)"
+.br
+.RI "Set Pending Interrupt\&. "
+.ti -1c
+.RI "__STATIC_INLINE void \fBNVIC_ClearPendingIRQ\fP (\fBIRQn_Type\fP \fBIRQn\fP)"
+.br
+.RI "Clear Pending Interrupt\&. "
+.ti -1c
+.RI "__STATIC_INLINE uint32_t \fBNVIC_GetActive\fP (\fBIRQn_Type\fP \fBIRQn\fP)"
+.br
+.RI "Get Active Interrupt\&. "
+.ti -1c
+.RI "__STATIC_INLINE void \fBNVIC_SetPriority\fP (\fBIRQn_Type\fP \fBIRQn\fP, uint32_t priority)"
+.br
+.RI "Set Interrupt Priority\&. "
+.ti -1c
+.RI "__STATIC_INLINE uint32_t \fBNVIC_GetPriority\fP (\fBIRQn_Type\fP \fBIRQn\fP)"
+.br
+.RI "Get Interrupt Priority\&. "
+.ti -1c
+.RI "__STATIC_INLINE uint32_t \fBNVIC_EncodePriority\fP (uint32_t PriorityGroup, uint32_t PreemptPriority, uint32_t SubPriority)"
+.br
+.RI "Encode Priority\&. "
+.ti -1c
+.RI "__STATIC_INLINE void \fBNVIC_DecodePriority\fP (uint32_t Priority, uint32_t PriorityGroup, uint32_t *pPreemptPriority, uint32_t *pSubPriority)"
+.br
+.RI "Decode Priority\&. "
+.ti -1c
+.RI "__STATIC_INLINE void \fBNVIC_SystemReset\fP (void)"
+.br
+.RI "System Reset\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Functions that manage interrupts and exceptions via the NVIC\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "__STATIC_INLINE void NVIC_ClearPendingIRQ (\fBIRQn_Type\fP IRQn)"
+
+.PP
+Clear Pending Interrupt\&. The function clears the pending bit of an external interrupt\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIIRQn\fP External interrupt number\&. Value cannot be negative\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1505 of file core_cm4\&.h\&.
+.PP
+.nf
+1506 {
+1507   NVIC->ICPR[((uint32_t)(IRQn) >> 5)] = (1 << ((uint32_t)(IRQn) & 0x1F)); /* Clear pending interrupt */
+1508 }
+.fi
+.PP
+References NVIC\&.
+.PP
+Referenced by pac5xxx_socbridge_config()\&.
+.SS "__STATIC_INLINE void NVIC_DecodePriority (uint32_t Priority, uint32_t PriorityGroup, uint32_t * pPreemptPriority, uint32_t * pSubPriority)"
+
+.PP
+Decode Priority\&. The function decodes an interrupt priority value with a given priority group to preemptive priority value and subpriority value\&. In case of a conflict between priority grouping and available priority bits (__NVIC_PRIO_BITS) the samllest possible priority group is set\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIPriority\fP Priority value, which can be retrieved with the function \fBNVIC_GetPriority()\fP\&. 
+.br
+\fIPriorityGroup\fP Used priority group\&. 
+.br
+\fIpPreemptPriority\fP Preemptive priority value (starting from 0)\&. 
+.br
+\fIpSubPriority\fP Subpriority value (starting from 0)\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1605 of file core_cm4\&.h\&.
+.PP
+.nf
+1606 {
+1607   uint32_t PriorityGroupTmp = (PriorityGroup & 0x07);          /* only values 0\&.\&.7 are used          */
+1608   uint32_t PreemptPriorityBits;
+1609   uint32_t SubPriorityBits;
+1610 
+1611   PreemptPriorityBits = ((7 - PriorityGroupTmp) > __NVIC_PRIO_BITS) ? __NVIC_PRIO_BITS : 7 - PriorityGroupTmp;
+1612   SubPriorityBits     = ((PriorityGroupTmp + __NVIC_PRIO_BITS) < 7) ? 0 : PriorityGroupTmp - 7 + __NVIC_PRIO_BITS;
+1613 
+1614   *pPreemptPriority = (Priority >> SubPriorityBits) & ((1 << (PreemptPriorityBits)) - 1);
+1615   *pSubPriority     = (Priority                   ) & ((1 << (SubPriorityBits    )) - 1);
+1616 }
+.fi
+.PP
+References __NVIC_PRIO_BITS\&.
+.SS "__STATIC_INLINE void NVIC_DisableIRQ (\fBIRQn_Type\fP IRQn)"
+
+.PP
+Disable External Interrupt\&. The function disables a device-specific interrupt in the NVIC interrupt controller\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIIRQn\fP External interrupt number\&. Value cannot be negative\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1465 of file core_cm4\&.h\&.
+.PP
+.nf
+1466 {
+1467   NVIC->ICER[((uint32_t)(IRQn) >> 5)] = (1 << ((uint32_t)(IRQn) & 0x1F)); /* disable interrupt */
+1468 }
+.fi
+.PP
+References NVIC\&.
+.SS "__STATIC_INLINE void NVIC_EnableIRQ (\fBIRQn_Type\fP IRQn)"
+
+.PP
+Enable External Interrupt\&. The function enables a device-specific interrupt in the NVIC interrupt controller\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIIRQn\fP External interrupt number\&. Value cannot be negative\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1452 of file core_cm4\&.h\&.
+.PP
+.nf
+1453 {
+1454 /*  NVIC->ISER[((uint32_t)(IRQn) >> 5)] = (1 << ((uint32_t)(IRQn) & 0x1F));  enable interrupt */
+1455   NVIC->ISER[(uint32_t)((int32_t)IRQn) >> 5] = (uint32_t)(1 << ((uint32_t)((int32_t)IRQn) & (uint32_t)0x1F)); /* enable interrupt */
+1456 }
+.fi
+.PP
+References NVIC\&.
+.PP
+Referenced by pac5xxx_gpio_configure_interrupt_a(), pac5xxx_gpio_configure_interrupt_b(), pac5xxx_gpio_configure_interrupt_c(), pac5xxx_gpio_configure_interrupt_d(), pac5xxx_gpio_configure_interrupt_e(), pac5xxx_gpio_configure_interrupt_f(), pac5xxx_gpio_configure_interrupt_g(), and pac5xxx_socbridge_config()\&.
+.SS "__STATIC_INLINE uint32_t NVIC_EncodePriority (uint32_t PriorityGroup, uint32_t PreemptPriority, uint32_t SubPriority)"
+
+.PP
+Encode Priority\&. The function encodes the priority for an interrupt with the given priority group, preemptive priority value, and subpriority value\&. In case of a conflict between priority grouping and available priority bits (__NVIC_PRIO_BITS), the samllest possible priority group is set\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIPriorityGroup\fP Used priority group\&. 
+.br
+\fIPreemptPriority\fP Preemptive priority value (starting from 0)\&. 
+.br
+\fISubPriority\fP Subpriority value (starting from 0)\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Encoded priority\&. Value can be used in the function \fBNVIC_SetPriority()\fP\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1577 of file core_cm4\&.h\&.
+.PP
+.nf
+1578 {
+1579   uint32_t PriorityGroupTmp = (PriorityGroup & 0x07);          /* only values 0\&.\&.7 are used          */
+1580   uint32_t PreemptPriorityBits;
+1581   uint32_t SubPriorityBits;
+1582 
+1583   PreemptPriorityBits = ((7 - PriorityGroupTmp) > __NVIC_PRIO_BITS) ? __NVIC_PRIO_BITS : 7 - PriorityGroupTmp;
+1584   SubPriorityBits     = ((PriorityGroupTmp + __NVIC_PRIO_BITS) < 7) ? 0 : PriorityGroupTmp - 7 + __NVIC_PRIO_BITS;
+1585 
+1586   return (
+1587            ((PreemptPriority & ((1 << (PreemptPriorityBits)) - 1)) << SubPriorityBits) |
+1588            ((SubPriority     & ((1 << (SubPriorityBits    )) - 1)))
+1589          );
+1590 }
+.fi
+.PP
+References __NVIC_PRIO_BITS\&.
+.SS "__STATIC_INLINE uint32_t NVIC_GetActive (\fBIRQn_Type\fP IRQn)"
+
+.PP
+Get Active Interrupt\&. The function reads the active register in NVIC and returns the active bit\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIIRQn\fP Interrupt number\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 Interrupt status is not active\&. 
+.PP
+1 Interrupt status is active\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1520 of file core_cm4\&.h\&.
+.PP
+.nf
+1521 {
+1522   return((uint32_t)((NVIC->IABR[(uint32_t)(IRQn) >> 5] & (1 << ((uint32_t)(IRQn) & 0x1F)))?1:0)); /* Return 1 if active else 0 */
+1523 }
+.fi
+.PP
+References NVIC\&.
+.SS "__STATIC_INLINE uint32_t NVIC_GetPendingIRQ (\fBIRQn_Type\fP IRQn)"
+
+.PP
+Get Pending Interrupt\&. The function reads the pending register in the NVIC and returns the pending bit for the specified interrupt\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIIRQn\fP Interrupt number\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 Interrupt status is not pending\&. 
+.PP
+1 Interrupt status is pending\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1481 of file core_cm4\&.h\&.
+.PP
+.nf
+1482 {
+1483   return((uint32_t) ((NVIC->ISPR[(uint32_t)(IRQn) >> 5] & (1 << ((uint32_t)(IRQn) & 0x1F)))?1:0)); /* Return 1 if pending else 0 */
+1484 }
+.fi
+.PP
+References NVIC\&.
+.SS "__STATIC_INLINE uint32_t NVIC_GetPriority (\fBIRQn_Type\fP IRQn)"
+
+.PP
+Get Interrupt Priority\&. The function reads the priority of an interrupt\&. The interrupt number can be positive to specify an external (device specific) interrupt, or negative to specify an internal (core) interrupt\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIIRQn\fP Interrupt number\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Interrupt Priority\&. Value is aligned automatically to the implemented priority bits of the microcontroller\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1555 of file core_cm4\&.h\&.
+.PP
+.nf
+1556 {
+1557 
+1558   if(IRQn < 0) {
+1559     return((uint32_t)(SCB->SHP[((uint32_t)(IRQn) & 0xF)-4] >> (8 - __NVIC_PRIO_BITS)));  } /* get priority for Cortex-M  system interrupts */
+1560   else {
+1561     return((uint32_t)(NVIC->IP[(uint32_t)(IRQn)]           >> (8 - __NVIC_PRIO_BITS)));  } /* get priority for device specific interrupts  */
+1562 }
+.fi
+.PP
+References __NVIC_PRIO_BITS, NVIC, and SCB\&.
+.SS "__STATIC_INLINE uint32_t NVIC_GetPriorityGrouping (void)"
+
+.PP
+Get Priority Grouping\&. The function reads the priority grouping field from the NVIC Interrupt Controller\&.
+.PP
+\fBReturns\fP
+.RS 4
+Priority grouping field (SCB->AIRCR [10:8] PRIGROUP field)\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1440 of file core_cm4\&.h\&.
+.PP
+.nf
+1441 {
+1442   return ((SCB->AIRCR & SCB_AIRCR_PRIGROUP_Msk) >> SCB_AIRCR_PRIGROUP_Pos);   /* read priority grouping field */
+1443 }
+.fi
+.PP
+References SCB, SCB_AIRCR_PRIGROUP_Msk, and SCB_AIRCR_PRIGROUP_Pos\&.
+.SS "__STATIC_INLINE void NVIC_SetPendingIRQ (\fBIRQn_Type\fP IRQn)"
+
+.PP
+Set Pending Interrupt\&. The function sets the pending bit of an external interrupt\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIIRQn\fP Interrupt number\&. Value cannot be negative\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1493 of file core_cm4\&.h\&.
+.PP
+.nf
+1494 {
+1495   NVIC->ISPR[((uint32_t)(IRQn) >> 5)] = (1 << ((uint32_t)(IRQn) & 0x1F)); /* set interrupt pending */
+1496 }
+.fi
+.PP
+References NVIC\&.
+.SS "__STATIC_INLINE void NVIC_SetPriority (\fBIRQn_Type\fP IRQn, uint32_t priority)"
+
+.PP
+Set Interrupt Priority\&. The function sets the priority of an interrupt\&.
+.PP
+\fBNote\fP
+.RS 4
+The priority cannot be set for every core interrupt\&.
+.RE
+.PP
+\fBParameters\fP
+.RS 4
+\fIIRQn\fP Interrupt number\&. 
+.br
+\fIpriority\fP Priority to set\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1535 of file core_cm4\&.h\&.
+.PP
+.nf
+1536 {
+1537   if(IRQn < 0) {
+1538     SCB->SHP[((uint32_t)(IRQn) & 0xF)-4] = ((priority << (8 - __NVIC_PRIO_BITS)) & 0xff); } /* set Priority for Cortex-M  System Interrupts */
+1539   else {
+1540     NVIC->IP[(uint32_t)(IRQn)] = ((priority << (8 - __NVIC_PRIO_BITS)) & 0xff);    }        /* set Priority for device specific Interrupts  */
+1541 }
+.fi
+.PP
+References __NVIC_PRIO_BITS, NVIC, and SCB\&.
+.PP
+Referenced by config_systick_timer(), configure_cafe_fault_interrupt(), and SysTick_Config()\&.
+.SS "__STATIC_INLINE void NVIC_SetPriorityGrouping (uint32_t PriorityGroup)"
+
+.PP
+Set Priority Grouping\&. The function sets the priority grouping field using the required unlock sequence\&. The parameter PriorityGroup is assigned to the field SCB->AIRCR [10:8] PRIGROUP field\&. Only values from 0\&.\&.7 are used\&. In case of a conflict between priority grouping and available priority bits (__NVIC_PRIO_BITS), the smallest possible priority group is set\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIPriorityGroup\fP Priority grouping field\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1420 of file core_cm4\&.h\&.
+.PP
+.nf
+1421 {
+1422   uint32_t reg_value;
+1423   uint32_t PriorityGroupTmp = (PriorityGroup & (uint32_t)0x07);               /* only values 0\&.\&.7 are used          */
+1424 
+1425   reg_value  =  SCB->AIRCR;                                                   /* read old register configuration    */
+1426   reg_value &= ~(SCB_AIRCR_VECTKEY_Msk | SCB_AIRCR_PRIGROUP_Msk);             /* clear bits to change               */
+1427   reg_value  =  (reg_value                                 |
+1428                 ((uint32_t)0x5FA << SCB_AIRCR_VECTKEY_Pos) |
+1429                 (PriorityGroupTmp << 8));                                     /* Insert write key and priorty group */
+1430   SCB->AIRCR =  reg_value;
+1431 }
+.fi
+.PP
+References SCB, SCB_AIRCR_PRIGROUP_Msk, SCB_AIRCR_VECTKEY_Msk, and SCB_AIRCR_VECTKEY_Pos\&.
+.SS "__STATIC_INLINE void NVIC_SystemReset (void)"
+
+.PP
+System Reset\&. The function initiates a system reset request to reset the MCU\&. 
+.PP
+Definition at line 1623 of file core_cm4\&.h\&.
+.PP
+.nf
+1624 {
+1625   __DSB();                                                     /* Ensure all outstanding memory accesses included
+1626                                                                   buffered write are completed before reset */
+1627   SCB->AIRCR  = ((0x5FA << SCB_AIRCR_VECTKEY_Pos)      |
+1628                  (SCB->AIRCR & SCB_AIRCR_PRIGROUP_Msk) |
+1629                  SCB_AIRCR_SYSRESETREQ_Msk);                   /* Keep priority group unchanged */
+1630   __DSB();                                                     /* Ensure completion of memory access */
+1631   while(1);                                                    /* wait until reset */
+1632 }
+.fi
+.PP
+References SCB, SCB_AIRCR_PRIGROUP_Msk, SCB_AIRCR_SYSRESETREQ_Msk, and SCB_AIRCR_VECTKEY_Pos\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

@@ -1,0 +1,125 @@
+.TH "TIMER_CTL_TYPEDEF" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TIMER_CTL_TYPEDEF
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pac5xxx_timers\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBMODE\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPRDLATCH\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBSSYNC\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBSINGLE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBCLKDIV\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBCLKSRC\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBDTGCLK\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBLATCH\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBCLR\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBBASEIE\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fB__pad0__\fP: 18"
+.br
+.ti -1c
+.RI "}; "
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 115 of file pac5xxx_timers\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "struct { \&.\&.\&. } "
+
+.SS "uint32_t TIMER_CTL_TYPEDEF::__pad0__"
+
+.PP
+Definition at line 128 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t TIMER_CTL_TYPEDEF::BASEIE"
+
+.PP
+Definition at line 127 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t TIMER_CTL_TYPEDEF::CLKDIV"
+
+.PP
+Definition at line 122 of file pac5xxx_timers\&.h\&.
+.PP
+Referenced by pac5xxx_timer_clock_config()\&.
+.SS "\fB__IO\fP uint32_t TIMER_CTL_TYPEDEF::CLKSRC"
+
+.PP
+Definition at line 123 of file pac5xxx_timers\&.h\&.
+.PP
+Referenced by pac5xxx_timer_clock_config()\&.
+.SS "\fB__IO\fP uint32_t TIMER_CTL_TYPEDEF::CLR"
+
+.PP
+Definition at line 126 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t TIMER_CTL_TYPEDEF::DTGCLK"
+
+.PP
+Definition at line 124 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t TIMER_CTL_TYPEDEF::LATCH"
+
+.PP
+Definition at line 125 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t TIMER_CTL_TYPEDEF::MODE"
+
+.PP
+Definition at line 118 of file pac5xxx_timers\&.h\&.
+.PP
+Referenced by pac5xxx_timer_base_config()\&.
+.SS "\fB__IO\fP uint32_t TIMER_CTL_TYPEDEF::PRDLATCH"
+
+.PP
+Definition at line 119 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t TIMER_CTL_TYPEDEF::SINGLE"
+
+.PP
+Definition at line 121 of file pac5xxx_timers\&.h\&.
+.PP
+Referenced by pac5xxx_timer_base_config()\&.
+.SS "\fB__IO\fP uint32_t TIMER_CTL_TYPEDEF::SSYNC"
+
+.PP
+Definition at line 120 of file pac5xxx_timers\&.h\&.
+.PP
+Referenced by pac5xxx_timer_base_config()\&.
+.SS "\fB__IO\fP uint32_t TIMER_CTL_TYPEDEF::w"
+
+.PP
+Definition at line 116 of file pac5xxx_timers\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

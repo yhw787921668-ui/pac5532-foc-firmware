@@ -1,0 +1,70 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_tile_power_manager.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_tile_power_manager.h \- CMSIS Header File for the PAC5XXX Power Manager Tile\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBPWRCTL\fP"
+.br
+.ti -1c
+.RI "union \fBPWRSTAT\fP"
+.br
+.ti -1c
+.RI "union \fBPSTATSET\fP"
+.br
+.ti -1c
+.RI "union \fBSCFG\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBPower_Manager_Reg_Addr\fP { \fBADDR_PWRCTL\fP = 0x10, \fBADDR_PWRSTAT\fP = 0x11, \fBADDR_PSTATSET\fP = 0x12, \fBADDR_IMOD\fP = 0x13, \fBADDR_SCFG\fP = 0x14, \fBADDR_CFGPWR0\fP = 0x15, \fBADDR_CFGPWR1\fP = 0x16 }"
+.br
+.ti -1c
+.RI "enum \fBPAC5XXX_WUTIMER_Type\fP { \fBWUTIMER_INFINITE\fP = 0, \fBWUTIMER_125ms\fP = 1, \fBWUTIMER_250ms\fP = 2, \fBWUTIMER_500ms\fP = 3, \fBWUTIMER_1s\fP = 4, \fBWUTIMER_2s\fP = 5, \fBWUTIMER_4s\fP = 6, \fBWUTIMER_8s\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBPAC5XXX_PWRMON_Type\fP { \fBPWRMON_VCORE\fP = 0, \fBPWRMON_VDDAx4div10\fP = 1, \fBPWRMON_VDDIOx4div10\fP = 2, \fBPWRMON_VSYSx4div10\fP = 3, \fBPWRMON_REGIx1div10\fP = 4, \fBPWRMON_VPx1div10\fP = 5, \fBPWRMON_VHMx1div30\fP = 6, \fBPWRMON_VCOMP\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBPAC5XXX_TWD_Type\fP { \fBTWD_4s\fP = 0, \fBTWD_8s\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBPAC5XXX_DMAX_Type\fP { \fBDMAX_500ns_min_off\fP = 0, \fBDMAX_75pct\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBPAC5XXX_FSWM_Type\fP { \fBFREQ_45_kHZ\fP = 0, \fBFREQ_50_kHZ\fP = 1, \fBFREQ_55_kHZ\fP = 2, \fBFREQ_63_kHZ\fP = 3, \fBFREQ_72_kHZ\fP = 4, \fBFREQ_83_kHZ\fP = 5, \fBFREQ_100_kHZ\fP = 6, \fBFREQ_125_kHZ\fP = 7, \fBFREQ_181_kHZ\fP = 0, \fBFREQ_200_kHZ\fP = 1, \fBFREQ_220_kHZ\fP = 2, \fBFREQ_250_kHZ\fP = 3, \fBFREQ_289_kHZ\fP = 4, \fBFREQ_330_kHZ\fP = 5, \fBFREQ_400_kHZ\fP = 6, \fBFREQ_500_kHZ\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBPAC5XXX_FMODE_Buck_Type\fP { \fBFMODE_45kHz_125kHz\fP = 0, \fBFMODE_181kHz_500kHz\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBPAC5XXX_VCLAMPSEL_Type\fP { \fBVCLAMPSEL_20V\fP = 0, \fBVCLAMPSEL_69V\fP = 1 }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CMSIS Header File for the PAC5XXX Power Manager Tile\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2017-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_tile_power_manager\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

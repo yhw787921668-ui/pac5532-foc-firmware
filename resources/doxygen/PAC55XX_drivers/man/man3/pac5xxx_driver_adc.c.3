@@ -1,0 +1,123 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/driver/pac5xxx_driver_adc.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/driver/pac5xxx_driver_adc.c \- Firmware driver for the PAC5XXX ADC\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx_driver_adc\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_config_emux_io\fP ()"
+.br
+.RI "This function configures the EMUX IO ports on the device for EMUX output\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_config_io\fP (unsigned char channel_mask)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_emux_config\fP (\fBADC_EMUX_CTL_TYPE\fP control_type, \fBADCEMUXCTL_DIV_TYPE\fP divider)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_config\fP (\fBADCCTL_MODE_TYPE\fP adc_mode, \fBADCCTL_CLKDIV_Type\fP clock_divider, int repeat)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_dtse_seq_config\fP (uint32_t entry_num, uint32_t adc_chan, uint32_t emux_data, uint32_t irq_num_en, uint32_t seq_done)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_dtse_seq_config_table\fP (\fBDTSE_SEQ_CFG_TYPEDEF\fP *ptr_seq_config_table, uint32_t emuxc, uint32_t channel, uint32_t reserved1, uint32_t seq_done, uint32_t emux_data, uint32_t irq_number, uint32_t irq_enable, uint32_t reserved2)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Firmware driver for the PAC5XXX ADC\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_driver_adc\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_ADC\fP void pac5xxx_adc_config_io (unsigned char channel_mask)"
+
+.PP
+Definition at line 28 of file pac5xxx_driver_adc\&.c\&.
+.PP
+.nf
+29 {
+30     if ((channel_mask & 0x01) == 0x01)
+31     {
+32         PAC55XX_SCC->PGMUXSEL\&.P7 = 0;   // GPIOG7 ADCIN0
+33         PAC55XX_GPIOG->MODE\&.P7 = 0;     // GPIOG7 ADCIN0
+34     }
+35         
+36     if ((channel_mask & 0x02) == 0x02)
+37     {
+38         PAC55XX_SCC->PDMUXSEL\&.P3 = 0;   // GPIOD3 ADCIN1
+39         PAC55XX_GPIOD->MODE\&.P3 = 0;     // GPIOD3 ADCIN1
+40 
+41 //        PAC55XX_SCC->PGMUXSEL\&.P5 = 0;   // GPIOG5 ADCIN1
+42 //        PAC55XX_GPIOG->MODE\&.P5 = 0;     // GPIOG5 ADCIN1
+43     }
+44     
+45     if ((channel_mask & 0x04) == 0x04)
+46     {
+47         PAC55XX_SCC->PDMUXSEL\&.P2 = 0;   // GPIOD2 ADCIN2
+48         PAC55XX_GPIOD->MODE\&.P2 = 0;     // GPIOD2 ADCIN2
+49 
+50 //        PAC55XX_SCC->PGMUXSEL\&.P6 = 0;   // GPIOG6 ADCIN2
+51 //        PAC55XX_GPIOG->MODE\&.P6 = 0;     // GPIOG6 ADCIN2
+52     }
+53 
+54     if ((channel_mask & 0x08) == 0x08)
+55     {
+56         PAC55XX_SCC->PDMUXSEL\&.P1 = 0;   // GPIOD1 ADCIN3
+57         PAC55XX_GPIOD->MODE\&.P1 = 0;     // GPIOD1 ADCIN3
+58     }        
+59     
+60     if ((channel_mask & 0x10) == 0x10)
+61     {
+62         PAC55XX_SCC->PFMUXSEL\&.P4 = 0;   // GPIOF4 ADCIN4
+63         PAC55XX_GPIOF->MODE\&.P4 = 0;     // GPIOF4 ADCIN4
+64 
+65 //        PAC55XX_SCC->PDMUXSEL\&.P0 = 0;   // GPIOD0 ADCIN4
+66 //        PAC55XX_GPIOD->MODE\&.P0 = 0;     // GPIOD0 ADCIN4
+67     }            
+68 
+69     if ((channel_mask & 0x20) == 0x20)
+70     {
+71         PAC55XX_SCC->PFMUXSEL\&.P5 = 0;   // GPIOF5 ADCIN5
+72         PAC55XX_GPIOF->MODE\&.P5 = 0;     // GPIOF5 ADCIN5
+73     }            
+74  
+75     if ((channel_mask & 0x40) == 0x40)
+76     {
+77         PAC55XX_SCC->PFMUXSEL\&.P6 = 0;   // GPIOF6 ADCIN6
+78         PAC55XX_GPIOF->MODE\&.P6 = 0;     // GPIOF6 ADCIN6
+79     }            
+80 
+81     if ((channel_mask & 0x80) == 0x80)
+82     {
+83         PAC55XX_SCC->PFMUXSEL\&.P7 = 0;   // GPIOF7 ADCIN7
+84         PAC55XX_GPIOF->MODE\&.P7 = 0;     // GPIOF7 ADCIN7
+85     }
+86 }
+.fi
+.PP
+References PAC55XX_GPIOD, PAC55XX_GPIOF, PAC55XX_GPIOG, and PAC55XX_SCC\&.
+.PP
+Referenced by config_seq_foc(), and config_seq_foc_vref()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

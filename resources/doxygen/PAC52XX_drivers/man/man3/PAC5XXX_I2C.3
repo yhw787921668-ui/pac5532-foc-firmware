@@ -1,0 +1,2420 @@
+.TH "PAC5XXX_I2C" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_I2C \- PAC5XXX I2C Controller (I2C)
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPAC5XXX_I2C_TypeDef\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBI2C_AddrMode_Type\fP { \fBI2CCTL_ADDR_MODE_7B\fP = 0, \fBI2CCTL_ADDR_MODE_10B\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBI2C_TransferType_Type\fP { \fBI2CMCTRL_XFER_TYPE_WRITE\fP = 0, \fBI2CMCTRL_XFER_TYPE_READ\fP = 1 }"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_ENBL\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_ENBL\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::ADDR_MODE\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::DSBL_PULSE_FILTER\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad2__\fP: 26"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_ENBL\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_ENBL\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::ADDR_MODE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::DSBL_PULSE_FILTER\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad2__\fP: 26"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_ENBL\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_ENBL\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::ADDR_MODE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::DSBL_PULSE_FILTER\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad2__\fP: 26"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_I2C_TypeDef::CFG\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_TX_EMPTIED\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_ACC_CTL_EMP\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_RX_FILLED\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 5"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_XFER_DONE\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_A_NACK_ACK\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_LOST_ARB\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_D_NACK_ACK\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad1__\fP: 4"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_ADDR_MATCH\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_TX_EMPTIED\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_RX_FILLED\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad2__\fP: 5"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_XFER_DONE\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad3__\fP: 7"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_TX_EMPTIED\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_ACC_CTL_EMP\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_RX_FILLED\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 5"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_XFER_DONE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_A_NACK_ACK\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_LOST_ARB\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_D_NACK_ACK\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad1__\fP: 4"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_ADDR_MATCH\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_TX_EMPTIED\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_RX_FILLED\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad2__\fP: 5"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_XFER_DONE\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad3__\fP: 7"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_TX_EMPTIED\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_ACC_CTL_EMP\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_RX_FILLED\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_XFER_DONE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_A_NACK_ACK\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_LOST_ARB\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_D_NACK_ACK\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad1__\fP: 4"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_ADDR_MATCH\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_TX_EMPTIED\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_RX_FILLED\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad2__\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_XFER_DONE\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad3__\fP: 7"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_I2C_TypeDef::STATUS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_TX_EMP_IE\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_ACC_CTL_EMP_IE\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_RX_FILLED_IE\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 5"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_XFER_DONE_IE\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad1__\fP: 7"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_ADDR_MATCH_IE\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_TX_EMP_IE\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_RX_FILLED_IE\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad2__\fP: 5"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_XFER_DONE_IE\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad3__\fP: 7"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_TX_EMP_IE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_ACC_CTL_EMP_IE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_RX_FILLED_IE\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 5"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_XFER_DONE_IE\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad1__\fP: 7"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_ADDR_MATCH_IE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_TX_EMP_IE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_RX_FILLED_IE\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad2__\fP: 5"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_XFER_DONE_IE\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad3__\fP: 7"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_TX_EMP_IE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_ACC_CTL_EMP_IE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_RX_FILLED_IE\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::MST_XFER_DONE_IE\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad1__\fP: 7"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_ADDR_MATCH_IE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_TX_EMP_IE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_RX_FILLED_IE\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad2__\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SLV_XFER_DONE_IE\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad3__\fP: 7"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_I2C_TypeDef::IE\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::RESERVED17\fP [9]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::LOWER_I2C_ADDR\fP: 7"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::UPPER_I2C_ADDR\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::AUTONO_XFER\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::XFER_TYPE\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::REG_FULL_FLAG\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad1__\fP: 18"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::LOWER_I2C_ADDR\fP: 7"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::UPPER_I2C_ADDR\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::AUTONO_XFER\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::XFER_TYPE\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::REG_FULL_FLAG\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad1__\fP: 18"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::LOWER_I2C_ADDR\fP: 7"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::UPPER_I2C_ADDR\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::AUTONO_XFER\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::XFER_TYPE\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::REG_FULL_FLAG\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad1__\fP: 18"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_I2C_TypeDef::MCTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::REG_FULL_FLAG\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 22"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::REG_FULL_FLAG\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 22"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::REG_FULL_FLAG\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 22"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_I2C_TypeDef::MRXDATA\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::REG_FULL_FLAG\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::LAST_BYTE_FLAG\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 22"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::REG_FULL_FLAG\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::LAST_BYTE_FLAG\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 22"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::REG_FULL_FLAG\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::LAST_BYTE_FLAG\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 22"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_I2C_TypeDef::MTXDATA\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::RESERVED28\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SCL_LOW_CLOCKS\fP: 11"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 5"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SCL_HIGH_CLOCKS\fP: 11"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad1__\fP: 5"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SCL_LOW_CLOCKS\fP: 11"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 5"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SCL_HIGH_CLOCKS\fP: 11"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad1__\fP: 5"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SCL_LOW_CLOCKS\fP: 11"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SCL_HIGH_CLOCKS\fP: 11"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad1__\fP: 5"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_I2C_TypeDef::BAUD\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::RESERVED33\fP [11]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::REG_FULL_FLAG\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 23"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::REG_FULL_FLAG\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 23"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::REG_FULL_FLAG\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 23"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_I2C_TypeDef::SRXDATA\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::NACK\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::REG_FULL_FLAG\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 22"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::NACK\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::REG_FULL_FLAG\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 22"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::NACK\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_I2C_TypeDef::REG_FULL_FLAG\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 22"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_I2C_TypeDef::STXDATA\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SADDR_LSB\fP: 7"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SADDR_MSB\fP: 3"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 22"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SADDR_LSB\fP: 7"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SADDR_MSB\fP: 3"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 22"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SADDR_LSB\fP: 7"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_I2C_TypeDef::SADDR_MSB\fP: 3"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_I2C_TypeDef::__pad0__\fP: 22"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_I2C_TypeDef::SADDR\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBI2C_AddrMode_Type\fP"
+I2C Address Mode Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fII2CCTL_ADDR_MODE_7B \fP\fP
+I2C Address Mode: 7b 
+.br
+ 
+.TP
+\fB\fII2CCTL_ADDR_MODE_10B \fP\fP
+I2C Address Mode: 10b 
+.br
+ 
+.PP
+Definition at line 27 of file pac5xxx_I2C\&.h\&.
+.PP
+.nf
+27              {
+28     I2CCTL_ADDR_MODE_7B = 0,               
+29     I2CCTL_ADDR_MODE_10B = 1               
+30 } I2C_AddrMode_Type;
+.fi
+.SS "enum \fBI2C_TransferType_Type\fP"
+I2C Transfer Type Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fII2CMCTRL_XFER_TYPE_WRITE \fP\fP
+I2C Transfer Type: I2C Write 
+.br
+ 
+.TP
+\fB\fII2CMCTRL_XFER_TYPE_READ \fP\fP
+I2C Transfer Type: I2C Read 
+.br
+ 
+.PP
+Definition at line 33 of file pac5xxx_I2C\&.h\&.
+.PP
+.nf
+33              {
+34     I2CMCTRL_XFER_TYPE_WRITE = 0,          
+35     I2CMCTRL_XFER_TYPE_READ = 1            
+36 } I2C_TransferType_Type;
+.fi
+.SH "Variable Documentation"
+.PP 
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "uint32_t PAC5XXX_I2C_TypeDef::__pad0__"
+Reserved: Write as 0 for proper operation 
+.br
+ 
+.PP
+Definition at line 46 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 46 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 50 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+Reserved: Write as 0 for proper operation 
+.br
+ 
+.PP
+Definition at line 54 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 68 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 73 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 79 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 100 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 104 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 110 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 130 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 134 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 141 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 152 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 156 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 162 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 172 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 176 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 182 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 194 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 198 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 202 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 216 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 220 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 225 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 235 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 239 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 245 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 255 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 259 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 264 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t PAC5XXX_I2C_TypeDef::__pad1__"
+Reserved: Write as 0 for proper operation 
+.br
+ 
+.PP
+Definition at line 56 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+Reserved: Write as 0 for proper operation 
+.br
+ 
+.PP
+Definition at line 56 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 84 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 112 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 143 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 204 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t PAC5XXX_I2C_TypeDef::__pad2__"
+
+.PP
+Definition at line 59 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad2__"
+
+.PP
+Definition at line 59 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad2__"
+
+.PP
+Definition at line 88 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad2__"
+
+.PP
+Definition at line 116 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t PAC5XXX_I2C_TypeDef::__pad3__"
+
+.PP
+Definition at line 90 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad3__"
+
+.PP
+Definition at line 90 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad3__"
+
+.PP
+Definition at line 118 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::ADDR_MODE"
+I2C Address Mode (7b or 10b) 
+.br
+ 
+.PP
+Definition at line 57 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::ADDR_MODE"
+I2C Address Mode (7b or 10b) 
+.br
+ 
+.PP
+Definition at line 57 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::AUTONO_XFER"
+Issue I2C Stop at the end of the current transfer 
+.br
+ 
+.PP
+Definition at line 139 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AUTONO_XFER"
+Issue I2C Stop at the end of the current transfer 
+.br
+ 
+.PP
+Definition at line 139 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 49 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::b"
+
+.PP
+Definition at line 49 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_I2C_TypeDef::b"
+
+.PP
+Definition at line 72 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 72 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 103 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 133 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 157 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 175 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 197 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 219 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 238 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 258 of file pac5xxx_I2C\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_I2C_TypeDef::BAUD"
+
+.SS "union { \&.\&.\&. }  PAC5XXX_I2C_TypeDef::CFG"
+< I2CCFG: Offset: 0x0000 I2C Configuration Register 
+.br
+ I2CSTATUS: Offset: 0x0004 I2C Status Register 
+.br
+ 
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::DSBL_PULSE_FILTER"
+Disable Pulse Filter 
+.br
+ 
+.PP
+Definition at line 58 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DSBL_PULSE_FILTER"
+Disable Pulse Filter 
+.br
+ 
+.PP
+Definition at line 58 of file pac5xxx_I2C\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_I2C_TypeDef::IE"
+
+.SS "\fB__I\fP uint32_t PAC5XXX_I2C_TypeDef::LAST_BYTE_FLAG"
+Last byte of transfer (Read or Write) 
+.br
+ 
+.PP
+Definition at line 181 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::LAST_BYTE_FLAG"
+Last byte of transfer (Read or Write) 
+.br
+ 
+.PP
+Definition at line 181 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::LOWER_I2C_ADDR"
+Lower 7b of 7b/10b I2C Address 
+.br
+ 
+.PP
+Definition at line 137 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LOWER_I2C_ADDR"
+Lower 7b of 7b/10b I2C Address 
+.br
+ 
+.PP
+Definition at line 137 of file pac5xxx_I2C\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_I2C_TypeDef::MCTRL"
+I2CMRXDATA: Offset: 0x0034 I2C Master Receive Data Register 
+.br
+ 
+.SS "union { \&.\&.\&. }  PAC5XXX_I2C_TypeDef::MRXDATA"
+I2CMTXDATA: Offset: 0x0038 I2C Master Transmit Data Register 
+.br
+ 
+.SS "\fB__I\fP uint32_t PAC5XXX_I2C_TypeDef::MST_A_NACK_ACK"
+I2C Master Address Acknowledged 
+.br
+ 
+.PP
+Definition at line 81 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::MST_A_NACK_ACK"
+I2C Master Address Acknowledged 
+.br
+ 
+.PP
+Definition at line 81 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_I2C_TypeDef::MST_ACC_CTL_EMP"
+I2C_MCTRL sent to I2C Bus 
+.br
+ 
+.PP
+Definition at line 77 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::MST_ACC_CTL_EMP"
+I2C_MCTRL sent to I2C Bus 
+.br
+ 
+.PP
+Definition at line 77 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::MST_ACC_CTL_EMP_IE"
+Master Control Register Emptied Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 108 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MST_ACC_CTL_EMP_IE"
+Master Control Register Emptied Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 108 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_I2C_TypeDef::MST_D_NACK_ACK"
+I2C Master Data Acknowledged 
+.br
+ 
+.PP
+Definition at line 83 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::MST_D_NACK_ACK"
+I2C Master Data Acknowledged 
+.br
+ 
+.PP
+Definition at line 83 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MST_ENBL"
+I2C Master Mode Enabled 
+.br
+ 
+.PP
+Definition at line 55 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::MST_ENBL"
+I2C Master Mode Enabled 
+.br
+ 
+.PP
+Definition at line 55 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::MST_LOST_ARB"
+I2C Master Lost Arbitration 
+.br
+ 
+.PP
+Definition at line 82 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_I2C_TypeDef::MST_LOST_ARB"
+I2C Master Lost Arbitration 
+.br
+ 
+.PP
+Definition at line 82 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::MST_RX_FILLED"
+I2C Master Data Received from I2C Bus 
+.br
+ 
+.PP
+Definition at line 78 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_I2C_TypeDef::MST_RX_FILLED"
+I2C Master Data Received from I2C Bus 
+.br
+ 
+.PP
+Definition at line 78 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::MST_RX_FILLED_IE"
+Master Received Data From I2C Bus Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 109 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MST_RX_FILLED_IE"
+Master Received Data From I2C Bus Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 109 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::MST_TX_EMP_IE"
+Master Transmit Data Register Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 107 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MST_TX_EMP_IE"
+Master Transmit Data Register Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 107 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_I2C_TypeDef::MST_TX_EMPTIED"
+I2C Master Data Transmitted to I2C Bus 
+.br
+ 
+.PP
+Definition at line 76 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::MST_TX_EMPTIED"
+I2C Master Data Transmitted to I2C Bus 
+.br
+ 
+.PP
+Definition at line 76 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_I2C_TypeDef::MST_XFER_DONE"
+I2C Master Transfer Completed 
+.br
+ 
+.PP
+Definition at line 80 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::MST_XFER_DONE"
+I2C Master Transfer Completed 
+.br
+ 
+.PP
+Definition at line 80 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::MST_XFER_DONE_IE"
+Master Transfer Complete Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 111 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MST_XFER_DONE_IE"
+Master Transfer Complete Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 111 of file pac5xxx_I2C\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_I2C_TypeDef::MTXDATA"
+
+.SS "__IO { \&.\&.\&. } ::NACK"
+Issue NACK on I2C Write 
+.br
+ 
+.PP
+Definition at line 243 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::NACK"
+Issue NACK on I2C Write 
+.br
+ 
+.PP
+Definition at line 243 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::REG_FULL_FLAG"
+MCTRL Register Full 
+.br
+ 
+.PP
+Definition at line 142 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_I2C_TypeDef::REG_FULL_FLAG"
+MCTRL Register Full 
+.br
+.PP
+I2CMTXDATA Register Full 
+.br
+.PP
+I2CSRXDATA Register Full Flag 
+.br
+ 
+.PP
+Definition at line 142 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::REG_FULL_FLAG"
+I2CMRXDATA Register Filled 
+.br
+ 
+.PP
+Definition at line 161 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::REG_FULL_FLAG"
+I2CMRXDATA Register Filled 
+.br
+ 
+.PP
+Definition at line 161 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::REG_FULL_FLAG"
+I2CMTXDATA Register Full 
+.br
+ 
+.PP
+Definition at line 180 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::REG_FULL_FLAG"
+I2CSRXDATA Register Full Flag 
+.br
+ 
+.PP
+Definition at line 224 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::REG_FULL_FLAG"
+I2CSRXDATA Register Full Flag 
+.br
+ 
+.PP
+Definition at line 244 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t PAC5XXX_I2C_TypeDef::RESERVED17[9]"
+I2CMCTRL: Offset: 0x0030 I2C Master Control Register 
+.br
+ 
+.PP
+Definition at line 122 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t PAC5XXX_I2C_TypeDef::RESERVED28"
+I2CBAUD: Offset: 0x0040 I2C Master Baud Rate Configuration Register 
+.br
+ 
+.PP
+Definition at line 186 of file pac5xxx_I2C\&.h\&.
+.SS "uint32_t PAC5XXX_I2C_TypeDef::RESERVED33[11]"
+I2CSRXDATA: Offset: 0x0070 I2C Slave Receive Data Register 
+.br
+ 
+.PP
+Definition at line 208 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::s"
+
+.PP
+Definition at line 45 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 45 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_I2C_TypeDef::s"
+
+.PP
+Definition at line 69 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 69 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 99 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 129 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 153 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 171 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 193 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 215 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 234 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 254 of file pac5xxx_I2C\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_I2C_TypeDef::SADDR"
+
+.SS "__IO { \&.\&.\&. } ::SADDR_LSB"
+7b LSB of 7b/10b slave address 
+.br
+ 
+.PP
+Definition at line 262 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::SADDR_LSB"
+7b LSB of 7b/10b slave address 
+.br
+ 
+.PP
+Definition at line 262 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SADDR_MSB"
+3b MSB of 10-bit slave address 
+.br
+ 
+.PP
+Definition at line 263 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::SADDR_MSB"
+3b MSB of 10-bit slave address 
+.br
+ 
+.PP
+Definition at line 263 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::SCL_HIGH_CLOCKS"
+Number of input clock periods (SCLK) for high clock time 
+.br
+ 
+.PP
+Definition at line 203 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SCL_HIGH_CLOCKS"
+Number of input clock periods (SCLK) for high clock time 
+.br
+ 
+.PP
+Definition at line 203 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::SCL_LOW_CLOCKS"
+Number of input clock periods (SCLK) for low clock time 
+.br
+ 
+.PP
+Definition at line 201 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SCL_LOW_CLOCKS"
+Number of input clock periods (SCLK) for low clock time 
+.br
+ 
+.PP
+Definition at line 201 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_I2C_TypeDef::SLV_ADDR_MATCH"
+I2C Slave Address Match 
+.br
+ 
+.PP
+Definition at line 85 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::SLV_ADDR_MATCH"
+I2C Slave Address Match 
+.br
+ 
+.PP
+Definition at line 85 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SLV_ADDR_MATCH_IE"
+Slave Address Match Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 113 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::SLV_ADDR_MATCH_IE"
+Slave Address Match Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 113 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::SLV_ENBL"
+I2C Slave Mode Enabled 
+.br
+ 
+.PP
+Definition at line 53 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SLV_ENBL"
+I2C Slave Mode Enabled 
+.br
+ 
+.PP
+Definition at line 53 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::SLV_RX_FILLED"
+I2C Slave Data Received from I2C Bus 
+.br
+ 
+.PP
+Definition at line 87 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_I2C_TypeDef::SLV_RX_FILLED"
+I2C Slave Data Received from I2C Bus 
+.br
+ 
+.PP
+Definition at line 87 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::SLV_RX_FILLED_IE"
+Slave Recieve Data Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 115 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SLV_RX_FILLED_IE"
+Slave Recieve Data Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 115 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SLV_TX_EMP_IE"
+Slave Transmit Data Register Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 114 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::SLV_TX_EMP_IE"
+Slave Transmit Data Register Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 114 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_I2C_TypeDef::SLV_TX_EMPTIED"
+I2C Slave Data Transmitted to I2C Bus 
+.br
+ 
+.PP
+Definition at line 86 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::SLV_TX_EMPTIED"
+I2C Slave Data Transmitted to I2C Bus 
+.br
+ 
+.PP
+Definition at line 86 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::SLV_XFER_DONE"
+I2C Slave Transfer Complete 
+.br
+ 
+.PP
+Definition at line 89 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_I2C_TypeDef::SLV_XFER_DONE"
+I2C Slave Transfer Complete 
+.br
+ 
+.PP
+Definition at line 89 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SLV_XFER_DONE_IE"
+Slave Transfer Complete Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 117 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::SLV_XFER_DONE_IE"
+Slave Transfer Complete Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 117 of file pac5xxx_I2C\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_I2C_TypeDef::SRXDATA"
+I2CSTXDATA: Offset: 0x0074 I2C Slave Transmit Data Register 
+.br
+ 
+.SS "union { \&.\&.\&. }  PAC5XXX_I2C_TypeDef::STATUS"
+I2CIE: Offset: 0x0008 I2C Interrupt Enable Register 
+.br
+ 
+.SS "union { \&.\&.\&. }  PAC5XXX_I2C_TypeDef::STXDATA"
+I2CSADDR: Offset: 0x0078 I2C Slave Address Register 
+.br
+ 
+.SS "__IO { \&.\&.\&. } ::UPPER_I2C_ADDR"
+Upper 3b of 10b I2C Address 
+.br
+ 
+.PP
+Definition at line 138 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::UPPER_I2C_ADDR"
+Upper 3b of 10b I2C Address 
+.br
+ 
+.PP
+Definition at line 138 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::VAL"
+Master data byte received from I2C Controller 
+.br
+.PP
+Master data byte to transfer to I2C Controller 
+.br
+.PP
+Slave data byte received from I2C Write operation 
+.br
+ 
+.PP
+Definition at line 160 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::VAL"
+Master data byte received from I2C Controller 
+.br
+ 
+.PP
+Definition at line 160 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::VAL"
+Master data byte to transfer to I2C Controller 
+.br
+ 
+.PP
+Definition at line 179 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_I2C_TypeDef::VAL"
+Slave data byte received from I2C Write operation 
+.br
+ 
+.PP
+Definition at line 223 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::VAL"
+Slave data byte received from I2C Write operation 
+.br
+ 
+.PP
+Definition at line 223 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::VAL"
+Slave data byte received from I2C Write operation 
+.br
+ 
+.PP
+Definition at line 242 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 43 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::w"
+
+.PP
+Definition at line 43 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 66 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_I2C_TypeDef::w"
+
+.PP
+Definition at line 66 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 97 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 127 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 150 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 169 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 191 of file pac5xxx_I2C\&.h\&.
+.SS "__I { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 213 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 232 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 252 of file pac5xxx_I2C\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_I2C_TypeDef::XFER_TYPE"
+I2C Transaction Type (Write/Read) 
+.br
+ 
+.PP
+Definition at line 140 of file pac5xxx_I2C\&.h\&.
+.SS "__IO { \&.\&.\&. } ::XFER_TYPE"
+I2C Transaction Type (Write/Read) 
+.br
+ 
+.PP
+Definition at line 140 of file pac5xxx_I2C\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

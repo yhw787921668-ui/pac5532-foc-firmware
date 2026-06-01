@@ -1,0 +1,290 @@
+.TH "PAC5XXX_Driver_GPIO" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_GPIO \- PAC5XXX GPIO Peripheral Driver Functions
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_GPIO\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_io_enable_a\fP (uint8_t port_mask)"
+.br
+.RI "This function configures the IO controller to IO mode for the given ports\&. "
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_io_enable_b\fP (uint8_t port_mask)"
+.br
+.RI "This function configures the IO controller to IO mode for the given ports\&. "
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_io_enable_c\fP (uint8_t port_mask)"
+.br
+.RI "This function configures the IO controller to IO mode for the given ports\&. "
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_io_enable_d\fP (uint8_t port_mask)"
+.br
+.RI "This function configures the IO controller to IO mode for the given ports\&. "
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_io_enable_e\fP (uint8_t port_mask)"
+.br
+.RI "This function configures the IO controller to IO mode for the given ports\&. "
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_configure_interrupt_a\fP (uint8_t port_mask, uint8_t active_high_mask)"
+.br
+.RI "This function configures interrupts for the given pins on the given port and enables them\&. "
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_configure_interrupt_b\fP (uint8_t port_mask, uint8_t active_high_mask)"
+.br
+.RI "This function configures interrupts for the given pins on the given port and enables them\&. "
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_configure_interrupt_c\fP (uint8_t port_mask, uint8_t active_high_mask)"
+.br
+.RI "This function configures interrupts for the given pins on the given port and enables them\&. "
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_configure_interrupt_d\fP (uint8_t port_mask, uint8_t active_high_mask)"
+.br
+.RI "This function configures interrupts for the given pins on the given port and enables them\&. "
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_configure_interrupt_e\fP (uint8_t port_mask, uint8_t active_high_mask)"
+.br
+.RI "This function configures interrupts for the given pins on the given port and enables them\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_GPIO"
+
+.PP
+Definition at line 31 of file pac5xxx_driver_gpio\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_configure_interrupt_a (uint8_t port_mask, uint8_t active_high_mask)"
+
+.PP
+This function configures interrupts for the given pins on the given port and enables them\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpin_mask\fP Mask of pins to configure and enable interrupts for 
+.br
+\fIactive_high_mask\fP Mask of pins to set to active high interrupts
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_gpio_interrupt\&.c\&.
+.PP
+.nf
+21 {
+22     pac5xxx_gpio_int_mask_a(port_mask);                                 // Set interrupt mask at startup (interrupt startup workaround)
+23     pac5xxx_gpio_int_polarity_a(active_high_mask);                      // Set interrupt polarity
+24     pac5xxx_gpio_int_enable_a(port_mask);                               // Enable interrupts in IO controller
+25     NVIC_EnableIRQ(GpioA_IRQn);                                         // Enable interrupts in NVIC
+26     pac5xxx_gpio_int_flag_clear_a(port_mask);                           // Clear any active interrupt flags
+27     pac5xxx_gpio_int_mask_a(0);                                         // Clear interrupt mask and interrupts are enabled
+28 
+29 }
+.fi
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_configure_interrupt_b (uint8_t port_mask, uint8_t active_high_mask)"
+
+.PP
+This function configures interrupts for the given pins on the given port and enables them\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpin_mask\fP Mask of pins to configure and enable interrupts for 
+.br
+\fIactive_high_mask\fP Mask of pins to set to active high interrupts
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definition at line 31 of file pac5xxx_driver_gpio_interrupt\&.c\&.
+.PP
+.nf
+32 {
+33     pac5xxx_gpio_int_mask_b(port_mask);                                 // Set interrupt mask at startup (interrupt startup workaround)
+34     pac5xxx_gpio_int_polarity_b(active_high_mask);                      // Set interrupt polarity
+35     pac5xxx_gpio_int_enable_b(port_mask);                               // Enable interrupts in IO controller
+36     NVIC_EnableIRQ(GpioB_IRQn);                                         // Enable interrupts in NVIC
+37     pac5xxx_gpio_int_flag_clear_b(port_mask);                           // Clear any active interrupt flags
+38     pac5xxx_gpio_int_mask_b(0);                                         // Clear interrupt mask and interrupts are enabled
+39 
+40 }
+.fi
+.PP
+Referenced by configure_cafe_fault_interrupt()\&.
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_configure_interrupt_c (uint8_t port_mask, uint8_t active_high_mask)"
+
+.PP
+This function configures interrupts for the given pins on the given port and enables them\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpin_mask\fP Mask of pins to configure and enable interrupts for 
+.br
+\fIactive_high_mask\fP Mask of pins to set to active high interrupts
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file pac5xxx_driver_gpio_interrupt\&.c\&.
+.PP
+.nf
+42 {
+43     pac5xxx_gpio_int_mask_c(port_mask);                                 // Set interrupt mask at startup (interrupt startup workaround)
+44     pac5xxx_gpio_int_polarity_c(active_high_mask);                      // Set interrupt polarity
+45     pac5xxx_gpio_int_enable_c(port_mask);                               // Enable interrupts in IO controller
+46     NVIC_EnableIRQ(GpioC_IRQn);                                         // Enable interrupts in NVIC
+47     pac5xxx_gpio_int_flag_clear_c(port_mask);                           // Clear any active interrupt flags
+48     pac5xxx_gpio_int_mask_c(0);                                         // Clear interrupt mask and interrupts are enabled
+49 
+50 }
+.fi
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_configure_interrupt_d (uint8_t port_mask, uint8_t active_high_mask)"
+
+.PP
+This function configures interrupts for the given pins on the given port and enables them\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpin_mask\fP Mask of pins to configure and enable interrupts for 
+.br
+\fIactive_high_mask\fP Mask of pins to set to active high interrupts
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definition at line 51 of file pac5xxx_driver_gpio_interrupt\&.c\&.
+.PP
+.nf
+52 {
+53     pac5xxx_gpio_int_mask_d(port_mask);                                 // Set interrupt mask at startup (interrupt startup workaround)
+54     pac5xxx_gpio_int_polarity_d(active_high_mask);                      // Set interrupt polarity
+55     pac5xxx_gpio_int_enable_d(port_mask);                               // Enable interrupts in IO controller
+56     NVIC_EnableIRQ(GpioD_IRQn);                                         // Enable interrupts in NVIC
+57     pac5xxx_gpio_int_flag_clear_d(port_mask);                           // Clear any active interrupt flags
+58     pac5xxx_gpio_int_mask_d(0);                                         // Clear interrupt mask and interrupts are enabled
+59 
+60 }
+.fi
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_configure_interrupt_e (uint8_t port_mask, uint8_t active_high_mask)"
+
+.PP
+This function configures interrupts for the given pins on the given port and enables them\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpin_mask\fP Mask of pins to configure and enable interrupts for 
+.br
+\fIactive_high_mask\fP Mask of pins to set to active high interrupts
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file pac5xxx_driver_gpio_interrupt\&.c\&.
+.PP
+.nf
+62 {
+63     pac5xxx_gpio_int_mask_e(port_mask);                                 // Set interrupt mask at startup (interrupt startup workaround)
+64     pac5xxx_gpio_int_polarity_e(active_high_mask);                      // Set interrupt polarity
+65     pac5xxx_gpio_int_enable_e(port_mask);                               // Enable interrupts in IO controller
+66     NVIC_EnableIRQ(GpioE_IRQn);                                         // Enable interrupts in NVIC
+67     pac5xxx_gpio_int_flag_clear_e(port_mask);                           // Clear any active interrupt flags
+68     pac5xxx_gpio_int_mask_e(0);                                         // Clear interrupt mask and interrupts are enabled
+69 
+70 }
+.fi
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_io_enable_a (uint8_t port_mask)"
+
+.PP
+This function configures the IO controller to IO mode for the given ports\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIport_mask\fP Port mask of pins with this port to enable IO for (1: Set to IO mode, 0: do nothing) 
+.RE
+.PP
+
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_io_enable_b (uint8_t port_mask)"
+
+.PP
+This function configures the IO controller to IO mode for the given ports\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIport_mask\fP Port mask of pins with this port to enable IO for (1: Set to IO mode, 0: do nothing) 
+.RE
+.PP
+
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_io_enable_c (uint8_t port_mask)"
+
+.PP
+This function configures the IO controller to IO mode for the given ports\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIport_mask\fP Port mask of pins with this port to enable IO for (1: Set to IO mode, 0: do nothing) 
+.RE
+.PP
+
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_io_enable_d (uint8_t port_mask)"
+
+.PP
+This function configures the IO controller to IO mode for the given ports\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIport_mask\fP Port mask of pins with this port to enable IO for (1: Set to IO mode, 0: do nothing) 
+.RE
+.PP
+
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_io_enable_e (uint8_t port_mask)"
+
+.PP
+This function configures the IO controller to IO mode for the given ports\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIport_mask\fP Port mask of pins with this port to enable IO for (1: Set to IO mode, 0: do nothing) 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

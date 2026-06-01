@@ -1,0 +1,166 @@
+.TH "pac_foc/pac55xx/board/board_pac5523evk1.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/board/board_pac5523evk1.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'pac5xxx_tile_signal_manager\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_tile\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_adc\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_timer\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSELECT_V_SOURCE\fP   0x06"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinit_diff_amp_gain\fP (void)"
+.br
+.ti -1c
+.RI "void \fBconfig_seq_foc\fP (void)"
+.br
+.ti -1c
+.RI "void \fBinit_emux\fP (void)"
+.br
+.ti -1c
+.RI "void \fBconfig_seq_foc_vref\fP (void)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define SELECT_V_SOURCE   0x06"
+
+.SH "Function Documentation"
+.PP 
+.SS "void config_seq_foc (void)"
+
+.PP
+Definition at line 55 of file board_pac5523evk1\&.c\&.
+.PP
+.nf
+56 {
+57     // Configure ADC input pin PG7(AD0) to read analog input from AFE and PF6(AD6) to read VBUS
+58     pac5xxx_adc_config_io(0x01 | 0x40);                 // PG7 | PF6
+59 
+60     PAC55XX_ADC->DTSETRIGENT0TO3\&.FORCE0 = 0;            // Reset to 0
+61     PAC55XX_ADC->DTSETRIGENT0TO3\&.TRIG0CFGIDX = 0;       // DTSE Trigger 0 Sequence Configuration Entry Index
+62     PAC55XX_ADC->DTSETRIGENT0TO3\&.TRIG0EDGE = 1;         // Trigger rising edge
+63 
+64     // Dummy conversions are added to each sequence to work around a bug in the DTSE
+65     pac5xxx_dtse_seq_config(0, ADC6, EMUX_AIO10 | DIFFAMPS_HOLD, 0,           0);    // Convert Vout, then change CAFE MUX to M1-Iu
+66     pac5xxx_dtse_seq_config(1, ADC0, EMUX_AIO10 | DIFFAMPS_HOLD, 0,           0);    // Dummy Conversion, then change CAFE MUX to M1-Iu
+67     pac5xxx_dtse_seq_config(2, ADC0, EMUX_AIO32 | DIFFAMPS_HOLD, 0,           0);    // Convert M1-Iu, then change CAFE MUX to M1-Iv
+68     pac5xxx_dtse_seq_config(3, ADC0, EMUX_AIO32 | DIFFAMPS_HOLD, 0,           0);    // Dummy Conversion, then change CAFE MUX to M1-Iv
+69     pac5xxx_dtse_seq_config(4, ADC0, EMUX_AIO54 | DIFFAMPS_HOLD, 0,           0);    // Convert M1-Iv, then change CAFE MUX to M1-Iv
+70     pac5xxx_dtse_seq_config(5, ADC0, EMUX_AIO54 | DIFFAMPS_HOLD, 0,           0);    // Dummy Conversion, then change CAFE MUX to M1-Iw
+71     pac5xxx_dtse_seq_config(6, ADC0, EMUX_AIO10 | DIFFAMPS_HOLD, ADC_IRQ0_EN, 0);    // Convert M1-Iw, then change CAFE MUX to M1-Iu, generate ADC interrupt
+72     pac5xxx_dtse_seq_config(7, ADC6, EMUX_AIO10,                 0,     SEQ_END);    // Dummy conversion, then change CAFE MUX to M1-Iu
+73 }
+.fi
+.PP
+References ADC0, ADC6, ADC_IRQ0_EN, DIFFAMPS_HOLD, EMUX_AIO10, EMUX_AIO32, EMUX_AIO54, PAC55XX_ADC, pac5xxx_adc_config_io(), pac5xxx_dtse_seq_config(), and SEQ_END\&.
+.SS "void config_seq_foc_vref (void)"
+
+.PP
+Definition at line 164 of file board_pac5523evk1\&.c\&.
+.PP
+.nf
+165 {
+166 #define SELECT_V_SOURCE    0x06 //0x06//0x04 //0x01 //0x03 //0x01 //0x06    // Select VPSTAT
+167     unsigned char value;
+168     
+169     // Configure ADC input pin PG7(AD0) to read analog input from AFE and PF6(AD6) to read VBUS
+170     pac5xxx_adc_config_io(0x01 | 0x40);                 // PG7 | PF6
+171 
+172     PAC55XX_ADC->DTSETRIGENT0TO3\&.FORCE0 = 0;            // Reset to 0
+173     PAC55XX_ADC->DTSETRIGENT0TO3\&.TRIG0CFGIDX = 0;       // DTSE Trigger 0 Sequence Configuration Entry Index
+174     PAC55XX_ADC->DTSETRIGENT0TO3\&.TRIG0EDGE = 1;         // Trigger rising edge
+175 
+176 #if 1
+177     // Dummy conversions are added to each sequence to work around a bug in the DTSE
+178     pac5xxx_dtse_seq_config(0, ADC0, EMUX_VREFDIV2, 0,           0);    // Convert Vout, then change CAFE MUX to M1-Iu
+179     pac5xxx_dtse_seq_config(1, ADC0, EMUX_VREFDIV2, 0,           0);    // Dummy Conversion, then change CAFE MUX to M1-Iu
+180     pac5xxx_dtse_seq_config(2, ADC0, EMUX_VREFDIV2, 0,           0);    // Convert M1-Iu, then change CAFE MUX to M1-Iv
+181     pac5xxx_dtse_seq_config(3, ADC0, EMUX_VREFDIV2, 0,           0);    // Dummy Conversion, then change CAFE MUX to M1-Iv
+182     pac5xxx_dtse_seq_config(4, ADC0, EMUX_VREFDIV2, 0,           0);    // Convert M1-Iv, then change CAFE MUX to M1-Iv
+183     pac5xxx_dtse_seq_config(5, ADC0, EMUX_VREFDIV2, 0,           0);    // Dummy Conversion, then change CAFE MUX to M1-Iw
+184     pac5xxx_dtse_seq_config(6, ADC0, EMUX_VREFDIV2, ADC_IRQ0_EN, 0);    // Convert M1-Iw, then change CAFE MUX to M1-Iu, generate ADC interrupt
+185     pac5xxx_dtse_seq_config(7, ADC6, EMUX_VREFDIV2,                 0,     SEQ_END);    // Dummy conversion, then change CAFE MUX to M1-Iu
+186 #endif
+187 
+188 // Configure Power Mux so AB11 = Vout(Vbus)
+189 //    value = pac5xxx_tile_register_read(ADDR_PWRCTL);
+190 //    value = (value & 0xC7) | (0x05 << 3);
+191     pac5xxx_tile_register_write(ADDR_PWRCTL, 0);     // Select PWRMON Mux = Vbus
+192         value = (SELECT_V_SOURCE << 3) & (0x38);
+193     pac5xxx_tile_register_write(ADDR_PWRCTL, value);     // Select PWRMON Mux = Vbus
+194 }
+.fi
+.PP
+References ADC0, ADC6, ADC_IRQ0_EN, ADDR_PWRCTL, EMUX_VREFDIV2, PAC55XX_ADC, pac5xxx_adc_config_io(), pac5xxx_dtse_seq_config(), pac5xxx_tile_register_write(), SELECT_V_SOURCE, and SEQ_END\&.
+.SS "void init_diff_amp_gain (void)"
+
+.PP
+Definition at line 22 of file board_pac5523evk1\&.c\&.
+.PP
+.nf
+23 {
+24     Struct_Motor* motor_ptr = &motor;
+25     
+26     pac5xxx_tile_register_write(ADDR_CFGAIO0, ((((AIO50_MODE_DIFFAMP << 6) | (AIO50_GAIN_X1 << 3) | AIO50_LPCOMP_2US) & 0xC7) | (motor_ptr->app\&.iphase_amp_gain << 3)));
+27 #ifdef ENABLE_CBC_CURRENT_LIMIT
+28     pac5xxx_tile_register_write(ADDR_CFGAIO1, ((AIO50_HPROT_PR << 5) | (AIO50_LPROT_PR << 4) | (AIO50_OFFSET_ENABLED << 3) | AIO50_HPCOMP_1US));
+29 #else
+30     pac5xxx_tile_register_write(ADDR_CFGAIO1, ((AIO50_LPROT_PR1PR2 << 4) | (AIO50_OFFSET_ENABLED << 3)));
+31 #endif    
+32 
+33     pac5xxx_tile_register_write(ADDR_CFGAIO2, ((((AIO50_MODE_DIFFAMP << 6) | (AIO50_GAIN_X1 << 3) | AIO50_LPCOMP_2US) & 0xC7) | (motor_ptr->app\&.iphase_amp_gain << 3)));
+34 #ifdef ENABLE_CBC_CURRENT_LIMIT    
+35     pac5xxx_tile_register_write(ADDR_CFGAIO3, ((AIO50_HPROT_PR << 5) | (AIO50_LPROT_PR << 4) | (AIO50_OFFSET_ENABLED << 3) | AIO50_HPCOMP_1US));
+36 #else    
+37     pac5xxx_tile_register_write(ADDR_CFGAIO3, ((AIO50_LPROT_PR1PR2 << 4) | (AIO50_OFFSET_ENABLED << 3)));
+38 #endif    
+39 
+40     pac5xxx_tile_register_write(ADDR_CFGAIO4, ((((AIO50_MODE_DIFFAMP << 6) | (AIO50_GAIN_X1 << 3) | AIO50_LPCOMP_2US) & 0xC7) | (motor_ptr->app\&.iphase_amp_gain << 3)));
+41 #ifdef ENABLE_CBC_CURRENT_LIMIT     
+42     pac5xxx_tile_register_write(ADDR_CFGAIO5, ((AIO50_HPROT_PR << 5) | (AIO50_LPROT_PR << 4) | (AIO50_OFFSET_ENABLED << 3) | AIO50_HPCOMP_1US));
+43 #else    
+44      pac5xxx_tile_register_write(ADDR_CFGAIO5, ((AIO50_LPROT_PR1PR2 << 4) | (AIO50_OFFSET_ENABLED << 3)));   // both high and low side off
+45 #endif    
+46 
+47     pac5xxx_tile_register_write(ADDR_CFGAIO6, ((AIO6789_MODE_IO << 6) | (AIO6789_OPT_INPUT << 4) | (AIO6789_POL_AH << 3) | AIO6789_MUX_DEFAULT));    // IO Mode
+48 //    pac5xxx_tile_register_write(ADDR_CFGAIO6, ((AIO6789_MODE_GAIN << 6) | (AIO6789_GAIN_X1 << 3) | AIO6789_MUX_DEFAULT));                          // Gain Mode
+49 
+50     pac5xxx_tile_register_write(ADDR_CFGAIO7, ((((AIO6789_MODE_GAIN << 6) | (AIO6789_GAIN_X1 << 3) | AIO6789_MUX_DEFAULT) & 0xC7) | (motor_ptr->app\&.vphase_amp_gain << 3)));
+51     pac5xxx_tile_register_write(ADDR_CFGAIO8, ((((AIO6789_MODE_GAIN << 6) | (AIO6789_GAIN_X1 << 3) | AIO6789_MUX_DEFAULT) & 0xC7) | (motor_ptr->app\&.vphase_amp_gain << 3)));
+52     pac5xxx_tile_register_write(ADDR_CFGAIO9, ((((AIO6789_MODE_GAIN << 6) | (AIO6789_GAIN_X1 << 3) | AIO6789_MUX_DEFAULT) & 0xC7) | (motor_ptr->app\&.vphase_amp_gain << 3)));
+53 }
+.fi
+.PP
+References ADDR_CFGAIO0, ADDR_CFGAIO1, ADDR_CFGAIO2, ADDR_CFGAIO3, ADDR_CFGAIO4, ADDR_CFGAIO5, ADDR_CFGAIO6, ADDR_CFGAIO7, ADDR_CFGAIO8, ADDR_CFGAIO9, AIO50_GAIN_X1, AIO50_HPCOMP_1US, AIO50_HPROT_PR, AIO50_LPCOMP_2US, AIO50_LPROT_PR, AIO50_LPROT_PR1PR2, AIO50_MODE_DIFFAMP, AIO50_OFFSET_ENABLED, AIO6789_GAIN_X1, AIO6789_MODE_GAIN, AIO6789_MODE_IO, AIO6789_MUX_DEFAULT, AIO6789_OPT_INPUT, AIO6789_POL_AH, and pac5xxx_tile_register_write()\&.
+.SS "void init_emux (void)"
+
+.PP
+Definition at line 160 of file board_pac5523evk1\&.c\&.
+.PP
+.nf
+161 {
+162 }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

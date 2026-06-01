@@ -1,0 +1,330 @@
+\hypertarget{struct_struct___motor}{}\doxysection{Struct\+\_\+\+Motor Struct Reference}
+\label{struct_struct___motor}\index{Struct\_Motor@{Struct\_Motor}}
+
+
+{\ttfamily \#include $<$motor\+\_\+struct.\+h$>$}
+
+
+
+Collaboration diagram for Struct\+\_\+\+Motor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{struct_struct___motor__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_struct___state}{Struct\+\_\+\+State}} \mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}
+\item 
+\mbox{\hyperlink{struct_struct___status}{Struct\+\_\+\+Status}} \mbox{\hyperlink{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}{status}}
+\item 
+\mbox{\hyperlink{struct_struct___fault}{Struct\+\_\+\+Fault}} \mbox{\hyperlink{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}{fault}}
+\item 
+\mbox{\hyperlink{struct_struct___app}{Struct\+\_\+\+App}} \mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}
+\item 
+\mbox{\hyperlink{struct_struct___control}{Struct\+\_\+\+Control}} \mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}
+\item 
+\mbox{\hyperlink{struct_struct___f_o_c}{Struct\+\_\+\+F\+OC}} \mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}
+\item 
+\mbox{\hyperlink{struct_struct___m_pos}{Struct\+\_\+\+M\+Pos}} \mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}
+\item 
+\mbox{\hyperlink{struct_struct___m_param}{Struct\+\_\+\+M\+Param}} \mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}
+\item 
+\mbox{\hyperlink{struct_struct___p_o_s_t}{Struct\+\_\+\+P\+O\+ST}} \mbox{\hyperlink{struct_struct___motor_af7998a7813aa69c23be95f495d221300}{post}}
+\item 
+\mbox{\hyperlink{struct_struct___startup_align_go}{Struct\+\_\+\+Startup\+Align\+Go}} \mbox{\hyperlink{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}{startup}}
+\item 
+\mbox{\hyperlink{struct_struct___p_p_m}{Struct\+\_\+\+P\+PM}} \mbox{\hyperlink{struct_struct___motor_a2abb6c0c82c94d5cb7e0637cab985fd3}{ppm}}
+\item 
+\mbox{\hyperlink{struct_struct___overmod}{Struct\+\_\+\+Overmod}} \mbox{\hyperlink{struct_struct___motor_ac8fbdcab49dd4f58bd6da78ceb06a953}{overmod}}
+\item 
+\mbox{\hyperlink{struct_struct___harmonic_inj}{Struct\+\_\+\+Harmonic\+Inj}} \mbox{\hyperlink{struct_struct___motor_a42b01615deceb5739d04eb5f007998f9}{harmonicinj}}
+\item 
+\mbox{\hyperlink{struct_struct___one_shunt___extn}{Struct\+\_\+\+One\+Shunt\+\_\+\+Extn}} \mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___motor_ad12f772cdb19c1432c7b9c6ca291f0fd}{vms\+\_\+v100}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___motor_ae7758fd0839b3411ab73a8e08499a7e6}{vms\+\_\+v200}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___motor_ac77f08291cce78289af18d88227076f7}{one\+\_\+div\+\_\+vms200\+\_\+minus\+\_\+vms100}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___motor_a96657a84ac9c87ef8f87d0d19912c79c}{u\+\_\+duty\+\_\+cycle\+\_\+max\+\_\+limit}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___motor_a4fe0be004a91be8830a86266e2939d7b}{vms\+\_\+adc\+\_\+vlaue}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 114 of file motor\+\_\+struct.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}\label{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}} 
+\index{Struct\_Motor@{Struct\_Motor}!app@{app}}
+\index{app@{app}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{app}{app}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_struct___app}{Struct\+\_\+\+App}} Struct\+\_\+\+Motor\+::app}
+
+
+
+Definition at line 119 of file motor\+\_\+struct.\+h.
+
+
+
+Referenced by app\+\_\+param\+\_\+process(), control\+\_\+reset(), est\+\_\+anglediff\+\_\+check(), hall\+\_\+reset(), init\+\_\+over\+\_\+current\+\_\+limit(), lbg1\+\_\+calculate\+\_\+coefficients(), lbg1\+\_\+process\+\_\+voltage\+\_\+scale(), lbg1\+\_\+reset(), lbg1\+\_\+statemon(), motor\+\_\+reset(), parameters\+\_\+write\+\_\+foc(), qep\+\_\+reset(), sm\+\_\+mainsub\+\_\+prestart(), statemachine\+\_\+appmain(), statemachine\+\_\+buttoncontrol(), systemvar\+\_\+init(), and Sys\+Tick\+\_\+\+Handler().
+
+\mbox{\Hypertarget{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}\label{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}} 
+\index{Struct\_Motor@{Struct\_Motor}!control@{control}}
+\index{control@{control}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{control}{control}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_struct___control}{Struct\+\_\+\+Control}} Struct\+\_\+\+Motor\+::control}
+
+
+
+Definition at line 120 of file motor\+\_\+struct.\+h.
+
+
+
+Referenced by aligngo\+\_\+param\+\_\+write(), config\+\_\+control\+\_\+dt(), control\+\_\+reset(), foc\+\_\+config(), lbg1\+\_\+calculate\+\_\+coefficients(), lbg1\+\_\+reset(), lbg1\+\_\+statemon(), m1\+\_\+disable(), m1\+\_\+enable(), parameters\+\_\+write\+\_\+foc(), sm\+\_\+mainsub\+\_\+prestart(), and systemvar\+\_\+init().
+
+\mbox{\Hypertarget{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}\label{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}} 
+\index{Struct\_Motor@{Struct\_Motor}!fault@{fault}}
+\index{fault@{fault}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{fault}{fault}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_struct___fault}{Struct\+\_\+\+Fault}} Struct\+\_\+\+Motor\+::fault}
+
+
+
+Definition at line 118 of file motor\+\_\+struct.\+h.
+
+
+
+Referenced by clear\+\_\+fault(), clear\+\_\+warning(), set\+\_\+fault(), set\+\_\+warning(), statemachine\+\_\+appmain(), and systemvar\+\_\+init().
+
+\mbox{\Hypertarget{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}\label{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}} 
+\index{Struct\_Motor@{Struct\_Motor}!foc@{foc}}
+\index{foc@{foc}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{foc}{foc}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_struct___f_o_c}{Struct\+\_\+\+F\+OC}} Struct\+\_\+\+Motor\+::foc}
+
+
+
+Definition at line 121 of file motor\+\_\+struct.\+h.
+
+
+
+Referenced by check\+\_\+pwm\+\_\+sat(), est\+\_\+anglediff\+\_\+check(), foc\+\_\+calc\+\_\+pwmtimer(), foc\+\_\+config(), foc\+\_\+reset(), foc\+\_\+systemvar\+\_\+init(), and parameters\+\_\+write\+\_\+foc().
+
+\mbox{\Hypertarget{struct_struct___motor_a42b01615deceb5739d04eb5f007998f9}\label{struct_struct___motor_a42b01615deceb5739d04eb5f007998f9}} 
+\index{Struct\_Motor@{Struct\_Motor}!harmonicinj@{harmonicinj}}
+\index{harmonicinj@{harmonicinj}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{harmonicinj}{harmonicinj}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_struct___harmonic_inj}{Struct\+\_\+\+Harmonic\+Inj}} Struct\+\_\+\+Motor\+::harmonicinj}
+
+
+
+Definition at line 175 of file motor\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}\label{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}} 
+\index{Struct\_Motor@{Struct\_Motor}!mparam@{mparam}}
+\index{mparam@{mparam}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{mparam}{mparam}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_struct___m_param}{Struct\+\_\+\+M\+Param}} Struct\+\_\+\+Motor\+::mparam}
+
+
+
+Definition at line 123 of file motor\+\_\+struct.\+h.
+
+
+
+Referenced by foc\+\_\+reset(), lbg1\+\_\+calculate\+\_\+coefficients(), lbg1\+\_\+reset(), and lbg1\+\_\+statemon().
+
+\mbox{\Hypertarget{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}\label{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}} 
+\index{Struct\_Motor@{Struct\_Motor}!mpos@{mpos}}
+\index{mpos@{mpos}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{mpos}{mpos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_struct___m_pos}{Struct\+\_\+\+M\+Pos}} Struct\+\_\+\+Motor\+::mpos}
+
+
+
+Definition at line 122 of file motor\+\_\+struct.\+h.
+
+
+
+Referenced by est\+\_\+anglediff\+\_\+check(), hall\+\_\+create\+\_\+sequence\+\_\+array(), hall\+\_\+param\+\_\+write(), hall\+\_\+process(), hall\+\_\+reset(), hall\+\_\+timer\+\_\+isr(), lbg1\+\_\+calculate\+\_\+coefficients(), lbg1\+\_\+param\+\_\+write(), lbg1\+\_\+process\+\_\+voltage\+\_\+scale(), lbg1\+\_\+reset(), lbg1\+\_\+statemon(), qep\+\_\+isr(), qep\+\_\+param\+\_\+calc(), qep\+\_\+param\+\_\+write(), and qep\+\_\+reset().
+
+\mbox{\Hypertarget{struct_struct___motor_ac77f08291cce78289af18d88227076f7}\label{struct_struct___motor_ac77f08291cce78289af18d88227076f7}} 
+\index{Struct\_Motor@{Struct\_Motor}!one\_div\_vms200\_minus\_vms100@{one\_div\_vms200\_minus\_vms100}}
+\index{one\_div\_vms200\_minus\_vms100@{one\_div\_vms200\_minus\_vms100}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{one\_div\_vms200\_minus\_vms100}{one\_div\_vms200\_minus\_vms100}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Motor\+::one\+\_\+div\+\_\+vms200\+\_\+minus\+\_\+vms100}
+
+
+
+Definition at line 223 of file motor\+\_\+struct.\+h.
+
+
+
+Referenced by cal\+\_\+vm\+\_\+const(), and calc\+\_\+vbus\+\_\+internal().
+
+\mbox{\Hypertarget{struct_struct___motor_abd25101d892109690782d91c713359f8}\label{struct_struct___motor_abd25101d892109690782d91c713359f8}} 
+\index{Struct\_Motor@{Struct\_Motor}!oneshunt@{oneshunt}}
+\index{oneshunt@{oneshunt}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{oneshunt}{oneshunt}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_struct___one_shunt___extn}{Struct\+\_\+\+One\+Shunt\+\_\+\+Extn}} Struct\+\_\+\+Motor\+::oneshunt}
+
+
+
+Definition at line 179 of file motor\+\_\+struct.\+h.
+
+
+
+Referenced by control\+\_\+reset().
+
+\mbox{\Hypertarget{struct_struct___motor_ac8fbdcab49dd4f58bd6da78ceb06a953}\label{struct_struct___motor_ac8fbdcab49dd4f58bd6da78ceb06a953}} 
+\index{Struct\_Motor@{Struct\_Motor}!overmod@{overmod}}
+\index{overmod@{overmod}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{overmod}{overmod}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_struct___overmod}{Struct\+\_\+\+Overmod}} Struct\+\_\+\+Motor\+::overmod}
+
+
+
+Definition at line 167 of file motor\+\_\+struct.\+h.
+
+
+
+Referenced by check\+\_\+overmod\+\_\+status().
+
+\mbox{\Hypertarget{struct_struct___motor_af7998a7813aa69c23be95f495d221300}\label{struct_struct___motor_af7998a7813aa69c23be95f495d221300}} 
+\index{Struct\_Motor@{Struct\_Motor}!post@{post}}
+\index{post@{post}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{post}{post}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_struct___p_o_s_t}{Struct\+\_\+\+P\+O\+ST}} Struct\+\_\+\+Motor\+::post}
+
+
+
+Definition at line 124 of file motor\+\_\+struct.\+h.
+
+
+
+Referenced by calc\+\_\+vbus\+\_\+internal().
+
+\mbox{\Hypertarget{struct_struct___motor_a2abb6c0c82c94d5cb7e0637cab985fd3}\label{struct_struct___motor_a2abb6c0c82c94d5cb7e0637cab985fd3}} 
+\index{Struct\_Motor@{Struct\_Motor}!ppm@{ppm}}
+\index{ppm@{ppm}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{ppm}{ppm}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_struct___p_p_m}{Struct\+\_\+\+P\+PM}} Struct\+\_\+\+Motor\+::ppm}
+
+
+
+Definition at line 135 of file motor\+\_\+struct.\+h.
+
+
+
+Referenced by ppm\+\_\+init(), and systemvar\+\_\+init().
+
+\mbox{\Hypertarget{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}\label{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}} 
+\index{Struct\_Motor@{Struct\_Motor}!startup@{startup}}
+\index{startup@{startup}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{startup}{startup}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_struct___startup_align_go}{Struct\+\_\+\+Startup\+Align\+Go}} Struct\+\_\+\+Motor\+::startup}
+
+
+
+Definition at line 127 of file motor\+\_\+struct.\+h.
+
+
+
+Referenced by aligngo\+\_\+param\+\_\+write(), app\+\_\+param\+\_\+process(), est\+\_\+anglediff\+\_\+check(), hall\+\_\+param\+\_\+write(), qep\+\_\+reset(), and sm\+\_\+mainsub\+\_\+prestart().
+
+\mbox{\Hypertarget{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}\label{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}} 
+\index{Struct\_Motor@{Struct\_Motor}!state@{state}}
+\index{state@{state}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_struct___state}{Struct\+\_\+\+State}} Struct\+\_\+\+Motor\+::state}
+
+
+
+Definition at line 116 of file motor\+\_\+struct.\+h.
+
+
+
+Referenced by check\+\_\+param\+\_\+while\+\_\+run(), hall\+\_\+timer\+\_\+isr(), lbg1\+\_\+statemon(), sm\+\_\+mainsub\+\_\+post(), sm\+\_\+mainsub\+\_\+prestart(), statemachine\+\_\+appmain(), and systemvar\+\_\+init().
+
+\mbox{\Hypertarget{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}\label{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}} 
+\index{Struct\_Motor@{Struct\_Motor}!status@{status}}
+\index{status@{status}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_struct___status}{Struct\+\_\+\+Status}} Struct\+\_\+\+Motor\+::status}
+
+
+
+Definition at line 117 of file motor\+\_\+struct.\+h.
+
+
+
+Referenced by motor\+\_\+reset(), sm\+\_\+mainsub\+\_\+prestart(), statemachine\+\_\+appmain(), and systemvar\+\_\+init().
+
+\mbox{\Hypertarget{struct_struct___motor_a96657a84ac9c87ef8f87d0d19912c79c}\label{struct_struct___motor_a96657a84ac9c87ef8f87d0d19912c79c}} 
+\index{Struct\_Motor@{Struct\_Motor}!u\_duty\_cycle\_max\_limit@{u\_duty\_cycle\_max\_limit}}
+\index{u\_duty\_cycle\_max\_limit@{u\_duty\_cycle\_max\_limit}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{u\_duty\_cycle\_max\_limit}{u\_duty\_cycle\_max\_limit}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Motor\+::u\+\_\+duty\+\_\+cycle\+\_\+max\+\_\+limit}
+
+
+
+Definition at line 224 of file motor\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___motor_a4fe0be004a91be8830a86266e2939d7b}\label{struct_struct___motor_a4fe0be004a91be8830a86266e2939d7b}} 
+\index{Struct\_Motor@{Struct\_Motor}!vms\_adc\_vlaue@{vms\_adc\_vlaue}}
+\index{vms\_adc\_vlaue@{vms\_adc\_vlaue}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{vms\_adc\_vlaue}{vms\_adc\_vlaue}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Motor\+::vms\+\_\+adc\+\_\+vlaue}
+
+
+
+Definition at line 225 of file motor\+\_\+struct.\+h.
+
+
+
+Referenced by sample\+\_\+dcbus().
+
+\mbox{\Hypertarget{struct_struct___motor_ad12f772cdb19c1432c7b9c6ca291f0fd}\label{struct_struct___motor_ad12f772cdb19c1432c7b9c6ca291f0fd}} 
+\index{Struct\_Motor@{Struct\_Motor}!vms\_v100@{vms\_v100}}
+\index{vms\_v100@{vms\_v100}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{vms\_v100}{vms\_v100}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Motor\+::vms\+\_\+v100}
+
+
+
+Definition at line 221 of file motor\+\_\+struct.\+h.
+
+
+
+Referenced by cal\+\_\+vm\+\_\+const(), and calc\+\_\+vbus\+\_\+internal().
+
+\mbox{\Hypertarget{struct_struct___motor_ae7758fd0839b3411ab73a8e08499a7e6}\label{struct_struct___motor_ae7758fd0839b3411ab73a8e08499a7e6}} 
+\index{Struct\_Motor@{Struct\_Motor}!vms\_v200@{vms\_v200}}
+\index{vms\_v200@{vms\_v200}!Struct\_Motor@{Struct\_Motor}}
+\doxysubsubsection{\texorpdfstring{vms\_v200}{vms\_v200}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Motor\+::vms\+\_\+v200}
+
+
+
+Definition at line 222 of file motor\+\_\+struct.\+h.
+
+
+
+Referenced by cal\+\_\+vm\+\_\+const().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+pac\+\_\+foc/src/app/\mbox{\hyperlink{motor__struct_8h}{motor\+\_\+struct.\+h}}\end{DoxyCompactItemize}

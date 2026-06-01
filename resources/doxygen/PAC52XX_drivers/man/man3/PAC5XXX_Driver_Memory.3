@@ -1,0 +1,165 @@
+.TH "PAC5XXX_Driver_Memory" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_Memory \- PAC5XXX Memory Controller Driver Functions
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_MEMORY\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_MEMORY\fP void \fBpac5xxx_memctl_flash_page_erase\fP (int page)"
+.br
+.RI "This function performs an erase of the given FLASH page\&. "
+.ti -1c
+.RI "\fBRAMFUNC_MEMORY\fP void \fBpac5xxx_memctl_flash_swr_enable_por\fP (int enabled)"
+.br
+.RI "This function configures SWR access during a power-on reset\&. "
+.ti -1c
+.RI "\fBRAMFUNC_MEMORY\fP void \fBpac5xxx_memctl_wait_state\fP (\fBMEMCTL_WaitState\fP wait_states)"
+.br
+.RI "This function configures the number of FLASH controller wait states\&. "
+.ti -1c
+.RI "\fBRAMFUNC_MEMORY\fP void \fBpac5xxx_memctl_buffered_write\fP (int segment, int address_offset, uint16_t data)"
+.br
+.RI "This function starts a buffered write operation with the given data\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_MEMORY"
+
+.PP
+Definition at line 31 of file pac5xxx_driver_memory\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_MEMORY\fP void pac5xxx_memctl_buffered_write (int segment, int address_offset, uint16_t data)"
+
+.PP
+This function starts a buffered write operation with the given data\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsegment\fP FLASH segment that contains the data to write 
+.br
+\fIaddress_offset\fP The address offset of the data 
+.br
+\fIdata\fP The data to write
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file pac5xxx_driver_memctl_config\&.c\&.
+.PP
+.nf
+39 {
+40     PAC5XXX_MEMCTL->FLASHBWRITE = FLASH_LOCK_ALLOW_BWRITE_KEY;
+41     PAC5XXX_MEMCTL->FLASHBWRITEDATA\&.PAGE = segment;
+42     PAC5XXX_MEMCTL->FLASHBWRITEDATA\&.ADDRESS = address_offset;
+43     PAC5XXX_MEMCTL->FLASHBWRITEDATA\&.DATA = data;
+44 }
+.fi
+.PP
+References FLASH_LOCK_ALLOW_BWRITE_KEY, and PAC5XXX_MEMCTL\&.
+.SS "\fBRAMFUNC_MEMORY\fP void pac5xxx_memctl_flash_page_erase (int page)"
+
+.PP
+This function performs an erase of the given FLASH page\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpage\fP Flash page to erase (0-31) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_memctl_config\&.c\&.
+.PP
+.nf
+21 {
+22   PAC5XXX_MEMCTL->FLASHPAGE\&.PAGE = segment;
+23   PAC5XXX_MEMCTL->FLASHPERASE = FLASH_LOCK_ALLOW_PERASE_KEY;
+24 }
+.fi
+.PP
+References FLASH_LOCK_ALLOW_PERASE_KEY, and PAC5XXX_MEMCTL\&.
+.SS "\fBRAMFUNC_MEMORY\fP void pac5xxx_memctl_flash_swr_enable_por (int enabled)"
+
+.PP
+This function configures SWR access during a power-on reset\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenabled\fP 1: SWR access at reset; 0: No SWR access at POR 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file pac5xxx_driver_memctl_config\&.c\&.
+.PP
+.nf
+27 {
+28   PAC5XXX_MEMCTL->FLASHLOCK = FLASH_LOCK_ALLOW_FLASHDBG_KEY;
+29   PAC5XXX_MEMCTL->SWDACCESS\&.VAL = enabled;
+30 }
+.fi
+.PP
+References FLASH_LOCK_ALLOW_FLASHDBG_KEY, and PAC5XXX_MEMCTL\&.
+.SS "\fBRAMFUNC_MEMORY\fP void pac5xxx_memctl_wait_state (\fBMEMCTL_WaitState\fP wait_states)"
+
+.PP
+This function configures the number of FLASH controller wait states\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwait_states\fP The number of wait states (0-3)
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 32 of file pac5xxx_driver_memctl_config\&.c\&.
+.PP
+.nf
+33 {
+34   PAC5XXX_MEMCTL->FLASHLOCK = FLASH_LOCK_ALLOW_FLASHWSTATE_KEY;
+35   PAC5XXX_MEMCTL->FLASHWSTATE\&.VAL = wait_states;
+36 }
+.fi
+.PP
+References FLASH_LOCK_ALLOW_FLASHWSTATE_KEY, and PAC5XXX_MEMCTL\&.
+.PP
+Referenced by init_system()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

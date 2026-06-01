@@ -1,0 +1,304 @@
+.TH "PAC5XXX_Driver_Tile" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_Tile \- PAC5XXX Tile Driver Functions
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_TILE\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_TILE\fP void \fBpac5xxx_tile_socbridge_config\fP (int enable, int int_enable)"
+.br
+.RI "This function configures the device for configuration with the Analog tiles via SOC Bridge\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TILE\fP void \fBpac5xxx_tile_register_write\fP (uint8_t address, uint8_t data)"
+.br
+.RI "This function writes a tile register\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TILE\fP uint8_t \fBpac5xxx_tile_register_read\fP (uint8_t address)"
+.br
+.RI "This function reads a tile register via polling\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TILE\fP int \fBpac5xxx_tile_register_write_validate\fP (uint8_t address, uint8_t data)"
+.br
+.RI "This function writes the given data to the given tile address register, and then reads back the value\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TILE\fP void \fBpac5xxx_tile_register_write_burst\fP (uint8_t start_address, int num_bytes, uint8_t *data)"
+.br
+.RI "This function writes a burst of data to the given register addresses via polling\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TILE\fP int \fBpac5xxx_tile_register_read_burst\fP (uint8_t start_address, int num_bytes, uint8_t *data)"
+.br
+.RI "This function reads a burst of data starting from the given register address via polling\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_TILE"
+
+.PP
+Definition at line 31 of file pac5xxx_driver_tile\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_TILE\fP uint8_t pac5xxx_tile_register_read (uint8_t address)"
+
+.PP
+This function reads a tile register via polling\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIaddress\fP Register address to read from 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Data read from register 
+.RE
+.PP
+
+.PP
+Definition at line 35 of file pac5xxx_driver_tile_socbridge\&.c\&.
+.PP
+.nf
+36 {
+37     uint8_t data;
+38 
+39     // Write the Address to be read; R/W =0 and data is don't care
+40     // Format: Addr(15:9) | R/W(8) | Data(7:0)
+41     PAC5XXX_SOCBRIDGE->SOCBD\&.w = address << 9;
+42 
+43     // Wait for transmission to be complete
+44     while (!PAC5XXX_SOCBRIDGE->SOCBSTAT\&.CYC_DONE);
+45     PAC5XXX_SOCBRIDGE->SOCBSTAT\&.CYC_DONE = 0x1;
+46 
+47     // Read the data
+48     data = PAC5XXX_SOCBRIDGE->SOCBD\&.w;
+49 
+50     // Return read data
+51     return data;
+52 }
+.fi
+.PP
+References PAC5XXX_SOCBRIDGE\&.
+.PP
+Referenced by config_seq_foc(), and pac5xxx_tile_register_write_validate()\&.
+.SS "\fBRAMFUNC_TILE\fP int pac5xxx_tile_register_read_burst (uint8_t start_address, int num_bytes, uint8_t * data)"
+
+.PP
+This function reads a burst of data starting from the given register address via polling\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstart_address\fP Starting address to read from 
+.br
+\fInum_bytes\fP Number of register reads to perform 
+.br
+\fIdata\fP Pointer to returned read data 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0: success; non-zero: failure 
+.RE
+.PP
+
+.PP
+Definition at line 40 of file pac5xxx_driver_tile_socbridge_burst\&.c\&.
+.PP
+.nf
+41 {
+42     int i;
+43     int addr = start_address;
+44     uint8_t *pData = data;
+45 
+46     for (i = 0; i < num_bytes; i++, addr++, pData++)
+47     {
+48 
+49         // Write the Address to be read; R/W =0 and data is don't care
+50         // Format: Addr(15:9) | R/W(8) | Data(7:0)
+51         PAC5XXX_SOCBRIDGE->SOCBD\&.w = addr << 9;
+52 
+53         // Wait for transmission to be complete
+54         while (!PAC5XXX_SOCBRIDGE->SOCBSTAT\&.CYC_DONE);
+55         PAC5XXX_SOCBRIDGE->SOCBSTAT\&.CYC_DONE = 0x1;
+56 
+57         // Read the data
+58         *pData = PAC5XXX_SOCBRIDGE->SOCBD\&.w;
+59     }
+60 
+61     // Return read data
+62     return 1;
+63 }
+.fi
+.PP
+References PAC5XXX_SOCBRIDGE\&.
+.SS "\fBRAMFUNC_TILE\fP void pac5xxx_tile_register_write (uint8_t address, uint8_t data)"
+
+.PP
+This function writes a tile register\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIaddress\fP Register address to write 
+.br
+\fIdata\fP Data to write 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0: success, non-zero: failure
+.RE
+.PP
+\fBNote\fP
+.RS 4
+The user must configure interrupts for the SOC Bridge interface after calling this function and is responsible for registering the Cortex interrupts and providing the interrupt handlers\&. 
+.RE
+.PP
+
+.PP
+Definition at line 22 of file pac5xxx_driver_tile_socbridge\&.c\&.
+.PP
+.nf
+23 {
+24 
+25     // Write 16-bits containing Addr, R/W=1, Data
+26     // Format: Addr(15:9) | R/W(8) | Data(7:0)
+27     PAC5XXX_SOCBRIDGE->SOCBD\&.w = (address << 9) | (1 << 8) | data;
+28 
+29     // Wait for transmission to be complete
+30     while (!PAC5XXX_SOCBRIDGE->SOCBSTAT\&.CYC_DONE);
+31     PAC5XXX_SOCBRIDGE->SOCBSTAT\&.CYC_DONE = 0x1;
+32 }
+.fi
+.PP
+References PAC5XXX_SOCBRIDGE\&.
+.PP
+Referenced by config_seq_foc(), init_diff_amp_gain(), init_emux(), and pac5xxx_tile_register_write_validate()\&.
+.SS "\fBRAMFUNC_TILE\fP void pac5xxx_tile_register_write_burst (uint8_t start_address, int num_bytes, uint8_t * data)"
+
+.PP
+This function writes a burst of data to the given register addresses via polling\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstart_address\fP Address to start writing from 
+.br
+\fInum_bytes\fP Number of register writes to perform 
+.br
+\fIdata\fP Pointer to array of data to write to each register 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0: success; non-zero: failure 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file pac5xxx_driver_tile_socbridge_burst\&.c\&.
+.PP
+.nf
+22 {
+23     int i;
+24     int addr = start_address;
+25     uint8_t *pData = data;
+26 
+27     for (i = 0; i < num_bytes; i++, addr++, pData++)
+28     {
+29         // Write 16-bits containing Addr, R/W=1, Data
+30         // Format: Addr(15:9) | R/W(8) | Data(7:0)
+31         PAC5XXX_SOCBRIDGE->SOCBD\&.w = (addr << 9) | (1 << 8) | *pData;
+32 
+33         // Wait for transmission to be complete
+34         while (!PAC5XXX_SOCBRIDGE->SOCBSTAT\&.CYC_DONE);
+35         PAC5XXX_SOCBRIDGE->SOCBSTAT\&.CYC_DONE = 0x1;
+36     }
+37 
+38 }
+.fi
+.PP
+References PAC5XXX_SOCBRIDGE\&.
+.SS "\fBRAMFUNC_TILE\fP int pac5xxx_tile_register_write_validate (uint8_t address, uint8_t data)"
+
+.PP
+This function writes the given data to the given tile address register, and then reads back the value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIaddress\fP Register address to write to 
+.br
+\fIdata\fP 8b register data to write
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+returns zero if read-back matches write data, non-zero if mis-match 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file pac5xxx_driver_tile_socbridge_validate\&.c\&.
+.PP
+.nf
+22 {
+23     pac5xxx_tile_register_write(address, data);
+24 
+25     if (pac5xxx_tile_register_read(address) != data)
+26         return 1;
+27 
+28     return 0;
+29 }
+.fi
+.PP
+References pac5xxx_tile_register_read(), and pac5xxx_tile_register_write()\&.
+.SS "\fBRAMFUNC_TILE\fP void pac5xxx_tile_socbridge_config (int enable, int int_enable)"
+
+.PP
+This function configures the device for configuration with the Analog tiles via SOC Bridge\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP Set to 1 to enable SOC Bridge 
+.br
+\fIint_enable\fP Set to 1 to enable interrupts for SOC bridge 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file pac5xxx_driver_tile_socbridge_config\&.c\&.
+.PP
+.nf
+22 {
+23       // Configure SOC Bridge
+24 
+25       pac5xxx_socbridge_config(enable, int_enable);         // Enabled
+26 
+27       pac5xxx_socbridge_config_chip_select(1,               // CS setup time (clock cycles from assertion of chip select to first assertion of clock)
+28                                            1,               // CS hold time (clock cycles from last assertion of clock to de-assertion of chip select)
+29                                            5);              // CS wait time (clock cycles between back to back transfers of data)
+30 
+31       pac5xxx_socbridge_config_io();                        // Enable SPI IOs
+32 }
+.fi
+.PP
+References pac5xxx_socbridge_config(), pac5xxx_socbridge_config_chip_select(), and pac5xxx_socbridge_config_io()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

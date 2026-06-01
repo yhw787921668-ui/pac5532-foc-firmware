@@ -1,0 +1,311 @@
+\hypertarget{opd__ol_8h}{}\doxysection{pac\+\_\+foc/src/features/opd/opd\+\_\+ol.h File Reference}
+\label{opd__ol_8h}\index{pac\_foc/src/features/opd/opd\_ol.h@{pac\_foc/src/features/opd/opd\_ol.h}}
+
+
+Use to process control functions in Open-\/loop O\+PD.  
+
+
+{\ttfamily \#include \char`\"{}opd\+\_\+ol\+\_\+struct.\+h\char`\"{}}\newline
+Include dependency graph for opd\+\_\+ol.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{opd__ol_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{opd__ol_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_aa62d716ae7b027b54170ffd38b772ce1}{S\+T\+A\+T\+U\+S\+\_\+\+O\+P\+D\+O\+L\+\_\+\+I\+D\+LE}}~0
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_aee00e821ef9ed8560a2813c80b7cba8e}{S\+T\+A\+T\+U\+S\+\_\+\+O\+P\+D\+O\+L\+\_\+\+S\+A\+M\+P\+L\+I\+NG}}~1
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_aab2dd395b47a966f8fcd27fa6f044ea3}{S\+T\+A\+T\+U\+S\+\_\+\+O\+P\+D\+O\+L\+\_\+\+S\+A\+M\+P\+L\+E\+D\+O\+NE}}~2
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_aef1478a521b0f0de06ade37ebdbe47b2}{S\+T\+A\+T\+U\+S\+\_\+\+O\+P\+D\+O\+L\+\_\+\+P\+A\+SS}}~3
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_a4bb28d5874d430081502f122c08c7290}{S\+T\+A\+T\+U\+S\+\_\+\+O\+P\+D\+O\+L\+\_\+\+F\+A\+IL}}~4
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_a6054df57770192360c6d7eede554e3e0}{S\+T\+A\+T\+U\+S\+M\+A\+S\+K\+\_\+\+O\+P\+D\+O\+L\+\_\+\+F\+A\+I\+L\+\_\+U}}~0x10
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_a09dc2d9b79a08d98de3ba8fbbc6bff9a}{S\+T\+A\+T\+U\+S\+M\+A\+S\+K\+\_\+\+O\+P\+D\+O\+L\+\_\+\+F\+A\+I\+L\+\_\+V}}~0x20
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_a39a4be6d4df879a1b9bd057392f74b17}{S\+T\+A\+T\+U\+S\+M\+A\+S\+K\+\_\+\+O\+P\+D\+O\+L\+\_\+\+F\+A\+I\+L\+\_\+W}}~0x40
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_aaaee140cfd0f4cfdd8174f52c675b937}{S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+M\+A\+I\+N\+\_\+\+I\+D\+LE}}~0
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_a306fc5e05b61f395415dcc322de2c604}{S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+M\+A\+I\+N\+\_\+\+S\+T\+A\+RT}}~1
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_a352003e3616c52821cb513510e2bb828}{S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+M\+A\+I\+N\+\_\+\+S\+A\+M\+P\+L\+I\+NG}}~2
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_a27f662d00e214fca321b07e9eb71c654}{S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+M\+A\+I\+N\+\_\+\+S\+A\+M\+P\+L\+E\+D\+O\+NE}}~3
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_a3d4a7a2190489bd0f5366c87d4ffbd29}{S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+M\+A\+I\+N\+\_\+\+C\+O\+M\+P\+L\+E\+TE}}~4
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_a995dc72ee273307330b11492fd6b5926}{S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+C\+T\+L\+\_\+\+I\+D\+LE}}~0
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_a8fbf5e97e7034584bb18fc5e134be10d}{S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+C\+T\+L\+\_\+\+S\+T\+A\+RT}}~1
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_aad2dbc9e68cd75333b8085e82e6c0020}{S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+C\+T\+L\+\_\+\+I\+Q\+R\+A\+M\+P\+I\+NG}}~2
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_ae59fd7b3b6677f3622c9bcc703c1f956}{S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+C\+T\+L\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+S\+T\+A\+R\+T\+S\+A\+M\+P\+LE}}~3
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_aed229d8c59d4ea504d96d4ec5203a336}{S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+C\+T\+L\+\_\+\+S\+A\+M\+P\+L\+I\+NG}}~4
+\item 
+\#define \mbox{\hyperlink{opd__ol_8h_a1673973e648eab88016304dce897c5f1}{S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+C\+T\+L\+\_\+\+S\+A\+M\+P\+L\+E\+D\+O\+NE}}~5
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{opd__ol_8h_a3021e4bd9bf7f73dd1c4581b4e1cee43}{check\+\_\+opdol\+\_\+fault}} (\mbox{\hyperlink{struct_struct___o_p_d_o_l}{Struct\+\_\+\+O\+P\+D\+OL}} $\ast$opdol\+\_\+ptr, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} iqref\+\_\+ramp\+\_\+q14)
+\begin{DoxyCompactList}\small\item\em Use to process the O\+PD function calls. \end{DoxyCompactList}\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{opd__ol_8h_a85e086bc5dfc5090fb79181e1e663046}{store\+\_\+current\+\_\+opdol}} (\mbox{\hyperlink{struct_struct___o_p_d_o_l}{Struct\+\_\+\+O\+P\+D\+OL}} $\ast$opdol\+\_\+ptr, int32\+\_\+t Iu\+\_\+measured\+\_\+q14, int32\+\_\+t Iv\+\_\+measured\+\_\+q14, int32\+\_\+t Iw\+\_\+measured\+\_\+q14)
+\begin{DoxyCompactList}\small\item\em Use to store the current. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use to process control functions in Open-\/loop O\+PD. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{opd__ol_8h_ae59fd7b3b6677f3622c9bcc703c1f956}\label{opd__ol_8h_ae59fd7b3b6677f3622c9bcc703c1f956}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATE\_OPDOL\_CTL\_DELAY\_STARTSAMPLE@{STATE\_OPDOL\_CTL\_DELAY\_STARTSAMPLE}}
+\index{STATE\_OPDOL\_CTL\_DELAY\_STARTSAMPLE@{STATE\_OPDOL\_CTL\_DELAY\_STARTSAMPLE}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATE\_OPDOL\_CTL\_DELAY\_STARTSAMPLE}{STATE\_OPDOL\_CTL\_DELAY\_STARTSAMPLE}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+C\+T\+L\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+S\+T\+A\+R\+T\+S\+A\+M\+P\+LE~3}
+
+
+
+Definition at line 45 of file opd\+\_\+ol.\+h.
+
+\mbox{\Hypertarget{opd__ol_8h_a995dc72ee273307330b11492fd6b5926}\label{opd__ol_8h_a995dc72ee273307330b11492fd6b5926}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATE\_OPDOL\_CTL\_IDLE@{STATE\_OPDOL\_CTL\_IDLE}}
+\index{STATE\_OPDOL\_CTL\_IDLE@{STATE\_OPDOL\_CTL\_IDLE}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATE\_OPDOL\_CTL\_IDLE}{STATE\_OPDOL\_CTL\_IDLE}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+C\+T\+L\+\_\+\+I\+D\+LE~0}
+
+
+
+Definition at line 42 of file opd\+\_\+ol.\+h.
+
+\mbox{\Hypertarget{opd__ol_8h_aad2dbc9e68cd75333b8085e82e6c0020}\label{opd__ol_8h_aad2dbc9e68cd75333b8085e82e6c0020}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATE\_OPDOL\_CTL\_IQRAMPING@{STATE\_OPDOL\_CTL\_IQRAMPING}}
+\index{STATE\_OPDOL\_CTL\_IQRAMPING@{STATE\_OPDOL\_CTL\_IQRAMPING}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATE\_OPDOL\_CTL\_IQRAMPING}{STATE\_OPDOL\_CTL\_IQRAMPING}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+C\+T\+L\+\_\+\+I\+Q\+R\+A\+M\+P\+I\+NG~2}
+
+
+
+Definition at line 44 of file opd\+\_\+ol.\+h.
+
+\mbox{\Hypertarget{opd__ol_8h_a1673973e648eab88016304dce897c5f1}\label{opd__ol_8h_a1673973e648eab88016304dce897c5f1}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATE\_OPDOL\_CTL\_SAMPLEDONE@{STATE\_OPDOL\_CTL\_SAMPLEDONE}}
+\index{STATE\_OPDOL\_CTL\_SAMPLEDONE@{STATE\_OPDOL\_CTL\_SAMPLEDONE}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATE\_OPDOL\_CTL\_SAMPLEDONE}{STATE\_OPDOL\_CTL\_SAMPLEDONE}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+C\+T\+L\+\_\+\+S\+A\+M\+P\+L\+E\+D\+O\+NE~5}
+
+
+
+Definition at line 47 of file opd\+\_\+ol.\+h.
+
+\mbox{\Hypertarget{opd__ol_8h_aed229d8c59d4ea504d96d4ec5203a336}\label{opd__ol_8h_aed229d8c59d4ea504d96d4ec5203a336}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATE\_OPDOL\_CTL\_SAMPLING@{STATE\_OPDOL\_CTL\_SAMPLING}}
+\index{STATE\_OPDOL\_CTL\_SAMPLING@{STATE\_OPDOL\_CTL\_SAMPLING}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATE\_OPDOL\_CTL\_SAMPLING}{STATE\_OPDOL\_CTL\_SAMPLING}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+C\+T\+L\+\_\+\+S\+A\+M\+P\+L\+I\+NG~4}
+
+
+
+Definition at line 46 of file opd\+\_\+ol.\+h.
+
+\mbox{\Hypertarget{opd__ol_8h_a8fbf5e97e7034584bb18fc5e134be10d}\label{opd__ol_8h_a8fbf5e97e7034584bb18fc5e134be10d}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATE\_OPDOL\_CTL\_START@{STATE\_OPDOL\_CTL\_START}}
+\index{STATE\_OPDOL\_CTL\_START@{STATE\_OPDOL\_CTL\_START}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATE\_OPDOL\_CTL\_START}{STATE\_OPDOL\_CTL\_START}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+C\+T\+L\+\_\+\+S\+T\+A\+RT~1}
+
+
+
+Definition at line 43 of file opd\+\_\+ol.\+h.
+
+\mbox{\Hypertarget{opd__ol_8h_a3d4a7a2190489bd0f5366c87d4ffbd29}\label{opd__ol_8h_a3d4a7a2190489bd0f5366c87d4ffbd29}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATE\_OPDOL\_MAIN\_COMPLETE@{STATE\_OPDOL\_MAIN\_COMPLETE}}
+\index{STATE\_OPDOL\_MAIN\_COMPLETE@{STATE\_OPDOL\_MAIN\_COMPLETE}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATE\_OPDOL\_MAIN\_COMPLETE}{STATE\_OPDOL\_MAIN\_COMPLETE}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+M\+A\+I\+N\+\_\+\+C\+O\+M\+P\+L\+E\+TE~4}
+
+
+
+Definition at line 39 of file opd\+\_\+ol.\+h.
+
+\mbox{\Hypertarget{opd__ol_8h_aaaee140cfd0f4cfdd8174f52c675b937}\label{opd__ol_8h_aaaee140cfd0f4cfdd8174f52c675b937}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATE\_OPDOL\_MAIN\_IDLE@{STATE\_OPDOL\_MAIN\_IDLE}}
+\index{STATE\_OPDOL\_MAIN\_IDLE@{STATE\_OPDOL\_MAIN\_IDLE}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATE\_OPDOL\_MAIN\_IDLE}{STATE\_OPDOL\_MAIN\_IDLE}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+M\+A\+I\+N\+\_\+\+I\+D\+LE~0}
+
+
+
+Definition at line 35 of file opd\+\_\+ol.\+h.
+
+\mbox{\Hypertarget{opd__ol_8h_a27f662d00e214fca321b07e9eb71c654}\label{opd__ol_8h_a27f662d00e214fca321b07e9eb71c654}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATE\_OPDOL\_MAIN\_SAMPLEDONE@{STATE\_OPDOL\_MAIN\_SAMPLEDONE}}
+\index{STATE\_OPDOL\_MAIN\_SAMPLEDONE@{STATE\_OPDOL\_MAIN\_SAMPLEDONE}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATE\_OPDOL\_MAIN\_SAMPLEDONE}{STATE\_OPDOL\_MAIN\_SAMPLEDONE}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+M\+A\+I\+N\+\_\+\+S\+A\+M\+P\+L\+E\+D\+O\+NE~3}
+
+
+
+Definition at line 38 of file opd\+\_\+ol.\+h.
+
+\mbox{\Hypertarget{opd__ol_8h_a352003e3616c52821cb513510e2bb828}\label{opd__ol_8h_a352003e3616c52821cb513510e2bb828}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATE\_OPDOL\_MAIN\_SAMPLING@{STATE\_OPDOL\_MAIN\_SAMPLING}}
+\index{STATE\_OPDOL\_MAIN\_SAMPLING@{STATE\_OPDOL\_MAIN\_SAMPLING}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATE\_OPDOL\_MAIN\_SAMPLING}{STATE\_OPDOL\_MAIN\_SAMPLING}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+M\+A\+I\+N\+\_\+\+S\+A\+M\+P\+L\+I\+NG~2}
+
+
+
+Definition at line 37 of file opd\+\_\+ol.\+h.
+
+\mbox{\Hypertarget{opd__ol_8h_a306fc5e05b61f395415dcc322de2c604}\label{opd__ol_8h_a306fc5e05b61f395415dcc322de2c604}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATE\_OPDOL\_MAIN\_START@{STATE\_OPDOL\_MAIN\_START}}
+\index{STATE\_OPDOL\_MAIN\_START@{STATE\_OPDOL\_MAIN\_START}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATE\_OPDOL\_MAIN\_START}{STATE\_OPDOL\_MAIN\_START}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+E\+\_\+\+O\+P\+D\+O\+L\+\_\+\+M\+A\+I\+N\+\_\+\+S\+T\+A\+RT~1}
+
+
+
+Definition at line 36 of file opd\+\_\+ol.\+h.
+
+\mbox{\Hypertarget{opd__ol_8h_a4bb28d5874d430081502f122c08c7290}\label{opd__ol_8h_a4bb28d5874d430081502f122c08c7290}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATUS\_OPDOL\_FAIL@{STATUS\_OPDOL\_FAIL}}
+\index{STATUS\_OPDOL\_FAIL@{STATUS\_OPDOL\_FAIL}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATUS\_OPDOL\_FAIL}{STATUS\_OPDOL\_FAIL}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+U\+S\+\_\+\+O\+P\+D\+O\+L\+\_\+\+F\+A\+IL~4}
+
+
+
+Definition at line 29 of file opd\+\_\+ol.\+h.
+
+\mbox{\Hypertarget{opd__ol_8h_aa62d716ae7b027b54170ffd38b772ce1}\label{opd__ol_8h_aa62d716ae7b027b54170ffd38b772ce1}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATUS\_OPDOL\_IDLE@{STATUS\_OPDOL\_IDLE}}
+\index{STATUS\_OPDOL\_IDLE@{STATUS\_OPDOL\_IDLE}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATUS\_OPDOL\_IDLE}{STATUS\_OPDOL\_IDLE}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+U\+S\+\_\+\+O\+P\+D\+O\+L\+\_\+\+I\+D\+LE~0}
+
+
+
+Definition at line 25 of file opd\+\_\+ol.\+h.
+
+\mbox{\Hypertarget{opd__ol_8h_aef1478a521b0f0de06ade37ebdbe47b2}\label{opd__ol_8h_aef1478a521b0f0de06ade37ebdbe47b2}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATUS\_OPDOL\_PASS@{STATUS\_OPDOL\_PASS}}
+\index{STATUS\_OPDOL\_PASS@{STATUS\_OPDOL\_PASS}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATUS\_OPDOL\_PASS}{STATUS\_OPDOL\_PASS}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+U\+S\+\_\+\+O\+P\+D\+O\+L\+\_\+\+P\+A\+SS~3}
+
+
+
+Definition at line 28 of file opd\+\_\+ol.\+h.
+
+\mbox{\Hypertarget{opd__ol_8h_aab2dd395b47a966f8fcd27fa6f044ea3}\label{opd__ol_8h_aab2dd395b47a966f8fcd27fa6f044ea3}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATUS\_OPDOL\_SAMPLEDONE@{STATUS\_OPDOL\_SAMPLEDONE}}
+\index{STATUS\_OPDOL\_SAMPLEDONE@{STATUS\_OPDOL\_SAMPLEDONE}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATUS\_OPDOL\_SAMPLEDONE}{STATUS\_OPDOL\_SAMPLEDONE}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+U\+S\+\_\+\+O\+P\+D\+O\+L\+\_\+\+S\+A\+M\+P\+L\+E\+D\+O\+NE~2}
+
+
+
+Definition at line 27 of file opd\+\_\+ol.\+h.
+
+\mbox{\Hypertarget{opd__ol_8h_aee00e821ef9ed8560a2813c80b7cba8e}\label{opd__ol_8h_aee00e821ef9ed8560a2813c80b7cba8e}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATUS\_OPDOL\_SAMPLING@{STATUS\_OPDOL\_SAMPLING}}
+\index{STATUS\_OPDOL\_SAMPLING@{STATUS\_OPDOL\_SAMPLING}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATUS\_OPDOL\_SAMPLING}{STATUS\_OPDOL\_SAMPLING}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+U\+S\+\_\+\+O\+P\+D\+O\+L\+\_\+\+S\+A\+M\+P\+L\+I\+NG~1}
+
+
+
+Definition at line 26 of file opd\+\_\+ol.\+h.
+
+\mbox{\Hypertarget{opd__ol_8h_a6054df57770192360c6d7eede554e3e0}\label{opd__ol_8h_a6054df57770192360c6d7eede554e3e0}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATUSMASK\_OPDOL\_FAIL\_U@{STATUSMASK\_OPDOL\_FAIL\_U}}
+\index{STATUSMASK\_OPDOL\_FAIL\_U@{STATUSMASK\_OPDOL\_FAIL\_U}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATUSMASK\_OPDOL\_FAIL\_U}{STATUSMASK\_OPDOL\_FAIL\_U}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+U\+S\+M\+A\+S\+K\+\_\+\+O\+P\+D\+O\+L\+\_\+\+F\+A\+I\+L\+\_\+U~0x10}
+
+
+
+Definition at line 30 of file opd\+\_\+ol.\+h.
+
+\mbox{\Hypertarget{opd__ol_8h_a09dc2d9b79a08d98de3ba8fbbc6bff9a}\label{opd__ol_8h_a09dc2d9b79a08d98de3ba8fbbc6bff9a}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATUSMASK\_OPDOL\_FAIL\_V@{STATUSMASK\_OPDOL\_FAIL\_V}}
+\index{STATUSMASK\_OPDOL\_FAIL\_V@{STATUSMASK\_OPDOL\_FAIL\_V}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATUSMASK\_OPDOL\_FAIL\_V}{STATUSMASK\_OPDOL\_FAIL\_V}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+U\+S\+M\+A\+S\+K\+\_\+\+O\+P\+D\+O\+L\+\_\+\+F\+A\+I\+L\+\_\+V~0x20}
+
+
+
+Definition at line 31 of file opd\+\_\+ol.\+h.
+
+\mbox{\Hypertarget{opd__ol_8h_a39a4be6d4df879a1b9bd057392f74b17}\label{opd__ol_8h_a39a4be6d4df879a1b9bd057392f74b17}} 
+\index{opd\_ol.h@{opd\_ol.h}!STATUSMASK\_OPDOL\_FAIL\_W@{STATUSMASK\_OPDOL\_FAIL\_W}}
+\index{STATUSMASK\_OPDOL\_FAIL\_W@{STATUSMASK\_OPDOL\_FAIL\_W}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{STATUSMASK\_OPDOL\_FAIL\_W}{STATUSMASK\_OPDOL\_FAIL\_W}}
+{\footnotesize\ttfamily \#define S\+T\+A\+T\+U\+S\+M\+A\+S\+K\+\_\+\+O\+P\+D\+O\+L\+\_\+\+F\+A\+I\+L\+\_\+W~0x40}
+
+
+
+Definition at line 32 of file opd\+\_\+ol.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{opd__ol_8h_a3021e4bd9bf7f73dd1c4581b4e1cee43}\label{opd__ol_8h_a3021e4bd9bf7f73dd1c4581b4e1cee43}} 
+\index{opd\_ol.h@{opd\_ol.h}!check\_opdol\_fault@{check\_opdol\_fault}}
+\index{check\_opdol\_fault@{check\_opdol\_fault}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{check\_opdol\_fault()}{check\_opdol\_fault()}}
+{\footnotesize\ttfamily void check\+\_\+opdol\+\_\+fault (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___o_p_d_o_l}{Struct\+\_\+\+O\+P\+D\+OL}} $\ast$}]{opdol\+\_\+ptr,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{iqref\+\_\+ramp\+\_\+q14 }\end{DoxyParamCaption})}
+
+
+
+Use to process the O\+PD function calls. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+O\+P\+D\+O\+L$\ast$} & opdol\+\_\+ptr \\
+\hline
+{\em fix16\+\_\+t} & iqref\+\_\+ramp\+\_\+q14 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{opd__ol_8h_a85e086bc5dfc5090fb79181e1e663046}\label{opd__ol_8h_a85e086bc5dfc5090fb79181e1e663046}} 
+\index{opd\_ol.h@{opd\_ol.h}!store\_current\_opdol@{store\_current\_opdol}}
+\index{store\_current\_opdol@{store\_current\_opdol}!opd\_ol.h@{opd\_ol.h}}
+\doxysubsubsection{\texorpdfstring{store\_current\_opdol()}{store\_current\_opdol()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void store\+\_\+current\+\_\+opdol (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___o_p_d_o_l}{Struct\+\_\+\+O\+P\+D\+OL}} $\ast$}]{opdol\+\_\+ptr,  }\item[{int32\+\_\+t}]{Iu\+\_\+measured\+\_\+q14,  }\item[{int32\+\_\+t}]{Iv\+\_\+measured\+\_\+q14,  }\item[{int32\+\_\+t}]{Iw\+\_\+measured\+\_\+q14 }\end{DoxyParamCaption})}
+
+
+
+Use to store the current. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+O\+P\+D\+O\+L$\ast$} & opdol\+\_\+ptr \\
+\hline
+{\em int32\+\_\+t} & Iu\+\_\+measured\+\_\+q14 \\
+\hline
+{\em int32\+\_\+t} & Iv\+\_\+measured\+\_\+q14 \\
+\hline
+{\em int32\+\_\+t} & Iw\+\_\+measured\+\_\+q14 \\
+\hline
+\end{DoxyParams}

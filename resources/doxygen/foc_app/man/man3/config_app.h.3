@@ -1,0 +1,289 @@
+.TH "pac_foc/src/config_app.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/config_app.h \- Use for selecting different FOC firmware application features\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'config_options\&.h'\fP
+.br
+\fC#include 'board\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPARAM_SELECT\fP   \fBPARAM_DEFAULT\fP"
+.br
+.ti -1c
+.RI "#define \fBCOMM_SELECT\fP   \fBCOMM_UART\fP"
+.br
+.ti -1c
+.RI "#define \fBMPOS_SELECT\fP   \fBMPOS_LBG1_START_ALIGNGO\fP"
+.br
+.ti -1c
+.RI "#define \fBENABLE_ANGLE_CORRECTION\fP"
+.br
+.ti -1c
+.RI "#define \fBENABLE_PHASE_COMPENSATION\fP"
+.br
+.ti -1c
+.RI "#define \fBENABLE_ANGLEDIFF_SPEED_CHECK\fP"
+.br
+.ti -1c
+.RI "#define \fBANGLEDIFF_SPEED_ERROR_PCT_Q16\fP   \fBQCONST\fP(0\&.10, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBANGLEDIFF_ANGLE_ERROR_DEG_Q12\fP   \fBQCONST\fP((3\&.14/16), \fBQ12\fP)"
+.br
+.ti -1c
+.RI "#define \fBENABLE_OLSPEED_ANGLEDIFF_TIMEOUT\fP"
+.br
+.ti -1c
+.RI "#define \fBANGLEDIFF_TIMEOUT_SEC\fP   2"
+.br
+.ti -1c
+.RI "#define \fBENABLE_ANGLEDIFF_AUTORANGE\fP"
+.br
+.ti -1c
+.RI "#define \fBANGLEDIFF_AUTORANGE_METHOD_SELECT\fP   \fBANGLEDIFF_AUTORANGE_METHOD_1\fP"
+.br
+.ti -1c
+.RI "#define \fBANGLEDIFF_AUTORANGE_INC_METHOD1_PCT\fP   0\&.05f"
+.br
+.ti -1c
+.RI "#define \fBANGLEDIFF_AUTORANGE_INC_METHOD2_PCT\fP   0\&.002f"
+.br
+.ti -1c
+.RI "#define \fBMODE_1SHUNT_SELECT\fP   \fBMODE_1SHUNT_EXTENSION\fP"
+.br
+.ti -1c
+.RI "#define \fBMODULATION_SELECT\fP   \fBMODULATION_SVM_STANDARD\fP"
+.br
+.ti -1c
+.RI "#define \fBSPEED_PI_LOOP_DIVIDER\fP   1"
+.br
+.ti -1c
+.RI "#define \fBOUTERLOOP_CONTROL_SELECT\fP   \fBOUTERLOOP_CONTROL_SPEED\fP"
+.br
+.ti -1c
+.RI "#define \fBPULSEWIDTH_MIN_HS_NSEC\fP   (400 + MOTOR1_LED_NSEC)"
+.br
+.ti -1c
+.RI "#define \fBCONTROL_VDVQ_VECTOR_LIMIT\fP"
+.br
+.ti -1c
+.RI "#define \fBPULSEWIDTH_MIN_LS_NSEC\fP   (400 + MOTOR1_TED_NSEC)"
+.br
+.ti -1c
+.RI "#define \fBSYSTICK_HANDLER_FREQ_HZ_FLT\fP   500\&.0"
+.br
+.ti -1c
+.RI "#define \fBSYSTICK_HANDLER_DIVIDER\fP   5"
+.br
+.ti -1c
+.RI "#define \fBDT_SYSTICK_FLT\fP   (1\&.0/\fBSYSTICK_HANDLER_FREQ_HZ_FLT\fP)"
+.br
+.ti -1c
+.RI "#define \fBDT_DIVSYSTICK_FLT\fP   (\fBDT_SYSTICK_FLT\fP * \fBSYSTICK_HANDLER_DIVIDER\fP)"
+.br
+.ti -1c
+.RI "#define \fBSYSTICK_TICKS\fP   \fBQCONST\fP((HCLK_FREQ_HZ / \fBSYSTICK_HANDLER_FREQ_HZ_FLT\fP), \fBQ00\fP)"
+.br
+.ti -1c
+.RI "#define \fBDT_SYSTICK_Q16\fP   \fBQCONST\fP(\fBDT_SYSTICK_FLT\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDT_DIVSYSTICK_Q16\fP   \fBQCONST\fP(\fBDT_DIVSYSTICK_FLT\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDT_DIVSYSTICK_Q26\fP   \fBQCONST\fP(\fBDT_DIVSYSTICK_FLT\fP, \fBQ26\fP)"
+.br
+.ti -1c
+.RI "#define \fBCOMMSEL_UART\fP   \fBTRUE\fP"
+.br
+.ti -1c
+.RI "#define \fBCOMMSEL_PPM\fP   \fBFALSE\fP"
+.br
+.ti -1c
+.RI "#define \fBCOMMSEL_PUSH_BUTTON\fP   \fBFALSE\fP"
+.br
+.ti -1c
+.RI "#define \fBMODULE_MPOS_ALIGNGO\fP   \fBENABLED\fP"
+.br
+.ti -1c
+.RI "#define \fBMODULE_MPOS_LBG1\fP   \fBENABLED\fP"
+.br
+.ti -1c
+.RI "#define \fBMODULE_MPOS_HALL\fP   \fBDISABLED\fP"
+.br
+.ti -1c
+.RI "#define \fBMODULE_MPOS_QEP\fP   \fBDISABLED\fP"
+.br
+.ti -1c
+.RI "#define \fBMODULATION_INDEX\fP   1\&.15f"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for selecting different FOC firmware application features\&. 
+
+
+.PP
+Definition in file \fBconfig_app\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ANGLEDIFF_ANGLE_ERROR_DEG_Q12   \fBQCONST\fP((3\&.14/16), \fBQ12\fP)"
+
+.PP
+Definition at line 64 of file config_app\&.h\&.
+.SS "#define ANGLEDIFF_AUTORANGE_INC_METHOD1_PCT   0\&.05f"
+
+.PP
+Definition at line 77 of file config_app\&.h\&.
+.SS "#define ANGLEDIFF_AUTORANGE_INC_METHOD2_PCT   0\&.002f"
+
+.PP
+Definition at line 78 of file config_app\&.h\&.
+.SS "#define ANGLEDIFF_AUTORANGE_METHOD_SELECT   \fBANGLEDIFF_AUTORANGE_METHOD_1\fP"
+
+.PP
+Definition at line 76 of file config_app\&.h\&.
+.SS "#define ANGLEDIFF_SPEED_ERROR_PCT_Q16   \fBQCONST\fP(0\&.10, \fBQ16\fP)"
+
+.PP
+Definition at line 63 of file config_app\&.h\&.
+.SS "#define ANGLEDIFF_TIMEOUT_SEC   2"
+
+.PP
+Definition at line 70 of file config_app\&.h\&.
+.SS "#define COMM_SELECT   \fBCOMM_UART\fP"
+
+.PP
+Definition at line 37 of file config_app\&.h\&.
+.SS "#define COMMSEL_PPM   \fBFALSE\fP"
+
+.PP
+Definition at line 389 of file config_app\&.h\&.
+.SS "#define COMMSEL_PUSH_BUTTON   \fBFALSE\fP"
+
+.PP
+Definition at line 395 of file config_app\&.h\&.
+.SS "#define COMMSEL_UART   \fBTRUE\fP"
+
+.PP
+Definition at line 381 of file config_app\&.h\&.
+.SS "#define CONTROL_VDVQ_VECTOR_LIMIT"
+
+.PP
+Definition at line 294 of file config_app\&.h\&.
+.SS "#define DT_DIVSYSTICK_FLT   (\fBDT_SYSTICK_FLT\fP * \fBSYSTICK_HANDLER_DIVIDER\fP)"
+
+.PP
+Definition at line 364 of file config_app\&.h\&.
+.SS "#define DT_DIVSYSTICK_Q16   \fBQCONST\fP(\fBDT_DIVSYSTICK_FLT\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 368 of file config_app\&.h\&.
+.SS "#define DT_DIVSYSTICK_Q26   \fBQCONST\fP(\fBDT_DIVSYSTICK_FLT\fP, \fBQ26\fP)"
+
+.PP
+Definition at line 369 of file config_app\&.h\&.
+.SS "#define DT_SYSTICK_FLT   (1\&.0/\fBSYSTICK_HANDLER_FREQ_HZ_FLT\fP)"
+
+.PP
+Definition at line 363 of file config_app\&.h\&.
+.SS "#define DT_SYSTICK_Q16   \fBQCONST\fP(\fBDT_SYSTICK_FLT\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 367 of file config_app\&.h\&.
+.SS "#define ENABLE_ANGLE_CORRECTION"
+
+.PP
+Definition at line 57 of file config_app\&.h\&.
+.SS "#define ENABLE_ANGLEDIFF_AUTORANGE"
+
+.PP
+Definition at line 74 of file config_app\&.h\&.
+.SS "#define ENABLE_ANGLEDIFF_SPEED_CHECK"
+
+.PP
+Definition at line 61 of file config_app\&.h\&.
+.SS "#define ENABLE_OLSPEED_ANGLEDIFF_TIMEOUT"
+
+.PP
+Definition at line 68 of file config_app\&.h\&.
+.SS "#define ENABLE_PHASE_COMPENSATION"
+
+.PP
+Definition at line 58 of file config_app\&.h\&.
+.SS "#define MODE_1SHUNT_SELECT   \fBMODE_1SHUNT_EXTENSION\fP"
+
+.PP
+Definition at line 183 of file config_app\&.h\&.
+.SS "#define MODULATION_INDEX   1\&.15f"
+
+.PP
+Definition at line 456 of file config_app\&.h\&.
+.SS "#define MODULATION_SELECT   \fBMODULATION_SVM_STANDARD\fP"
+
+.PP
+Definition at line 210 of file config_app\&.h\&.
+.SS "#define MODULE_MPOS_ALIGNGO   \fBENABLED\fP"
+
+.PP
+Definition at line 400 of file config_app\&.h\&.
+.SS "#define MODULE_MPOS_HALL   \fBDISABLED\fP"
+
+.PP
+Definition at line 402 of file config_app\&.h\&.
+.SS "#define MODULE_MPOS_LBG1   \fBENABLED\fP"
+
+.PP
+Definition at line 401 of file config_app\&.h\&.
+.SS "#define MODULE_MPOS_QEP   \fBDISABLED\fP"
+
+.PP
+Definition at line 403 of file config_app\&.h\&.
+.SS "#define MPOS_SELECT   \fBMPOS_LBG1_START_ALIGNGO\fP"
+
+.PP
+Definition at line 47 of file config_app\&.h\&.
+.SS "#define OUTERLOOP_CONTROL_SELECT   \fBOUTERLOOP_CONTROL_SPEED\fP"
+
+.PP
+Definition at line 222 of file config_app\&.h\&.
+.SS "#define PARAM_SELECT   \fBPARAM_DEFAULT\fP"
+
+.PP
+Definition at line 30 of file config_app\&.h\&.
+.SS "#define PULSEWIDTH_MIN_HS_NSEC   (400 + MOTOR1_LED_NSEC)"
+
+.PP
+Definition at line 293 of file config_app\&.h\&.
+.SS "#define PULSEWIDTH_MIN_LS_NSEC   (400 + MOTOR1_TED_NSEC)"
+
+.PP
+Definition at line 298 of file config_app\&.h\&.
+.SS "#define SPEED_PI_LOOP_DIVIDER   1"
+
+.PP
+Definition at line 219 of file config_app\&.h\&.
+.SS "#define SYSTICK_HANDLER_DIVIDER   5"
+
+.PP
+Definition at line 362 of file config_app\&.h\&.
+.SS "#define SYSTICK_HANDLER_FREQ_HZ_FLT   500\&.0"
+
+.PP
+Definition at line 361 of file config_app\&.h\&.
+.SS "#define SYSTICK_TICKS   \fBQCONST\fP((HCLK_FREQ_HZ / \fBSYSTICK_HANDLER_FREQ_HZ_FLT\fP), \fBQ00\fP)"
+
+.PP
+Definition at line 366 of file config_app\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

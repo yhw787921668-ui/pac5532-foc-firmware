@@ -1,0 +1,147 @@
+.TH "Struct_AlignGo" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Struct_AlignGo \- align and go structure  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <aligngo_struct\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBeStateAlignGoMain\fP \fBstate_main\fP"
+.br
+.ti -1c
+.RI "\fBeStateAlignGoControl\fP \fBstate_control\fP"
+.br
+.ti -1c
+.RI "\fBeStatusAlignGo\fP \fBstatus\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBforced_angle_q26\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBaligntime_counter\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBspeedrefol_ramp\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBaligntime_cmd\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBaligntime_target\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBspeedrefol_target\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBspeedrefol_target_radps\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBspeedrefol_rate\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBidrefol_target_q16\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBiqrefol_target_q16\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBitotrefol_target_q16\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBitotrefol_target_1div_q16\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+align and go structure 
+.PP
+Definition at line 55 of file aligngo_struct\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "\fBfix16_t\fP Struct_AlignGo::aligntime_cmd"
+
+.PP
+Definition at line 68 of file aligngo_struct\&.h\&.
+.PP
+Referenced by aligngo_param_write()\&.
+.SS "\fBfix16_t\fP Struct_AlignGo::aligntime_counter"
+
+.PP
+Definition at line 64 of file aligngo_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_AlignGo::aligntime_target"
+
+.PP
+Definition at line 69 of file aligngo_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_AlignGo::forced_angle_q26"
+
+.PP
+Definition at line 63 of file aligngo_struct\&.h\&.
+.PP
+Referenced by sm_mainsub_prestart()\&.
+.SS "\fBfix16_t\fP Struct_AlignGo::idrefol_target_q16"
+
+.PP
+Definition at line 73 of file aligngo_struct\&.h\&.
+.PP
+Referenced by aligngo_param_write(), and est_anglediff_check()\&.
+.SS "\fBfix16_t\fP Struct_AlignGo::iqrefol_target_q16"
+
+.PP
+Definition at line 74 of file aligngo_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_AlignGo::itotrefol_target_1div_q16"
+
+.PP
+Definition at line 76 of file aligngo_struct\&.h\&.
+.PP
+Referenced by aligngo_param_write()\&.
+.SS "\fBfix16_t\fP Struct_AlignGo::itotrefol_target_q16"
+
+.PP
+Definition at line 75 of file aligngo_struct\&.h\&.
+.PP
+Referenced by aligngo_param_write(), and est_anglediff_check()\&.
+.SS "\fBfix16_t\fP Struct_AlignGo::speedrefol_ramp"
+
+.PP
+Definition at line 65 of file aligngo_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_AlignGo::speedrefol_rate"
+
+.PP
+Definition at line 72 of file aligngo_struct\&.h\&.
+.PP
+Referenced by aligngo_param_write()\&.
+.SS "\fBfix16_t\fP Struct_AlignGo::speedrefol_target"
+
+.PP
+Definition at line 70 of file aligngo_struct\&.h\&.
+.PP
+Referenced by aligngo_param_write()\&.
+.SS "\fBfix16_t\fP Struct_AlignGo::speedrefol_target_radps"
+
+.PP
+Definition at line 71 of file aligngo_struct\&.h\&.
+.PP
+Referenced by aligngo_param_write(), and app_param_process()\&.
+.SS "\fBeStateAlignGoControl\fP Struct_AlignGo::state_control"
+
+.PP
+Definition at line 59 of file aligngo_struct\&.h\&.
+.SS "\fBeStateAlignGoMain\fP Struct_AlignGo::state_main"
+
+.PP
+Definition at line 58 of file aligngo_struct\&.h\&.
+.SS "\fBeStatusAlignGo\fP Struct_AlignGo::status"
+
+.PP
+Definition at line 60 of file aligngo_struct\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

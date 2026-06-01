@@ -1,0 +1,809 @@
+.TH "pac_foc/src/param/param_default.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/param/param_default.h \- Use for parameter processing\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPUSER_VALUE_PWM_FREQ_HZ\fP   20000"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_CONTROL_FREQ_DIV\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_DIFFAMP_GAIN\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_LD_UH\fP   1000"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_LQ_UH\fP   1000"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_R_OHMS\fP   0\&.1000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_POLE_PAIRS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_NOMINAL_SPEED\fP   1884\&.96f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_OC_DAC\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_SPEED_MAX_HZ\fP   1500\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_POWER_MAX_W\fP   100\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_IQ_MAX_A\fP   1\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_IQ_MIN_A\fP   0\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_OC_LIMIT_A\fP   40\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_CL_COAST_TIMEOUT_SEC\fP   10\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_ALIGN_TIME_SEC\fP   1\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_ID_REF_OL_A\fP   0\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_ITOTAL_REF_OL_A\fP   0\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_SPEED_RAMP_OL_HZPSEC\fP   50\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_SPEED_SETPOINT_OL_HZ\fP   100\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_AUTO_CLOSE_LOOP\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_PI_ID_KP\fP   0\&.0000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_PI_ID_KI\fP   0\&.0000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_PI_ID_MIN\fP   \-0\&.9200f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_PI_ID_MAX\fP   0\&.9200f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_FC_ID_HZ\fP   3000"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_PI_IQ_KP\fP   0\&.0000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_PI_IQ_KI\fP   0\&.0000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_PI_IQ_MIN\fP   0\&.0000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_PI_IQ_MAX\fP   1\&.0000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_FC_IQ_HZ\fP   3000"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_IDIQ_RAMP_APSEC\fP   100\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_PI_SPEED_KP\fP   0\&.0000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_PI_SPEED_KI\fP   0\&.0000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_SPEED_RAMP_HZPSEC\fP   100\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_PI_POWER_KP\fP   0\&.0000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_PI_POWER_KI\fP   0\&.0000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_POWER_RAMP_WPSEC\fP   10\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_CL_MODE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_REVERSE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_SPEED_SETPOINT_CL_HZ\fP   100\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_POWER_SETPOINT_CL_W\fP   50\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_ID_REF_CL_A\fP   0\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_IQ_REF_CL_A\fP   0\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_LBG1_KPE\fP   0\&.4000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_LBG1_KPI\fP   0\&.0000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_LBG1_BANDWIDTH\fP   7539\&.8f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_LBG1_DAMPINGFACTOR\fP   0\&.7071f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_LBG1_FC_SPEED_HZ\fP   100"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_LBG1_ANGLE_OFFSET_DEG\fP   0\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_LBG1_ANGLE_FACTOR_DEGPHZ\fP   0\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_LBG2_KPI\fP   0\&.4000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_LBG2_KPE\fP   0\&.4000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_LBG2_FC_SPEED_HZ\fP   100"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_LBG2_ANGLE_OFFSET_DEG\fP   0\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_LBG2_ANGLE_FACTOR_DEGPHZ\fP   0\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_SMO_KPI\fP   0\&.4000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_SMO_KANGLE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_SMO_KSLIDE\fP   1\&.0000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_SMO_FC_SLIDE_HZ\fP   100"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_SMO_FC_SPEED_HZ\fP   100"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_SMO_ANGLE_OFFSET_DEG\fP   0\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_SMO_ANGLE_FACTOR_DEGPHZ\fP   0\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_SIM_ALIGN_SEC\fP   1\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_SIM_IDIQ_GAIN\fP   1\&.50f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_SIM_BTO_SEC\fP   20\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_SIM_AMP_GAIN\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_SIM_CURRENT_TRACK_GAIN\fP   10\&.000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_STALL_KE\fP   0\&.00000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_STALL_WINDOW_SEC\fP   0\&.25f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_IPD_CHARGE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_IPD_DISCHARGE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_IPD_PERIODS\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_IPD_OFFSET_FORWARD_DEG\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_IPD_OFFSET_REVERSE_DEG\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_FW_ID\fP   0\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_FW_SPEED\fP   5000\&.00f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_FW_VDRIVE\fP   100"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_MISC_FIX16_1\fP   0\&.0000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_MISC_FIX16_2\fP   0\&.0000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_MISC_FIX16_3\fP   0\&.0000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_MTPA_DEGPAMP_FIX16\fP   0\&.0000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_MISC_UINT32_1\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_MISC_UINT32_2\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_MISC_UINT32_3\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_AUTOTUNE_KE\fP   0\&.0000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_AUTOTUNE_J\fP   0\&.0000f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALL_ISTART_AMPS\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALL_ANGCORR_GAIN_FWD_DEGPHZ\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALL_ANGCORR_GAIN_REV_DEGPHZ\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALL_ANGCORR_OFFSET_FWD_DEG\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALL_ANGCORR_OFFSET_REV_DEG\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALL_SNAPANGLE_1_FWD_RAD\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALL_SNAPANGLE_1_REV_RAD\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALL_SNAPANGLE_2_FWD_RAD\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALL_SNAPANGLE_2_REV_RAD\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALL_SNAPANGLE_3_FWD_RAD\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALL_SNAPANGLE_3_REV_RAD\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALL_SNAPANGLE_4_FWD_RAD\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALL_SNAPANGLE_4_REV_RAD\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALL_SNAPANGLE_5_FWD_RAD\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALL_SNAPANGLE_5_REV_RAD\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALL_SNAPANGLE_6_FWD_RAD\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALL_SNAPANGLE_6_REV_RAD\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALL_HALL2EST_SWITCH_SPEED_HZ\fP   100\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALLTUNE_ISTART_AMPS\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALLTUNE_RAMPRATE_HZPSEC\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_HALLTUNE_SPEED_HZ\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_QEP_RESOLUTION\fP   2048"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_QEP_ANGCORR_OFFSET_FWD_DEG\fP   50\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_QEP_ANGCORR_OFFSET_REV_DEG\fP   0\&.0f"
+.br
+.ti -1c
+.RI "#define \fBPUSER_VALUE_QEP_FC_HZ\fP   70\&.0f"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for parameter processing\&. 
+
+
+.PP
+Definition in file \fBparam_default\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define PUSER_VALUE_ALIGN_TIME_SEC   1\&.00f"
+
+.PP
+Definition at line 47 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_AUTO_CLOSE_LOOP   0"
+
+.PP
+Definition at line 52 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_AUTOTUNE_J   0\&.0000f"
+
+.PP
+Definition at line 133 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_AUTOTUNE_KE   0\&.0000f"
+
+.PP
+Definition at line 132 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_CL_COAST_TIMEOUT_SEC   10\&.00f"
+
+.PP
+Definition at line 45 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_CL_MODE   0"
+
+.PP
+Definition at line 74 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_CONTROL_FREQ_DIV   1"
+
+.PP
+Definition at line 29 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_DIFFAMP_GAIN   1"
+
+.PP
+Definition at line 31 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_FC_ID_HZ   3000"
+
+.PP
+Definition at line 58 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_FC_IQ_HZ   3000"
+
+.PP
+Definition at line 63 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_FW_ID   0\&.00f"
+
+.PP
+Definition at line 120 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_FW_SPEED   5000\&.00f"
+
+.PP
+Definition at line 121 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_FW_VDRIVE   100"
+
+.PP
+Definition at line 122 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALL_ANGCORR_GAIN_FWD_DEGPHZ   0\&.0f"
+
+.PP
+Definition at line 136 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALL_ANGCORR_GAIN_REV_DEGPHZ   0\&.0f"
+
+.PP
+Definition at line 137 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALL_ANGCORR_OFFSET_FWD_DEG   0\&.0f"
+
+.PP
+Definition at line 138 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALL_ANGCORR_OFFSET_REV_DEG   0\&.0f"
+
+.PP
+Definition at line 139 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALL_HALL2EST_SWITCH_SPEED_HZ   100\&.0f"
+
+.PP
+Definition at line 153 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALL_ISTART_AMPS   0\&.0f"
+
+.PP
+Definition at line 135 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALL_SNAPANGLE_1_FWD_RAD   0\&.0f"
+
+.PP
+Definition at line 140 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALL_SNAPANGLE_1_REV_RAD   0\&.0f"
+
+.PP
+Definition at line 141 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALL_SNAPANGLE_2_FWD_RAD   0\&.0f"
+
+.PP
+Definition at line 142 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALL_SNAPANGLE_2_REV_RAD   0\&.0f"
+
+.PP
+Definition at line 143 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALL_SNAPANGLE_3_FWD_RAD   0\&.0f"
+
+.PP
+Definition at line 144 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALL_SNAPANGLE_3_REV_RAD   0\&.0f"
+
+.PP
+Definition at line 145 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALL_SNAPANGLE_4_FWD_RAD   0\&.0f"
+
+.PP
+Definition at line 146 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALL_SNAPANGLE_4_REV_RAD   0\&.0f"
+
+.PP
+Definition at line 147 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALL_SNAPANGLE_5_FWD_RAD   0\&.0f"
+
+.PP
+Definition at line 148 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALL_SNAPANGLE_5_REV_RAD   0\&.0f"
+
+.PP
+Definition at line 149 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALL_SNAPANGLE_6_FWD_RAD   0\&.0f"
+
+.PP
+Definition at line 150 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALL_SNAPANGLE_6_REV_RAD   0\&.0f"
+
+.PP
+Definition at line 151 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALLTUNE_ISTART_AMPS   0\&.0f"
+
+.PP
+Definition at line 155 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALLTUNE_RAMPRATE_HZPSEC   0\&.0f"
+
+.PP
+Definition at line 156 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_HALLTUNE_SPEED_HZ   0\&.0f"
+
+.PP
+Definition at line 157 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_ID_REF_CL_A   0\&.00f"
+
+.PP
+Definition at line 78 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_ID_REF_OL_A   0\&.00f"
+
+.PP
+Definition at line 48 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_IDIQ_RAMP_APSEC   100\&.00f"
+
+.PP
+Definition at line 64 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_IPD_CHARGE   0"
+
+.PP
+Definition at line 114 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_IPD_DISCHARGE   0"
+
+.PP
+Definition at line 115 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_IPD_OFFSET_FORWARD_DEG   0"
+
+.PP
+Definition at line 117 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_IPD_OFFSET_REVERSE_DEG   0"
+
+.PP
+Definition at line 118 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_IPD_PERIODS   0"
+
+.PP
+Definition at line 116 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_IQ_MAX_A   1\&.00f"
+
+.PP
+Definition at line 42 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_IQ_MIN_A   0\&.00f"
+
+.PP
+Definition at line 43 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_IQ_REF_CL_A   0\&.00f"
+
+.PP
+Definition at line 79 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_ITOTAL_REF_OL_A   0\&.00f"
+
+.PP
+Definition at line 49 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_LBG1_ANGLE_FACTOR_DEGPHZ   0\&.00f"
+
+.PP
+Definition at line 88 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_LBG1_ANGLE_OFFSET_DEG   0\&.00f"
+
+.PP
+Definition at line 87 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_LBG1_BANDWIDTH   7539\&.8f"
+
+.PP
+Definition at line 83 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_LBG1_DAMPINGFACTOR   0\&.7071f"
+
+.PP
+Definition at line 84 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_LBG1_FC_SPEED_HZ   100"
+
+.PP
+Definition at line 86 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_LBG1_KPE   0\&.4000f"
+
+.PP
+Definition at line 81 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_LBG1_KPI   0\&.0000f"
+
+.PP
+Definition at line 82 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_LBG2_ANGLE_FACTOR_DEGPHZ   0\&.00f"
+
+.PP
+Definition at line 94 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_LBG2_ANGLE_OFFSET_DEG   0\&.00f"
+
+.PP
+Definition at line 93 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_LBG2_FC_SPEED_HZ   100"
+
+.PP
+Definition at line 92 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_LBG2_KPE   0\&.4000f"
+
+.PP
+Definition at line 91 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_LBG2_KPI   0\&.4000f"
+
+.PP
+Definition at line 90 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_LD_UH   1000"
+
+.PP
+Definition at line 33 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_LQ_UH   1000"
+
+.PP
+Definition at line 34 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_MISC_FIX16_1   0\&.0000f"
+
+.PP
+Definition at line 124 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_MISC_FIX16_2   0\&.0000f"
+
+.PP
+Definition at line 125 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_MISC_FIX16_3   0\&.0000f"
+
+.PP
+Definition at line 126 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_MISC_UINT32_1   0"
+
+.PP
+Definition at line 128 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_MISC_UINT32_2   0"
+
+.PP
+Definition at line 129 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_MISC_UINT32_3   0"
+
+.PP
+Definition at line 130 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_MTPA_DEGPAMP_FIX16   0\&.0000f"
+
+.PP
+Definition at line 127 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_NOMINAL_SPEED   1884\&.96f"
+
+.PP
+Definition at line 37 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_OC_DAC   0"
+
+.PP
+Definition at line 38 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_OC_LIMIT_A   40\&.00f"
+
+.PP
+Definition at line 44 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_PI_ID_KI   0\&.0000f"
+
+.PP
+Definition at line 55 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_PI_ID_KP   0\&.0000f"
+
+.PP
+Definition at line 54 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_PI_ID_MAX   0\&.9200f"
+
+.PP
+Definition at line 57 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_PI_ID_MIN   \-0\&.9200f"
+
+.PP
+Definition at line 56 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_PI_IQ_KI   0\&.0000f"
+
+.PP
+Definition at line 60 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_PI_IQ_KP   0\&.0000f"
+
+.PP
+Definition at line 59 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_PI_IQ_MAX   1\&.0000f"
+
+.PP
+Definition at line 62 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_PI_IQ_MIN   0\&.0000f"
+
+.PP
+Definition at line 61 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_PI_POWER_KI   0\&.0000f"
+
+.PP
+Definition at line 71 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_PI_POWER_KP   0\&.0000f"
+
+.PP
+Definition at line 70 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_PI_SPEED_KI   0\&.0000f"
+
+.PP
+Definition at line 67 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_PI_SPEED_KP   0\&.0000f"
+
+.PP
+Definition at line 66 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_POLE_PAIRS   1"
+
+.PP
+Definition at line 36 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_POWER_MAX_W   100\&.00f"
+
+.PP
+Definition at line 41 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_POWER_RAMP_WPSEC   10\&.00f"
+
+.PP
+Definition at line 72 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_POWER_SETPOINT_CL_W   50\&.00f"
+
+.PP
+Definition at line 77 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_PWM_FREQ_HZ   20000"
+
+.PP
+Definition at line 28 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_QEP_ANGCORR_OFFSET_FWD_DEG   50\&.0f"
+
+.PP
+Definition at line 160 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_QEP_ANGCORR_OFFSET_REV_DEG   0\&.0f"
+
+.PP
+Definition at line 161 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_QEP_FC_HZ   70\&.0f"
+
+.PP
+Definition at line 162 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_QEP_RESOLUTION   2048"
+
+.PP
+Definition at line 159 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_R_OHMS   0\&.1000f"
+
+.PP
+Definition at line 35 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_REVERSE   0"
+
+.PP
+Definition at line 75 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_SIM_ALIGN_SEC   1\&.00f"
+
+.PP
+Definition at line 104 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_SIM_AMP_GAIN   1"
+
+.PP
+Definition at line 107 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_SIM_BTO_SEC   20\&.00f"
+
+.PP
+Definition at line 106 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_SIM_CURRENT_TRACK_GAIN   10\&.000f"
+
+.PP
+Definition at line 109 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_SIM_IDIQ_GAIN   1\&.50f"
+
+.PP
+Definition at line 105 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_SMO_ANGLE_FACTOR_DEGPHZ   0\&.00f"
+
+.PP
+Definition at line 102 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_SMO_ANGLE_OFFSET_DEG   0\&.00f"
+
+.PP
+Definition at line 101 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_SMO_FC_SLIDE_HZ   100"
+
+.PP
+Definition at line 99 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_SMO_FC_SPEED_HZ   100"
+
+.PP
+Definition at line 100 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_SMO_KANGLE   0"
+
+.PP
+Definition at line 97 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_SMO_KPI   0\&.4000f"
+
+.PP
+Definition at line 96 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_SMO_KSLIDE   1\&.0000f"
+
+.PP
+Definition at line 98 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_SPEED_MAX_HZ   1500\&.00f"
+
+.PP
+Definition at line 40 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_SPEED_RAMP_HZPSEC   100\&.00f"
+
+.PP
+Definition at line 68 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_SPEED_RAMP_OL_HZPSEC   50\&.00f"
+
+.PP
+Definition at line 50 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_SPEED_SETPOINT_CL_HZ   100\&.00f"
+
+.PP
+Definition at line 76 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_SPEED_SETPOINT_OL_HZ   100\&.00f"
+
+.PP
+Definition at line 51 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_STALL_KE   0\&.00000f"
+
+.PP
+Definition at line 111 of file param_default\&.h\&.
+.SS "#define PUSER_VALUE_STALL_WINDOW_SEC   0\&.25f"
+
+.PP
+Definition at line 112 of file param_default\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

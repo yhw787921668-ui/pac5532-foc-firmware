@@ -1,0 +1,401 @@
+\hypertarget{fault__struct_8h}{}\doxysection{pac\+\_\+foc/src/app/fault\+\_\+struct.h File Reference}
+\label{fault__struct_8h}\index{pac\_foc/src/app/fault\_struct.h@{pac\_foc/src/app/fault\_struct.h}}
+
+
+Use to define fault type, status, warning, bits.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fault__struct_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_struct___fault}{Struct\+\_\+\+Fault}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fault__struct_8h_acf4bc86c68b182367df13c0c4c5633b2}{F\+A\+U\+L\+T\+\_\+\+M\+A\+I\+N\+\_\+\+G\+R\+P\+\_\+\+C\+L\+E\+A\+R\+S\+T\+A\+RT}}
+\item 
+\#define \mbox{\hyperlink{fault__struct_8h_ac15b6a1aaffaf53c1151c1f42fb882b2}{F\+A\+U\+L\+T\+\_\+\+M\+A\+I\+N\+\_\+\+G\+R\+P\+\_\+\+C\+L\+E\+A\+R\+C\+MD}}
+\item 
+\#define \mbox{\hyperlink{fault__struct_8h_a5444c7d16a1ee8c293bf0027f0755211}{F\+A\+U\+L\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+G\+R\+P\+\_\+\+C\+L\+E\+A\+R\+R\+E\+AD}}
+\item 
+\#define \mbox{\hyperlink{fault__struct_8h_a2c8428394f7dc31eeb87c2ddacfd479c}{F\+A\+U\+L\+T\+\_\+\+M\+A\+I\+N\+\_\+\+G\+R\+P\+\_\+\+S\+T\+OP}}
+\item 
+\#define \mbox{\hyperlink{fault__struct_8h_a4aade078bab9e4ead49cee8fe9f242b1}{F\+A\+U\+L\+T\+\_\+\+M\+A\+I\+N\+\_\+\+G\+R\+P\+\_\+\+S\+T\+A\+TE}}
+\item 
+\#define \mbox{\hyperlink{fault__struct_8h_a3821cc3686cd84b8662f42712990cfda}{F\+A\+U\+L\+T\+\_\+\+M\+A\+I\+N\+\_\+\+G\+R\+P\+\_\+\+T\+E\+R\+M\+I\+N\+AL}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8}{e\+Fault\+Motor}} \{ \newline
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a3f05ac4748436d1780b970fe284d85f5}{W\+A\+R\+N\+I\+N\+G\+\_\+\+M\+A\+I\+N\+\_\+\+O\+C\+\_\+\+V\+A\+L\+UE}} = B\+I\+T\+\_\+00, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a9f505a4192ab5f2559d410f07ecf3d07}{W\+A\+R\+N\+I\+N\+G\+\_\+\+C\+B\+C\+\_\+\+OC}} = B\+I\+T\+\_\+01, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af0728948480b841aa4248617c9ac2058}{W\+A\+R\+N\+I\+N\+G\+\_\+\+P\+W\+M\+\_\+\+S\+A\+T\+U\+R\+A\+T\+ED}} = B\+I\+T\+\_\+02, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8aae093513cf42824aef95d8cd0668c9f7}{W\+A\+R\+N\+I\+N\+G\+\_\+\+S\+T\+A\+C\+K\+\_\+\+O\+OR}} = B\+I\+T\+\_\+03, 
+\newline
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ab6e188158aa5bcb9c0d6f3d7b5f8bf8a}{W\+A\+R\+N\+I\+N\+G\+\_\+\+O\+L\+S\+P\+E\+E\+D\+\_\+\+M\+IN}} = B\+I\+T\+\_\+04, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8aef78e1a3f46b8069ba8c29e78308a86a}{W\+A\+R\+N\+I\+N\+G\+\_\+\+A\+N\+G\+L\+D\+IF}} = B\+I\+T\+\_\+05, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a02961a202b782cbd21882c475b7071ae}{W\+A\+R\+N\+I\+N\+G\+\_\+\+F\+O\+C\+C\+T\+R\+L\+\_\+\+O\+V\+E\+R\+F\+L\+OW}} = B\+I\+T\+\_\+06, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a696f6dd8e2b1fb263c174abb9f7ccc2c}{W\+A\+R\+N\+I\+N\+G\+\_\+\+O\+U\+\_\+\+V\+O\+L\+T\+A\+GE}} = B\+I\+T\+\_\+07, 
+\newline
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a86b525d82733a2997eccbb0af80eddf3}{W\+A\+R\+N\+I\+N\+G\+\_\+\+P\+I\+G\+A\+I\+N\+\_\+\+R\+A\+N\+GE}} = B\+I\+T\+\_\+08, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ac52b3578c10c567f144748351ec69cf1}{W\+A\+R\+N\+I\+N\+G\+\_\+\+S\+T\+A\+L\+L\+F\+I\+L\+T\+G\+A\+IN}} = B\+I\+T\+\_\+09, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a7efb5b258be0ce683b37edd082848343}{W\+A\+R\+N\+I\+N\+G\+\_\+\+S\+P\+D\+D\+IF}} = B\+I\+T\+\_\+10, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a6c4b7dad3a4d734c4453b097344231f2}{W\+A\+R\+N\+I\+N\+G\+\_\+\+A\+T\+U\+N\+E\+\_\+\+C\+H\+E\+C\+K\+\_\+\+S\+T\+A\+T\+US}} = B\+I\+T\+\_\+11, 
+\newline
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af68bbd763ed01480e1f4024cf50ac3b5}{W\+A\+R\+N\+I\+N\+G\+\_\+\+E\+S\+T\+B\+W\+\_\+\+H\+I\+GH}} = B\+I\+T\+\_\+12, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ab3bf3079f0603e201071fa91d42d6e47}{W\+A\+R\+N\+\_\+\+H\+A\+L\+L\+\_\+\+T\+I\+M\+\_\+\+P\+E\+R\+D\+\_\+\+I\+N\+V\+A\+L\+ID}} = B\+I\+T\+\_\+13, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ad4f057cc0858c14d1c55e0ba8196a382}{F\+A\+U\+L\+T\+\_\+\+C\+O\+A\+S\+T\+\_\+\+T\+I\+M\+E\+O\+UT}} = B\+I\+T\+\_\+14, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a4e35e049e639d8952c40a70aaac66222}{F\+A\+U\+L\+T\+\_\+\+S\+P\+D\+A\+N\+G\+L\+D\+I\+F\+\_\+\+T\+I\+M\+E\+O\+UT}} = B\+I\+T\+\_\+15, 
+\newline
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a7a320981168744eb5cf94199073647fc}{F\+A\+U\+L\+T\+\_\+\+C\+A\+F\+E\+\_\+\+OC}} = B\+I\+T\+\_\+16, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a940f8d4d03f0cfc3c8f8cc0325b5d9c0}{F\+A\+U\+L\+T\+\_\+\+O\+U\+\_\+\+V\+O\+L\+T\+A\+GE}} = B\+I\+T\+\_\+17, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a21a2f1a86c9f85878c1015f0992d786c}{F\+A\+U\+L\+T\+\_\+\+M\+I\+N\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+ED}} = B\+I\+T\+\_\+18, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8afff4aea7bd956735ff2afcf226325561}{F\+A\+U\+L\+T\+\_\+\+O\+PD}} = B\+I\+T\+\_\+19, 
+\newline
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a39559c440b738adb255d9493768bad30}{F\+A\+U\+L\+T\+\_\+\+F\+L\+A\+S\+H\+\_\+\+C\+R\+C\+\_\+\+T\+E\+ST}} = B\+I\+T\+\_\+20, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af99948c55499a7ba575229fb0551c83d}{F\+A\+U\+L\+T\+\_\+\+P\+A\+R\+A\+M\+\_\+\+W\+H\+I\+L\+E\+\_\+\+R\+UN}} = B\+I\+T\+\_\+21, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ac3041dda1ce682794f1f42ca252ef356}{F\+A\+U\+L\+T\+\_\+\+M\+A\+I\+N\+\_\+\+A\+F\+E\+I\+N\+IT}} = B\+I\+T\+\_\+22, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a9c48c2a2491264b4d10d36f7ef8ae27a}{F\+A\+U\+L\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+S\+T\+A\+L\+L\+ED}} = B\+I\+T\+\_\+23, 
+\newline
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a840989d4aae9c23f56a428766b9c138c}{F\+A\+U\+L\+T\+\_\+\+P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+T\+I\+M\+E\+O\+UT}} = B\+I\+T\+\_\+24, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ad49dda654871254b56f2b5b4fd2b6447}{F\+A\+U\+L\+T\+\_\+\+A\+D\+C\+C\+AL}} = B\+I\+T\+\_\+25, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8afc2b4a4e6e66e96eee3eb997efb73604}{F\+A\+U\+L\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+H\+A\+L\+L\+\_\+\+I\+N\+V\+S\+T\+A\+TE}} = B\+I\+T\+\_\+26, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a4292aba280163ae086ce03cd70eefdd9}{F\+A\+U\+L\+T\+\_\+\+E\+S\+T\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+I\+N\+P\+UT}} = B\+I\+T\+\_\+27, 
+\newline
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8adaa943cf8fb309f38a25d0390204172a}{F\+A\+U\+L\+T\+\_\+\+H\+A\+L\+L\+\_\+\+T\+I\+M\+E\+O\+UT}} = B\+I\+T\+\_\+28, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af5133afb8c2718b8ef25f84d2d3c6d93}{F\+A\+U\+L\+T\+\_\+\+U\+N\+U\+S\+E\+D\+\_\+29}} = B\+I\+T\+\_\+29, 
+\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a5e2e32e8fdf93365cfdcd7ab2181215e}{W\+A\+R\+N\+I\+N\+G\+\_\+\+F\+A\+I\+L\+U\+R\+E\+\_\+\+D\+E\+T\+E\+C\+T\+I\+ON}} = B\+I\+T\+\_\+30
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use to define fault type, status, warning, bits. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{fault__struct_8h_ac15b6a1aaffaf53c1151c1f42fb882b2}\label{fault__struct_8h_ac15b6a1aaffaf53c1151c1f42fb882b2}} 
+\index{fault\_struct.h@{fault\_struct.h}!FAULT\_MAIN\_GRP\_CLEARCMD@{FAULT\_MAIN\_GRP\_CLEARCMD}}
+\index{FAULT\_MAIN\_GRP\_CLEARCMD@{FAULT\_MAIN\_GRP\_CLEARCMD}!fault\_struct.h@{fault\_struct.h}}
+\doxysubsubsection{\texorpdfstring{FAULT\_MAIN\_GRP\_CLEARCMD}{FAULT\_MAIN\_GRP\_CLEARCMD}}
+{\footnotesize\ttfamily \#define F\+A\+U\+L\+T\+\_\+\+M\+A\+I\+N\+\_\+\+G\+R\+P\+\_\+\+C\+L\+E\+A\+R\+C\+MD}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        (\(\backslash\)}
+\DoxyCodeLine{        FAULT\_PARAM\_WHILE\_RUN \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8aae093513cf42824aef95d8cd0668c9f7}{WARNING\_STACK\_OOR}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_acf4bc86c68b182367df13c0c4c5633b2}{FAULT\_MAIN\_GRP\_CLEARSTART}}\(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a86b525d82733a2997eccbb0af80eddf3}{WARNING\_PIGAIN\_RANGE}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ac52b3578c10c567f144748351ec69cf1}{WARNING\_STALLFILTGAIN}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8afc2b4a4e6e66e96eee3eb997efb73604}{FAULT\_MOTOR\_HALL\_INVSTATE}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a4292aba280163ae086ce03cd70eefdd9}{FAULT\_EST\_INVALID\_INPUT}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8adaa943cf8fb309f38a25d0390204172a}{FAULT\_HALL\_TIMEOUT}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ab3bf3079f0603e201071fa91d42d6e47}{WARN\_HALL\_TIM\_PERD\_INVALID}} \(\backslash\)}
+\DoxyCodeLine{        )}
+
+\end{DoxyCode}
+
+
+Definition at line 100 of file fault\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{fault__struct_8h_acf4bc86c68b182367df13c0c4c5633b2}\label{fault__struct_8h_acf4bc86c68b182367df13c0c4c5633b2}} 
+\index{fault\_struct.h@{fault\_struct.h}!FAULT\_MAIN\_GRP\_CLEARSTART@{FAULT\_MAIN\_GRP\_CLEARSTART}}
+\index{FAULT\_MAIN\_GRP\_CLEARSTART@{FAULT\_MAIN\_GRP\_CLEARSTART}!fault\_struct.h@{fault\_struct.h}}
+\doxysubsubsection{\texorpdfstring{FAULT\_MAIN\_GRP\_CLEARSTART}{FAULT\_MAIN\_GRP\_CLEARSTART}}
+{\footnotesize\ttfamily \#define F\+A\+U\+L\+T\+\_\+\+M\+A\+I\+N\+\_\+\+G\+R\+P\+\_\+\+C\+L\+E\+A\+R\+S\+T\+A\+RT}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        (\(\backslash\)}
+\DoxyCodeLine{        FAULT\_SPDANGLDIF\_TIMEOUT \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a21a2f1a86c9f85878c1015f0992d786c}{FAULT\_MIN\_MAX\_SPEED}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8afff4aea7bd956735ff2afcf226325561}{FAULT\_OPD}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a9c48c2a2491264b4d10d36f7ef8ae27a}{FAULT\_MOTOR\_STALLED}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ad4f057cc0858c14d1c55e0ba8196a382}{FAULT\_COAST\_TIMEOUT}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8aef78e1a3f46b8069ba8c29e78308a86a}{WARNING\_ANGLDIF}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a7efb5b258be0ce683b37edd082848343}{WARNING\_SPDDIF}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a02961a202b782cbd21882c475b7071ae}{WARNING\_FOCCTRL\_OVERFLOW}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af0728948480b841aa4248617c9ac2058}{WARNING\_PWM\_SATURATED}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a9f505a4192ab5f2559d410f07ecf3d07}{WARNING\_CBC\_OC}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a940f8d4d03f0cfc3c8f8cc0325b5d9c0}{FAULT\_OU\_VOLTAGE}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a840989d4aae9c23f56a428766b9c138c}{FAULT\_PPM\_PULSE\_TIMEOUT}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8afc2b4a4e6e66e96eee3eb997efb73604}{FAULT\_MOTOR\_HALL\_INVSTATE}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a4292aba280163ae086ce03cd70eefdd9}{FAULT\_EST\_INVALID\_INPUT}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8adaa943cf8fb309f38a25d0390204172a}{FAULT\_HALL\_TIMEOUT}} \(\backslash\)}
+\DoxyCodeLine{        )}
+
+\end{DoxyCode}
+
+
+Definition at line 79 of file fault\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{fault__struct_8h_a4aade078bab9e4ead49cee8fe9f242b1}\label{fault__struct_8h_a4aade078bab9e4ead49cee8fe9f242b1}} 
+\index{fault\_struct.h@{fault\_struct.h}!FAULT\_MAIN\_GRP\_STATE@{FAULT\_MAIN\_GRP\_STATE}}
+\index{FAULT\_MAIN\_GRP\_STATE@{FAULT\_MAIN\_GRP\_STATE}!fault\_struct.h@{fault\_struct.h}}
+\doxysubsubsection{\texorpdfstring{FAULT\_MAIN\_GRP\_STATE}{FAULT\_MAIN\_GRP\_STATE}}
+{\footnotesize\ttfamily \#define F\+A\+U\+L\+T\+\_\+\+M\+A\+I\+N\+\_\+\+G\+R\+P\+\_\+\+S\+T\+A\+TE}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        (\(\backslash\)}
+\DoxyCodeLine{        FAULT\_CAFE\_OC \(\backslash\)}
+\DoxyCodeLine{        )}
+
+\end{DoxyCode}
+
+
+Definition at line 146 of file fault\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{fault__struct_8h_a2c8428394f7dc31eeb87c2ddacfd479c}\label{fault__struct_8h_a2c8428394f7dc31eeb87c2ddacfd479c}} 
+\index{fault\_struct.h@{fault\_struct.h}!FAULT\_MAIN\_GRP\_STOP@{FAULT\_MAIN\_GRP\_STOP}}
+\index{FAULT\_MAIN\_GRP\_STOP@{FAULT\_MAIN\_GRP\_STOP}!fault\_struct.h@{fault\_struct.h}}
+\doxysubsubsection{\texorpdfstring{FAULT\_MAIN\_GRP\_STOP}{FAULT\_MAIN\_GRP\_STOP}}
+{\footnotesize\ttfamily \#define F\+A\+U\+L\+T\+\_\+\+M\+A\+I\+N\+\_\+\+G\+R\+P\+\_\+\+S\+T\+OP}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        (\(\backslash\)}
+\DoxyCodeLine{        FAULT\_SPDANGLDIF\_TIMEOUT \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8afff4aea7bd956735ff2afcf226325561}{FAULT\_OPD}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a940f8d4d03f0cfc3c8f8cc0325b5d9c0}{FAULT\_OU\_VOLTAGE}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a9c48c2a2491264b4d10d36f7ef8ae27a}{FAULT\_MOTOR\_STALLED}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ad4f057cc0858c14d1c55e0ba8196a382}{FAULT\_COAST\_TIMEOUT}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a21a2f1a86c9f85878c1015f0992d786c}{FAULT\_MIN\_MAX\_SPEED}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a840989d4aae9c23f56a428766b9c138c}{FAULT\_PPM\_PULSE\_TIMEOUT}}\(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8afc2b4a4e6e66e96eee3eb997efb73604}{FAULT\_MOTOR\_HALL\_INVSTATE}}\(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a4292aba280163ae086ce03cd70eefdd9}{FAULT\_EST\_INVALID\_INPUT}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8adaa943cf8fb309f38a25d0390204172a}{FAULT\_HALL\_TIMEOUT}} \(\backslash\)}
+\DoxyCodeLine{        )}
+
+\end{DoxyCode}
+
+
+Definition at line 130 of file fault\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{fault__struct_8h_a3821cc3686cd84b8662f42712990cfda}\label{fault__struct_8h_a3821cc3686cd84b8662f42712990cfda}} 
+\index{fault\_struct.h@{fault\_struct.h}!FAULT\_MAIN\_GRP\_TERMINAL@{FAULT\_MAIN\_GRP\_TERMINAL}}
+\index{FAULT\_MAIN\_GRP\_TERMINAL@{FAULT\_MAIN\_GRP\_TERMINAL}!fault\_struct.h@{fault\_struct.h}}
+\doxysubsubsection{\texorpdfstring{FAULT\_MAIN\_GRP\_TERMINAL}{FAULT\_MAIN\_GRP\_TERMINAL}}
+{\footnotesize\ttfamily \#define F\+A\+U\+L\+T\+\_\+\+M\+A\+I\+N\+\_\+\+G\+R\+P\+\_\+\+T\+E\+R\+M\+I\+N\+AL}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        (\(\backslash\)}
+\DoxyCodeLine{        FAULT\_ADCCAL \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ac3041dda1ce682794f1f42ca252ef356}{FAULT\_MAIN\_AFEINIT}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a39559c440b738adb255d9493768bad30}{FAULT\_FLASH\_CRC\_TEST}} \(\backslash\)}
+\DoxyCodeLine{        )}
+
+\end{DoxyCode}
+
+
+Definition at line 153 of file fault\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{fault__struct_8h_a5444c7d16a1ee8c293bf0027f0755211}\label{fault__struct_8h_a5444c7d16a1ee8c293bf0027f0755211}} 
+\index{fault\_struct.h@{fault\_struct.h}!FAULT\_MOTOR\_GRP\_CLEARREAD@{FAULT\_MOTOR\_GRP\_CLEARREAD}}
+\index{FAULT\_MOTOR\_GRP\_CLEARREAD@{FAULT\_MOTOR\_GRP\_CLEARREAD}!fault\_struct.h@{fault\_struct.h}}
+\doxysubsubsection{\texorpdfstring{FAULT\_MOTOR\_GRP\_CLEARREAD}{FAULT\_MOTOR\_GRP\_CLEARREAD}}
+{\footnotesize\ttfamily \#define F\+A\+U\+L\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+G\+R\+P\+\_\+\+C\+L\+E\+A\+R\+R\+E\+AD}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        (\(\backslash\)}
+\DoxyCodeLine{        WARNING\_FOCCTRL\_OVERFLOW \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a9f505a4192ab5f2559d410f07ecf3d07}{WARNING\_CBC\_OC}} \(\backslash\)}
+\DoxyCodeLine{        | \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af0728948480b841aa4248617c9ac2058}{WARNING\_PWM\_SATURATED}} \(\backslash\)}
+\DoxyCodeLine{        )}
+
+\end{DoxyCode}
+
+
+Definition at line 115 of file fault\+\_\+struct.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8}} 
+\index{fault\_struct.h@{fault\_struct.h}!eFaultMotor@{eFaultMotor}}
+\index{eFaultMotor@{eFaultMotor}!fault\_struct.h@{fault\_struct.h}}
+\doxysubsubsection{\texorpdfstring{eFaultMotor}{eFaultMotor}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8}{e\+Fault\+Motor}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARNING\_MAIN\_OC\_VALUE@{WARNING\_MAIN\_OC\_VALUE}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!WARNING\_MAIN\_OC\_VALUE@{WARNING\_MAIN\_OC\_VALUE}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a3f05ac4748436d1780b970fe284d85f5}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a3f05ac4748436d1780b970fe284d85f5}} 
+W\+A\+R\+N\+I\+N\+G\+\_\+\+M\+A\+I\+N\+\_\+\+O\+C\+\_\+\+V\+A\+L\+UE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARNING\_CBC\_OC@{WARNING\_CBC\_OC}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!WARNING\_CBC\_OC@{WARNING\_CBC\_OC}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a9f505a4192ab5f2559d410f07ecf3d07}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a9f505a4192ab5f2559d410f07ecf3d07}} 
+W\+A\+R\+N\+I\+N\+G\+\_\+\+C\+B\+C\+\_\+\+OC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARNING\_PWM\_SATURATED@{WARNING\_PWM\_SATURATED}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!WARNING\_PWM\_SATURATED@{WARNING\_PWM\_SATURATED}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af0728948480b841aa4248617c9ac2058}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af0728948480b841aa4248617c9ac2058}} 
+W\+A\+R\+N\+I\+N\+G\+\_\+\+P\+W\+M\+\_\+\+S\+A\+T\+U\+R\+A\+T\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARNING\_STACK\_OOR@{WARNING\_STACK\_OOR}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!WARNING\_STACK\_OOR@{WARNING\_STACK\_OOR}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8aae093513cf42824aef95d8cd0668c9f7}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8aae093513cf42824aef95d8cd0668c9f7}} 
+W\+A\+R\+N\+I\+N\+G\+\_\+\+S\+T\+A\+C\+K\+\_\+\+O\+OR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARNING\_OLSPEED\_MIN@{WARNING\_OLSPEED\_MIN}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!WARNING\_OLSPEED\_MIN@{WARNING\_OLSPEED\_MIN}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ab6e188158aa5bcb9c0d6f3d7b5f8bf8a}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ab6e188158aa5bcb9c0d6f3d7b5f8bf8a}} 
+W\+A\+R\+N\+I\+N\+G\+\_\+\+O\+L\+S\+P\+E\+E\+D\+\_\+\+M\+IN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARNING\_ANGLDIF@{WARNING\_ANGLDIF}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!WARNING\_ANGLDIF@{WARNING\_ANGLDIF}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8aef78e1a3f46b8069ba8c29e78308a86a}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8aef78e1a3f46b8069ba8c29e78308a86a}} 
+W\+A\+R\+N\+I\+N\+G\+\_\+\+A\+N\+G\+L\+D\+IF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARNING\_FOCCTRL\_OVERFLOW@{WARNING\_FOCCTRL\_OVERFLOW}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!WARNING\_FOCCTRL\_OVERFLOW@{WARNING\_FOCCTRL\_OVERFLOW}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a02961a202b782cbd21882c475b7071ae}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a02961a202b782cbd21882c475b7071ae}} 
+W\+A\+R\+N\+I\+N\+G\+\_\+\+F\+O\+C\+C\+T\+R\+L\+\_\+\+O\+V\+E\+R\+F\+L\+OW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARNING\_OU\_VOLTAGE@{WARNING\_OU\_VOLTAGE}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!WARNING\_OU\_VOLTAGE@{WARNING\_OU\_VOLTAGE}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a696f6dd8e2b1fb263c174abb9f7ccc2c}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a696f6dd8e2b1fb263c174abb9f7ccc2c}} 
+W\+A\+R\+N\+I\+N\+G\+\_\+\+O\+U\+\_\+\+V\+O\+L\+T\+A\+GE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARNING\_PIGAIN\_RANGE@{WARNING\_PIGAIN\_RANGE}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!WARNING\_PIGAIN\_RANGE@{WARNING\_PIGAIN\_RANGE}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a86b525d82733a2997eccbb0af80eddf3}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a86b525d82733a2997eccbb0af80eddf3}} 
+W\+A\+R\+N\+I\+N\+G\+\_\+\+P\+I\+G\+A\+I\+N\+\_\+\+R\+A\+N\+GE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARNING\_STALLFILTGAIN@{WARNING\_STALLFILTGAIN}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!WARNING\_STALLFILTGAIN@{WARNING\_STALLFILTGAIN}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ac52b3578c10c567f144748351ec69cf1}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ac52b3578c10c567f144748351ec69cf1}} 
+W\+A\+R\+N\+I\+N\+G\+\_\+\+S\+T\+A\+L\+L\+F\+I\+L\+T\+G\+A\+IN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARNING\_SPDDIF@{WARNING\_SPDDIF}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!WARNING\_SPDDIF@{WARNING\_SPDDIF}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a7efb5b258be0ce683b37edd082848343}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a7efb5b258be0ce683b37edd082848343}} 
+W\+A\+R\+N\+I\+N\+G\+\_\+\+S\+P\+D\+D\+IF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARNING\_ATUNE\_CHECK\_STATUS@{WARNING\_ATUNE\_CHECK\_STATUS}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!WARNING\_ATUNE\_CHECK\_STATUS@{WARNING\_ATUNE\_CHECK\_STATUS}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a6c4b7dad3a4d734c4453b097344231f2}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a6c4b7dad3a4d734c4453b097344231f2}} 
+W\+A\+R\+N\+I\+N\+G\+\_\+\+A\+T\+U\+N\+E\+\_\+\+C\+H\+E\+C\+K\+\_\+\+S\+T\+A\+T\+US&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARNING\_ESTBW\_HIGH@{WARNING\_ESTBW\_HIGH}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!WARNING\_ESTBW\_HIGH@{WARNING\_ESTBW\_HIGH}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af68bbd763ed01480e1f4024cf50ac3b5}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af68bbd763ed01480e1f4024cf50ac3b5}} 
+W\+A\+R\+N\+I\+N\+G\+\_\+\+E\+S\+T\+B\+W\+\_\+\+H\+I\+GH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARN\_HALL\_TIM\_PERD\_INVALID@{WARN\_HALL\_TIM\_PERD\_INVALID}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!WARN\_HALL\_TIM\_PERD\_INVALID@{WARN\_HALL\_TIM\_PERD\_INVALID}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ab3bf3079f0603e201071fa91d42d6e47}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ab3bf3079f0603e201071fa91d42d6e47}} 
+W\+A\+R\+N\+\_\+\+H\+A\+L\+L\+\_\+\+T\+I\+M\+\_\+\+P\+E\+R\+D\+\_\+\+I\+N\+V\+A\+L\+ID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAULT\_COAST\_TIMEOUT@{FAULT\_COAST\_TIMEOUT}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!FAULT\_COAST\_TIMEOUT@{FAULT\_COAST\_TIMEOUT}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ad4f057cc0858c14d1c55e0ba8196a382}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ad4f057cc0858c14d1c55e0ba8196a382}} 
+F\+A\+U\+L\+T\+\_\+\+C\+O\+A\+S\+T\+\_\+\+T\+I\+M\+E\+O\+UT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAULT\_SPDANGLDIF\_TIMEOUT@{FAULT\_SPDANGLDIF\_TIMEOUT}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!FAULT\_SPDANGLDIF\_TIMEOUT@{FAULT\_SPDANGLDIF\_TIMEOUT}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a4e35e049e639d8952c40a70aaac66222}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a4e35e049e639d8952c40a70aaac66222}} 
+F\+A\+U\+L\+T\+\_\+\+S\+P\+D\+A\+N\+G\+L\+D\+I\+F\+\_\+\+T\+I\+M\+E\+O\+UT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAULT\_CAFE\_OC@{FAULT\_CAFE\_OC}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!FAULT\_CAFE\_OC@{FAULT\_CAFE\_OC}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a7a320981168744eb5cf94199073647fc}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a7a320981168744eb5cf94199073647fc}} 
+F\+A\+U\+L\+T\+\_\+\+C\+A\+F\+E\+\_\+\+OC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAULT\_OU\_VOLTAGE@{FAULT\_OU\_VOLTAGE}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!FAULT\_OU\_VOLTAGE@{FAULT\_OU\_VOLTAGE}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a940f8d4d03f0cfc3c8f8cc0325b5d9c0}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a940f8d4d03f0cfc3c8f8cc0325b5d9c0}} 
+F\+A\+U\+L\+T\+\_\+\+O\+U\+\_\+\+V\+O\+L\+T\+A\+GE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAULT\_MIN\_MAX\_SPEED@{FAULT\_MIN\_MAX\_SPEED}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!FAULT\_MIN\_MAX\_SPEED@{FAULT\_MIN\_MAX\_SPEED}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a21a2f1a86c9f85878c1015f0992d786c}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a21a2f1a86c9f85878c1015f0992d786c}} 
+F\+A\+U\+L\+T\+\_\+\+M\+I\+N\+\_\+\+M\+A\+X\+\_\+\+S\+P\+E\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAULT\_OPD@{FAULT\_OPD}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!FAULT\_OPD@{FAULT\_OPD}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8afff4aea7bd956735ff2afcf226325561}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8afff4aea7bd956735ff2afcf226325561}} 
+F\+A\+U\+L\+T\+\_\+\+O\+PD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAULT\_FLASH\_CRC\_TEST@{FAULT\_FLASH\_CRC\_TEST}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!FAULT\_FLASH\_CRC\_TEST@{FAULT\_FLASH\_CRC\_TEST}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a39559c440b738adb255d9493768bad30}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a39559c440b738adb255d9493768bad30}} 
+F\+A\+U\+L\+T\+\_\+\+F\+L\+A\+S\+H\+\_\+\+C\+R\+C\+\_\+\+T\+E\+ST&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAULT\_PARAM\_WHILE\_RUN@{FAULT\_PARAM\_WHILE\_RUN}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!FAULT\_PARAM\_WHILE\_RUN@{FAULT\_PARAM\_WHILE\_RUN}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af99948c55499a7ba575229fb0551c83d}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af99948c55499a7ba575229fb0551c83d}} 
+F\+A\+U\+L\+T\+\_\+\+P\+A\+R\+A\+M\+\_\+\+W\+H\+I\+L\+E\+\_\+\+R\+UN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAULT\_MAIN\_AFEINIT@{FAULT\_MAIN\_AFEINIT}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!FAULT\_MAIN\_AFEINIT@{FAULT\_MAIN\_AFEINIT}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ac3041dda1ce682794f1f42ca252ef356}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ac3041dda1ce682794f1f42ca252ef356}} 
+F\+A\+U\+L\+T\+\_\+\+M\+A\+I\+N\+\_\+\+A\+F\+E\+I\+N\+IT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAULT\_MOTOR\_STALLED@{FAULT\_MOTOR\_STALLED}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!FAULT\_MOTOR\_STALLED@{FAULT\_MOTOR\_STALLED}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a9c48c2a2491264b4d10d36f7ef8ae27a}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a9c48c2a2491264b4d10d36f7ef8ae27a}} 
+F\+A\+U\+L\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+S\+T\+A\+L\+L\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAULT\_PPM\_PULSE\_TIMEOUT@{FAULT\_PPM\_PULSE\_TIMEOUT}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!FAULT\_PPM\_PULSE\_TIMEOUT@{FAULT\_PPM\_PULSE\_TIMEOUT}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a840989d4aae9c23f56a428766b9c138c}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a840989d4aae9c23f56a428766b9c138c}} 
+F\+A\+U\+L\+T\+\_\+\+P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+T\+I\+M\+E\+O\+UT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAULT\_ADCCAL@{FAULT\_ADCCAL}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!FAULT\_ADCCAL@{FAULT\_ADCCAL}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ad49dda654871254b56f2b5b4fd2b6447}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ad49dda654871254b56f2b5b4fd2b6447}} 
+F\+A\+U\+L\+T\+\_\+\+A\+D\+C\+C\+AL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAULT\_MOTOR\_HALL\_INVSTATE@{FAULT\_MOTOR\_HALL\_INVSTATE}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!FAULT\_MOTOR\_HALL\_INVSTATE@{FAULT\_MOTOR\_HALL\_INVSTATE}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8afc2b4a4e6e66e96eee3eb997efb73604}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8afc2b4a4e6e66e96eee3eb997efb73604}} 
+F\+A\+U\+L\+T\+\_\+\+M\+O\+T\+O\+R\+\_\+\+H\+A\+L\+L\+\_\+\+I\+N\+V\+S\+T\+A\+TE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAULT\_EST\_INVALID\_INPUT@{FAULT\_EST\_INVALID\_INPUT}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!FAULT\_EST\_INVALID\_INPUT@{FAULT\_EST\_INVALID\_INPUT}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a4292aba280163ae086ce03cd70eefdd9}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a4292aba280163ae086ce03cd70eefdd9}} 
+F\+A\+U\+L\+T\+\_\+\+E\+S\+T\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+I\+N\+P\+UT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAULT\_HALL\_TIMEOUT@{FAULT\_HALL\_TIMEOUT}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!FAULT\_HALL\_TIMEOUT@{FAULT\_HALL\_TIMEOUT}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8adaa943cf8fb309f38a25d0390204172a}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8adaa943cf8fb309f38a25d0390204172a}} 
+F\+A\+U\+L\+T\+\_\+\+H\+A\+L\+L\+\_\+\+T\+I\+M\+E\+O\+UT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FAULT\_UNUSED\_29@{FAULT\_UNUSED\_29}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!FAULT\_UNUSED\_29@{FAULT\_UNUSED\_29}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af5133afb8c2718b8ef25f84d2d3c6d93}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af5133afb8c2718b8ef25f84d2d3c6d93}} 
+F\+A\+U\+L\+T\+\_\+\+U\+N\+U\+S\+E\+D\+\_\+29&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARNING\_FAILURE\_DETECTION@{WARNING\_FAILURE\_DETECTION}!fault\_struct.h@{fault\_struct.h}}\index{fault\_struct.h@{fault\_struct.h}!WARNING\_FAILURE\_DETECTION@{WARNING\_FAILURE\_DETECTION}}}\mbox{\Hypertarget{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a5e2e32e8fdf93365cfdcd7ab2181215e}\label{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a5e2e32e8fdf93365cfdcd7ab2181215e}} 
+W\+A\+R\+N\+I\+N\+G\+\_\+\+F\+A\+I\+L\+U\+R\+E\+\_\+\+D\+E\+T\+E\+C\+T\+I\+ON&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 24 of file fault\+\_\+struct.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a3f05ac4748436d1780b970fe284d85f5}{WARNING\_MAIN\_OC\_VALUE}}       = \mbox{\hyperlink{maths_8h_a8cc92336b60af319e1cf527340dd69d4}{BIT\_00}},           \textcolor{comment}{// 00 : OC limit higher than measurable current}}
+\DoxyCodeLine{27     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a9f505a4192ab5f2559d410f07ecf3d07}{WARNING\_CBC\_OC}}              = \mbox{\hyperlink{maths_8h_a12f9c1112ccf6ed75b109eae74a16e79}{BIT\_01}},           \textcolor{comment}{// 01 : CBC OC LPDAC}}
+\DoxyCodeLine{28     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af0728948480b841aa4248617c9ac2058}{WARNING\_PWM\_SATURATED}}       = \mbox{\hyperlink{maths_8h_a5a8ebb5928dca9c49bded111d7bc7ad0}{BIT\_02}},           \textcolor{comment}{// 02 : PWM duty cycle is saturated}}
+\DoxyCodeLine{29     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8aae093513cf42824aef95d8cd0668c9f7}{WARNING\_STACK\_OOR}}           = \mbox{\hyperlink{maths_8h_a88803359ca82475bbc185bc06d430b2a}{BIT\_03}},           \textcolor{comment}{// 03 : Stack overflow or underflow}}
+\DoxyCodeLine{30     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ab6e188158aa5bcb9c0d6f3d7b5f8bf8a}{WARNING\_OLSPEED\_MIN}}         = \mbox{\hyperlink{maths_8h_adb72982febaaafd9ed406183f7ffb1da}{BIT\_04}},           \textcolor{comment}{// 04 : Open loop speed is lower than closed loop minimum speed limit}}
+\DoxyCodeLine{31     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8aef78e1a3f46b8069ba8c29e78308a86a}{WARNING\_ANGLDIF}}             = \mbox{\hyperlink{maths_8h_af9e43f77ce96dc5ee3aac7bf86c952f0}{BIT\_05}},           \textcolor{comment}{// 05 : Estimator AngleDiff out of range}}
+\DoxyCodeLine{32     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a02961a202b782cbd21882c475b7071ae}{WARNING\_FOCCTRL\_OVERFLOW}}    = \mbox{\hyperlink{maths_8h_a49eaf0fd28f145d58400bf37564f9f45}{BIT\_06}},           \textcolor{comment}{// 06 : FOC control time has been exceeded}}
+\DoxyCodeLine{33     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a696f6dd8e2b1fb263c174abb9f7ccc2c}{WARNING\_OU\_VOLTAGE}}          = \mbox{\hyperlink{maths_8h_a99f2d436bdb4dd3bb81888362bfa2f4c}{BIT\_07}},           \textcolor{comment}{// 07 : Bus Voltage Min/Max limit exceeded}}
+\DoxyCodeLine{34     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a86b525d82733a2997eccbb0af80eddf3}{WARNING\_PIGAIN\_RANGE}}        = \mbox{\hyperlink{maths_8h_a5cdf9dffe1e8d1a88823939add02b88f}{BIT\_08}},           \textcolor{comment}{// 08 : PI controller gain out of range}}
+\DoxyCodeLine{35     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ac52b3578c10c567f144748351ec69cf1}{WARNING\_STALLFILTGAIN}}       = \mbox{\hyperlink{maths_8h_a002dcc81f1cbf474e74b02ebf10e2805}{BIT\_09}},           \textcolor{comment}{// 09 : Stall filter value floored at minimum(1)}}
+\DoxyCodeLine{36     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a7efb5b258be0ce683b37edd082848343}{WARNING\_SPDDIF}}              = \mbox{\hyperlink{maths_8h_a68c53eefb39121d3abb4967a2ac5c683}{BIT\_10}},           \textcolor{comment}{// 10 : Estimator SpeedDiff out of range}}
+\DoxyCodeLine{37     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a6c4b7dad3a4d734c4453b097344231f2}{WARNING\_ATUNE\_CHECK\_STATUS}}  = \mbox{\hyperlink{maths_8h_a635fff3e12ecbdf623544d1732415ffb}{BIT\_11}},           \textcolor{comment}{// 11 : ATPI Warning -\/> Check ATPI Status}}
+\DoxyCodeLine{38     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af68bbd763ed01480e1f4024cf50ac3b5}{WARNING\_ESTBW\_HIGH}}          = \mbox{\hyperlink{maths_8h_a0ba5b67de2f048ed69dd42be5cf509d4}{BIT\_12}},           \textcolor{comment}{// 12 : Ratio of control frequency to estimator bandwidth is higher than 10:1}}
+\DoxyCodeLine{39     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ab3bf3079f0603e201071fa91d42d6e47}{WARN\_HALL\_TIM\_PERD\_INVALID}}  = \mbox{\hyperlink{maths_8h_ada1400714b9061183d116797f8775dce}{BIT\_13}},           \textcolor{comment}{// 13 : Hall Timer Period Invalid}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ad4f057cc0858c14d1c55e0ba8196a382}{FAULT\_COAST\_TIMEOUT}}         = \mbox{\hyperlink{maths_8h_af50496d04a614ddef31ba9b1a8a92242}{BIT\_14}},           \textcolor{comment}{// 14 : Motor Coast timeout}}
+\DoxyCodeLine{42     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a4e35e049e639d8952c40a70aaac66222}{FAULT\_SPDANGLDIF\_TIMEOUT}}    = \mbox{\hyperlink{maths_8h_a7611ad2315432d0865055d2ff3066968}{BIT\_15}},           \textcolor{comment}{// 15 : EstSpeed/AngleDiff timeout}}
+\DoxyCodeLine{43     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a7a320981168744eb5cf94199073647fc}{FAULT\_CAFE\_OC}}               = \mbox{\hyperlink{maths_8h_aa5b535cdb2b0b6509a32f8a02ef64719}{BIT\_16}},           \textcolor{comment}{// 16 : Motor over-\/current}}
+\DoxyCodeLine{44     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a940f8d4d03f0cfc3c8f8cc0325b5d9c0}{FAULT\_OU\_VOLTAGE}}            = \mbox{\hyperlink{maths_8h_a719c9089fcb3f58137f378a921628d0a}{BIT\_17}},           \textcolor{comment}{// 17 : Motor disabled due to bus voltage min/max fault}}
+\DoxyCodeLine{45     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a21a2f1a86c9f85878c1015f0992d786c}{FAULT\_MIN\_MAX\_SPEED}}         = \mbox{\hyperlink{maths_8h_af07a5c39b3919b991251d343f923a873}{BIT\_18}},           \textcolor{comment}{// 18 : Motor Min/Max Speed}}
+\DoxyCodeLine{46     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8afff4aea7bd956735ff2afcf226325561}{FAULT\_OPD}}                   = \mbox{\hyperlink{maths_8h_aba36883fad68c8173b9593446e434df8}{BIT\_19}},           \textcolor{comment}{// 19 : Motor Open Phase Detection}}
+\DoxyCodeLine{47     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a39559c440b738adb255d9493768bad30}{FAULT\_FLASH\_CRC\_TEST}}        = \mbox{\hyperlink{maths_8h_ac9001d4bab72ac449e9d77898e7281f0}{BIT\_20}},           \textcolor{comment}{// 20 : Flash CRC Test Status Failed = 1}}
+\DoxyCodeLine{48     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af99948c55499a7ba575229fb0551c83d}{FAULT\_PARAM\_WHILE\_RUN}}       = \mbox{\hyperlink{maths_8h_ae270a65bf72d98073b3ffd596f8a718b}{BIT\_21}},           \textcolor{comment}{// 21 : Attempt to change critical parameters while motor is running}}
+\DoxyCodeLine{49     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ac3041dda1ce682794f1f42ca252ef356}{FAULT\_MAIN\_AFEINIT}}          = \mbox{\hyperlink{maths_8h_ac479e79f083a12cc19dc36620b7d9113}{BIT\_22}},           \textcolor{comment}{// 22 : AFE not initialized properly}}
+\DoxyCodeLine{50     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a9c48c2a2491264b4d10d36f7ef8ae27a}{FAULT\_MOTOR\_STALLED}}         = \mbox{\hyperlink{maths_8h_a70b366d9fe3292f07acf7be57f25a482}{BIT\_23}},           \textcolor{comment}{// 23 : Motor Stall Detection}}
+\DoxyCodeLine{51     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a840989d4aae9c23f56a428766b9c138c}{FAULT\_PPM\_PULSE\_TIMEOUT}}     = \mbox{\hyperlink{maths_8h_a2811bef23f495846be6b3321f4707d4c}{BIT\_24}},           \textcolor{comment}{// 24 : PPM pulse timeout, no received valid PPM pulse}}
+\DoxyCodeLine{52     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ad49dda654871254b56f2b5b4fd2b6447}{FAULT\_ADCCAL}}                = \mbox{\hyperlink{maths_8h_aec6d87ecf2b28eaed2d0ef3e670d562f}{BIT\_25}},           \textcolor{comment}{// 25 : ADC Calibration Failed}}
+\DoxyCodeLine{53     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8afc2b4a4e6e66e96eee3eb997efb73604}{FAULT\_MOTOR\_HALL\_INVSTATE}}   = \mbox{\hyperlink{maths_8h_aed69321efb136ed29cce0586ce1ab873}{BIT\_26}},           \textcolor{comment}{// 26 : Hall Angle Sequence or State is Invalid}}
+\DoxyCodeLine{54     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a4292aba280163ae086ce03cd70eefdd9}{FAULT\_EST\_INVALID\_INPUT}}     = \mbox{\hyperlink{maths_8h_a49f55567349ae6b9aa15ce9da1a4f175}{BIT\_27}},           \textcolor{comment}{// 27 : Estimator inputs are invalid}}
+\DoxyCodeLine{55     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8adaa943cf8fb309f38a25d0390204172a}{FAULT\_HALL\_TIMEOUT}}          = \mbox{\hyperlink{maths_8h_a9a170db0113ab9f9a23367ae7dfbfe3f}{BIT\_28}},           \textcolor{comment}{// 28 : Hall timer expired without detecting a hall transition}}
+\DoxyCodeLine{56     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af5133afb8c2718b8ef25f84d2d3c6d93}{FAULT\_UNUSED\_29}}             = \mbox{\hyperlink{maths_8h_a150f7ce50b60a7baaafabf8378e74ceb}{BIT\_29}},           \textcolor{comment}{// 29 :}}
+\DoxyCodeLine{57     \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a5e2e32e8fdf93365cfdcd7ab2181215e}{WARNING\_FAILURE\_DETECTION}}   = \mbox{\hyperlink{maths_8h_a48d9a21ee4088feb4b1743beac4b4a32}{BIT\_30}},           \textcolor{comment}{// 30 : Motor failure detection: Eccentricity, Unbalance or demagnetization}}
+\DoxyCodeLine{58 \} \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8}{eFaultMotor}};}
+
+\end{DoxyCode}

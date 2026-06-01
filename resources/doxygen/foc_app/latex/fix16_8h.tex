@@ -1,0 +1,900 @@
+\hypertarget{fix16_8h}{}\doxysection{pac\+\_\+foc/src/math/fix16.h File Reference}
+\label{fix16_8h}\index{pac\_foc/src/math/fix16.h@{pac\_foc/src/math/fix16.h}}
+
+
+Fixed math library declarations (fix16\+\_\+t)  
+
+
+{\ttfamily \#include \char`\"{}pac5xxx.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for fix16.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{fix16_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fix16_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}{F\+I\+X\+M\+A\+T\+H\+\_\+\+F\+U\+N\+C\+\_\+\+A\+T\+T\+RS}}
+\item 
+\#define \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}}
+\item 
+\#define \mbox{\hyperlink{fix16_8h_a7835001a5b6d1cffa00b104f162ad28e}{F\+I\+X\+M\+A\+T\+H\+\_\+\+N\+O\+\_\+\+O\+V\+E\+R\+F\+L\+OW}}
+\item 
+\#define \mbox{\hyperlink{fix16_8h_a872780c52dff2845b9d6301992c33e5c}{F\+I\+X\+M\+A\+T\+H\+\_\+\+N\+O\+\_\+\+R\+O\+U\+N\+D\+I\+NG}}
+\item 
+\#define \mbox{\hyperlink{fix16_8h_a60bbc076f426bd02f6c3b8235cf27176}{F\+O\+U\+R\+\_\+\+D\+I\+V\+\_\+\+PI}}~0x145\+F3
+\item 
+\#define \mbox{\hyperlink{fix16_8h_aa3d43baa233c961bfdb2fd9bb525d556}{\+\_\+\+F\+O\+U\+R\+\_\+\+D\+I\+V\+\_\+\+P\+I2}}~0x\+F\+F\+F\+F9840
+\item 
+\#define \mbox{\hyperlink{fix16_8h_aa49a1d71e6d2c930dc13104e39c68aff}{X4\+\_\+\+C\+O\+R\+R\+E\+C\+T\+I\+O\+N\+\_\+\+C\+O\+M\+P\+O\+N\+E\+NT}}~0x399A
+\item 
+\#define \mbox{\hyperlink{fix16_8h_ab9debe5093b534b1c2b2ff91aa8727c2}{P\+I\+\_\+\+D\+I\+V\+\_\+4}}~0x0000\+C90F
+\item 
+\#define \mbox{\hyperlink{fix16_8h_a7345e9cb91a57a892d4b99f5a7c6644e}{T\+H\+R\+E\+E\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+4}}~0x00025\+B2F
+\item 
+\#define \mbox{\hyperlink{fix16_8h_a1576383986c02f452cecd9926fbdca56}{fix16\+\_\+max}}~0x7\+F\+F\+F\+F\+F\+FF
+\item 
+\#define \mbox{\hyperlink{fix16_8h_a1d9706a123a7b35617cf3eaf6930f7b1}{fix16\+\_\+min}}~0x80000000
+\item 
+\#define \mbox{\hyperlink{fix16_8h_abdaae63e6ce752c6fa9e95e41ddec2a5}{fix16\+\_\+overflow}}~0x80000000
+\item 
+\#define \mbox{\hyperlink{fix16_8h_a6e11179fd7329df96b8eef62f0bda92e}{fix16\+\_\+pi}}~205887
+\item 
+\#define \mbox{\hyperlink{fix16_8h_a2480c2ffce4460779fec14bb61d85836}{fix16\+\_\+e}}~78145
+\item 
+\#define \mbox{\hyperlink{fix16_8h_ab8732af29723661b66f6570881cebc6c}{F\+I\+X16\+\_\+\+O\+NE}}~0x00010000
+\item 
+\#define \mbox{\hyperlink{fix16_8h_aef1fbcb910b5da5701a0067a03acf688}{fix16\+\_\+neg\+\_\+one}}~0x\+F\+F\+F\+F0000
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int32\+\_\+t \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{fix16_8h_a977fae5baaa35e6134ab04b73a7093d3}{fix16\+\_\+div}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Arg0, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Arg1) \mbox{\hyperlink{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}{F\+I\+X\+M\+A\+T\+H\+\_\+\+F\+U\+N\+C\+\_\+\+A\+T\+T\+RS}}
+\begin{DoxyCompactList}\small\item\em Divides two fix16\+\_\+t numbers (a / b) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{fix16_8h_a3683aeb52d193e886be960181bb4a2c5}{fix16\+\_\+lerp8}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Arg0, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Arg1, uint8\+\_\+t in\+Fract) \mbox{\hyperlink{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}{F\+I\+X\+M\+A\+T\+H\+\_\+\+F\+U\+N\+C\+\_\+\+A\+T\+T\+RS}}
+\begin{DoxyCompactList}\small\item\em Returns the linear interpolation\+: (in\+Arg0 $\ast$ (1 -\/ in\+Fract)) + (in\+Arg1 $\ast$ in\+Fract) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{fix16_8h_aa4dd641c6a87b918bdf721d009728071}{fix16\+\_\+lerp16}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Arg0, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Arg1, uint16\+\_\+t in\+Fract) \mbox{\hyperlink{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}{F\+I\+X\+M\+A\+T\+H\+\_\+\+F\+U\+N\+C\+\_\+\+A\+T\+T\+RS}}
+\begin{DoxyCompactList}\small\item\em Returns the linear interpolation\+: (in\+Arg0 $\ast$ (1 -\/ in\+Fract)) + (in\+Arg1 $\ast$ in\+Fract) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{fix16_8h_a1a6e7431f43172deda90b1568cb96164}{fix16\+\_\+lerp32}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Arg0, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Arg1, uint32\+\_\+t in\+Fract) \mbox{\hyperlink{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}{F\+I\+X\+M\+A\+T\+H\+\_\+\+F\+U\+N\+C\+\_\+\+A\+T\+T\+RS}}
+\begin{DoxyCompactList}\small\item\em Returns the linear interpolation\+: (in\+Arg0 $\ast$ (1 -\/ in\+Fract)) + (in\+Arg1 $\ast$ in\+Fract) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{fix16_8h_ace32df22509c270f3286fdb09b227b9d}{fix16\+\_\+sin\+\_\+parabola}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Angle) \mbox{\hyperlink{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}{F\+I\+X\+M\+A\+T\+H\+\_\+\+F\+U\+N\+C\+\_\+\+A\+T\+T\+RS}}
+\begin{DoxyCompactList}\small\item\em Returns the sine parabola of the given value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{fix16_8h_aabbc8b7ffe9f99fbcccbb991fe7d1474}{fix16\+\_\+sin}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Angle) \mbox{\hyperlink{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}{F\+I\+X\+M\+A\+T\+H\+\_\+\+F\+U\+N\+C\+\_\+\+A\+T\+T\+RS}}
+\begin{DoxyCompactList}\small\item\em Returns the sine of the given value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{fix16_8h_a492829c9083036151d74b71c58eced92}{fix16\+\_\+cos}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Angle) \mbox{\hyperlink{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}{F\+I\+X\+M\+A\+T\+H\+\_\+\+F\+U\+N\+C\+\_\+\+A\+T\+T\+RS}}
+\begin{DoxyCompactList}\small\item\em Returns the cosine of the given value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{fix16_8h_a08c663f62be63f6e804d507077ab000c}{fix16\+\_\+tan}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Angle) \mbox{\hyperlink{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}{F\+I\+X\+M\+A\+T\+H\+\_\+\+F\+U\+N\+C\+\_\+\+A\+T\+T\+RS}}
+\begin{DoxyCompactList}\small\item\em Returns the tangent of the given value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{fix16_8h_a14a4f251003d3cd396c0ac3089fbef00}{fix16\+\_\+asin}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Value) \mbox{\hyperlink{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}{F\+I\+X\+M\+A\+T\+H\+\_\+\+F\+U\+N\+C\+\_\+\+A\+T\+T\+RS}}
+\begin{DoxyCompactList}\small\item\em Returns the arc sine of the given value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{fix16_8h_ad0aef2541ba5d9aa86da9d8adcd79a4f}{fix16\+\_\+acos}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Value) \mbox{\hyperlink{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}{F\+I\+X\+M\+A\+T\+H\+\_\+\+F\+U\+N\+C\+\_\+\+A\+T\+T\+RS}}
+\begin{DoxyCompactList}\small\item\em Returns the arc cosine of the given value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{fix16_8h_a3cf2fe6813273bba844f4ec930a97b74}{fix16\+\_\+atan}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Value) \mbox{\hyperlink{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}{F\+I\+X\+M\+A\+T\+H\+\_\+\+F\+U\+N\+C\+\_\+\+A\+T\+T\+RS}}
+\begin{DoxyCompactList}\small\item\em Returns the arc tangent of the given value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{fix16_8h_ae1e2272bf20dae07129eb1631f9342e5}{fix16\+\_\+atan2}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} inY, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} inX) \mbox{\hyperlink{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}{F\+I\+X\+M\+A\+T\+H\+\_\+\+F\+U\+N\+C\+\_\+\+A\+T\+T\+RS}}
+\begin{DoxyCompactList}\small\item\em Returns the arc tangent 2 of the given value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{fix16_8h_a27ac89a1527b893771fc276ef3043a15}{fix16\+\_\+sqrt}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Value) \mbox{\hyperlink{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}{F\+I\+X\+M\+A\+T\+H\+\_\+\+F\+U\+N\+C\+\_\+\+A\+T\+T\+RS}}
+\begin{DoxyCompactList}\small\item\em Returns the square root of the given value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{fix16_8h_ac0cabec15f713cb8735718488e42ef1c}{fix16\+\_\+exp}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Value) \mbox{\hyperlink{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}{F\+I\+X\+M\+A\+T\+H\+\_\+\+F\+U\+N\+C\+\_\+\+A\+T\+T\+RS}}
+\begin{DoxyCompactList}\small\item\em Returns the exponent (e$^\wedge$) of the given value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{fix16_8h_aa7d3aa6283b66351630a0dc9023301ef}{fix16\+\_\+mul}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Arg0, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Arg1) \mbox{\hyperlink{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}{F\+I\+X\+M\+A\+T\+H\+\_\+\+F\+U\+N\+C\+\_\+\+A\+T\+T\+RS}}
+\begin{DoxyCompactList}\small\item\em Multiplies two fix16\+\_\+t values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} uint32\+\_\+t \mbox{\hyperlink{fix16_8h_a55308824cf7fb5cb8fcba6a9eb1e0e6e}{fix16\+\_\+mul\+\_\+uint}} (uint32\+\_\+t in\+Arg0, uint32\+\_\+t in\+Arg1) \mbox{\hyperlink{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}{F\+I\+X\+M\+A\+T\+H\+\_\+\+F\+U\+N\+C\+\_\+\+A\+T\+T\+RS}}
+\begin{DoxyCompactList}\small\item\em Multiplies two integers and returns a fix16\+\_\+t. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Fixed math library declarations (fix16\+\_\+t) 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{fix16_8h_aa3d43baa233c961bfdb2fd9bb525d556}\label{fix16_8h_aa3d43baa233c961bfdb2fd9bb525d556}} 
+\index{fix16.h@{fix16.h}!\_FOUR\_DIV\_PI2@{\_FOUR\_DIV\_PI2}}
+\index{\_FOUR\_DIV\_PI2@{\_FOUR\_DIV\_PI2}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{\_FOUR\_DIV\_PI2}{\_FOUR\_DIV\_PI2}}
+{\footnotesize\ttfamily \#define \+\_\+\+F\+O\+U\+R\+\_\+\+D\+I\+V\+\_\+\+P\+I2~0x\+F\+F\+F\+F9840}
+
+Fix16 value of -\/4/\+P\+I² 
+
+Definition at line 68 of file fix16.\+h.
+
+\mbox{\Hypertarget{fix16_8h_a2480c2ffce4460779fec14bb61d85836}\label{fix16_8h_a2480c2ffce4460779fec14bb61d85836}} 
+\index{fix16.h@{fix16.h}!fix16\_e@{fix16\_e}}
+\index{fix16\_e@{fix16\_e}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_e}{fix16\_e}}
+{\footnotesize\ttfamily \#define fix16\+\_\+e~78145}
+
+fix16\+\_\+t value of e 
+
+Definition at line 78 of file fix16.\+h.
+
+\mbox{\Hypertarget{fix16_8h_a1576383986c02f452cecd9926fbdca56}\label{fix16_8h_a1576383986c02f452cecd9926fbdca56}} 
+\index{fix16.h@{fix16.h}!fix16\_max@{fix16\_max}}
+\index{fix16\_max@{fix16\_max}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_max}{fix16\_max}}
+{\footnotesize\ttfamily \#define fix16\+\_\+max~0x7\+F\+F\+F\+F\+F\+FF}
+
+the maximum value of fix16\+\_\+t 
+
+Definition at line 73 of file fix16.\+h.
+
+\mbox{\Hypertarget{fix16_8h_a1d9706a123a7b35617cf3eaf6930f7b1}\label{fix16_8h_a1d9706a123a7b35617cf3eaf6930f7b1}} 
+\index{fix16.h@{fix16.h}!fix16\_min@{fix16\_min}}
+\index{fix16\_min@{fix16\_min}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_min}{fix16\_min}}
+{\footnotesize\ttfamily \#define fix16\+\_\+min~0x80000000}
+
+the minimum value of fix16\+\_\+t 
+
+Definition at line 74 of file fix16.\+h.
+
+\mbox{\Hypertarget{fix16_8h_aef1fbcb910b5da5701a0067a03acf688}\label{fix16_8h_aef1fbcb910b5da5701a0067a03acf688}} 
+\index{fix16.h@{fix16.h}!fix16\_neg\_one@{fix16\_neg\_one}}
+\index{fix16\_neg\_one@{fix16\_neg\_one}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_neg\_one}{fix16\_neg\_one}}
+{\footnotesize\ttfamily \#define fix16\+\_\+neg\+\_\+one~0x\+F\+F\+F\+F0000}
+
+fix16\+\_\+t value of -\/1 
+
+Definition at line 80 of file fix16.\+h.
+
+\mbox{\Hypertarget{fix16_8h_ab8732af29723661b66f6570881cebc6c}\label{fix16_8h_ab8732af29723661b66f6570881cebc6c}} 
+\index{fix16.h@{fix16.h}!FIX16\_ONE@{FIX16\_ONE}}
+\index{FIX16\_ONE@{FIX16\_ONE}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_ONE}{FIX16\_ONE}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+\+O\+NE~0x00010000}
+
+fix16\+\_\+t value of 1 
+
+Definition at line 79 of file fix16.\+h.
+
+\mbox{\Hypertarget{fix16_8h_abdaae63e6ce752c6fa9e95e41ddec2a5}\label{fix16_8h_abdaae63e6ce752c6fa9e95e41ddec2a5}} 
+\index{fix16.h@{fix16.h}!fix16\_overflow@{fix16\_overflow}}
+\index{fix16\_overflow@{fix16\_overflow}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_overflow}{fix16\_overflow}}
+{\footnotesize\ttfamily \#define fix16\+\_\+overflow~0x80000000}
+
+the value used to indicate overflows when F\+I\+X\+M\+A\+T\+H\+\_\+\+N\+O\+\_\+\+O\+V\+E\+R\+F\+L\+OW is not specified 
+
+Definition at line 75 of file fix16.\+h.
+
+\mbox{\Hypertarget{fix16_8h_a6e11179fd7329df96b8eef62f0bda92e}\label{fix16_8h_a6e11179fd7329df96b8eef62f0bda92e}} 
+\index{fix16.h@{fix16.h}!fix16\_pi@{fix16\_pi}}
+\index{fix16\_pi@{fix16\_pi}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_pi}{fix16\_pi}}
+{\footnotesize\ttfamily \#define fix16\+\_\+pi~205887}
+
+fix16\+\_\+t value of pi 
+
+Definition at line 77 of file fix16.\+h.
+
+\mbox{\Hypertarget{fix16_8h_af99e358bcc3ed57944789710c9d7136b}\label{fix16_8h_af99e358bcc3ed57944789710c9d7136b}} 
+\index{fix16.h@{fix16.h}!FIX16\_RAMFUNC@{FIX16\_RAMFUNC}}
+\index{FIX16\_RAMFUNC@{FIX16\_RAMFUNC}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_RAMFUNC}{FIX16\_RAMFUNC}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}
+
+
+
+Definition at line 57 of file fix16.\+h.
+
+\mbox{\Hypertarget{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}\label{fix16_8h_ab06177b71b2faf366a9838c4ea9e6aa3}} 
+\index{fix16.h@{fix16.h}!FIXMATH\_FUNC\_ATTRS@{FIXMATH\_FUNC\_ATTRS}}
+\index{FIXMATH\_FUNC\_ATTRS@{FIXMATH\_FUNC\_ATTRS}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{FIXMATH\_FUNC\_ATTRS}{FIXMATH\_FUNC\_ATTRS}}
+{\footnotesize\ttfamily \#define F\+I\+X\+M\+A\+T\+H\+\_\+\+F\+U\+N\+C\+\_\+\+A\+T\+T\+RS}
+
+
+
+Definition at line 48 of file fix16.\+h.
+
+\mbox{\Hypertarget{fix16_8h_a7835001a5b6d1cffa00b104f162ad28e}\label{fix16_8h_a7835001a5b6d1cffa00b104f162ad28e}} 
+\index{fix16.h@{fix16.h}!FIXMATH\_NO\_OVERFLOW@{FIXMATH\_NO\_OVERFLOW}}
+\index{FIXMATH\_NO\_OVERFLOW@{FIXMATH\_NO\_OVERFLOW}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{FIXMATH\_NO\_OVERFLOW}{FIXMATH\_NO\_OVERFLOW}}
+{\footnotesize\ttfamily \#define F\+I\+X\+M\+A\+T\+H\+\_\+\+N\+O\+\_\+\+O\+V\+E\+R\+F\+L\+OW}
+
+
+
+Definition at line 62 of file fix16.\+h.
+
+\mbox{\Hypertarget{fix16_8h_a872780c52dff2845b9d6301992c33e5c}\label{fix16_8h_a872780c52dff2845b9d6301992c33e5c}} 
+\index{fix16.h@{fix16.h}!FIXMATH\_NO\_ROUNDING@{FIXMATH\_NO\_ROUNDING}}
+\index{FIXMATH\_NO\_ROUNDING@{FIXMATH\_NO\_ROUNDING}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{FIXMATH\_NO\_ROUNDING}{FIXMATH\_NO\_ROUNDING}}
+{\footnotesize\ttfamily \#define F\+I\+X\+M\+A\+T\+H\+\_\+\+N\+O\+\_\+\+R\+O\+U\+N\+D\+I\+NG}
+
+
+
+Definition at line 63 of file fix16.\+h.
+
+\mbox{\Hypertarget{fix16_8h_a60bbc076f426bd02f6c3b8235cf27176}\label{fix16_8h_a60bbc076f426bd02f6c3b8235cf27176}} 
+\index{fix16.h@{fix16.h}!FOUR\_DIV\_PI@{FOUR\_DIV\_PI}}
+\index{FOUR\_DIV\_PI@{FOUR\_DIV\_PI}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{FOUR\_DIV\_PI}{FOUR\_DIV\_PI}}
+{\footnotesize\ttfamily \#define F\+O\+U\+R\+\_\+\+D\+I\+V\+\_\+\+PI~0x145\+F3}
+
+Fix16 value of 4/\+PI 
+
+Definition at line 67 of file fix16.\+h.
+
+\mbox{\Hypertarget{fix16_8h_ab9debe5093b534b1c2b2ff91aa8727c2}\label{fix16_8h_ab9debe5093b534b1c2b2ff91aa8727c2}} 
+\index{fix16.h@{fix16.h}!PI\_DIV\_4@{PI\_DIV\_4}}
+\index{PI\_DIV\_4@{PI\_DIV\_4}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{PI\_DIV\_4}{PI\_DIV\_4}}
+{\footnotesize\ttfamily \#define P\+I\+\_\+\+D\+I\+V\+\_\+4~0x0000\+C90F}
+
+Fix16 value of P\+I/4 
+
+Definition at line 70 of file fix16.\+h.
+
+\mbox{\Hypertarget{fix16_8h_a7345e9cb91a57a892d4b99f5a7c6644e}\label{fix16_8h_a7345e9cb91a57a892d4b99f5a7c6644e}} 
+\index{fix16.h@{fix16.h}!THREE\_PI\_DIV\_4@{THREE\_PI\_DIV\_4}}
+\index{THREE\_PI\_DIV\_4@{THREE\_PI\_DIV\_4}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{THREE\_PI\_DIV\_4}{THREE\_PI\_DIV\_4}}
+{\footnotesize\ttfamily \#define T\+H\+R\+E\+E\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+4~0x00025\+B2F}
+
+Fix16 value of 3P\+I/4 
+
+Definition at line 71 of file fix16.\+h.
+
+\mbox{\Hypertarget{fix16_8h_aa49a1d71e6d2c930dc13104e39c68aff}\label{fix16_8h_aa49a1d71e6d2c930dc13104e39c68aff}} 
+\index{fix16.h@{fix16.h}!X4\_CORRECTION\_COMPONENT@{X4\_CORRECTION\_COMPONENT}}
+\index{X4\_CORRECTION\_COMPONENT@{X4\_CORRECTION\_COMPONENT}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{X4\_CORRECTION\_COMPONENT}{X4\_CORRECTION\_COMPONENT}}
+{\footnotesize\ttfamily \#define X4\+\_\+\+C\+O\+R\+R\+E\+C\+T\+I\+O\+N\+\_\+\+C\+O\+M\+P\+O\+N\+E\+NT~0x399A}
+
+Fix16 value of 0.\+225 
+
+Definition at line 69 of file fix16.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}\label{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}} 
+\index{fix16.h@{fix16.h}!fix16\_t@{fix16\_t}}
+\index{fix16\_t@{fix16\_t}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_t}{fix16\_t}}
+{\footnotesize\ttfamily typedef int32\+\_\+t \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}
+
+
+
+Definition at line 65 of file fix16.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fix16_8h_ad0aef2541ba5d9aa86da9d8adcd79a4f}\label{fix16_8h_ad0aef2541ba5d9aa86da9d8adcd79a4f}} 
+\index{fix16.h@{fix16.h}!fix16\_acos@{fix16\_acos}}
+\index{fix16\_acos@{fix16\_acos}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_acos()}{fix16\_acos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} fix16\+\_\+acos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Value }\end{DoxyParamCaption})}
+
+
+
+Returns the arc cosine of the given value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Angle} & input angle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+arccos(in\+Angle) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fix16_8h_a14a4f251003d3cd396c0ac3089fbef00}\label{fix16_8h_a14a4f251003d3cd396c0ac3089fbef00}} 
+\index{fix16.h@{fix16.h}!fix16\_asin@{fix16\_asin}}
+\index{fix16\_asin@{fix16\_asin}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_asin()}{fix16\_asin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} fix16\+\_\+asin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Value }\end{DoxyParamCaption})}
+
+
+
+Returns the arc sine of the given value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Angle} & input angle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+arcsin(in\+Angle) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fix16_8h_a3cf2fe6813273bba844f4ec930a97b74}\label{fix16_8h_a3cf2fe6813273bba844f4ec930a97b74}} 
+\index{fix16.h@{fix16.h}!fix16\_atan@{fix16\_atan}}
+\index{fix16\_atan@{fix16\_atan}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_atan()}{fix16\_atan()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} fix16\+\_\+atan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Value }\end{DoxyParamCaption})}
+
+
+
+Returns the arc tangent of the given value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Angle} & input angle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+arctan(in\+Angle) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fix16_8h_ae1e2272bf20dae07129eb1631f9342e5}\label{fix16_8h_ae1e2272bf20dae07129eb1631f9342e5}} 
+\index{fix16.h@{fix16.h}!fix16\_atan2@{fix16\_atan2}}
+\index{fix16\_atan2@{fix16\_atan2}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_atan2()}{fix16\_atan2()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} fix16\+\_\+atan2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{inY,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{inX }\end{DoxyParamCaption})}
+
+
+
+Returns the arc tangent 2 of the given value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Angle} & input angle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+arctan2(in\+Angle) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fix16_8h_a492829c9083036151d74b71c58eced92}\label{fix16_8h_a492829c9083036151d74b71c58eced92}} 
+\index{fix16.h@{fix16.h}!fix16\_cos@{fix16\_cos}}
+\index{fix16\_cos@{fix16\_cos}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_cos()}{fix16\_cos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} fix16\+\_\+cos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Angle }\end{DoxyParamCaption})}
+
+
+
+Returns the cosine of the given value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Angle} & input angle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Cos(in\+Angle) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fix16_8h_a977fae5baaa35e6134ab04b73a7093d3}\label{fix16_8h_a977fae5baaa35e6134ab04b73a7093d3}} 
+\index{fix16.h@{fix16.h}!fix16\_div@{fix16\_div}}
+\index{fix16\_div@{fix16\_div}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_div()}{fix16\_div()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} fix16\+\_\+div (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Arg0,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Arg1 }\end{DoxyParamCaption})}
+
+
+
+Divides two fix16\+\_\+t numbers (a / b) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Value a \\
+\hline
+{\em b} & Value b \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result (a / b) 
+\end{DoxyReturn}
+
+
+Definition at line 653 of file fix16.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{654 \{}
+\DoxyCodeLine{655   \textcolor{comment}{// This uses the basic binary restoring division algorithm.}}
+\DoxyCodeLine{656   \textcolor{comment}{// It appears to be faster to do the whole division manually than}}
+\DoxyCodeLine{657   \textcolor{comment}{// trying to compose a 64-\/bit divide out of 32-\/bit divisions on}}
+\DoxyCodeLine{658   \textcolor{comment}{// platforms without hardware divide.}}
+\DoxyCodeLine{659   }
+\DoxyCodeLine{660   \textcolor{keywordflow}{if} (b == 0)}
+\DoxyCodeLine{661   \{}
+\DoxyCodeLine{662 \textcolor{preprocessor}{\#ifdef FIX16\_OVERFLOW\_DETECT}}
+\DoxyCodeLine{663     fault\_mask |= FAULT\_FIX16\_OVERFLOW;}
+\DoxyCodeLine{664     \mbox{\hyperlink{fault_8c_aace1292fddb0bc3023763f890a5b8474}{fault}}(0);}
+\DoxyCodeLine{665     \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_abdaae63e6ce752c6fa9e95e41ddec2a5}{fix16\_overflow}};}
+\DoxyCodeLine{666 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{667     \textcolor{keywordflow}{if} ((a >= 0) == (b >= 0))}
+\DoxyCodeLine{668         \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_a1576383986c02f452cecd9926fbdca56}{fix16\_max}};}
+\DoxyCodeLine{669     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{670         \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_a1d9706a123a7b35617cf3eaf6930f7b1}{fix16\_min}};}
+\DoxyCodeLine{671 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{672   \}}
+\DoxyCodeLine{673   }
+\DoxyCodeLine{674   uint32\_t remainder = (a >= 0) ? a : (-\/a);}
+\DoxyCodeLine{675   uint32\_t divider = (b >= 0) ? b : (-\/b);}
+\DoxyCodeLine{676 }
+\DoxyCodeLine{677   uint32\_t quotient = 0;}
+\DoxyCodeLine{678   uint32\_t bit = 0x10000;}
+\DoxyCodeLine{679   }
+\DoxyCodeLine{680   \textcolor{comment}{// The algorithm requires D >= R}}
+\DoxyCodeLine{681   \textcolor{keywordflow}{while} (divider < remainder)}
+\DoxyCodeLine{682   \{}
+\DoxyCodeLine{683     divider <<= 1;}
+\DoxyCodeLine{684     bit <<= 1;}
+\DoxyCodeLine{685   \}}
+\DoxyCodeLine{686   }
+\DoxyCodeLine{687 \textcolor{preprocessor}{  \#ifndef FIXMATH\_NO\_OVERFLOW}}
+\DoxyCodeLine{688   \textcolor{keywordflow}{if} (!bit)}
+\DoxyCodeLine{689   \{}
+\DoxyCodeLine{690 \textcolor{preprocessor}{\#ifdef FIX16\_OVERFLOW\_DETECT}}
+\DoxyCodeLine{691     fault\_mask |= FAULT\_FIX16\_OVERFLOW;}
+\DoxyCodeLine{692     \mbox{\hyperlink{fault_8c_aace1292fddb0bc3023763f890a5b8474}{fault}}(0);}
+\DoxyCodeLine{693     \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_abdaae63e6ce752c6fa9e95e41ddec2a5}{fix16\_overflow}};}
+\DoxyCodeLine{694 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{695     \textcolor{keywordflow}{if} ((a >= 0) == (b >= 0))}
+\DoxyCodeLine{696         \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_a1576383986c02f452cecd9926fbdca56}{fix16\_max}};}
+\DoxyCodeLine{697     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{698         \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_a1d9706a123a7b35617cf3eaf6930f7b1}{fix16\_min}};}
+\DoxyCodeLine{699 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{700   \}}
+\DoxyCodeLine{701 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{702   }
+\DoxyCodeLine{703   \textcolor{keywordflow}{if} (divider \& 0x80000000)}
+\DoxyCodeLine{704   \{}
+\DoxyCodeLine{705     \textcolor{comment}{// Perform one step manually to avoid overflows later.}}
+\DoxyCodeLine{706     \textcolor{comment}{// We know that divider's bottom bit is 0 here.}}
+\DoxyCodeLine{707     \textcolor{keywordflow}{if} (remainder >= divider)}
+\DoxyCodeLine{708     \{}
+\DoxyCodeLine{709         quotient |= bit;}
+\DoxyCodeLine{710         remainder -\/= divider;}
+\DoxyCodeLine{711     \}}
+\DoxyCodeLine{712     divider >>= 1;}
+\DoxyCodeLine{713     bit >>= 1;}
+\DoxyCodeLine{714   \}}
+\DoxyCodeLine{715   }
+\DoxyCodeLine{716   \textcolor{comment}{// Main division loop}}
+\DoxyCodeLine{717   \textcolor{keywordflow}{while} (bit \&\& remainder)}
+\DoxyCodeLine{718   \{}
+\DoxyCodeLine{719     \textcolor{keywordflow}{if} (remainder >= divider)}
+\DoxyCodeLine{720     \{}
+\DoxyCodeLine{721         quotient |= bit;}
+\DoxyCodeLine{722         remainder -\/= divider;}
+\DoxyCodeLine{723     \}}
+\DoxyCodeLine{724     }
+\DoxyCodeLine{725     remainder <<= 1;}
+\DoxyCodeLine{726     bit >>= 1;}
+\DoxyCodeLine{727   \}   }
+\DoxyCodeLine{728       }
+\DoxyCodeLine{729 \textcolor{preprocessor}{  \#ifndef FIXMATH\_NO\_ROUNDING}}
+\DoxyCodeLine{730   \textcolor{keywordflow}{if} (remainder >= divider)}
+\DoxyCodeLine{731   \{}
+\DoxyCodeLine{732     quotient++;}
+\DoxyCodeLine{733   \}}
+\DoxyCodeLine{734 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{735   }
+\DoxyCodeLine{736   \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}} result = quotient;}
+\DoxyCodeLine{737   }
+\DoxyCodeLine{738   \textcolor{comment}{// Figure out the sign of result}}
+\DoxyCodeLine{739   \textcolor{keywordflow}{if} ((a \string^ b) \& 0x80000000)}
+\DoxyCodeLine{740   \{}
+\DoxyCodeLine{741 \textcolor{preprocessor}{    \#ifndef FIXMATH\_NO\_OVERFLOW}}
+\DoxyCodeLine{742     \textcolor{keywordflow}{if} (result == \mbox{\hyperlink{fix16_8h_a1d9706a123a7b35617cf3eaf6930f7b1}{fix16\_min}})}
+\DoxyCodeLine{743     \{}
+\DoxyCodeLine{744 \textcolor{preprocessor}{\#ifdef FIX16\_OVERFLOW\_DETECT}}
+\DoxyCodeLine{745     fault\_mask |= FAULT\_FIX16\_OVERFLOW;}
+\DoxyCodeLine{746     \mbox{\hyperlink{fault_8c_aace1292fddb0bc3023763f890a5b8474}{fault}}(0);}
+\DoxyCodeLine{747     \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_abdaae63e6ce752c6fa9e95e41ddec2a5}{fix16\_overflow}};}
+\DoxyCodeLine{748 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{749     \textcolor{keywordflow}{if} ((a >= 0) == (b >= 0))}
+\DoxyCodeLine{750         \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_a1576383986c02f452cecd9926fbdca56}{fix16\_max}};}
+\DoxyCodeLine{751     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{752         \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_a1d9706a123a7b35617cf3eaf6930f7b1}{fix16\_min}};}
+\DoxyCodeLine{753 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{754     \}}
+\DoxyCodeLine{755 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{756     }
+\DoxyCodeLine{757     result = -\/result;}
+\DoxyCodeLine{758   \}}
+\DoxyCodeLine{759   }
+\DoxyCodeLine{760   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{761 \}}
+
+\end{DoxyCode}
+
+
+References fault(), fix16\+\_\+max, fix16\+\_\+min, and fix16\+\_\+overflow.
+
+
+
+Referenced by cal\+\_\+vm\+\_\+const(), calc\+\_\+vbus\+\_\+internal(), config\+\_\+control\+\_\+dt(), foc\+\_\+calc\+\_\+pwmtimer(), foc\+\_\+config(), foc\+\_\+reset(), init\+\_\+over\+\_\+current\+\_\+limit(), picon\+\_\+convert\+\_\+gain(), trig\+\_\+arctan\+\_\+90deg\+\_\+q16(), and write\+\_\+itotstart\+\_\+target().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fix16_8h_a977fae5baaa35e6134ab04b73a7093d3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fix16_8h_a977fae5baaa35e6134ab04b73a7093d3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fix16_8h_ac0cabec15f713cb8735718488e42ef1c}\label{fix16_8h_ac0cabec15f713cb8735718488e42ef1c}} 
+\index{fix16.h@{fix16.h}!fix16\_exp@{fix16\_exp}}
+\index{fix16\_exp@{fix16\_exp}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_exp()}{fix16\_exp()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} fix16\+\_\+exp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Value }\end{DoxyParamCaption})}
+
+
+
+Returns the exponent (e$^\wedge$) of the given value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Value} & input value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+e$^\wedge$in\+Value 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fix16_8h_aa4dd641c6a87b918bdf721d009728071}\label{fix16_8h_aa4dd641c6a87b918bdf721d009728071}} 
+\index{fix16.h@{fix16.h}!fix16\_lerp16@{fix16\_lerp16}}
+\index{fix16\_lerp16@{fix16\_lerp16}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_lerp16()}{fix16\_lerp16()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} fix16\+\_\+lerp16 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Arg0,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Arg1,  }\item[{uint16\+\_\+t}]{in\+Fract }\end{DoxyParamCaption})}
+
+
+
+Returns the linear interpolation\+: (in\+Arg0 $\ast$ (1 -\/ in\+Fract)) + (in\+Arg1 $\ast$ in\+Fract) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Arg0} & Value a \\
+\hline
+{\em in\+Arg1} & Value b \\
+\hline
+{\em in\+Fract} & Fraction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fix16_8h_a1a6e7431f43172deda90b1568cb96164}\label{fix16_8h_a1a6e7431f43172deda90b1568cb96164}} 
+\index{fix16.h@{fix16.h}!fix16\_lerp32@{fix16\_lerp32}}
+\index{fix16\_lerp32@{fix16\_lerp32}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_lerp32()}{fix16\_lerp32()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} fix16\+\_\+lerp32 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Arg0,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Arg1,  }\item[{uint32\+\_\+t}]{in\+Fract }\end{DoxyParamCaption})}
+
+
+
+Returns the linear interpolation\+: (in\+Arg0 $\ast$ (1 -\/ in\+Fract)) + (in\+Arg1 $\ast$ in\+Fract) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Arg0} & Value a \\
+\hline
+{\em in\+Arg1} & Value b \\
+\hline
+{\em in\+Fract} & Fraction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fix16_8h_a3683aeb52d193e886be960181bb4a2c5}\label{fix16_8h_a3683aeb52d193e886be960181bb4a2c5}} 
+\index{fix16.h@{fix16.h}!fix16\_lerp8@{fix16\_lerp8}}
+\index{fix16\_lerp8@{fix16\_lerp8}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_lerp8()}{fix16\_lerp8()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} fix16\+\_\+lerp8 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Arg0,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Arg1,  }\item[{uint8\+\_\+t}]{in\+Fract }\end{DoxyParamCaption})}
+
+
+
+Returns the linear interpolation\+: (in\+Arg0 $\ast$ (1 -\/ in\+Fract)) + (in\+Arg1 $\ast$ in\+Fract) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Arg0} & Value a \\
+\hline
+{\em in\+Arg1} & Value b \\
+\hline
+{\em in\+Fract} & Fraction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fix16_8h_aa7d3aa6283b66351630a0dc9023301ef}\label{fix16_8h_aa7d3aa6283b66351630a0dc9023301ef}} 
+\index{fix16.h@{fix16.h}!fix16\_mul@{fix16\_mul}}
+\index{fix16\_mul@{fix16\_mul}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_mul()}{fix16\_mul()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} fix16\+\_\+mul (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Arg0,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Arg1 }\end{DoxyParamCaption})}
+
+
+
+Multiplies two fix16\+\_\+t values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Arg0} & Value a \\
+\hline
+{\em in\+Arg1} & Value b \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result (a $\ast$ b) 
+\end{DoxyReturn}
+
+
+Definition at line 227 of file fix16.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{228 \{}
+\DoxyCodeLine{229   \textcolor{comment}{// Each argument is divided to 16-\/bit parts.}}
+\DoxyCodeLine{230   \textcolor{comment}{// AB}}
+\DoxyCodeLine{231   \textcolor{comment}{// * CD}}
+\DoxyCodeLine{232   \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{233   \textcolor{comment}{// BD 16 * 16 -\/> 32 bit products}}
+\DoxyCodeLine{234   \textcolor{comment}{// CB}}
+\DoxyCodeLine{235   \textcolor{comment}{// AD}}
+\DoxyCodeLine{236   \textcolor{comment}{// AC}}
+\DoxyCodeLine{237   \textcolor{comment}{// |-\/-\/-\/-\/| 64 bit product}}
+\DoxyCodeLine{238   int32\_t A = (inArg0 >> 16), C = (inArg1 >> 16);}
+\DoxyCodeLine{239   uint32\_t B = (inArg0 \& 0xFFFF), D = (inArg1 \& 0xFFFF);}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241   int32\_t AC = A*C;}
+\DoxyCodeLine{242   int32\_t AD\_CB = A*D + C*B;}
+\DoxyCodeLine{243   uint32\_t BD = B*D;}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245   int32\_t product\_hi = AC + (AD\_CB >> 16);}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{247   \textcolor{comment}{// Handle carry from lower 32 bits to upper part of result.}}
+\DoxyCodeLine{248   uint32\_t ad\_cb\_temp = AD\_CB << 16;}
+\DoxyCodeLine{249   uint32\_t product\_lo = BD + ad\_cb\_temp;}
+\DoxyCodeLine{250   \textcolor{keywordflow}{if} (product\_lo < BD)}
+\DoxyCodeLine{251     product\_hi++;}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{253 \textcolor{preprocessor}{\#ifndef FIXMATH\_NO\_OVERFLOW}}
+\DoxyCodeLine{254   \textcolor{comment}{// The upper 17 bits should all be the same (the sign).}}
+\DoxyCodeLine{255   \textcolor{keywordflow}{if} (product\_hi >> 31 != product\_hi >> 15)}
+\DoxyCodeLine{256     \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_abdaae63e6ce752c6fa9e95e41ddec2a5}{fix16\_overflow}};}
+\DoxyCodeLine{257 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259 \textcolor{preprocessor}{\#ifdef FIXMATH\_NO\_ROUNDING}}
+\DoxyCodeLine{260   \textcolor{keywordflow}{return} (product\_hi << 16) | (product\_lo >> 16);}
+\DoxyCodeLine{261 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{262   \textcolor{comment}{// Subtracting 0x8000 (= 0.5) and then using signed right shift}}
+\DoxyCodeLine{263   \textcolor{comment}{// achieves proper rounding to result-\/1, except in the corner}}
+\DoxyCodeLine{264   \textcolor{comment}{// case of negative numbers and lowest word = 0x8000.}}
+\DoxyCodeLine{265   \textcolor{comment}{// To handle that, we also have to subtract 1 for negative numbers.}}
+\DoxyCodeLine{266   uint32\_t product\_lo\_tmp = product\_lo;}
+\DoxyCodeLine{267   product\_lo -\/= 0x8000;}
+\DoxyCodeLine{268   product\_lo -\/= (uint32\_t)product\_hi >> 31;}
+\DoxyCodeLine{269   \textcolor{keywordflow}{if} (product\_lo > product\_lo\_tmp)}
+\DoxyCodeLine{270     product\_hi-\/-\/;}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272   \textcolor{comment}{// Discard the lowest 16 bits. Note that this is not exactly the same}}
+\DoxyCodeLine{273   \textcolor{comment}{// as dividing by 0x10000. For example if product = -\/1, result will}}
+\DoxyCodeLine{274   \textcolor{comment}{// also be -\/1 and not 0. This is compensated by adding +1 to the result}}
+\DoxyCodeLine{275   \textcolor{comment}{// and compensating this in turn in the rounding above.}}
+\DoxyCodeLine{276   \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}} result = (product\_hi << 16) | (product\_lo >> 16);}
+\DoxyCodeLine{277   result += 1;}
+\DoxyCodeLine{278   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{279 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{280 \}}
+
+\end{DoxyCode}
+
+
+References fix16\+\_\+overflow.
+
+
+
+Referenced by calc\+\_\+vbus\+\_\+internal(), est\+\_\+anglediff\+\_\+check(), foc\+\_\+calc\+\_\+pwmtimer(), hall\+\_\+param\+\_\+write(), init\+\_\+over\+\_\+current\+\_\+limit(), parameters\+\_\+write\+\_\+foc(), and picon\+\_\+convert\+\_\+gain().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fix16_8h_aa7d3aa6283b66351630a0dc9023301ef_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fix16_8h_a55308824cf7fb5cb8fcba6a9eb1e0e6e}\label{fix16_8h_a55308824cf7fb5cb8fcba6a9eb1e0e6e}} 
+\index{fix16.h@{fix16.h}!fix16\_mul\_uint@{fix16\_mul\_uint}}
+\index{fix16\_mul\_uint@{fix16\_mul\_uint}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_mul\_uint()}{fix16\_mul\_uint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} uint32\+\_\+t fix16\+\_\+mul\+\_\+uint (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{in\+Arg0,  }\item[{uint32\+\_\+t}]{in\+Arg1 }\end{DoxyParamCaption})}
+
+
+
+Multiplies two integers and returns a fix16\+\_\+t. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Arg0} & Value a \\
+\hline
+{\em in\+Arg1} & Value b \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result (a $\ast$ b) in fix16\+\_\+t format 
+\end{DoxyReturn}
+
+
+Definition at line 282 of file fix16.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{283 \{}
+\DoxyCodeLine{284   \textcolor{comment}{// Each argument is divided to 16-\/bit parts.}}
+\DoxyCodeLine{285   \textcolor{comment}{// AB}}
+\DoxyCodeLine{286   \textcolor{comment}{// * CD}}
+\DoxyCodeLine{287   \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{288   \textcolor{comment}{// BD 16 * 16 -\/> 32 bit products}}
+\DoxyCodeLine{289   \textcolor{comment}{// CB}}
+\DoxyCodeLine{290   \textcolor{comment}{// AD}}
+\DoxyCodeLine{291   \textcolor{comment}{// AC}}
+\DoxyCodeLine{292   \textcolor{comment}{// |-\/-\/-\/-\/| 64 bit product}}
+\DoxyCodeLine{293   uint32\_t A = (inArg0 >> 16), C = (inArg1 >> 16);}
+\DoxyCodeLine{294   uint32\_t B = (inArg0 \& 0xFFFF), D = (inArg1 \& 0xFFFF);}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{296   uint32\_t AC = A*C;}
+\DoxyCodeLine{297   uint32\_t AD\_CB = A*D + C*B;}
+\DoxyCodeLine{298   uint32\_t BD = B*D;}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300   uint32\_t product\_hi = AC + (AD\_CB >> 16);}
+\DoxyCodeLine{301 }
+\DoxyCodeLine{302   \textcolor{comment}{// Handle carry from lower 32 bits to upper part of result.}}
+\DoxyCodeLine{303   uint32\_t ad\_cb\_temp = AD\_CB << 16;}
+\DoxyCodeLine{304   uint32\_t product\_lo = BD + ad\_cb\_temp;}
+\DoxyCodeLine{305   \textcolor{keywordflow}{if} (product\_lo < BD)}
+\DoxyCodeLine{306     product\_hi++;}
+\DoxyCodeLine{307 }
+\DoxyCodeLine{308   \textcolor{keywordflow}{return} (product\_hi << 16) | (product\_lo >> 16);}
+\DoxyCodeLine{309 \}}
+
+\end{DoxyCode}
+
+
+Referenced by picon\+\_\+convert\+\_\+gain().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{fix16_8h_a55308824cf7fb5cb8fcba6a9eb1e0e6e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fix16_8h_aabbc8b7ffe9f99fbcccbb991fe7d1474}\label{fix16_8h_aabbc8b7ffe9f99fbcccbb991fe7d1474}} 
+\index{fix16.h@{fix16.h}!fix16\_sin@{fix16\_sin}}
+\index{fix16\_sin@{fix16\_sin}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_sin()}{fix16\_sin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} fix16\+\_\+sin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Angle }\end{DoxyParamCaption})}
+
+
+
+Returns the sine of the given value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Angle} & input angle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sin(in\+Angle) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fix16_8h_ace32df22509c270f3286fdb09b227b9d}\label{fix16_8h_ace32df22509c270f3286fdb09b227b9d}} 
+\index{fix16.h@{fix16.h}!fix16\_sin\_parabola@{fix16\_sin\_parabola}}
+\index{fix16\_sin\_parabola@{fix16\_sin\_parabola}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_sin\_parabola()}{fix16\_sin\_parabola()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} fix16\+\_\+sin\+\_\+parabola (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Angle }\end{DoxyParamCaption})}
+
+
+
+Returns the sine parabola of the given value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Angle} & input angle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Sin(in\+Angle) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{fix16_8h_a27ac89a1527b893771fc276ef3043a15}\label{fix16_8h_a27ac89a1527b893771fc276ef3043a15}} 
+\index{fix16.h@{fix16.h}!fix16\_sqrt@{fix16\_sqrt}}
+\index{fix16\_sqrt@{fix16\_sqrt}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_sqrt()}{fix16\_sqrt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} fix16\+\_\+sqrt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Value }\end{DoxyParamCaption})}
+
+
+
+Returns the square root of the given value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Value} & input value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+sqrt(in\+Value) 
+\end{DoxyReturn}
+
+
+Definition at line 42 of file fix16\+\_\+sqrt.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42                                     \{}
+\DoxyCodeLine{43         \textcolor{keywordtype}{int} neg = (inValue < 0);}
+\DoxyCodeLine{44         \textcolor{keywordflow}{if}(neg)}
+\DoxyCodeLine{45                 inValue = -\/inValue;}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{        \#ifndef FIXMATH\_NO\_CACHE}}
+\DoxyCodeLine{48         \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}} tempIndex = (((inValue >> 16) \string^ (inValue >> 4)) \& 0x00000FFF);}
+\DoxyCodeLine{49         \textcolor{keywordflow}{if}(\_fix16\_sqrt\_cache\_index[tempIndex] == inValue)}
+\DoxyCodeLine{50                 \textcolor{keywordflow}{return} (neg ? -\/\_fix16\_sqrt\_cache\_value[tempIndex] : \_fix16\_sqrt\_cache\_value[tempIndex]);}
+\DoxyCodeLine{51 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53         \mbox{\hyperlink{structlfm__int64}{lfm\_int64}} tempOp  = int64\_const((inValue >> 16), (inValue << 16));}
+\DoxyCodeLine{54         \mbox{\hyperlink{structlfm__int64}{lfm\_int64}} tempOut = int64\_const(0, 0);}
+\DoxyCodeLine{55         \mbox{\hyperlink{structlfm__int64}{lfm\_int64}} tempOne = int64\_const(0x40000000UL, 0x00000000UL);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         \textcolor{keywordflow}{while}(int64\_cmp\_gt(tempOne, tempOp))}
+\DoxyCodeLine{58                 tempOne = \mbox{\hyperlink{fix16_8c_a29932d285873eff00e210103227209b5}{int64\_shift}}(tempOne, -\/2);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60         \textcolor{keywordflow}{while}(int64\_cmp\_ne(tempOne, int64\_const(0, 0))) \{}
+\DoxyCodeLine{61                 \textcolor{keywordflow}{if}(int64\_cmp\_ge(tempOp, \mbox{\hyperlink{fix16_8c_a456b3a510b6c10f22fc3fdccc8f222d6}{int64\_add}}(tempOut, tempOne))) \{}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64                         tempOp  = \mbox{\hyperlink{fix16_8c_a352c64e0064bfd7e7ddf1229f7ee16e3}{int64\_sub}}(tempOp, \mbox{\hyperlink{fix16_8c_a456b3a510b6c10f22fc3fdccc8f222d6}{int64\_add}}(tempOut, tempOne));}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67                         tempOut = \mbox{\hyperlink{fix16_8c_a456b3a510b6c10f22fc3fdccc8f222d6}{int64\_add}}(tempOut, \mbox{\hyperlink{fix16_8c_a29932d285873eff00e210103227209b5}{int64\_shift}}(tempOne, 1));}
+\DoxyCodeLine{68                 \}}
+\DoxyCodeLine{69                 tempOut = \mbox{\hyperlink{fix16_8c_a29932d285873eff00e210103227209b5}{int64\_shift}}(tempOut, -\/1);}
+\DoxyCodeLine{70                 tempOne = \mbox{\hyperlink{fix16_8c_a29932d285873eff00e210103227209b5}{int64\_shift}}(tempOne, -\/2);}
+\DoxyCodeLine{71         \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{preprocessor}{        \#ifndef FIXMATH\_NO\_CACHE}}
+\DoxyCodeLine{74         \_fix16\_sqrt\_cache\_index[tempIndex] = inValue;}
+\DoxyCodeLine{75         \_fix16\_sqrt\_cache\_value[tempIndex] = int64\_lo(tempOut);}
+\DoxyCodeLine{76 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78         \textcolor{keywordflow}{return} (neg ? -\/int64\_lo(tempOut) : int64\_lo(tempOut));}
+\DoxyCodeLine{79 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{fix16_8h_a08c663f62be63f6e804d507077ab000c}\label{fix16_8h_a08c663f62be63f6e804d507077ab000c}} 
+\index{fix16.h@{fix16.h}!fix16\_tan@{fix16\_tan}}
+\index{fix16\_tan@{fix16\_tan}!fix16.h@{fix16.h}}
+\doxysubsubsection{\texorpdfstring{fix16\_tan()}{fix16\_tan()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} fix16\+\_\+tan (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Angle }\end{DoxyParamCaption})}
+
+
+
+Returns the tangent of the given value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Angle} & input angle \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Tan(in\+Angle) 
+\end{DoxyReturn}

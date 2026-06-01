@@ -1,0 +1,165 @@
+.TH "pac_foc/src/math/calc_speed.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/math/calc_speed.h \- Definitions for speed calculation routines\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'maths\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBcalculate_speed\fP (\fBfix16_t\fP angle_new, \fBfix16_t\fP kspd_scaled_q14, \fBfix16_t\fP filter_alpha_speed_q16, uint16_t speed_scale_shift, \fBfix16_t\fP *angle_previous, int32_t *speed_scaled_q28, int32_t *speed_scaled_q14, \fBfix16_t\fP *speed_radps_q16, int32_t *speed_scaled_prefilt_q14)"
+.br
+.RI "Calculate speed\&. "
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBcalculate_speed_hi\fP (\fBfix16_t\fP angle_new, \fBfix16_t\fP kspd_scaled_q14, \fBfix16_t\fP Kspeed_q11, uint16_t speed_scale_shift, \fBfix16_t\fP *angle_previous, int32_t *speed_scaled_q28, int32_t *speed_scaled_q14, \fBfix16_t\fP *speed_radps_q16, int32_t *speed_scaled_prefilt_q14)"
+.br
+.RI "Calculate speed (high speed version) "
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBcalculate_speed_lo\fP (\fBfix16_t\fP angle_new, \fBfix16_t\fP kspd_scaled_q14, \fBfix16_t\fP Kspeed_q14, uint16_t speed_scale_shift, \fBfix16_t\fP *angle_previous, int32_t *speed_scaled_q28, int32_t *speed_scaled_q14, \fBfix16_t\fP *speed_radps_q16, int32_t *speed_scaled_prefilt_q14)"
+.br
+.RI "Calculate speed (low-speed version) "
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBcalculate_speed_coefficients\fP (int32_t dt_control_q26, uint32_t speed_scale_shift, int32_t *k1_radps_q6, int32_t *k1_scaled_q14)"
+.br
+.RI "Calculate speed coefficients\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const uint16_t \fBfoc_atan_tbl\fP []"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definitions for speed calculation routines\&. 
+
+
+.PP
+Definition in file \fBcalc_speed\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "PAC5XXX_RAMFUNC void calculate_speed (\fBfix16_t\fP angle_new, \fBfix16_t\fP kspd_scaled_q14, \fBfix16_t\fP filter_alpha_speed_q16, uint16_t speed_scale_shift, \fBfix16_t\fP * angle_previous, int32_t * speed_scaled_q28, int32_t * speed_scaled_q14, \fBfix16_t\fP * speed_radps_q16, int32_t * speed_scaled_prefilt_q14)"
+
+.PP
+Calculate speed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIangle_new\fP New angle_new 
+.br
+\fIkspd_scaled_q14\fP Speed gain 
+.br
+\fIfilter_alpha_speed_q16\fP Filtered alpha speed 
+.br
+\fIspeed_scale_shift\fP Speed gain scaled 
+.br
+\fIangle_previous\fP Previous angle_new 
+.br
+\fIspeed_scaled_q28\fP Scaled speed 
+.br
+\fIspeed_scaled_q14\fP Scaled speed 
+.br
+\fIspeed_radps_q16\fP Speed in radians / second 
+.br
+\fIspeed_scaled_prefilt_q14\fP Scaled speed before filtering 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Standard version is meant to handle speed filter cutoff frequency ranging between 1-100Hz 
+.RE
+.PP
+
+.SS "PAC5XXX_RAMFUNC void calculate_speed_coefficients (int32_t dt_control_q26, uint32_t speed_scale_shift, int32_t * k1_radps_q6, int32_t * k1_scaled_q14)"
+
+.PP
+Calculate speed coefficients\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdt_control_q26\fP Dt control 
+.br
+\fIspeed_scale_shift\fP Shifted speed scaled 
+.br
+\fIk1_radps_q6\fP Gain in radians/second 
+.br
+\fIk1_scaled_q14\fP Scaled gain 
+.RE
+.PP
+
+.SS "PAC5XXX_RAMFUNC void calculate_speed_hi (\fBfix16_t\fP angle_new, \fBfix16_t\fP kspd_scaled_q14, \fBfix16_t\fP Kspeed_q11, uint16_t speed_scale_shift, \fBfix16_t\fP * angle_previous, int32_t * speed_scaled_q28, int32_t * speed_scaled_q14, \fBfix16_t\fP * speed_radps_q16, int32_t * speed_scaled_prefilt_q14)"
+
+.PP
+Calculate speed (high speed version) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIangle_new\fP New angle_new 
+.br
+\fIkspd_scaled_q14\fP Speed gain 
+.br
+\fIfilter_alpha_speed_q16\fP Filtered alpha speed 
+.br
+\fIspeed_scale_shift\fP Speed gain scaled 
+.br
+\fIangle_previous\fP Previous angle_new 
+.br
+\fIspeed_scaled_q28\fP Scaled speed 
+.br
+\fIspeed_scaled_q14\fP Scaled speed 
+.br
+\fIspeed_radps_q16\fP Speed in radians / second 
+.br
+\fIspeed_scaled_prefilt_q14\fP Scaled speed before filtering 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+HI version is meant to handle speed filter cutoff frequency ranging between 10-100Hz 
+.RE
+.PP
+
+.SS "PAC5XXX_RAMFUNC void calculate_speed_lo (\fBfix16_t\fP angle_new, \fBfix16_t\fP kspd_scaled_q14, \fBfix16_t\fP Kspeed_q14, uint16_t speed_scale_shift, \fBfix16_t\fP * angle_previous, int32_t * speed_scaled_q28, int32_t * speed_scaled_q14, \fBfix16_t\fP * speed_radps_q16, int32_t * speed_scaled_prefilt_q14)"
+
+.PP
+Calculate speed (low-speed version) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIangle_new\fP New angle_new 
+.br
+\fIkspd_scaled_q14\fP Speed gain 
+.br
+\fIfilter_alpha_speed_q16\fP Filtered alpha speed 
+.br
+\fIspeed_scale_shift\fP Speed gain scaled 
+.br
+\fIangle_previous\fP Previous angle_new 
+.br
+\fIspeed_scaled_q28\fP Scaled speed 
+.br
+\fIspeed_scaled_q14\fP Scaled speed 
+.br
+\fIspeed_radps_q16\fP Speed in radians / second 
+.br
+\fIspeed_scaled_prefilt_q14\fP Scaled speed before filtering 
+.RE
+.PP
+
+.SH "Variable Documentation"
+.PP 
+.SS "const uint16_t foc_atan_tbl[]\fC [extern]\fP"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

@@ -1,0 +1,89 @@
+\hypertarget{hall__io__config_8h}{}\doxysection{pac\+\_\+foc/src/mpos/hall/hall\+\_\+io\+\_\+config.h File Reference}
+\label{hall__io__config_8h}\index{pac\_foc/src/mpos/hall/hall\_io\_config.h@{pac\_foc/src/mpos/hall/hall\_io\_config.h}}
+
+
+Use for hall port and interrupt initialization and utility function.  
+
+
+{\ttfamily \#include \char`\"{}pac5xxx.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config\+\_\+app.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}board.\+h\char`\"{}}\newline
+Include dependency graph for hall\+\_\+io\+\_\+config.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{hall__io__config_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{hall__io__config_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{hall__io__config_8h_a9a75c43b400d633fc425536ebac668b5}{G\+E\+T\+\_\+\+H\+A\+L\+L\+\_\+\+V\+A\+L\+UE}}~((P\+A\+C5\+X\+X\+X\+\_\+\+G\+P\+I\+O\+\_\+\+H\+A\+L\+LC-\/$>$I\+N.\+H\+A\+L\+L\+C\+\_\+\+P\+O\+R\+T\+N\+UM $<$$<$ 2) + (P\+A\+C5\+X\+X\+X\+\_\+\+G\+P\+I\+O\+\_\+\+H\+A\+L\+LB-\/$>$I\+N.\+H\+A\+L\+L\+B\+\_\+\+P\+O\+R\+T\+N\+UM $<$$<$ 1) + (P\+A\+C5\+X\+X\+X\+\_\+\+G\+P\+I\+O\+\_\+\+H\+A\+L\+LA-\/$>$I\+N.\+H\+A\+L\+L\+A\+\_\+\+P\+O\+R\+T\+N\+UM $<$$<$ 0))
+\begin{DoxyCompactList}\small\item\em Use to get port hall status. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{hall__io__config_8h_a64b77f228d0386d62a3bff44a68295ef}{N\+I\+R\+Q\+A\+\_\+\+P\+I\+N\+\_\+\+M\+A\+SK}}~H\+A\+L\+L\+A\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT
+\item 
+\#define \mbox{\hyperlink{hall__io__config_8h_a28f4a53a380fc8b631d5e4ce6e505deb}{N\+I\+R\+Q\+B\+\_\+\+P\+I\+N\+\_\+\+M\+A\+SK}}~H\+A\+L\+L\+B\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT
+\item 
+\#define \mbox{\hyperlink{hall__io__config_8h_a3a29d7bb4b158ff0cab7db2ab268b7d0}{N\+I\+R\+Q\+C\+\_\+\+P\+I\+N\+\_\+\+M\+A\+SK}}~H\+A\+L\+L\+C\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for hall port and interrupt initialization and utility function. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{hall__io__config_8h_a9a75c43b400d633fc425536ebac668b5}\label{hall__io__config_8h_a9a75c43b400d633fc425536ebac668b5}} 
+\index{hall\_io\_config.h@{hall\_io\_config.h}!GET\_HALL\_VALUE@{GET\_HALL\_VALUE}}
+\index{GET\_HALL\_VALUE@{GET\_HALL\_VALUE}!hall\_io\_config.h@{hall\_io\_config.h}}
+\doxysubsubsection{\texorpdfstring{GET\_HALL\_VALUE}{GET\_HALL\_VALUE}}
+{\footnotesize\ttfamily \#define G\+E\+T\+\_\+\+H\+A\+L\+L\+\_\+\+V\+A\+L\+UE~((P\+A\+C5\+X\+X\+X\+\_\+\+G\+P\+I\+O\+\_\+\+H\+A\+L\+LC-\/$>$I\+N.\+H\+A\+L\+L\+C\+\_\+\+P\+O\+R\+T\+N\+UM $<$$<$ 2) + (P\+A\+C5\+X\+X\+X\+\_\+\+G\+P\+I\+O\+\_\+\+H\+A\+L\+LB-\/$>$I\+N.\+H\+A\+L\+L\+B\+\_\+\+P\+O\+R\+T\+N\+UM $<$$<$ 1) + (P\+A\+C5\+X\+X\+X\+\_\+\+G\+P\+I\+O\+\_\+\+H\+A\+L\+LA-\/$>$I\+N.\+H\+A\+L\+L\+A\+\_\+\+P\+O\+R\+T\+N\+UM $<$$<$ 0))}
+
+
+
+Use to get port hall status. 
+
+
+
+Definition at line 37 of file hall\+\_\+io\+\_\+config.\+h.
+
+\mbox{\Hypertarget{hall__io__config_8h_a64b77f228d0386d62a3bff44a68295ef}\label{hall__io__config_8h_a64b77f228d0386d62a3bff44a68295ef}} 
+\index{hall\_io\_config.h@{hall\_io\_config.h}!NIRQA\_PIN\_MASK@{NIRQA\_PIN\_MASK}}
+\index{NIRQA\_PIN\_MASK@{NIRQA\_PIN\_MASK}!hall\_io\_config.h@{hall\_io\_config.h}}
+\doxysubsubsection{\texorpdfstring{NIRQA\_PIN\_MASK}{NIRQA\_PIN\_MASK}}
+{\footnotesize\ttfamily \#define N\+I\+R\+Q\+A\+\_\+\+P\+I\+N\+\_\+\+M\+A\+SK~H\+A\+L\+L\+A\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}
+
+
+
+Definition at line 91 of file hall\+\_\+io\+\_\+config.\+h.
+
+\mbox{\Hypertarget{hall__io__config_8h_a28f4a53a380fc8b631d5e4ce6e505deb}\label{hall__io__config_8h_a28f4a53a380fc8b631d5e4ce6e505deb}} 
+\index{hall\_io\_config.h@{hall\_io\_config.h}!NIRQB\_PIN\_MASK@{NIRQB\_PIN\_MASK}}
+\index{NIRQB\_PIN\_MASK@{NIRQB\_PIN\_MASK}!hall\_io\_config.h@{hall\_io\_config.h}}
+\doxysubsubsection{\texorpdfstring{NIRQB\_PIN\_MASK}{NIRQB\_PIN\_MASK}}
+{\footnotesize\ttfamily \#define N\+I\+R\+Q\+B\+\_\+\+P\+I\+N\+\_\+\+M\+A\+SK~H\+A\+L\+L\+B\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}
+
+
+
+Definition at line 93 of file hall\+\_\+io\+\_\+config.\+h.
+
+\mbox{\Hypertarget{hall__io__config_8h_a3a29d7bb4b158ff0cab7db2ab268b7d0}\label{hall__io__config_8h_a3a29d7bb4b158ff0cab7db2ab268b7d0}} 
+\index{hall\_io\_config.h@{hall\_io\_config.h}!NIRQC\_PIN\_MASK@{NIRQC\_PIN\_MASK}}
+\index{NIRQC\_PIN\_MASK@{NIRQC\_PIN\_MASK}!hall\_io\_config.h@{hall\_io\_config.h}}
+\doxysubsubsection{\texorpdfstring{NIRQC\_PIN\_MASK}{NIRQC\_PIN\_MASK}}
+{\footnotesize\ttfamily \#define N\+I\+R\+Q\+C\+\_\+\+P\+I\+N\+\_\+\+M\+A\+SK~H\+A\+L\+L\+C\+\_\+\+P\+O\+R\+T\+\_\+\+B\+IT}
+
+
+
+Definition at line 95 of file hall\+\_\+io\+\_\+config.\+h.
+

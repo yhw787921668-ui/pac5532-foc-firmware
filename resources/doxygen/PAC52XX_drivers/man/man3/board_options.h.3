@@ -1,0 +1,752 @@
+.TH "pac_foc/pac52xx/board/board_options.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/board/board_options.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBDEVICE_5220\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDEVICE_5223\fP   1"
+.br
+.ti -1c
+.RI "#define \fBDEVICE_5250\fP   2"
+.br
+.ti -1c
+.RI "#define \fBDEVICE_5253\fP   3"
+.br
+.ti -1c
+.RI "#define \fBDEVICE_5232\fP   4"
+.br
+.ti -1c
+.RI "#define \fBDEVICE_5222\fP   5"
+.br
+.ti -1c
+.RI "#define \fBDEVICE_5256\fP   6"
+.br
+.ti -1c
+.RI "#define \fBDEVICE_5285\fP   7"
+.br
+.ti -1c
+.RI "#define \fBCONFIG_SHUNT_1SHUNT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBCONFIG_SHUNT_2SHUNT\fP   2"
+.br
+.ti -1c
+.RI "#define \fBCONFIG_SHUNT_3SHUNT\fP   3"
+.br
+.ti -1c
+.RI "#define \fBPOWER_MEASURE_METHOD_1\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPOWER_MEASURE_METHOD_2\fP   2"
+.br
+.ti -1c
+.RI "#define \fBINVERTER_TYPE_MOS\fP   1"
+.br
+.ti -1c
+.RI "#define \fBINVERTER_TYPE_IGBT\fP   2"
+.br
+.ti -1c
+.RI "#define \fBPORT_PA3\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBPORT_PA4\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBPORT_PA5\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBPORT_PD2\fP   (1 << (8+2))"
+.br
+.ti -1c
+.RI "#define \fBPORT_PD3\fP   (1 << (8+3))"
+.br
+.ti -1c
+.RI "#define \fBPORT_PD4\fP   (1 << (8+4))"
+.br
+.ti -1c
+.RI "#define \fBPORT_PD5\fP   (1 << (8+5))"
+.br
+.ti -1c
+.RI "#define \fBPORT_PD6\fP   (1 << (8+6))"
+.br
+.ti -1c
+.RI "#define \fBPORT_PD7\fP   (1 << (8+7))"
+.br
+.ti -1c
+.RI "#define \fBPORT_PE0\fP   (1 << (16+0))"
+.br
+.ti -1c
+.RI "#define \fBPORT_PE1\fP   (1 << (16+1))"
+.br
+.ti -1c
+.RI "#define \fBPORT_PE2\fP   (1 << (16+2))"
+.br
+.ti -1c
+.RI "#define \fBPORT_PE3\fP   (1 << (16+3))"
+.br
+.ti -1c
+.RI "#define \fBPORT_PE4\fP   (1 << (16+4))"
+.br
+.ti -1c
+.RI "#define \fBPORT_PE5\fP   (1 << (16+5))"
+.br
+.ti -1c
+.RI "#define \fBAIO50_MODE_IO\fP   0"
+.br
+.ti -1c
+.RI "#define \fBAIO50_MODE_DIFFAMP\fP   1"
+.br
+.ti -1c
+.RI "#define \fBAIO50_GAIN_X1\fP   1"
+.br
+.ti -1c
+.RI "#define \fBAIO50_GAIN_X2\fP   2"
+.br
+.ti -1c
+.RI "#define \fBAIO50_GAIN_X4\fP   3"
+.br
+.ti -1c
+.RI "#define \fBAIO50_GAIN_X8\fP   4"
+.br
+.ti -1c
+.RI "#define \fBAIO50_GAIN_X16\fP   5"
+.br
+.ti -1c
+.RI "#define \fBAIO50_GAIN_X32\fP   6"
+.br
+.ti -1c
+.RI "#define \fBAIO50_GAIN_X48\fP   7"
+.br
+.ti -1c
+.RI "#define \fBAIO50_LPCOMP_DISABLE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBAIO50_LPCOMP_1US\fP   1"
+.br
+.ti -1c
+.RI "#define \fBAIO50_LPCOMP_2US\fP   2"
+.br
+.ti -1c
+.RI "#define \fBAIO50_LPCOMP_4US\fP   3"
+.br
+.ti -1c
+.RI "#define \fBAIO50_LPROT_NONE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBAIO50_LPROT_PR2\fP   1"
+.br
+.ti -1c
+.RI "#define \fBAIO50_LPROT_PR1\fP   2"
+.br
+.ti -1c
+.RI "#define \fBAIO50_LPROT_PR1PR2\fP   3"
+.br
+.ti -1c
+.RI "#define \fBAIO50_LPROT_PR\fP   1"
+.br
+.ti -1c
+.RI "#define \fBAIO50_OFFSET_DISABLED\fP   0"
+.br
+.ti -1c
+.RI "#define \fBAIO50_OFFSET_ENABLED\fP   1"
+.br
+.ti -1c
+.RI "#define \fBAIO50_HPCOMP_DISABLE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBAIO50_HPCOMP_1US\fP   1"
+.br
+.ti -1c
+.RI "#define \fBAIO50_HPCOMP_2US\fP   2"
+.br
+.ti -1c
+.RI "#define \fBAIO50_HPCOMP_4US\fP   3"
+.br
+.ti -1c
+.RI "#define \fBAIO50_HPROT_NONE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBAIO50_HPROT_PR2\fP   1"
+.br
+.ti -1c
+.RI "#define \fBAIO50_HPROT_PR1\fP   2"
+.br
+.ti -1c
+.RI "#define \fBAIO50_HPROT_PR1PR2\fP   3"
+.br
+.ti -1c
+.RI "#define \fBAIO50_HPROT_PR\fP   1"
+.br
+.ti -1c
+.RI "#define \fBAIO50_OPT_INPUT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBAIO50_OPT_OD\fP   2"
+.br
+.ti -1c
+.RI "#define \fBAIO50_POL_AH\fP   0"
+.br
+.ti -1c
+.RI "#define \fBAIO50_POL_AL\fP   1"
+.br
+.ti -1c
+.RI "#define \fBAIO50_MUX_NONE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBAIO50_MUX_DB1\fP   1"
+.br
+.ti -1c
+.RI "#define \fBAIO50_MUX_DB2\fP   2"
+.br
+.ti -1c
+.RI "#define \fBAIO50_MUX_DB3\fP   3"
+.br
+.ti -1c
+.RI "#define \fBAIO50_MUX_DB4\fP   4"
+.br
+.ti -1c
+.RI "#define \fBAIO50_MUX_DB5\fP   5"
+.br
+.ti -1c
+.RI "#define \fBAIO50_MUX_DB6\fP   6"
+.br
+.ti -1c
+.RI "#define \fBAIO50_MUX_DB7\fP   7"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_MODE_IO\fP   0"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_MODE_GAIN\fP   1"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_MODE_COMP\fP   2"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_MODE_SPECIAL\fP   3"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_GAIN_DIRECT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_GAIN_X1\fP   1"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_GAIN_X2\fP   2"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_GAIN_X4\fP   3"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_GAIN_X8\fP   4"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_GAIN_X16\fP   5"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_GAIN_X32\fP   6"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_GAIN_X48\fP   7"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_MUX_DEFAULT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_MUX_AB1\fP   1"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_MUX_AB2\fP   2"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_MUX_AB3\fP   3"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_MUX_AB4\fP   4"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_MUX_AB5\fP   5"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_MUX_AB6\fP   6"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_OPT_INPUT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_OPT_OD\fP   2"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_POL_AH\fP   0"
+.br
+.ti -1c
+.RI "#define \fBAIO6789_POL_AL\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPORT_OTHER\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPORT_VPHASE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPORT_IPHASE\fP   2"
+.br
+.ti -1c
+.RI "#define \fBCHANNEL_NONE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBCHANNEL_AIO10\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBCHANNEL_AIO32\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBCHANNEL_AIO54\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBCHANNEL_AIO6\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBCHANNEL_AIO7\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBCHANNEL_AIO8\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBCHANNEL_AIO9\fP   (1 << 6)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define AIO50_GAIN_X1   1"
+
+.PP
+Definition at line 95 of file board_options\&.h\&.
+.SS "#define AIO50_GAIN_X16   5"
+
+.PP
+Definition at line 99 of file board_options\&.h\&.
+.SS "#define AIO50_GAIN_X2   2"
+
+.PP
+Definition at line 96 of file board_options\&.h\&.
+.SS "#define AIO50_GAIN_X32   6"
+
+.PP
+Definition at line 100 of file board_options\&.h\&.
+.SS "#define AIO50_GAIN_X4   3"
+
+.PP
+Definition at line 97 of file board_options\&.h\&.
+.SS "#define AIO50_GAIN_X48   7"
+
+.PP
+Definition at line 101 of file board_options\&.h\&.
+.SS "#define AIO50_GAIN_X8   4"
+
+.PP
+Definition at line 98 of file board_options\&.h\&.
+.SS "#define AIO50_HPCOMP_1US   1"
+
+.PP
+Definition at line 130 of file board_options\&.h\&.
+.SS "#define AIO50_HPCOMP_2US   2"
+
+.PP
+Definition at line 131 of file board_options\&.h\&.
+.SS "#define AIO50_HPCOMP_4US   3"
+
+.PP
+Definition at line 132 of file board_options\&.h\&.
+.SS "#define AIO50_HPCOMP_DISABLE   0"
+
+.PP
+Definition at line 129 of file board_options\&.h\&.
+.SS "#define AIO50_HPROT_NONE   0"
+
+.PP
+Definition at line 137 of file board_options\&.h\&.
+.SS "#define AIO50_HPROT_PR   1"
+
+.PP
+Definition at line 141 of file board_options\&.h\&.
+.SS "#define AIO50_HPROT_PR1   2"
+
+.PP
+Definition at line 139 of file board_options\&.h\&.
+.SS "#define AIO50_HPROT_PR1PR2   3"
+
+.PP
+Definition at line 140 of file board_options\&.h\&.
+.SS "#define AIO50_HPROT_PR2   1"
+
+.PP
+Definition at line 138 of file board_options\&.h\&.
+.SS "#define AIO50_LPCOMP_1US   1"
+
+.PP
+Definition at line 107 of file board_options\&.h\&.
+.SS "#define AIO50_LPCOMP_2US   2"
+
+.PP
+Definition at line 108 of file board_options\&.h\&.
+.SS "#define AIO50_LPCOMP_4US   3"
+
+.PP
+Definition at line 109 of file board_options\&.h\&.
+.SS "#define AIO50_LPCOMP_DISABLE   0"
+
+.PP
+Definition at line 106 of file board_options\&.h\&.
+.SS "#define AIO50_LPROT_NONE   0"
+
+.PP
+Definition at line 114 of file board_options\&.h\&.
+.SS "#define AIO50_LPROT_PR   1"
+
+.PP
+Definition at line 118 of file board_options\&.h\&.
+.SS "#define AIO50_LPROT_PR1   2"
+
+.PP
+Definition at line 116 of file board_options\&.h\&.
+.SS "#define AIO50_LPROT_PR1PR2   3"
+
+.PP
+Definition at line 117 of file board_options\&.h\&.
+.SS "#define AIO50_LPROT_PR2   1"
+
+.PP
+Definition at line 115 of file board_options\&.h\&.
+.SS "#define AIO50_MODE_DIFFAMP   1"
+
+.PP
+Definition at line 86 of file board_options\&.h\&.
+.SS "#define AIO50_MODE_IO   0"
+
+.PP
+Definition at line 85 of file board_options\&.h\&.
+.SS "#define AIO50_MUX_DB1   1"
+
+.PP
+Definition at line 163 of file board_options\&.h\&.
+.SS "#define AIO50_MUX_DB2   2"
+
+.PP
+Definition at line 164 of file board_options\&.h\&.
+.SS "#define AIO50_MUX_DB3   3"
+
+.PP
+Definition at line 165 of file board_options\&.h\&.
+.SS "#define AIO50_MUX_DB4   4"
+
+.PP
+Definition at line 166 of file board_options\&.h\&.
+.SS "#define AIO50_MUX_DB5   5"
+
+.PP
+Definition at line 167 of file board_options\&.h\&.
+.SS "#define AIO50_MUX_DB6   6"
+
+.PP
+Definition at line 168 of file board_options\&.h\&.
+.SS "#define AIO50_MUX_DB7   7"
+
+.PP
+Definition at line 169 of file board_options\&.h\&.
+.SS "#define AIO50_MUX_NONE   0"
+
+.PP
+Definition at line 162 of file board_options\&.h\&.
+.SS "#define AIO50_OFFSET_DISABLED   0"
+
+.PP
+Definition at line 123 of file board_options\&.h\&.
+.SS "#define AIO50_OFFSET_ENABLED   1"
+
+.PP
+Definition at line 124 of file board_options\&.h\&.
+.SS "#define AIO50_OPT_INPUT   0"
+
+.PP
+Definition at line 150 of file board_options\&.h\&.
+.SS "#define AIO50_OPT_OD   2"
+
+.PP
+Definition at line 151 of file board_options\&.h\&.
+.SS "#define AIO50_POL_AH   0"
+
+.PP
+Definition at line 156 of file board_options\&.h\&.
+.SS "#define AIO50_POL_AL   1"
+
+.PP
+Definition at line 157 of file board_options\&.h\&.
+.SS "#define AIO6789_GAIN_DIRECT   0"
+
+.PP
+Definition at line 193 of file board_options\&.h\&.
+.SS "#define AIO6789_GAIN_X1   1"
+
+.PP
+Definition at line 194 of file board_options\&.h\&.
+.SS "#define AIO6789_GAIN_X16   5"
+
+.PP
+Definition at line 198 of file board_options\&.h\&.
+.SS "#define AIO6789_GAIN_X2   2"
+
+.PP
+Definition at line 195 of file board_options\&.h\&.
+.SS "#define AIO6789_GAIN_X32   6"
+
+.PP
+Definition at line 199 of file board_options\&.h\&.
+.SS "#define AIO6789_GAIN_X4   3"
+
+.PP
+Definition at line 196 of file board_options\&.h\&.
+.SS "#define AIO6789_GAIN_X48   7"
+
+.PP
+Definition at line 200 of file board_options\&.h\&.
+.SS "#define AIO6789_GAIN_X8   4"
+
+.PP
+Definition at line 197 of file board_options\&.h\&.
+.SS "#define AIO6789_MODE_COMP   2"
+
+.PP
+Definition at line 183 of file board_options\&.h\&.
+.SS "#define AIO6789_MODE_GAIN   1"
+
+.PP
+Definition at line 182 of file board_options\&.h\&.
+.SS "#define AIO6789_MODE_IO   0"
+
+.PP
+Definition at line 181 of file board_options\&.h\&.
+.SS "#define AIO6789_MODE_SPECIAL   3"
+
+.PP
+Definition at line 184 of file board_options\&.h\&.
+.SS "#define AIO6789_MUX_AB1   1"
+
+.PP
+Definition at line 206 of file board_options\&.h\&.
+.SS "#define AIO6789_MUX_AB2   2"
+
+.PP
+Definition at line 207 of file board_options\&.h\&.
+.SS "#define AIO6789_MUX_AB3   3"
+
+.PP
+Definition at line 208 of file board_options\&.h\&.
+.SS "#define AIO6789_MUX_AB4   4"
+
+.PP
+Definition at line 209 of file board_options\&.h\&.
+.SS "#define AIO6789_MUX_AB5   5"
+
+.PP
+Definition at line 210 of file board_options\&.h\&.
+.SS "#define AIO6789_MUX_AB6   6"
+
+.PP
+Definition at line 211 of file board_options\&.h\&.
+.SS "#define AIO6789_MUX_DEFAULT   0"
+
+.PP
+Definition at line 205 of file board_options\&.h\&.
+.SS "#define AIO6789_OPT_INPUT   0"
+
+.PP
+Definition at line 220 of file board_options\&.h\&.
+.SS "#define AIO6789_OPT_OD   2"
+
+.PP
+Definition at line 221 of file board_options\&.h\&.
+.SS "#define AIO6789_POL_AH   0"
+
+.PP
+Definition at line 226 of file board_options\&.h\&.
+.SS "#define AIO6789_POL_AL   1"
+
+.PP
+Definition at line 227 of file board_options\&.h\&.
+.SS "#define CHANNEL_AIO10   (1 << 0)"
+
+.PP
+Definition at line 240 of file board_options\&.h\&.
+.SS "#define CHANNEL_AIO32   (1 << 1)"
+
+.PP
+Definition at line 241 of file board_options\&.h\&.
+.SS "#define CHANNEL_AIO54   (1 << 2)"
+
+.PP
+Definition at line 242 of file board_options\&.h\&.
+.SS "#define CHANNEL_AIO6   (1 << 3)"
+
+.PP
+Definition at line 243 of file board_options\&.h\&.
+.SS "#define CHANNEL_AIO7   (1 << 4)"
+
+.PP
+Definition at line 244 of file board_options\&.h\&.
+.SS "#define CHANNEL_AIO8   (1 << 5)"
+
+.PP
+Definition at line 245 of file board_options\&.h\&.
+.SS "#define CHANNEL_AIO9   (1 << 6)"
+
+.PP
+Definition at line 246 of file board_options\&.h\&.
+.SS "#define CHANNEL_NONE   0"
+
+.PP
+Definition at line 239 of file board_options\&.h\&.
+.SS "#define CONFIG_SHUNT_1SHUNT   1"
+
+.PP
+Definition at line 34 of file board_options\&.h\&.
+.SS "#define CONFIG_SHUNT_2SHUNT   2"
+
+.PP
+Definition at line 35 of file board_options\&.h\&.
+.SS "#define CONFIG_SHUNT_3SHUNT   3"
+
+.PP
+Definition at line 36 of file board_options\&.h\&.
+.SS "#define DEVICE_5220   0"
+
+.PP
+Definition at line 22 of file board_options\&.h\&.
+.SS "#define DEVICE_5222   5"
+
+.PP
+Definition at line 27 of file board_options\&.h\&.
+.SS "#define DEVICE_5223   1"
+
+.PP
+Definition at line 23 of file board_options\&.h\&.
+.SS "#define DEVICE_5232   4"
+
+.PP
+Definition at line 26 of file board_options\&.h\&.
+.SS "#define DEVICE_5250   2"
+
+.PP
+Definition at line 24 of file board_options\&.h\&.
+.SS "#define DEVICE_5253   3"
+
+.PP
+Definition at line 25 of file board_options\&.h\&.
+.SS "#define DEVICE_5256   6"
+
+.PP
+Definition at line 28 of file board_options\&.h\&.
+.SS "#define DEVICE_5285   7"
+
+.PP
+Definition at line 29 of file board_options\&.h\&.
+.SS "#define INVERTER_TYPE_IGBT   2"
+
+.PP
+Definition at line 48 of file board_options\&.h\&.
+.SS "#define INVERTER_TYPE_MOS   1"
+
+.PP
+Definition at line 47 of file board_options\&.h\&.
+.SS "#define PORT_IPHASE   2"
+
+.PP
+Definition at line 234 of file board_options\&.h\&.
+.SS "#define PORT_OTHER   0"
+
+.PP
+Definition at line 232 of file board_options\&.h\&.
+.SS "#define PORT_PA3   (1 << 3)"
+
+.PP
+Definition at line 57 of file board_options\&.h\&.
+.SS "#define PORT_PA4   (1 << 4)"
+
+.PP
+Definition at line 58 of file board_options\&.h\&.
+.SS "#define PORT_PA5   (1 << 5)"
+
+.PP
+Definition at line 59 of file board_options\&.h\&.
+.SS "#define PORT_PD2   (1 << (8+2))"
+
+.PP
+Definition at line 61 of file board_options\&.h\&.
+.SS "#define PORT_PD3   (1 << (8+3))"
+
+.PP
+Definition at line 62 of file board_options\&.h\&.
+.SS "#define PORT_PD4   (1 << (8+4))"
+
+.PP
+Definition at line 63 of file board_options\&.h\&.
+.SS "#define PORT_PD5   (1 << (8+5))"
+
+.PP
+Definition at line 64 of file board_options\&.h\&.
+.SS "#define PORT_PD6   (1 << (8+6))"
+
+.PP
+Definition at line 65 of file board_options\&.h\&.
+.SS "#define PORT_PD7   (1 << (8+7))"
+
+.PP
+Definition at line 66 of file board_options\&.h\&.
+.SS "#define PORT_PE0   (1 << (16+0))"
+
+.PP
+Definition at line 68 of file board_options\&.h\&.
+.SS "#define PORT_PE1   (1 << (16+1))"
+
+.PP
+Definition at line 69 of file board_options\&.h\&.
+.SS "#define PORT_PE2   (1 << (16+2))"
+
+.PP
+Definition at line 70 of file board_options\&.h\&.
+.SS "#define PORT_PE3   (1 << (16+3))"
+
+.PP
+Definition at line 71 of file board_options\&.h\&.
+.SS "#define PORT_PE4   (1 << (16+4))"
+
+.PP
+Definition at line 72 of file board_options\&.h\&.
+.SS "#define PORT_PE5   (1 << (16+5))"
+
+.PP
+Definition at line 73 of file board_options\&.h\&.
+.SS "#define PORT_VPHASE   1"
+
+.PP
+Definition at line 233 of file board_options\&.h\&.
+.SS "#define POWER_MEASURE_METHOD_1   1"
+
+.PP
+Definition at line 41 of file board_options\&.h\&.
+.SS "#define POWER_MEASURE_METHOD_2   2"
+
+.PP
+Definition at line 42 of file board_options\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

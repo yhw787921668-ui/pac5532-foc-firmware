@@ -1,0 +1,109 @@
+.TH "PAC55XX_GPTTIMER_TYPEDEF" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC55XX_GPTTIMER_TYPEDEF
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pac5xxx_gp_timers\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBIE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBIF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBDIV\fP: 4"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCDV\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBCTL\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCDV\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBCTR\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 41 of file pac5xxx_gp_timers\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t PAC55XX_GPTTIMER_TYPEDEF::__pad0__"
+
+.PP
+Definition at line 51 of file pac5xxx_gp_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_GPTTIMER_TYPEDEF::CDV"
+
+.PP
+Definition at line 52 of file pac5xxx_gp_timers\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_GPTTIMER_TYPEDEF::CTL"
+
+.SS "union { \&.\&.\&. }  PAC55XX_GPTTIMER_TYPEDEF::CTR"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_GPTTIMER_TYPEDEF::DIV"
+
+.PP
+Definition at line 50 of file pac5xxx_gp_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_GPTTIMER_TYPEDEF::EN"
+
+.PP
+Definition at line 47 of file pac5xxx_gp_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_GPTTIMER_TYPEDEF::IE"
+
+.PP
+Definition at line 48 of file pac5xxx_gp_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_GPTTIMER_TYPEDEF::IF"
+
+.PP
+Definition at line 49 of file pac5xxx_gp_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_GPTTIMER_TYPEDEF::w"
+
+.PP
+Definition at line 45 of file pac5xxx_gp_timers\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

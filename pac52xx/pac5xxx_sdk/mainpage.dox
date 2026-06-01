@@ -1,0 +1,5 @@
+/// \mainpage PAC52xx SDK
+/// This documentation details the PAC52xx Software Development Kit (SDK) for the PAC52xx family of devices.   
+/// The PAC52XX SDK provides register level definitions and peripheral driver APIs for developing ARM M0 application firmware on all PAC52XX devices.  
+/// The PAC52XX SDK is a unified SDK that supports Keil µVision IDE, IAR Systems Embedded Workbench for ARM (EWARM) IDE, and GCC tool chains.
+/// 

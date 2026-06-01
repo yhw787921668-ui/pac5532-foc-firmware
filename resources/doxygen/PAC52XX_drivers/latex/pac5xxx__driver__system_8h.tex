@@ -1,0 +1,56 @@
+\hypertarget{pac5xxx__driver__system_8h}{}\doxysection{pac\+\_\+foc/pac52xx/pac5xxx\+\_\+sdk/pac5xxx\+\_\+drivers/pac5xxx\+\_\+driver\+\_\+system.h File Reference}
+\label{pac5xxx__driver__system_8h}\index{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_drivers/pac5xxx\_driver\_system.h@{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_drivers/pac5xxx\_driver\_system.h}}
+
+
+Firmware driver for the P\+A\+C5\+X\+XX system and clock controllers.  
+
+
+{\ttfamily \#include \char`\"{}pac52\+X\+X.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+config.\+h\char`\"{}}\newline
+Include dependency graph for pac5xxx\+\_\+driver\+\_\+system.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__driver__system_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__driver__system_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gaf342bdfd5e5a63868452ecd1c19eb69e}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+Y\+S\+T\+EM}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gaf342bdfd5e5a63868452ecd1c19eb69e}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+Y\+S\+T\+EM}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_ga17b6c9660320345361db0661696c6e46}{pac5xxx\+\_\+sys\+\_\+ccs\+\_\+config}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad4356a48f371bd793260c230c00239dd}{C\+C\+S\+C\+T\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+Type}} clock\+\_\+select, \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad36893f80229418c4d84ff116a9a9f5d}{C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+Type}} aclk\+\_\+div, \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga8e53f4690b4d791dbdf907c7f1898d1c}{C\+C\+S\+C\+T\+L\+\_\+\+H\+C\+L\+K\+D\+I\+V\+\_\+\+Type}} fclk\+\_\+div)
+\begin{DoxyCompactList}\small\item\em This function configures the P\+A\+C5\+X\+XX clock control system. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gaf342bdfd5e5a63868452ecd1c19eb69e}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+Y\+S\+T\+EM}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gadf063ff4de9516f26a03cbca22848ccb}{pac5xxx\+\_\+sys\+\_\+pll\+\_\+config\+\_\+dividers}} (uint8\+\_\+t input\+\_\+div, uint16\+\_\+t feedback\+\_\+div, uint8\+\_\+t output\+\_\+div)
+\begin{DoxyCompactList}\small\item\em This function configures the P\+A\+C5\+X\+XX P\+LL dividers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gaf342bdfd5e5a63868452ecd1c19eb69e}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+Y\+S\+T\+EM}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gaa6fa0c567cf93b63a6b5dc525ae0ef76}{pac5xxx\+\_\+sys\+\_\+pll\+\_\+enable}} (int delay)
+\begin{DoxyCompactList}\small\item\em This function enables the P\+A\+C5\+X\+XX P\+LL. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gaf342bdfd5e5a63868452ecd1c19eb69e}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+Y\+S\+T\+EM}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gaabe2a3bd5a6eb840e79f68339c5c0660}{pac5xxx\+\_\+sys\+\_\+pll\+\_\+config\+\_\+100mhz}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga8e53f4690b4d791dbdf907c7f1898d1c}{C\+C\+S\+C\+T\+L\+\_\+\+H\+C\+L\+K\+D\+I\+V\+\_\+\+Type}} fclk\+\_\+div, \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad36893f80229418c4d84ff116a9a9f5d}{C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+Type}} aclk\+\_\+div)
+\begin{DoxyCompactList}\small\item\em This function configures and enables the P\+LL for a 100M\+Hz output. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gaf342bdfd5e5a63868452ecd1c19eb69e}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+Y\+S\+T\+EM}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_ga53f5d55d9d6c6f1859468ca0ce36ba53}{pac5xxx\+\_\+sys\+\_\+pll\+\_\+config}} (int frequency\+\_\+mhz)
+\begin{DoxyCompactList}\small\item\em This function configures and enables the P\+LL with the given frequency output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gabb7807c0a455033fda4ec8a824b82f9c}{pac\+\_\+recovery}} (void)
+\item 
+void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_ga36dd8d0224d2dfb94869b084607d7bb5}{pac\+\_\+delay\+\_\+asm}} (uint32\+\_\+t counts)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Firmware driver for the P\+A\+C5\+X\+XX system and clock controllers. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2015-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 

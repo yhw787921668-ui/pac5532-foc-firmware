@@ -1,0 +1,98 @@
+\hypertarget{ipd__config_8h}{}\doxysection{pac\+\_\+foc/src/features/ipd/ipd\+\_\+config.h File Reference}
+\label{ipd__config_8h}\index{pac\_foc/src/features/ipd/ipd\_config.h@{pac\_foc/src/features/ipd/ipd\_config.h}}
+
+
+Use for ipd configuration.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{ipd__config_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ipd__config_8h_a31924e0a5e0c1ebbe6de4c4e45cc1c25}{T\+I\+M\+E\+R\+A\+\_\+\+M\+Hz}}~50.\+0
+\item 
+\#define \mbox{\hyperlink{ipd__config_8h_aaa1ef275a5db36f5da70d34b6dca3885}{A\+D\+C\+\_\+\+I\+S\+R\+\_\+uS}}~45.\+0
+\item 
+\#define \mbox{\hyperlink{ipd__config_8h_ab477be86c96fbf047efb9705a4c82653}{A\+D\+C\+\_\+\+I\+S\+R\+\_\+\+T\+I\+C\+KS}}~(uint32\+\_\+t)(\mbox{\hyperlink{ipd__config_8h_aaa1ef275a5db36f5da70d34b6dca3885}{A\+D\+C\+\_\+\+I\+S\+R\+\_\+uS}} $\ast$ \mbox{\hyperlink{ipd__config_8h_a31924e0a5e0c1ebbe6de4c4e45cc1c25}{T\+I\+M\+E\+R\+A\+\_\+\+M\+Hz}})
+\item 
+\#define \mbox{\hyperlink{ipd__config_8h_a0a669ac48353035b15a43ce57b9fdcbb}{I\+P\+D\+\_\+\+A\+N\+G\+L\+E\+\_\+\+D\+E\+C\+I\+S\+I\+O\+N\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD}}~0
+\item 
+\#define \mbox{\hyperlink{ipd__config_8h_a3a3910573e54da867ec50fcb979fc0aa}{I\+P\+D\+\_\+\+P\+H\+A\+S\+E\+\_\+\+L\+O\+S\+T\+\_\+\+D\+E\+T\+E\+C\+T\+\_\+\+M\+I\+N\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+C\+O\+U\+NT}}~15
+\item 
+\#define \mbox{\hyperlink{ipd__config_8h_afbb1677638436e2d4fe55a2590d2aad1}{I\+P\+D\+\_\+\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+\+T\+I\+C\+KS}}~10
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for ipd configuration. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ipd__config_8h_ab477be86c96fbf047efb9705a4c82653}\label{ipd__config_8h_ab477be86c96fbf047efb9705a4c82653}} 
+\index{ipd\_config.h@{ipd\_config.h}!ADC\_ISR\_TICKS@{ADC\_ISR\_TICKS}}
+\index{ADC\_ISR\_TICKS@{ADC\_ISR\_TICKS}!ipd\_config.h@{ipd\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_ISR\_TICKS}{ADC\_ISR\_TICKS}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+I\+S\+R\+\_\+\+T\+I\+C\+KS~(uint32\+\_\+t)(\mbox{\hyperlink{ipd__config_8h_aaa1ef275a5db36f5da70d34b6dca3885}{A\+D\+C\+\_\+\+I\+S\+R\+\_\+uS}} $\ast$ \mbox{\hyperlink{ipd__config_8h_a31924e0a5e0c1ebbe6de4c4e45cc1c25}{T\+I\+M\+E\+R\+A\+\_\+\+M\+Hz}})}
+
+
+
+Definition at line 25 of file ipd\+\_\+config.\+h.
+
+\mbox{\Hypertarget{ipd__config_8h_aaa1ef275a5db36f5da70d34b6dca3885}\label{ipd__config_8h_aaa1ef275a5db36f5da70d34b6dca3885}} 
+\index{ipd\_config.h@{ipd\_config.h}!ADC\_ISR\_uS@{ADC\_ISR\_uS}}
+\index{ADC\_ISR\_uS@{ADC\_ISR\_uS}!ipd\_config.h@{ipd\_config.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_ISR\_uS}{ADC\_ISR\_uS}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+I\+S\+R\+\_\+uS~45.\+0}
+
+
+
+Definition at line 24 of file ipd\+\_\+config.\+h.
+
+\mbox{\Hypertarget{ipd__config_8h_afbb1677638436e2d4fe55a2590d2aad1}\label{ipd__config_8h_afbb1677638436e2d4fe55a2590d2aad1}} 
+\index{ipd\_config.h@{ipd\_config.h}!IPD\_ADC\_TRIGGER\_OFFSET\_TICKS@{IPD\_ADC\_TRIGGER\_OFFSET\_TICKS}}
+\index{IPD\_ADC\_TRIGGER\_OFFSET\_TICKS@{IPD\_ADC\_TRIGGER\_OFFSET\_TICKS}!ipd\_config.h@{ipd\_config.h}}
+\doxysubsubsection{\texorpdfstring{IPD\_ADC\_TRIGGER\_OFFSET\_TICKS}{IPD\_ADC\_TRIGGER\_OFFSET\_TICKS}}
+{\footnotesize\ttfamily \#define I\+P\+D\+\_\+\+A\+D\+C\+\_\+\+T\+R\+I\+G\+G\+E\+R\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+\+T\+I\+C\+KS~10}
+
+
+
+Definition at line 29 of file ipd\+\_\+config.\+h.
+
+\mbox{\Hypertarget{ipd__config_8h_a0a669ac48353035b15a43ce57b9fdcbb}\label{ipd__config_8h_a0a669ac48353035b15a43ce57b9fdcbb}} 
+\index{ipd\_config.h@{ipd\_config.h}!IPD\_ANGLE\_DECISION\_THRESHOLD@{IPD\_ANGLE\_DECISION\_THRESHOLD}}
+\index{IPD\_ANGLE\_DECISION\_THRESHOLD@{IPD\_ANGLE\_DECISION\_THRESHOLD}!ipd\_config.h@{ipd\_config.h}}
+\doxysubsubsection{\texorpdfstring{IPD\_ANGLE\_DECISION\_THRESHOLD}{IPD\_ANGLE\_DECISION\_THRESHOLD}}
+{\footnotesize\ttfamily \#define I\+P\+D\+\_\+\+A\+N\+G\+L\+E\+\_\+\+D\+E\+C\+I\+S\+I\+O\+N\+\_\+\+T\+H\+R\+E\+S\+H\+O\+LD~0}
+
+
+
+Definition at line 27 of file ipd\+\_\+config.\+h.
+
+\mbox{\Hypertarget{ipd__config_8h_a3a3910573e54da867ec50fcb979fc0aa}\label{ipd__config_8h_a3a3910573e54da867ec50fcb979fc0aa}} 
+\index{ipd\_config.h@{ipd\_config.h}!IPD\_PHASE\_LOST\_DETECT\_MIN\_CURRENT\_COUNT@{IPD\_PHASE\_LOST\_DETECT\_MIN\_CURRENT\_COUNT}}
+\index{IPD\_PHASE\_LOST\_DETECT\_MIN\_CURRENT\_COUNT@{IPD\_PHASE\_LOST\_DETECT\_MIN\_CURRENT\_COUNT}!ipd\_config.h@{ipd\_config.h}}
+\doxysubsubsection{\texorpdfstring{IPD\_PHASE\_LOST\_DETECT\_MIN\_CURRENT\_COUNT}{IPD\_PHASE\_LOST\_DETECT\_MIN\_CURRENT\_COUNT}}
+{\footnotesize\ttfamily \#define I\+P\+D\+\_\+\+P\+H\+A\+S\+E\+\_\+\+L\+O\+S\+T\+\_\+\+D\+E\+T\+E\+C\+T\+\_\+\+M\+I\+N\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+C\+O\+U\+NT~15}
+
+
+
+Definition at line 28 of file ipd\+\_\+config.\+h.
+
+\mbox{\Hypertarget{ipd__config_8h_a31924e0a5e0c1ebbe6de4c4e45cc1c25}\label{ipd__config_8h_a31924e0a5e0c1ebbe6de4c4e45cc1c25}} 
+\index{ipd\_config.h@{ipd\_config.h}!TIMERA\_MHz@{TIMERA\_MHz}}
+\index{TIMERA\_MHz@{TIMERA\_MHz}!ipd\_config.h@{ipd\_config.h}}
+\doxysubsubsection{\texorpdfstring{TIMERA\_MHz}{TIMERA\_MHz}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R\+A\+\_\+\+M\+Hz~50.\+0}
+
+
+
+Definition at line 23 of file ipd\+\_\+config.\+h.
+

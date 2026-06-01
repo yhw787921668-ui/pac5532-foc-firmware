@@ -1,0 +1,603 @@
+.TH "CMSIS_CM0_CoreDebug" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CMSIS_CM0_CoreDebug \- CMSIS CM0 Core Debug
+.SH SYNOPSIS
+.br
+.PP
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBCMSIS CM0 Core Function Interface\fP"
+.br
+.in -1c
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBCoreDebug_Type\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_DBGKEY_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_DBGKEY_Msk\fP   (0xFFFFul << \fBCoreDebug_DHCSR_DBGKEY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_RESET_ST_Pos\fP   25"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_RESET_ST_Msk\fP   (1ul << \fBCoreDebug_DHCSR_S_RESET_ST_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_RETIRE_ST_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_RETIRE_ST_Msk\fP   (1ul << \fBCoreDebug_DHCSR_S_RETIRE_ST_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_LOCKUP_Pos\fP   19"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_LOCKUP_Msk\fP   (1ul << \fBCoreDebug_DHCSR_S_LOCKUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_SLEEP_Pos\fP   18"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_SLEEP_Msk\fP   (1ul << \fBCoreDebug_DHCSR_S_SLEEP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_HALT_Pos\fP   17"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_HALT_Msk\fP   (1ul << \fBCoreDebug_DHCSR_S_HALT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_REGRDY_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_REGRDY_Msk\fP   (1ul << \fBCoreDebug_DHCSR_S_REGRDY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_C_MASKINTS_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_C_MASKINTS_Msk\fP   (1ul << \fBCoreDebug_DHCSR_C_MASKINTS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_C_STEP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_C_STEP_Msk\fP   (1ul << \fBCoreDebug_DHCSR_C_STEP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_C_HALT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_C_HALT_Msk\fP   (1ul << \fBCoreDebug_DHCSR_C_HALT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_C_DEBUGEN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_C_DEBUGEN_Msk\fP   (1ul << \fBCoreDebug_DHCSR_C_DEBUGEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DCRSR_REGWnR_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DCRSR_REGWnR_Msk\fP   (1ul << \fBCoreDebug_DCRSR_REGWnR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DCRSR_REGSEL_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DCRSR_REGSEL_Msk\fP   (0x1Ful << \fBCoreDebug_DCRSR_REGSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_DWTENA_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_DWTENA_Msk\fP   (1ul << \fBCoreDebug_DEMCR_DWTENA_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_HARDERR_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_HARDERR_Msk\fP   (1ul << \fBCoreDebug_DEMCR_VC_HARDERR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_CORERESET_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_CORERESET_Msk\fP   (1ul << \fBCoreDebug_DEMCR_VC_CORERESET_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSCS_BASE\fP   (0xE000E000)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_BASE\fP   (0xE000EDF0)"
+.br
+.ti -1c
+.RI "#define \fBSysTick_BASE\fP   (\fBSCS_BASE\fP +  0x0010)"
+.br
+.ti -1c
+.RI "#define \fBNVIC_BASE\fP   (\fBSCS_BASE\fP +  0x0100)"
+.br
+.ti -1c
+.RI "#define \fBSCB_BASE\fP   (\fBSCS_BASE\fP +  0x0D00)"
+.br
+.ti -1c
+.RI "#define \fBSCB\fP   ((\fBSCB_Type\fP *)           \fBSCB_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBSysTick\fP   ((\fBSysTick_Type\fP *)       \fBSysTick_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBNVIC\fP   ((\fBNVIC_Type\fP *)          \fBNVIC_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug\fP   ((\fBCoreDebug_Type\fP *)     \fBCoreDebug_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fB_BIT_SHIFT\fP(\fBIRQn\fP)   (  (((uint32_t)(\fBIRQn\fP)       )    &  0x03) * 8 )"
+.br
+.ti -1c
+.RI "#define \fB_SHP_IDX\fP(\fBIRQn\fP)   ( ((((uint32_t)(\fBIRQn\fP) & 0x0F)\-8) >>    2)     )"
+.br
+.ti -1c
+.RI "#define \fB_IP_IDX\fP(\fBIRQn\fP)   (   ((uint32_t)(\fBIRQn\fP)            >>    2)     )"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBNVIC_Type::ISER\fP [1]"
+.br
+.ti -1c
+.RI "uint32_t \fBNVIC_Type::RESERVED0\fP [31]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBNVIC_Type::ICER\fP [1]"
+.br
+.ti -1c
+.RI "uint32_t \fBNVIC_Type::RSERVED1\fP [31]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBNVIC_Type::ISPR\fP [1]"
+.br
+.ti -1c
+.RI "uint32_t \fBNVIC_Type::RESERVED2\fP [31]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBNVIC_Type::ICPR\fP [1]"
+.br
+.ti -1c
+.RI "uint32_t \fBNVIC_Type::RESERVED3\fP [31]"
+.br
+.ti -1c
+.RI "uint32_t \fBNVIC_Type::RESERVED4\fP [64]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBNVIC_Type::IPR\fP [8]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSCB_Type::CPUID\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::ICSR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBSCB_Type::RESERVED0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::AIRCR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::SCR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::CCR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBSCB_Type::RESERVED1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::SHP\fP [2]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::SHCSR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBSCB_Type::RESERVED2\fP [2]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::DFSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSysTick_Type::CTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSysTick_Type::LOAD\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSysTick_Type::VAL\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSysTick_Type::CALIB\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCoreDebug_Type::DHCSR\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCoreDebug_Type::DCRSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCoreDebug_Type::DCRDR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCoreDebug_Type::DEMCR\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+memory mapped structure for Core Debug Register 
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define _BIT_SHIFT(\fBIRQn\fP)   (  (((uint32_t)(\fBIRQn\fP)       )    &  0x03) * 8 )"
+
+.PP
+Definition at line 774 of file core_cm0\&.h\&.
+.SS "#define _IP_IDX(\fBIRQn\fP)   (   ((uint32_t)(\fBIRQn\fP)            >>    2)     )"
+
+.PP
+Definition at line 776 of file core_cm0\&.h\&.
+.SS "#define _SHP_IDX(\fBIRQn\fP)   ( ((((uint32_t)(\fBIRQn\fP) & 0x0F)\-8) >>    2)     )"
+
+.PP
+Definition at line 775 of file core_cm0\&.h\&.
+.SS "#define CoreDebug   ((\fBCoreDebug_Type\fP *)     \fBCoreDebug_BASE\fP)"
+Core Debug configuration struct 
+.br
+ 
+.PP
+Definition at line 341 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_BASE   (0xE000EDF0)"
+Core Debug Base Address 
+.br
+ 
+.PP
+Definition at line 333 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DCRSR_REGSEL_Msk   (0x1Ful << \fBCoreDebug_DCRSR_REGSEL_Pos\fP)"
+CoreDebug DCRSR: REGSEL Mask 
+.PP
+Definition at line 317 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DCRSR_REGSEL_Pos   0"
+CoreDebug DCRSR: REGSEL Position 
+.PP
+Definition at line 316 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DCRSR_REGWnR_Msk   (1ul << \fBCoreDebug_DCRSR_REGWnR_Pos\fP)"
+CoreDebug DCRSR: REGWnR Mask 
+.PP
+Definition at line 314 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DCRSR_REGWnR_Pos   16"
+CoreDebug DCRSR: REGWnR Position 
+.PP
+Definition at line 313 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DEMCR_DWTENA_Msk   (1ul << \fBCoreDebug_DEMCR_DWTENA_Pos\fP)"
+CoreDebug DEMCR: DWTENA Mask 
+.PP
+Definition at line 321 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DEMCR_DWTENA_Pos   24"
+CoreDebug DEMCR: DWTENA Position 
+.PP
+Definition at line 320 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_CORERESET_Msk   (1ul << \fBCoreDebug_DEMCR_VC_CORERESET_Pos\fP)"
+CoreDebug DEMCR: VC_CORERESET Mask 
+.PP
+Definition at line 327 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_CORERESET_Pos   0"
+CoreDebug DEMCR: VC_CORERESET Position 
+.PP
+Definition at line 326 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_HARDERR_Msk   (1ul << \fBCoreDebug_DEMCR_VC_HARDERR_Pos\fP)"
+CoreDebug DEMCR: VC_HARDERR Mask 
+.PP
+Definition at line 324 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_HARDERR_Pos   10"
+CoreDebug DEMCR: VC_HARDERR Position 
+.PP
+Definition at line 323 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_C_DEBUGEN_Msk   (1ul << \fBCoreDebug_DHCSR_C_DEBUGEN_Pos\fP)"
+CoreDebug DHCSR: C_DEBUGEN Mask 
+.PP
+Definition at line 310 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_C_DEBUGEN_Pos   0"
+CoreDebug DHCSR: C_DEBUGEN Position 
+.PP
+Definition at line 309 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_C_HALT_Msk   (1ul << \fBCoreDebug_DHCSR_C_HALT_Pos\fP)"
+CoreDebug DHCSR: C_HALT Mask 
+.PP
+Definition at line 307 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_C_HALT_Pos   1"
+CoreDebug DHCSR: C_HALT Position 
+.PP
+Definition at line 306 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_C_MASKINTS_Msk   (1ul << \fBCoreDebug_DHCSR_C_MASKINTS_Pos\fP)"
+CoreDebug DHCSR: C_MASKINTS Mask 
+.PP
+Definition at line 301 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_C_MASKINTS_Pos   3"
+CoreDebug DHCSR: C_MASKINTS Position 
+.PP
+Definition at line 300 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_C_STEP_Msk   (1ul << \fBCoreDebug_DHCSR_C_STEP_Pos\fP)"
+CoreDebug DHCSR: C_STEP Mask 
+.PP
+Definition at line 304 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_C_STEP_Pos   2"
+CoreDebug DHCSR: C_STEP Position 
+.PP
+Definition at line 303 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_DBGKEY_Msk   (0xFFFFul << \fBCoreDebug_DHCSR_DBGKEY_Pos\fP)"
+CoreDebug DHCSR: DBGKEY Mask 
+.PP
+Definition at line 280 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_DBGKEY_Pos   16"
+CoreDebug DHCSR: DBGKEY Position 
+.PP
+Definition at line 279 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_HALT_Msk   (1ul << \fBCoreDebug_DHCSR_S_HALT_Pos\fP)"
+CoreDebug DHCSR: S_HALT Mask 
+.PP
+Definition at line 295 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_HALT_Pos   17"
+CoreDebug DHCSR: S_HALT Position 
+.PP
+Definition at line 294 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_LOCKUP_Msk   (1ul << \fBCoreDebug_DHCSR_S_LOCKUP_Pos\fP)"
+CoreDebug DHCSR: S_LOCKUP Mask 
+.PP
+Definition at line 289 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_LOCKUP_Pos   19"
+CoreDebug DHCSR: S_LOCKUP Position 
+.PP
+Definition at line 288 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_REGRDY_Msk   (1ul << \fBCoreDebug_DHCSR_S_REGRDY_Pos\fP)"
+CoreDebug DHCSR: S_REGRDY Mask 
+.PP
+Definition at line 298 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_REGRDY_Pos   16"
+CoreDebug DHCSR: S_REGRDY Position 
+.PP
+Definition at line 297 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_RESET_ST_Msk   (1ul << \fBCoreDebug_DHCSR_S_RESET_ST_Pos\fP)"
+CoreDebug DHCSR: S_RESET_ST Mask 
+.PP
+Definition at line 283 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_RESET_ST_Pos   25"
+CoreDebug DHCSR: S_RESET_ST Position 
+.PP
+Definition at line 282 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_RETIRE_ST_Msk   (1ul << \fBCoreDebug_DHCSR_S_RETIRE_ST_Pos\fP)"
+CoreDebug DHCSR: S_RETIRE_ST Mask 
+.PP
+Definition at line 286 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_RETIRE_ST_Pos   24"
+CoreDebug DHCSR: S_RETIRE_ST Position 
+.PP
+Definition at line 285 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_SLEEP_Msk   (1ul << \fBCoreDebug_DHCSR_S_SLEEP_Pos\fP)"
+CoreDebug DHCSR: S_SLEEP Mask 
+.PP
+Definition at line 292 of file core_cm0\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_SLEEP_Pos   18"
+CoreDebug DHCSR: S_SLEEP Position 
+.PP
+Definition at line 291 of file core_cm0\&.h\&.
+.SS "#define NVIC   ((\fBNVIC_Type\fP *)          \fBNVIC_BASE\fP)"
+NVIC configuration struct 
+.br
+ 
+.PP
+Definition at line 340 of file core_cm0\&.h\&.
+.SS "#define NVIC_BASE   (\fBSCS_BASE\fP +  0x0100)"
+NVIC Base Address 
+.br
+ 
+.PP
+Definition at line 335 of file core_cm0\&.h\&.
+.SS "#define SCB   ((\fBSCB_Type\fP *)           \fBSCB_BASE\fP)"
+SCB configuration struct 
+.br
+ 
+.PP
+Definition at line 338 of file core_cm0\&.h\&.
+.SS "#define SCB_BASE   (\fBSCS_BASE\fP +  0x0D00)"
+System Control Block Base Address 
+.PP
+Definition at line 336 of file core_cm0\&.h\&.
+.SS "#define SCS_BASE   (0xE000E000)"
+System Control Space Base Address 
+.PP
+Definition at line 332 of file core_cm0\&.h\&.
+.SS "#define SysTick   ((\fBSysTick_Type\fP *)       \fBSysTick_BASE\fP)"
+SysTick configuration struct 
+.br
+ 
+.PP
+Definition at line 339 of file core_cm0\&.h\&.
+.SS "#define SysTick_BASE   (\fBSCS_BASE\fP +  0x0010)"
+SysTick Base Address 
+.br
+ 
+.PP
+Definition at line 334 of file core_cm0\&.h\&.
+.SH "Variable Documentation"
+.PP 
+.SS "\fB__IO\fP uint32_t SCB_Type::AIRCR"
+Offset: 0x0C Application Interrupt / Reset Control Register 
+.br
+ 
+.PP
+Definition at line 112 of file core_cm0\&.h\&.
+.SS "\fB__I\fP uint32_t SysTick_Type::CALIB"
+Offset: 0x0C SysTick Calibration Register 
+.br
+ 
+.PP
+Definition at line 230 of file core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t SCB_Type::CCR"
+Offset: 0x14 Configuration Control Register 
+.br
+ 
+.PP
+Definition at line 114 of file core_cm0\&.h\&.
+.SS "\fB__I\fP uint32_t SCB_Type::CPUID"
+Offset: 0x00 CPU ID Base Register 
+.br
+ 
+.PP
+Definition at line 109 of file core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t SysTick_Type::CTRL"
+Offset: 0x00 SysTick Control and Status Register 
+.PP
+Definition at line 227 of file core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t CoreDebug_Type::DCRDR"
+Offset: 0x08 Debug Core Register Data Register 
+.br
+ 
+.PP
+Definition at line 274 of file core_cm0\&.h\&.
+.SS "\fB__O\fP uint32_t CoreDebug_Type::DCRSR"
+Offset: 0x04 Debug Core Register Selector Register 
+.br
+ 
+.PP
+Definition at line 273 of file core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t CoreDebug_Type::DEMCR"
+Offset: 0x0C Debug Exception and Monitor Control Register 
+.PP
+Definition at line 275 of file core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t SCB_Type::DFSR"
+Offset: 0x30 Debug Fault Status Register 
+.br
+ 
+.PP
+Definition at line 119 of file core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t CoreDebug_Type::DHCSR"
+Offset: 0x00 Debug Halting Control and Status Register 
+.br
+ 
+.PP
+Definition at line 272 of file core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t NVIC_Type::ICER[1]"
+(Offset: 0x080) Interrupt Clear Enable Register 
+.br
+ 
+.PP
+Definition at line 91 of file core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t NVIC_Type::ICPR[1]"
+(Offset: 0x180) Interrupt Clear Pending Register 
+.br
+ 
+.PP
+Definition at line 95 of file core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t SCB_Type::ICSR"
+Offset: 0x04 Interrupt Control State Register 
+.br
+ 
+.PP
+Definition at line 110 of file core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t NVIC_Type::IPR[8]"
+(Offset: 0x3EC) Interrupt Priority Register 
+.br
+ 
+.PP
+Definition at line 98 of file core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t NVIC_Type::ISER[1]"
+(Offset: 0x000) Interrupt Set Enable Register 
+.br
+ 
+.PP
+Definition at line 89 of file core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t NVIC_Type::ISPR[1]"
+(Offset: 0x100) Interrupt Set Pending Register 
+.br
+ 
+.PP
+Definition at line 93 of file core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t SysTick_Type::LOAD"
+Offset: 0x04 SysTick Reload Value Register 
+.br
+ 
+.PP
+Definition at line 228 of file core_cm0\&.h\&.
+.SS "uint32_t NVIC_Type::RESERVED0[31]"
+
+.PP
+Definition at line 90 of file core_cm0\&.h\&.
+.SS "uint32_t SCB_Type::RESERVED0"
+
+.PP
+Definition at line 111 of file core_cm0\&.h\&.
+.SS "uint32_t SCB_Type::RESERVED1"
+
+.PP
+Definition at line 115 of file core_cm0\&.h\&.
+.SS "uint32_t SCB_Type::RESERVED2[2]"
+
+.PP
+Definition at line 118 of file core_cm0\&.h\&.
+.SS "uint32_t NVIC_Type::RESERVED2[31]"
+
+.PP
+Definition at line 94 of file core_cm0\&.h\&.
+.SS "uint32_t NVIC_Type::RESERVED3[31]"
+
+.PP
+Definition at line 96 of file core_cm0\&.h\&.
+.SS "uint32_t NVIC_Type::RESERVED4[64]"
+
+.PP
+Definition at line 97 of file core_cm0\&.h\&.
+.SS "uint32_t NVIC_Type::RSERVED1[31]"
+
+.PP
+Definition at line 92 of file core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t SCB_Type::SCR"
+Offset: 0x10 System Control Register 
+.br
+ 
+.PP
+Definition at line 113 of file core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t SCB_Type::SHCSR"
+Offset: 0x24 System Handler Control and State Register 
+.br
+ 
+.PP
+Definition at line 117 of file core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t SCB_Type::SHP[2]"
+Offset: 0x1C System Handlers Priority Registers\&. [0] is RESERVED 
+.br
+ 
+.PP
+Definition at line 116 of file core_cm0\&.h\&.
+.SS "\fB__IO\fP uint32_t SysTick_Type::VAL"
+Offset: 0x08 SysTick Current Value Register 
+.br
+ 
+.PP
+Definition at line 229 of file core_cm0\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

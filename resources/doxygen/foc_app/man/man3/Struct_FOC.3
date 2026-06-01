@@ -1,0 +1,283 @@
+.TH "Struct_FOC" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Struct_FOC \- FOC structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <foc_struct\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBPID_Data_Type\fP \fBId_pid\fP"
+.br
+.ti -1c
+.RI "\fBPID_Data_Type\fP \fBIq_pid\fP"
+.br
+.ti -1c
+.RI "int32_t \fBialpha_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBibeta_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBiq_prefilter_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBid_prefilter_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBiq_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBid_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBvd_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBvq_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBvd_feedforward_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBvq_feedforward_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBvalpha_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBvbeta_q14\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBsvm_sector\fP"
+.br
+.ti -1c
+.RI "int32_t \fBsvm_ta_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBsvm_tb_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBsvm_tc_q14\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBidref_ramp_q14\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBidref_ramp_f16\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBiqref_ramp_q14\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBiqref_ramp_f16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBflag_sat_logicor\fP"
+.br
+.ti -1c
+.RI "int32_t \fBflag_sat_logicand\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBId_filter_gain\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBIq_filter_gain\fP"
+.br
+.ti -1c
+.RI "int16_t \fBsvm_min_ticks\fP"
+.br
+.ti -1c
+.RI "int16_t \fBsvm_max_ticks\fP"
+.br
+.ti -1c
+.RI "int32_t \fBdt_control_q26\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBctrl_divider_foc\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBmotor_period_ticks\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+FOC structure\&. 
+.PP
+Definition at line 29 of file foc_struct\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t Struct_FOC::ctrl_divider_foc"
+
+.PP
+Definition at line 65 of file foc_struct\&.h\&.
+.PP
+Referenced by foc_calc_pwmtimer(), and foc_systemvar_init()\&.
+.SS "int32_t Struct_FOC::dt_control_q26"
+
+.PP
+Definition at line 64 of file foc_struct\&.h\&.
+.PP
+Referenced by foc_calc_pwmtimer(), foc_systemvar_init(), and parameters_write_foc()\&.
+.SS "int32_t Struct_FOC::flag_sat_logicand"
+
+.PP
+Definition at line 57 of file foc_struct\&.h\&.
+.PP
+Referenced by check_pwm_sat(), and foc_reset()\&.
+.SS "int32_t Struct_FOC::flag_sat_logicor"
+
+.PP
+Definition at line 56 of file foc_struct\&.h\&.
+.PP
+Referenced by check_pwm_sat(), and foc_reset()\&.
+.SS "int32_t Struct_FOC::ialpha_q14"
+
+.PP
+Definition at line 34 of file foc_struct\&.h\&.
+.SS "int32_t Struct_FOC::ibeta_q14"
+
+.PP
+Definition at line 35 of file foc_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_FOC::Id_filter_gain"
+
+.PP
+Definition at line 60 of file foc_struct\&.h\&.
+.SS "\fBPID_Data_Type\fP Struct_FOC::Id_pid"
+
+.PP
+Definition at line 32 of file foc_struct\&.h\&.
+.PP
+Referenced by foc_reset()\&.
+.SS "int32_t Struct_FOC::id_prefilter_q14"
+
+.PP
+Definition at line 37 of file foc_struct\&.h\&.
+.SS "int32_t Struct_FOC::id_q14"
+
+.PP
+Definition at line 39 of file foc_struct\&.h\&.
+.PP
+Referenced by foc_reset()\&.
+.SS "\fBfix16_t\fP Struct_FOC::idref_ramp_f16"
+
+.PP
+Definition at line 52 of file foc_struct\&.h\&.
+.PP
+Referenced by est_anglediff_check(), and foc_reset()\&.
+.SS "\fBfix16_t\fP Struct_FOC::idref_ramp_q14"
+
+.PP
+Definition at line 51 of file foc_struct\&.h\&.
+.PP
+Referenced by foc_reset()\&.
+.SS "\fBfix16_t\fP Struct_FOC::Iq_filter_gain"
+
+.PP
+Definition at line 61 of file foc_struct\&.h\&.
+.SS "\fBPID_Data_Type\fP Struct_FOC::Iq_pid"
+
+.PP
+Definition at line 33 of file foc_struct\&.h\&.
+.PP
+Referenced by foc_reset()\&.
+.SS "int32_t Struct_FOC::iq_prefilter_q14"
+
+.PP
+Definition at line 36 of file foc_struct\&.h\&.
+.SS "int32_t Struct_FOC::iq_q14"
+
+.PP
+Definition at line 38 of file foc_struct\&.h\&.
+.PP
+Referenced by foc_reset()\&.
+.SS "\fBfix16_t\fP Struct_FOC::iqref_ramp_f16"
+
+.PP
+Definition at line 54 of file foc_struct\&.h\&.
+.PP
+Referenced by foc_reset()\&.
+.SS "\fBfix16_t\fP Struct_FOC::iqref_ramp_q14"
+
+.PP
+Definition at line 53 of file foc_struct\&.h\&.
+.PP
+Referenced by foc_reset()\&.
+.SS "uint32_t Struct_FOC::motor_period_ticks"
+
+.PP
+Definition at line 66 of file foc_struct\&.h\&.
+.PP
+Referenced by foc_calc_pwmtimer(), and foc_config()\&.
+.SS "int16_t Struct_FOC::svm_max_ticks"
+
+.PP
+Definition at line 63 of file foc_struct\&.h\&.
+.SS "int16_t Struct_FOC::svm_min_ticks"
+
+.PP
+Definition at line 62 of file foc_struct\&.h\&.
+.SS "uint32_t Struct_FOC::svm_sector"
+
+.PP
+Definition at line 46 of file foc_struct\&.h\&.
+.SS "int32_t Struct_FOC::svm_ta_q14"
+
+.PP
+Definition at line 47 of file foc_struct\&.h\&.
+.PP
+Referenced by foc_reset()\&.
+.SS "int32_t Struct_FOC::svm_tb_q14"
+
+.PP
+Definition at line 48 of file foc_struct\&.h\&.
+.PP
+Referenced by foc_reset()\&.
+.SS "int32_t Struct_FOC::svm_tc_q14"
+
+.PP
+Definition at line 49 of file foc_struct\&.h\&.
+.PP
+Referenced by foc_reset()\&.
+.SS "int32_t Struct_FOC::valpha_q14"
+
+.PP
+Definition at line 44 of file foc_struct\&.h\&.
+.PP
+Referenced by foc_reset()\&.
+.SS "int32_t Struct_FOC::vbeta_q14"
+
+.PP
+Definition at line 45 of file foc_struct\&.h\&.
+.PP
+Referenced by foc_reset()\&.
+.SS "int32_t Struct_FOC::vd_feedforward_q14"
+
+.PP
+Definition at line 42 of file foc_struct\&.h\&.
+.SS "int32_t Struct_FOC::vd_q14"
+
+.PP
+Definition at line 40 of file foc_struct\&.h\&.
+.PP
+Referenced by foc_reset()\&.
+.SS "int32_t Struct_FOC::vq_feedforward_q14"
+
+.PP
+Definition at line 43 of file foc_struct\&.h\&.
+.SS "int32_t Struct_FOC::vq_q14"
+
+.PP
+Definition at line 41 of file foc_struct\&.h\&.
+.PP
+Referenced by foc_reset()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

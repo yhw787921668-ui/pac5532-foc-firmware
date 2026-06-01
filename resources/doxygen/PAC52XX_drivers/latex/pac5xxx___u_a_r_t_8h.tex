@@ -1,0 +1,69 @@
+\hypertarget{pac5xxx___u_a_r_t_8h}{}\doxysection{pac\+\_\+foc/pac52xx/pac5xxx\+\_\+sdk/pac5xxx\+\_\+peripheral/pac5xxx\+\_\+\+U\+A\+RT.h File Reference}
+\label{pac5xxx___u_a_r_t_8h}\index{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_peripheral/pac5xxx\_UART.h@{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_peripheral/pac5xxx\_UART.h}}
+
+
+C\+M\+S\+IS Cortex-\/M Header File for the P\+A\+C5\+X\+XX U\+A\+RT Controller.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx___u_a_r_t_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_p_a_c5_x_x_x___u_a_r_t___type_def}{P\+A\+C5\+X\+X\+X\+\_\+\+U\+A\+R\+T\+\_\+\+Type\+Def}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_gaf34873b6c9dd73b25c8eb7e6200ecbac}{U\+A\+R\+T\+\_\+\+I\+I\+D\+\_\+\+Type}} \{ \newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_ggaf34873b6c9dd73b25c8eb7e6200ecbaca5d0848568739f65fa347144d9932dff6}{U\+A\+R\+T\+I\+I\+R\+\_\+\+I\+I\+D\+\_\+\+M\+O\+D\+E\+M\+\_\+\+S\+T\+A\+T\+US}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_ggaf34873b6c9dd73b25c8eb7e6200ecbacacc3c787415619e2b7beecdb67ce1e37d}{U\+A\+R\+T\+I\+I\+R\+\_\+\+I\+I\+D\+\_\+\+T\+X\+\_\+\+H\+O\+L\+D\+\_\+\+E\+M\+P\+TY}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_ggaf34873b6c9dd73b25c8eb7e6200ecbaca0b201768226b109a51427dfea13b3888}{U\+A\+R\+T\+I\+I\+R\+\_\+\+I\+I\+D\+\_\+\+R\+X\+\_\+\+D\+A\+T\+A\+\_\+\+A\+V\+A\+IL}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_ggaf34873b6c9dd73b25c8eb7e6200ecbacaafd03797e04c12f51ac27754ea2024bd}{U\+A\+R\+T\+I\+I\+R\+\_\+\+I\+I\+D\+\_\+\+R\+X\+\_\+\+L\+I\+N\+E\+\_\+\+S\+T\+A\+T\+US}} = 3, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_ggaf34873b6c9dd73b25c8eb7e6200ecbaca976f0edeea64328d14d7186e947b87f6}{U\+A\+R\+T\+I\+I\+R\+\_\+\+I\+I\+D\+\_\+\+T\+I\+M\+E\+O\+UT}} = 6
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_ga55ccfea9cd34c249b5b4cd1ddc6589e9}{U\+A\+R\+T\+\_\+\+F\+I\+F\+O\+\_\+\+Depth\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_gga55ccfea9cd34c249b5b4cd1ddc6589e9a0d193caf2e44dc6c53be5604ff43fea6}{U\+A\+R\+T\+F\+C\+T\+L\+\_\+\+R\+T\+\_\+1B}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_gga55ccfea9cd34c249b5b4cd1ddc6589e9a31866f62acae4f47fe8a9e574227805d}{U\+A\+R\+T\+F\+C\+T\+L\+\_\+\+R\+T\+\_\+4B}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_gga55ccfea9cd34c249b5b4cd1ddc6589e9ac3ed765588d2729a05ec1a5e03190ef3}{U\+A\+R\+T\+F\+C\+T\+L\+\_\+\+R\+T\+\_\+8B}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_gga55ccfea9cd34c249b5b4cd1ddc6589e9a86cab58fd17b5379274c040bf658bb15}{U\+A\+R\+T\+F\+C\+T\+L\+\_\+\+R\+T\+\_\+14B}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_gaab38d1f93bfa77bbf0465117cef8a313}{U\+A\+R\+T\+\_\+\+Bits\+Per\+Char\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_ggaab38d1f93bfa77bbf0465117cef8a313aa81b6c0e8b43e1c2554fdbf9efce97a1}{U\+A\+R\+T\+\_\+\+B\+P\+C\+\_\+5}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_ggaab38d1f93bfa77bbf0465117cef8a313a0ef11f544aee3bb25ebaa872590b5b4f}{U\+A\+R\+T\+\_\+\+B\+P\+C\+\_\+6}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_ggaab38d1f93bfa77bbf0465117cef8a313a3f56c18e8cd7f4c51b3e1ec20789a86b}{U\+A\+R\+T\+\_\+\+B\+P\+C\+\_\+7}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_ggaab38d1f93bfa77bbf0465117cef8a313aef5360aa3269b36af73a63fd421d0879}{U\+A\+R\+T\+\_\+\+B\+P\+C\+\_\+8}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_ga131aefa5425069984d4b7cd1321950cc}{U\+A\+R\+T\+\_\+\+Stop\+Bits\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_gga131aefa5425069984d4b7cd1321950cca44b3bfbe90aebe2b23227f5c011f41cc}{U\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+1}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_gga131aefa5425069984d4b7cd1321950cca00c73c92b3d624bc86cfa63636dd99b3}{U\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+2}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_ga1b4014e4d992f576fc26f79307a3f18e}{U\+A\+R\+T\+\_\+\+Parity\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_gga1b4014e4d992f576fc26f79307a3f18ead90cc425f5ba447773a44a75be6593e2}{U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+O\+DD}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_gga1b4014e4d992f576fc26f79307a3f18ead908a637b1dd23f93b149dd2d8bdfdb8}{U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+E\+V\+EN}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_gaa9c7215dc57f4caa7311208e82b667d5}{U\+A\+R\+T\+\_\+\+Break\+Control\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_ggaa9c7215dc57f4caa7311208e82b667d5a9f175808686da3d0a4db836b7fefc0e2}{U\+A\+R\+T\+\_\+\+B\+R\+K\+C\+T\+L\+\_\+\+N\+O\+R\+M\+AL}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_ggaa9c7215dc57f4caa7311208e82b667d5afbe9e87763208ca7920cde2ac67e6aa4}{U\+A\+R\+T\+\_\+\+B\+R\+K\+C\+T\+L\+\_\+\+F\+O\+R\+C\+E\+\_\+0}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_gad2e2087305218d219b829e17fbcf65f7}{U\+A\+R\+T\+\_\+\+Div\+Latch\+Access\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_ggad2e2087305218d219b829e17fbcf65f7a43c299d285e17475bbea965a2999aed7}{U\+A\+R\+T\+\_\+\+D\+I\+V\+L\+A\+C\+C\+E\+S\+S\+\_\+\+F\+I\+F\+O\+\_\+\+I\+ER}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_ggad2e2087305218d219b829e17fbcf65f7ae9fd8393d5648c7e6b3a4340b4a2e2fb}{U\+A\+R\+T\+\_\+\+D\+I\+V\+L\+A\+C\+C\+E\+S\+S\+\_\+\+D\+I\+V\+\_\+\+L\+A\+T\+CH}} = 1
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+M\+S\+IS Cortex-\/M Header File for the P\+A\+C5\+X\+XX U\+A\+RT Controller. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2015-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 

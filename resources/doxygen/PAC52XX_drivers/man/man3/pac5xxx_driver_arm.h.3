@@ -1,0 +1,98 @@
+.TH "pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_arm.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_arm.h \- Firmware driver for the PAC5XXX ARM functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac52XX\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_config\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_ARM\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_ARM\fP void \fBpac5xxx_arm_sleep_wfi\fP (void)"
+.br
+.RI "This function enters the sleep mode on the ARM using the WFI (wait for interrupt) instruction and performs clock management before entering sleep mode\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ARM\fP void \fBpac5xxx_arm_sleep_wfe\fP (void)"
+.br
+.RI "This function enters the sleep mode on the ARM using the WFE (wait for event) instruction and performs clock management before entering sleep mode\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Firmware driver for the PAC5XXX ARM functions\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_driver_arm\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_ARM"
+
+.PP
+Definition at line 27 of file pac5xxx_driver_arm\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_ARM\fP void pac5xxx_arm_sleep_wfe (void)"
+
+.PP
+This function enters the sleep mode on the ARM using the WFE (wait for event) instruction and performs clock management before entering sleep mode\&. 
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 27 of file pac5xxx_driver_arm_sleep\&.c\&.
+.PP
+.nf
+28 {
+29   // Execute WFE to enter sleep mode
+30   __WFE();
+31 }
+.fi
+.SS "\fBRAMFUNC_ARM\fP void pac5xxx_arm_sleep_wfi (void)"
+
+.PP
+This function enters the sleep mode on the ARM using the WFI (wait for interrupt) instruction and performs clock management before entering sleep mode\&. 
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_arm_sleep\&.c\&.
+.PP
+.nf
+21 {
+22   // Execute WFI to enter sleep mode
+23   __WFI();
+24 }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

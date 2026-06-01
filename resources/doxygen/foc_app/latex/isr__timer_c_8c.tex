@@ -1,0 +1,53 @@
+\hypertarget{isr__timer_c_8c}{}\doxysection{pac\+\_\+foc/src/isr/isr\+\_\+timerC.c File Reference}
+\label{isr__timer_c_8c}\index{pac\_foc/src/isr/isr\_timerC.c@{pac\_foc/src/isr/isr\_timerC.c}}
+
+
+Use for timerC timer interrupt handler to run critical F\+OC functions.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}comm.\+h\char`\"{}}\newline
+Include dependency graph for isr\+\_\+timer\+C.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{isr__timer_c_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{isr__timer_c_8c_a5552b833c016b51ae5f34ac39ef0863e}{Timer\+C\+\_\+\+I\+R\+Q\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Process interrupt for Timer\+C\+\_\+\+I\+R\+Q\+Handler to run critical F\+OC functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for timerC timer interrupt handler to run critical F\+OC functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{isr__timer_c_8c_a5552b833c016b51ae5f34ac39ef0863e}\label{isr__timer_c_8c_a5552b833c016b51ae5f34ac39ef0863e}} 
+\index{isr\_timerC.c@{isr\_timerC.c}!TimerC\_IRQHandler@{TimerC\_IRQHandler}}
+\index{TimerC\_IRQHandler@{TimerC\_IRQHandler}!isr\_timerC.c@{isr\_timerC.c}}
+\doxysubsubsection{\texorpdfstring{TimerC\_IRQHandler()}{TimerC\_IRQHandler()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void Timer\+C\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Process interrupt for Timer\+C\+\_\+\+I\+R\+Q\+Handler to run critical F\+OC functions. 
+
+
+
+Definition at line 27 of file isr\+\_\+timer\+C.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#if (COMMSEL\_PPM == TRUE) \&\& (PPM\_TIMER\_SELECT == PPM\_TIMER\_C)}}
+\DoxyCodeLine{30     ppm\_process\_capture\_timer\_events();}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}

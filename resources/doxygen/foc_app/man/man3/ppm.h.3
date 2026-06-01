@@ -1,0 +1,304 @@
+.TH "pac_foc/src/comm/ppm/ppm.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/comm/ppm/ppm.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_timer\&.h'\fP
+.br
+\fC#include 'pac5xxx_timers\&.h'\fP
+.br
+\fC#include 'parameter_process\&.h'\fP
+.br
+\fC#include 'fault\&.h'\fP
+.br
+\fC#include 'board\&.h'\fP
+.br
+\fC#include 'config_app\&.h'\fP
+.br
+\fC#include 'config_features\&.h'\fP
+.br
+\fC#include 'config_debug\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPPM_FREQUENCY_HZ\fP   50"
+.br
+.ti -1c
+.RI "#define \fBMIN_PPM_PULSE_WIDTH_IN_SEC\fP   \fBQCONST\fP(0\&.000850, \fBQ26\fP)"
+.br
+.ti -1c
+.RI "#define \fBMAX_PPM_PULSE_WIDTH_IN_SEC\fP   \fBQCONST\fP(0\&.002200, \fBQ26\fP)"
+.br
+.ti -1c
+.RI "#define \fBMIN_PPM_START_IN_SEC\fP   \fBQCONST\fP(0\&.0016200, \fBQ26\fP)"
+.br
+.ti -1c
+.RI "#define \fBMIN_PPM_START_HYST_IN_SEC\fP   \fBQCONST\fP(0\&.000012, \fBQ26\fP)"
+.br
+.ti -1c
+.RI "#define \fBMAX_PPM_WIDTH_MAX_SPD_SEC\fP   \fBQCONST\fP(0\&.002000, \fBQ26\fP)"
+.br
+.ti -1c
+.RI "#define \fBPPM_MOTOR_OFF_TIMEOUT_IN_SEC_FIX16\fP   \fBQCONST\fP(1\&.00, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBPPM_GOOD_PULSE_COUNT\fP   5"
+.br
+.ti -1c
+.RI "#define \fBPPM_CCR_TIMER_CLOCK_DIVIDER\fP   TXCTL_PS_DIV128"
+.br
+.ti -1c
+.RI "#define \fBPPM_TIMER_SINGLE_COUNT_IN_SECONDS\fP   (\fBQCONST\fP(1, \fBQ26\fP)/(TIMERCLK_FREQ_HZ/(1 << \fBPPM_CCR_TIMER_CLOCK_DIVIDER\fP)))"
+.br
+.ti -1c
+.RI "#define \fBPPM_TIMER_TIME_PERIOD\fP   ((\fBQCONST\fP(1, \fBQ26\fP)/\fBPPM_FREQUENCY_HZ\fP)/\fBPPM_TIMER_SINGLE_COUNT_IN_SECONDS\fP) * (\fBQCONST\fP(1\&.75, \fBQ16\fP))/(\fBQCONST\fP(1, \fBQ16\fP))"
+.br
+.ti -1c
+.RI "#define \fBPPM_PULSE_VALID_CHECK_IN_SEC_FIX16\fP   ((\fBPPM_TIMER_TIME_PERIOD\fP * \fBPPM_TIMER_SINGLE_COUNT_IN_SECONDS\fP)/\fBQCONST\fP(1, \fBQ10\fP))"
+.br
+.ti -1c
+.RI "#define \fBMIN_PPM_PULSE_WIDTH_TCOUNTS\fP   (\fBMIN_PPM_PULSE_WIDTH_IN_SEC\fP/\fBPPM_TIMER_SINGLE_COUNT_IN_SECONDS\fP)"
+.br
+.ti -1c
+.RI "#define \fBMAX_PPM_PULSE_WIDTH_TCOUNTS\fP   (\fBMAX_PPM_PULSE_WIDTH_IN_SEC\fP/\fBPPM_TIMER_SINGLE_COUNT_IN_SECONDS\fP)"
+.br
+.ti -1c
+.RI "#define \fBMIN_PPM_START_TCOUNTS\fP   (\fBMIN_PPM_START_IN_SEC\fP/\fBPPM_TIMER_SINGLE_COUNT_IN_SECONDS\fP)"
+.br
+.ti -1c
+.RI "#define \fBMIN_PPM_START_HYST_TCOUNTS\fP   (\fBMIN_PPM_START_HYST_IN_SEC\fP/\fBPPM_TIMER_SINGLE_COUNT_IN_SECONDS\fP)"
+.br
+.ti -1c
+.RI "#define \fBMAX_PPM_PULSE_WIDTH_MAX_SPD_TCOUNTS\fP   (\fBMAX_PPM_WIDTH_MAX_SPD_SEC\fP/\fBPPM_TIMER_SINGLE_COUNT_IN_SECONDS\fP)"
+.br
+.ti -1c
+.RI "#define \fBMOTOR_MINIMUM_CLOSE_LOOP_SPEED\fP   \fBCLOSE_LOOP_MIN_SPEED_LIMIT_DEFAULT_VALUE\fP"
+.br
+.ti -1c
+.RI "#define \fBMOTOR_MAXIMUM_CLOSE_LOOP_SPEED\fP   \fBNOMINAL_SPEED_DEFAULT_VALUE\fP"
+.br
+.ti -1c
+.RI "#define \fBMIN_PPM_START_LIMIT_TCOUNTS\fP   (\fBMIN_PPM_START_TCOUNTS\fP + \fBMIN_PPM_START_HYST_TCOUNTS\fP)"
+.br
+.ti -1c
+.RI "#define \fBMOTOR_SPEED_TO_PULSE_WIDTH_SLOPE\fP   (\fBfix16_t\fP)((1\&.0) * (\fBMOTOR_MAXIMUM_CLOSE_LOOP_SPEED\fP \- \fBMOTOR_MINIMUM_CLOSE_LOOP_SPEED\fP))/(\fBMAX_PPM_PULSE_WIDTH_MAX_SPD_TCOUNTS\fP \- \fBMIN_PPM_START_LIMIT_TCOUNTS\fP)"
+.br
+.ti -1c
+.RI "#define \fBPPM_TIMER_B\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPPM_TIMER_SELECT\fP   \fBPPM_TIMER_B\fP"
+.br
+.ti -1c
+.RI "#define \fBPPMTIMER\fP   PAC55XX_TIMERB"
+.br
+.ti -1c
+.RI "#define \fBPPM_TIMER_CTR\fP   CTR0"
+.br
+.ti -1c
+.RI "#define \fBPPM_TIMER_CCTRL\fP   CCTRL0"
+.br
+.ti -1c
+.RI "#define \fBPPMGPIO\fP   PAC55XX_GPIOD"
+.br
+.ti -1c
+.RI "#define \fBPPM_GPIO_PORT\fP   P2"
+.br
+.ti -1c
+.RI "#define \fBPPM_GPIO_PSEL\fP   3"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBconfig_ppm\fP (TimerInstance timer)"
+.br
+.ti -1c
+.RI "void \fBppm_init\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MAX_PPM_PULSE_WIDTH_IN_SEC   \fBQCONST\fP(0\&.002200, \fBQ26\fP)"
+
+.PP
+Definition at line 41 of file ppm\&.h\&.
+.SS "#define MAX_PPM_PULSE_WIDTH_MAX_SPD_TCOUNTS   (\fBMAX_PPM_WIDTH_MAX_SPD_SEC\fP/\fBPPM_TIMER_SINGLE_COUNT_IN_SECONDS\fP)"
+
+.PP
+Definition at line 72 of file ppm\&.h\&.
+.SS "#define MAX_PPM_PULSE_WIDTH_TCOUNTS   (\fBMAX_PPM_PULSE_WIDTH_IN_SEC\fP/\fBPPM_TIMER_SINGLE_COUNT_IN_SECONDS\fP)"
+
+.PP
+Definition at line 68 of file ppm\&.h\&.
+.SS "#define MAX_PPM_WIDTH_MAX_SPD_SEC   \fBQCONST\fP(0\&.002000, \fBQ26\fP)"
+
+.PP
+Definition at line 50 of file ppm\&.h\&.
+.SS "#define MIN_PPM_PULSE_WIDTH_IN_SEC   \fBQCONST\fP(0\&.000850, \fBQ26\fP)"
+
+.PP
+Definition at line 40 of file ppm\&.h\&.
+.SS "#define MIN_PPM_PULSE_WIDTH_TCOUNTS   (\fBMIN_PPM_PULSE_WIDTH_IN_SEC\fP/\fBPPM_TIMER_SINGLE_COUNT_IN_SECONDS\fP)"
+
+.PP
+Definition at line 67 of file ppm\&.h\&.
+.SS "#define MIN_PPM_START_HYST_IN_SEC   \fBQCONST\fP(0\&.000012, \fBQ26\fP)"
+
+.PP
+Definition at line 47 of file ppm\&.h\&.
+.SS "#define MIN_PPM_START_HYST_TCOUNTS   (\fBMIN_PPM_START_HYST_IN_SEC\fP/\fBPPM_TIMER_SINGLE_COUNT_IN_SECONDS\fP)"
+
+.PP
+Definition at line 70 of file ppm\&.h\&.
+.SS "#define MIN_PPM_START_IN_SEC   \fBQCONST\fP(0\&.0016200, \fBQ26\fP)"
+
+.PP
+Definition at line 44 of file ppm\&.h\&.
+.SS "#define MIN_PPM_START_LIMIT_TCOUNTS   (\fBMIN_PPM_START_TCOUNTS\fP + \fBMIN_PPM_START_HYST_TCOUNTS\fP)"
+
+.PP
+Definition at line 80 of file ppm\&.h\&.
+.SS "#define MIN_PPM_START_TCOUNTS   (\fBMIN_PPM_START_IN_SEC\fP/\fBPPM_TIMER_SINGLE_COUNT_IN_SECONDS\fP)"
+
+.PP
+Definition at line 69 of file ppm\&.h\&.
+.SS "#define MOTOR_MAXIMUM_CLOSE_LOOP_SPEED   \fBNOMINAL_SPEED_DEFAULT_VALUE\fP"
+
+.PP
+Definition at line 77 of file ppm\&.h\&.
+.SS "#define MOTOR_MINIMUM_CLOSE_LOOP_SPEED   \fBCLOSE_LOOP_MIN_SPEED_LIMIT_DEFAULT_VALUE\fP"
+
+.PP
+Definition at line 76 of file ppm\&.h\&.
+.SS "#define MOTOR_SPEED_TO_PULSE_WIDTH_SLOPE   (\fBfix16_t\fP)((1\&.0) * (\fBMOTOR_MAXIMUM_CLOSE_LOOP_SPEED\fP \- \fBMOTOR_MINIMUM_CLOSE_LOOP_SPEED\fP))/(\fBMAX_PPM_PULSE_WIDTH_MAX_SPD_TCOUNTS\fP \- \fBMIN_PPM_START_LIMIT_TCOUNTS\fP)"
+
+.PP
+Definition at line 81 of file ppm\&.h\&.
+.SS "#define PPM_CCR_TIMER_CLOCK_DIVIDER   TXCTL_PS_DIV128"
+
+.PP
+Definition at line 61 of file ppm\&.h\&.
+.SS "#define PPM_FREQUENCY_HZ   50"
+
+.PP
+Definition at line 37 of file ppm\&.h\&.
+.SS "#define PPM_GOOD_PULSE_COUNT   5"
+
+.PP
+Definition at line 59 of file ppm\&.h\&.
+.SS "#define PPM_GPIO_PORT   P2"
+
+.PP
+Definition at line 92 of file ppm\&.h\&.
+.SS "#define PPM_GPIO_PSEL   3"
+
+.PP
+Definition at line 93 of file ppm\&.h\&.
+.SS "#define PPM_MOTOR_OFF_TIMEOUT_IN_SEC_FIX16   \fBQCONST\fP(1\&.00, \fBQ16\fP)"
+
+.PP
+Definition at line 53 of file ppm\&.h\&.
+.SS "#define PPM_PULSE_VALID_CHECK_IN_SEC_FIX16   ((\fBPPM_TIMER_TIME_PERIOD\fP * \fBPPM_TIMER_SINGLE_COUNT_IN_SECONDS\fP)/\fBQCONST\fP(1, \fBQ10\fP))"
+
+.PP
+Definition at line 65 of file ppm\&.h\&.
+.SS "#define PPM_TIMER_B   1"
+
+.PP
+Definition at line 86 of file ppm\&.h\&.
+.SS "#define PPM_TIMER_CCTRL   CCTRL0"
+
+.PP
+Definition at line 90 of file ppm\&.h\&.
+.SS "#define PPM_TIMER_CTR   CTR0"
+
+.PP
+Definition at line 89 of file ppm\&.h\&.
+.SS "#define PPM_TIMER_SELECT   \fBPPM_TIMER_B\fP"
+
+.PP
+Definition at line 87 of file ppm\&.h\&.
+.SS "#define PPM_TIMER_SINGLE_COUNT_IN_SECONDS   (\fBQCONST\fP(1, \fBQ26\fP)/(TIMERCLK_FREQ_HZ/(1 << \fBPPM_CCR_TIMER_CLOCK_DIVIDER\fP)))"
+
+.PP
+Definition at line 62 of file ppm\&.h\&.
+.SS "#define PPM_TIMER_TIME_PERIOD   ((\fBQCONST\fP(1, \fBQ26\fP)/\fBPPM_FREQUENCY_HZ\fP)/\fBPPM_TIMER_SINGLE_COUNT_IN_SECONDS\fP) * (\fBQCONST\fP(1\&.75, \fBQ16\fP))/(\fBQCONST\fP(1, \fBQ16\fP))"
+
+.PP
+Definition at line 63 of file ppm\&.h\&.
+.SS "#define PPMGPIO   PAC55XX_GPIOD"
+
+.PP
+Definition at line 91 of file ppm\&.h\&.
+.SS "#define PPMTIMER   PAC55XX_TIMERB"
+
+.PP
+Definition at line 88 of file ppm\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void config_ppm (TimerInstance timer)"
+
+.PP
+Definition at line 22 of file ppm\&.c\&.
+.PP
+.nf
+23 {
+24     pac5xxx_timer_clock_config(timer, TXCTL_CS_ACLK, TXCTL_PS_DIV2);            // Configure timer clock input for ACLK (100MHz), /1 divider
+25       //Set Timer frequency and mode
+26     pac5xxx_timer_base_config(timer,PPM_TIMER_TIME_PERIOD,0,TxCTL_MODE_UP,0);    // 1 count = 1\&.28usec,  19531 * 1\&.28usec = 25 msec = 40 Hz
+27       PPM_Timer_Ptr->CTL\&.MODE = 1;
+28       PPM_Timer_Ptr->CTL\&.BASEIE = 1;
+29       PPM_Timer_Ptr->CTL\&.CLKSRC = 1;
+30       PPM_Timer_Ptr->CTL\&.CLKDIV = TXCTL_PS_DIV128;
+31       PPM_Timer_Ptr->INT\&.w = 0;
+32     
+33       // Configure GPIO pin for PPM input
+34     PAC55XX_SCC->PPM_IO_MUXSEL\&.PPM_INPUT_PORTNUM = 2;
+35       // configuration as input
+36     PAC5XXX_GPIO_PPM_IN->MODE\&.PPM_INPUT_PORTNUM = 3;
+37       // configuration pull up
+38     PAC55XX_SCC->PFPUEN\&.PPM_INPUT_PORTNUM = 1;
+39     
+40       PPM_Timer_Ptr->PPM_CC_CONTROL\&.CCINTEDGE = 2;
+41       PPM_Timer_Ptr->PPM_CC_CONTROL\&.CCINTEN = 1;
+42       PPM_Timer_Ptr->PPM_CC_CONTROL\&.CCMODE = 1;
+43       PPM_Timer_Ptr->PPM_CC_CONTROL\&.CCLATCH = 2;
+44 
+45       PPM_Timer_Ptr->INT\&.w = 0;
+46         
+47         NVIC_SetPriority(PPM_Timer_IRQn,4);
+48     NVIC_EnableIRQ(PPM_Timer_IRQn);
+49 }
+.fi
+.PP
+References PPM_TIMER_TIME_PERIOD\&.
+.SS "void ppm_init (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Definition at line 52 of file ppm\&.c\&.
+.PP
+.nf
+53 {
+54     motor_ptr->ppm\&.valid_motor_on_pulse_detect = 0;
+55     motor_ptr->ppm\&.invalid_pulse_detect_count = 0;
+56 }
+.fi
+.PP
+References Struct_PPM::invalid_pulse_detect_count, Struct_Motor::ppm, and Struct_PPM::valid_motor_on_pulse_detect\&.
+.PP
+Referenced by motor_reset()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

@@ -1,0 +1,103 @@
+.TH "SYSSTAT" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SYSSTAT
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pac5xxx_tile_system_manager\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBb\fP: 8"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBnINTM\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBFLTM\fP: 1"
+.br
+.ti -1c
+.RI "   uint8_t \fB__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBREFBP\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBVTHREF\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint8_t \fBTMPWARN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPBSTAT\fP: 1"
+.br
+.ti -1c
+.RI "}; "
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+< System Manager Tile Registers
+.PP
+< \fBSYSSTAT\fP: Address: 0x00 System Manager Register 
+.PP
+Definition at line 94 of file pac5xxx_tile_system_manager\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "struct { \&.\&.\&. } "
+
+.SS "uint8_t SYSSTAT::__pad0__"
+
+.PP
+Definition at line 100 of file pac5xxx_tile_system_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SYSSTAT::b"
+
+.PP
+Definition at line 96 of file pac5xxx_tile_system_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SYSSTAT::FLTM"
+Fault mask: 0: not masked; 1: masked 
+.br
+ 
+.PP
+Definition at line 99 of file pac5xxx_tile_system_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SYSSTAT::nINTM"
+Interrupt mask: 0: masked; 1: not masked 
+.br
+ 
+.PP
+Definition at line 98 of file pac5xxx_tile_system_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SYSSTAT::PBSTAT"
+Push button status\&. Write 1 to clear\&. 
+.br
+ 
+.PP
+Definition at line 104 of file pac5xxx_tile_system_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SYSSTAT::REFBP"
+Set external reference via AB5 
+.br
+ 
+.PP
+Definition at line 101 of file pac5xxx_tile_system_manager\&.h\&.
+.SS "\fB__I\fP uint8_t SYSSTAT::TMPWARN"
+Temperature warning\&. Clear on read\&. 
+.br
+ 
+.PP
+Definition at line 103 of file pac5xxx_tile_system_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SYSSTAT::VTHREF"
+Threshold voltage for AIO<9:6> (00b: 0\&.1V, 01b: 0\&.2V, 10b: 0\&.5V, 11b: 1\&.25V 
+.br
+ 
+.PP
+Definition at line 102 of file pac5xxx_tile_system_manager\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

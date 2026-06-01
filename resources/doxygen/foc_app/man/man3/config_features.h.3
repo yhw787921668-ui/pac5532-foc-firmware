@@ -1,0 +1,151 @@
+.TH "pac_foc/src/config_features.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/config_features.h \- Use for different FOC firmware features selection\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'maths\&.h'\fP
+.br
+\fC#include 'config_app\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBENABLE_ADCCAL\fP"
+.br
+.ti -1c
+.RI "#define \fBENABLE_DCBUS_MIN_MAX_CHECK\fP"
+.br
+.ti -1c
+.RI "#define \fBMIN_VBUS_FAULT_THRESHOLD_COUNT\fP   10"
+.br
+.ti -1c
+.RI "#define \fBMAX_VBUS_FAULT_THRESHOLD_COUNT\fP   3"
+.br
+.ti -1c
+.RI "#define \fBENABLE_CLSPEED_MIN_MAX_CHECK\fP"
+.br
+.ti -1c
+.RI "#define \fBSPEED_MIN_MAX_FAULT_CHECK_SAMPLE_TIME\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMOTOR_SPEED_ERRORP_CHECK_THRESHOLD\fP   10"
+.br
+.ti -1c
+.RI "#define \fBOL_SPEED_CHECK_TIME_CNTS\fP   20"
+.br
+.ti -1c
+.RI "#define \fBTIMER_DT_SEC_FLT\fP   (1\&.0 / TIMERCLK_FREQ_HZ)"
+.br
+.ti -1c
+.RI "#define \fBPULSEWIDTH_MIN_HS_TICKS\fP   \fBQCONST\fP(((float)\fBPULSEWIDTH_MIN_HS_NSEC\fP / 1000000000 / (\fBTIMER_DT_SEC_FLT\fP * 2)), \fBQ00\fP)"
+.br
+.ti -1c
+.RI "#define \fBPULSEWIDTH_MIN_LS_TICKS\fP   \fBQCONST\fP(((float)\fBPULSEWIDTH_MIN_LS_NSEC\fP / 1000000000 / (\fBTIMER_DT_SEC_FLT\fP * 2)), \fBQ00\fP)"
+.br
+.ti -1c
+.RI "#define \fBMOTOR1_LED_TICKS\fP   \fBQCONST\fP(((float)MOTOR1_LED_NSEC / 1000000000 / \fBTIMER_DT_SEC_FLT\fP), \fBQ00\fP)"
+.br
+.ti -1c
+.RI "#define \fBMOTOR1_TED_TICKS\fP   \fBQCONST\fP(((float)MOTOR1_TED_NSEC / 1000000000 / \fBTIMER_DT_SEC_FLT\fP), \fBQ00\fP)"
+.br
+.ti -1c
+.RI "#define \fBCONV_ADC2DCBUS_Q14\fP   ((int32_t) ((0\&.000976563 * 2\&.5 * R1_PLUS_R2_BY_R2_RATIO_VBUS) * 16384))"
+.br
+.ti -1c
+.RI "#define \fBCONV_ADC2DCBUS_DIV_SQRT3_Q14\fP   ((int32_t) ((0\&.000976563 * 2\&.5 * R1_PLUS_R2_BY_R2_RATIO_VBUS * 0\&.5773469) * 16384))"
+.br
+.ti -1c
+.RI "#define \fBCOMP_DIFFGAINERROR_Q14\fP   \fBQCONST\fP(((13500\&.0f + AIORES_VALUE) / 13500\&.0f), \fBQ14\fP)"
+.br
+.ti -1c
+.RI "#define \fBANGLEDIFF_TIMEOUT_COUNT\fP   (\fBANGLEDIFF_TIMEOUT_SEC\fP / (\fBDT_SYSTICK_FLT\fP * \fBSYSTICK_HANDLER_DIVIDER\fP))"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for different FOC firmware features selection\&. 
+
+Use for field weakening structure\&.
+.PP
+Definition in file \fBconfig_features\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ANGLEDIFF_TIMEOUT_COUNT   (\fBANGLEDIFF_TIMEOUT_SEC\fP / (\fBDT_SYSTICK_FLT\fP * \fBSYSTICK_HANDLER_DIVIDER\fP))"
+
+.PP
+Definition at line 225 of file config_features\&.h\&.
+.SS "#define COMP_DIFFGAINERROR_Q14   \fBQCONST\fP(((13500\&.0f + AIORES_VALUE) / 13500\&.0f), \fBQ14\fP)"
+
+.PP
+Definition at line 210 of file config_features\&.h\&.
+.SS "#define CONV_ADC2DCBUS_DIV_SQRT3_Q14   ((int32_t) ((0\&.000976563 * 2\&.5 * R1_PLUS_R2_BY_R2_RATIO_VBUS * 0\&.5773469) * 16384))"
+
+.PP
+Definition at line 208 of file config_features\&.h\&.
+.SS "#define CONV_ADC2DCBUS_Q14   ((int32_t) ((0\&.000976563 * 2\&.5 * R1_PLUS_R2_BY_R2_RATIO_VBUS) * 16384))"
+
+.PP
+Definition at line 207 of file config_features\&.h\&.
+.SS "#define ENABLE_ADCCAL"
+
+.PP
+Definition at line 136 of file config_features\&.h\&.
+.SS "#define ENABLE_CLSPEED_MIN_MAX_CHECK"
+
+.PP
+Definition at line 161 of file config_features\&.h\&.
+.SS "#define ENABLE_DCBUS_MIN_MAX_CHECK"
+
+.PP
+Definition at line 154 of file config_features\&.h\&.
+.SS "#define MAX_VBUS_FAULT_THRESHOLD_COUNT   3"
+
+.PP
+Definition at line 157 of file config_features\&.h\&.
+.SS "#define MIN_VBUS_FAULT_THRESHOLD_COUNT   10"
+
+.PP
+Definition at line 156 of file config_features\&.h\&.
+.SS "#define MOTOR1_LED_TICKS   \fBQCONST\fP(((float)MOTOR1_LED_NSEC / 1000000000 / \fBTIMER_DT_SEC_FLT\fP), \fBQ00\fP)"
+
+.PP
+Definition at line 198 of file config_features\&.h\&.
+.SS "#define MOTOR1_TED_TICKS   \fBQCONST\fP(((float)MOTOR1_TED_NSEC / 1000000000 / \fBTIMER_DT_SEC_FLT\fP), \fBQ00\fP)"
+
+.PP
+Definition at line 199 of file config_features\&.h\&.
+.SS "#define MOTOR_SPEED_ERRORP_CHECK_THRESHOLD   10"
+
+.PP
+Definition at line 164 of file config_features\&.h\&.
+.SS "#define OL_SPEED_CHECK_TIME_CNTS   20"
+
+.PP
+Definition at line 165 of file config_features\&.h\&.
+.SS "#define PULSEWIDTH_MIN_HS_TICKS   \fBQCONST\fP(((float)\fBPULSEWIDTH_MIN_HS_NSEC\fP / 1000000000 / (\fBTIMER_DT_SEC_FLT\fP * 2)), \fBQ00\fP)"
+
+.PP
+Definition at line 194 of file config_features\&.h\&.
+.SS "#define PULSEWIDTH_MIN_LS_TICKS   \fBQCONST\fP(((float)\fBPULSEWIDTH_MIN_LS_NSEC\fP / 1000000000 / (\fBTIMER_DT_SEC_FLT\fP * 2)), \fBQ00\fP)"
+
+.PP
+Definition at line 195 of file config_features\&.h\&.
+.SS "#define SPEED_MIN_MAX_FAULT_CHECK_SAMPLE_TIME   1"
+
+.PP
+Definition at line 163 of file config_features\&.h\&.
+.SS "#define TIMER_DT_SEC_FLT   (1\&.0 / TIMERCLK_FREQ_HZ)"
+
+.PP
+Definition at line 182 of file config_features\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

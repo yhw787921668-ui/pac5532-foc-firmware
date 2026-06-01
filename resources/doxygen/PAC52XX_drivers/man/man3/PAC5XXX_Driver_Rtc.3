@@ -1,0 +1,144 @@
+.TH "PAC5XXX_Driver_Rtc" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_Rtc \- PAC5XXX Real-Time Clock Driver Functions`
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_RTC\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_RTC\fP void \fBpac5xxx_rtc_config\fP (int ie_en, uint32_t cdv, \fBRTCCTL_PS_Type\fP prescale)"
+.br
+.RI "This function configures Real-time Clock\&. "
+.ti -1c
+.RI "\fBRAMFUNC_RTC\fP void \fBpac5xxx_rtc_reset\fP (void)"
+.br
+.RI "This function resets the watchdog timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_RTC\fP void \fBpac5xxx_rtc_clear_if\fP (void)"
+.br
+.RI "This function clears the Real-Time Clock interrupt flag\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_RTC"
+
+.PP
+Definition at line 31 of file pac5xxx_driver_rtc\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_RTC\fP void pac5xxx_rtc_clear_if (void)"
+
+.PP
+This function clears the Real-Time Clock interrupt flag\&. 
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_rtc_clear_if\&.c\&.
+.PP
+.nf
+21 {
+22     uint32_t word;
+23 
+24     word = (PAC5XXX_RTC->RTCCTL & 0x0000FFF8) | (RTCCTL_PASS_WRITE | RTCCTL_IF_MASK | RTCCTL_RST_VAL);
+25 
+26     RTC_WAIT_WRITE_BLOCK;   // Blocking wait for register write
+27 
+28     PAC5XXX_RTC->RTCCTL = word;
+29 }
+.fi
+.PP
+References PAC5XXX_RTC, RTC_WAIT_WRITE_BLOCK, RTCCTL_IF_MASK, RTCCTL_PASS_WRITE, and RTCCTL_RST_VAL\&.
+.SS "\fBRAMFUNC_RTC\fP void pac5xxx_rtc_config (int ie_en, uint32_t cdv, \fBRTCCTL_PS_Type\fP prescale)"
+
+.PP
+This function configures Real-time Clock\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIie_en\fP Set to non-zero to enable Watchdog Timer interval interrupt 
+.br
+\fIcdv\fP The Real-time clock count-down value in clock ticks 
+.br
+\fIprescale\fP The input clock pre-scaler for the RTC 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_rtc_config\&.c\&.
+.PP
+.nf
+21 {
+22   // Read CTL word, clear interrupt bits, set write password and correct reset value
+23   uint32_t word = (PAC5XXX_RTC->RTCCTL & 0x00FFFC00) | RTCCTL_PASS_WRITE | RTCCTL_RST_VAL;
+24 
+25   word |= (pre_scaler << RTCCTL_PS_SHIFT); // Add pre-scale bits
+26 
+27   if (ie_en)
+28      word |= (RTCCTL_IE_MASK); //  | 0x20); // TODO: Add POR bit to IE mask
+29 
+30   RTC_WAIT_WRITE_BLOCK;   // Blocking wait for register write
+31 
+32   PAC5XXX_RTC->RTCCDV = (RTCCTL_PASS_WRITE | (cdv & 0x00FFFFFF));
+33   
+34   RTC_WAIT_WRITE_BLOCK;   // Blocking wait for register write
+35   
+36   PAC5XXX_RTC->RTCCTL = word;
+37   
+38 }
+.fi
+.PP
+References PAC5XXX_RTC, RTC_WAIT_WRITE_BLOCK, RTCCTL_IE_MASK, RTCCTL_PASS_WRITE, RTCCTL_PS_SHIFT, and RTCCTL_RST_VAL\&.
+.SS "\fBRAMFUNC_RTC\fP void pac5xxx_rtc_reset (void)"
+
+.PP
+This function resets the watchdog timer\&. 
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_rtc_reset\&.c\&.
+.PP
+.nf
+21 {
+22     uint32_t word;
+23 
+24     word = (PAC5XXX_RTC->RTCCTL & 0x00FFFFF8) | (RTCCTL_PASS_WRITE | RTCCTL_RST_VAL);
+25 
+26     RTC_WAIT_WRITE_BLOCK;   // Blocking wait for register write
+27 
+28     PAC5XXX_RTC->RTCCTL = word;
+29 }
+.fi
+.PP
+References PAC5XXX_RTC, RTC_WAIT_WRITE_BLOCK, RTCCTL_PASS_WRITE, and RTCCTL_RST_VAL\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

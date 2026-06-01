@@ -1,0 +1,363 @@
+.TH "pac_foc/src/features/autotune/atune_libfuncs.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/features/autotune/atune_libfuncs.h \- Use for atune lib function definition\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'atune_struct\&.h'\fP
+.br
+\fC#include 'pid\&.h'\fP
+.br
+\fC#include 'control_struct\&.h'\fP
+.br
+\fC#include 'app_struct\&.h'\fP
+.br
+\fC#include 'foc_struct\&.h'\fP
+.br
+\fC#include 'mparam_struct\&.h'\fP
+.br
+\fC#include 'state_struct\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBmid1_process_control_lib\fP (\fBStruct_ATune\fP *atune_ptr, int32_t va2mid_q14, int32_t vb2mid_q14, int32_t vc2mid_q14, int32_t ia_q14, int32_t ib_q14, int32_t ic_q14)"
+.br
+.RI "Process mid1 control injection process\&. "
+.ti -1c
+.RI "void \fBmid1_controller\fP (\fBStruct_ATune\fP *atune_ptr, \fBStruct_App\fP *app_ptr)"
+.br
+.RI "Runh mid1 controller\&. "
+.ti -1c
+.RI "void \fBmid1_calc_inverter_mos\fP (\fBStruct_ATune\fP *atune_ptr, int32_t dcbus_voltage_1div_q16, int32_t v_diode_q14, int32_t i_scale_q16, int32_t rdson_q16)"
+.br
+.RI "Calculate inverter mos compensation parameters\&. "
+.ti -1c
+.RI "void \fBmid1_calc_inverter_igbt\fP (\fBStruct_ATune\fP *atune_ptr, int32_t dcbus_voltage_1div_q16, int32_t v_diode_q14, int32_t v_ce_q14)"
+.br
+.RI "Calculate inverter bipolar compensation parameters\&. "
+.ti -1c
+.RI "void \fBmid1_calc_ls\fP (int32_t finj_q6, int32_t p_app_sq_scaled_q40, int32_t p_real_sq_scaled_q40, int32_t i_rms_sq_scaled_q28, int32_t v_scale_q16, int32_t i_scale_q16, int32_t *ls_q26)"
+.br
+.RI "Calculate motor coil inductance\&. "
+.ti -1c
+.RI "void \fBmid1_calc_rs\fP (int32_t vdc1_scaled_q14, int32_t vdc2_scaled_q14, int32_t idc1_scaled_q14, int32_t idc2_scaled_q14, int32_t v_scale_q16, int32_t i_scale_q16, int32_t *rs_q16)"
+.br
+.RI "Calculate motor coil resistance\&. "
+.ti -1c
+.RI "void \fBmid1_reset_subsm\fP (\fBStruct_ATune\fP *atune_ptr)"
+.br
+.RI "Reset mid1 sub state machine and variables\&. "
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBmid2_process_control_lib\fP (\fBStruct_ATune\fP *atune_ptr, int32_t speed_scaled_q14, int32_t vq_q14, int32_t vd_q14, int32_t iq_q14, int32_t angle)"
+.br
+.RI "Run mid2 process in control\&. "
+.ti -1c
+.RI "void \fBmid2_controller\fP (\fBStruct_ATune\fP *atune_ptr, \fBStruct_Control\fP *control_ptr, \fBStruct_App\fP *app_ptr, \fBStruct_FOC\fP *foc_ptr, \fBStruct_MParam\fP *mparam_ptr, \fBStruct_State\fP *state_ptr)"
+.br
+.RI "Run mid2 controller\&. "
+.ti -1c
+.RI "void \fBmid2_process_systick_lib\fP (\fBStruct_ATune\fP *atune_ptr)"
+.br
+.RI "Run mid2 process in systick\&. "
+.ti -1c
+.RI "void \fBmid2_calc_kt_j\fP (\fBStruct_ATune\fP *atune_ptr, int32_t v_scale_q16, int32_t current_scale_q16, int32_t speed_scale_q0, int32_t ls_q26, int32_t rs_q16, int32_t pole_pairs_q0)"
+.br
+.RI "Run mid2 calculation to calculate kt and j\&. "
+.ti -1c
+.RI "void \fBmid2_reset_vars\fP (\fBStruct_ATune\fP *atune_ptr)"
+.br
+.RI "Reset mid2 variables\&. "
+.ti -1c
+.RI "void \fBatpi_controller\fP (\fBStruct_ATune\fP *atune_ptr, \fBStruct_Control\fP *control_ptr, \fBStruct_App\fP *app_ptr, \fBStruct_MParam\fP *mparam_ptr)"
+.br
+.RI "Run auto tune controller to calculate current and speed PI gains\&. "
+.ti -1c
+.RI "void \fBatpi_calc_gain_current\fP (\fBStruct_ATune\fP *atune_ptr, int32_t ls_q26, int32_t rs_q16, int32_t *i_ka_q16, int32_t *i_kb_q16)"
+.br
+.RI "Run to calculate current controller gain\&. "
+.ti -1c
+.RI "void \fBatpi_calc_gain_speed\fP (\fBStruct_ATune\fP *atune_ptr, int32_t ke_q26, int32_t j_q26, uint8_t pole_pairs)"
+.br
+.RI "Run to calculate speed controller gain\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for atune lib function definition\&. 
+
+
+.PP
+Definition in file \fBatune_libfuncs\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void atpi_calc_gain_current (\fBStruct_ATune\fP * atune_ptr, int32_t ls_q26, int32_t rs_q16, int32_t * i_ka_q16, int32_t * i_kb_q16)"
+
+.PP
+Run to calculate current controller gain\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_ATune\fP\fP *atune_ptr 
+.br
+\fIint32_t\fP ls_q26 
+.br
+\fIint32_t\fP rs_q16 
+.br
+\fIint32_t\fP *i_ka_q16 
+.br
+\fIint32_t\fP *i_kb_q16 
+.RE
+.PP
+
+.SS "void atpi_calc_gain_speed (\fBStruct_ATune\fP * atune_ptr, int32_t ke_q26, int32_t j_q26, uint8_t pole_pairs)"
+
+.PP
+Run to calculate speed controller gain\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_ATune\fP\fP *atune_ptr 
+.br
+\fIint32_t\fP ke_q26 
+.br
+\fIint32_t\fP j_q26 
+.br
+\fIuint8_t\fP pole_pairs 
+.RE
+.PP
+
+.SS "void atpi_controller (\fBStruct_ATune\fP * atune_ptr, \fBStruct_Control\fP * control_ptr, \fBStruct_App\fP * app_ptr, \fBStruct_MParam\fP * mparam_ptr)"
+
+.PP
+Run auto tune controller to calculate current and speed PI gains\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_ATune\fP\fP *atune_ptr 
+.br
+\fI\fBStruct_Control\fP\fP *control_ptr 
+.br
+\fI\fBStruct_App\fP\fP *app_ptr 
+.br
+\fI\fBStruct_MParam\fP\fP *mparam_ptr 
+.RE
+.PP
+
+.SS "void mid1_calc_inverter_igbt (\fBStruct_ATune\fP * atune_ptr, int32_t dcbus_voltage_1div_q16, int32_t v_diode_q14, int32_t v_ce_q14)"
+
+.PP
+Calculate inverter bipolar compensation parameters\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_ATune\fP\fP *atune_ptr 
+.br
+\fIint32_t\fP dcbus_voltage_1div_q16 
+.br
+\fIint32_t\fP v_diode_q14 
+.br
+\fIint32_t\fP v_ce_q14 
+.RE
+.PP
+
+.SS "void mid1_calc_inverter_mos (\fBStruct_ATune\fP * atune_ptr, int32_t dcbus_voltage_1div_q16, int32_t v_diode_q14, int32_t i_scale_q16, int32_t rdson_q16)"
+
+.PP
+Calculate inverter mos compensation parameters\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_ATune\fP\fP *atune_ptr 
+.br
+\fIint32_t\fP dcbus_voltage_1div_q16 
+.br
+\fIint32_t\fP v_diode_q14 
+.br
+\fIint32_t\fP i_scale_q16 
+.br
+\fIint32_t\fP rdson_q16 
+.RE
+.PP
+
+.SS "void mid1_calc_ls (int32_t finj_q6, int32_t p_app_sq_scaled_q40, int32_t p_real_sq_scaled_q40, int32_t i_rms_sq_scaled_q28, int32_t v_scale_q16, int32_t i_scale_q16, int32_t * ls_q26)"
+
+.PP
+Calculate motor coil inductance\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIint32_t\fP finj_q6 
+.br
+\fIv_q16\fP 
+.br
+\fIint32_t\fP v_diode_q14 
+.br
+\fIint32_t\fP v_ce_q14 
+.RE
+.PP
+
+.SS "void mid1_calc_rs (int32_t vdc1_scaled_q14, int32_t vdc2_scaled_q14, int32_t idc1_scaled_q14, int32_t idc2_scaled_q14, int32_t v_scale_q16, int32_t i_scale_q16, int32_t * rs_q16)"
+
+.PP
+Calculate motor coil resistance\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIint32_t\fP vdc1_scaled_q14 
+.br
+\fIint32_t\fP vdc2_scaled_q14 
+.br
+\fIint32_t\fP idc1_scaled_q14 
+.br
+\fIint32_t\fP idc2_scaled_q14 
+.br
+\fIint32_t\fP v_scale_q16 
+.br
+\fIint32_t\fP i_scale_q16 
+.br
+\fIint32_t\fP *rs_q16 
+.RE
+.PP
+
+.SS "void mid1_controller (\fBStruct_ATune\fP * atune_ptr, \fBStruct_App\fP * app_ptr)"
+
+.PP
+Runh mid1 controller\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_ATune\fP\fP *atune_ptr 
+.br
+\fI\fBStruct_App\fP\fP *app_ptr 
+.RE
+.PP
+
+.SS "PAC5XXX_RAMFUNC void mid1_process_control_lib (\fBStruct_ATune\fP * atune_ptr, int32_t va2mid_q14, int32_t vb2mid_q14, int32_t vc2mid_q14, int32_t ia_q14, int32_t ib_q14, int32_t ic_q14)"
+
+.PP
+Process mid1 control injection process\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_ATune\fP\fP *atune_ptr 
+.br
+\fIint32_t\fP va2mid_q14 
+.br
+\fIint32_t\fP vb2mid_q14 
+.br
+\fIint32_t\fP vb2mid_q14 
+.br
+\fIint32_t\fP ia_q14 
+.br
+\fIint32_t\fP ib_q14 
+.br
+\fIint32_t\fP ic_q14 
+.RE
+.PP
+
+.SS "void mid1_reset_subsm (\fBStruct_ATune\fP * atune_ptr)"
+
+.PP
+Reset mid1 sub state machine and variables\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_ATune\fP\fP *atune_ptr 
+.RE
+.PP
+
+.SS "void mid2_calc_kt_j (\fBStruct_ATune\fP * atune_ptr, int32_t v_scale_q16, int32_t current_scale_q16, int32_t speed_scale_q0, int32_t ls_q26, int32_t rs_q16, int32_t pole_pairs_q0)"
+
+.PP
+Run mid2 calculation to calculate kt and j\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_ATune\fP\fP *atune_ptr 
+.br
+\fIint32_t\fP v_scale_q16 
+.br
+\fIint32_t\fP current_scale_q16 
+.br
+\fIint32_t\fP speed_scale_q0 
+.br
+\fIint32_t\fP ls_q26 
+.br
+\fIint32_t\fP rs_q16 
+.br
+\fIint32_t\fP pole_pairs_q0 
+.RE
+.PP
+
+.SS "void mid2_controller (\fBStruct_ATune\fP * atune_ptr, \fBStruct_Control\fP * control_ptr, \fBStruct_App\fP * app_ptr, \fBStruct_FOC\fP * foc_ptr, \fBStruct_MParam\fP * mparam_ptr, \fBStruct_State\fP * state_ptr)"
+
+.PP
+Run mid2 controller\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_Control\fP\fP *control_ptr 
+.br
+\fI\fBStruct_App\fP\fP *app_ptr 
+.br
+\fI\fBStruct_FOC\fP\fP *foc_ptr 
+.br
+\fI\fBStruct_MParam\fP\fP *mparam_ptr 
+.br
+\fI\fBStruct_State\fP\fP *state_ptr 
+.RE
+.PP
+
+.SS "PAC5XXX_RAMFUNC void mid2_process_control_lib (\fBStruct_ATune\fP * atune_ptr, int32_t speed_scaled_q14, int32_t vq_q14, int32_t vd_q14, int32_t iq_q14, int32_t angle)"
+
+.PP
+Run mid2 process in control\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_ATune\fP\fP *atune_ptr 
+.br
+\fIint32_t\fP speed_scaled_q14 
+.br
+\fIint32_t\fP vq_q14 
+.br
+\fIint32_t\fP vd_q14 
+.br
+\fIint32_t\fP iq_q14 
+.br
+\fIint32_t\fP angle 
+.RE
+.PP
+
+.SS "void mid2_process_systick_lib (\fBStruct_ATune\fP * atune_ptr)"
+
+.PP
+Run mid2 process in systick\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_ATune\fP\fP *atune_ptr 
+.RE
+.PP
+
+.SS "void mid2_reset_vars (\fBStruct_ATune\fP * atune_ptr)"
+
+.PP
+Reset mid2 variables\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_ATune\fP\fP *atune_ptr 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

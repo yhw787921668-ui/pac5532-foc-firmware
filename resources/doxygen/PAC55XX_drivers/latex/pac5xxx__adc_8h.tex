@@ -1,0 +1,774 @@
+\hypertarget{pac5xxx__adc_8h}{}\doxysection{pac\+\_\+foc/pac55xx/pac55xx\+\_\+sdk/peripheral/pac5xxx\+\_\+adc.h File Reference}
+\label{pac5xxx__adc_8h}\index{pac\_foc/pac55xx/pac55xx\_sdk/peripheral/pac5xxx\_adc.h@{pac\_foc/pac55xx/pac55xx\_sdk/peripheral/pac5xxx\_adc.h}}
+
+
+C\+M\+S\+IS Cortex-\/M Header File for the P\+A\+C55\+XX A\+DC and D\+T\+SE.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__adc_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{union_a_d_c___r_e_s_u_l_t___t_y_p_e_d_e_f}{A\+D\+C\+\_\+\+R\+E\+S\+U\+L\+T\+\_\+\+T\+Y\+P\+E\+D\+EF}}
+\item 
+union \mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f}{D\+T\+S\+E\+\_\+\+S\+E\+Q\+\_\+\+C\+F\+G\+\_\+\+T\+Y\+P\+E\+D\+EF}}
+\item 
+struct \mbox{\hyperlink{struct_p_a_c55_x_x___a_d_c___t_y_p_e_d_e_f}{P\+A\+C55\+X\+X\+\_\+\+A\+D\+C\+\_\+\+T\+Y\+P\+E\+D\+EF}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{pac5xxx__adc_8h_afb362a5bc3609465e99eeaac37d5350a}{S\+E\+Q\+\_\+\+E\+ND}}~1
+\item 
+\#define \mbox{\hyperlink{pac5xxx__adc_8h_a81e98f87df8e040d884da2469b8d8291}{A\+D\+C\+\_\+\+I\+R\+Q\+\_\+\+EN}}~0x10
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988d}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+T\+Y\+PE}} \mbox{\hyperlink{pac5xxx__adc_8h_a8ba97287d48b6dbf5a8550b44e9557fc}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+Type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abd}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+D\+I\+V\+\_\+\+T\+Y\+PE}} \{ \newline
+\mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda3222193868b2661c869fd43faa80265e}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V1}} = 0, 
+\mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda48fae9c475276361bdce00cfdbd70b5f}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V2}} = 1, 
+\mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda0c2a38ebb1b381e2578d1a3ac9bc29bc}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V3}} = 2, 
+\mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdae2476eee162823af17d1837bee495b5b}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V4}} = 3, 
+\newline
+\mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda81be80501f659c0fef14b92ddbed3fdb}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V5}} = 4, 
+\mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda5cbbc939253b74bbeb30b0b28e7269c6}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V6}} = 5, 
+\mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdad6970e30ec61750dacefae6fb82fabc1}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V7}} = 6, 
+\mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdae259bc989bc7d6bb2976edb01d771c47}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V8}} = 7, 
+\newline
+\mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdab275082d32701265b7d2b4473e489150}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V9}} = 8, 
+\mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda6297026c1fd715b8d82f1b4aed4cb1ab}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V10}} = 9, 
+\mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda1abc3ca6da7b2298b658ab648a975a70}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V11}} = 10, 
+\mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda0640740b8c9bfdad904135054714e1c8}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V12}} = 11, 
+\newline
+\mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda3f4c6cf228ac8a128f3bc30e17fb86cf}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V13}} = 12, 
+\mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdab02dc1d23892b5cbfae44811c5f9d871}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V14}} = 13, 
+\mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda3994875bb8215f96c0e689b685519864}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V15}} = 14, 
+\mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda93402d54cfac094dc2d1cd567bb890bd}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V16}} = 15
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__adc_8h_a80b075752bc961a8ec9991cc6a25a620}{A\+D\+C\+\_\+\+E\+M\+U\+X\+\_\+\+C\+T\+L\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__adc_8h_a80b075752bc961a8ec9991cc6a25a620ad1c3360239856d1cf4ea0da316936746}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+A\+TA}} = 0, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a80b075752bc961a8ec9991cc6a25a620a716cb649ee42c67ef1a00f771faca02c}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+D\+T\+S\+E\+\_\+\+S\+EQ}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988d}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+T\+Y\+PE}} \{ \newline
+\mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988dad32d20d3bd3a5136066b19784a96cdd4}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V1}} = 0, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da64060131551ededfd4ad0b4b5c48da35}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V2}} = 1, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daafefba16ce2dc29505a88b7b94aea288}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V3}} = 2, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daa4dd28b1d5f721b4d6db8faffc1fe408}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V4}} = 3, 
+\newline
+\mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988dad2d624a540fb027830818bfa1305356a}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V5}} = 4, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da132a08c57684bbb2d619b395b89ad4a4}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V6}} = 5, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da762b7ec1a2b680056cf31cf9964f78f7}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V7}} = 6, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da63e4267c8eff3e696309ddfd54c289b2}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V8}} = 7, 
+\newline
+\mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daca6dbf02ba292b26879300efc6fc9bbe}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V9}} = 8, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da7e8e6355e120d6718eb4411b66d6c906}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V10}} = 9, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da985ab6ac7f087bd9d0a62c0fe0935277}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V11}} = 10, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daa53dd6427fa4bb9957d9d5a09383a0b9}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V12}} = 11, 
+\newline
+\mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daf16ad8ebbf09a967be9702b3b80a92d3}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V13}} = 12, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988dae296a3fa76f644acb8940fdc452792af}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V14}} = 13, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da210adacb203f3d538b9fc077d454232f}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V15}} = 14, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988dacb7df2feecbadd1246c183b508b200ec}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V16}} = 15
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881}{A\+D\+C\+\_\+\+C\+H\+A\+N\+\_\+\+T\+Y\+PE}} \{ \newline
+\mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{A\+D\+C0}} = 0, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a55d17f14e4a04efc3f0c5144fdb16a9d}{A\+D\+C1}} = 1, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a246a534bca85a0d87ddcb59e28c55d32}{A\+D\+C2}} = 2, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881aae0370f8f308778a8f8aa5c26053bf63}{A\+D\+C3}} = 3, 
+\newline
+\mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a2e9f047076bc235c6c38fecdc29cc2e9}{A\+D\+C4}} = 4, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a019d472284d9531fbcfc28b7d5961e32}{A\+D\+C5}} = 5, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881ac6bd2fccb9a4c4bd072f2f03a317fdf7}{A\+D\+C6}} = 6, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a87ae295d06b9ab59ad15d6a858cd3bfb}{A\+D\+C7}} = 7
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245}{A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+Type}} \{ \newline
+\mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245af65139b51b6dad99b8cc9bd33c404179}{A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+A\+D0}} = 0, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a6664f66d5488467c2edda76f71f79c13}{A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+A\+D1}} = 1, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245ae8c77aac12ed6656ca3c2a0acb82cb7f}{A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+A\+D2}} = 2, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a48ae1ad99b1f1c3fe6811f3015dfac08}{A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+A\+D3}} = 3, 
+\newline
+\mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a347dd7a9433eaec4cbaa9e6d538e49e3}{A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+A\+D4}} = 4, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a103e51aa8a2a24abf0a2d293b2bd3b8a}{A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+A\+D5}} = 5, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a81801ed633f208836856f9d2ca7146a1}{A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+A\+D6}} = 6, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a614db04741d492deb0e167199c0130a5}{A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+A\+D7}} = 7
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8}{A\+D\+C\+C\+T\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+T\+Y\+PE}} \{ \newline
+\mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a0cc55e8ec843abf0ad02a1043a85841c}{A\+D\+C\+C\+T\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+D\+C0}} = 0, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a7c5ec56baa4c030d34613f935d94acb6}{A\+D\+C\+C\+T\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+D\+C1}} = 1, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a83895b796235eb161775a3ff52288de2}{A\+D\+C\+C\+T\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+D\+C2}} = 2, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a96d420c7de102afb31725661c34496e6}{A\+D\+C\+C\+T\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+D\+C3}} = 3, 
+\newline
+\mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8ade12c9cbf88c382b3afe4322fc50f860}{A\+D\+C\+C\+T\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+D\+C4}} = 4, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a2cf43fd240b043040af2e1662f9484f8}{A\+D\+C\+C\+T\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+D\+C5}} = 5, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8ac55025f57f5b1aec3fdde395bb3fe294}{A\+D\+C\+C\+T\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+D\+C6}} = 6, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8ae673dab477170947a9bb7d23d1da4689}{A\+D\+C\+C\+T\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+D\+C7}} = 7
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__adc_8h_a94d68ef0e76c1f35f59801a9cf63e2da}{A\+D\+C\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__adc_8h_a94d68ef0e76c1f35f59801a9cf63e2daa1b9db169693b26487d664c82d95b0b09}{A\+D\+C\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+N\+U\+AL}} = 0, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a94d68ef0e76c1f35f59801a9cf63e2daac976fdbf670b540f7371d53ca0957ae4}{A\+D\+C\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+D\+T\+SE}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82}{A\+D\+C\+D\+T\+S\+E\+\_\+\+T\+R\+I\+G\+E\+D\+G\+E\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82af7e0560b6822eb76392a04f84bcbbcbf}{A\+D\+C\+D\+T\+S\+E\+\_\+\+T\+R\+I\+G\+E\+D\+G\+E\+\_\+\+U\+N\+U\+S\+ED}} = 0, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82ae5d6f2dce52156d05cc5ca4c28c589d9}{A\+D\+C\+D\+T\+S\+E\+\_\+\+T\+R\+I\+G\+E\+D\+G\+E\+\_\+\+R\+I\+S\+I\+NG}} = 1, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82ad37bd61a70934575879aa44455b267a8}{A\+D\+C\+D\+T\+S\+E\+\_\+\+T\+R\+I\+G\+E\+D\+G\+E\+\_\+\+F\+A\+L\+L\+I\+NG}} = 2, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82a79409dd5dec069526d470230d989c691}{A\+D\+C\+D\+T\+S\+E\+\_\+\+T\+R\+I\+G\+E\+D\+G\+E\+\_\+\+B\+O\+TH}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818}{A\+D\+C\+D\+T\+S\+E\+\_\+\+I\+R\+Q\+N\+U\+M\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818aece46505c7fb1b3477eb3c55849a6fa9}{A\+D\+C\+D\+T\+S\+E\+\_\+\+I\+R\+Q\+N\+U\+M\+\_\+\+A\+D\+C0}} = 0, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818a695ddbfaa57dd57e9c8599e59ba76621}{A\+D\+C\+D\+T\+S\+E\+\_\+\+I\+R\+Q\+N\+U\+M\+\_\+\+A\+D\+C1}} = 1, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818a7e177a5225d203847e513b18518b9628}{A\+D\+C\+D\+T\+S\+E\+\_\+\+I\+R\+Q\+N\+U\+M\+\_\+\+A\+D\+C2}} = 2, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818acb6f96444c95021778d76be322c3ad47}{A\+D\+C\+D\+T\+S\+E\+\_\+\+I\+R\+Q\+N\+U\+M\+\_\+\+A\+D\+C3}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99}{D\+T\+S\+E\+\_\+\+I\+R\+Q\+N\+U\+M\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99a39b37b0c597269e230de801b5089c16b}{A\+D\+C\+\_\+\+I\+R\+Q0\+\_\+\+EN}} = A\+D\+C\+D\+T\+S\+E\+\_\+\+I\+R\+Q\+N\+U\+M\+\_\+\+A\+D\+C0 $\vert$ A\+D\+C\+\_\+\+I\+R\+Q\+\_\+\+EN, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99ad808340d58a779e63aa2454db12fdba1}{A\+D\+C\+\_\+\+I\+R\+Q1\+\_\+\+EN}} = A\+D\+C\+D\+T\+S\+E\+\_\+\+I\+R\+Q\+N\+U\+M\+\_\+\+A\+D\+C1 $\vert$ A\+D\+C\+\_\+\+I\+R\+Q\+\_\+\+EN, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99ae1fd231e0e311f22be750e0241145338}{A\+D\+C\+\_\+\+I\+R\+Q2\+\_\+\+EN}} = A\+D\+C\+D\+T\+S\+E\+\_\+\+I\+R\+Q\+N\+U\+M\+\_\+\+A\+D\+C2 $\vert$ A\+D\+C\+\_\+\+I\+R\+Q\+\_\+\+EN, 
+\mbox{\hyperlink{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99acab5080aafa365350e3112c7f27f960d}{A\+D\+C\+\_\+\+I\+R\+Q3\+\_\+\+EN}} = A\+D\+C\+D\+T\+S\+E\+\_\+\+I\+R\+Q\+N\+U\+M\+\_\+\+A\+D\+C3 $\vert$ A\+D\+C\+\_\+\+I\+R\+Q\+\_\+\+EN
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__adc_8h_afc414df8b91d299369e0593a6b9a1430}{D\+T\+S\+E\+S\+E\+Q\+C\+F\+G\+\_\+\+E\+M\+U\+X\+C\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__adc_8h_afc414df8b91d299369e0593a6b9a1430af54844e110bd0665028b161243445362}{D\+T\+S\+E\+S\+E\+Q\+C\+F\+G\+\_\+\+E\+M\+U\+X\+C\+\_\+\+N\+O\+NE}} = 0, 
+\mbox{\hyperlink{pac5xxx__adc_8h_afc414df8b91d299369e0593a6b9a1430a2b0e6d7d3243ea4579f9fe68ecde1100}{D\+T\+S\+E\+S\+E\+Q\+C\+F\+G\+\_\+\+E\+M\+U\+X\+C\+\_\+\+B\+SH}} = 1, 
+\mbox{\hyperlink{pac5xxx__adc_8h_afc414df8b91d299369e0593a6b9a1430a011e586bacbeec0ba018fafd0ab4c8d8}{D\+T\+S\+E\+S\+E\+Q\+C\+F\+G\+\_\+\+E\+M\+U\+X\+C\+\_\+\+A\+E\+OC}} = 2
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+M\+S\+IS Cortex-\/M Header File for the P\+A\+C55\+XX A\+DC and D\+T\+SE. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2017-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{pac5xxx__adc_8h_a81e98f87df8e040d884da2469b8d8291}\label{pac5xxx__adc_8h_a81e98f87df8e040d884da2469b8d8291}} 
+\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADC\_IRQ\_EN@{ADC\_IRQ\_EN}}
+\index{ADC\_IRQ\_EN@{ADC\_IRQ\_EN}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_IRQ\_EN}{ADC\_IRQ\_EN}}
+{\footnotesize\ttfamily \#define A\+D\+C\+\_\+\+I\+R\+Q\+\_\+\+EN~0x10}
+
+
+
+Definition at line 22 of file pac5xxx\+\_\+adc.\+h.
+
+\mbox{\Hypertarget{pac5xxx__adc_8h_afb362a5bc3609465e99eeaac37d5350a}\label{pac5xxx__adc_8h_afb362a5bc3609465e99eeaac37d5350a}} 
+\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!SEQ\_END@{SEQ\_END}}
+\index{SEQ\_END@{SEQ\_END}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}
+\doxysubsubsection{\texorpdfstring{SEQ\_END}{SEQ\_END}}
+{\footnotesize\ttfamily \#define S\+E\+Q\+\_\+\+E\+ND~1}
+
+
+
+Definition at line 21 of file pac5xxx\+\_\+adc.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{pac5xxx__adc_8h_a8ba97287d48b6dbf5a8550b44e9557fc}\label{pac5xxx__adc_8h_a8ba97287d48b6dbf5a8550b44e9557fc}} 
+\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CLKDIV\_Type@{ADCCTL\_CLKDIV\_Type}}
+\index{ADCCTL\_CLKDIV\_Type@{ADCCTL\_CLKDIV\_Type}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}
+\doxysubsubsection{\texorpdfstring{ADCCTL\_CLKDIV\_Type}{ADCCTL\_CLKDIV\_Type}}
+{\footnotesize\ttfamily typedef  enum \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988d}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+T\+Y\+PE}} \mbox{\hyperlink{pac5xxx__adc_8h_a8ba97287d48b6dbf5a8550b44e9557fc}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+Type}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881}\label{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881}} 
+\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADC\_CHAN\_TYPE@{ADC\_CHAN\_TYPE}}
+\index{ADC\_CHAN\_TYPE@{ADC\_CHAN\_TYPE}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_CHAN\_TYPE}{ADC\_CHAN\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881}{A\+D\+C\+\_\+\+C\+H\+A\+N\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC0@{ADC0}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADC0@{ADC0}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}\label{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}} 
+A\+D\+C0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC1@{ADC1}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADC1@{ADC1}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a55d17f14e4a04efc3f0c5144fdb16a9d}\label{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a55d17f14e4a04efc3f0c5144fdb16a9d}} 
+A\+D\+C1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC2@{ADC2}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADC2@{ADC2}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a246a534bca85a0d87ddcb59e28c55d32}\label{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a246a534bca85a0d87ddcb59e28c55d32}} 
+A\+D\+C2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC3@{ADC3}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADC3@{ADC3}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881aae0370f8f308778a8f8aa5c26053bf63}\label{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881aae0370f8f308778a8f8aa5c26053bf63}} 
+A\+D\+C3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC4@{ADC4}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADC4@{ADC4}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a2e9f047076bc235c6c38fecdc29cc2e9}\label{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a2e9f047076bc235c6c38fecdc29cc2e9}} 
+A\+D\+C4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC5@{ADC5}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADC5@{ADC5}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a019d472284d9531fbcfc28b7d5961e32}\label{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a019d472284d9531fbcfc28b7d5961e32}} 
+A\+D\+C5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC6@{ADC6}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADC6@{ADC6}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881ac6bd2fccb9a4c4bd072f2f03a317fdf7}\label{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881ac6bd2fccb9a4c4bd072f2f03a317fdf7}} 
+A\+D\+C6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC7@{ADC7}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADC7@{ADC7}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a87ae295d06b9ab59ad15d6a858cd3bfb}\label{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a87ae295d06b9ab59ad15d6a858cd3bfb}} 
+A\+D\+C7&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 71 of file pac5xxx\+\_\+adc.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{71              \{}
+\DoxyCodeLine{72     \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{ADC0}} = 0,                    \textcolor{comment}{// Chanel 0}}
+\DoxyCodeLine{73     \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a55d17f14e4a04efc3f0c5144fdb16a9d}{ADC1}} = 1,                    \textcolor{comment}{// Chanel 1}}
+\DoxyCodeLine{74     \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a246a534bca85a0d87ddcb59e28c55d32}{ADC2}} = 2,                    \textcolor{comment}{// Chanel 2}}
+\DoxyCodeLine{75     \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881aae0370f8f308778a8f8aa5c26053bf63}{ADC3}} = 3,                    \textcolor{comment}{// Chanel 3}}
+\DoxyCodeLine{76     \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a2e9f047076bc235c6c38fecdc29cc2e9}{ADC4}} = 4,                    \textcolor{comment}{// Chanel 4}}
+\DoxyCodeLine{77     \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a019d472284d9531fbcfc28b7d5961e32}{ADC5}} = 5,                    \textcolor{comment}{// Chanel 5}}
+\DoxyCodeLine{78     \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881ac6bd2fccb9a4c4bd072f2f03a317fdf7}{ADC6}} = 6,                    \textcolor{comment}{// Chanel 6}}
+\DoxyCodeLine{79     \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881a87ae295d06b9ab59ad15d6a858cd3bfb}{ADC7}} = 7                     \textcolor{comment}{// Chanel 7}}
+\DoxyCodeLine{80 \} \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881}{ADC\_CHAN\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__adc_8h_a80b075752bc961a8ec9991cc6a25a620}\label{pac5xxx__adc_8h_a80b075752bc961a8ec9991cc6a25a620}} 
+\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADC\_EMUX\_CTL\_TYPE@{ADC\_EMUX\_CTL\_TYPE}}
+\index{ADC\_EMUX\_CTL\_TYPE@{ADC\_EMUX\_CTL\_TYPE}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}
+\doxysubsubsection{\texorpdfstring{ADC\_EMUX\_CTL\_TYPE}{ADC\_EMUX\_CTL\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__adc_8h_a80b075752bc961a8ec9991cc6a25a620}{A\+D\+C\+\_\+\+E\+M\+U\+X\+\_\+\+C\+T\+L\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCEMUXCTL\_EMUXDATA@{ADCEMUXCTL\_EMUXDATA}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_EMUXDATA@{ADCEMUXCTL\_EMUXDATA}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a80b075752bc961a8ec9991cc6a25a620ad1c3360239856d1cf4ea0da316936746}\label{pac5xxx__adc_8h_a80b075752bc961a8ec9991cc6a25a620ad1c3360239856d1cf4ea0da316936746}} 
+A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+A\+TA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCEMUXCTL\_DTSE\_SEQ@{ADCEMUXCTL\_DTSE\_SEQ}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_DTSE\_SEQ@{ADCEMUXCTL\_DTSE\_SEQ}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a80b075752bc961a8ec9991cc6a25a620a716cb649ee42c67ef1a00f771faca02c}\label{pac5xxx__adc_8h_a80b075752bc961a8ec9991cc6a25a620a716cb649ee42c67ef1a00f771faca02c}} 
+A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+D\+T\+S\+E\+\_\+\+S\+EQ&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 45 of file pac5xxx\+\_\+adc.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45              \{}
+\DoxyCodeLine{46     \mbox{\hyperlink{pac5xxx__adc_8h_a80b075752bc961a8ec9991cc6a25a620ad1c3360239856d1cf4ea0da316936746}{ADCEMUXCTL\_EMUXDATA}} = 0,                    \textcolor{comment}{// EMUX is controlled by EMUXDATA                              }}
+\DoxyCodeLine{47     \mbox{\hyperlink{pac5xxx__adc_8h_a80b075752bc961a8ec9991cc6a25a620a716cb649ee42c67ef1a00f771faca02c}{ADCEMUXCTL\_DTSE\_SEQ}} = 1                     \textcolor{comment}{// EMUX is controlled by DTSE sequencer commands  }}
+\DoxyCodeLine{48 \} \mbox{\hyperlink{pac5xxx__adc_8h_a80b075752bc961a8ec9991cc6a25a620}{ADC\_EMUX\_CTL\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245}\label{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245}} 
+\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_ADMUX\_Type@{ADCCTL\_ADMUX\_Type}}
+\index{ADCCTL\_ADMUX\_Type@{ADCCTL\_ADMUX\_Type}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}
+\doxysubsubsection{\texorpdfstring{ADCCTL\_ADMUX\_Type}{ADCCTL\_ADMUX\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245}{A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+Type}}}
+
+A\+D\+C\+C\+TL Positive Input M\+UX channel select \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_ADMUX\_AD0@{ADCCTL\_ADMUX\_AD0}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_ADMUX\_AD0@{ADCCTL\_ADMUX\_AD0}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245af65139b51b6dad99b8cc9bd33c404179}\label{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245af65139b51b6dad99b8cc9bd33c404179}} 
+A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+A\+D0&A\+DC positive input M\+UX channel select\+: A\+D0 (Analog die) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_ADMUX\_AD1@{ADCCTL\_ADMUX\_AD1}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_ADMUX\_AD1@{ADCCTL\_ADMUX\_AD1}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a6664f66d5488467c2edda76f71f79c13}\label{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a6664f66d5488467c2edda76f71f79c13}} 
+A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+A\+D1&A\+DC positive input M\+UX channel select\+: A\+D1 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_ADMUX\_AD2@{ADCCTL\_ADMUX\_AD2}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_ADMUX\_AD2@{ADCCTL\_ADMUX\_AD2}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245ae8c77aac12ed6656ca3c2a0acb82cb7f}\label{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245ae8c77aac12ed6656ca3c2a0acb82cb7f}} 
+A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+A\+D2&A\+DC positive input M\+UX channel select\+: A\+D2 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_ADMUX\_AD3@{ADCCTL\_ADMUX\_AD3}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_ADMUX\_AD3@{ADCCTL\_ADMUX\_AD3}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a48ae1ad99b1f1c3fe6811f3015dfac08}\label{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a48ae1ad99b1f1c3fe6811f3015dfac08}} 
+A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+A\+D3&A\+DC positive input M\+UX channel select\+: A\+D3 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_ADMUX\_AD4@{ADCCTL\_ADMUX\_AD4}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_ADMUX\_AD4@{ADCCTL\_ADMUX\_AD4}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a347dd7a9433eaec4cbaa9e6d538e49e3}\label{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a347dd7a9433eaec4cbaa9e6d538e49e3}} 
+A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+A\+D4&A\+DC positive input M\+UX channel select\+: A\+D4 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_ADMUX\_AD5@{ADCCTL\_ADMUX\_AD5}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_ADMUX\_AD5@{ADCCTL\_ADMUX\_AD5}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a103e51aa8a2a24abf0a2d293b2bd3b8a}\label{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a103e51aa8a2a24abf0a2d293b2bd3b8a}} 
+A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+A\+D5&A\+DC positive input M\+UX channel select\+: A\+D5 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_ADMUX\_AD6@{ADCCTL\_ADMUX\_AD6}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_ADMUX\_AD6@{ADCCTL\_ADMUX\_AD6}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a81801ed633f208836856f9d2ca7146a1}\label{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a81801ed633f208836856f9d2ca7146a1}} 
+A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+A\+D6&A\+DC positive input M\+UX channel select\+: A\+D5 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_ADMUX\_AD7@{ADCCTL\_ADMUX\_AD7}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_ADMUX\_AD7@{ADCCTL\_ADMUX\_AD7}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a614db04741d492deb0e167199c0130a5}\label{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a614db04741d492deb0e167199c0130a5}} 
+A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+A\+D7&A\+DC positive input M\+UX channel select\+: A\+D5 ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 86 of file pac5xxx\+\_\+adc.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{86               \{}
+\DoxyCodeLine{87      \mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245af65139b51b6dad99b8cc9bd33c404179}{ADCCTL\_ADMUX\_AD0}} = 0,                        }
+\DoxyCodeLine{88      \mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a6664f66d5488467c2edda76f71f79c13}{ADCCTL\_ADMUX\_AD1}} = 1,                        }
+\DoxyCodeLine{89      \mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245ae8c77aac12ed6656ca3c2a0acb82cb7f}{ADCCTL\_ADMUX\_AD2}} = 2,                        }
+\DoxyCodeLine{90      \mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a48ae1ad99b1f1c3fe6811f3015dfac08}{ADCCTL\_ADMUX\_AD3}} = 3,                        }
+\DoxyCodeLine{91      \mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a347dd7a9433eaec4cbaa9e6d538e49e3}{ADCCTL\_ADMUX\_AD4}} = 4,                        }
+\DoxyCodeLine{92      \mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a103e51aa8a2a24abf0a2d293b2bd3b8a}{ADCCTL\_ADMUX\_AD5}} = 5,                        }
+\DoxyCodeLine{93      \mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a81801ed633f208836856f9d2ca7146a1}{ADCCTL\_ADMUX\_AD6}} = 6,                        }
+\DoxyCodeLine{94      \mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245a614db04741d492deb0e167199c0130a5}{ADCCTL\_ADMUX\_AD7}} = 7,                        }
+\DoxyCodeLine{95 \textcolor{comment}{//     ADCCTL\_ADMUX\_VSSA = 7                      // ADC Chan 7 is not VSSA on PAC55xx }}
+\DoxyCodeLine{96 \} \mbox{\hyperlink{pac5xxx__adc_8h_a6c01eb9893be5195d924a9f1fab10245}{ADCCTL\_ADMUX\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8}\label{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8}} 
+\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CHANNEL\_TYPE@{ADCCTL\_CHANNEL\_TYPE}}
+\index{ADCCTL\_CHANNEL\_TYPE@{ADCCTL\_CHANNEL\_TYPE}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}
+\doxysubsubsection{\texorpdfstring{ADCCTL\_CHANNEL\_TYPE}{ADCCTL\_CHANNEL\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8}{A\+D\+C\+C\+T\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CHANNEL\_ADC0@{ADCCTL\_CHANNEL\_ADC0}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CHANNEL\_ADC0@{ADCCTL\_CHANNEL\_ADC0}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a0cc55e8ec843abf0ad02a1043a85841c}\label{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a0cc55e8ec843abf0ad02a1043a85841c}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+D\+C0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CHANNEL\_ADC1@{ADCCTL\_CHANNEL\_ADC1}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CHANNEL\_ADC1@{ADCCTL\_CHANNEL\_ADC1}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a7c5ec56baa4c030d34613f935d94acb6}\label{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a7c5ec56baa4c030d34613f935d94acb6}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+D\+C1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CHANNEL\_ADC2@{ADCCTL\_CHANNEL\_ADC2}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CHANNEL\_ADC2@{ADCCTL\_CHANNEL\_ADC2}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a83895b796235eb161775a3ff52288de2}\label{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a83895b796235eb161775a3ff52288de2}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+D\+C2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CHANNEL\_ADC3@{ADCCTL\_CHANNEL\_ADC3}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CHANNEL\_ADC3@{ADCCTL\_CHANNEL\_ADC3}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a96d420c7de102afb31725661c34496e6}\label{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a96d420c7de102afb31725661c34496e6}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+D\+C3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CHANNEL\_ADC4@{ADCCTL\_CHANNEL\_ADC4}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CHANNEL\_ADC4@{ADCCTL\_CHANNEL\_ADC4}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8ade12c9cbf88c382b3afe4322fc50f860}\label{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8ade12c9cbf88c382b3afe4322fc50f860}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+D\+C4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CHANNEL\_ADC5@{ADCCTL\_CHANNEL\_ADC5}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CHANNEL\_ADC5@{ADCCTL\_CHANNEL\_ADC5}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a2cf43fd240b043040af2e1662f9484f8}\label{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a2cf43fd240b043040af2e1662f9484f8}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+D\+C5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CHANNEL\_ADC6@{ADCCTL\_CHANNEL\_ADC6}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CHANNEL\_ADC6@{ADCCTL\_CHANNEL\_ADC6}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8ac55025f57f5b1aec3fdde395bb3fe294}\label{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8ac55025f57f5b1aec3fdde395bb3fe294}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+D\+C6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CHANNEL\_ADC7@{ADCCTL\_CHANNEL\_ADC7}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CHANNEL\_ADC7@{ADCCTL\_CHANNEL\_ADC7}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8ae673dab477170947a9bb7d23d1da4689}\label{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8ae673dab477170947a9bb7d23d1da4689}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+D\+C7&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 101 of file pac5xxx\+\_\+adc.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{101              \{}
+\DoxyCodeLine{102     \mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a0cc55e8ec843abf0ad02a1043a85841c}{ADCCTL\_CHANNEL\_ADC0}} = 0,                    \textcolor{comment}{// Chanel 0                             }}
+\DoxyCodeLine{103     \mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a7c5ec56baa4c030d34613f935d94acb6}{ADCCTL\_CHANNEL\_ADC1}} = 1,                    \textcolor{comment}{// Chanel 1                             }}
+\DoxyCodeLine{104     \mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a83895b796235eb161775a3ff52288de2}{ADCCTL\_CHANNEL\_ADC2}} = 2,                    \textcolor{comment}{// Chanel 2                             }}
+\DoxyCodeLine{105     \mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a96d420c7de102afb31725661c34496e6}{ADCCTL\_CHANNEL\_ADC3}} = 3,                    \textcolor{comment}{// Chanel 3                             }}
+\DoxyCodeLine{106     \mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8ade12c9cbf88c382b3afe4322fc50f860}{ADCCTL\_CHANNEL\_ADC4}} = 4,                    \textcolor{comment}{// Chanel 4                             }}
+\DoxyCodeLine{107     \mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8a2cf43fd240b043040af2e1662f9484f8}{ADCCTL\_CHANNEL\_ADC5}} = 5,                    \textcolor{comment}{// Chanel 5                             }}
+\DoxyCodeLine{108     \mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8ac55025f57f5b1aec3fdde395bb3fe294}{ADCCTL\_CHANNEL\_ADC6}} = 6,                    \textcolor{comment}{// Chanel 6  }}
+\DoxyCodeLine{109     \mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8ae673dab477170947a9bb7d23d1da4689}{ADCCTL\_CHANNEL\_ADC7}} = 7                     \textcolor{comment}{// Chanel 7  }}
+\DoxyCodeLine{110 \} \mbox{\hyperlink{pac5xxx__adc_8h_a37118da015351257b1de74d91e08d8e8}{ADCCTL\_CHANNEL\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988d}\label{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988d}} 
+\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CLKDIV\_TYPE@{ADCCTL\_CLKDIV\_TYPE}}
+\index{ADCCTL\_CLKDIV\_TYPE@{ADCCTL\_CLKDIV\_TYPE}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}
+\doxysubsubsection{\texorpdfstring{ADCCTL\_CLKDIV\_TYPE}{ADCCTL\_CLKDIV\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988d}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CLKDIV\_DIV1@{ADCCTL\_CLKDIV\_DIV1}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CLKDIV\_DIV1@{ADCCTL\_CLKDIV\_DIV1}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988dad32d20d3bd3a5136066b19784a96cdd4}\label{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988dad32d20d3bd3a5136066b19784a96cdd4}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CLKDIV\_DIV2@{ADCCTL\_CLKDIV\_DIV2}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CLKDIV\_DIV2@{ADCCTL\_CLKDIV\_DIV2}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da64060131551ededfd4ad0b4b5c48da35}\label{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da64060131551ededfd4ad0b4b5c48da35}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CLKDIV\_DIV3@{ADCCTL\_CLKDIV\_DIV3}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CLKDIV\_DIV3@{ADCCTL\_CLKDIV\_DIV3}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daafefba16ce2dc29505a88b7b94aea288}\label{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daafefba16ce2dc29505a88b7b94aea288}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CLKDIV\_DIV4@{ADCCTL\_CLKDIV\_DIV4}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CLKDIV\_DIV4@{ADCCTL\_CLKDIV\_DIV4}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daa4dd28b1d5f721b4d6db8faffc1fe408}\label{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daa4dd28b1d5f721b4d6db8faffc1fe408}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CLKDIV\_DIV5@{ADCCTL\_CLKDIV\_DIV5}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CLKDIV\_DIV5@{ADCCTL\_CLKDIV\_DIV5}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988dad2d624a540fb027830818bfa1305356a}\label{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988dad2d624a540fb027830818bfa1305356a}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CLKDIV\_DIV6@{ADCCTL\_CLKDIV\_DIV6}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CLKDIV\_DIV6@{ADCCTL\_CLKDIV\_DIV6}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da132a08c57684bbb2d619b395b89ad4a4}\label{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da132a08c57684bbb2d619b395b89ad4a4}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CLKDIV\_DIV7@{ADCCTL\_CLKDIV\_DIV7}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CLKDIV\_DIV7@{ADCCTL\_CLKDIV\_DIV7}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da762b7ec1a2b680056cf31cf9964f78f7}\label{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da762b7ec1a2b680056cf31cf9964f78f7}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V7&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CLKDIV\_DIV8@{ADCCTL\_CLKDIV\_DIV8}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CLKDIV\_DIV8@{ADCCTL\_CLKDIV\_DIV8}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da63e4267c8eff3e696309ddfd54c289b2}\label{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da63e4267c8eff3e696309ddfd54c289b2}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CLKDIV\_DIV9@{ADCCTL\_CLKDIV\_DIV9}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CLKDIV\_DIV9@{ADCCTL\_CLKDIV\_DIV9}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daca6dbf02ba292b26879300efc6fc9bbe}\label{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daca6dbf02ba292b26879300efc6fc9bbe}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V9&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CLKDIV\_DIV10@{ADCCTL\_CLKDIV\_DIV10}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CLKDIV\_DIV10@{ADCCTL\_CLKDIV\_DIV10}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da7e8e6355e120d6718eb4411b66d6c906}\label{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da7e8e6355e120d6718eb4411b66d6c906}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V10&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CLKDIV\_DIV11@{ADCCTL\_CLKDIV\_DIV11}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CLKDIV\_DIV11@{ADCCTL\_CLKDIV\_DIV11}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da985ab6ac7f087bd9d0a62c0fe0935277}\label{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da985ab6ac7f087bd9d0a62c0fe0935277}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V11&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CLKDIV\_DIV12@{ADCCTL\_CLKDIV\_DIV12}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CLKDIV\_DIV12@{ADCCTL\_CLKDIV\_DIV12}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daa53dd6427fa4bb9957d9d5a09383a0b9}\label{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daa53dd6427fa4bb9957d9d5a09383a0b9}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V12&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CLKDIV\_DIV13@{ADCCTL\_CLKDIV\_DIV13}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CLKDIV\_DIV13@{ADCCTL\_CLKDIV\_DIV13}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daf16ad8ebbf09a967be9702b3b80a92d3}\label{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daf16ad8ebbf09a967be9702b3b80a92d3}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V13&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CLKDIV\_DIV14@{ADCCTL\_CLKDIV\_DIV14}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CLKDIV\_DIV14@{ADCCTL\_CLKDIV\_DIV14}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988dae296a3fa76f644acb8940fdc452792af}\label{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988dae296a3fa76f644acb8940fdc452792af}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V14&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CLKDIV\_DIV15@{ADCCTL\_CLKDIV\_DIV15}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CLKDIV\_DIV15@{ADCCTL\_CLKDIV\_DIV15}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da210adacb203f3d538b9fc077d454232f}\label{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da210adacb203f3d538b9fc077d454232f}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V15&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_CLKDIV\_DIV16@{ADCCTL\_CLKDIV\_DIV16}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_CLKDIV\_DIV16@{ADCCTL\_CLKDIV\_DIV16}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988dacb7df2feecbadd1246c183b508b200ec}\label{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988dacb7df2feecbadd1246c183b508b200ec}} 
+A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V16&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 51 of file pac5xxx\+\_\+adc.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51              \{}
+\DoxyCodeLine{52     \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988dad32d20d3bd3a5136066b19784a96cdd4}{ADCCTL\_CLKDIV\_DIV1}}  = 0,                    \textcolor{comment}{// ADC module clock input divider: /1                                }}
+\DoxyCodeLine{53     \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da64060131551ededfd4ad0b4b5c48da35}{ADCCTL\_CLKDIV\_DIV2}}  = 1,                    \textcolor{comment}{// ADC module clock input divider: /2                                 }}
+\DoxyCodeLine{54     \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daafefba16ce2dc29505a88b7b94aea288}{ADCCTL\_CLKDIV\_DIV3}}  = 2,                    \textcolor{comment}{// ADC module clock input divider: /3                                }}
+\DoxyCodeLine{55     \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daa4dd28b1d5f721b4d6db8faffc1fe408}{ADCCTL\_CLKDIV\_DIV4}}  = 3,                    \textcolor{comment}{// ADC module clock input divider: /4                                 }}
+\DoxyCodeLine{56     \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988dad2d624a540fb027830818bfa1305356a}{ADCCTL\_CLKDIV\_DIV5}}  = 4,                    \textcolor{comment}{// ADC module clock input divider: /5                                }}
+\DoxyCodeLine{57     \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da132a08c57684bbb2d619b395b89ad4a4}{ADCCTL\_CLKDIV\_DIV6}}  = 5,                    \textcolor{comment}{// ADC module clock input divider: /6                                }}
+\DoxyCodeLine{58     \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da762b7ec1a2b680056cf31cf9964f78f7}{ADCCTL\_CLKDIV\_DIV7}}  = 6,                    \textcolor{comment}{// ADC module clock input divider: /7                                 }}
+\DoxyCodeLine{59     \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da63e4267c8eff3e696309ddfd54c289b2}{ADCCTL\_CLKDIV\_DIV8}}  = 7,                    \textcolor{comment}{// ADC module clock input divider: /8 }}
+\DoxyCodeLine{60     \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daca6dbf02ba292b26879300efc6fc9bbe}{ADCCTL\_CLKDIV\_DIV9}}  = 8,                    \textcolor{comment}{// ADC module clock input divider: /9                                 }}
+\DoxyCodeLine{61     \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da7e8e6355e120d6718eb4411b66d6c906}{ADCCTL\_CLKDIV\_DIV10}} = 9,                    \textcolor{comment}{// ADC module clock input divider: /10                                 }}
+\DoxyCodeLine{62     \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da985ab6ac7f087bd9d0a62c0fe0935277}{ADCCTL\_CLKDIV\_DIV11}} = 10,                   \textcolor{comment}{// ADC module clock input divider: /11                                }}
+\DoxyCodeLine{63     \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daa53dd6427fa4bb9957d9d5a09383a0b9}{ADCCTL\_CLKDIV\_DIV12}} = 11,                   \textcolor{comment}{// ADC module clock input divider: /12                                 }}
+\DoxyCodeLine{64     \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988daf16ad8ebbf09a967be9702b3b80a92d3}{ADCCTL\_CLKDIV\_DIV13}} = 12,                   \textcolor{comment}{// ADC module clock input divider: /13                               }}
+\DoxyCodeLine{65     \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988dae296a3fa76f644acb8940fdc452792af}{ADCCTL\_CLKDIV\_DIV14}} = 13,                   \textcolor{comment}{// ADC module clock input divider: /14                                }}
+\DoxyCodeLine{66     \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da210adacb203f3d538b9fc077d454232f}{ADCCTL\_CLKDIV\_DIV15}} = 14,                   \textcolor{comment}{// ADC module clock input divider: /15                                }}
+\DoxyCodeLine{67     \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988dacb7df2feecbadd1246c183b508b200ec}{ADCCTL\_CLKDIV\_DIV16}} = 15                    \textcolor{comment}{// ADC module clock input divider: /16    }}
+\DoxyCodeLine{68 \} \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988d}{ADCCTL\_CLKDIV\_TYPE}}, \mbox{\hyperlink{pac5xxx__adc_8h_a8ba97287d48b6dbf5a8550b44e9557fc}{ADCCTL\_CLKDIV\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__adc_8h_a94d68ef0e76c1f35f59801a9cf63e2da}\label{pac5xxx__adc_8h_a94d68ef0e76c1f35f59801a9cf63e2da}} 
+\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_MODE\_TYPE@{ADCCTL\_MODE\_TYPE}}
+\index{ADCCTL\_MODE\_TYPE@{ADCCTL\_MODE\_TYPE}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}
+\doxysubsubsection{\texorpdfstring{ADCCTL\_MODE\_TYPE}{ADCCTL\_MODE\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__adc_8h_a94d68ef0e76c1f35f59801a9cf63e2da}{A\+D\+C\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_MODE\_MANUAL@{ADCCTL\_MODE\_MANUAL}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_MODE\_MANUAL@{ADCCTL\_MODE\_MANUAL}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a94d68ef0e76c1f35f59801a9cf63e2daa1b9db169693b26487d664c82d95b0b09}\label{pac5xxx__adc_8h_a94d68ef0e76c1f35f59801a9cf63e2daa1b9db169693b26487d664c82d95b0b09}} 
+A\+D\+C\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+M\+A\+N\+U\+AL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCCTL\_MODE\_DTSE@{ADCCTL\_MODE\_DTSE}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCCTL\_MODE\_DTSE@{ADCCTL\_MODE\_DTSE}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a94d68ef0e76c1f35f59801a9cf63e2daac976fdbf670b540f7371d53ca0957ae4}\label{pac5xxx__adc_8h_a94d68ef0e76c1f35f59801a9cf63e2daac976fdbf670b540f7371d53ca0957ae4}} 
+A\+D\+C\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+D\+T\+SE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 113 of file pac5xxx\+\_\+adc.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{113              \{}
+\DoxyCodeLine{114     \mbox{\hyperlink{pac5xxx__adc_8h_a94d68ef0e76c1f35f59801a9cf63e2daa1b9db169693b26487d664c82d95b0b09}{ADCCTL\_MODE\_MANUAL}} = 0,                     \textcolor{comment}{// Manual Mode                             }}
+\DoxyCodeLine{115     \mbox{\hyperlink{pac5xxx__adc_8h_a94d68ef0e76c1f35f59801a9cf63e2daac976fdbf670b540f7371d53ca0957ae4}{ADCCTL\_MODE\_DTSE}}   = 1                      \textcolor{comment}{// DTSE Mode }}
+\DoxyCodeLine{116 \} \mbox{\hyperlink{pac5xxx__adc_8h_a94d68ef0e76c1f35f59801a9cf63e2da}{ADCCTL\_MODE\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818}\label{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818}} 
+\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCDTSE\_IRQNUM\_TYPE@{ADCDTSE\_IRQNUM\_TYPE}}
+\index{ADCDTSE\_IRQNUM\_TYPE@{ADCDTSE\_IRQNUM\_TYPE}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}
+\doxysubsubsection{\texorpdfstring{ADCDTSE\_IRQNUM\_TYPE}{ADCDTSE\_IRQNUM\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818}{A\+D\+C\+D\+T\+S\+E\+\_\+\+I\+R\+Q\+N\+U\+M\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCDTSE\_IRQNUM\_ADC0@{ADCDTSE\_IRQNUM\_ADC0}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCDTSE\_IRQNUM\_ADC0@{ADCDTSE\_IRQNUM\_ADC0}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818aece46505c7fb1b3477eb3c55849a6fa9}\label{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818aece46505c7fb1b3477eb3c55849a6fa9}} 
+A\+D\+C\+D\+T\+S\+E\+\_\+\+I\+R\+Q\+N\+U\+M\+\_\+\+A\+D\+C0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCDTSE\_IRQNUM\_ADC1@{ADCDTSE\_IRQNUM\_ADC1}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCDTSE\_IRQNUM\_ADC1@{ADCDTSE\_IRQNUM\_ADC1}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818a695ddbfaa57dd57e9c8599e59ba76621}\label{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818a695ddbfaa57dd57e9c8599e59ba76621}} 
+A\+D\+C\+D\+T\+S\+E\+\_\+\+I\+R\+Q\+N\+U\+M\+\_\+\+A\+D\+C1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCDTSE\_IRQNUM\_ADC2@{ADCDTSE\_IRQNUM\_ADC2}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCDTSE\_IRQNUM\_ADC2@{ADCDTSE\_IRQNUM\_ADC2}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818a7e177a5225d203847e513b18518b9628}\label{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818a7e177a5225d203847e513b18518b9628}} 
+A\+D\+C\+D\+T\+S\+E\+\_\+\+I\+R\+Q\+N\+U\+M\+\_\+\+A\+D\+C2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCDTSE\_IRQNUM\_ADC3@{ADCDTSE\_IRQNUM\_ADC3}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCDTSE\_IRQNUM\_ADC3@{ADCDTSE\_IRQNUM\_ADC3}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818acb6f96444c95021778d76be322c3ad47}\label{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818acb6f96444c95021778d76be322c3ad47}} 
+A\+D\+C\+D\+T\+S\+E\+\_\+\+I\+R\+Q\+N\+U\+M\+\_\+\+A\+D\+C3&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 127 of file pac5xxx\+\_\+adc.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{127              \{}
+\DoxyCodeLine{128     \mbox{\hyperlink{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818aece46505c7fb1b3477eb3c55849a6fa9}{ADCDTSE\_IRQNUM\_ADC0}} = 0,                    \textcolor{comment}{// Assert ADC0 IRQ to NVIC when the sequence has completed conversion                             }}
+\DoxyCodeLine{129     \mbox{\hyperlink{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818a695ddbfaa57dd57e9c8599e59ba76621}{ADCDTSE\_IRQNUM\_ADC1}} = 1,                    \textcolor{comment}{// Assert ADC1 IRQ to NVIC when the sequence has completed conversion }}
+\DoxyCodeLine{130     \mbox{\hyperlink{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818a7e177a5225d203847e513b18518b9628}{ADCDTSE\_IRQNUM\_ADC2}} = 2,                    \textcolor{comment}{// Assert ADC2 IRQ to NVIC when the sequence has completed conversion                            }}
+\DoxyCodeLine{131     \mbox{\hyperlink{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818acb6f96444c95021778d76be322c3ad47}{ADCDTSE\_IRQNUM\_ADC3}} = 3                     \textcolor{comment}{// Assert ADC3 IRQ to NVIC when the sequence has completed conversion    }}
+\DoxyCodeLine{132 \} \mbox{\hyperlink{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818}{ADCDTSE\_IRQNUM\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82}\label{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82}} 
+\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCDTSE\_TRIGEDGE\_TYPE@{ADCDTSE\_TRIGEDGE\_TYPE}}
+\index{ADCDTSE\_TRIGEDGE\_TYPE@{ADCDTSE\_TRIGEDGE\_TYPE}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}
+\doxysubsubsection{\texorpdfstring{ADCDTSE\_TRIGEDGE\_TYPE}{ADCDTSE\_TRIGEDGE\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82}{A\+D\+C\+D\+T\+S\+E\+\_\+\+T\+R\+I\+G\+E\+D\+G\+E\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCDTSE\_TRIGEDGE\_UNUSED@{ADCDTSE\_TRIGEDGE\_UNUSED}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCDTSE\_TRIGEDGE\_UNUSED@{ADCDTSE\_TRIGEDGE\_UNUSED}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82af7e0560b6822eb76392a04f84bcbbcbf}\label{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82af7e0560b6822eb76392a04f84bcbbcbf}} 
+A\+D\+C\+D\+T\+S\+E\+\_\+\+T\+R\+I\+G\+E\+D\+G\+E\+\_\+\+U\+N\+U\+S\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCDTSE\_TRIGEDGE\_RISING@{ADCDTSE\_TRIGEDGE\_RISING}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCDTSE\_TRIGEDGE\_RISING@{ADCDTSE\_TRIGEDGE\_RISING}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82ae5d6f2dce52156d05cc5ca4c28c589d9}\label{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82ae5d6f2dce52156d05cc5ca4c28c589d9}} 
+A\+D\+C\+D\+T\+S\+E\+\_\+\+T\+R\+I\+G\+E\+D\+G\+E\+\_\+\+R\+I\+S\+I\+NG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCDTSE\_TRIGEDGE\_FALLING@{ADCDTSE\_TRIGEDGE\_FALLING}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCDTSE\_TRIGEDGE\_FALLING@{ADCDTSE\_TRIGEDGE\_FALLING}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82ad37bd61a70934575879aa44455b267a8}\label{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82ad37bd61a70934575879aa44455b267a8}} 
+A\+D\+C\+D\+T\+S\+E\+\_\+\+T\+R\+I\+G\+E\+D\+G\+E\+\_\+\+F\+A\+L\+L\+I\+NG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCDTSE\_TRIGEDGE\_BOTH@{ADCDTSE\_TRIGEDGE\_BOTH}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCDTSE\_TRIGEDGE\_BOTH@{ADCDTSE\_TRIGEDGE\_BOTH}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82a79409dd5dec069526d470230d989c691}\label{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82a79409dd5dec069526d470230d989c691}} 
+A\+D\+C\+D\+T\+S\+E\+\_\+\+T\+R\+I\+G\+E\+D\+G\+E\+\_\+\+B\+O\+TH&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 119 of file pac5xxx\+\_\+adc.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{119              \{}
+\DoxyCodeLine{120     \mbox{\hyperlink{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82af7e0560b6822eb76392a04f84bcbbcbf}{ADCDTSE\_TRIGEDGE\_UNUSED}}  = 0,               \textcolor{comment}{// Trigger Unused}}
+\DoxyCodeLine{121     \mbox{\hyperlink{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82ae5d6f2dce52156d05cc5ca4c28c589d9}{ADCDTSE\_TRIGEDGE\_RISING}}  = 1,               \textcolor{comment}{// Trigger Rising Edge}}
+\DoxyCodeLine{122     \mbox{\hyperlink{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82ad37bd61a70934575879aa44455b267a8}{ADCDTSE\_TRIGEDGE\_FALLING}} = 2,               \textcolor{comment}{// Trigger Falling Edge                           }}
+\DoxyCodeLine{123     \mbox{\hyperlink{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82a79409dd5dec069526d470230d989c691}{ADCDTSE\_TRIGEDGE\_BOTH}}    = 3                \textcolor{comment}{// Trigger both Rising and Falling Edges   }}
+\DoxyCodeLine{124 \} \mbox{\hyperlink{pac5xxx__adc_8h_a3239a285445d049b82e120e3ffd0be82}{ADCDTSE\_TRIGEDGE\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abd}\label{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abd}} 
+\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_DIV\_TYPE@{ADCEMUXCTL\_DIV\_TYPE}}
+\index{ADCEMUXCTL\_DIV\_TYPE@{ADCEMUXCTL\_DIV\_TYPE}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}
+\doxysubsubsection{\texorpdfstring{ADCEMUXCTL\_DIV\_TYPE}{ADCEMUXCTL\_DIV\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abd}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+D\+I\+V\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCEMUXCTL\_EMUXDIV\_DIV1@{ADCEMUXCTL\_EMUXDIV\_DIV1}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_EMUXDIV\_DIV1@{ADCEMUXCTL\_EMUXDIV\_DIV1}}}\mbox{\Hypertarget{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda3222193868b2661c869fd43faa80265e}\label{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda3222193868b2661c869fd43faa80265e}} 
+A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCEMUXCTL\_EMUXDIV\_DIV2@{ADCEMUXCTL\_EMUXDIV\_DIV2}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_EMUXDIV\_DIV2@{ADCEMUXCTL\_EMUXDIV\_DIV2}}}\mbox{\Hypertarget{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda48fae9c475276361bdce00cfdbd70b5f}\label{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda48fae9c475276361bdce00cfdbd70b5f}} 
+A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCEMUXCTL\_EMUXDIV\_DIV3@{ADCEMUXCTL\_EMUXDIV\_DIV3}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_EMUXDIV\_DIV3@{ADCEMUXCTL\_EMUXDIV\_DIV3}}}\mbox{\Hypertarget{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda0c2a38ebb1b381e2578d1a3ac9bc29bc}\label{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda0c2a38ebb1b381e2578d1a3ac9bc29bc}} 
+A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCEMUXCTL\_EMUXDIV\_DIV4@{ADCEMUXCTL\_EMUXDIV\_DIV4}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_EMUXDIV\_DIV4@{ADCEMUXCTL\_EMUXDIV\_DIV4}}}\mbox{\Hypertarget{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdae2476eee162823af17d1837bee495b5b}\label{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdae2476eee162823af17d1837bee495b5b}} 
+A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCEMUXCTL\_EMUXDIV\_DIV5@{ADCEMUXCTL\_EMUXDIV\_DIV5}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_EMUXDIV\_DIV5@{ADCEMUXCTL\_EMUXDIV\_DIV5}}}\mbox{\Hypertarget{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda81be80501f659c0fef14b92ddbed3fdb}\label{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda81be80501f659c0fef14b92ddbed3fdb}} 
+A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCEMUXCTL\_EMUXDIV\_DIV6@{ADCEMUXCTL\_EMUXDIV\_DIV6}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_EMUXDIV\_DIV6@{ADCEMUXCTL\_EMUXDIV\_DIV6}}}\mbox{\Hypertarget{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda5cbbc939253b74bbeb30b0b28e7269c6}\label{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda5cbbc939253b74bbeb30b0b28e7269c6}} 
+A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCEMUXCTL\_EMUXDIV\_DIV7@{ADCEMUXCTL\_EMUXDIV\_DIV7}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_EMUXDIV\_DIV7@{ADCEMUXCTL\_EMUXDIV\_DIV7}}}\mbox{\Hypertarget{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdad6970e30ec61750dacefae6fb82fabc1}\label{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdad6970e30ec61750dacefae6fb82fabc1}} 
+A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V7&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCEMUXCTL\_EMUXDIV\_DIV8@{ADCEMUXCTL\_EMUXDIV\_DIV8}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_EMUXDIV\_DIV8@{ADCEMUXCTL\_EMUXDIV\_DIV8}}}\mbox{\Hypertarget{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdae259bc989bc7d6bb2976edb01d771c47}\label{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdae259bc989bc7d6bb2976edb01d771c47}} 
+A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCEMUXCTL\_EMUXDIV\_DIV9@{ADCEMUXCTL\_EMUXDIV\_DIV9}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_EMUXDIV\_DIV9@{ADCEMUXCTL\_EMUXDIV\_DIV9}}}\mbox{\Hypertarget{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdab275082d32701265b7d2b4473e489150}\label{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdab275082d32701265b7d2b4473e489150}} 
+A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V9&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCEMUXCTL\_EMUXDIV\_DIV10@{ADCEMUXCTL\_EMUXDIV\_DIV10}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_EMUXDIV\_DIV10@{ADCEMUXCTL\_EMUXDIV\_DIV10}}}\mbox{\Hypertarget{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda6297026c1fd715b8d82f1b4aed4cb1ab}\label{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda6297026c1fd715b8d82f1b4aed4cb1ab}} 
+A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V10&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCEMUXCTL\_EMUXDIV\_DIV11@{ADCEMUXCTL\_EMUXDIV\_DIV11}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_EMUXDIV\_DIV11@{ADCEMUXCTL\_EMUXDIV\_DIV11}}}\mbox{\Hypertarget{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda1abc3ca6da7b2298b658ab648a975a70}\label{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda1abc3ca6da7b2298b658ab648a975a70}} 
+A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V11&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCEMUXCTL\_EMUXDIV\_DIV12@{ADCEMUXCTL\_EMUXDIV\_DIV12}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_EMUXDIV\_DIV12@{ADCEMUXCTL\_EMUXDIV\_DIV12}}}\mbox{\Hypertarget{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda0640740b8c9bfdad904135054714e1c8}\label{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda0640740b8c9bfdad904135054714e1c8}} 
+A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V12&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCEMUXCTL\_EMUXDIV\_DIV13@{ADCEMUXCTL\_EMUXDIV\_DIV13}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_EMUXDIV\_DIV13@{ADCEMUXCTL\_EMUXDIV\_DIV13}}}\mbox{\Hypertarget{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda3f4c6cf228ac8a128f3bc30e17fb86cf}\label{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda3f4c6cf228ac8a128f3bc30e17fb86cf}} 
+A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V13&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCEMUXCTL\_EMUXDIV\_DIV14@{ADCEMUXCTL\_EMUXDIV\_DIV14}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_EMUXDIV\_DIV14@{ADCEMUXCTL\_EMUXDIV\_DIV14}}}\mbox{\Hypertarget{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdab02dc1d23892b5cbfae44811c5f9d871}\label{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdab02dc1d23892b5cbfae44811c5f9d871}} 
+A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V14&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCEMUXCTL\_EMUXDIV\_DIV15@{ADCEMUXCTL\_EMUXDIV\_DIV15}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_EMUXDIV\_DIV15@{ADCEMUXCTL\_EMUXDIV\_DIV15}}}\mbox{\Hypertarget{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda3994875bb8215f96c0e689b685519864}\label{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda3994875bb8215f96c0e689b685519864}} 
+A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V15&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADCEMUXCTL\_EMUXDIV\_DIV16@{ADCEMUXCTL\_EMUXDIV\_DIV16}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADCEMUXCTL\_EMUXDIV\_DIV16@{ADCEMUXCTL\_EMUXDIV\_DIV16}}}\mbox{\Hypertarget{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda93402d54cfac094dc2d1cd567bb890bd}\label{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda93402d54cfac094dc2d1cd567bb890bd}} 
+A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V16&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 25 of file pac5xxx\+\_\+adc.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25              \{}
+\DoxyCodeLine{26     \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda3222193868b2661c869fd43faa80265e}{ADCEMUXCTL\_EMUXDIV\_DIV1}}  = 0,               \textcolor{comment}{// External MUX clock divider: /1}}
+\DoxyCodeLine{27     \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda48fae9c475276361bdce00cfdbd70b5f}{ADCEMUXCTL\_EMUXDIV\_DIV2}}  = 1,               \textcolor{comment}{// External MUX clock divider: /2}}
+\DoxyCodeLine{28     \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda0c2a38ebb1b381e2578d1a3ac9bc29bc}{ADCEMUXCTL\_EMUXDIV\_DIV3}}  = 2,               \textcolor{comment}{// External MUX clock divider: /3}}
+\DoxyCodeLine{29     \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdae2476eee162823af17d1837bee495b5b}{ADCEMUXCTL\_EMUXDIV\_DIV4}}  = 3,               \textcolor{comment}{// External MUX clock divider: /4}}
+\DoxyCodeLine{30     \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda81be80501f659c0fef14b92ddbed3fdb}{ADCEMUXCTL\_EMUXDIV\_DIV5}}  = 4,               \textcolor{comment}{// External MUX clock divider: /5}}
+\DoxyCodeLine{31     \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda5cbbc939253b74bbeb30b0b28e7269c6}{ADCEMUXCTL\_EMUXDIV\_DIV6}}  = 5,               \textcolor{comment}{// External MUX clock divider: /6}}
+\DoxyCodeLine{32     \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdad6970e30ec61750dacefae6fb82fabc1}{ADCEMUXCTL\_EMUXDIV\_DIV7}}  = 6,               \textcolor{comment}{// External MUX clock divider: /7}}
+\DoxyCodeLine{33     \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdae259bc989bc7d6bb2976edb01d771c47}{ADCEMUXCTL\_EMUXDIV\_DIV8}}  = 7,               \textcolor{comment}{// External MUX clock divider: /8  }}
+\DoxyCodeLine{34     \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdab275082d32701265b7d2b4473e489150}{ADCEMUXCTL\_EMUXDIV\_DIV9}}  = 8,               \textcolor{comment}{// External MUX clock divider: /9}}
+\DoxyCodeLine{35     \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda6297026c1fd715b8d82f1b4aed4cb1ab}{ADCEMUXCTL\_EMUXDIV\_DIV10}} = 9,               \textcolor{comment}{// External MUX clock divider: /10}}
+\DoxyCodeLine{36     \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda1abc3ca6da7b2298b658ab648a975a70}{ADCEMUXCTL\_EMUXDIV\_DIV11}} = 10,              \textcolor{comment}{// External MUX clock divider: /11                                }}
+\DoxyCodeLine{37     \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda0640740b8c9bfdad904135054714e1c8}{ADCEMUXCTL\_EMUXDIV\_DIV12}} = 11,              \textcolor{comment}{// External MUX clock divider: /12                                 }}
+\DoxyCodeLine{38     \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda3f4c6cf228ac8a128f3bc30e17fb86cf}{ADCEMUXCTL\_EMUXDIV\_DIV13}} = 12,              \textcolor{comment}{// External MUX clock divider: /13                                }}
+\DoxyCodeLine{39     \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abdab02dc1d23892b5cbfae44811c5f9d871}{ADCEMUXCTL\_EMUXDIV\_DIV14}} = 13,              \textcolor{comment}{// External MUX clock divider: /14                                }}
+\DoxyCodeLine{40     \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda3994875bb8215f96c0e689b685519864}{ADCEMUXCTL\_EMUXDIV\_DIV15}} = 14,              \textcolor{comment}{// External MUX clock divider: /15                                 }}
+\DoxyCodeLine{41     \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda93402d54cfac094dc2d1cd567bb890bd}{ADCEMUXCTL\_EMUXDIV\_DIV16}} = 15               \textcolor{comment}{// External MUX clock divider: /16    }}
+\DoxyCodeLine{42 \} \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abd}{ADCEMUXCTL\_DIV\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99}\label{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99}} 
+\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!DTSE\_IRQNUM\_ENABLE\_TYPE@{DTSE\_IRQNUM\_ENABLE\_TYPE}}
+\index{DTSE\_IRQNUM\_ENABLE\_TYPE@{DTSE\_IRQNUM\_ENABLE\_TYPE}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}
+\doxysubsubsection{\texorpdfstring{DTSE\_IRQNUM\_ENABLE\_TYPE}{DTSE\_IRQNUM\_ENABLE\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99}{D\+T\+S\+E\+\_\+\+I\+R\+Q\+N\+U\+M\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC\_IRQ0\_EN@{ADC\_IRQ0\_EN}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADC\_IRQ0\_EN@{ADC\_IRQ0\_EN}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99a39b37b0c597269e230de801b5089c16b}\label{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99a39b37b0c597269e230de801b5089c16b}} 
+A\+D\+C\+\_\+\+I\+R\+Q0\+\_\+\+EN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC\_IRQ1\_EN@{ADC\_IRQ1\_EN}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADC\_IRQ1\_EN@{ADC\_IRQ1\_EN}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99ad808340d58a779e63aa2454db12fdba1}\label{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99ad808340d58a779e63aa2454db12fdba1}} 
+A\+D\+C\+\_\+\+I\+R\+Q1\+\_\+\+EN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC\_IRQ2\_EN@{ADC\_IRQ2\_EN}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADC\_IRQ2\_EN@{ADC\_IRQ2\_EN}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99ae1fd231e0e311f22be750e0241145338}\label{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99ae1fd231e0e311f22be750e0241145338}} 
+A\+D\+C\+\_\+\+I\+R\+Q2\+\_\+\+EN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADC\_IRQ3\_EN@{ADC\_IRQ3\_EN}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!ADC\_IRQ3\_EN@{ADC\_IRQ3\_EN}}}\mbox{\Hypertarget{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99acab5080aafa365350e3112c7f27f960d}\label{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99acab5080aafa365350e3112c7f27f960d}} 
+A\+D\+C\+\_\+\+I\+R\+Q3\+\_\+\+EN&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 135 of file pac5xxx\+\_\+adc.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{135              \{}
+\DoxyCodeLine{136     \mbox{\hyperlink{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99a39b37b0c597269e230de801b5089c16b}{ADC\_IRQ0\_EN}} = \mbox{\hyperlink{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818aece46505c7fb1b3477eb3c55849a6fa9}{ADCDTSE\_IRQNUM\_ADC0}} | \mbox{\hyperlink{pac5xxx__adc_8h_a81e98f87df8e040d884da2469b8d8291}{ADC\_IRQ\_EN}},     \textcolor{comment}{// Assert ADC0 IRQ to NVIC when the sequence has completed conversion}}
+\DoxyCodeLine{137     \mbox{\hyperlink{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99ad808340d58a779e63aa2454db12fdba1}{ADC\_IRQ1\_EN}} = \mbox{\hyperlink{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818a695ddbfaa57dd57e9c8599e59ba76621}{ADCDTSE\_IRQNUM\_ADC1}} | \mbox{\hyperlink{pac5xxx__adc_8h_a81e98f87df8e040d884da2469b8d8291}{ADC\_IRQ\_EN}},     \textcolor{comment}{// Assert ADC1 IRQ to NVIC when the sequence has completed conversion}}
+\DoxyCodeLine{138     \mbox{\hyperlink{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99ae1fd231e0e311f22be750e0241145338}{ADC\_IRQ2\_EN}} = \mbox{\hyperlink{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818a7e177a5225d203847e513b18518b9628}{ADCDTSE\_IRQNUM\_ADC2}} | \mbox{\hyperlink{pac5xxx__adc_8h_a81e98f87df8e040d884da2469b8d8291}{ADC\_IRQ\_EN}},     \textcolor{comment}{// Assert ADC2 IRQ to NVIC when the sequence has completed conversion}}
+\DoxyCodeLine{139     \mbox{\hyperlink{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99acab5080aafa365350e3112c7f27f960d}{ADC\_IRQ3\_EN}} = \mbox{\hyperlink{pac5xxx__adc_8h_a88ad7aa6ce395e76511e1d5a8788e818acb6f96444c95021778d76be322c3ad47}{ADCDTSE\_IRQNUM\_ADC3}} | \mbox{\hyperlink{pac5xxx__adc_8h_a81e98f87df8e040d884da2469b8d8291}{ADC\_IRQ\_EN}}      \textcolor{comment}{// Assert ADC3 IRQ to NVIC when the sequence has completed conversion}}
+\DoxyCodeLine{140 \} \mbox{\hyperlink{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99}{DTSE\_IRQNUM\_ENABLE\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__adc_8h_afc414df8b91d299369e0593a6b9a1430}\label{pac5xxx__adc_8h_afc414df8b91d299369e0593a6b9a1430}} 
+\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!DTSESEQCFG\_EMUXC\_TYPE@{DTSESEQCFG\_EMUXC\_TYPE}}
+\index{DTSESEQCFG\_EMUXC\_TYPE@{DTSESEQCFG\_EMUXC\_TYPE}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}
+\doxysubsubsection{\texorpdfstring{DTSESEQCFG\_EMUXC\_TYPE}{DTSESEQCFG\_EMUXC\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__adc_8h_afc414df8b91d299369e0593a6b9a1430}{D\+T\+S\+E\+S\+E\+Q\+C\+F\+G\+\_\+\+E\+M\+U\+X\+C\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DTSESEQCFG\_EMUXC\_NONE@{DTSESEQCFG\_EMUXC\_NONE}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!DTSESEQCFG\_EMUXC\_NONE@{DTSESEQCFG\_EMUXC\_NONE}}}\mbox{\Hypertarget{pac5xxx__adc_8h_afc414df8b91d299369e0593a6b9a1430af54844e110bd0665028b161243445362}\label{pac5xxx__adc_8h_afc414df8b91d299369e0593a6b9a1430af54844e110bd0665028b161243445362}} 
+D\+T\+S\+E\+S\+E\+Q\+C\+F\+G\+\_\+\+E\+M\+U\+X\+C\+\_\+\+N\+O\+NE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DTSESEQCFG\_EMUXC\_BSH@{DTSESEQCFG\_EMUXC\_BSH}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!DTSESEQCFG\_EMUXC\_BSH@{DTSESEQCFG\_EMUXC\_BSH}}}\mbox{\Hypertarget{pac5xxx__adc_8h_afc414df8b91d299369e0593a6b9a1430a2b0e6d7d3243ea4579f9fe68ecde1100}\label{pac5xxx__adc_8h_afc414df8b91d299369e0593a6b9a1430a2b0e6d7d3243ea4579f9fe68ecde1100}} 
+D\+T\+S\+E\+S\+E\+Q\+C\+F\+G\+\_\+\+E\+M\+U\+X\+C\+\_\+\+B\+SH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DTSESEQCFG\_EMUXC\_AEOC@{DTSESEQCFG\_EMUXC\_AEOC}!pac5xxx\_adc.h@{pac5xxx\_adc.h}}\index{pac5xxx\_adc.h@{pac5xxx\_adc.h}!DTSESEQCFG\_EMUXC\_AEOC@{DTSESEQCFG\_EMUXC\_AEOC}}}\mbox{\Hypertarget{pac5xxx__adc_8h_afc414df8b91d299369e0593a6b9a1430a011e586bacbeec0ba018fafd0ab4c8d8}\label{pac5xxx__adc_8h_afc414df8b91d299369e0593a6b9a1430a011e586bacbeec0ba018fafd0ab4c8d8}} 
+D\+T\+S\+E\+S\+E\+Q\+C\+F\+G\+\_\+\+E\+M\+U\+X\+C\+\_\+\+A\+E\+OC&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 144 of file pac5xxx\+\_\+adc.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{144              \{}
+\DoxyCodeLine{145     \mbox{\hyperlink{pac5xxx__adc_8h_afc414df8b91d299369e0593a6b9a1430af54844e110bd0665028b161243445362}{DTSESEQCFG\_EMUXC\_NONE}} = 0,                  \textcolor{comment}{// Do not send EMUX Command}}
+\DoxyCodeLine{146     \mbox{\hyperlink{pac5xxx__adc_8h_afc414df8b91d299369e0593a6b9a1430a2b0e6d7d3243ea4579f9fe68ecde1100}{DTSESEQCFG\_EMUXC\_BSH}}  = 1,                  \textcolor{comment}{// Send EMUX command before sample and hold}}
+\DoxyCodeLine{147     \mbox{\hyperlink{pac5xxx__adc_8h_afc414df8b91d299369e0593a6b9a1430a011e586bacbeec0ba018fafd0ab4c8d8}{DTSESEQCFG\_EMUXC\_AEOC}} = 2,                  \textcolor{comment}{// Send EMUX command after conversion complete}}
+\DoxyCodeLine{148 \} \mbox{\hyperlink{pac5xxx__adc_8h_afc414df8b91d299369e0593a6b9a1430}{DTSESEQCFG\_EMUXC\_TYPE}};}
+
+\end{DoxyCode}

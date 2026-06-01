@@ -1,0 +1,73 @@
+\hypertarget{calc__angle_8h}{}\doxysection{pac\+\_\+foc/src/math/calc\+\_\+angle.h File Reference}
+\label{calc__angle_8h}\index{pac\_foc/src/math/calc\_angle.h@{pac\_foc/src/math/calc\_angle.h}}
+
+
+Definitions for angle calculation.  
+
+
+{\ttfamily \#include \char`\"{}pac5xxx.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}maths.\+h\char`\"{}}\newline
+Include dependency graph for calc\+\_\+angle.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{calc__angle_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{calc__angle_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{calc__angle_8h_a7d58f39544d03422182ecc2a15c848d3}{calculate\+\_\+angle}} (int32\+\_\+t Ealpha, int32\+\_\+t Ebeta, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$calculated\+\_\+angle)
+\begin{DoxyCompactList}\small\item\em Calculates the angle based on alpha and beta parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint16\+\_\+t \mbox{\hyperlink{calc__angle_8h_a923cbb8406ada0314987afc88dcd0c03}{foc\+\_\+atan\+\_\+tbl}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definitions for angle calculation. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{calc__angle_8h_a7d58f39544d03422182ecc2a15c848d3}\label{calc__angle_8h_a7d58f39544d03422182ecc2a15c848d3}} 
+\index{calc\_angle.h@{calc\_angle.h}!calculate\_angle@{calculate\_angle}}
+\index{calculate\_angle@{calculate\_angle}!calc\_angle.h@{calc\_angle.h}}
+\doxysubsubsection{\texorpdfstring{calculate\_angle()}{calculate\_angle()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void calculate\+\_\+angle (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{Ealpha,  }\item[{int32\+\_\+t}]{Ebeta,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$}]{calculated\+\_\+angle }\end{DoxyParamCaption})}
+
+
+
+Calculates the angle based on alpha and beta parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ealpha} & Estimated alpha \\
+\hline
+{\em Ebeta} & Estimated beta \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{calc__angle_8h_a923cbb8406ada0314987afc88dcd0c03}\label{calc__angle_8h_a923cbb8406ada0314987afc88dcd0c03}} 
+\index{calc\_angle.h@{calc\_angle.h}!foc\_atan\_tbl@{foc\_atan\_tbl}}
+\index{foc\_atan\_tbl@{foc\_atan\_tbl}!calc\_angle.h@{calc\_angle.h}}
+\doxysubsubsection{\texorpdfstring{foc\_atan\_tbl}{foc\_atan\_tbl}}
+{\footnotesize\ttfamily const uint16\+\_\+t foc\+\_\+atan\+\_\+tbl\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Referenced by trig\+\_\+arctan\+\_\+90deg\+\_\+q16().
+

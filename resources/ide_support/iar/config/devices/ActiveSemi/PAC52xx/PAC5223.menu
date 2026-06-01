@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<optionMenuItem>
+  <tag>PAC5223</tag>
+  <display>ActiveSemi PAC5223</display>
+  <data>$CUR_DIR$\PAC5223.i79</data>
+</optionMenuItem>

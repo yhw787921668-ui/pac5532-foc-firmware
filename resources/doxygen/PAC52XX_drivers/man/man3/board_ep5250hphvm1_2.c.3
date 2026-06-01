@@ -1,0 +1,106 @@
+.TH "pac_foc/pac52xx/board/board_ep5250hphvm1_2.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/board/board_ep5250hphvm1_2.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_tile\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_adc\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinit_diff_amp_gain\fP (void)"
+.br
+.ti -1c
+.RI "void \fBconfig_seq_foc\fP (void)"
+.br
+.ti -1c
+.RI "void \fBinit_emux\fP (void)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void config_seq_foc (void)"
+
+.PP
+Definition at line 54 of file board_ep5250hphvm1_2\&.c\&.
+.PP
+.nf
+55 {
+56     // Configure sequencers and ADC
+57     pac5xxx_adc_config(ADCCTL_ADSTART_AUTO_01_CHAIN_TRIG, ADCCTL_ADCDIV_DIV4, 1);           // Configure sequencers for AS0 chained triggers, /4 divider, repeat mode
+58 
+59     // AS0 configuration
+60     pac5xxx_adc_as0_config_pwm(ADCCTLX_AS1D_DEPTH3, ADCCTLX_TRIGEDGE_LOWTOHI, ADCCTLX_TRIGPWM_PWMA0);
+61     pac5xxx_adc_as0_sequence_config(0, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_MSPI(SIGMGR_AIO32) | SIGMGR_MSPI_SH_DIFFAMP, ASSEQ_DELAY_0);   // Convert M1-Iu, then change CAFE EMUX to M1-Iv
+62     pac5xxx_adc_as0_sequence_config(1, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_MSPI(SIGMGR_AIO54) | SIGMGR_MSPI_SH_DIFFAMP, ASSEQ_DELAY_0);   // Convert M1-Iv, then change CAFE MUX to M1-Iw
+63     pac5xxx_adc_as0_sequence_config(2, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_MSPI(SIGMGR_AB4), ASSEQ_DELAY_0);                              // Convert M1-Iw, then change CAFE MUX to M1-Vu
+64 
+65     // AS1 configuration
+66     pac5xxx_adc_as1_config_pwm(ADCCTLX_AS1D_DEPTH1, ADCCTLX_TRIGEDGE_LOWTOHI, ADCCTLX_TRIGPWM_PWMA0);
+67     pac5xxx_adc_as1_sequence_config(0, ADCCTL_ADMUX_AD2, ASSEQ_MSPI_AFTER_SH, SIGMGR_MSPI(SIGMGR_AIO10), ASSEQ_DELAY_0);                            // Convert Vout, then change CAFE MUX to M1-Iu
+68 }
+.fi
+.PP
+References ADCCTL_ADCDIV_DIV4, ADCCTL_ADMUX_AD0, ADCCTL_ADMUX_AD2, ADCCTL_ADSTART_AUTO_01_CHAIN_TRIG, ADCCTLX_AS1D_DEPTH1, ADCCTLX_AS1D_DEPTH3, ADCCTLX_TRIGEDGE_LOWTOHI, ADCCTLX_TRIGPWM_PWMA0, ASSEQ_DELAY_0, ASSEQ_MSPI_AFTER_SH, pac5xxx_adc_as0_config_pwm(), pac5xxx_adc_as0_sequence_config(), pac5xxx_adc_as1_config_pwm(), pac5xxx_adc_as1_sequence_config(), and pac5xxx_adc_config()\&.
+.SS "void init_diff_amp_gain (void)"
+
+.PP
+Definition at line 20 of file board_ep5250hphvm1_2\&.c\&.
+.PP
+.nf
+21 {
+22     Struct_Motor* motor_ptr = &motor;
+23     
+24     pac5xxx_tile_register_write(ADDR_CFGAIO0, ((((AIO50_MODE_DIFFAMP << 6) | (AIO50_GAIN_X1 << 3) | AIO50_LPCOMP_2US) & 0xC7) | (motor_ptr->app\&.iphase_amp_gain << 3)));
+25 #ifdef ENABLE_CBC_CURRENT_LIMIT
+26     pac5xxx_tile_register_write(ADDR_CFGAIO1, ((AIO50_HPROT_PR2 << 6) | (AIO50_LPROT_PR1 << 4) | (AIO50_OFFSET_ENABLED << 3) | AIO50_HPCOMP_1US));
+27 #else
+28     pac5xxx_tile_register_write(ADDR_CFGAIO1, ((AIO50_LPROT_PR1 << 4) | (AIO50_OFFSET_ENABLED << 3)));
+29 #endif    
+30 
+31     pac5xxx_tile_register_write(ADDR_CFGAIO2, ((((AIO50_MODE_DIFFAMP << 6) | (AIO50_GAIN_X1 << 3) | AIO50_LPCOMP_2US) & 0xC7) | (motor_ptr->app\&.iphase_amp_gain << 3)));
+32 #ifdef ENABLE_CBC_CURRENT_LIMIT    
+33     pac5xxx_tile_register_write(ADDR_CFGAIO3, ((AIO50_HPROT_PR2 << 6) | (AIO50_LPROT_PR1 << 4) | (AIO50_OFFSET_ENABLED << 3) | AIO50_HPCOMP_1US));
+34 #else    
+35     pac5xxx_tile_register_write(ADDR_CFGAIO3, ((AIO50_LPROT_PR1 << 4) | (AIO50_OFFSET_ENABLED << 3)));
+36 #endif    
+37 
+38     pac5xxx_tile_register_write(ADDR_CFGAIO4, ((((AIO50_MODE_DIFFAMP << 6) | (AIO50_GAIN_X1 << 3) | AIO50_LPCOMP_2US) & 0xC7) | (motor_ptr->app\&.iphase_amp_gain << 3)));
+39 #ifdef ENABLE_CBC_CURRENT_LIMIT     
+40     pac5xxx_tile_register_write(ADDR_CFGAIO5, ((AIO50_HPROT_PR2 << 6) | (AIO50_LPROT_PR1 << 4) | (AIO50_OFFSET_ENABLED << 3) | AIO50_HPCOMP_1US));
+41 #else    
+42     pac5xxx_tile_register_write(ADDR_CFGAIO5, ((AIO50_LPROT_PR1 << 4) | (AIO50_OFFSET_ENABLED << 3)));
+43 #endif    
+44 
+45     // Configure AIO6
+46     pac5xxx_tile_register_write(ADDR_CFGAIO6, ((AIO6789_MODE_IO << 6) | (AIO6789_OPT_INPUT << 4) | (AIO6789_POL_AH << 3) | AIO6789_MUX_DEFAULT));    // IO Mode
+47     //pac5xxx_tile_register_write(ADDR_CFGAIO6, ((AIO6789_MODE_GAIN << 6) | (AIO6789_GAIN_X1 << 3) | AIO6789_MUX_DEFAULT));                          // Gain Mode
+48 
+49     pac5xxx_tile_register_write(ADDR_CFGAIO7, ((((AIO6789_MODE_GAIN << 6) | (AIO6789_GAIN_X1 << 3) | AIO6789_MUX_DEFAULT) & 0xC7) | (motor_ptr->app\&.vphase_amp_gain << 3)));
+50     pac5xxx_tile_register_write(ADDR_CFGAIO8, ((((AIO6789_MODE_GAIN << 6) | (AIO6789_GAIN_X1 << 3) | AIO6789_MUX_DEFAULT) & 0xC7) | (motor_ptr->app\&.vphase_amp_gain << 3)));
+51     pac5xxx_tile_register_write(ADDR_CFGAIO9, ((((AIO6789_MODE_GAIN << 6) | (AIO6789_GAIN_X1 << 3) | AIO6789_MUX_DEFAULT) & 0xC7) | (motor_ptr->app\&.vphase_amp_gain << 3)));
+52 }
+.fi
+.PP
+References AIO50_GAIN_X1, AIO50_HPCOMP_1US, AIO50_HPROT_PR2, AIO50_LPCOMP_2US, AIO50_LPROT_PR1, AIO50_MODE_DIFFAMP, AIO50_OFFSET_ENABLED, AIO6789_GAIN_X1, AIO6789_MODE_GAIN, AIO6789_MODE_IO, AIO6789_MUX_DEFAULT, AIO6789_OPT_INPUT, AIO6789_POL_AH, and pac5xxx_tile_register_write()\&.
+.SS "void init_emux (void)"
+
+.PP
+Definition at line 148 of file board_ep5250hphvm1_2\&.c\&.
+.PP
+.nf
+149 {
+150 }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

@@ -1,0 +1,199 @@
+.TH "pac_foc/src/control/control_funcs.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/control/control_funcs.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'utils\&.h'\fP
+.br
+\fC#include 'control_3shunt_funcs\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcontrol_reset\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "This function use to reset FOC related variables\&. "
+.ti -1c
+.RI "void \fBcalculate_outerloop_scale_shift\fP (\fBfix16_t\fP value_max, uint16_t *shift, uint32_t *outerloop_scale_q0)"
+.br
+.RI "This function use to calculate outer loop scale factor\&. "
+.ti -1c
+.RI "void \fBconfig_control_dt\fP (\fBStruct_Motor\fP *motor_ptr, int32_t dt_control_q26, uint32_t ctrl_divider)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void calculate_outerloop_scale_shift (\fBfix16_t\fP value_max, uint16_t * shift, uint32_t * outerloop_scale_q0)"
+
+.PP
+This function use to calculate outer loop scale factor\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfix16_t\fP value_max 
+.br
+\fIuint16_t\fP *shift 
+.br
+\fIuint32_t\fP *outerloop_scale_q0 
+.RE
+.PP
+
+.PP
+Definition at line 96 of file control_funcs\&.c\&.
+.PP
+.nf
+97 {
+98     fix16_t value_max_padded;
+99 
+100     // Absolute value
+101     if (value_max < 0)
+102         value_max = -value_max;
+103 
+104     // Cap max value at 16383 so that 2x does not overflow
+105     if (value_max > QCONST(16383\&.0f, Q16))
+106         value_max = QCONST(16383\&.0f, Q16);
+107 
+108     // Pad max value to 2x (to allow for overshoots and noise)
+109     value_max_padded = (value_max << 1);
+110 
+111     // Generate scaling shift applied to outer loop PI controller
+112     if (value_max_padded >= QCONST(16384, Q16))
+113         *shift = 15;              // Shift=15, Res=0\&.5, Min=16384, Max=32768<
+114     else if (value_max_padded >= QCONST(8192, Q16))
+115         *shift = 14;              // Shift=14, Res=0\&.25, Min=8192, Max=16384<
+116     else if (value_max_padded >= QCONST(4096, Q16))
+117         *shift = 13;              // Shift=13, Res=0\&.125, Min=4096, Max=8192<
+118     else if (value_max_padded >= QCONST(2048, Q16))
+119         *shift = 12;              // Shift=12, Res=0\&.0625, Min=2048, Max=4096<
+120     else if (value_max_padded >= QCONST(1024, Q16))
+121         *shift = 11;              // Shift=11, Res=0\&.03125, Min=1024, Max=2048<
+122     else if (value_max_padded >= QCONST(512, Q16))
+123         *shift = 10;              // Shift=10, Res=0\&.015625, Min=512, Max=1024<
+124     else if (value_max_padded >= QCONST(256, Q16))
+125         *shift = 9;               // Shift=9, Res=0\&.0078125, Min=256, Max=512<
+126     else if (value_max_padded >= QCONST(128, Q16))
+127         *shift = 8;               // Shift=8, Res=0\&.00390625, Min=128, Max=256<
+128     else if (value_max_padded >= QCONST(64, Q16))
+129         *shift = 7;               // Shift=7, Res=0\&.001953125, Min=64, Max=128<
+130     else if (value_max_padded >= QCONST(32, Q16))
+131         *shift = 6;               // Shift=6, Res=0\&.0009765625, Min=32, Max=64<
+132     else if (value_max_padded >= QCONST(16, Q16))
+133         *shift = 5;               // Shift=5, Res=0\&.00048828125, Min=16, Max=32<
+134     else if (value_max_padded >= QCONST(8, Q16))
+135         *shift = 4;               // Shift=4, Res=0\&.000244140625, Min=8, Max=16<
+136     else if (value_max_padded >= QCONST(4, Q16))
+137         *shift = 3;               // Shift=3, Res=0\&.0001220703125, Min=4, Max=8<
+138     else if (value_max_padded >= QCONST(2, Q16))
+139         *shift = 2;               // Shift=2, Res=0\&.00006103515625, Min=2, Max=4<
+140     else if (value_max_padded >= QCONST(1, Q16))
+141         *shift = 1;               // Shift=1, Res=0\&.000030517578125, Min=1, Max=2<
+142     else   // <= 0
+143         *shift = 0;               // Shift=0, Res=0\&.0000152587890625, Min=0, Max=1<
+144 
+145     *outerloop_scale_q0 = (1 << *shift);
+146 }
+.fi
+.PP
+References Q16, and QCONST\&.
+.SS "void config_control_dt (\fBStruct_Motor\fP * motor_ptr, int32_t dt_control_q26, uint32_t ctrl_divider)"
+
+.PP
+Definition at line 149 of file control_funcs\&.c\&.
+.PP
+.nf
+150 {
+151     motor_ptr->control\&.dt_control_q26 = dt_control_q26;
+152     motor_ptr->control\&.dt_control_1div_q6 = fix16_div(FIX16_1P0, dt_control_q26);
+153     motor_ptr->control\&.ctrl_divider = ctrl_divider;
+154 }
+.fi
+.PP
+References Struct_Motor::control, Struct_Control::ctrl_divider, Struct_Control::dt_control_1div_q6, Struct_Control::dt_control_q26, FIX16_1P0, and fix16_div()\&.
+.PP
+Referenced by sm_mainsub_prestart()\&.
+.SS "void control_reset (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+This function use to reset FOC related variables\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr pointer to motor structure 
+.RE
+.PP
+
+.PP
+Definition at line 33 of file control_funcs\&.c\&.
+.PP
+.nf
+34 {
+35     pid_reset(&(motor_ptr->control\&.outerloop_pid));                             // Reset PID controller data
+36 
+37     // Reset duty cycle variables
+38     motor_ptr->control\&.u_duty_value = (motor_ptr->control\&.motor_period_ticks >> 1);                                    // hold u duty in 16 bit sign short format
+39     motor_ptr->control\&.v_duty_value = (motor_ptr->control\&.motor_period_ticks >> 1);                                    // hold v duty in 16 bit sign short format
+40     motor_ptr->control\&.w_duty_value = (motor_ptr->control\&.motor_period_ticks >> 1);                                    // hold w duty in 16 bit sign short format
+41 #if (CONFIG_SHUNT == CONFIG_SHUNT_1SHUNT) && (MODE_1SHUNT_SELECT == MODE_1SHUNT_ASYMMETRIC)
+42     motor_ptr->oneshunt\&.duty_u_up = (motor_ptr->control\&.motor_period_ticks >> 1);
+43     motor_ptr->oneshunt\&.duty_u_dn = (motor_ptr->control\&.motor_period_ticks >> 1);
+44     motor_ptr->oneshunt\&.duty_v_up = (motor_ptr->control\&.motor_period_ticks >> 1);
+45     motor_ptr->oneshunt\&.duty_v_dn = (motor_ptr->control\&.motor_period_ticks >> 1);
+46     motor_ptr->oneshunt\&.duty_w_up = (motor_ptr->control\&.motor_period_ticks >> 1);
+47     motor_ptr->oneshunt\&.duty_w_dn = (motor_ptr->control\&.motor_period_ticks >> 1);
+48 #endif
+49 
+50 #if (CONFIG_SHUNT == CONFIG_SHUNT_1SHUNT) && (MODE_1SHUNT_SELECT == MODE_1SHUNT_EXTENSION)
+51     motor_ptr->oneshunt\&.duty_comp_sign_1 = 1;
+52     motor_ptr->oneshunt\&.duty_comp_sign_2 = 1;
+53     motor_ptr->oneshunt\&.duty_comp_sign_3 = 1;
+54 
+55     motor_ptr->oneshunt\&.flag_current_valid = 1;
+56     motor_ptr->oneshunt\&.flag_current_valid_sreg = 1;
+57     motor_ptr->oneshunt\&.ss_sector = 2;
+58     motor_ptr->oneshunt\&.ss_sector_sreg = 2;
+59     motor_ptr->oneshunt\&.svm_sector_prev = 2;
+60 
+61     motor_ptr->oneshunt\&.taccr0_value = (motor_ptr->control\&.motor_period_ticks >> 1);
+62     motor_ptr->oneshunt\&.taccr1_value = (motor_ptr->control\&.motor_period_ticks >> 1);
+63 #elif (CONFIG_SHUNT == CONFIG_SHUNT_1SHUNT) && (MODE_1SHUNT_SELECT == MODE_1SHUNT_ASYMMETRIC)
+64     motor_ptr->oneshunt\&.ss_sector = 2;
+65     motor_ptr->oneshunt\&.ss_sector_sreg = 2;
+66     motor_ptr->oneshunt\&.taccr0_value = (motor_ptr->control\&.motor_period_ticks >> 1);
+67     motor_ptr->oneshunt\&.taccr1_value = (motor_ptr->control\&.motor_period_ticks >> 1);
+68 #endif
+69 
+70     motor_ptr->control\&.outerloop_ramp = 0;
+71     motor_ptr->control\&.outerloop_ramp_scaled_q14 = 0;
+72     motor_ptr->control\&.outerloop_fdbk_scaled_q14 = 0;
+73 
+74     motor_ptr->control\&.iqrefcl_target_f16 = motor_ptr->app\&.iqrefcl_cmd_f16;
+75     motor_ptr->control\&.idrefcl_target_f16 = motor_ptr->app\&.idrefcl_cmd_f16;
+76 
+77 
+78     #ifdef ENABLE_BOOTPROT
+79     motor_ptr->bootprot\&.bootprot_count1 = 0;
+80     motor_ptr->bootprot\&.bootprot_count2 = 0;
+81     motor_ptr->bootprot\&.bootprot_count3 = 0;
+82     #endif
+83 
+84 #if defined(ENABLE_FIELD_WEAKENING)
+85     fw_reset(motor_ptr);
+86 #endif
+87 }
+.fi
+.PP
+References Struct_Motor::app, Struct_Motor::control, Struct_OneShunt_Extn::duty_comp_sign_1, Struct_OneShunt_Extn::duty_comp_sign_2, Struct_OneShunt_Extn::duty_comp_sign_3, Struct_OneShunt_Extn::flag_current_valid, Struct_OneShunt_Extn::flag_current_valid_sreg, Struct_App::idrefcl_cmd_f16, Struct_Control::idrefcl_target_f16, Struct_App::iqrefcl_cmd_f16, Struct_Control::iqrefcl_target_f16, Struct_Control::motor_period_ticks, Struct_Motor::oneshunt, Struct_Control::outerloop_fdbk_scaled_q14, Struct_Control::outerloop_pid, Struct_Control::outerloop_ramp, Struct_Control::outerloop_ramp_scaled_q14, pid_reset(), Struct_OneShunt_Extn::ss_sector, Struct_OneShunt_Extn::ss_sector_sreg, Struct_OneShunt_Extn::svm_sector_prev, Struct_OneShunt_Extn::taccr0_value, Struct_OneShunt_Extn::taccr1_value, Struct_Control::u_duty_value, Struct_Control::v_duty_value, and Struct_Control::w_duty_value\&.
+.PP
+Referenced by motor_reset()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

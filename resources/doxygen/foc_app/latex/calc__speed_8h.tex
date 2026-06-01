@@ -1,0 +1,178 @@
+\hypertarget{calc__speed_8h}{}\doxysection{pac\+\_\+foc/src/math/calc\+\_\+speed.h File Reference}
+\label{calc__speed_8h}\index{pac\_foc/src/math/calc\_speed.h@{pac\_foc/src/math/calc\_speed.h}}
+
+
+Definitions for speed calculation routines.  
+
+
+{\ttfamily \#include \char`\"{}pac5xxx.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}maths.\+h\char`\"{}}\newline
+Include dependency graph for calc\+\_\+speed.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{calc__speed_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{calc__speed_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{calc__speed_8h_a0104f6894bfc5b7aa72314ffeff6f6a2}{calculate\+\_\+speed}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} angle\+\_\+new, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} kspd\+\_\+scaled\+\_\+q14, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} filter\+\_\+alpha\+\_\+speed\+\_\+q16, uint16\+\_\+t speed\+\_\+scale\+\_\+shift, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$angle\+\_\+previous, int32\+\_\+t $\ast$speed\+\_\+scaled\+\_\+q28, int32\+\_\+t $\ast$speed\+\_\+scaled\+\_\+q14, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$speed\+\_\+radps\+\_\+q16, int32\+\_\+t $\ast$speed\+\_\+scaled\+\_\+prefilt\+\_\+q14)
+\begin{DoxyCompactList}\small\item\em Calculate speed. \end{DoxyCompactList}\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{calc__speed_8h_a07ca292a40039d36e23f2177184ffe38}{calculate\+\_\+speed\+\_\+hi}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} angle\+\_\+new, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} kspd\+\_\+scaled\+\_\+q14, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} Kspeed\+\_\+q11, uint16\+\_\+t speed\+\_\+scale\+\_\+shift, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$angle\+\_\+previous, int32\+\_\+t $\ast$speed\+\_\+scaled\+\_\+q28, int32\+\_\+t $\ast$speed\+\_\+scaled\+\_\+q14, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$speed\+\_\+radps\+\_\+q16, int32\+\_\+t $\ast$speed\+\_\+scaled\+\_\+prefilt\+\_\+q14)
+\begin{DoxyCompactList}\small\item\em Calculate speed (high speed version) \end{DoxyCompactList}\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{calc__speed_8h_a724f63cac85c6b650462851eba77e26d}{calculate\+\_\+speed\+\_\+lo}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} angle\+\_\+new, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} kspd\+\_\+scaled\+\_\+q14, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} Kspeed\+\_\+q14, uint16\+\_\+t speed\+\_\+scale\+\_\+shift, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$angle\+\_\+previous, int32\+\_\+t $\ast$speed\+\_\+scaled\+\_\+q28, int32\+\_\+t $\ast$speed\+\_\+scaled\+\_\+q14, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$speed\+\_\+radps\+\_\+q16, int32\+\_\+t $\ast$speed\+\_\+scaled\+\_\+prefilt\+\_\+q14)
+\begin{DoxyCompactList}\small\item\em Calculate speed (low-\/speed version) \end{DoxyCompactList}\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{calc__speed_8h_af547a0fa7f9d5a2cc0388d74bf2613ba}{calculate\+\_\+speed\+\_\+coefficients}} (int32\+\_\+t dt\+\_\+control\+\_\+q26, uint32\+\_\+t speed\+\_\+scale\+\_\+shift, int32\+\_\+t $\ast$k1\+\_\+radps\+\_\+q6, int32\+\_\+t $\ast$k1\+\_\+scaled\+\_\+q14)
+\begin{DoxyCompactList}\small\item\em Calculate speed coefficients. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint16\+\_\+t \mbox{\hyperlink{calc__speed_8h_a923cbb8406ada0314987afc88dcd0c03}{foc\+\_\+atan\+\_\+tbl}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definitions for speed calculation routines. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{calc__speed_8h_a0104f6894bfc5b7aa72314ffeff6f6a2}\label{calc__speed_8h_a0104f6894bfc5b7aa72314ffeff6f6a2}} 
+\index{calc\_speed.h@{calc\_speed.h}!calculate\_speed@{calculate\_speed}}
+\index{calculate\_speed@{calculate\_speed}!calc\_speed.h@{calc\_speed.h}}
+\doxysubsubsection{\texorpdfstring{calculate\_speed()}{calculate\_speed()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void calculate\+\_\+speed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{angle\+\_\+new,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{kspd\+\_\+scaled\+\_\+q14,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{filter\+\_\+alpha\+\_\+speed\+\_\+q16,  }\item[{uint16\+\_\+t}]{speed\+\_\+scale\+\_\+shift,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$}]{angle\+\_\+previous,  }\item[{int32\+\_\+t $\ast$}]{speed\+\_\+scaled\+\_\+q28,  }\item[{int32\+\_\+t $\ast$}]{speed\+\_\+scaled\+\_\+q14,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$}]{speed\+\_\+radps\+\_\+q16,  }\item[{int32\+\_\+t $\ast$}]{speed\+\_\+scaled\+\_\+prefilt\+\_\+q14 }\end{DoxyParamCaption})}
+
+
+
+Calculate speed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle\+\_\+new} & New angle\+\_\+new \\
+\hline
+{\em kspd\+\_\+scaled\+\_\+q14} & Speed gain \\
+\hline
+{\em filter\+\_\+alpha\+\_\+speed\+\_\+q16} & Filtered alpha speed \\
+\hline
+{\em speed\+\_\+scale\+\_\+shift} & Speed gain scaled \\
+\hline
+{\em angle\+\_\+previous} & Previous angle\+\_\+new \\
+\hline
+{\em speed\+\_\+scaled\+\_\+q28} & Scaled speed \\
+\hline
+{\em speed\+\_\+scaled\+\_\+q14} & Scaled speed \\
+\hline
+{\em speed\+\_\+radps\+\_\+q16} & Speed in radians / second \\
+\hline
+{\em speed\+\_\+scaled\+\_\+prefilt\+\_\+q14} & Scaled speed before filtering \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+Standard version is meant to handle speed filter cutoff frequency ranging between 1-\/100Hz 
+\end{DoxyNote}
+\mbox{\Hypertarget{calc__speed_8h_af547a0fa7f9d5a2cc0388d74bf2613ba}\label{calc__speed_8h_af547a0fa7f9d5a2cc0388d74bf2613ba}} 
+\index{calc\_speed.h@{calc\_speed.h}!calculate\_speed\_coefficients@{calculate\_speed\_coefficients}}
+\index{calculate\_speed\_coefficients@{calculate\_speed\_coefficients}!calc\_speed.h@{calc\_speed.h}}
+\doxysubsubsection{\texorpdfstring{calculate\_speed\_coefficients()}{calculate\_speed\_coefficients()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void calculate\+\_\+speed\+\_\+coefficients (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{dt\+\_\+control\+\_\+q26,  }\item[{uint32\+\_\+t}]{speed\+\_\+scale\+\_\+shift,  }\item[{int32\+\_\+t $\ast$}]{k1\+\_\+radps\+\_\+q6,  }\item[{int32\+\_\+t $\ast$}]{k1\+\_\+scaled\+\_\+q14 }\end{DoxyParamCaption})}
+
+
+
+Calculate speed coefficients. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt\+\_\+control\+\_\+q26} & Dt control \\
+\hline
+{\em speed\+\_\+scale\+\_\+shift} & Shifted speed scaled \\
+\hline
+{\em k1\+\_\+radps\+\_\+q6} & Gain in radians/second \\
+\hline
+{\em k1\+\_\+scaled\+\_\+q14} & Scaled gain \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{calc__speed_8h_a07ca292a40039d36e23f2177184ffe38}\label{calc__speed_8h_a07ca292a40039d36e23f2177184ffe38}} 
+\index{calc\_speed.h@{calc\_speed.h}!calculate\_speed\_hi@{calculate\_speed\_hi}}
+\index{calculate\_speed\_hi@{calculate\_speed\_hi}!calc\_speed.h@{calc\_speed.h}}
+\doxysubsubsection{\texorpdfstring{calculate\_speed\_hi()}{calculate\_speed\_hi()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void calculate\+\_\+speed\+\_\+hi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{angle\+\_\+new,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{kspd\+\_\+scaled\+\_\+q14,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{Kspeed\+\_\+q11,  }\item[{uint16\+\_\+t}]{speed\+\_\+scale\+\_\+shift,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$}]{angle\+\_\+previous,  }\item[{int32\+\_\+t $\ast$}]{speed\+\_\+scaled\+\_\+q28,  }\item[{int32\+\_\+t $\ast$}]{speed\+\_\+scaled\+\_\+q14,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$}]{speed\+\_\+radps\+\_\+q16,  }\item[{int32\+\_\+t $\ast$}]{speed\+\_\+scaled\+\_\+prefilt\+\_\+q14 }\end{DoxyParamCaption})}
+
+
+
+Calculate speed (high speed version) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle\+\_\+new} & New angle\+\_\+new \\
+\hline
+{\em kspd\+\_\+scaled\+\_\+q14} & Speed gain \\
+\hline
+{\em filter\+\_\+alpha\+\_\+speed\+\_\+q16} & Filtered alpha speed \\
+\hline
+{\em speed\+\_\+scale\+\_\+shift} & Speed gain scaled \\
+\hline
+{\em angle\+\_\+previous} & Previous angle\+\_\+new \\
+\hline
+{\em speed\+\_\+scaled\+\_\+q28} & Scaled speed \\
+\hline
+{\em speed\+\_\+scaled\+\_\+q14} & Scaled speed \\
+\hline
+{\em speed\+\_\+radps\+\_\+q16} & Speed in radians / second \\
+\hline
+{\em speed\+\_\+scaled\+\_\+prefilt\+\_\+q14} & Scaled speed before filtering \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+HI version is meant to handle speed filter cutoff frequency ranging between 10-\/100Hz 
+\end{DoxyNote}
+\mbox{\Hypertarget{calc__speed_8h_a724f63cac85c6b650462851eba77e26d}\label{calc__speed_8h_a724f63cac85c6b650462851eba77e26d}} 
+\index{calc\_speed.h@{calc\_speed.h}!calculate\_speed\_lo@{calculate\_speed\_lo}}
+\index{calculate\_speed\_lo@{calculate\_speed\_lo}!calc\_speed.h@{calc\_speed.h}}
+\doxysubsubsection{\texorpdfstring{calculate\_speed\_lo()}{calculate\_speed\_lo()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void calculate\+\_\+speed\+\_\+lo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{angle\+\_\+new,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{kspd\+\_\+scaled\+\_\+q14,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{Kspeed\+\_\+q14,  }\item[{uint16\+\_\+t}]{speed\+\_\+scale\+\_\+shift,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$}]{angle\+\_\+previous,  }\item[{int32\+\_\+t $\ast$}]{speed\+\_\+scaled\+\_\+q28,  }\item[{int32\+\_\+t $\ast$}]{speed\+\_\+scaled\+\_\+q14,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$}]{speed\+\_\+radps\+\_\+q16,  }\item[{int32\+\_\+t $\ast$}]{speed\+\_\+scaled\+\_\+prefilt\+\_\+q14 }\end{DoxyParamCaption})}
+
+
+
+Calculate speed (low-\/speed version) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle\+\_\+new} & New angle\+\_\+new \\
+\hline
+{\em kspd\+\_\+scaled\+\_\+q14} & Speed gain \\
+\hline
+{\em filter\+\_\+alpha\+\_\+speed\+\_\+q16} & Filtered alpha speed \\
+\hline
+{\em speed\+\_\+scale\+\_\+shift} & Speed gain scaled \\
+\hline
+{\em angle\+\_\+previous} & Previous angle\+\_\+new \\
+\hline
+{\em speed\+\_\+scaled\+\_\+q28} & Scaled speed \\
+\hline
+{\em speed\+\_\+scaled\+\_\+q14} & Scaled speed \\
+\hline
+{\em speed\+\_\+radps\+\_\+q16} & Speed in radians / second \\
+\hline
+{\em speed\+\_\+scaled\+\_\+prefilt\+\_\+q14} & Scaled speed before filtering \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{calc__speed_8h_a923cbb8406ada0314987afc88dcd0c03}\label{calc__speed_8h_a923cbb8406ada0314987afc88dcd0c03}} 
+\index{calc\_speed.h@{calc\_speed.h}!foc\_atan\_tbl@{foc\_atan\_tbl}}
+\index{foc\_atan\_tbl@{foc\_atan\_tbl}!calc\_speed.h@{calc\_speed.h}}
+\doxysubsubsection{\texorpdfstring{foc\_atan\_tbl}{foc\_atan\_tbl}}
+{\footnotesize\ttfamily const uint16\+\_\+t foc\+\_\+atan\+\_\+tbl\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+

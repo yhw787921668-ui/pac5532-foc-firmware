@@ -1,0 +1,97 @@
+\hypertarget{isr__timer_b_8c}{}\doxysection{pac\+\_\+foc/src/isr/isr\+\_\+timerB.c File Reference}
+\label{isr__timer_b_8c}\index{pac\_foc/src/isr/isr\_timerB.c@{pac\_foc/src/isr/isr\_timerB.c}}
+
+
+Use for timerB timer interrupt handler to run critical F\+OC functions.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}comm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}control\+\_\+loop.\+h\char`\"{}}\newline
+Include dependency graph for isr\+\_\+timer\+B.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{isr__timer_b_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{isr__timer_b_8c_a71431ce098458f39707aef58c1abf47b}{Timer\+B\+\_\+\+I\+R\+Q\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Process interrupt for Timer\+B\+\_\+\+I\+R\+Q\+Handler to run critical F\+OC functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for timerB timer interrupt handler to run critical F\+OC functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{isr__timer_b_8c_a71431ce098458f39707aef58c1abf47b}\label{isr__timer_b_8c_a71431ce098458f39707aef58c1abf47b}} 
+\index{isr\_timerB.c@{isr\_timerB.c}!TimerB\_IRQHandler@{TimerB\_IRQHandler}}
+\index{TimerB\_IRQHandler@{TimerB\_IRQHandler}!isr\_timerB.c@{isr\_timerB.c}}
+\doxysubsubsection{\texorpdfstring{TimerB\_IRQHandler()}{TimerB\_IRQHandler()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void Timer\+B\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Process interrupt for Timer\+B\+\_\+\+I\+R\+Q\+Handler to run critical F\+OC functions. 
+
+
+
+Definition at line 33 of file isr\+\_\+timer\+B.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34 \{}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#if (DEVICE\_SELECT != DEVICE\_5556)}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#if (CONFIG\_SHUNT == CONFIG\_SHUNT\_1SHUNT) \&\& (MODE\_1SHUNT\_SELECT == MODE\_1SHUNT\_ASYMMETRIC)}}
+\DoxyCodeLine{37     \textcolor{keyword}{static} \mbox{\hyperlink{struct_struct___motor}{Struct\_Motor}}* motor\_ptr = \&\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#ifdef ENABLE\_IPD}}
+\DoxyCodeLine{40     motor\_ptr-\/>funcptr1(motor\_ptr);}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{42     \textcolor{comment}{// Call 1-\/Shunt Asymmetric Mode TimerB ISR Process}}
+\DoxyCodeLine{43     control\_1shunt\_asym\_timerb\_isr(motor\_ptr);}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{45     \textcolor{comment}{// Clear base interrupt}}
+\DoxyCodeLine{46     PAC5XXX\_TIMERB-\/>CTL.INT = 1;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{comment}{// Run motor control loop}}
+\DoxyCodeLine{49 \textcolor{comment}{//    control\_loop(motor\_ptr);}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#ifdef ENABLE\_IPD}}
+\DoxyCodeLine{51     motor\_ptr-\/>funcptr2(motor\_ptr);}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{53     control\_loop(motor\_ptr);}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{comment}{//    // Clear base interrupt}}
+\DoxyCodeLine{57 \textcolor{comment}{//    PAC5XXX\_TIMERB-\/>CTL.INT = 1;}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{keywordflow}{if} (PAC5XXX\_TIMERB-\/>CTL.INT == 1)}
+\DoxyCodeLine{60     \{}
+\DoxyCodeLine{61         \mbox{\hyperlink{fault_8c_a8ea8474835dbcb70ebc28b77e48207fc}{set\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a02961a202b782cbd21882c475b7071ae}{WARNING\_FOCCTRL\_OVERFLOW}});}
+\DoxyCodeLine{62     \}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#if (DEVICE\_SELECT != DEVICE\_5556)}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#if (COMMSEL\_PPM == TRUE) \&\& (PPM\_TIMER\_SELECT == PPM\_TIMER\_B)}}
+\DoxyCodeLine{68     ppm\_process\_capture\_timer\_events();}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#if (DEVICE\_SELECT == DEVICE\_5556)}}
+\DoxyCodeLine{73     \textcolor{keyword}{static} \mbox{\hyperlink{struct_struct___motor}{Struct\_Motor}}* motor\_ptr = \&\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     clear\_timer\_b\_interrupt\_flag\_inc\_isr\_counter(\&\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}}.\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a2fadc739c92fb4d145db8e7eee2673f4}{ctrl\_counter}});}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{77 \}}
+
+\end{DoxyCode}
+
+
+References motor.
+

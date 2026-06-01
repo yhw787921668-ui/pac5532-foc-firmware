@@ -1,0 +1,2837 @@
+.TH "PAC5XXX_Tile_SignalManager" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Tile_SignalManager \- PAC5XXX Signal Manager Tile
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBCFGAIO0\fP"
+.br
+.ti -1c
+.RI "union \fBCFGAIO1\fP"
+.br
+.ti -1c
+.RI "union \fBCFGAIO2\fP"
+.br
+.ti -1c
+.RI "union \fBCFGAIO3\fP"
+.br
+.ti -1c
+.RI "union \fBCFGAIO4\fP"
+.br
+.ti -1c
+.RI "union \fBCFGAIO5\fP"
+.br
+.ti -1c
+.RI "union \fBCFGAIO6\fP"
+.br
+.ti -1c
+.RI "union \fBCFGAIO7\fP"
+.br
+.ti -1c
+.RI "union \fBCFGAIO8\fP"
+.br
+.ti -1c
+.RI "union \fBCFGAIO9\fP"
+.br
+.ti -1c
+.RI "union \fBSIGSTAT\fP"
+.br
+.ti -1c
+.RI "union \fBLPDAC1\fP"
+.br
+.ti -1c
+.RI "union \fBADCSCAN\fP"
+.br
+.ti -1c
+.RI "union \fBADCIN1\fP"
+.br
+.ti -1c
+.RI "union \fBPROTINTM\fP"
+.br
+.ti -1c
+.RI "union \fBPROTSTAT\fP"
+.br
+.ti -1c
+.RI "union \fBDOUTSIG0\fP"
+.br
+.ti -1c
+.RI "union \fBDOUTSIG1\fP"
+.br
+.ti -1c
+.RI "union \fBDINSIG0\fP"
+.br
+.ti -1c
+.RI "union \fBDINSIG1\fP"
+.br
+.ti -1c
+.RI "union \fBSIGINTM\fP"
+.br
+.ti -1c
+.RI "union \fBSIGINTF\fP"
+.br
+.ti -1c
+.RI "union \fBENSIG\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBEMUX_EN_MSPI\fP   0x40"
+.br
+.ti -1c
+.RI "#define \fBCOMP_HOLD\fP   0x20"
+.br
+.ti -1c
+.RI "#define \fBDIFFAMPS_HOLD\fP   0x10"
+.br
+.ti -1c
+.RI "#define \fBSIGMGR_EN_MSPI\fP   0x40"
+.br
+.ti -1c
+.RI "#define \fBSIGMGR_EN_SH_COMP\fP   0x20"
+.br
+.ti -1c
+.RI "#define \fBSIGMGR_EN_SH_DIFFAMP\fP   0x10"
+.br
+.ti -1c
+.RI "#define \fBSIGMGR_MSPI\fP(channel)   (\fBSIGMGR_EN_MSPI\fP | (channel))"
+.br
+.ti -1c
+.RI "#define \fBSIGMGR_MSPI_SH_DIFFAMP\fP   (\fBSIGMGR_EN_MSPI\fP | \fBSIGMGR_EN_SH_DIFFAMP\fP)"
+.br
+.ti -1c
+.RI "#define \fBSIGMGR_MSPI_SH_COMP\fP   (\fBSIGMGR_EN_MSPI\fP | \fBSIGMGR_EN_SH_COMP\fP)"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBEMUX_Select\fP { \fBEMUX_AIO10\fP = 0 | EMUX_EN_MSPI, \fBEMUX_AIO32\fP = 1 | EMUX_EN_MSPI, \fBEMUX_AIO54\fP = 2 | EMUX_EN_MSPI, \fBEMUX_AB1\fP = 3 | EMUX_EN_MSPI, \fBEMUX_AB2\fP = 4 | EMUX_EN_MSPI, \fBEMUX_AB3\fP = 5 | EMUX_EN_MSPI, \fBEMUX_AB4\fP = 6 | EMUX_EN_MSPI, \fBEMUX_AB5\fP = 7 | EMUX_EN_MSPI, \fBEMUX_AB6\fP = 8 | EMUX_EN_MSPI, \fBEMUX_AB7\fP = 9 | EMUX_EN_MSPI, \fBEMUX_AB8\fP = 10 | EMUX_EN_MSPI, \fBEMUX_AB9\fP = 11 | EMUX_EN_MSPI, \fBEMUX_AB10\fP = 12 | EMUX_EN_MSPI, \fBEMUX_AB11\fP = 13 | EMUX_EN_MSPI, \fBEMUX_AB12\fP = 14 | EMUX_EN_MSPI, \fBEMUX_VREFDIV2\fP = 15 | EMUX_EN_MSPI }"
+.br
+.ti -1c
+.RI "enum \fBSignal_Manager_MUX_Select\fP { \fBSIGMGR_AIO10\fP = 0, \fBSIGMGR_AIO32\fP = 1, \fBSIGMGR_AIO54\fP = 2, \fBSIGMGR_AB1\fP = 3, \fBSIGMGR_AB2\fP = 4, \fBSIGMGR_AB3\fP = 5, \fBSIGMGR_AB4\fP = 6, \fBSIGMGR_AB5\fP = 7, \fBSIGMGR_AB6\fP = 8, \fBSIGMGR_AB7\fP = 9, \fBSIGMGR_AB8\fP = 10, \fBSIGMGR_AB9\fP = 11, \fBSIGMGR_AB10\fP = 12, \fBSIGMGR_AB11\fP = 13, \fBSIGMGR_AB12\fP = 14, \fBSIGMGR_VREFDIV2\fP = 15 }"
+.br
+.ti -1c
+.RI "enum \fBSignal_Manager_Reg_Addr\fP { \fBADDR_CFGAIO0\fP = 0x20, \fBADDR_CFGAIO1\fP = 0x21, \fBADDR_CFGAIO2\fP = 0x22, \fBADDR_CFGAIO3\fP = 0x23, \fBADDR_CFGAIO4\fP = 0x24, \fBADDR_CFGAIO5\fP = 0x25, \fBADDR_CFGAIO6\fP = 0x26, \fBADDR_CFGAIO7\fP = 0x27, \fBADDR_CFGAIO8\fP = 0x28, \fBADDR_CFGAIO9\fP = 0x29, \fBADDR_SIGSET\fP = 0x2A, \fBADDR_HPDAC\fP = 0x2B, \fBADDR_LPDAC0\fP = 0x2C, \fBADDR_LPDAC1\fP = 0x2D, \fBADDR_ADCSCAN\fP = 0x2E, \fBADDR_ADCIN1\fP = 0x2F, \fBADDR_PROTINTM\fP = 0x30, \fBADDR_PROTSTAT\fP = 0x31, \fBADDR_DOUTSIG0\fP = 0x32, \fBADDR_DOUTSIG1\fP = 0x33, \fBADDR_DINSIG0\fP = 0x34, \fBADDR_DINSIG1\fP = 0x35, \fBADDR_SIGINTM\fP = 0x36, \fBADDR_SIGINTF\fP = 0x37, \fBADDR_ENSIG\fP = 0x38, \fBADDR_SPECCFG1\fP = 0x39, \fBADDR_SPECCFG2\fP = 0x3A }"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO0::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO0::MUX0\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO0::POL0\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO0::OPT0\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO0::MODE0\fP: 2"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO0::MUX0\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO0::POL0\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO0::OPT0\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO0::MODE0\fP: 2"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO1::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO1::MUX1\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO1::POL1\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO1::OPT1\fP: 2"
+.br
+.ti -1c
+.RI "uint8_t \fBCFGAIO1::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO1::MUX1\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO1::POL1\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO1::OPT1\fP: 2"
+.br
+.ti -1c
+.RI "   uint8_t \fBCFGAIO1::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO2::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO2::MUX2\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO2::POL2\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO2::OPT2\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO2::MODE2\fP: 2"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO2::MUX2\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO2::POL2\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO2::OPT2\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO2::MODE2\fP: 2"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO3::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO3::MUX3\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO3::POL3\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO3::OPT3\fP: 2"
+.br
+.ti -1c
+.RI "uint8_t \fBCFGAIO3::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO3::MUX3\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO3::POL3\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO3::OPT3\fP: 2"
+.br
+.ti -1c
+.RI "   uint8_t \fBCFGAIO3::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO4::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO4::MUX4\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO4::POL4\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO4::OPT4\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO4::MODE4\fP: 2"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO4::MUX4\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO4::POL4\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO4::OPT4\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO4::MODE4\fP: 2"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO5::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO5::MUX5\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO5::POL5\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO5::OPT5\fP: 2"
+.br
+.ti -1c
+.RI "uint8_t \fBCFGAIO5::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO5::MUX5\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO5::POL5\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO5::OPT5\fP: 2"
+.br
+.ti -1c
+.RI "   uint8_t \fBCFGAIO5::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO6::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO6::MUX6\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO6::POL6\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO6::OPT6\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO6::MODE6\fP: 2"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO6::MUX6\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO6::POL6\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO6::OPT6\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO6::MODE6\fP: 2"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO7::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO7::MUX7\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO7::POL7\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO7::OPT7\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO7::MODE7\fP: 2"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO7::MUX7\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO7::POL7\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO7::OPT7\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO7::MODE7\fP: 2"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO8::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO8::MUX8\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO8::POL8\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO8::OPT8\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO8::MODE8\fP: 2"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO8::MUX8\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO8::POL8\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO8::OPT8\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO8::MODE8\fP: 2"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO9::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO9::MUX9\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO9::POL9\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO9::OPT9\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBCFGAIO9::MODE9\fP: 2"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO9::MUX9\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO9::POL9\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO9::OPT9\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBCFGAIO9::MODE9\fP: 2"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGSTAT::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGSTAT::HPDACAB2\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGSTAT::LPDACAB3\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGSTAT::LPROTHYS\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGSTAT::HPROTHYS\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGSTAT::AIO6HYS\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGSTAT::AIO7HYS\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGSTAT::AIO8HYS\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGSTAT::AIO9HYS\fP: 1"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGSTAT::HPDACAB2\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGSTAT::LPDACAB3\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGSTAT::LPROTHYS\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGSTAT::HPROTHYS\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGSTAT::AIO6HYS\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGSTAT::AIO7HYS\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGSTAT::AIO8HYS\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGSTAT::AIO9HYS\fP: 1"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBLPDAC1::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBLPDAC1::VAL\fP: 2"
+.br
+.ti -1c
+.RI "uint8_t \fBLPDAC1::__pad0__\fP: 6"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBLPDAC1::VAL\fP: 2"
+.br
+.ti -1c
+.RI "   uint8_t \fBLPDAC1::__pad0__\fP: 6"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBADCSCAN::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBADCSCAN::DAO54SH\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBADCSCAN::DAO32SH\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBADCSCAN::DAO10SH\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBADCSCAN::ENADCBUF\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBADCSCAN::ENSCAN\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBADCSCAN::__pad0__\fP: 3"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBADCSCAN::DAO54SH\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBADCSCAN::DAO32SH\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBADCSCAN::DAO10SH\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBADCSCAN::ENADCBUF\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBADCSCAN::ENSCAN\fP: 1"
+.br
+.ti -1c
+.RI "   uint8_t \fBADCSCAN::__pad0__\fP: 3"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBADCIN1::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBADCIN1::VAL\fP: 4"
+.br
+.ti -1c
+.RI "uint8_t \fBADCIN1::__pad0__\fP: 4"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBADCIN1::VAL\fP: 4"
+.br
+.ti -1c
+.RI "   uint8_t \fBADCIN1::__pad0__\fP: 4"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBPROTINTM::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBPROTINTM::nLP10INTM\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBPROTINTM::nLP32INTM\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBPROTINTM::nLP54INTM\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBPROTINTM::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBPROTINTM::nHP10INTM\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBPROTINTM::nHP32INTM\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBPROTINTM::nHP54INTM\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBPROTINTM::__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPROTINTM::nLP10INTM\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPROTINTM::nLP32INTM\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPROTINTM::nLP54INTM\fP: 1"
+.br
+.ti -1c
+.RI "   uint8_t \fBPROTINTM::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPROTINTM::nHP10INTM\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPROTINTM::nHP32INTM\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPROTINTM::nHP54INTM\fP: 1"
+.br
+.ti -1c
+.RI "   uint8_t \fBPROTINTM::__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBPROTSTAT::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBPROTSTAT::LPROT10\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBPROTSTAT::LPROT32\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBPROTSTAT::LPROT54\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBPROTSTAT::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBPROTSTAT::HPROT10\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBPROTSTAT::HPROT32\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBPROTSTAT::HPROT54\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBPROTSTAT::__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPROTSTAT::LPROT10\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPROTSTAT::LPROT32\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPROTSTAT::LPROT54\fP: 1"
+.br
+.ti -1c
+.RI "   uint8_t \fBPROTSTAT::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPROTSTAT::HPROT10\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPROTSTAT::HPROT32\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPROTSTAT::HPROT54\fP: 1"
+.br
+.ti -1c
+.RI "   uint8_t \fBPROTSTAT::__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDOUTSIG0::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDOUTSIG0::DOUT0\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDOUTSIG0::DOUT1\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDOUTSIG0::DOUT2\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDOUTSIG0::DOUT3\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDOUTSIG0::DOUT4\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDOUTSIG0::DOUT5\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBDOUTSIG0::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDOUTSIG0::DOUT0\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDOUTSIG0::DOUT1\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDOUTSIG0::DOUT2\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDOUTSIG0::DOUT3\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDOUTSIG0::DOUT4\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDOUTSIG0::DOUT5\fP: 1"
+.br
+.ti -1c
+.RI "   uint8_t \fBDOUTSIG0::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDOUTSIG1::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDOUTSIG1::DOUT6\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDOUTSIG1::DOUT7\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDOUTSIG1::DOUT8\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDOUTSIG1::DOUT9\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBDOUTSIG1::__pad0__\fP: 4"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDOUTSIG1::DOUT6\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDOUTSIG1::DOUT7\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDOUTSIG1::DOUT8\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDOUTSIG1::DOUT9\fP: 1"
+.br
+.ti -1c
+.RI "   uint8_t \fBDOUTSIG1::__pad0__\fP: 4"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDINSIG0::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDINSIG0::DIN0\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDINSIG0::DIN1\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDINSIG0::DIN2\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDINSIG0::DIN3\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDINSIG0::DIN4\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDINSIG0::DIN5\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBDINSIG0::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDINSIG0::DIN0\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDINSIG0::DIN1\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDINSIG0::DIN2\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDINSIG0::DIN3\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDINSIG0::DIN4\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDINSIG0::DIN5\fP: 1"
+.br
+.ti -1c
+.RI "   uint8_t \fBDINSIG0::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDINSIG1::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDINSIG1::DIN6\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDINSIG1::DIN7\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDINSIG1::DIN8\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBDINSIG1::DIN9\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBDINSIG1::__pad0__\fP: 4"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDINSIG1::DIN6\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDINSIG1::DIN7\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDINSIG1::DIN8\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBDINSIG1::DIN9\fP: 1"
+.br
+.ti -1c
+.RI "   uint8_t \fBDINSIG1::__pad0__\fP: 4"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGINTM::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGINTM::nAIO6FINTM\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGINTM::nAIO7FINTM\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGINTM::nAIO8FINTM\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGINTM::nAIO9FINTM\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGINTM::nAIO6RINTM\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGINTM::nAIO7RINTM\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGINTM::nAIO8RINTM\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGINTM::nAIO9RINTM\fP: 1"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGINTM::nAIO6FINTM\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGINTM::nAIO7FINTM\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGINTM::nAIO8FINTM\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGINTM::nAIO9FINTM\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGINTM::nAIO6RINTM\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGINTM::nAIO7RINTM\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGINTM::nAIO8RINTM\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGINTM::nAIO9RINTM\fP: 1"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGINTF::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGINTF::AIO6INTF\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGINTF::AIO7INTF\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGINTF::AIO8INTF\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSIGINTF::AIO9INTF\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBSIGINTF::__pad0__\fP: 4"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGINTF::AIO6INTF\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGINTF::AIO7INTF\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGINTF::AIO8INTF\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBSIGINTF::AIO9INTF\fP: 1"
+.br
+.ti -1c
+.RI "   uint8_t \fBSIGINTF::__pad0__\fP: 4"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBENSIG::b\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBENSIG::ENSIG\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBENSIG::__pad0__\fP: 7"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBENSIG::ENSIG\fP: 1"
+.br
+.ti -1c
+.RI "   uint8_t \fBENSIG::__pad0__\fP: 7"
+.br
+.ti -1c
+.RI "}; "
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define COMP_HOLD   0x20"
+
+.PP
+Definition at line 174 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "#define DIFFAMPS_HOLD   0x10"
+
+.PP
+Definition at line 175 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "#define EMUX_EN_MSPI   0x40"
+< Signal Manager EMUX/Mini-SPI data definitions EMUXD EMUX Data bit definitions
+.SH "Bits  Function  Description"
+.PP
+b7:6 C[1:0] EMUX activate (set to b10) b5: SH1: Enable sample and hold for 3-phase comparators b4 SH0: Enable sample and hold for AIO10, AIO32 or AIO54 b3:0 A[3:0]: Analog IO value from \fISignal_Manager_MUX_Select\fP enumeration 
+.PP
+Definition at line 173 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "#define SIGMGR_EN_MSPI   0x40"
+C[1:0] to activate mini-SPI 
+.PP
+Definition at line 197 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "#define SIGMGR_EN_SH_COMP   0x20"
+SH1 to activate S&H for Phase Comparators 
+.PP
+Definition at line 198 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "#define SIGMGR_EN_SH_DIFFAMP   0x10"
+SH0 to activate S&H for DiffAmp 
+.PP
+Definition at line 199 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "#define SIGMGR_MSPI(channel)   (\fBSIGMGR_EN_MSPI\fP | (channel))"
+EMUX data for given channel 
+.PP
+Definition at line 201 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "#define SIGMGR_MSPI_SH_COMP   (\fBSIGMGR_EN_MSPI\fP | \fBSIGMGR_EN_SH_COMP\fP)"
+EMUX data for comparator 
+.PP
+Definition at line 203 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "#define SIGMGR_MSPI_SH_DIFFAMP   (\fBSIGMGR_EN_MSPI\fP | \fBSIGMGR_EN_SH_DIFFAMP\fP)"
+EMUX data for S&H start on DiffAmp channels 
+.PP
+Definition at line 202 of file pac5xxx_tile_signal_manager\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBEMUX_Select\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIEMUX_AIO10 \fP\fP
+.TP
+\fB\fIEMUX_AIO32 \fP\fP
+.TP
+\fB\fIEMUX_AIO54 \fP\fP
+.TP
+\fB\fIEMUX_AB1 \fP\fP
+.TP
+\fB\fIEMUX_AB2 \fP\fP
+.TP
+\fB\fIEMUX_AB3 \fP\fP
+.TP
+\fB\fIEMUX_AB4 \fP\fP
+.TP
+\fB\fIEMUX_AB5 \fP\fP
+.TP
+\fB\fIEMUX_AB6 \fP\fP
+.TP
+\fB\fIEMUX_AB7 \fP\fP
+.TP
+\fB\fIEMUX_AB8 \fP\fP
+.TP
+\fB\fIEMUX_AB9 \fP\fP
+.TP
+\fB\fIEMUX_AB10 \fP\fP
+.TP
+\fB\fIEMUX_AB11 \fP\fP
+.TP
+\fB\fIEMUX_AB12 \fP\fP
+.TP
+\fB\fIEMUX_VREFDIV2 \fP\fP
+.PP
+Definition at line 177 of file pac5xxx_tile_signal_manager\&.h\&.
+.PP
+.nf
+177              {
+178     EMUX_AIO10 = 0 | EMUX_EN_MSPI,      // Differential Amplifier AIO01
+179     EMUX_AIO32 = 1 | EMUX_EN_MSPI,      // Differential Amplifier AIO32
+180     EMUX_AIO54 = 2 | EMUX_EN_MSPI,      // Differential Amplifier AIO54
+181     EMUX_AB1 = 3 | EMUX_EN_MSPI,        // Analog Bus Input 1 (AB1)
+182     EMUX_AB2 = 4 | EMUX_EN_MSPI,        // Analog Bus Input 2 (AB2)
+183     EMUX_AB3 = 5 | EMUX_EN_MSPI,        // Analog Bus Input 3 (AB3)
+184     EMUX_AB4 = 6 | EMUX_EN_MSPI,        // Analog Bus Input 4 (AB4)
+185     EMUX_AB5 = 7 | EMUX_EN_MSPI,        // Analog Bus Input 5 (AB5)
+186     EMUX_AB6 = 8 | EMUX_EN_MSPI,        // Analog Bus Input 6 (AB6)
+187     EMUX_AB7 = 9 | EMUX_EN_MSPI,        // Analog Bus Input 7 (AB7)
+188     EMUX_AB8 = 10 | EMUX_EN_MSPI,       // Analog Bus Input 8 (AB8)
+189     EMUX_AB9 = 11 | EMUX_EN_MSPI,       // Analog Bus Input 9 (AB9)
+190     EMUX_AB10 = 12 | EMUX_EN_MSPI,      // Analog Bus Input 10 (AB10)
+191     EMUX_AB11 = 13 | EMUX_EN_MSPI,      // Analog Bus Input 11 (AB11)
+192     EMUX_AB12 = 14 | EMUX_EN_MSPI,      // Analog Bus Input 12 (AB12)
+193     EMUX_VREFDIV2 = 15 | EMUX_EN_MSPI   // VREF/2
+194 } EMUX_Select;
+.fi
+.SS "enum \fBSignal_Manager_MUX_Select\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISIGMGR_AIO10 \fP\fP
+Differential Analog AIO01 
+.br
+ 
+.TP
+\fB\fISIGMGR_AIO32 \fP\fP
+Differential Analog AIO32 
+.br
+ 
+.TP
+\fB\fISIGMGR_AIO54 \fP\fP
+Differential Analog AIO54 
+.br
+ 
+.TP
+\fB\fISIGMGR_AB1 \fP\fP
+Analog Bus Input 1 (AB1) 
+.br
+ 
+.TP
+\fB\fISIGMGR_AB2 \fP\fP
+Analog Bus Input 2 (AB2) 
+.br
+ 
+.TP
+\fB\fISIGMGR_AB3 \fP\fP
+Analog Bus Input 3 (AB3) 
+.br
+ 
+.TP
+\fB\fISIGMGR_AB4 \fP\fP
+Analog Bus Input 4 (AB4) 
+.br
+ 
+.TP
+\fB\fISIGMGR_AB5 \fP\fP
+Analog Bus Input 5 (AB5) 
+.br
+ 
+.TP
+\fB\fISIGMGR_AB6 \fP\fP
+Analog Bus Input 6 (AB6) 
+.br
+ 
+.TP
+\fB\fISIGMGR_AB7 \fP\fP
+Analog Bus Input 7 (AB7) 
+.br
+ 
+.TP
+\fB\fISIGMGR_AB8 \fP\fP
+Analog Bus Input 8 (AB8) 
+.br
+ 
+.TP
+\fB\fISIGMGR_AB9 \fP\fP
+Analog Bus Input 9 (AB9) 
+.br
+ 
+.TP
+\fB\fISIGMGR_AB10 \fP\fP
+Analog Bus Input 10 (AB10) 
+.br
+ 
+.TP
+\fB\fISIGMGR_AB11 \fP\fP
+Analog Bus Input 11 (AB11) 
+.br
+ 
+.TP
+\fB\fISIGMGR_AB12 \fP\fP
+Analog Bus Input 12 (AB12) 
+.br
+ 
+.TP
+\fB\fISIGMGR_VREFDIV2 \fP\fP
+VREF/2 
+.br
+ 
+.PP
+Definition at line 205 of file pac5xxx_tile_signal_manager\&.h\&.
+.PP
+.nf
+205              {
+206     SIGMGR_AIO10 = 0,                       
+207     SIGMGR_AIO32 = 1,                       
+208     SIGMGR_AIO54 = 2,                       
+209     SIGMGR_AB1 = 3,                         
+210     SIGMGR_AB2 = 4,                         
+211     SIGMGR_AB3 = 5,                         
+212     SIGMGR_AB4 = 6,                         
+213     SIGMGR_AB5 = 7,                         
+214     SIGMGR_AB6 = 8,                         
+215     SIGMGR_AB7 = 9,                         
+216     SIGMGR_AB8 = 10,                        
+217     SIGMGR_AB9 = 11,                        
+218     SIGMGR_AB10 = 12,                       
+219     SIGMGR_AB11 = 13,                       
+220     SIGMGR_AB12 = 14,                       
+221     SIGMGR_VREFDIV2 = 15                    
+222 } Signal_Manager_MUX_Select;
+.fi
+.SS "enum \fBSignal_Manager_Reg_Addr\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADDR_CFGAIO0 \fP\fP
+Signal Manager AIO0 Configuration Register 
+.br
+ 
+.TP
+\fB\fIADDR_CFGAIO1 \fP\fP
+Signal Manager AIO1 Configuration Register 
+.br
+ 
+.TP
+\fB\fIADDR_CFGAIO2 \fP\fP
+Signal Manager AIO2 Configuration Register 
+.br
+ 
+.TP
+\fB\fIADDR_CFGAIO3 \fP\fP
+Signal Manager AIO3 Configuration Register 
+.br
+ 
+.TP
+\fB\fIADDR_CFGAIO4 \fP\fP
+Signal Manager AIO4 Configuration Register 
+.br
+ 
+.TP
+\fB\fIADDR_CFGAIO5 \fP\fP
+Signal Manager AIO5 Configuration Register 
+.br
+ 
+.TP
+\fB\fIADDR_CFGAIO6 \fP\fP
+Signal Manager AIO6 Configuration Register 
+.br
+ 
+.TP
+\fB\fIADDR_CFGAIO7 \fP\fP
+Signal Manager AIO7 Configuration Register 
+.br
+ 
+.TP
+\fB\fIADDR_CFGAIO8 \fP\fP
+Signal Manager AIO8 Configuration Register 
+.br
+ 
+.TP
+\fB\fIADDR_CFGAIO9 \fP\fP
+Signal Manager AIO9 Configuration Register 
+.br
+ 
+.TP
+\fB\fIADDR_SIGSET \fP\fP
+Signal Manager Setting Register 
+.br
+ 
+.TP
+\fB\fIADDR_HPDAC \fP\fP
+High Protection Threshold DAC Control 0 Register 
+.br
+ 
+.TP
+\fB\fIADDR_LPDAC0 \fP\fP
+Low Protection Threshold DAC Control 0 Register 
+.br
+ 
+.TP
+\fB\fIADDR_LPDAC1 \fP\fP
+Low Protection Threshold DAC Control 1 Register 
+.br
+ 
+.TP
+\fB\fIADDR_ADCSCAN \fP\fP
+ADC Scan Control 
+.br
+ 
+.TP
+\fB\fIADDR_ADCIN1 \fP\fP
+ADC Input Select 1 
+.br
+ 
+.TP
+\fB\fIADDR_PROTINTM \fP\fP
+Protection Interrupt Mask 
+.br
+ 
+.TP
+\fB\fIADDR_PROTSTAT \fP\fP
+Protection Status 
+.br
+ 
+.TP
+\fB\fIADDR_DOUTSIG0 \fP\fP
+Signal Manager Data Output 0 
+.br
+ 
+.TP
+\fB\fIADDR_DOUTSIG1 \fP\fP
+Signal Manager Data Output 1 
+.br
+ 
+.TP
+\fB\fIADDR_DINSIG0 \fP\fP
+Signal Manager Data Input 0 
+.br
+ 
+.TP
+\fB\fIADDR_DINSIG1 \fP\fP
+Signal Manager Data Input 1 
+.br
+ 
+.TP
+\fB\fIADDR_SIGINTM \fP\fP
+AIO Interrupt Mask 
+.br
+ 
+.TP
+\fB\fIADDR_SIGINTF \fP\fP
+AIO Interrupt Flag 
+.br
+ 
+.TP
+\fB\fIADDR_ENSIG \fP\fP
+Signal Manager Enable 
+.br
+ 
+.TP
+\fB\fIADDR_SPECCFG1 \fP\fP
+Signal Manager AIO8-9 Hysteresis Configuration Register 
+.br
+ 
+.TP
+\fB\fIADDR_SPECCFG2 \fP\fP
+Signal Manager AIO7 Hysteresis and Blanking Time Config 
+.br
+ 
+.PP
+Definition at line 226 of file pac5xxx_tile_signal_manager\&.h\&.
+.PP
+.nf
+226              {
+227     ADDR_CFGAIO0 = 0x20,                    
+228     ADDR_CFGAIO1 = 0x21,                    
+229     ADDR_CFGAIO2 = 0x22,                    
+230     ADDR_CFGAIO3 = 0x23,                    
+231     ADDR_CFGAIO4 = 0x24,                    
+232     ADDR_CFGAIO5 = 0x25,                    
+233     ADDR_CFGAIO6 = 0x26,                    
+234     ADDR_CFGAIO7 = 0x27,                    
+235     ADDR_CFGAIO8 = 0x28,                    
+236     ADDR_CFGAIO9 = 0x29,                    
+237     ADDR_SIGSET = 0x2A,                     
+238     ADDR_HPDAC = 0x2B,                      
+239     ADDR_LPDAC0 = 0x2C,                     
+240     ADDR_LPDAC1 = 0x2D,                     
+241     ADDR_ADCSCAN = 0x2E,                    
+242     ADDR_ADCIN1 = 0x2F,                     
+243     ADDR_PROTINTM = 0x30,                   
+244     ADDR_PROTSTAT = 0x31,                   
+245     ADDR_DOUTSIG0 = 0x32,                   
+246     ADDR_DOUTSIG1 = 0x33,                   
+247     ADDR_DINSIG0 = 0x34,                    
+248     ADDR_DINSIG1 = 0x35,                    
+249     ADDR_SIGINTM = 0x36,                    
+250     ADDR_SIGINTF = 0x37,                    
+251     ADDR_ENSIG = 0x38,                      
+252     ADDR_SPECCFG1 = 0x39,                   
+253     ADDR_SPECCFG2 = 0x3A                    
+254 } Signal_Manager_Reg_Addr;
+.fi
+.SH "Variable Documentation"
+.PP 
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "uint8_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 277 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t CFGAIO1::__pad0__"
+
+.PP
+Definition at line 277 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t CFGAIO3::__pad0__"
+
+.PP
+Definition at line 301 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 301 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 325 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t CFGAIO5::__pad0__"
+
+.PP
+Definition at line 325 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t LPDAC1::__pad0__"
+
+.PP
+Definition at line 399 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 399 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t ADCSCAN::__pad0__"
+
+.PP
+Definition at line 413 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 413 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t ADCIN1::__pad0__"
+
+.PP
+Definition at line 423 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 423 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t PROTINTM::__pad0__"
+
+.PP
+Definition at line 435 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 435 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t PROTSTAT::__pad0__"
+
+.PP
+Definition at line 451 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 451 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 470 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t DOUTSIG0::__pad0__"
+
+.PP
+Definition at line 470 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t DOUTSIG1::__pad0__"
+
+.PP
+Definition at line 483 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 483 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t DINSIG0::__pad0__"
+
+.PP
+Definition at line 498 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 498 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t DINSIG1::__pad0__"
+
+.PP
+Definition at line 511 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 511 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t SIGINTF::__pad0__"
+
+.PP
+Definition at line 540 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 540 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t ENSIG::__pad0__"
+
+.PP
+Definition at line 551 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 551 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 439 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t PROTINTM::__pad1__"
+
+.PP
+Definition at line 439 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 455 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "uint8_t PROTSTAT::__pad1__"
+
+.PP
+Definition at line 455 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGSTAT::AIO6HYS"
+AIO6 Comparator Hys Enable 
+.br
+ 
+.PP
+Definition at line 386 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AIO6HYS"
+AIO6 Comparator Hys Enable 
+.br
+ 
+.PP
+Definition at line 386 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AIO6INTF"
+AIO6 Interrupt Flag\&. Write 1 to clear\&. 
+.br
+ 
+.PP
+Definition at line 536 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGINTF::AIO6INTF"
+AIO6 Interrupt Flag\&. Write 1 to clear\&. 
+.br
+ 
+.PP
+Definition at line 536 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGSTAT::AIO7HYS"
+AIO7 Comparator Hys Enable 
+.br
+ 
+.PP
+Definition at line 387 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AIO7HYS"
+AIO7 Comparator Hys Enable 
+.br
+ 
+.PP
+Definition at line 387 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGINTF::AIO7INTF"
+AIO7 Interrupt Flag\&. Write 1 to clear\&. 
+.br
+ 
+.PP
+Definition at line 537 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AIO7INTF"
+AIO7 Interrupt Flag\&. Write 1 to clear\&. 
+.br
+ 
+.PP
+Definition at line 537 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGSTAT::AIO8HYS"
+AIO8 Comparator Hys Enable 
+.br
+ 
+.PP
+Definition at line 388 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AIO8HYS"
+AIO8 Comparator Hys Enable 
+.br
+ 
+.PP
+Definition at line 388 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGINTF::AIO8INTF"
+AIO8 Interrupt Flag\&. Write 1 to clear\&. 
+.br
+ 
+.PP
+Definition at line 538 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AIO8INTF"
+AIO8 Interrupt Flag\&. Write 1 to clear\&. 
+.br
+ 
+.PP
+Definition at line 538 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AIO9HYS"
+AIO9 Comparator Hys Enable 
+.br
+ 
+.PP
+Definition at line 389 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGSTAT::AIO9HYS"
+AIO9 Comparator Hys Enable 
+.br
+ 
+.PP
+Definition at line 389 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGINTF::AIO9INTF"
+AIO9 Interrupt Flag\&. Write 1 to clear\&. 
+.br
+ 
+.PP
+Definition at line 539 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AIO9INTF"
+AIO9 Interrupt Flag\&. Write 1 to clear\&. 
+.br
+ 
+.PP
+Definition at line 539 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO0::b"
+
+.PP
+Definition at line 260 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO1::b"
+
+.PP
+Definition at line 272 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO2::b"
+
+.PP
+Definition at line 284 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO3::b"
+
+.PP
+Definition at line 296 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO4::b"
+
+.PP
+Definition at line 308 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO5::b"
+
+.PP
+Definition at line 320 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO6::b"
+
+.PP
+Definition at line 332 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO7::b"
+
+.PP
+Definition at line 344 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO8::b"
+
+.PP
+Definition at line 356 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO9::b"
+
+.PP
+Definition at line 368 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGSTAT::b"
+
+.PP
+Definition at line 380 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t LPDAC1::b"
+
+.PP
+Definition at line 396 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t ADCSCAN::b"
+
+.PP
+Definition at line 406 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t ADCIN1::b"
+
+.PP
+Definition at line 420 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t PROTINTM::b"
+
+.PP
+Definition at line 430 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t PROTSTAT::b"
+
+.PP
+Definition at line 446 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DOUTSIG0::b"
+
+.PP
+Definition at line 462 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DOUTSIG1::b"
+
+.PP
+Definition at line 477 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DINSIG0::b"
+
+.PP
+Definition at line 490 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DINSIG1::b"
+
+.PP
+Definition at line 505 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGINTM::b"
+
+.PP
+Definition at line 518 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGINTF::b"
+
+.PP
+Definition at line 534 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t ENSIG::b"
+
+.PP
+Definition at line 547 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DAO10SH"
+Enable S&H circuit to sync DiffAmp 10 
+.br
+ 
+.PP
+Definition at line 410 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t ADCSCAN::DAO10SH"
+Enable S&H circuit to sync DiffAmp 10 
+.br
+ 
+.PP
+Definition at line 410 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t ADCSCAN::DAO32SH"
+Enable S&H circuit to sync DiffAmp 32 
+.br
+ 
+.PP
+Definition at line 409 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DAO32SH"
+Enable S&H circuit to sync DiffAmp 32 
+.br
+ 
+.PP
+Definition at line 409 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t ADCSCAN::DAO54SH"
+Enable S&H circuit to sync DiffAmp 54 
+.br
+ 
+.PP
+Definition at line 408 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DAO54SH"
+Enable S&H circuit to sync DiffAmp 54 
+.br
+ 
+.PP
+Definition at line 408 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DINSIG0::DIN0"
+Data input from AIO0 
+.br
+ 
+.PP
+Definition at line 492 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DIN0"
+Data input from AIO0 
+.br
+ 
+.PP
+Definition at line 492 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DINSIG0::DIN1"
+Data input from AIO1 
+.br
+ 
+.PP
+Definition at line 493 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DIN1"
+Data input from AIO1 
+.br
+ 
+.PP
+Definition at line 493 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DIN2"
+Data input from AIO2 
+.br
+ 
+.PP
+Definition at line 494 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DINSIG0::DIN2"
+Data input from AIO2 
+.br
+ 
+.PP
+Definition at line 494 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DINSIG0::DIN3"
+Data input from AIO3 
+.br
+ 
+.PP
+Definition at line 495 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DIN3"
+Data input from AIO3 
+.br
+ 
+.PP
+Definition at line 495 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DIN4"
+Data input from AIO4 
+.br
+ 
+.PP
+Definition at line 496 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DINSIG0::DIN4"
+Data input from AIO4 
+.br
+ 
+.PP
+Definition at line 496 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DIN5"
+Data input from AIO5 
+.br
+ 
+.PP
+Definition at line 497 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DINSIG0::DIN5"
+Data input from AIO5 
+.br
+ 
+.PP
+Definition at line 497 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DIN6"
+Data input from AIO6 
+.br
+ 
+.PP
+Definition at line 507 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DINSIG1::DIN6"
+Data input from AIO6 
+.br
+ 
+.PP
+Definition at line 507 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DIN7"
+Data input from AIO7 
+.br
+ 
+.PP
+Definition at line 508 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DINSIG1::DIN7"
+Data input from AIO7 
+.br
+ 
+.PP
+Definition at line 508 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DIN8"
+Data input from AIO8 
+.br
+ 
+.PP
+Definition at line 509 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DINSIG1::DIN8"
+Data input from AIO8 
+.br
+ 
+.PP
+Definition at line 509 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DIN9"
+Data input from AIO9 
+.br
+ 
+.PP
+Definition at line 510 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DINSIG1::DIN9"
+Data input from AIO9 
+.br
+ 
+.PP
+Definition at line 510 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DOUTSIG0::DOUT0"
+Data output from AIO0 
+.br
+ 
+.PP
+Definition at line 464 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DOUT0"
+Data output from AIO0 
+.br
+ 
+.PP
+Definition at line 464 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DOUTSIG0::DOUT1"
+Data output from AIO1 
+.br
+ 
+.PP
+Definition at line 465 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DOUT1"
+Data output from AIO1 
+.br
+ 
+.PP
+Definition at line 465 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DOUT2"
+Data output from AIO2 
+.br
+ 
+.PP
+Definition at line 466 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DOUTSIG0::DOUT2"
+Data output from AIO2 
+.br
+ 
+.PP
+Definition at line 466 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DOUTSIG0::DOUT3"
+Data output from AIO3 
+.br
+ 
+.PP
+Definition at line 467 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DOUT3"
+Data output from AIO3 
+.br
+ 
+.PP
+Definition at line 467 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DOUTSIG0::DOUT4"
+Data output from AIO4 
+.br
+ 
+.PP
+Definition at line 468 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DOUT4"
+Data output from AIO4 
+.br
+ 
+.PP
+Definition at line 468 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DOUTSIG0::DOUT5"
+Data output from AIO5 
+.br
+ 
+.PP
+Definition at line 469 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DOUT5"
+Data output from AIO5 
+.br
+ 
+.PP
+Definition at line 469 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DOUTSIG1::DOUT6"
+Data output from AIO6 
+.br
+ 
+.PP
+Definition at line 479 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DOUT6"
+Data output from AIO6 
+.br
+ 
+.PP
+Definition at line 479 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DOUTSIG1::DOUT7"
+Data output from AIO7 
+.br
+ 
+.PP
+Definition at line 480 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DOUT7"
+Data output from AIO7 
+.br
+ 
+.PP
+Definition at line 480 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DOUT8"
+Data output from AIO8 
+.br
+ 
+.PP
+Definition at line 481 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DOUTSIG1::DOUT8"
+Data output from AIO8 
+.br
+ 
+.PP
+Definition at line 481 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DOUT9"
+Data output from AIO9 
+.br
+ 
+.PP
+Definition at line 482 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t DOUTSIG1::DOUT9"
+Data output from AIO9 
+.br
+ 
+.PP
+Definition at line 482 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t ADCSCAN::ENADCBUF"
+ADC buffer circuit enable 
+.br
+ 
+.PP
+Definition at line 411 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::ENADCBUF"
+ADC buffer circuit enable 
+.br
+ 
+.PP
+Definition at line 411 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::ENSCAN"
+ADC scan control circuit enable 
+.br
+ 
+.PP
+Definition at line 412 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t ADCSCAN::ENSCAN"
+ADC scan control circuit enable 
+.br
+ 
+.PP
+Definition at line 412 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t ENSIG::ENSIG"
+SigMgr tile enable: 1; Disable: 0 
+.br
+ 
+.PP
+Definition at line 550 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::\fBENSIG\fP"
+SigMgr tile enable: 1; Disable: 0 
+.br
+ 
+.PP
+Definition at line 550 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGSTAT::HPDACAB2"
+Connect HPDAC output to AB2 
+.br
+ 
+.PP
+Definition at line 382 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HPDACAB2"
+Connect HPDAC output to AB2 
+.br
+ 
+.PP
+Definition at line 382 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t PROTSTAT::HPROT10"
+HPROT10 Status (write 1 to clear) 
+.br
+ 
+.PP
+Definition at line 452 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HPROT10"
+HPROT10 Status (write 1 to clear) 
+.br
+ 
+.PP
+Definition at line 452 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HPROT32"
+HPROT32 Status (write 1 to clear) 
+.br
+ 
+.PP
+Definition at line 453 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t PROTSTAT::HPROT32"
+HPROT32 Status (write 1 to clear) 
+.br
+ 
+.PP
+Definition at line 453 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HPROT54"
+HPROT54 Status (write 1 to clear) 
+.br
+ 
+.PP
+Definition at line 454 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t PROTSTAT::HPROT54"
+HPROT54 Status (write 1 to clear) 
+.br
+ 
+.PP
+Definition at line 454 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HPROTHYS"
+High Protection Comparator Hys Enbl 
+.br
+ 
+.PP
+Definition at line 385 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGSTAT::HPROTHYS"
+High Protection Comparator Hys Enbl 
+.br
+ 
+.PP
+Definition at line 385 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LPDACAB3"
+Connect LPDAC output to AB3 
+.br
+ 
+.PP
+Definition at line 383 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGSTAT::LPDACAB3"
+Connect LPDAC output to AB3 
+.br
+ 
+.PP
+Definition at line 383 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t PROTSTAT::LPROT10"
+LPROT10 Status (write 1 to clear) 
+.br
+ 
+.PP
+Definition at line 448 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LPROT10"
+LPROT10 Status (write 1 to clear) 
+.br
+ 
+.PP
+Definition at line 448 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t PROTSTAT::LPROT32"
+LPROT32 Status (write 1 to clear) 
+.br
+ 
+.PP
+Definition at line 449 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LPROT32"
+LPROT32 Status (write 1 to clear) 
+.br
+ 
+.PP
+Definition at line 449 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LPROT54"
+LPROT54 Status (write 1 to clear) 
+.br
+ 
+.PP
+Definition at line 450 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t PROTSTAT::LPROT54"
+LPROT54 Status (write 1 to clear) 
+.br
+ 
+.PP
+Definition at line 450 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LPROTHYS"
+Low Protection Comparator Hysteresis enbl 
+.br
+ 
+.PP
+Definition at line 384 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGSTAT::LPROTHYS"
+Low Protection Comparator Hysteresis enbl 
+.br
+ 
+.PP
+Definition at line 384 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MODE0"
+Mode setting for AIO0 
+.br
+ 
+.PP
+Definition at line 265 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO0::MODE0"
+Mode setting for AIO0 
+.br
+ 
+.PP
+Definition at line 265 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO2::MODE2"
+Mode setting for AIO2 
+.br
+ 
+.PP
+Definition at line 289 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MODE2"
+Mode setting for AIO2 
+.br
+ 
+.PP
+Definition at line 289 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MODE4"
+Mode setting for AIO4 
+.br
+ 
+.PP
+Definition at line 313 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO4::MODE4"
+Mode setting for AIO4 
+.br
+ 
+.PP
+Definition at line 313 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MODE6"
+Mode setting for AIO6 
+.br
+ 
+.PP
+Definition at line 337 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO6::MODE6"
+Mode setting for AIO6 
+.br
+ 
+.PP
+Definition at line 337 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO7::MODE7"
+Mode setting for AIO7 
+.br
+ 
+.PP
+Definition at line 349 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MODE7"
+Mode setting for AIO7 
+.br
+ 
+.PP
+Definition at line 349 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MODE8"
+Mode setting for AIO8 
+.br
+ 
+.PP
+Definition at line 361 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO8::MODE8"
+Mode setting for AIO8 
+.br
+ 
+.PP
+Definition at line 361 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO9::MODE9"
+Mode setting for AIO9 
+.br
+ 
+.PP
+Definition at line 373 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MODE9"
+Mode setting for AIO9 
+.br
+ 
+.PP
+Definition at line 373 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO0::MUX0"
+MUX setting for AIO0 
+.br
+ 
+.PP
+Definition at line 262 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MUX0"
+MUX setting for AIO0 
+.br
+ 
+.PP
+Definition at line 262 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO1::MUX1"
+MUX setting for AIO1 
+.br
+ 
+.PP
+Definition at line 274 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MUX1"
+MUX setting for AIO1 
+.br
+ 
+.PP
+Definition at line 274 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MUX2"
+MUX setting for AIO2 
+.br
+ 
+.PP
+Definition at line 286 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO2::MUX2"
+MUX setting for AIO2 
+.br
+ 
+.PP
+Definition at line 286 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO3::MUX3"
+MUX setting for AIO3 
+.br
+ 
+.PP
+Definition at line 298 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MUX3"
+MUX setting for AIO3 
+.br
+ 
+.PP
+Definition at line 298 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO4::MUX4"
+MUX setting for AIO4 
+.br
+ 
+.PP
+Definition at line 310 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MUX4"
+MUX setting for AIO4 
+.br
+ 
+.PP
+Definition at line 310 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MUX5"
+MUX setting for AIO5 
+.br
+ 
+.PP
+Definition at line 322 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO5::MUX5"
+MUX setting for AIO5 
+.br
+ 
+.PP
+Definition at line 322 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO6::MUX6"
+MUX setting for AIO6 
+.br
+ 
+.PP
+Definition at line 334 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MUX6"
+MUX setting for AIO6 
+.br
+ 
+.PP
+Definition at line 334 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO7::MUX7"
+MUX setting for AIO7 
+.br
+ 
+.PP
+Definition at line 346 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MUX7"
+MUX setting for AIO7 
+.br
+ 
+.PP
+Definition at line 346 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO8::MUX8"
+MUX setting for AIO8 
+.br
+ 
+.PP
+Definition at line 358 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MUX8"
+MUX setting for AIO8 
+.br
+ 
+.PP
+Definition at line 358 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO9::MUX9"
+MUX setting for AIO9 
+.br
+ 
+.PP
+Definition at line 370 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MUX9"
+MUX setting for AIO9 
+.br
+ 
+.PP
+Definition at line 370 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGINTM::nAIO6FINTM"
+AIO6 Falling Edge mask (0: masked) 
+.br
+ 
+.PP
+Definition at line 520 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::nAIO6FINTM"
+AIO6 Falling Edge mask (0: masked) 
+.br
+ 
+.PP
+Definition at line 520 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::nAIO6RINTM"
+AIO6 Rising Edge mask (0: masked) 
+.br
+ 
+.PP
+Definition at line 524 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGINTM::nAIO6RINTM"
+AIO6 Rising Edge mask (0: masked) 
+.br
+ 
+.PP
+Definition at line 524 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::nAIO7FINTM"
+AIO7 Falling Edge mask (0: masked) 
+.br
+ 
+.PP
+Definition at line 521 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGINTM::nAIO7FINTM"
+AIO7 Falling Edge mask (0: masked) 
+.br
+ 
+.PP
+Definition at line 521 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::nAIO7RINTM"
+AIO7 Rising Edge mask (0: masked) 
+.br
+ 
+.PP
+Definition at line 525 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGINTM::nAIO7RINTM"
+AIO7 Rising Edge mask (0: masked) 
+.br
+ 
+.PP
+Definition at line 525 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::nAIO8FINTM"
+AIO8 Falling Edge mask (0: masked) 
+.br
+ 
+.PP
+Definition at line 522 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGINTM::nAIO8FINTM"
+AIO8 Falling Edge mask (0: masked) 
+.br
+ 
+.PP
+Definition at line 522 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGINTM::nAIO8RINTM"
+AIO8 Rising Edge mask (0: masked) 
+.br
+ 
+.PP
+Definition at line 526 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::nAIO8RINTM"
+AIO8 Rising Edge mask (0: masked) 
+.br
+ 
+.PP
+Definition at line 526 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGINTM::nAIO9FINTM"
+AIO9 Falling Edge mask (0: masked) 
+.br
+ 
+.PP
+Definition at line 523 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::nAIO9FINTM"
+AIO9 Falling Edge mask (0: masked) 
+.br
+ 
+.PP
+Definition at line 523 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t SIGINTM::nAIO9RINTM"
+AIO9 Rising Edge mask (0: masked) 
+.br
+ 
+.PP
+Definition at line 527 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::nAIO9RINTM"
+AIO9 Rising Edge mask (0: masked) 
+.br
+ 
+.PP
+Definition at line 527 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t PROTINTM::nHP10INTM"
+HPROT10 Interrupt Mask (active low) 
+.br
+ 
+.PP
+Definition at line 436 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::nHP10INTM"
+HPROT10 Interrupt Mask (active low) 
+.br
+ 
+.PP
+Definition at line 436 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t PROTINTM::nHP32INTM"
+HPROT32 Interrupt Mask (active low) 
+.br
+ 
+.PP
+Definition at line 437 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::nHP32INTM"
+HPROT32 Interrupt Mask (active low) 
+.br
+ 
+.PP
+Definition at line 437 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::nHP54INTM"
+HPROT54 Interrupt Mask (active low) 
+.br
+ 
+.PP
+Definition at line 438 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t PROTINTM::nHP54INTM"
+HPROT54 Interrupt Mask (active low) 
+.br
+ 
+.PP
+Definition at line 438 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t PROTINTM::nLP10INTM"
+LPROT10 Interrupt Mask (active low) 
+.br
+ 
+.PP
+Definition at line 432 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::nLP10INTM"
+LPROT10 Interrupt Mask (active low) 
+.br
+ 
+.PP
+Definition at line 432 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t PROTINTM::nLP32INTM"
+LPROT32 Interrupt Mask (active low) 
+.br
+ 
+.PP
+Definition at line 433 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::nLP32INTM"
+LPROT32 Interrupt Mask (active low) 
+.br
+ 
+.PP
+Definition at line 433 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::nLP54INTM"
+LPROT54 Interrupt Mask (active low) 
+.br
+ 
+.PP
+Definition at line 434 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t PROTINTM::nLP54INTM"
+LPROT54 Interrupt Mask (active low) 
+.br
+ 
+.PP
+Definition at line 434 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::OPT0"
+Option setting for AIO0 
+.br
+ 
+.PP
+Definition at line 264 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO0::OPT0"
+Option setting for AIO0 
+.br
+ 
+.PP
+Definition at line 264 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO1::OPT1"
+Option setting for AIO1 
+.br
+ 
+.PP
+Definition at line 276 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::OPT1"
+Option setting for AIO1 
+.br
+ 
+.PP
+Definition at line 276 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO2::OPT2"
+Option setting for AIO2 
+.br
+ 
+.PP
+Definition at line 288 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::OPT2"
+Option setting for AIO2 
+.br
+ 
+.PP
+Definition at line 288 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::OPT3"
+Option setting for AIO3 
+.br
+ 
+.PP
+Definition at line 300 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO3::OPT3"
+Option setting for AIO3 
+.br
+ 
+.PP
+Definition at line 300 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::OPT4"
+Option setting for AIO4 
+.br
+ 
+.PP
+Definition at line 312 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO4::OPT4"
+Option setting for AIO4 
+.br
+ 
+.PP
+Definition at line 312 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO5::OPT5"
+Option setting for AIO5 
+.br
+ 
+.PP
+Definition at line 324 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::OPT5"
+Option setting for AIO5 
+.br
+ 
+.PP
+Definition at line 324 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO6::OPT6"
+Option setting for AIO6 
+.br
+ 
+.PP
+Definition at line 336 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::OPT6"
+Option setting for AIO6 
+.br
+ 
+.PP
+Definition at line 336 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::OPT7"
+Option setting for AIO7 
+.br
+ 
+.PP
+Definition at line 348 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO7::OPT7"
+Option setting for AIO7 
+.br
+ 
+.PP
+Definition at line 348 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::OPT8"
+Option setting for AIO8 
+.br
+ 
+.PP
+Definition at line 360 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO8::OPT8"
+Option setting for AIO8 
+.br
+ 
+.PP
+Definition at line 360 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO9::OPT9"
+Option setting for AIO9 
+.br
+ 
+.PP
+Definition at line 372 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::OPT9"
+Option setting for AIO9 
+.br
+ 
+.PP
+Definition at line 372 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO0::POL0"
+Polarity setting for AIO0 
+.br
+ 
+.PP
+Definition at line 263 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::POL0"
+Polarity setting for AIO0 
+.br
+ 
+.PP
+Definition at line 263 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO1::POL1"
+Polarity setting for AIO1 
+.br
+ 
+.PP
+Definition at line 275 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::POL1"
+Polarity setting for AIO1 
+.br
+ 
+.PP
+Definition at line 275 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::POL2"
+Polarity setting for AIO2 
+.br
+ 
+.PP
+Definition at line 287 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO2::POL2"
+Polarity setting for AIO2 
+.br
+ 
+.PP
+Definition at line 287 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO3::POL3"
+Polarity setting for AIO3 
+.br
+ 
+.PP
+Definition at line 299 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::POL3"
+Polarity setting for AIO3 
+.br
+ 
+.PP
+Definition at line 299 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO4::POL4"
+Polarity setting for AIO4 
+.br
+ 
+.PP
+Definition at line 311 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::POL4"
+Polarity setting for AIO4 
+.br
+ 
+.PP
+Definition at line 311 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::POL5"
+Polarity setting for AIO5 
+.br
+ 
+.PP
+Definition at line 323 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO5::POL5"
+Polarity setting for AIO5 
+.br
+ 
+.PP
+Definition at line 323 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::POL6"
+Polarity setting for AIO6 
+.br
+ 
+.PP
+Definition at line 335 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO6::POL6"
+Polarity setting for AIO6 
+.br
+ 
+.PP
+Definition at line 335 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO7::POL7"
+Polarity setting for AIO7 
+.br
+ 
+.PP
+Definition at line 347 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::POL7"
+Polarity setting for AIO7 
+.br
+ 
+.PP
+Definition at line 347 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO8::POL8"
+Polarity setting for AIO8 
+.br
+ 
+.PP
+Definition at line 359 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::POL8"
+Polarity setting for AIO8 
+.br
+ 
+.PP
+Definition at line 359 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::POL9"
+Polarity setting for AIO9 
+.br
+ 
+.PP
+Definition at line 371 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t CFGAIO9::POL9"
+Polarity setting for AIO9 
+.br
+ 
+.PP
+Definition at line 371 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::VAL"
+DAC register lower two bits 
+.br
+ 
+.PP
+Definition at line 398 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t LPDAC1::VAL"
+DAC register lower two bits 
+.br
+ 
+.PP
+Definition at line 398 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "\fB__IO\fP uint8_t ADCIN1::VAL"
+Signal select for ADCIN when ENMUXCH = 0 
+.br
+ 
+.PP
+Definition at line 422 of file pac5xxx_tile_signal_manager\&.h\&.
+.SS "__IO { \&.\&.\&. } ::VAL"
+Signal select for ADCIN when ENMUXCH = 0 
+.br
+ 
+.PP
+Definition at line 422 of file pac5xxx_tile_signal_manager\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

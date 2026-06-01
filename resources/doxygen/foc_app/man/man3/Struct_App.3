@@ -1,0 +1,303 @@
+.TH "Struct_App" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Struct_App
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <app_struct\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBfix16_t\fP \fBdcbus_voltage\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBdescale_voltage_factor\fP"
+.br
+.ti -1c
+.RI "int32_t \fBdescale_voltage_factor_1div_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBdcbus_voltage_1div_q16\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBcoast_timeout_counter\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBsystick_counter\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBsystick_div_counter\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBdirection_reverse_flag\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBsystick_divider_cnt\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBspeed_scale_shift\fP"
+.br
+.ti -1c
+.RI "int32_t \fBv_scale_q16\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBmotor_enable_cmd\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBspeed_mode_flag\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBdirection_reverse_cmd\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBauto_close_loop_cmd\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBcoast_timeout_target\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBidrefcl_cmd_f16\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBiqrefcl_cmd_f16\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBflag_first_start\fP"
+.br
+.ti -1c
+.RI "int32_t \fBcurrent_limit\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBdescale_current_factor\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBmotor_led_ticks\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBmotor_ted_ticks\fP"
+.br
+.ti -1c
+.RI "unsigned char \fBiphase_amp_gain\fP"
+.br
+.ti -1c
+.RI "unsigned char \fBvphase_amp_gain\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBspeedrefcl_min\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBspeedrefcl_max\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBpowerrefcl_max\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBouterloop_scale_q0\fP"
+.br
+.ti -1c
+.RI "\fBq1p14_t\fP \fBvdrvsq_q14\fP"
+.br
+.ti -1c
+.RI "\fBq1p14_t\fP \fBvdrvsq_q14_peak\fP"
+.br
+.ti -1c
+.RI "\fBq1p14_t\fP \fBvdrvsq_q14_peak_stored\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBmotor_speed_peak\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBmotor_speed_peak_stored\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 24 of file app_struct\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t Struct_App::auto_close_loop_cmd"
+
+.PP
+Definition at line 43 of file app_struct\&.h\&.
+.PP
+Referenced by est_anglediff_check()\&.
+.SS "uint32_t Struct_App::coast_timeout_counter"
+
+.PP
+Definition at line 31 of file app_struct\&.h\&.
+.SS "uint32_t Struct_App::coast_timeout_target"
+
+.PP
+Definition at line 44 of file app_struct\&.h\&.
+.SS "int32_t Struct_App::current_limit"
+
+.PP
+Definition at line 50 of file app_struct\&.h\&.
+.PP
+Referenced by parameters_write_foc(), and systemvar_init()\&.
+.SS "\fBfix16_t\fP Struct_App::dcbus_voltage"
+
+.PP
+Definition at line 27 of file app_struct\&.h\&.
+.SS "int32_t Struct_App::dcbus_voltage_1div_q16"
+
+.PP
+Definition at line 30 of file app_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_App::descale_current_factor"
+
+.PP
+Definition at line 51 of file app_struct\&.h\&.
+.PP
+Referenced by init_over_current_limit(), lbg1_calculate_coefficients(), lbg1_reset(), and lbg1_statemon()\&.
+.SS "\fBfix16_t\fP Struct_App::descale_voltage_factor"
+
+.PP
+Definition at line 28 of file app_struct\&.h\&.
+.PP
+Referenced by lbg1_process_voltage_scale()\&.
+.SS "int32_t Struct_App::descale_voltage_factor_1div_q16"
+
+.PP
+Definition at line 29 of file app_struct\&.h\&.
+.SS "uint32_t Struct_App::direction_reverse_cmd"
+
+.PP
+Definition at line 42 of file app_struct\&.h\&.
+.PP
+Referenced by hall_reset(), motor_reset(), and qep_reset()\&.
+.SS "uint32_t Struct_App::direction_reverse_flag"
+
+.PP
+Definition at line 34 of file app_struct\&.h\&.
+.PP
+Referenced by motor_reset()\&.
+.SS "uint32_t Struct_App::flag_first_start"
+
+.PP
+Definition at line 47 of file app_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_App::idrefcl_cmd_f16"
+
+.PP
+Definition at line 45 of file app_struct\&.h\&.
+.PP
+Referenced by control_reset(), and sm_mainsub_prestart()\&.
+.SS "unsigned char Struct_App::iphase_amp_gain"
+
+.PP
+Definition at line 54 of file app_struct\&.h\&.
+.PP
+Referenced by init_over_current_limit(), and systemvar_init()\&.
+.SS "\fBfix16_t\fP Struct_App::iqrefcl_cmd_f16"
+
+.PP
+Definition at line 46 of file app_struct\&.h\&.
+.PP
+Referenced by control_reset(), and sm_mainsub_prestart()\&.
+.SS "uint32_t Struct_App::motor_enable_cmd"
+
+.PP
+Definition at line 40 of file app_struct\&.h\&.
+.PP
+Referenced by statemachine_appmain(), statemachine_buttoncontrol(), and systemvar_init()\&.
+.SS "uint16_t Struct_App::motor_led_ticks"
+
+.PP
+Definition at line 52 of file app_struct\&.h\&.
+.PP
+Referenced by systemvar_init()\&.
+.SS "\fBfix16_t\fP Struct_App::motor_speed_peak"
+
+.PP
+Definition at line 65 of file app_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_App::motor_speed_peak_stored"
+
+.PP
+Definition at line 66 of file app_struct\&.h\&.
+.SS "uint16_t Struct_App::motor_ted_ticks"
+
+.PP
+Definition at line 53 of file app_struct\&.h\&.
+.PP
+Referenced by systemvar_init()\&.
+.SS "uint32_t Struct_App::outerloop_scale_q0"
+
+.PP
+Definition at line 59 of file app_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_App::powerrefcl_max"
+
+.PP
+Definition at line 58 of file app_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_App::speed_mode_flag"
+
+.PP
+Definition at line 41 of file app_struct\&.h\&.
+.PP
+Referenced by sm_mainsub_prestart()\&.
+.SS "uint16_t Struct_App::speed_scale_shift"
+
+.PP
+Definition at line 36 of file app_struct\&.h\&.
+.PP
+Referenced by lbg1_calculate_coefficients()\&.
+.SS "\fBfix16_t\fP Struct_App::speedrefcl_max"
+
+.PP
+Definition at line 57 of file app_struct\&.h\&.
+.PP
+Referenced by app_param_process(), and est_anglediff_check()\&.
+.SS "\fBfix16_t\fP Struct_App::speedrefcl_min"
+
+.PP
+Definition at line 56 of file app_struct\&.h\&.
+.PP
+Referenced by app_param_process()\&.
+.SS "uint32_t Struct_App::systick_counter"
+
+.PP
+Definition at line 32 of file app_struct\&.h\&.
+.PP
+Referenced by systemvar_init(), and SysTick_Handler()\&.
+.SS "uint32_t Struct_App::systick_div_counter"
+
+.PP
+Definition at line 33 of file app_struct\&.h\&.
+.PP
+Referenced by est_anglediff_check(), and systemvar_init()\&.
+.SS "unsigned int Struct_App::systick_divider_cnt"
+
+.PP
+Definition at line 35 of file app_struct\&.h\&.
+.PP
+Referenced by systemvar_init()\&.
+.SS "int32_t Struct_App::v_scale_q16"
+
+.PP
+Definition at line 37 of file app_struct\&.h\&.
+.SS "\fBq1p14_t\fP Struct_App::vdrvsq_q14"
+
+.PP
+Definition at line 62 of file app_struct\&.h\&.
+.SS "\fBq1p14_t\fP Struct_App::vdrvsq_q14_peak"
+
+.PP
+Definition at line 63 of file app_struct\&.h\&.
+.PP
+Referenced by motor_reset()\&.
+.SS "\fBq1p14_t\fP Struct_App::vdrvsq_q14_peak_stored"
+
+.PP
+Definition at line 64 of file app_struct\&.h\&.
+.PP
+Referenced by motor_reset()\&.
+.SS "unsigned char Struct_App::vphase_amp_gain"
+
+.PP
+Definition at line 55 of file app_struct\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

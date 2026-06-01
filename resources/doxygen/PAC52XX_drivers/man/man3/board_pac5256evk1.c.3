@@ -1,0 +1,119 @@
+.TH "pac_foc/pac52xx/board/board_pac5256evk1.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/board/board_pac5256evk1.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'pac5xxx_tile_SignalManager\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_tile\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_adc\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinit_diff_amp_gain\fP (void)"
+.br
+.ti -1c
+.RI "void \fBconfig_seq_foc\fP (void)"
+.br
+.ti -1c
+.RI "void \fBinit_emux\fP (void)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void config_seq_foc (void)"
+
+.PP
+Definition at line 54 of file board_pac5256evk1\&.c\&.
+.PP
+.nf
+55 {
+56     unsigned char value;
+57 
+58     // Configure sequencers and ADC
+59     pac5xxx_adc_config(ADCCTL_ADSTART_AUTO_01_CHAIN_TRIG, ADCCTL_ADCDIV_DIV4, 1);           // Configure sequencers for AS0 chained triggers, /4 divider, repeat mode
+60 
+61     // AS0 configuration
+62     pac5xxx_adc_as0_config_pwm(ADCCTLX_AS1D_DEPTH3, ADCCTLX_TRIGEDGE_LOWTOHI, ADCCTLX_TRIGPWM_PWMA0);
+63     pac5xxx_adc_as0_sequence_config(0, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_AIO32 | SIGMGR_MSPI_SH_DIFFAMP, ASSEQ_DELAY_0);       // Convert M1-Iu, then change CAFE MUX to M1-Iv
+64     pac5xxx_adc_as0_sequence_config(1, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_AIO54 | SIGMGR_MSPI_SH_DIFFAMP, ASSEQ_DELAY_0);       // Convert M1-Iv, then change CAFE MUX to M1-Iw
+65     pac5xxx_adc_as0_sequence_config(2, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_AB11, ASSEQ_DELAY_0);                                 // Convert M1-Iw, then change CAFE MUX to Vout=AB11
+66     // AS1 configuration
+67     pac5xxx_adc_as1_config_pwm(ADCCTLX_AS1D_DEPTH2, ADCCTLX_TRIGEDGE_LOWTOHI, ADCCTLX_TRIGPWM_PWMA0);
+68     pac5xxx_adc_as1_sequence_config(0, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_AB11, ASSEQ_DELAY_0);                            // Convert Vout, then change CAFE MUX to M1-Iu
+69     pac5xxx_adc_as1_sequence_config(1, ADCCTL_ADMUX_AD2, ASSEQ_MSPI_AFTER_SH, SIGMGR_AIO10, ASSEQ_DELAY_0);
+70     // Configure Power Mux so AB11 = Vout(Vbus)
+71     value = pac5xxx_tile_register_read(ADDR_PWRCTL);
+72     value = (value & 0xC7) | (0x05 << 3);
+73     pac5xxx_tile_register_write(ADDR_PWRCTL, value);     // Select PWRMON Mux = Vbus
+74 }
+.fi
+.PP
+References ADCCTL_ADCDIV_DIV4, ADCCTL_ADMUX_AD0, ADCCTL_ADMUX_AD2, ADCCTL_ADSTART_AUTO_01_CHAIN_TRIG, ADCCTLX_AS1D_DEPTH2, ADCCTLX_AS1D_DEPTH3, ADCCTLX_TRIGEDGE_LOWTOHI, ADCCTLX_TRIGPWM_PWMA0, ASSEQ_DELAY_0, ASSEQ_MSPI_AFTER_SH, pac5xxx_adc_as0_config_pwm(), pac5xxx_adc_as0_sequence_config(), pac5xxx_adc_as1_config_pwm(), pac5xxx_adc_as1_sequence_config(), pac5xxx_adc_config(), pac5xxx_tile_register_read(), and pac5xxx_tile_register_write()\&.
+.SS "void init_diff_amp_gain (void)"
+
+.PP
+Definition at line 21 of file board_pac5256evk1\&.c\&.
+.PP
+.nf
+22 {
+23     Struct_Motor* motor_ptr = &motor;
+24 
+25     pac5xxx_tile_register_write(ADDR_CFGAIO0, ((((AIO50_MODE_DIFFAMP << 6) | (AIO50_GAIN_X1 << 3) | AIO50_LPCOMP_2US) & 0xC7) | (motor_ptr->app\&.iphase_amp_gain << 3)));
+26 #ifdef ENABLE_CBC_CURRENT_LIMIT
+27     pac5xxx_tile_register_write(ADDR_CFGAIO1, ((AIO50_HPROT_PR1 << 4) | (AIO50_LPROT_PR2 << 4) | (AIO50_OFFSET_ENABLED << 3) | AIO50_HPCOMP_1US));
+28 #else
+29     pac5xxx_tile_register_write(ADDR_CFGAIO1, ((AIO50_LPROT_PR2 << 4) | (AIO50_OFFSET_ENABLED << 3)));
+30 #endif    
+31 
+32     pac5xxx_tile_register_write(ADDR_CFGAIO2, ((((AIO50_MODE_DIFFAMP << 6) | (AIO50_GAIN_X1 << 3) | AIO50_LPCOMP_2US) & 0xC7) | (motor_ptr->app\&.iphase_amp_gain << 3)));
+33 #ifdef ENABLE_CBC_CURRENT_LIMIT    
+34     pac5xxx_tile_register_write(ADDR_CFGAIO3, ((AIO50_HPROT_PR1 << 4) | (AIO50_LPROT_PR2 << 4) | (AIO50_OFFSET_ENABLED << 3) | AIO50_HPCOMP_1US));
+35 #else    
+36     pac5xxx_tile_register_write(ADDR_CFGAIO3, ((AIO50_LPROT_PR2 << 4) | (AIO50_OFFSET_ENABLED << 3)));
+37 #endif    
+38 
+39     pac5xxx_tile_register_write(ADDR_CFGAIO4, ((((AIO50_MODE_DIFFAMP << 6) | (AIO50_GAIN_X1 << 3) | AIO50_LPCOMP_2US) & 0xC7) | (motor_ptr->app\&.iphase_amp_gain << 3)));
+40 #ifdef ENABLE_CBC_CURRENT_LIMIT     
+41     pac5xxx_tile_register_write(ADDR_CFGAIO5, ((AIO50_HPROT_PR1 << 4) | (AIO50_LPROT_PR2 << 4) | (AIO50_OFFSET_ENABLED << 3) | AIO50_HPCOMP_1US));
+42 #else    
+43     pac5xxx_tile_register_write(ADDR_CFGAIO5, ((AIO50_LPROT_PR2 << 4) | (AIO50_OFFSET_ENABLED << 3)));
+44 #endif    
+45 
+46     pac5xxx_tile_register_write(ADDR_CFGAIO6, ((AIO6789_MODE_IO << 6) | (AIO6789_OPT_INPUT << 4) | (AIO6789_POL_AH << 3) | AIO6789_MUX_DEFAULT));    // IO Mode
+47     //pac5xxx_tile_register_write(ADDR_CFGAIO6, ((AIO6789_MODE_GAIN << 6) | (AIO6789_GAIN_X1 << 3) | AIO6789_MUX_DEFAULT));                          // Gain Mode
+48 
+49     pac5xxx_tile_register_write(ADDR_CFGAIO7, ((((AIO6789_MODE_GAIN << 6) | (AIO6789_GAIN_X1 << 3) | AIO6789_MUX_DEFAULT) & 0xC7) | (motor_ptr->app\&.vphase_amp_gain << 3)));
+50     pac5xxx_tile_register_write(ADDR_CFGAIO8, ((((AIO6789_MODE_GAIN << 6) | (AIO6789_GAIN_X1 << 3) | AIO6789_MUX_DEFAULT) & 0xC7) | (motor_ptr->app\&.vphase_amp_gain << 3)));
+51     pac5xxx_tile_register_write(ADDR_CFGAIO9, ((((AIO6789_MODE_GAIN << 6) | (AIO6789_GAIN_X1 << 3) | AIO6789_MUX_DEFAULT) & 0xC7) | (motor_ptr->app\&.vphase_amp_gain << 3)));
+52 }
+.fi
+.PP
+References AIO50_GAIN_X1, AIO50_HPCOMP_1US, AIO50_HPROT_PR1, AIO50_LPCOMP_2US, AIO50_LPROT_PR2, AIO50_MODE_DIFFAMP, AIO50_OFFSET_ENABLED, AIO6789_GAIN_X1, AIO6789_MODE_GAIN, AIO6789_MODE_IO, AIO6789_MUX_DEFAULT, AIO6789_OPT_INPUT, AIO6789_POL_AH, and pac5xxx_tile_register_write()\&.
+.SS "void init_emux (void)"
+
+.PP
+Definition at line 156 of file board_pac5256evk1\&.c\&.
+.PP
+.nf
+157 {
+158     // Manually set ADC EMUX so that first sequencer conversion is correct
+159     PAC5XXX_ADC->EMUXCTL\&.EMUXC = 0;                     // Set EMUX to manual mode
+160     PAC5XXX_ADC->EMUXDATA\&.VAL = SIGMGR_AIO10;           // Set EMUX to AIO10
+161     PAC5XXX_ADC->EMUXCTL\&.EMUXC = 1;                     // Set EMUX to ADC DTSE mode
+162 }
+.fi
+.PP
+References PAC5XXX_ADC\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

@@ -1,0 +1,121 @@
+.TH "pac_foc/src/mpos/mpos_struct.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/mpos/mpos_struct.h \- Use for mpos enums and structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'config_app\&.h'\fP
+.br
+\fC#include 'lbg1_struct\&.h'\fP
+.br
+\fC#include 'aligngo_struct\&.h'\fP
+.br
+\fC#include 'hall_struct\&.h'\fP
+.br
+\fC#include 'qep_struct\&.h'\fP
+.br
+\fC#include 'startup_aligngo2est_struct\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBStruct_MPos\fP"
+.br
+.RI "mpos struct "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBeStateMPOS\fP { \fBSTATE_MPOS_IDLE\fP = 0, \fBSTATE_MPOS_ESTIMATED_ANGLE\fP, \fBSTATE_MPOS_ALIGNGO\fP, \fBSTATE_MPOS_TRANS_ALIGNGO2EST\fP, \fBSTATE_MPOS_HALL_ANGLE_INTERPOLATE\fP, \fBSTATE_MPOS_HALL2EST\fP, \fBSTATE_MPOS_EST2HALL\fP, \fBSTATE_MPOS_TRANS_SIM2EST\fP, \fBSTATE_MPOS_QEP\fP }"
+.br
+.RI "mpos enum "
+.ti -1c
+.RI "enum \fBeStateMPOSMode\fP { \fBSTATE_MPOSMODE_HALL\fP = 0, \fBSTATE_MPOSMODE_EST\fP, \fBSTATE_MPOSMODE_HALL2EST\fP, \fBSTATE_MPOSMODE_EST2HALL\fP }"
+.br
+.RI "mpos enum "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for mpos enums and structure\&. 
+
+
+.PP
+Definition in file \fBmpos_struct\&.h\fP\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBeStateMPOS\fP"
+
+.PP
+mpos enum 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISTATE_MPOS_IDLE \fP\fP
+.TP
+\fB\fISTATE_MPOS_ESTIMATED_ANGLE \fP\fP
+.TP
+\fB\fISTATE_MPOS_ALIGNGO \fP\fP
+.TP
+\fB\fISTATE_MPOS_TRANS_ALIGNGO2EST \fP\fP
+.TP
+\fB\fISTATE_MPOS_HALL_ANGLE_INTERPOLATE \fP\fP
+.TP
+\fB\fISTATE_MPOS_HALL2EST \fP\fP
+.TP
+\fB\fISTATE_MPOS_EST2HALL \fP\fP
+.TP
+\fB\fISTATE_MPOS_TRANS_SIM2EST \fP\fP
+.TP
+\fB\fISTATE_MPOS_QEP \fP\fP
+.PP
+Definition at line 53 of file mpos_struct\&.h\&.
+.PP
+.nf
+54 {
+55     STATE_MPOS_IDLE = 0,                    // 0: MPOS Idle
+56     STATE_MPOS_ESTIMATED_ANGLE,             // 1: Estimator Mode
+57     STATE_MPOS_ALIGNGO,                     // 2: Align&Go Mode
+58     STATE_MPOS_TRANS_ALIGNGO2EST,           // 3: State to transition from Align&GO to Estimator mode
+59     STATE_MPOS_HALL_ANGLE_INTERPOLATE,      // 4: Hall Sensor Mode
+60     STATE_MPOS_HALL2EST,                    // 5: State to transition from Hall mode to Estimator mode
+61     STATE_MPOS_EST2HALL,                    // 6: State to transition from Estimator mode to Hall mode
+62     STATE_MPOS_TRANS_SIM2EST,               // 7: State to transition from SIM to Estimator mode
+63     STATE_MPOS_QEP
+64 } eStateMPOS;
+.fi
+.SS "enum \fBeStateMPOSMode\fP"
+
+.PP
+mpos enum 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISTATE_MPOSMODE_HALL \fP\fP
+.TP
+\fB\fISTATE_MPOSMODE_EST \fP\fP
+.TP
+\fB\fISTATE_MPOSMODE_HALL2EST \fP\fP
+.TP
+\fB\fISTATE_MPOSMODE_EST2HALL \fP\fP
+.PP
+Definition at line 72 of file mpos_struct\&.h\&.
+.PP
+.nf
+73 {
+74     STATE_MPOSMODE_HALL = 0,                // 0:
+75     STATE_MPOSMODE_EST,                     // 1:
+76     STATE_MPOSMODE_HALL2EST,                // 2:
+77     STATE_MPOSMODE_EST2HALL                 // 3:
+78 } eStateMPOSMode;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

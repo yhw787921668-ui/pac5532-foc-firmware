@@ -1,0 +1,2036 @@
+.TH "PAC5XXX_SPI" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_SPI \- PAC5XXX SPI Controller (SPI)
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPAC5XXX_SPI_TypeDef\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBSPICFG_EarlyXmitDataPhase_Type\fP { \fBSPISCFG_TDAT_PH_NORMAL\fP = 0, \fBSPISCFG_TDAT_PH_HALF\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBSPISCFG_ClockPolarity_Type\fP { \fBSPISCFG_SCLK_ACTHIGH\fP = 0, \fBSPISCFG_SCLK_ACTLOW\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBSPISCFG_ClockPhase_Type\fP { \fBSPISCFG_SMP_SETUP\fP = 0, \fBSPISCFG_SETUP_SMP\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBSPISCFG_WordLength_Type\fP { \fBSPISCFG_WL_8B\fP = 0, \fBSPISCFG_WL_16B\fP = 1, \fBSPISCFG_WL_24B\fP = 2, \fBSPISCFG_WL_32B\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBSPISTAT_State_Type\fP { \fBSPISTAT_CURSTATE_IDLE\fP = 0, \fBSPISTAT_CURSTATE_CSSETUP\fP = 1, \fBSPISTAT_CURSTATE_TRANSFER\fP = 2, \fBSPISTAT_CURSTATE_CSHOLD\fP = 3, \fBSPISTAT_CURSTATE_CSWAIT\fP = 4, \fBSPISTAT_CURSTATE_CKWAIT\fP = 5, \fBSPISTAT_CURSTATE_MTRANS\fP = 6, \fBSPISTAT_CURSTATE_CSBEGIN\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBSPICS_ChipSelectPolarity_Type\fP { \fBSPICS_CS_ACTLOW\fP = 0, \fBSPICS_CS_ACTHIGH\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBSPICS_ChipSelectNumber_Type\fP { \fBSPICS_SELECT_CS0\fP, \fBSPICS_SELECT_CS1\fP, \fBSPICS_SELECT_CS2\fP, \fBSPICS_SELECT_CS3\fP }"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::SSEN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::SIE\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::LPBK\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::SE\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::MTRARM\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::MTRANS\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::MMST_N\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::RTRANS\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad1__\fP: 23"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::SSEN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::SIE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::LPBK\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::SE\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::MTRARM\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::MTRANS\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::MMST_N\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::RTRANS\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad1__\fP: 23"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::SSEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::SIE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::LPBK\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::SE\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::MTRARM\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::MTRANS\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::MMST_N\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::RTRANS\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad1__\fP: 23"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_SPI_TypeDef::SPICTL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::WL\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::MRST\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::LB1ST\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CP\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CPH\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::RCVCP\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::RCVCPH\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::TDAT_PH\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::TXDBUF\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::MTURBO\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad1__\fP: 20"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::WL\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::MRST\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::LB1ST\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CP\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CPH\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::RCVCP\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::RCVCPH\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::TDAT_PH\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::TXDBUF\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::MTURBO\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad1__\fP: 20"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::WL\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::MRST\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::LB1ST\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CP\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CPH\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::RCVCP\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::RCVCPH\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::TDAT_PH\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::TXDBUF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::MTURBO\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad1__\fP: 20"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_SPI_TypeDef::SPICFG\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::VAL\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::VAL\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_SPI_TypeDef::SPICLKDIV\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::RESERVED10\fP [2]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_SPI_TypeDef::SPI_INT\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::RDOFL\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::LE\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::UCLK\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CYC_DONE\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::TE\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::WRUFL\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_SPI_TypeDef::TXFULL\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_SPI_TypeDef::RXFULL\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad2__\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CURSTATE\fP: 2"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad3__\fP: 18"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_SPI_TypeDef::SPI_INT\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::RDOFL\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::LE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::UCLK\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CYC_DONE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::TE\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::WRUFL\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_SPI_TypeDef::TXFULL\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_SPI_TypeDef::RXFULL\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad2__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CURSTATE\fP: 2"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad3__\fP: 18"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_SPI_TypeDef::SPI_INT\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::RDOFL\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::LE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::UCLK\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CYC_DONE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::TE\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::WRUFL\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_SPI_TypeDef::TXFULL\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_SPI_TypeDef::RXFULL\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad2__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CURSTATE\fP: 2"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad3__\fP: 18"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_SPI_TypeDef::SPISTAT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CSNUM\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CSL\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 5"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CSSETUP\fP: 4"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CSHOLD\fP: 4"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CSWAIT\fP: 4"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CKWAIT\fP: 4"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad1__\fP: 8"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CSNUM\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CSL\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 5"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CSSETUP\fP: 4"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CSHOLD\fP: 4"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CSWAIT\fP: 4"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CKWAIT\fP: 4"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad1__\fP: 8"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CSNUM\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CSL\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CSSETUP\fP: 4"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CSHOLD\fP: 4"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CSWAIT\fP: 4"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CKWAIT\fP: 4"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad1__\fP: 8"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_SPI_TypeDef::SPICCSTR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_SPI_TypeDef::SPID\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::RDOFL_EN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::LE_EN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::UCLK_EN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CYC_DONE_EN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::TE_EN\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::WRUFL_EN\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SPI_TypeDef::__pad2__\fP: 23"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::RDOFL_EN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::LE_EN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::UCLK_EN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CYC_DONE_EN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::TE_EN\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::WRUFL_EN\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SPI_TypeDef::__pad2__\fP: 23"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::RDOFL_EN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::LE_EN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::UCLK_EN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::CYC_DONE_EN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::TE_EN\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SPI_TypeDef::WRUFL_EN\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SPI_TypeDef::__pad2__\fP: 23"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_SPI_TypeDef::SPIINT_EN\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBSPICFG_EarlyXmitDataPhase_Type\fP"
+SPI Data Phase Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISPISCFG_TDAT_PH_NORMAL \fP\fP
+Normal transmit data phase, transitions are on edge of SCLK 
+.br
+ 
+.TP
+\fB\fISPISCFG_TDAT_PH_HALF \fP\fP
+Transitions occur 1/2 period sooner than normal 
+.br
+ 
+.PP
+Definition at line 27 of file pac5xxx_SPI\&.h\&.
+.PP
+.nf
+27              {
+28     SPISCFG_TDAT_PH_NORMAL = 0,                
+29     SPISCFG_TDAT_PH_HALF = 1                   
+30 } SPICFG_EarlyXmitDataPhase_Type;
+.fi
+.SS "enum \fBSPICS_ChipSelectNumber_Type\fP"
+Chip Select Number Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISPICS_SELECT_CS0 \fP\fP
+Chip Select slave SPIxCS0 
+.br
+ 
+.TP
+\fB\fISPICS_SELECT_CS1 \fP\fP
+Chip Select slave SPIxCS1 
+.br
+ 
+.TP
+\fB\fISPICS_SELECT_CS2 \fP\fP
+Chip Select slave SPIxCS2 
+.br
+ 
+.TP
+\fB\fISPICS_SELECT_CS3 \fP\fP
+Chip Select slave SPIxCS3 
+.br
+ 
+.PP
+Definition at line 71 of file pac5xxx_SPI\&.h\&.
+.PP
+.nf
+71              {
+72   SPICS_SELECT_CS0,                          
+73     SPICS_SELECT_CS1,                          
+74     SPICS_SELECT_CS2,                          
+75     SPICS_SELECT_CS3                           
+76 } SPICS_ChipSelectNumber_Type;
+.fi
+.SS "enum \fBSPICS_ChipSelectPolarity_Type\fP"
+Chip Select Polarity Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISPICS_CS_ACTLOW \fP\fP
+Chip Select polarity active low 
+.br
+ 
+.TP
+\fB\fISPICS_CS_ACTHIGH \fP\fP
+Chip Select polarity active high 
+.br
+ 
+.PP
+Definition at line 65 of file pac5xxx_SPI\&.h\&.
+.PP
+.nf
+65              {
+66     SPICS_CS_ACTLOW = 0,                       
+67     SPICS_CS_ACTHIGH = 1                       
+68 } SPICS_ChipSelectPolarity_Type;
+.fi
+.SS "enum \fBSPISCFG_ClockPhase_Type\fP"
+SPI Clock Phase Config Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISPISCFG_SMP_SETUP \fP\fP
+First clock transition is used to sample data 
+.br
+ 
+.TP
+\fB\fISPISCFG_SETUP_SMP \fP\fP
+Second clock transition is used to sample data 
+.br
+ 
+.PP
+Definition at line 39 of file pac5xxx_SPI\&.h\&.
+.PP
+.nf
+39              {
+40     SPISCFG_SMP_SETUP = 0,                     
+41     SPISCFG_SETUP_SMP = 1                      
+42 } SPISCFG_ClockPhase_Type;
+.fi
+.SS "enum \fBSPISCFG_ClockPolarity_Type\fP"
+SPI Clock Polarity Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISPISCFG_SCLK_ACTHIGH \fP\fP
+Clock polarity is active high 
+.br
+ 
+.TP
+\fB\fISPISCFG_SCLK_ACTLOW \fP\fP
+Clock polarity is active low 
+.br
+ 
+.PP
+Definition at line 33 of file pac5xxx_SPI\&.h\&.
+.PP
+.nf
+33              {
+34     SPISCFG_SCLK_ACTHIGH = 0,                  
+35       SPISCFG_SCLK_ACTLOW = 1                    
+36 } SPISCFG_ClockPolarity_Type;
+.fi
+.SS "enum \fBSPISCFG_WordLength_Type\fP"
+SPI Word Length Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISPISCFG_WL_8B \fP\fP
+Word Length Select: 8b 
+.br
+ 
+.TP
+\fB\fISPISCFG_WL_16B \fP\fP
+Word Length Select: 16b 
+.br
+ 
+.TP
+\fB\fISPISCFG_WL_24B \fP\fP
+Word Length Select: 24b 
+.br
+ 
+.TP
+\fB\fISPISCFG_WL_32B \fP\fP
+Word Length Select: 32b 
+.br
+ 
+.PP
+Definition at line 45 of file pac5xxx_SPI\&.h\&.
+.PP
+.nf
+45              {
+46     SPISCFG_WL_8B  = 0,                        
+47     SPISCFG_WL_16B = 1,                        
+48     SPISCFG_WL_24B = 2,                        
+49     SPISCFG_WL_32B = 3                         
+50 } SPISCFG_WordLength_Type;
+.fi
+.SS "enum \fBSPISTAT_State_Type\fP"
+SPI Status State Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISPISTAT_CURSTATE_IDLE \fP\fP
+SPI State: Idle 
+.br
+ 
+.TP
+\fB\fISPISTAT_CURSTATE_CSSETUP \fP\fP
+SPI State: Chip Select Setup 
+.br
+ 
+.TP
+\fB\fISPISTAT_CURSTATE_TRANSFER \fP\fP
+SPI State: Transfer Data 
+.br
+ 
+.TP
+\fB\fISPISTAT_CURSTATE_CSHOLD \fP\fP
+SPI State: Chip Select Hold 
+.br
+ 
+.TP
+\fB\fISPISTAT_CURSTATE_CSWAIT \fP\fP
+SPI State: Chip Select Wait 
+.br
+ 
+.TP
+\fB\fISPISTAT_CURSTATE_CKWAIT \fP\fP
+SPI State: Clock Wait 
+.br
+ 
+.TP
+\fB\fISPISTAT_CURSTATE_MTRANS \fP\fP
+SPI State: Master Transfer 
+.br
+ 
+.TP
+\fB\fISPISTAT_CURSTATE_CSBEGIN \fP\fP
+SPI State: Chip Select begin 
+.br
+ 
+.PP
+Definition at line 53 of file pac5xxx_SPI\&.h\&.
+.PP
+.nf
+53              {
+54     SPISTAT_CURSTATE_IDLE = 0,                 
+55     SPISTAT_CURSTATE_CSSETUP = 1,              
+56     SPISTAT_CURSTATE_TRANSFER = 2,             
+57     SPISTAT_CURSTATE_CSHOLD = 3,               
+58     SPISTAT_CURSTATE_CSWAIT = 4,               
+59     SPISTAT_CURSTATE_CKWAIT = 5,               
+60     SPISTAT_CURSTATE_MTRANS = 6,               
+61     SPISTAT_CURSTATE_CSBEGIN = 7               
+62 } SPISTAT_State_Type;
+.fi
+.SH "Variable Documentation"
+.PP 
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "uint32_t PAC5XXX_SPI_TypeDef::__pad0__"
+Must write as 0 
+.br
+ 
+.PP
+Definition at line 85 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 85 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 89 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+Must write as 0 
+.br
+ 
+.PP
+Definition at line 96 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 110 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 114 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+Must write as 0 
+.br
+ 
+.PP
+Definition at line 124 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 135 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 145 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 149 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 153 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 174 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 178 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 183 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 197 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 201 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 210 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 214 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 217 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t PAC5XXX_SPI_TypeDef::__pad1__"
+
+.PP
+Definition at line 101 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 101 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 128 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 159 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 188 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 223 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad2__"
+
+.PP
+Definition at line 163 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t PAC5XXX_SPI_TypeDef::__pad2__"
+
+.PP
+Definition at line 163 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad2__"
+
+.PP
+Definition at line 225 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad3__"
+
+.PP
+Definition at line 165 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t PAC5XXX_SPI_TypeDef::__pad3__"
+
+.PP
+Definition at line 165 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 88 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::b"
+
+.PP
+Definition at line 88 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 113 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 148 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 177 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 200 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 213 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::CKWAIT"
+SPI Clock Wait 
+.br
+ 
+.PP
+Definition at line 187 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CKWAIT"
+SPI Clock Wait 
+.br
+ 
+.PP
+Definition at line 187 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::CP"
+Master Mode Clock Polarity 
+.br
+ 
+.PP
+Definition at line 120 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CP"
+Master Mode Clock Polarity 
+.br
+ 
+.PP
+Definition at line 120 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CPH"
+Master Mode Clock Phase 
+.br
+ 
+.PP
+Definition at line 121 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::CPH"
+Master Mode Clock Phase 
+.br
+ 
+.PP
+Definition at line 121 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::CSHOLD"
+Chip Select Hold 
+.br
+ 
+.PP
+Definition at line 185 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CSHOLD"
+Chip Select Hold 
+.br
+ 
+.PP
+Definition at line 185 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::CSL"
+Chip Select Active Level Select 
+.br
+ 
+.PP
+Definition at line 182 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CSL"
+Chip Select Active Level Select 
+.br
+ 
+.PP
+Definition at line 182 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::CSNUM"
+Chip Select Number 
+.br
+ 
+.PP
+Definition at line 181 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CSNUM"
+Chip Select Number 
+.br
+ 
+.PP
+Definition at line 181 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CSSETUP"
+Chip Select Setup 
+.br
+ 
+.PP
+Definition at line 184 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::CSSETUP"
+Chip Select Setup 
+.br
+ 
+.PP
+Definition at line 184 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CSWAIT"
+Chip Select Wait 
+.br
+ 
+.PP
+Definition at line 186 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::CSWAIT"
+Chip Select Wait 
+.br
+ 
+.PP
+Definition at line 186 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_SPI_TypeDef::CURSTATE"
+Raw Status of the SPI Master State Machine's 'current_state' reg 
+.br
+ 
+.PP
+Definition at line 164 of file pac5xxx_SPI\&.h\&.
+.SS "__I { \&.\&.\&. } ::CURSTATE"
+Raw Status of the SPI Master State Machine's 'current_state' reg 
+.br
+ 
+.PP
+Definition at line 164 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::CYC_DONE"
+Cycle Done 
+.br
+ 
+.PP
+Definition at line 157 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CYC_DONE"
+Cycle Done 
+.br
+ 
+.PP
+Definition at line 157 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::CYC_DONE_EN"
+Enable SPIxSTAT:CYC_DONE Interrupt 
+.br
+ 
+.PP
+Definition at line 221 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CYC_DONE_EN"
+Enable SPIxSTAT:CYC_DONE Interrupt 
+.br
+ 
+.PP
+Definition at line 221 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::LB1ST"
+LSB First 
+.br
+ 
+.PP
+Definition at line 119 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LB1ST"
+LSB First 
+.br
+ 
+.PP
+Definition at line 119 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::LE"
+Chip Select Leading Edge Detect 
+.br
+ 
+.PP
+Definition at line 155 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LE"
+Chip Select Leading Edge Detect 
+.br
+ 
+.PP
+Definition at line 155 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::LE_EN"
+Enable SPIxSTAT:LE Interrupt 
+.br
+ 
+.PP
+Definition at line 219 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LE_EN"
+Enable SPIxSTAT:LE Interrupt 
+.br
+ 
+.PP
+Definition at line 219 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::LPBK"
+Internal Loopback Mode 
+.br
+ 
+.PP
+Definition at line 94 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LPBK"
+Internal Loopback Mode 
+.br
+ 
+.PP
+Definition at line 94 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::MMST_N"
+Multi-master mode 
+.br
+ 
+.PP
+Definition at line 99 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MMST_N"
+Multi-master mode 
+.br
+ 
+.PP
+Definition at line 99 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::MRST"
+Module Reset 
+.br
+ 
+.PP
+Definition at line 118 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MRST"
+Module Reset 
+.br
+ 
+.PP
+Definition at line 118 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::MTRANS"
+Multiple-transfer mode 
+.br
+ 
+.PP
+Definition at line 98 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MTRANS"
+Multiple-transfer mode 
+.br
+ 
+.PP
+Definition at line 98 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::MTRARM"
+MTRANS re-arm 
+.br
+ 
+.PP
+Definition at line 97 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MTRARM"
+MTRANS re-arm 
+.br
+ 
+.PP
+Definition at line 97 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::MTURBO"
+Master turbo mode (2x/clk) 
+.br
+ 
+.PP
+Definition at line 127 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MTURBO"
+Master turbo mode (2x/clk) 
+.br
+ 
+.PP
+Definition at line 127 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::RCVCP"
+Slave Mode Clock Polarity 
+.br
+ 
+.PP
+Definition at line 122 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::RCVCP"
+Slave Mode Clock Polarity 
+.br
+ 
+.PP
+Definition at line 122 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::RCVCPH"
+Slave Mode Clock Phase 
+.br
+ 
+.PP
+Definition at line 123 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::RCVCPH"
+Slave Mode Clock Phase 
+.br
+ 
+.PP
+Definition at line 123 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::RDOFL"
+Read Buffer Overflow 
+.br
+ 
+.PP
+Definition at line 154 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::RDOFL"
+Read Buffer Overflow 
+.br
+ 
+.PP
+Definition at line 154 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::RDOFL_EN"
+Enable SPIxSTAT:FDOFL Interrupt 
+.br
+ 
+.PP
+Definition at line 218 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::RDOFL_EN"
+Enable SPIxSTAT:FDOFL Interrupt 
+.br
+ 
+.PP
+Definition at line 218 of file pac5xxx_SPI\&.h\&.
+.SS "uint32_t PAC5XXX_SPI_TypeDef::RESERVED10[2]"
+SPISTAT: Offset: 0x0014 SPI Status Register 
+.br
+ 
+.PP
+Definition at line 138 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::RTRANS"
+Auto-retransmit on SCLK error 
+.br
+ 
+.PP
+Definition at line 100 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::RTRANS"
+Auto-retransmit on SCLK error 
+.br
+ 
+.PP
+Definition at line 100 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_SPI_TypeDef::RXFULL"
+Raw indicator that the receiving incoming holding reg is full 
+.br
+ 
+.PP
+Definition at line 162 of file pac5xxx_SPI\&.h\&.
+.SS "__I { \&.\&.\&. } ::RXFULL"
+Raw indicator that the receiving incoming holding reg is full 
+.br
+ 
+.PP
+Definition at line 162 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 84 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::s"
+
+.PP
+Definition at line 84 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 109 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 144 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 173 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 196 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 209 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::SE"
+Slave enable 
+.br
+ 
+.PP
+Definition at line 95 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SE"
+Slave enable 
+.br
+ 
+.PP
+Definition at line 95 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SIE"
+SPI Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 93 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::SIE"
+SPI Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 93 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_SPI_TypeDef::SPI_INT"
+SPI Interrupt 
+.br
+ 
+.PP
+Definition at line 152 of file pac5xxx_SPI\&.h\&.
+.SS "__I { \&.\&.\&. } ::SPI_INT"
+SPI Interrupt 
+.br
+ 
+.PP
+Definition at line 152 of file pac5xxx_SPI\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_SPI_TypeDef::SPICCSTR"
+SPID: Offset: 0x001C SPI Data Register 
+.br
+ 
+.SS "union { \&.\&.\&. }  PAC5XXX_SPI_TypeDef::SPICFG"
+SPICLKDIV: Offset: 0x0008 SPI Input Clock Divisor Register 
+.br
+ 
+.SS "struct { \&.\&.\&. }  PAC5XXX_SPI_TypeDef::SPICLKDIV"
+
+.SS "union { \&.\&.\&. }  PAC5XXX_SPI_TypeDef::SPICTL"
+< SPICTL: Offset: 0x0000 SPI Control Register 
+.br
+ SPICFG: Offset: 0x0004 SPI Configuration Register 
+.br
+ 
+.SS "union { \&.\&.\&. }  PAC5XXX_SPI_TypeDef::SPID"
+SPIINT_EN: Offset: 0x0020 SPI Interrupt Enable Register 
+.br
+ 
+.SS "union { \&.\&.\&. }  PAC5XXX_SPI_TypeDef::SPIINT_EN"
+
+.SS "union { \&.\&.\&. }  PAC5XXX_SPI_TypeDef::SPISTAT"
+SPICSSTR: Offset: 0x0018 SPI CS Steering Register 
+.br
+ 
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::SSEN"
+SPI System Enable 
+.br
+ 
+.PP
+Definition at line 92 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SSEN"
+SPI System Enable 
+.br
+ 
+.PP
+Definition at line 92 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::TDAT_PH"
+Early Transmit Data Phase 
+.br
+ 
+.PP
+Definition at line 125 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::TDAT_PH"
+Early Transmit Data Phase 
+.br
+ 
+.PP
+Definition at line 125 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::TE"
+Chip Select Trailing Edge Detect 
+.br
+ 
+.PP
+Definition at line 158 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::TE"
+Chip Select Trailing Edge Detect 
+.br
+ 
+.PP
+Definition at line 158 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::TE_EN"
+Enable SPIxSTAT:TE Interrupt 
+.br
+ 
+.PP
+Definition at line 222 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::TE_EN"
+Enable SPIxSTAT:TE Interrupt 
+.br
+ 
+.PP
+Definition at line 222 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::TXDBUF"
+Transmit data double-buffer 
+.br
+ 
+.PP
+Definition at line 126 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::TXDBUF"
+Transmit data double-buffer 
+.br
+ 
+.PP
+Definition at line 126 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_SPI_TypeDef::TXFULL"
+Raw indicator that the transmit outgoing register is still in use 
+.PP
+Definition at line 161 of file pac5xxx_SPI\&.h\&.
+.SS "__I { \&.\&.\&. } ::TXFULL"
+Raw indicator that the transmit outgoing register is still in use 
+.PP
+Definition at line 161 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::UCLK"
+Under-clock condition 
+.br
+ 
+.PP
+Definition at line 156 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::UCLK"
+Under-clock condition 
+.br
+ 
+.PP
+Definition at line 156 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::UCLK_EN"
+Enable SPIxSTAT:UCLK Interrupt 
+.br
+ 
+.PP
+Definition at line 220 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::UCLK_EN"
+Enable SPIxSTAT:UCLK Interrupt 
+.br
+ 
+.PP
+Definition at line 220 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::VAL"
+Clock divisor for master-mode SPIxSCLK 
+.br
+ 
+.PP
+Definition at line 134 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::VAL"
+Clock divisor for master-mode SPIxSCLK 
+.br
+ 
+.PP
+Definition at line 134 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 82 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::w"
+
+.PP
+Definition at line 82 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 107 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 142 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 171 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 194 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 207 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::WL"
+Word Length Select 
+.br
+ 
+.PP
+Definition at line 117 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::WL"
+Word Length Select 
+.br
+ 
+.PP
+Definition at line 117 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::WRUFL"
+Write Buffer underflow 
+.br
+ 
+.PP
+Definition at line 160 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::WRUFL"
+Write Buffer underflow 
+.br
+ 
+.PP
+Definition at line 160 of file pac5xxx_SPI\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SPI_TypeDef::WRUFL_EN"
+Enable SPIxSTAT:WRUFL Interrupt 
+.br
+ 
+.PP
+Definition at line 224 of file pac5xxx_SPI\&.h\&.
+.SS "__IO { \&.\&.\&. } ::WRUFL_EN"
+Enable SPIxSTAT:WRUFL Interrupt 
+.br
+ 
+.PP
+Definition at line 224 of file pac5xxx_SPI\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

@@ -1,0 +1,829 @@
+.TH "PAC55XX_CAN_TYPEDEF" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC55XX_CAN_TYPEDEF
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pac5xxx_can\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBISR_SR_CMR_MR\fP"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBb\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBAFM\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBLOM\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBRM\fP: 1"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 5"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBMR\fP"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBb\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad1__\fP: 16"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBAT\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBTR\fP: 1"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad2__\fP: 5"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad3__\fP: 16"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBCMR\fP"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBb\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad1__\fP: 8"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBBS\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBES\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBTS\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBRS\fP: 1"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBTBS\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBDSO\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBRBS\fP: 1"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad2__\fP: 8"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBSR\fP"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBb\fP: 8"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBDOI\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBBEI\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBTI\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBRI\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBEPI\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBEWI\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBALI\fP: 1"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBISR\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBBTR1_BTR0_RMC_IMR\fP"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBb\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBDOIM\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBBEIM\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBTIM\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBRIM\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBEPIM\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBEWIM\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBALIM\fP: 1"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBIMR\fP"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBb\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad1__\fP: 16"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBRMC\fP: 5"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad1__\fP: 3"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad2__\fP: 16"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBRMC\fP"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBb\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad1__\fP: 8"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBBRP\fP: 6"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBSJW\fP: 2"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad1__\fP: 8"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBBTR0\fP"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBb\fP: 8"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBTSEG1\fP: 4"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBTSEG2\fP: 3"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBSAM\fP: 1"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBBTR1\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTXBUF\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBRXBUF\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBACR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBAMR\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBALC_TXERR_RXERR_ECC\fP"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBb\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBBER\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBSTFER\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBCRCER\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBFRMER\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBACKER\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBEDIR\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBTXWRN\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBRXWRN\fP: 1"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBECC\fP"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBb\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad1__\fP: 16"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBCANRXERR\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad1__\fP: 16"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBRXERR\fP"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBb\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad1__\fP: 8"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBCANTXERR\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad1__\fP: 8"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBTXERR\fP"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBb\fP: 8"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBCANALC\fP: 5"
+.br
+.ti -1c
+.RI "         uint32_t \fB__pad1__\fP: 3"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBALC\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 85 of file pac5xxx_can\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "union { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+
+.SS "uint32_t PAC55XX_CAN_TYPEDEF::__pad0__"
+
+.PP
+Definition at line 97 of file pac5xxx_can\&.h\&.
+.SS "uint32_t PAC55XX_CAN_TYPEDEF::__pad1__"
+
+.PP
+Definition at line 104 of file pac5xxx_can\&.h\&.
+.SS "uint32_t PAC55XX_CAN_TYPEDEF::__pad2__"
+
+.PP
+Definition at line 121 of file pac5xxx_can\&.h\&.
+.SS "uint32_t PAC55XX_CAN_TYPEDEF::__pad3__"
+
+.PP
+Definition at line 122 of file pac5xxx_can\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::ACKER"
+
+.PP
+Definition at line 271 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::ACR"
+
+.PP
+Definition at line 249 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::AFM"
+
+.PP
+Definition at line 100 of file pac5xxx_can\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_CAN_TYPEDEF::ALC"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::ALC_TXERR_RXERR_ECC"
+
+.PP
+Definition at line 257 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::ALI"
+
+.PP
+Definition at line 163 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::ALIM"
+
+.PP
+Definition at line 188 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::AMR"
+
+.PP
+Definition at line 252 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::AT"
+
+.PP
+Definition at line 119 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::b"
+
+.PP
+Definition at line 96 of file pac5xxx_can\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::b"
+
+.PP
+Definition at line 131 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::BEI"
+
+.PP
+Definition at line 158 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::BEIM"
+
+.PP
+Definition at line 183 of file pac5xxx_can\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::BER"
+
+.PP
+Definition at line 267 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::BRP"
+
+.PP
+Definition at line 220 of file pac5xxx_can\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::BS"
+
+.PP
+Definition at line 136 of file pac5xxx_can\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_CAN_TYPEDEF::BTR0"
+
+.SS "union { \&.\&.\&. }  PAC55XX_CAN_TYPEDEF::BTR1"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::BTR1_BTR0_RMC_IMR"
+
+.PP
+Definition at line 172 of file pac5xxx_can\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::CANALC"
+
+.PP
+Definition at line 318 of file pac5xxx_can\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::CANRXERR"
+
+.PP
+Definition at line 289 of file pac5xxx_can\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::CANTXERR"
+
+.PP
+Definition at line 304 of file pac5xxx_can\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_CAN_TYPEDEF::CMR"
+
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::CRCER"
+
+.PP
+Definition at line 269 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::DOI"
+
+.PP
+Definition at line 157 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::DOIM"
+
+.PP
+Definition at line 182 of file pac5xxx_can\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::DSO"
+
+.PP
+Definition at line 142 of file pac5xxx_can\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_CAN_TYPEDEF::ECC"
+
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::EDIR"
+
+.PP
+Definition at line 272 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::EPI"
+
+.PP
+Definition at line 161 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::EPIM"
+
+.PP
+Definition at line 186 of file pac5xxx_can\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::ES"
+
+.PP
+Definition at line 137 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::EWI"
+
+.PP
+Definition at line 162 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::EWIM"
+
+.PP
+Definition at line 187 of file pac5xxx_can\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::FRMER"
+
+.PP
+Definition at line 270 of file pac5xxx_can\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_CAN_TYPEDEF::IMR"
+
+.SS "union { \&.\&.\&. }  PAC55XX_CAN_TYPEDEF::ISR"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::ISR_SR_CMR_MR"
+
+.PP
+Definition at line 90 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::LOM"
+
+.PP
+Definition at line 101 of file pac5xxx_can\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_CAN_TYPEDEF::MR"
+
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::RBS"
+
+.PP
+Definition at line 143 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::RI"
+
+.PP
+Definition at line 160 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::RIM"
+
+.PP
+Definition at line 185 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::RM"
+
+.PP
+Definition at line 102 of file pac5xxx_can\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::RMC"
+
+.PP
+Definition at line 204 of file pac5xxx_can\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_CAN_TYPEDEF::RMC"
+
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::RS"
+
+.PP
+Definition at line 139 of file pac5xxx_can\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::RXBUF"
+
+.PP
+Definition at line 246 of file pac5xxx_can\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_CAN_TYPEDEF::RXERR"
+
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::RXWRN"
+
+.PP
+Definition at line 274 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::SAM"
+
+.PP
+Definition at line 237 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::SJW"
+
+.PP
+Definition at line 221 of file pac5xxx_can\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_CAN_TYPEDEF::SR"
+
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::STFER"
+
+.PP
+Definition at line 268 of file pac5xxx_can\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::TBS"
+
+.PP
+Definition at line 141 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::TI"
+
+.PP
+Definition at line 159 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::TIM"
+
+.PP
+Definition at line 184 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::TR"
+
+.PP
+Definition at line 120 of file pac5xxx_can\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::TS"
+
+.PP
+Definition at line 138 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::TSEG1"
+
+.PP
+Definition at line 235 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::TSEG2"
+
+.PP
+Definition at line 236 of file pac5xxx_can\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CAN_TYPEDEF::TXBUF"
+
+.PP
+Definition at line 243 of file pac5xxx_can\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_CAN_TYPEDEF::TXERR"
+
+.SS "\fB__I\fP uint32_t PAC55XX_CAN_TYPEDEF::TXWRN"
+
+.PP
+Definition at line 273 of file pac5xxx_can\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

@@ -1,0 +1,155 @@
+.TH "pac_foc/src/mpos/estimator/anglediff.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/mpos/estimator/anglediff.h \- Use to check for angle difference between open loop and est angle and est speed thrd\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'config_app\&.h'\fP
+.br
+\fC#include 'config_features\&.h'\fP
+.br
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'anglediff_lib\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBest_anglediff_check\fP (\fBStruct_Motor\fP *motor_ptr, int32_t ref_angle, int32_t check_angle, int32_t ref_speed_radps, int32_t check_speed_radps)"
+.br
+.RI "Use to do angle and speed difference check of est and open loop angle\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use to check for angle difference between open loop and est angle and est speed thrd\&. 
+
+
+.PP
+Definition in file \fBanglediff\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void est_anglediff_check (\fBStruct_Motor\fP * motor_ptr, int32_t ref_angle, int32_t check_angle, int32_t ref_speed_radps, int32_t check_speed_radps)"
+
+.PP
+Use to do angle and speed difference check of est and open loop angle\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.br
+\fIint32_t\fP ref_angle 
+.br
+\fIint32_t\fP check_angle 
+.br
+\fIint32_t\fP ref_speed_radps 
+.br
+\fIint32_t\fP check_speed_radps 
+.RE
+.PP
+
+.PP
+Definition at line 35 of file anglediff\&.c\&.
+.PP
+.nf
+36 {
+37 #ifdef ENABLE_ANGLEDIFF_SPEED_CHECK
+38 
+39     fix16_t ol_cl_speed_difference;
+40     static unsigned long int angle_speed_error_last_sample_time_value = 0;
+41     int32_t angle_diff_abs_q12;
+42 
+43     // Check for overflow
+44     if (motor_ptr->app\&.systick_div_counter < angle_speed_error_last_sample_time_value)
+45         angle_speed_error_last_sample_time_value = motor_ptr->app\&.systick_div_counter;
+46 
+47     if ((motor_ptr->app\&.systick_div_counter - angle_speed_error_last_sample_time_value) >= 1)
+48     {
+49         angle_speed_error_last_sample_time_value = motor_ptr->app\&.systick_div_counter;
+50 
+51         // Check speed difference between open loop speed and close loop feedback speed
+52         ol_cl_speed_difference = ref_speed_radps - check_speed_radps;
+53         // If difference is negative convert it to positive
+54         if (ol_cl_speed_difference < 0)
+55             ol_cl_speed_difference = -ol_cl_speed_difference;
+56 
+57         // Open loop frequency ramp finish
+58         fix16_t temp_angle_diff_stall_q12 = (ref_angle - check_angle) >> 4;
+59         // Convert difference between ideal and estimated angle to q12 format
+60         if (temp_angle_diff_stall_q12 > (FIX16_PI >> 4))
+61             temp_angle_diff_stall_q12 -= (FIX16_2PI >> 4);
+62         else if (temp_angle_diff_stall_q12 < ((-FIX16_PI) >> 4))
+63             temp_angle_diff_stall_q12 += (FIX16_2PI >> 4);
+64 
+65 #ifdef ENABLE_OLSPEED_ANGLEDIFF_TIMEOUT
+66        if (motor_ptr->app\&.auto_close_loop_cmd)
+67        {
+68             if (motor_ptr->mpos\&.est\&.angle_diff_timeout_counter++ >= ANGLEDIFF_TIMEOUT_COUNT)
+69             {
+70                 set_fault(FAULT_SPDANGLDIF_TIMEOUT);            // Set motor stall status
+71                 motor_ptr->mpos\&.est\&.angle_diff_timeout_counter = 0;
+72             }
+73         }
+74         else
+75             motor_ptr->mpos\&.est\&.angle_diff_timeout_counter = 0;
+76 #endif
+77         //  If speed error between open loop speed and feedback speed is less then or equal 12\&.5 %
+78        if (ol_cl_speed_difference >= fix16_mul(ANGLEDIFF_SPEED_ERROR_PCT_Q16, motor_ptr->app\&.speedrefcl_max))       // q16
+79         {
+80             // This flag tells that it's a right time to switch from open loop to close loop by check angle difference and speed
+81             motor_ptr->mpos\&.est\&.switchover_check_pass = 0;
+82             set_warning(WARNING_SPDDIF);                    // Set motor stall status
+83         }
+84         else    // Come here when open loop and estimated speed is in within error band
+85         {
+86             clear_warning(WARNING_SPDDIF);                    // Set motor stall status
+87 
+88             angle_diff_abs_q12 = temp_angle_diff_stall_q12;
+89 
+90             // Convert into positive number if it's a negative for compare purpose
+91             if (angle_diff_abs_q12 < 0)
+92                 angle_diff_abs_q12 = -angle_diff_abs_q12;
+93 
+94             // If error difference between ideal and estimated angle is more then 22\&.5 degrees
+95             // Check angle error between ideal and estimated in q12 format, check is angle difference is +ve, Pi in rad converted into Q12 before compare
+96 #ifdef ENABLE_ANGLEDIFF_AUTORANGE
+97             if ((angle_diff_abs_q12 <= ANGLEDIFF_ANGLE_ERROR_DEG_Q12) && (temp_angle_diff_stall_q12 < 0))     // 22\&.5 degrees
+98 #else
+99             if (angle_diff_abs_q12 <= ANGLEDIFF_ANGLE_ERROR_DEG_Q12)     // 22\&.5 degrees
+100 #endif
+101             {
+102                 clear_warning(WARNING_ANGLDIF);              // Clear Set motor stall status
+103                 motor_ptr->mpos\&.est\&.switchover_check_pass = 1;
+104             }
+105             else
+106             {
+107                 set_warning(WARNING_ANGLDIF);                // Set motor stall status
+108                 motor_ptr->mpos\&.est\&.switchover_check_pass = 0;
+109                 // Run auto angle difference calculation to calculate required Iq form given I_total current */
+110 #ifdef ENABLE_ANGLEDIFF_AUTORANGE
+111                 if (motor_ptr->app\&.auto_close_loop_cmd)
+112                 {
+113 #if (MODULE_MPOS_ALIGNGO == ENABLED)
+114                     minimize_anglediff((temp_angle_diff_stall_q12 << 4), &motor_ptr->startup\&.aligngo\&.idrefol_target_q16, motor_ptr->startup\&.aligngo\&.itotrefol_target_q16,
+115                     motor_ptr->startup\&.aligngo\&.itotrefol_target_q16, motor_ptr->foc\&.idref_ramp_f16, QCONST(ANGLEDIFF_AUTORANGE_INC_METHOD1_PCT, Q10));
+116 #elif (MODULE_MPOS_HALL == ENABLED)
+117 #endif
+118                 }
+119 #endif
+120             }
+121         }
+122     }
+123 #else   //#ifdef ENABLE_ANGLEDIFF_SPEED_CHECK
+124     motor_ptr->mpos\&.est\&.switchover_check_pass = 1;
+125 #endif  //#ifdef ENABLE_ANGLEDIFF_SPEED_CHECK
+126 }
+.fi
+.PP
+References Struct_StartupAlignGo::aligngo, Struct_Est::angle_diff_timeout_counter, ANGLEDIFF_ANGLE_ERROR_DEG_Q12, ANGLEDIFF_AUTORANGE_INC_METHOD1_PCT, ANGLEDIFF_SPEED_ERROR_PCT_Q16, ANGLEDIFF_TIMEOUT_COUNT, Struct_Motor::app, Struct_App::auto_close_loop_cmd, clear_warning(), Struct_MPos::est, FAULT_SPDANGLDIF_TIMEOUT, FIX16_2PI, fix16_mul(), FIX16_PI, Struct_Motor::foc, Struct_FOC::idref_ramp_f16, Struct_AlignGo::idrefol_target_q16, Struct_AlignGo::itotrefol_target_q16, minimize_anglediff(), Struct_Motor::mpos, Q10, QCONST, set_fault(), set_warning(), Struct_App::speedrefcl_max, Struct_Motor::startup, Struct_Est::switchover_check_pass, Struct_App::systick_div_counter, WARNING_ANGLDIF, and WARNING_SPDDIF\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

@@ -1,0 +1,84 @@
+.TH "pac_foc/src/math/sqrt.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/math/sqrt.h \- Square root function declarations\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'maths\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSQRT_ITER\fP   2"
+.br
+.ti -1c
+.RI "#define \fBK1_Q14\fP   \fBQCONST\fP(1\&.1033f, \fBQ14\fP)"
+.br
+.ti -1c
+.RI "#define \fBK2_Q14\fP   \fBQCONST\fP(0\&.6666f, \fBQ14\fP)"
+.br
+.ti -1c
+.RI "#define \fBK3_Q14\fP   \fBQCONST\fP(1\&.5f, \fBQ14\fP)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_RAMFUNC int32_t \fBsqrt_q14\fP (int32_t input_q14)"
+.br
+.RI "Calculate the square root of the given number\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Square root function declarations\&. 
+
+
+.PP
+Definition in file \fBsqrt\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define K1_Q14   \fBQCONST\fP(1\&.1033f, \fBQ14\fP)"
+
+.PP
+Definition at line 27 of file sqrt\&.h\&.
+.SS "#define K2_Q14   \fBQCONST\fP(0\&.6666f, \fBQ14\fP)"
+
+.PP
+Definition at line 28 of file sqrt\&.h\&.
+.SS "#define K3_Q14   \fBQCONST\fP(1\&.5f, \fBQ14\fP)"
+
+.PP
+Definition at line 29 of file sqrt\&.h\&.
+.SS "#define SQRT_ITER   2"
+
+.PP
+Definition at line 26 of file sqrt\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "PAC5XXX_RAMFUNC int32_t sqrt_q14 (int32_t input_q14)"
+
+.PP
+Calculate the square root of the given number\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinput_q14\fP input number in Q14 format 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+square root 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

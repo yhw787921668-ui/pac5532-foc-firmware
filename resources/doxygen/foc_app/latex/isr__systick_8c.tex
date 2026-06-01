@@ -1,0 +1,169 @@
+\hypertarget{isr__systick_8c}{}\doxysection{pac\+\_\+foc/src/isr/isr\+\_\+systick.c File Reference}
+\label{isr__systick_8c}\index{pac\_foc/src/isr/isr\_systick.c@{pac\_foc/src/isr/isr\_systick.c}}
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}app\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}dcbus\+\_\+check.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}speed\+\_\+check.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parameter\+\_\+process.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}control\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mpos\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vbus\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}satmon.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ppm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stack\+\_\+check.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+watchdog.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}overmod\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}push\+\_\+button.\+h\char`\"{}}\newline
+Include dependency graph for isr\+\_\+systick.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{isr__systick_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{isr__systick_8c_ab5e09814056d617c521549e542639b7e}{Sys\+Tick\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Process interrupt for Sys\+Tick\+\_\+\+Handler to run non critical F\+OC functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{isr__systick_8c_ab5e09814056d617c521549e542639b7e}\label{isr__systick_8c_ab5e09814056d617c521549e542639b7e}} 
+\index{isr\_systick.c@{isr\_systick.c}!SysTick\_Handler@{SysTick\_Handler}}
+\index{SysTick\_Handler@{SysTick\_Handler}!isr\_systick.c@{isr\_systick.c}}
+\doxysubsubsection{\texorpdfstring{SysTick\_Handler()}{SysTick\_Handler()}}
+{\footnotesize\ttfamily void Sys\+Tick\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Process interrupt for Sys\+Tick\+\_\+\+Handler to run non critical F\+OC functions. 
+
+
+
+Definition at line 77 of file isr\+\_\+systick.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{78 \{}
+\DoxyCodeLine{79     \textcolor{keyword}{static} \mbox{\hyperlink{struct_struct___motor}{Struct\_Motor}}* motor\_ptr = \&\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}};}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     \textcolor{comment}{// Increment systick counter}}
+\DoxyCodeLine{82     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a277764d812710517042c2ba07e4882b8}{systick\_counter}}++;}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_LBG1 == ENABLED)}}
+\DoxyCodeLine{85     \mbox{\hyperlink{lbg1__funcs_8c_aa6a5e3e8d5e1879b15d0028f4d38e67f}{lbg1\_statemon}}(motor\_ptr);}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#if (COMMSEL\_PPM == TRUE)}}
+\DoxyCodeLine{89     ppm\_convert\_pulse\_width\_into\_speed(\&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}}, \&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a712d2444c74ca85833716c0109b1c043}{outerloop\_target}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}}, motor\_ptr);}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#ifdef ENABLE\_STALL\_DETECT}}
+\DoxyCodeLine{93     \textcolor{comment}{// Filter speed and speec command for stall detection}}
+\DoxyCodeLine{94 \textcolor{comment}{//    stall\_detect\_filter(\&motor\_ptr-\/>stall, motor\_ptr-\/>control.outerloop\_ramp\_scaled\_q14, motor\_ptr-\/>control.outerloop\_fdbk\_scaled\_q14);}}
+\DoxyCodeLine{95     \mbox{\hyperlink{stalldet__funcs_8h_a179fea104398b328d6b0f07b95789d17}{stall\_detect\_filter}}(\&motor\_ptr-\/>stall, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a2c409428c9a6acab71ab6c2eaed47235}{iqref\_ramp\_q14}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_aac13dc1df85d1fa7446946462ed4182f}{iq\_q14}});}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#ifndef DISABLE\_AUTOVDC}}
+\DoxyCodeLine{99     \textcolor{comment}{// Sample bus voltage}}
+\DoxyCodeLine{100     \mbox{\hyperlink{vbus__funcs_8c_ae6124558347e63e47b823ddffe430e1d}{sample\_dcbus}}(motor\_ptr);}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_LBG1 == ENABLED)}}
+\DoxyCodeLine{102     \mbox{\hyperlink{lbg1__funcs_8c_a3692c7eed1b878d4d9f052532429b3ac}{lbg1\_process\_voltage\_scale}}(motor\_ptr);}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106 \textcolor{preprocessor}{\#if !defined(DISABLE\_AUTOVDC) \&\& defined(ENABLE\_DCBUS\_MIN\_MAX\_CHECK)}}
+\DoxyCodeLine{107     \textcolor{comment}{// Check Min/Max Bus Voltage}}
+\DoxyCodeLine{108     \mbox{\hyperlink{dcbus__check_8h_a0375349fd3d640f85046cbc268642836}{check\_dcbus\_fault}}(motor\_ptr);}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \textcolor{comment}{// Operations done at the divided systick frequency}}
+\DoxyCodeLine{112     \textcolor{keywordflow}{if} (++motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a2fa673e3839d6c739f33df980d037f1a}{systick\_divider\_cnt}} >= \mbox{\hyperlink{config__app_8h_a3f6a8d44f4f00c3b1d363dd9c2cdadc0}{SYSTICK\_HANDLER\_DIVIDER}})}
+\DoxyCodeLine{113     \{}
+\DoxyCodeLine{114         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a2fa673e3839d6c739f33df980d037f1a}{systick\_divider\_cnt}} = 0;}
+\DoxyCodeLine{115         ++motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a7a238eb6e649df9d0e5ef3e883c4fc3a}{systick\_div\_counter}};}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117         \textcolor{comment}{// Check for voltage vector saturation}}
+\DoxyCodeLine{118         \mbox{\hyperlink{satmon_8c_af25fd63699dec9acf516565749bb5a1a}{check\_pwm\_sat}}(motor\_ptr);}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120 \textcolor{preprocessor}{        \#if (ENABLE\_WATCHDOG == TRUE)}}
+\DoxyCodeLine{121         \textcolor{comment}{// WDT Refresh}}
+\DoxyCodeLine{122         pac5xxx\_watchdog\_reset();}
+\DoxyCodeLine{123 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125 \textcolor{preprocessor}{        \#if (ENABLE\_STACK\_CHECK == TRUE)}}
+\DoxyCodeLine{126         \textcolor{comment}{// Test stack over and under flow}}
+\DoxyCodeLine{127         \mbox{\hyperlink{stack__check_8c_a0ab8da269b13547895da031b6f09300a}{stack\_test}}();}
+\DoxyCodeLine{128 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 \textcolor{preprocessor}{        \#if (MODULATION\_SELECT == MODULATION\_SVM\_OVERMOD)}}
+\DoxyCodeLine{131         \mbox{\hyperlink{overmod__funcs_8c_a973bd866fea1b335a077cb37d236ffef}{check\_overmod\_status}}(motor\_ptr);}
+\DoxyCodeLine{132 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 \textcolor{preprocessor}{        \#ifdef ENABLE\_CLSPEED\_MIN\_MAX\_CHECK}}
+\DoxyCodeLine{135         \textcolor{comment}{// Check Min/Max Closed-\/Loop Speed}}
+\DoxyCodeLine{136         \mbox{\hyperlink{speed__check_8h_a8d15c544afc951d0667c35e0049c8073}{check\_speedlimitcl\_fault}}(motor\_ptr);}
+\DoxyCodeLine{137 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139 \textcolor{preprocessor}{        \#ifdef ENABLE\_FIELD\_WEAKENING}}
+\DoxyCodeLine{140         \textcolor{comment}{// Field Weakening}}
+\DoxyCodeLine{141         fw\_controller(motor\_ptr);}
+\DoxyCodeLine{142 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 \textcolor{preprocessor}{        \#if defined(ENABLE\_POWERMEASURE) \&\& (POWER\_MEASURE\_SELECT == POWER\_MEASURE\_METHOD\_2) \&\& defined(ENABLE\_LCORR\_VBUS)}}
+\DoxyCodeLine{145         \textcolor{comment}{// Power measurement compensation coefficient calculation}}
+\DoxyCodeLine{146         \mbox{\hyperlink{control__power2__funcs_8h_aefb4ba879892c724d43f0afcff4c16af}{power\_compensation\_coefficient\_calc}}(motor\_ptr);}
+\DoxyCodeLine{147 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 \textcolor{preprocessor}{        \#if defined(ENABLE\_STALL\_DETECT)}}
+\DoxyCodeLine{150         \textcolor{comment}{// Stall Detection}}
+\DoxyCodeLine{151         \mbox{\hyperlink{app__funcs_8h_a0e6e817ce0dd0d03768ac101578b95c9}{store\_peak\_speed\_vdrive\_value}}(motor\_ptr);}
+\DoxyCodeLine{152         \mbox{\hyperlink{stalldet__funcs_8h_ac3c5e4a282cd5dc14c307e6796d93906}{stall\_detect\_process}}(motor\_ptr);}
+\DoxyCodeLine{153 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155 \textcolor{preprocessor}{        \#ifdef ENABLE\_OPD\_CL}}
+\DoxyCodeLine{156         \textcolor{comment}{// Closed-\/Loop Open Phase Detection}}
+\DoxyCodeLine{157         check\_opdcl\_fault(motor\_ptr);}
+\DoxyCodeLine{158 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160 \textcolor{preprocessor}{        \#ifdef ENABLE\_CLSPEED\_LIMIT\_CHANGE\_CHECK}}
+\DoxyCodeLine{161         check\_speedlimitcl\_need\_to\_change(motor\_ptr);}
+\DoxyCodeLine{162 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164         \textcolor{comment}{// Periodic PI gain converter}}
+\DoxyCodeLine{165         \mbox{\hyperlink{pid_8c_a176d8fc72495c984e363ee961d699607}{picon\_convert\_gain}}(\&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_ad17bb837caae66cbb412809f6ba20ff5}{Id\_pid}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_afc7224469e53f1be293f573436f699fe}{descale\_current\_factor}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a2c46acd0a4c3dfdf3149d046f64e97ef}{v\_scale\_q16}});}
+\DoxyCodeLine{166         \mbox{\hyperlink{pid_8c_a176d8fc72495c984e363ee961d699607}{picon\_convert\_gain}}(\&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a61517e1b8a9490a4fb3dfd60e891eb41}{Iq\_pid}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_afc7224469e53f1be293f573436f699fe}{descale\_current\_factor}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a2c46acd0a4c3dfdf3149d046f64e97ef}{v\_scale\_q16}});}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168 \textcolor{preprocessor}{        \#if defined(ENABLE\_AUTOTUNE\_MID)}}
+\DoxyCodeLine{169         \textcolor{comment}{// Process AT systick ISR operations}}
+\DoxyCodeLine{170         mid2\_process\_systick(motor\_ptr);}
+\DoxyCodeLine{171 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173 \textcolor{preprocessor}{        \#if (COMMSEL\_PUSH\_BUTTON == TRUE)}}
+\DoxyCodeLine{174         \mbox{\hyperlink{push__button_8c_aa224eb0952002dbb12071b5850d07160}{statemachine\_buttoncontrol}}();}
+\DoxyCodeLine{175 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177 \textcolor{preprocessor}{        \#if defined(ENABLE\_TEMPREAD)}}
+\DoxyCodeLine{178         temp\_read();}
+\DoxyCodeLine{179 \textcolor{preprocessor}{        \#endif}}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181         \textcolor{comment}{// Main State Machine}}
+\DoxyCodeLine{182         \mbox{\hyperlink{app__funcs_8h_ae589086ca39572e911834f79c8a810cd}{statemachine\_appmain}}();}
+\DoxyCodeLine{183     \}}
+\DoxyCodeLine{184 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::app, lbg1\+\_\+statemon(), motor, and Struct\+\_\+\+App\+::systick\+\_\+counter.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{isr__systick_8c_ab5e09814056d617c521549e542639b7e_cgraph}
+\end{center}
+\end{figure}

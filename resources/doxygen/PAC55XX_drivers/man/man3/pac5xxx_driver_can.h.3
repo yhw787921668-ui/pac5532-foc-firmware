@@ -1,0 +1,62 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/driver/pac5xxx_driver_can.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/driver/pac5xxx_driver_can.h \- Driver functions for the PAC5XXX CAN Peripheral\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_config\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_CAN\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCAN_Filter_Type\fP { \fBCAN_FILTER_DUAL\fP = 0, \fBCAN_FILTER_SINGLE\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBCAN_BusSample_Type\fP { \fBCAN_SAMPLE_1\fP = 0, \fBCAN_SAMPLE_3\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBCAN_FrameFormat_Type\fP { \fBCAN_FRAME_STANDARD\fP = 0, \fBCAN_FRAME_EXTENDED\fP = 1 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_CAN\fP void \fBpac5xxx_can_bus_timing_configure\fP (uint8_t brp, uint8_t sjw, uint8_t tseg1, uint8_t tseg2, \fBCAN_BusSample_Type\fP sample)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_CAN\fP void \fBpac5xxx_can_io_config\fP (void)"
+.br
+.RI "This function configures IO for use with the CAN peripheral\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Driver functions for the PAC5XXX CAN Peripheral\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_driver_can\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

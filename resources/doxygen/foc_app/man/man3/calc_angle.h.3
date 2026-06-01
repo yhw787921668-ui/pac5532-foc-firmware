@@ -1,0 +1,60 @@
+.TH "pac_foc/src/math/calc_angle.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/math/calc_angle.h \- Definitions for angle calculation\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'maths\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBcalculate_angle\fP (int32_t Ealpha, int32_t Ebeta, \fBfix16_t\fP *calculated_angle)"
+.br
+.RI "Calculates the angle based on alpha and beta parameters\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const uint16_t \fBfoc_atan_tbl\fP []"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definitions for angle calculation\&. 
+
+
+.PP
+Definition in file \fBcalc_angle\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "PAC5XXX_RAMFUNC void calculate_angle (int32_t Ealpha, int32_t Ebeta, \fBfix16_t\fP * calculated_angle)"
+
+.PP
+Calculates the angle based on alpha and beta parameters\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIEalpha\fP Estimated alpha 
+.br
+\fIEbeta\fP Estimated beta 
+.RE
+.PP
+
+.SH "Variable Documentation"
+.PP 
+.SS "const uint16_t foc_atan_tbl[]\fC [extern]\fP"
+
+.PP
+Referenced by trig_arctan_90deg_q16()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

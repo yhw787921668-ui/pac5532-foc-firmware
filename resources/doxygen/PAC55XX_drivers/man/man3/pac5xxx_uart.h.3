@@ -1,0 +1,258 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_uart.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_uart.h \- CMSIS Cortex-M Header File for the PAC55XX UART Controller\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPAC55XX_UART_TYPEDEF\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBUART_TYPE\fP { \fBUARTA\fP = 0, \fBUARTB\fP = 1, \fBUARTC\fP = 2, \fBUARTD\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBUART_INTERUPT_ENABLE_TYPE\fP { \fBUART_INT_DISABLE\fP = 0, \fBUART_INT_ENABLE\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBUARTIIR_INTID_TYPE\fP { \fBUARTIIR_INTID_TX_HOLD_EMPTY\fP = 1, \fBUARTIIR_INTID_RX_DATA_AVAIL\fP = 2, \fBUARTIIR_INTID_RX_LINE_STATUS\fP = 3, \fBUARTIIR_INTID_FIFO_TIMEOUT\fP = 6 }"
+.br
+.ti -1c
+.RI "enum \fBUARTFCR_FIFO_DEPTH_TYPE\fP { \fBUARTFCR_TL_1B\fP = 0, \fBUARTFCR_TL_4B\fP = 1, \fBUARTFCR_TL_8B\fP = 2, \fBUARTFCR_TL_14B\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBUARTLCR_WL_TYPE\fP { \fBUARTLCR_WL_BPC_5\fP = 0, \fBUARTLCR_WL_BPC_6\fP = 1, \fBUARTLCR_WL_BPC_7\fP = 2, \fBUARTLCR_WL_BPC_8\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBUART_BREAKCONTROL_TYPE\fP { \fBUART_BRKCTL_DISABLE\fP = 0, \fBUART_BRKCTL_FORCE_0\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBUART_PARITY_TYPE\fP { \fBUART_PARITY_ODD\fP = 0, \fBUART_PARITY_EVEN\fP = 1, \fBUART_PARITY_FORCE_STICK_1\fP = 2, \fBUART_PARITY_FORCE_STICK_0\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBUART_PEN_TYPE\fP { \fBUART_PEN_DISABLE\fP = 0, \fBUART_PEN_ENABLE\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBUART_STOPBITS_TYPE\fP { \fBUART_STOP_BITS_1\fP = 0, \fBUART_STOP_BITS_2\fP = 1 }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CMSIS Cortex-M Header File for the PAC55XX UART Controller\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2017-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_uart\&.h\fP\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBUART_BREAKCONTROL_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUART_BRKCTL_DISABLE \fP\fP
+.TP
+\fB\fIUART_BRKCTL_FORCE_0 \fP\fP
+.PP
+Definition at line 60 of file pac5xxx_uart\&.h\&.
+.PP
+.nf
+60              {
+61     UART_BRKCTL_DISABLE =   0,                  // Disable break transmission
+62     UART_BRKCTL_FORCE_0 =   1                   // Force UARTxTXD to logic 0
+63 } UART_BREAKCONTROL_TYPE;
+.fi
+.SS "enum \fBUART_INTERUPT_ENABLE_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUART_INT_DISABLE \fP\fP
+.TP
+\fB\fIUART_INT_ENABLE \fP\fP
+.PP
+Definition at line 30 of file pac5xxx_uart\&.h\&.
+.PP
+.nf
+30              {
+31     UART_INT_DISABLE =   0,
+32     UART_INT_ENABLE  =   1
+33 } UART_INTERUPT_ENABLE_TYPE;
+.fi
+.SS "enum \fBUART_PARITY_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUART_PARITY_ODD \fP\fP
+.TP
+\fB\fIUART_PARITY_EVEN \fP\fP
+.TP
+\fB\fIUART_PARITY_FORCE_STICK_1 \fP\fP
+.TP
+\fB\fIUART_PARITY_FORCE_STICK_0 \fP\fP
+.PP
+Definition at line 66 of file pac5xxx_uart\&.h\&.
+.PP
+.nf
+66              {
+67     UART_PARITY_ODD           = 0,              // ODD parity
+68     UART_PARITY_EVEN          = 1,              // EVEN parity
+69     UART_PARITY_FORCE_STICK_1 = 2,              // Forced 1 stick parity
+70     UART_PARITY_FORCE_STICK_0 = 3               // Forced 0 stick parity
+71 } UART_PARITY_TYPE;
+.fi
+.SS "enum \fBUART_PEN_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUART_PEN_DISABLE \fP\fP
+.TP
+\fB\fIUART_PEN_ENABLE \fP\fP
+.PP
+Definition at line 74 of file pac5xxx_uart\&.h\&.
+.PP
+.nf
+74              {
+75     UART_PEN_DISABLE = 0,                       // Disable parity generation and checking
+76     UART_PEN_ENABLE  = 1                        // Enable parity generation and checking
+77 } UART_PEN_TYPE;
+.fi
+.SS "enum \fBUART_STOPBITS_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUART_STOP_BITS_1 \fP\fP
+.TP
+\fB\fIUART_STOP_BITS_2 \fP\fP
+.PP
+Definition at line 80 of file pac5xxx_uart\&.h\&.
+.PP
+.nf
+80              {
+81     UART_STOP_BITS_1 = 0,                       // 1 stop bits
+82     UART_STOP_BITS_2 = 1                        // 2 stop bits
+83 } UART_STOPBITS_TYPE;
+.fi
+.SS "enum \fBUART_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUARTA \fP\fP
+.TP
+\fB\fIUARTB \fP\fP
+.TP
+\fB\fIUARTC \fP\fP
+.TP
+\fB\fIUARTD \fP\fP
+.PP
+Definition at line 22 of file pac5xxx_uart\&.h\&.
+.PP
+.nf
+22              {
+23     UARTA =   0,
+24     UARTB =   1,
+25     UARTC =   2,
+26     UARTD =   3
+27 } UART_TYPE;
+.fi
+.SS "enum \fBUARTFCR_FIFO_DEPTH_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUARTFCR_TL_1B \fP\fP
+.TP
+\fB\fIUARTFCR_TL_4B \fP\fP
+.TP
+\fB\fIUARTFCR_TL_8B \fP\fP
+.TP
+\fB\fIUARTFCR_TL_14B \fP\fP
+.PP
+Definition at line 44 of file pac5xxx_uart\&.h\&.
+.PP
+.nf
+44              {
+45     UARTFCR_TL_1B  = 0,                         // 1 character
+46     UARTFCR_TL_4B  = 1,                         // 4 characters
+47     UARTFCR_TL_8B  = 2,                         // 8 character
+48     UARTFCR_TL_14B = 3                          // 14 characters
+49 } UARTFCR_FIFO_DEPTH_TYPE;
+.fi
+.SS "enum \fBUARTIIR_INTID_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUARTIIR_INTID_TX_HOLD_EMPTY \fP\fP
+.TP
+\fB\fIUARTIIR_INTID_RX_DATA_AVAIL \fP\fP
+.TP
+\fB\fIUARTIIR_INTID_RX_LINE_STATUS \fP\fP
+.TP
+\fB\fIUARTIIR_INTID_FIFO_TIMEOUT \fP\fP
+.PP
+Definition at line 36 of file pac5xxx_uart\&.h\&.
+.PP
+.nf
+36              {
+37     UARTIIR_INTID_TX_HOLD_EMPTY     = 1,        // TX Holding Register Empty
+38     UARTIIR_INTID_RX_DATA_AVAIL     = 2,        // Receive Data Available
+39     UARTIIR_INTID_RX_LINE_STATUS    = 3,        // Receive Line Status
+40     UARTIIR_INTID_FIFO_TIMEOUT      = 6         // Receive FIFO Character time-out
+41 } UARTIIR_INTID_TYPE;
+.fi
+.SS "enum \fBUARTLCR_WL_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUARTLCR_WL_BPC_5 \fP\fP
+.TP
+\fB\fIUARTLCR_WL_BPC_6 \fP\fP
+.TP
+\fB\fIUARTLCR_WL_BPC_7 \fP\fP
+.TP
+\fB\fIUARTLCR_WL_BPC_8 \fP\fP
+.PP
+Definition at line 52 of file pac5xxx_uart\&.h\&.
+.PP
+.nf
+52              {
+53     UARTLCR_WL_BPC_5 = 0,                       // 5 bits per character
+54     UARTLCR_WL_BPC_6 = 1,                       // 6 bits per character
+55     UARTLCR_WL_BPC_7 = 2,                       // 7 bits per character
+56     UARTLCR_WL_BPC_8 = 3                        // 8 bits per character
+57 } UARTLCR_WL_TYPE;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

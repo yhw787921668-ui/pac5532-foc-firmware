@@ -1,0 +1,115 @@
+\hypertarget{checksum_8c}{}\doxysection{pac\+\_\+foc/src/features/flash\+\_\+crc\+\_\+test/checksum.c File Reference}
+\label{checksum_8c}\index{pac\_foc/src/features/flash\_crc\_test/checksum.c@{pac\_foc/src/features/flash\_crc\_test/checksum.c}}
+{\ttfamily \#include \char`\"{}config\+\_\+features.\+h\char`\"{}}\newline
+Include dependency graph for checksum.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{checksum_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned short \mbox{\hyperlink{checksum_8c_ac4ad3e38652e0fcc2b43d536c035d0ef}{crc16\+\_\+table\+\_\+256}} (unsigned short sum, unsigned char $\ast$p, unsigned int len, unsigned short $\ast$p\+\_\+crc16\+\_\+table)
+\item 
+unsigned short \mbox{\hyperlink{checksum_8c_a30765ae3977a4551ff3700ffef5cba3c}{crc16}} (unsigned short sum, unsigned char $\ast$p, unsigned int len)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const unsigned short \mbox{\hyperlink{checksum_8c_a3b1f6d0d5ecb50a3ac4097a95b7eaebe}{crc16\+\_\+table}} \mbox{[}256\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{checksum_8c_a30765ae3977a4551ff3700ffef5cba3c}\label{checksum_8c_a30765ae3977a4551ff3700ffef5cba3c}} 
+\index{checksum.c@{checksum.c}!crc16@{crc16}}
+\index{crc16@{crc16}!checksum.c@{checksum.c}}
+\doxysubsubsection{\texorpdfstring{crc16()}{crc16()}}
+{\footnotesize\ttfamily unsigned short crc16 (\begin{DoxyParamCaption}\item[{unsigned short}]{sum,  }\item[{unsigned char $\ast$}]{p,  }\item[{unsigned int}]{len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 85 of file checksum.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{86 \{}
+\DoxyCodeLine{87     \textcolor{keywordflow}{while} (len-\/-\/)}
+\DoxyCodeLine{88       \{}
+\DoxyCodeLine{89         \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{90         \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} \textcolor{keywordtype}{byte} = *p++;}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92         \textcolor{keywordflow}{for} (i = 0; i < 8; ++i)}
+\DoxyCodeLine{93           \{}
+\DoxyCodeLine{94             \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} osum = sum;}
+\DoxyCodeLine{95             sum <<= 1;}
+\DoxyCodeLine{96             \textcolor{keywordflow}{if} (\textcolor{keywordtype}{byte} \& 0x80)}
+\DoxyCodeLine{97               sum |= 1 ;}
+\DoxyCodeLine{98             \textcolor{keywordflow}{if} (osum \& 0x8000)}
+\DoxyCodeLine{99               sum \string^= 0x1021;}
+\DoxyCodeLine{100             \textcolor{keywordtype}{byte} <<= 1;}
+\DoxyCodeLine{101           \}}
+\DoxyCodeLine{102       \}}
+\DoxyCodeLine{103     \textcolor{keywordflow}{return} sum;}
+\DoxyCodeLine{104 \}}
+
+\end{DoxyCode}
+
+
+Referenced by pac5xxx\+\_\+flash\+\_\+crc\+\_\+test().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{checksum_8c_a30765ae3977a4551ff3700ffef5cba3c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{checksum_8c_ac4ad3e38652e0fcc2b43d536c035d0ef}\label{checksum_8c_ac4ad3e38652e0fcc2b43d536c035d0ef}} 
+\index{checksum.c@{checksum.c}!crc16\_table\_256@{crc16\_table\_256}}
+\index{crc16\_table\_256@{crc16\_table\_256}!checksum.c@{checksum.c}}
+\doxysubsubsection{\texorpdfstring{crc16\_table\_256()}{crc16\_table\_256()}}
+{\footnotesize\ttfamily unsigned short crc16\+\_\+table\+\_\+256 (\begin{DoxyParamCaption}\item[{unsigned short}]{sum,  }\item[{unsigned char $\ast$}]{p,  }\item[{unsigned int}]{len,  }\item[{unsigned short $\ast$}]{p\+\_\+crc16\+\_\+table }\end{DoxyParamCaption})}
+
+
+
+Definition at line 77 of file checksum.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{78 \{}
+\DoxyCodeLine{79     \textcolor{keywordflow}{while} (len-\/-\/)}
+\DoxyCodeLine{80       sum = p\_crc16\_table[(sum >> 8) \string^ *p++] \string^ (sum << 8);}
+\DoxyCodeLine{81     \textcolor{keywordflow}{return} sum;}
+\DoxyCodeLine{82 \}}
+
+\end{DoxyCode}
+
+
+Referenced by pac5xxx\+\_\+fast\+\_\+flash\+\_\+crc\+\_\+test().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{checksum_8c_ac4ad3e38652e0fcc2b43d536c035d0ef_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{checksum_8c_a3b1f6d0d5ecb50a3ac4097a95b7eaebe}\label{checksum_8c_a3b1f6d0d5ecb50a3ac4097a95b7eaebe}} 
+\index{checksum.c@{checksum.c}!crc16\_table@{crc16\_table}}
+\index{crc16\_table@{crc16\_table}!checksum.c@{checksum.c}}
+\doxysubsubsection{\texorpdfstring{crc16\_table}{crc16\_table}}
+{\footnotesize\ttfamily const unsigned short crc16\+\_\+table\mbox{[}256\mbox{]}}
+
+
+
+Definition at line 44 of file checksum.\+c.
+

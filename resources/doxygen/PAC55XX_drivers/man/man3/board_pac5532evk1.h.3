@@ -1,0 +1,525 @@
+.TH "pac_foc/pac55xx/board/board_pac5532evk1.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/board/board_pac5532evk1.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'board_options\&.h'\fP
+.br
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'config_debug\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBHIB_BIT_DEFAULT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPBEN_BIT_DEFAULT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBVREFSET_BIT_DEFAULT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBCLKOUTEN_BIT_DEFAULT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBMCUALIVE_BIT_DEFAULT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBTPBD_BIT_DEFAULT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBRFU_BIT_DEFAULT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBENSIG_BIT_DEFAULT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMODULE_MISC_BITS_DEFAULT\fP   ((\fBHIB_BIT_DEFAULT\fP << 7) + (\fBPBEN_BIT_DEFAULT\fP << 6) + (\fBVREFSET_BIT_DEFAULT\fP << 5) + (\fBCLKOUTEN_BIT_DEFAULT\fP << 4) + (\fBMCUALIVE_BIT_DEFAULT\fP << 3) + (\fBTPBD_BIT_DEFAULT\fP << 2) + (\fBRFU_BIT_DEFAULT\fP << 1) + (\fBENSIG_BIT_DEFAULT\fP << 0))"
+.br
+.ti -1c
+.RI "#define \fBDEVICE_SELECT\fP   \fBDEVICE_5532\fP"
+.br
+.ti -1c
+.RI "#define \fBCAPABLE_VSIM\fP   TRUE"
+.br
+.ti -1c
+.RI "#define \fBCAPABLE_IPD\fP   TRUE"
+.br
+.ti -1c
+.RI "#define \fBCONFIG_SHUNT\fP   \fBCONFIG_SHUNT_3SHUNT\fP"
+.br
+.ti -1c
+.RI "#define \fBCAPABLE_POWERMETHOD2\fP   FALSE"
+.br
+.ti -1c
+.RI "#define \fBMIN_VBUS\fP   VDC_10V"
+.br
+.ti -1c
+.RI "#define \fBMAX_VBUS\fP   VDC_60V"
+.br
+.ti -1c
+.RI "#define \fBPCB_RSENSE_OC_OHMS\fP   0\&.010f"
+.br
+.ti -1c
+.RI "#define \fBPCB_RSENSE_IUVW_OHMS\fP   0\&.010f"
+.br
+.ti -1c
+.RI "#define \fBR1_PLUS_R2_BY_R2_RATIO_VBUS\fP   57\&.00f"
+.br
+.ti -1c
+.RI "#define \fBR1_PLUS_R2_BY_R2_RATIO_SIM\fP   57\&.00f"
+.br
+.ti -1c
+.RI "#define \fBAIORES_VALUE\fP   100\&.0f"
+.br
+.ti -1c
+.RI "#define \fBMOTOR1_LED_NSEC\fP   400"
+.br
+.ti -1c
+.RI "#define \fBMOTOR1_TED_NSEC\fP   400"
+.br
+.ti -1c
+.RI "#define \fBSIM_BEMF_DET_THRESHOLD_ADCCNT_V\fP   20"
+.br
+.ti -1c
+.RI "#define \fBSIM_BEMF_DET_THRESHOLD_ADCCNT_I\fP   40"
+.br
+.ti -1c
+.RI "#define \fBINVERTER_TYPE_SEL\fP   \fBINVERTER_TYPE_MOS\fP"
+.br
+.ti -1c
+.RI "#define \fBINVERTER_MOS_RDSON_OHMS_FLT\fP   0\&.0197f"
+.br
+.ti -1c
+.RI "#define \fBINVERTER_MOS_VDIODE_VOLTS_FLT\fP   0\&.8f"
+.br
+.ti -1c
+.RI "#define \fBCONFIG_OFFSET\fP   (\fBCHANNEL_AIO10\fP | \fBCHANNEL_AIO32\fP | \fBCHANNEL_AIO54\fP)"
+.br
+.ti -1c
+.RI "#define \fBENABLE_ADCCAL_AIO10\fP"
+.br
+.ti -1c
+.RI "#define \fBENABLE_ADCCAL_AIO32\fP"
+.br
+.ti -1c
+.RI "#define \fBENABLE_ADCCAL_AIO54\fP"
+.br
+.ti -1c
+.RI "#define \fBADC_OFFSET_DEFAULT_DIFFAMP\fP   491"
+.br
+.ti -1c
+.RI "#define \fBADC_OFFSET_MIN_DIFFAMP\fP   475"
+.br
+.ti -1c
+.RI "#define \fBADC_OFFSET_MAX_DIFFAMP\fP   507"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_HALLA\fP   \fBPAC55XX_GPIOD\fP"
+.br
+.ti -1c
+.RI "#define \fBHALLA_PORTNUM\fP   P0"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_HALLB\fP   \fBPAC55XX_GPIOD\fP"
+.br
+.ti -1c
+.RI "#define \fBHALLB_PORTNUM\fP   P1"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_HALLC\fP   \fBPAC55XX_GPIOD\fP"
+.br
+.ti -1c
+.RI "#define \fBHALLC_PORTNUM\fP   P2"
+.br
+.ti -1c
+.RI "#define \fBHALLA_PORT_BIT\fP   BIT_00"
+.br
+.ti -1c
+.RI "#define \fBHALLB_PORT_BIT\fP   BIT_01"
+.br
+.ti -1c
+.RI "#define \fBHALLC_PORT_BIT\fP   BIT_02"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_HALL\fP   \fBPAC5XXX_GPIO_HALLA\fP"
+.br
+.ti -1c
+.RI "#define \fBHall_Gpio_IRQn\fP   \fBGpioD_IRQn\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_QEPPHA\fP   \fBPAC55XX_GPIOD\fP"
+.br
+.ti -1c
+.RI "#define \fBQEPPHB_PORTNUM\fP   P2"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_QEPPHB\fP   \fBPAC55XX_GPIOD\fP"
+.br
+.ti -1c
+.RI "#define \fBQEPPHA_PORTNUM\fP   P1"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_QEPIDX\fP   \fBPAC55XX_GPIOD\fP"
+.br
+.ti -1c
+.RI "#define \fBQEPIDX_PORTNUM\fP   P0"
+.br
+.ti -1c
+.RI "#define \fBDEBUGIO1_PORT\fP   \fBPORT_PE0\fP"
+.br
+.ti -1c
+.RI "#define \fBDEBUGIO2_PORT\fP   \fBPORT_PE1\fP"
+.br
+.ti -1c
+.RI "#define \fBPWMDAC1_PORT\fP   \fBPORT_PD0\fP"
+.br
+.ti -1c
+.RI "#define \fBPWMDAC2_PORT\fP   \fBPORT_PD1\fP"
+.br
+.ti -1c
+.RI "#define \fBPWMDAC3_PORT\fP   \fBPORT_PD2\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_PUSH_BUTTON\fP   \fBPAC55XX_GPIOF\fP"
+.br
+.ti -1c
+.RI "#define \fBPUSH_BUTTON_PORTNUM\fP   P2"
+.br
+.ti -1c
+.RI "#define \fBPUSH_BUTTON_PULLUP_PORT\fP   PFPUEN"
+.br
+.ti -1c
+.RI "#define \fBPUSH_BUTTON_PORT_MUX\fP   PFMUXSEL"
+.br
+.ti -1c
+.RI "#define \fBPUSH_BUTTON_SCHMITT_TRIG_PORT\fP   PFDS"
+.br
+.ti -1c
+.RI "#define \fBPUSH_BUTTON_SCHMITT_ENABLE\fP   P2ST"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBconfig_seq_foc\fP (void)"
+.br
+.ti -1c
+.RI "void \fBconfig_seq_sim\fP (void)"
+.br
+.ti -1c
+.RI "void \fBconfig_seq_simbrake\fP (void)"
+.br
+.ti -1c
+.RI "void \fBinit_emux\fP (void)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ADC_OFFSET_DEFAULT_DIFFAMP   491"
+
+.PP
+Definition at line 162 of file board_pac5532evk1\&.h\&.
+.SS "#define ADC_OFFSET_MAX_DIFFAMP   507"
+
+.PP
+Definition at line 164 of file board_pac5532evk1\&.h\&.
+.SS "#define ADC_OFFSET_MIN_DIFFAMP   475"
+
+.PP
+Definition at line 163 of file board_pac5532evk1\&.h\&.
+.SS "#define AIORES_VALUE   100\&.0f"
+
+.PP
+Definition at line 120 of file board_pac5532evk1\&.h\&.
+.SS "#define CAPABLE_IPD   TRUE"
+
+.PP
+Definition at line 95 of file board_pac5532evk1\&.h\&.
+.SS "#define CAPABLE_POWERMETHOD2   FALSE"
+
+.PP
+Definition at line 97 of file board_pac5532evk1\&.h\&.
+.SS "#define CAPABLE_VSIM   TRUE"
+
+.PP
+Definition at line 94 of file board_pac5532evk1\&.h\&.
+.SS "#define CLKOUTEN_BIT_DEFAULT   0"
+
+.PP
+Definition at line 77 of file board_pac5532evk1\&.h\&.
+.SS "#define CONFIG_OFFSET   (\fBCHANNEL_AIO10\fP | \fBCHANNEL_AIO32\fP | \fBCHANNEL_AIO54\fP)"
+
+.PP
+Definition at line 154 of file board_pac5532evk1\&.h\&.
+.SS "#define CONFIG_SHUNT   \fBCONFIG_SHUNT_3SHUNT\fP"
+
+.PP
+Definition at line 96 of file board_pac5532evk1\&.h\&.
+.SS "#define DEBUGIO1_PORT   \fBPORT_PE0\fP"
+
+.PP
+Definition at line 205 of file board_pac5532evk1\&.h\&.
+.SS "#define DEBUGIO2_PORT   \fBPORT_PE1\fP"
+
+.PP
+Definition at line 206 of file board_pac5532evk1\&.h\&.
+.SS "#define DEVICE_SELECT   \fBDEVICE_5532\fP"
+
+.PP
+Definition at line 93 of file board_pac5532evk1\&.h\&.
+.SS "#define ENABLE_ADCCAL_AIO10"
+
+.PP
+Definition at line 155 of file board_pac5532evk1\&.h\&.
+.SS "#define ENABLE_ADCCAL_AIO32"
+
+.PP
+Definition at line 156 of file board_pac5532evk1\&.h\&.
+.SS "#define ENABLE_ADCCAL_AIO54"
+
+.PP
+Definition at line 157 of file board_pac5532evk1\&.h\&.
+.SS "#define ENSIG_BIT_DEFAULT   1"
+
+.PP
+Definition at line 81 of file board_pac5532evk1\&.h\&.
+.SS "#define Hall_Gpio_IRQn   \fBGpioD_IRQn\fP"
+
+.PP
+Definition at line 188 of file board_pac5532evk1\&.h\&.
+.SS "#define HALLA_PORT_BIT   BIT_00"
+
+.PP
+Definition at line 184 of file board_pac5532evk1\&.h\&.
+.SS "#define HALLA_PORTNUM   P0"
+
+.PP
+Definition at line 176 of file board_pac5532evk1\&.h\&.
+.SS "#define HALLB_PORT_BIT   BIT_01"
+
+.PP
+Definition at line 185 of file board_pac5532evk1\&.h\&.
+.SS "#define HALLB_PORTNUM   P1"
+
+.PP
+Definition at line 179 of file board_pac5532evk1\&.h\&.
+.SS "#define HALLC_PORT_BIT   BIT_02"
+
+.PP
+Definition at line 186 of file board_pac5532evk1\&.h\&.
+.SS "#define HALLC_PORTNUM   P2"
+
+.PP
+Definition at line 182 of file board_pac5532evk1\&.h\&.
+.SS "#define HIB_BIT_DEFAULT   0"
+
+.PP
+Definition at line 74 of file board_pac5532evk1\&.h\&.
+.SS "#define INVERTER_MOS_RDSON_OHMS_FLT   0\&.0197f"
+
+.PP
+Definition at line 138 of file board_pac5532evk1\&.h\&.
+.SS "#define INVERTER_MOS_VDIODE_VOLTS_FLT   0\&.8f"
+
+.PP
+Definition at line 139 of file board_pac5532evk1\&.h\&.
+.SS "#define INVERTER_TYPE_SEL   \fBINVERTER_TYPE_MOS\fP"
+
+.PP
+Definition at line 137 of file board_pac5532evk1\&.h\&.
+.SS "#define MAX_VBUS   VDC_60V"
+
+.PP
+Definition at line 103 of file board_pac5532evk1\&.h\&.
+.SS "#define MCUALIVE_BIT_DEFAULT   1"
+
+.PP
+Definition at line 78 of file board_pac5532evk1\&.h\&.
+.SS "#define MIN_VBUS   VDC_10V"
+
+.PP
+Definition at line 102 of file board_pac5532evk1\&.h\&.
+.SS "#define MODULE_MISC_BITS_DEFAULT   ((\fBHIB_BIT_DEFAULT\fP << 7) + (\fBPBEN_BIT_DEFAULT\fP << 6) + (\fBVREFSET_BIT_DEFAULT\fP << 5) + (\fBCLKOUTEN_BIT_DEFAULT\fP << 4) + (\fBMCUALIVE_BIT_DEFAULT\fP << 3) + (\fBTPBD_BIT_DEFAULT\fP << 2) + (\fBRFU_BIT_DEFAULT\fP << 1) + (\fBENSIG_BIT_DEFAULT\fP << 0))"
+
+.PP
+Definition at line 82 of file board_pac5532evk1\&.h\&.
+.SS "#define MOTOR1_LED_NSEC   400"
+
+.PP
+Definition at line 125 of file board_pac5532evk1\&.h\&.
+.SS "#define MOTOR1_TED_NSEC   400"
+
+.PP
+Definition at line 126 of file board_pac5532evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_HALL   \fBPAC5XXX_GPIO_HALLA\fP"
+
+.PP
+Definition at line 187 of file board_pac5532evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_HALLA   \fBPAC55XX_GPIOD\fP"
+
+.PP
+Definition at line 175 of file board_pac5532evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_HALLB   \fBPAC55XX_GPIOD\fP"
+
+.PP
+Definition at line 178 of file board_pac5532evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_HALLC   \fBPAC55XX_GPIOD\fP"
+
+.PP
+Definition at line 181 of file board_pac5532evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_PUSH_BUTTON   \fBPAC55XX_GPIOF\fP"
+
+.PP
+Definition at line 223 of file board_pac5532evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_QEPIDX   \fBPAC55XX_GPIOD\fP"
+
+.PP
+Definition at line 199 of file board_pac5532evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_QEPPHA   \fBPAC55XX_GPIOD\fP"
+
+.PP
+Definition at line 193 of file board_pac5532evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_QEPPHB   \fBPAC55XX_GPIOD\fP"
+
+.PP
+Definition at line 196 of file board_pac5532evk1\&.h\&.
+.SS "#define PBEN_BIT_DEFAULT   0"
+
+.PP
+Definition at line 75 of file board_pac5532evk1\&.h\&.
+.SS "#define PCB_RSENSE_IUVW_OHMS   0\&.010f"
+
+.PP
+Definition at line 109 of file board_pac5532evk1\&.h\&.
+.SS "#define PCB_RSENSE_OC_OHMS   0\&.010f"
+
+.PP
+Definition at line 108 of file board_pac5532evk1\&.h\&.
+.SS "#define PUSH_BUTTON_PORT_MUX   PFMUXSEL"
+
+.PP
+Definition at line 226 of file board_pac5532evk1\&.h\&.
+.SS "#define PUSH_BUTTON_PORTNUM   P2"
+
+.PP
+Definition at line 224 of file board_pac5532evk1\&.h\&.
+.SS "#define PUSH_BUTTON_PULLUP_PORT   PFPUEN"
+
+.PP
+Definition at line 225 of file board_pac5532evk1\&.h\&.
+.SS "#define PUSH_BUTTON_SCHMITT_ENABLE   P2ST"
+
+.PP
+Definition at line 228 of file board_pac5532evk1\&.h\&.
+.SS "#define PUSH_BUTTON_SCHMITT_TRIG_PORT   PFDS"
+
+.PP
+Definition at line 227 of file board_pac5532evk1\&.h\&.
+.SS "#define PWMDAC1_PORT   \fBPORT_PD0\fP"
+
+.PP
+Definition at line 215 of file board_pac5532evk1\&.h\&.
+.SS "#define PWMDAC2_PORT   \fBPORT_PD1\fP"
+
+.PP
+Definition at line 216 of file board_pac5532evk1\&.h\&.
+.SS "#define PWMDAC3_PORT   \fBPORT_PD2\fP"
+
+.PP
+Definition at line 217 of file board_pac5532evk1\&.h\&.
+.SS "#define QEPIDX_PORTNUM   P0"
+
+.PP
+Definition at line 200 of file board_pac5532evk1\&.h\&.
+.SS "#define QEPPHA_PORTNUM   P1"
+
+.PP
+Definition at line 197 of file board_pac5532evk1\&.h\&.
+.SS "#define QEPPHB_PORTNUM   P2"
+
+.PP
+Definition at line 194 of file board_pac5532evk1\&.h\&.
+.SS "#define R1_PLUS_R2_BY_R2_RATIO_SIM   57\&.00f"
+
+.PP
+Definition at line 115 of file board_pac5532evk1\&.h\&.
+.SS "#define R1_PLUS_R2_BY_R2_RATIO_VBUS   57\&.00f"
+
+.PP
+Definition at line 114 of file board_pac5532evk1\&.h\&.
+.SS "#define RFU_BIT_DEFAULT   0"
+
+.PP
+Definition at line 80 of file board_pac5532evk1\&.h\&.
+.SS "#define SIM_BEMF_DET_THRESHOLD_ADCCNT_I   40"
+
+.PP
+Definition at line 132 of file board_pac5532evk1\&.h\&.
+.SS "#define SIM_BEMF_DET_THRESHOLD_ADCCNT_V   20"
+
+.PP
+Definition at line 131 of file board_pac5532evk1\&.h\&.
+.SS "#define TPBD_BIT_DEFAULT   0"
+
+.PP
+Definition at line 79 of file board_pac5532evk1\&.h\&.
+.SS "#define VREFSET_BIT_DEFAULT   0"
+
+.PP
+Definition at line 76 of file board_pac5532evk1\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void config_seq_foc (void)"
+
+.PP
+Definition at line 55 of file board_custom_1\&.c\&.
+.PP
+.nf
+56 {
+57     Struct_Motor* motor_ptr = &motor;
+58 
+59     // Configure ADC input pin PG7(AD0) to read analog input from AFE and PF6(AD6) to read VBUS
+60     pac5xxx_adc_config_io(0x01 | 0x40);                 // PG7 | PF6
+61 
+62     PAC55XX_ADC->DTSETRIGENT0TO3\&.FORCE0 = 0;            // Reset to 0
+63     PAC55XX_ADC->DTSETRIGENT0TO3\&.TRIG0CFGIDX = 0;       // DTSE Trigger 0 Sequence Configuration Entry Index
+64     PAC55XX_ADC->DTSETRIGENT0TO3\&.TRIG0EDGE = 1;         // Trigger rising edge
+65     
+66     pac5xxx_timer_a_ccctr0_value_set(motor_ptr->control\&.motor_period_ticks - 4);            // Set value for AS0 trigger
+67 
+68     // To work around for sequencer bug, will fix in spin of the device
+69     pac5xxx_dtse_seq_config(0, ADC6, EMUX_AIO10 | DIFFAMPS_HOLD, 0,           0);    // Convert Vout, then change CAFE MUX to M1-Iu
+70     pac5xxx_dtse_seq_config(1, ADC0, EMUX_AIO10 | DIFFAMPS_HOLD, 0,           0);    // Dummy Conversion, then change CAFE MUX to M1-Iu
+71     pac5xxx_dtse_seq_config(2, ADC0, EMUX_AIO32 | DIFFAMPS_HOLD, 0,           0);    // Convert M1-Iu, then change CAFE MUX to M1-Iv
+72     pac5xxx_dtse_seq_config(3, ADC0, EMUX_AIO32 | DIFFAMPS_HOLD, 0,           0);    // Dummy Conversion, then change CAFE MUX to M1-Iv
+73     pac5xxx_dtse_seq_config(4, ADC0, EMUX_AIO54 | DIFFAMPS_HOLD, 0,           0);    // Convert M1-Iv, then change CAFE MUX to M1-Iv
+74     pac5xxx_dtse_seq_config(5, ADC0, EMUX_AIO54 | DIFFAMPS_HOLD, 0,           0);    // Dummy Conversion, then change CAFE MUX to M1-Iw
+75     pac5xxx_dtse_seq_config(6, ADC0, EMUX_AIO10 | DIFFAMPS_HOLD, ADC_IRQ0_EN, 0);    // Convert M1-Iw, then change CAFE MUX to M1-Iu, generate ADC interrupt
+76     pac5xxx_dtse_seq_config(7, ADC6, EMUX_AIO10,                 0,     SEQ_END);    // Dummy conversion, then change CAFE MUX to M1-Iu
+77 }
+.fi
+.SS "void config_seq_sim (void)"
+
+.SS "void config_seq_simbrake (void)"
+
+.SS "void init_emux (void)"
+
+.PP
+Definition at line 153 of file board_custom_1\&.c\&.
+.PP
+.nf
+154 {
+155 }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

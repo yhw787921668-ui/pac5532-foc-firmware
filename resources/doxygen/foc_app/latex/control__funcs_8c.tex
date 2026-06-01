@@ -1,0 +1,260 @@
+\hypertarget{control__funcs_8c}{}\doxysection{pac\+\_\+foc/src/control/control\+\_\+funcs.c File Reference}
+\label{control__funcs_8c}\index{pac\_foc/src/control/control\_funcs.c@{pac\_foc/src/control/control\_funcs.c}}
+
+
+Use for F\+OC control functions.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}control\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parameter\+\_\+process.\+h\char`\"{}}\newline
+Include dependency graph for control\+\_\+funcs.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{control__funcs_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{control__funcs_8c_a9e4e20411d13aecee7ea6375f79917fc}{control\+\_\+reset}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em This function use to reset F\+OC related variables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{control__funcs_8c_a825665f713ad8071a89c9b2a0320aee2}{calculate\+\_\+outerloop\+\_\+scale\+\_\+shift}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} value\+\_\+max, uint16\+\_\+t $\ast$shift, uint32\+\_\+t $\ast$outerloop\+\_\+scale\+\_\+q0)
+\begin{DoxyCompactList}\small\item\em This function use to calculate outer loop scale factor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{control__funcs_8c_add72aac22842126f7c88023b569ad717}{config\+\_\+control\+\_\+dt}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr, int32\+\_\+t dt\+\_\+control\+\_\+q26, uint32\+\_\+t ctrl\+\_\+divider)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for F\+OC control functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{control__funcs_8c_a825665f713ad8071a89c9b2a0320aee2}\label{control__funcs_8c_a825665f713ad8071a89c9b2a0320aee2}} 
+\index{control\_funcs.c@{control\_funcs.c}!calculate\_outerloop\_scale\_shift@{calculate\_outerloop\_scale\_shift}}
+\index{calculate\_outerloop\_scale\_shift@{calculate\_outerloop\_scale\_shift}!control\_funcs.c@{control\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{calculate\_outerloop\_scale\_shift()}{calculate\_outerloop\_scale\_shift()}}
+{\footnotesize\ttfamily void calculate\+\_\+outerloop\+\_\+scale\+\_\+shift (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{value\+\_\+max,  }\item[{uint16\+\_\+t $\ast$}]{shift,  }\item[{uint32\+\_\+t $\ast$}]{outerloop\+\_\+scale\+\_\+q0 }\end{DoxyParamCaption})}
+
+
+
+This function use to calculate outer loop scale factor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em fix16\+\_\+t} & value\+\_\+max \\
+\hline
+{\em uint16\+\_\+t} & $\ast$shift \\
+\hline
+{\em uint32\+\_\+t} & $\ast$outerloop\+\_\+scale\+\_\+q0 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 96 of file control\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{97 \{}
+\DoxyCodeLine{98     \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}} value\_max\_padded;}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     \textcolor{comment}{// Absolute value}}
+\DoxyCodeLine{101     \textcolor{keywordflow}{if} (value\_max < 0)}
+\DoxyCodeLine{102         value\_max = -\/value\_max;}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104     \textcolor{comment}{// Cap max value at 16383 so that 2x does not overflow}}
+\DoxyCodeLine{105     \textcolor{keywordflow}{if} (value\_max > \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(16383.0f, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))}
+\DoxyCodeLine{106         value\_max = \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(16383.0f, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}});}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     \textcolor{comment}{// Pad max value to 2x (to allow for overshoots and noise)}}
+\DoxyCodeLine{109     value\_max\_padded = (value\_max << 1);}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \textcolor{comment}{// Generate scaling shift applied to outer loop PI controller}}
+\DoxyCodeLine{112     \textcolor{keywordflow}{if} (value\_max\_padded >= \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(16384, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))}
+\DoxyCodeLine{113         *shift = 15;              \textcolor{comment}{// Shift=15, Res=0.5, Min=16384, Max=32768<}}
+\DoxyCodeLine{114     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value\_max\_padded >= \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(8192, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))}
+\DoxyCodeLine{115         *shift = 14;              \textcolor{comment}{// Shift=14, Res=0.25, Min=8192, Max=16384<}}
+\DoxyCodeLine{116     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value\_max\_padded >= \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(4096, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))}
+\DoxyCodeLine{117         *shift = 13;              \textcolor{comment}{// Shift=13, Res=0.125, Min=4096, Max=8192<}}
+\DoxyCodeLine{118     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value\_max\_padded >= \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(2048, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))}
+\DoxyCodeLine{119         *shift = 12;              \textcolor{comment}{// Shift=12, Res=0.0625, Min=2048, Max=4096<}}
+\DoxyCodeLine{120     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value\_max\_padded >= \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(1024, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))}
+\DoxyCodeLine{121         *shift = 11;              \textcolor{comment}{// Shift=11, Res=0.03125, Min=1024, Max=2048<}}
+\DoxyCodeLine{122     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value\_max\_padded >= \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(512, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))}
+\DoxyCodeLine{123         *shift = 10;              \textcolor{comment}{// Shift=10, Res=0.015625, Min=512, Max=1024<}}
+\DoxyCodeLine{124     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value\_max\_padded >= \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(256, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))}
+\DoxyCodeLine{125         *shift = 9;               \textcolor{comment}{// Shift=9, Res=0.0078125, Min=256, Max=512<}}
+\DoxyCodeLine{126     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value\_max\_padded >= \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(128, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))}
+\DoxyCodeLine{127         *shift = 8;               \textcolor{comment}{// Shift=8, Res=0.00390625, Min=128, Max=256<}}
+\DoxyCodeLine{128     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value\_max\_padded >= \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(64, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))}
+\DoxyCodeLine{129         *shift = 7;               \textcolor{comment}{// Shift=7, Res=0.001953125, Min=64, Max=128<}}
+\DoxyCodeLine{130     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value\_max\_padded >= \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(32, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))}
+\DoxyCodeLine{131         *shift = 6;               \textcolor{comment}{// Shift=6, Res=0.0009765625, Min=32, Max=64<}}
+\DoxyCodeLine{132     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value\_max\_padded >= \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(16, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))}
+\DoxyCodeLine{133         *shift = 5;               \textcolor{comment}{// Shift=5, Res=0.00048828125, Min=16, Max=32<}}
+\DoxyCodeLine{134     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value\_max\_padded >= \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(8, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))}
+\DoxyCodeLine{135         *shift = 4;               \textcolor{comment}{// Shift=4, Res=0.000244140625, Min=8, Max=16<}}
+\DoxyCodeLine{136     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value\_max\_padded >= \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(4, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))}
+\DoxyCodeLine{137         *shift = 3;               \textcolor{comment}{// Shift=3, Res=0.0001220703125, Min=4, Max=8<}}
+\DoxyCodeLine{138     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value\_max\_padded >= \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(2, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))}
+\DoxyCodeLine{139         *shift = 2;               \textcolor{comment}{// Shift=2, Res=0.00006103515625, Min=2, Max=4<}}
+\DoxyCodeLine{140     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (value\_max\_padded >= \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(1, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))}
+\DoxyCodeLine{141         *shift = 1;               \textcolor{comment}{// Shift=1, Res=0.000030517578125, Min=1, Max=2<}}
+\DoxyCodeLine{142     \textcolor{keywordflow}{else}   \textcolor{comment}{// <= 0}}
+\DoxyCodeLine{143         *shift = 0;               \textcolor{comment}{// Shift=0, Res=0.0000152587890625, Min=0, Max=1<}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145     *outerloop\_scale\_q0 = (1 << *shift);}
+\DoxyCodeLine{146 \}}
+
+\end{DoxyCode}
+
+
+References Q16, and Q\+C\+O\+N\+ST.
+
+\mbox{\Hypertarget{control__funcs_8c_add72aac22842126f7c88023b569ad717}\label{control__funcs_8c_add72aac22842126f7c88023b569ad717}} 
+\index{control\_funcs.c@{control\_funcs.c}!config\_control\_dt@{config\_control\_dt}}
+\index{config\_control\_dt@{config\_control\_dt}!control\_funcs.c@{control\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{config\_control\_dt()}{config\_control\_dt()}}
+{\footnotesize\ttfamily void config\+\_\+control\+\_\+dt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr,  }\item[{int32\+\_\+t}]{dt\+\_\+control\+\_\+q26,  }\item[{uint32\+\_\+t}]{ctrl\+\_\+divider }\end{DoxyParamCaption})}
+
+
+
+Definition at line 149 of file control\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{150 \{}
+\DoxyCodeLine{151     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a26545bb8d0166b9c61068c21c1d49369}{dt\_control\_q26}} = dt\_control\_q26;}
+\DoxyCodeLine{152     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a40d4c5e3068f482417417f6b77de3fe2}{dt\_control\_1div\_q6}} = \mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}(\mbox{\hyperlink{maths_8h_a317ae35aa5c1f21e8d52b831dcde83ca}{FIX16\_1P0}}, dt\_control\_q26);}
+\DoxyCodeLine{153     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a3018f84cb52d8939902c07bd5d885e93}{ctrl\_divider}} = ctrl\_divider;}
+\DoxyCodeLine{154 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::control, Struct\+\_\+\+Control\+::ctrl\+\_\+divider, Struct\+\_\+\+Control\+::dt\+\_\+control\+\_\+1div\+\_\+q6, Struct\+\_\+\+Control\+::dt\+\_\+control\+\_\+q26, F\+I\+X16\+\_\+1\+P0, and fix16\+\_\+div().
+
+
+
+Referenced by sm\+\_\+mainsub\+\_\+prestart().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{control__funcs_8c_add72aac22842126f7c88023b569ad717_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{control__funcs_8c_add72aac22842126f7c88023b569ad717_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{control__funcs_8c_a9e4e20411d13aecee7ea6375f79917fc}\label{control__funcs_8c_a9e4e20411d13aecee7ea6375f79917fc}} 
+\index{control\_funcs.c@{control\_funcs.c}!control\_reset@{control\_reset}}
+\index{control\_reset@{control\_reset}!control\_funcs.c@{control\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{control\_reset()}{control\_reset()}}
+{\footnotesize\ttfamily void control\+\_\+reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+This function use to reset F\+OC related variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr pointer to motor structure \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 33 of file control\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34 \{}
+\DoxyCodeLine{35     \mbox{\hyperlink{pid_8c_a3eaab9d1b25fcdaaca6ea50861dbe446}{pid\_reset}}(\&(motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7634d99c5262356aff936bf09765b8f7}{outerloop\_pid}}));                             \textcolor{comment}{// Reset PID controller data}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{comment}{// Reset duty cycle variables}}
+\DoxyCodeLine{38     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_ab2b77a83eed8c483514c3f40c57d41c0}{u\_duty\_value}} = (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);                                    \textcolor{comment}{// hold u duty in 16 bit sign short format}}
+\DoxyCodeLine{39     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a01ec0ddb7ceb24d6a4d64ef1028af924}{v\_duty\_value}} = (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);                                    \textcolor{comment}{// hold v duty in 16 bit sign short format}}
+\DoxyCodeLine{40     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_afde9a81b2e5a09b997304a314dd38239}{w\_duty\_value}} = (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);                                    \textcolor{comment}{// hold w duty in 16 bit sign short format}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#if (CONFIG\_SHUNT == CONFIG\_SHUNT\_1SHUNT) \&\& (MODE\_1SHUNT\_SELECT == MODE\_1SHUNT\_ASYMMETRIC)}}
+\DoxyCodeLine{42     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.duty\_u\_up = (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);}
+\DoxyCodeLine{43     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.duty\_u\_dn = (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);}
+\DoxyCodeLine{44     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.duty\_v\_up = (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);}
+\DoxyCodeLine{45     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.duty\_v\_dn = (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);}
+\DoxyCodeLine{46     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.duty\_w\_up = (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);}
+\DoxyCodeLine{47     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.duty\_w\_dn = (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#if (CONFIG\_SHUNT == CONFIG\_SHUNT\_1SHUNT) \&\& (MODE\_1SHUNT\_SELECT == MODE\_1SHUNT\_EXTENSION)}}
+\DoxyCodeLine{51     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.\mbox{\hyperlink{struct_struct___one_shunt___extn_aa37cf29cab512c8fccb54aa6398abf6b}{duty\_comp\_sign\_1}} = 1;}
+\DoxyCodeLine{52     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.\mbox{\hyperlink{struct_struct___one_shunt___extn_a7415e3b1be4407ec042aba45eac7d4bf}{duty\_comp\_sign\_2}} = 1;}
+\DoxyCodeLine{53     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.\mbox{\hyperlink{struct_struct___one_shunt___extn_a895bac73c30b377cc180f43d7586c12d}{duty\_comp\_sign\_3}} = 1;}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.\mbox{\hyperlink{struct_struct___one_shunt___extn_a6631b63dbe2fa6088c57eb7c835c8736}{flag\_current\_valid}} = 1;}
+\DoxyCodeLine{56     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.\mbox{\hyperlink{struct_struct___one_shunt___extn_a4de0cb55c27e2b27f47fe8df484dd169}{flag\_current\_valid\_sreg}} = 1;}
+\DoxyCodeLine{57     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.\mbox{\hyperlink{struct_struct___one_shunt___extn_ae4327b77f2c4b041c2cbebf76fe73688}{ss\_sector}} = 2;}
+\DoxyCodeLine{58     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.\mbox{\hyperlink{struct_struct___one_shunt___extn_a4d685ae42b12b2d1111a7727267a92b3}{ss\_sector\_sreg}} = 2;}
+\DoxyCodeLine{59     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.\mbox{\hyperlink{struct_struct___one_shunt___extn_ab551e91d16fa0d234b6cc5180df64605}{svm\_sector\_prev}} = 2;}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.\mbox{\hyperlink{struct_struct___one_shunt___extn_a825d1ca39f1dd38f078fb8aa594a9106}{taccr0\_value}} = (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);}
+\DoxyCodeLine{62     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.\mbox{\hyperlink{struct_struct___one_shunt___extn_aac6a5355ae024305623a19c073465ccd}{taccr1\_value}} = (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#elif (CONFIG\_SHUNT == CONFIG\_SHUNT\_1SHUNT) \&\& (MODE\_1SHUNT\_SELECT == MODE\_1SHUNT\_ASYMMETRIC)}}
+\DoxyCodeLine{64     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.\mbox{\hyperlink{struct_struct___one_shunt___extn_ae4327b77f2c4b041c2cbebf76fe73688}{ss\_sector}} = 2;}
+\DoxyCodeLine{65     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.\mbox{\hyperlink{struct_struct___one_shunt___extn_a4d685ae42b12b2d1111a7727267a92b3}{ss\_sector\_sreg}} = 2;}
+\DoxyCodeLine{66     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.\mbox{\hyperlink{struct_struct___one_shunt___extn_a825d1ca39f1dd38f078fb8aa594a9106}{taccr0\_value}} = (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);}
+\DoxyCodeLine{67     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_abd25101d892109690782d91c713359f8}{oneshunt}}.\mbox{\hyperlink{struct_struct___one_shunt___extn_aac6a5355ae024305623a19c073465ccd}{taccr1\_value}} = (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_ac611ff6b8265dff32efae11c1fb1196a}{outerloop\_ramp}} = 0;}
+\DoxyCodeLine{71     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a317c9c05d3403af02941871576271f31}{outerloop\_ramp\_scaled\_q14}} = 0;}
+\DoxyCodeLine{72     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a13e8404089e8c446c4435e4a0c8239e1}{outerloop\_fdbk\_scaled\_q14}} = 0;}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_ad63c1fc824758afbaf818b5018c58df8}{iqrefcl\_target\_f16}} = motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a3f149e8c07b0a0f4730ac4bab245848b}{iqrefcl\_cmd\_f16}};}
+\DoxyCodeLine{75     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa2a8f216248891280573b85cd9f1d671}{idrefcl\_target\_f16}} = motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a42a731eb0384eaee0b497241c6c0547d}{idrefcl\_cmd\_f16}};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 \textcolor{preprocessor}{    \#ifdef ENABLE\_BOOTPROT}}
+\DoxyCodeLine{79     motor\_ptr-\/>bootprot.bootprot\_count1 = 0;}
+\DoxyCodeLine{80     motor\_ptr-\/>bootprot.bootprot\_count2 = 0;}
+\DoxyCodeLine{81     motor\_ptr-\/>bootprot.bootprot\_count3 = 0;}
+\DoxyCodeLine{82 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#if defined(ENABLE\_FIELD\_WEAKENING)}}
+\DoxyCodeLine{85     fw\_reset(motor\_ptr);}
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{87 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::app, Struct\+\_\+\+Motor\+::control, Struct\+\_\+\+One\+Shunt\+\_\+\+Extn\+::duty\+\_\+comp\+\_\+sign\+\_\+1, Struct\+\_\+\+One\+Shunt\+\_\+\+Extn\+::duty\+\_\+comp\+\_\+sign\+\_\+2, Struct\+\_\+\+One\+Shunt\+\_\+\+Extn\+::duty\+\_\+comp\+\_\+sign\+\_\+3, Struct\+\_\+\+One\+Shunt\+\_\+\+Extn\+::flag\+\_\+current\+\_\+valid, Struct\+\_\+\+One\+Shunt\+\_\+\+Extn\+::flag\+\_\+current\+\_\+valid\+\_\+sreg, Struct\+\_\+\+App\+::idrefcl\+\_\+cmd\+\_\+f16, Struct\+\_\+\+Control\+::idrefcl\+\_\+target\+\_\+f16, Struct\+\_\+\+App\+::iqrefcl\+\_\+cmd\+\_\+f16, Struct\+\_\+\+Control\+::iqrefcl\+\_\+target\+\_\+f16, Struct\+\_\+\+Control\+::motor\+\_\+period\+\_\+ticks, Struct\+\_\+\+Motor\+::oneshunt, Struct\+\_\+\+Control\+::outerloop\+\_\+fdbk\+\_\+scaled\+\_\+q14, Struct\+\_\+\+Control\+::outerloop\+\_\+pid, Struct\+\_\+\+Control\+::outerloop\+\_\+ramp, Struct\+\_\+\+Control\+::outerloop\+\_\+ramp\+\_\+scaled\+\_\+q14, pid\+\_\+reset(), Struct\+\_\+\+One\+Shunt\+\_\+\+Extn\+::ss\+\_\+sector, Struct\+\_\+\+One\+Shunt\+\_\+\+Extn\+::ss\+\_\+sector\+\_\+sreg, Struct\+\_\+\+One\+Shunt\+\_\+\+Extn\+::svm\+\_\+sector\+\_\+prev, Struct\+\_\+\+One\+Shunt\+\_\+\+Extn\+::taccr0\+\_\+value, Struct\+\_\+\+One\+Shunt\+\_\+\+Extn\+::taccr1\+\_\+value, Struct\+\_\+\+Control\+::u\+\_\+duty\+\_\+value, Struct\+\_\+\+Control\+::v\+\_\+duty\+\_\+value, and Struct\+\_\+\+Control\+::w\+\_\+duty\+\_\+value.
+
+
+
+Referenced by motor\+\_\+reset().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=245pt]{control__funcs_8c_a9e4e20411d13aecee7ea6375f79917fc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{control__funcs_8c_a9e4e20411d13aecee7ea6375f79917fc_icgraph}
+\end{center}
+\end{figure}

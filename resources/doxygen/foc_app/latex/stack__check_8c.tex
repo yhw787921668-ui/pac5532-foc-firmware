@@ -1,0 +1,101 @@
+\hypertarget{stack__check_8c}{}\doxysection{pac\+\_\+foc/src/debug/stack\+\_\+check.c File Reference}
+\label{stack__check_8c}\index{pac\_foc/src/debug/stack\_check.c@{pac\_foc/src/debug/stack\_check.c}}
+{\ttfamily \#include \char`\"{}stack\+\_\+check.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fault.\+h\char`\"{}}\newline
+Include dependency graph for stack\+\_\+check.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__check_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{stack__check_8c_abeb451d69a3a6bacd9b21e3b7c4dc6eb}{S\+T\+A\+C\+K\+\_\+\+M\+A\+G\+I\+C\+\_\+\+V\+A\+L\+UE}}~0x1abe11ed
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{stack__check_8c_a70514e7c5588f52efe8c0305bd747abb}{init\+\_\+stack\+\_\+vars}} (void)
+\item 
+void \mbox{\hyperlink{stack__check_8c_a0ab8da269b13547895da031b6f09300a}{stack\+\_\+test}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{stack__check_8c_abeb451d69a3a6bacd9b21e3b7c4dc6eb}\label{stack__check_8c_abeb451d69a3a6bacd9b21e3b7c4dc6eb}} 
+\index{stack\_check.c@{stack\_check.c}!STACK\_MAGIC\_VALUE@{STACK\_MAGIC\_VALUE}}
+\index{STACK\_MAGIC\_VALUE@{STACK\_MAGIC\_VALUE}!stack\_check.c@{stack\_check.c}}
+\doxysubsubsection{\texorpdfstring{STACK\_MAGIC\_VALUE}{STACK\_MAGIC\_VALUE}}
+{\footnotesize\ttfamily \#define S\+T\+A\+C\+K\+\_\+\+M\+A\+G\+I\+C\+\_\+\+V\+A\+L\+UE~0x1abe11ed}
+
+
+
+Definition at line 20 of file stack\+\_\+check.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{stack__check_8c_a70514e7c5588f52efe8c0305bd747abb}\label{stack__check_8c_a70514e7c5588f52efe8c0305bd747abb}} 
+\index{stack\_check.c@{stack\_check.c}!init\_stack\_vars@{init\_stack\_vars}}
+\index{init\_stack\_vars@{init\_stack\_vars}!stack\_check.c@{stack\_check.c}}
+\doxysubsubsection{\texorpdfstring{init\_stack\_vars()}{init\_stack\_vars()}}
+{\footnotesize\ttfamily void init\+\_\+stack\+\_\+vars (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 48 of file stack\+\_\+check.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{49 \{}
+\DoxyCodeLine{50     stack\_start\_reserved = \mbox{\hyperlink{stack__check_8c_abeb451d69a3a6bacd9b21e3b7c4dc6eb}{STACK\_MAGIC\_VALUE}};}
+\DoxyCodeLine{51     stack\_end\_reserved = \mbox{\hyperlink{stack__check_8c_abeb451d69a3a6bacd9b21e3b7c4dc6eb}{STACK\_MAGIC\_VALUE}};}
+\DoxyCodeLine{52 \}}
+
+\end{DoxyCode}
+
+
+References S\+T\+A\+C\+K\+\_\+\+M\+A\+G\+I\+C\+\_\+\+V\+A\+L\+UE.
+
+\mbox{\Hypertarget{stack__check_8c_a0ab8da269b13547895da031b6f09300a}\label{stack__check_8c_a0ab8da269b13547895da031b6f09300a}} 
+\index{stack\_check.c@{stack\_check.c}!stack\_test@{stack\_test}}
+\index{stack\_test@{stack\_test}!stack\_check.c@{stack\_check.c}}
+\doxysubsubsection{\texorpdfstring{stack\_test()}{stack\_test()}}
+{\footnotesize\ttfamily void stack\+\_\+test (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 54 of file stack\+\_\+check.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55 \{}
+\DoxyCodeLine{56     \textcolor{comment}{//===== Check for underflow; If Stack Top value has changed, then set warning =====}}
+\DoxyCodeLine{57    \textcolor{keywordflow}{if} (stack\_start\_reserved != \mbox{\hyperlink{stack__check_8c_abeb451d69a3a6bacd9b21e3b7c4dc6eb}{STACK\_MAGIC\_VALUE}})}
+\DoxyCodeLine{58    \{}
+\DoxyCodeLine{59        \mbox{\hyperlink{fault_8c_a8ea8474835dbcb70ebc28b77e48207fc}{set\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8aae093513cf42824aef95d8cd0668c9f7}{WARNING\_STACK\_OOR}});}
+\DoxyCodeLine{60    \}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62    \textcolor{comment}{//===== Check for overflow; If Stack Bottom value has changed, then set warning =====}}
+\DoxyCodeLine{63    \textcolor{keywordflow}{if} (stack\_end\_reserved  != \mbox{\hyperlink{stack__check_8c_abeb451d69a3a6bacd9b21e3b7c4dc6eb}{STACK\_MAGIC\_VALUE}})}
+\DoxyCodeLine{64    \{}
+\DoxyCodeLine{65        \mbox{\hyperlink{fault_8c_a8ea8474835dbcb70ebc28b77e48207fc}{set\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8aae093513cf42824aef95d8cd0668c9f7}{WARNING\_STACK\_OOR}});}
+\DoxyCodeLine{66    \}}
+\DoxyCodeLine{67 \}}
+
+\end{DoxyCode}
+
+
+References set\+\_\+warning(), S\+T\+A\+C\+K\+\_\+\+M\+A\+G\+I\+C\+\_\+\+V\+A\+L\+UE, and W\+A\+R\+N\+I\+N\+G\+\_\+\+S\+T\+A\+C\+K\+\_\+\+O\+OR.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{stack__check_8c_a0ab8da269b13547895da031b6f09300a_cgraph}
+\end{center}
+\end{figure}

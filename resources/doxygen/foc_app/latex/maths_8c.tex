@@ -1,0 +1,144 @@
+\hypertarget{maths_8c}{}\doxysection{pac\+\_\+foc/src/math/maths.c File Reference}
+\label{maths_8c}\index{pac\_foc/src/math/maths.c@{pac\_foc/src/math/maths.c}}
+
+
+Math support functions.  
+
+
+{\ttfamily \#include \char`\"{}pac5xxx.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}maths.\+h\char`\"{}}\newline
+Include dependency graph for maths.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=259pt]{maths_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{maths_8c_a98ed19b058a85283208af79c048973cb}{bubble\+\_\+sort\+\_\+array}} (int32\+\_\+t $\ast$sort\+\_\+array, uint32\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Bubble sort an array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{maths_8c_a09413eae8cd0a64db3eb97727cdc481a}{bubble\+\_\+sort\+\_\+array\+\_\+descending}} (int32\+\_\+t $\ast$sort\+\_\+array, uint32\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Bubble sort an array in descending order. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Math support functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{maths_8c_a98ed19b058a85283208af79c048973cb}\label{maths_8c_a98ed19b058a85283208af79c048973cb}} 
+\index{maths.c@{maths.c}!bubble\_sort\_array@{bubble\_sort\_array}}
+\index{bubble\_sort\_array@{bubble\_sort\_array}!maths.c@{maths.c}}
+\doxysubsubsection{\texorpdfstring{bubble\_sort\_array()}{bubble\_sort\_array()}}
+{\footnotesize\ttfamily void bubble\+\_\+sort\+\_\+array (\begin{DoxyParamCaption}\item[{int32\+\_\+t $\ast$}]{sort\+\_\+array,  }\item[{uint32\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Bubble sort an array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sort\+\_\+array} & pointer to array \\
+\hline
+{\em size} & length of array \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 25 of file maths.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27     \textcolor{keyword}{volatile} int32\_t temp;}
+\DoxyCodeLine{28     \textcolor{keyword}{volatile} uint32\_t i,j;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{comment}{// Sort array with max at the end}}
+\DoxyCodeLine{31     \textcolor{comment}{// Sort array in ascending order, Min to Max values}}
+\DoxyCodeLine{32     \textcolor{keywordflow}{for}(i = 0 ; i < size ; i++)}
+\DoxyCodeLine{33     \{}
+\DoxyCodeLine{34         \textcolor{keywordflow}{for}(j = 0 ; j < size-\/i-\/1 ; j++)}
+\DoxyCodeLine{35         \{}
+\DoxyCodeLine{36             \textcolor{keywordflow}{if}(sort\_array[j] > sort\_array[j+1])}
+\DoxyCodeLine{37             \{}
+\DoxyCodeLine{38                 temp = sort\_array[j];}
+\DoxyCodeLine{39                 sort\_array[j] = sort\_array[j+1];}
+\DoxyCodeLine{40                 sort\_array[j+1] = temp;}
+\DoxyCodeLine{41             \}}
+\DoxyCodeLine{42         \}}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 \}}
+
+\end{DoxyCode}
+
+
+Referenced by hall\+\_\+sort\+\_\+create\+\_\+next\+\_\+state\+\_\+array().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{maths_8c_a98ed19b058a85283208af79c048973cb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{maths_8c_a09413eae8cd0a64db3eb97727cdc481a}\label{maths_8c_a09413eae8cd0a64db3eb97727cdc481a}} 
+\index{maths.c@{maths.c}!bubble\_sort\_array\_descending@{bubble\_sort\_array\_descending}}
+\index{bubble\_sort\_array\_descending@{bubble\_sort\_array\_descending}!maths.c@{maths.c}}
+\doxysubsubsection{\texorpdfstring{bubble\_sort\_array\_descending()}{bubble\_sort\_array\_descending()}}
+{\footnotesize\ttfamily void bubble\+\_\+sort\+\_\+array\+\_\+descending (\begin{DoxyParamCaption}\item[{int32\+\_\+t $\ast$}]{sort\+\_\+array,  }\item[{uint32\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Bubble sort an array in descending order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sort\+\_\+array} & pointer to array \\
+\hline
+{\em size} & length of array \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 48 of file maths.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{49 \{}
+\DoxyCodeLine{50     \textcolor{keyword}{volatile} int32\_t temp;}
+\DoxyCodeLine{51     \textcolor{keyword}{volatile} uint32\_t i,j;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{comment}{// Sort array with max at the end}}
+\DoxyCodeLine{54     \textcolor{comment}{// Sort array in ascending order, Min to Max values}}
+\DoxyCodeLine{55     \textcolor{keywordflow}{for}(i = 0 ; i < size ; i++)}
+\DoxyCodeLine{56     \{}
+\DoxyCodeLine{57         \textcolor{keywordflow}{for}(j = 0 ; j < size-\/i-\/1 ; j++)}
+\DoxyCodeLine{58         \{}
+\DoxyCodeLine{59             \textcolor{keywordflow}{if}(sort\_array[j] < sort\_array[j+1])}
+\DoxyCodeLine{60             \{}
+\DoxyCodeLine{61                 temp = sort\_array[j];}
+\DoxyCodeLine{62                 sort\_array[j] = sort\_array[j+1];}
+\DoxyCodeLine{63                 sort\_array[j+1] = temp;}
+\DoxyCodeLine{64             \}}
+\DoxyCodeLine{65         \}}
+\DoxyCodeLine{66     \}}
+\DoxyCodeLine{67 \}}
+
+\end{DoxyCode}
+
+
+Referenced by hall\+\_\+sort\+\_\+create\+\_\+prev\+\_\+state\+\_\+array().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{maths_8c_a09413eae8cd0a64db3eb97727cdc481a_icgraph}
+\end{center}
+\end{figure}

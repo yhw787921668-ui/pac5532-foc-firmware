@@ -1,0 +1,131 @@
+.TH "pac_foc/src/math/pid.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/math/pid.c \- PID functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pid\&.h'\fP
+.br
+\fC#include 'fault\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBpid_reset\fP (\fBPID_Data_Type\fP *pid_data)"
+.br
+.RI "Initializes the PID controller data\&. "
+.ti -1c
+.RI "void \fBpicon_convert_gain\fP (\fBPID_Data_Type\fP *pid_data, uint32_t scale_in_q16, int32_t scale_out_q16)"
+.br
+.RI "Convert gain to PID data\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+PID functions\&. 
+
+
+.PP
+Definition in file \fBpid\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void picon_convert_gain (\fBPID_Data_Type\fP * pid_data, uint32_t scale_in_q16, int32_t scale_out_q16)"
+
+.PP
+Convert gain to PID data\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpid_data\fP pointer to PID data structure 
+.br
+\fIscale_in_q16\fP input scale 
+.br
+\fIscale_out_q16\fP output scale 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file pid\&.c\&.
+.PP
+.nf
+42 {
+43     int32_t temp1_q16, temp2_q16;
+44 
+46     // Calculate Kp
+48 
+49     // Calculate Kp = ka * (scale_in/scale_out)
+50     // q16/q16 = q16, calculate 1/scale_out_q16
+51     temp1_q16 = fix16_div(FIX16_1P0, scale_out_q16);
+52     // q16 = q16 * q16, (fix16_1/scale_out_q16) * scale_in_q16
+53     temp1_q16 = fix16_mul_uint(temp1_q16, scale_in_q16);
+54     // q16 = q16 * q16
+55     temp1_q16 = fix16_mul(pid_data->ka_q16, temp1_q16);
+56     pid_data->kp_q11 = temp1_q16 >> 5;
+57 
+59     // Calculate Ki
+61 
+62     // Ki = Kb * Kp * Ts
+63     // q6 = q6 * q16
+64     temp2_q16 = fix16_mul(pid_data->kb_q16, temp1_q16);
+65     // q16 = q6 * q26
+66     pid_data->kidt_q16 = (fix16_mul(temp2_q16, pid_data->dt_q26) >> 10);
+67 
+69     // Check PI Gain Range
+71 
+72     if (pid_data->kp_q11 > QCONST(63, Q11))      // Kp max = 2^6=64 to overflow during q-math multiplication
+73     {
+74         pid_data->kp_q11 = QCONST(63, Q11);
+75         set_warning(WARNING_PIGAIN_RANGE);
+76     }
+77 
+78     if (pid_data->kidt_q16 > QCONST(1, Q16))     // kitd max = 1 to overflow during q-math multiplication
+79     {
+80         pid_data->kidt_q16 = QCONST(1, Q16);
+81         set_warning(WARNING_PIGAIN_RANGE);
+82     }
+83 }
+.fi
+.PP
+References PID_Data_Type::dt_q26, FIX16_1P0, fix16_div(), fix16_mul(), fix16_mul_uint(), PID_Data_Type::ka_q16, PID_Data_Type::kb_q16, PID_Data_Type::kidt_q16, PID_Data_Type::kp_q11, Q11, Q16, QCONST, set_warning(), and WARNING_PIGAIN_RANGE\&.
+.SS "void pid_reset (\fBPID_Data_Type\fP * pid_data)"
+
+.PP
+Initializes the PID controller data\&. Reset PID controller\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIpid_data\fP Pointer to the PID controller data 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Note that the user must make sure that the pointer is valid and that the user-defined fields in the data structure are initialized properly (see the definition for the \fI\fBPID_Data_Type\fP\fP data structure)\&. 
+.RE
+.PP
+
+.PP
+Definition at line 33 of file pid\&.c\&.
+.PP
+.nf
+34 {
+35     pid_data->I_prev = 0;
+36     pid_data->PI = 0;
+37     pid_data->PI_sat = 0;
+38 }
+.fi
+.PP
+References PID_Data_Type::I_prev, PID_Data_Type::PI, and PID_Data_Type::PI_sat\&.
+.PP
+Referenced by control_reset(), and foc_reset()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

@@ -1,0 +1,698 @@
+.TH "pac_foc/src/mpos/hall/hall_funcs.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/mpos/hall/hall_funcs.h \- Use for hall FOC utility functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'config_app\&.h'\fP
+.br
+\fC#include 'config_features\&.h'\fP
+.br
+\fC#include 'driver_funcs\&.h'\fP
+.br
+\fC#include 'fast_div\&.h'\fP
+.br
+\fC#include 'fault\&.h'\fP
+.br
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'utils\&.h'\fP
+.br
+\fC#include 'mpos_misc\&.h'\fP
+.br
+\fC#include 'parameter_process\&.h'\fP
+.br
+\fC#include 'hall_io_config\&.h'\fP
+.br
+\fC#include 'hall_timer_config\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBHALL2EST_ANGLEBLEND_TOTALCNT\fP   100"
+.br
+.ti -1c
+.RI "#define \fBHALL2EST_ANGLEBLEND_FACTOR_Q12\fP   \fBQCONST\fP((1\&.0 / (float)\fBHALL2EST_ANGLEBLEND_TOTALCNT\fP), \fBQ12\fP)"
+.br
+.ti -1c
+.RI "#define \fBHALL_SPEED_CAL_VALUE_Q0\fP   \fBQCONST\fP(((1\&.0f * HCLK_FREQ_HZ_HALL) / (1\&.0f * HALL_CLK_DIVIDER)), 0)"
+.br
+.ti -1c
+.RI "#define \fBHALL_TIMER_TICK_DT_Q26\fP   \fBQCONST\fP(((1\&.0f * HALL_CLK_DIVIDER) / (1\&.0f * HCLK_FREQ_HZ_HALL)), \fBQ26\fP)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBhall_process\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "This function use for hall processing\&. "
+.ti -1c
+.RI "void \fBhall_init\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Use for hall initialization\&. "
+.ti -1c
+.RI "void \fBhall_reset\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Use for reset FOC hall related variables, interrupt, ports\&. "
+.ti -1c
+.RI "void \fBhall_timer_isr\fP (void)"
+.br
+.RI "Use for processing hall timer ISR\&. "
+.ti -1c
+.RI "void \fBhall_sort_create_next_state_array\fP (int32_t *array_ptr_src, char *array_ptr_dest)"
+.br
+.RI "Use to sort and create next state table using source hall state array\&. "
+.ti -1c
+.RI "void \fBhall_sort_create_prev_state_array\fP (int32_t *array_ptr_src, char *array_ptr_dest)"
+.br
+.RI "Use to sort in descending order and create next state table using source hall state array\&. "
+.ti -1c
+.RI "void \fBhall_create_sequence_array\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Use to copy hall angle form snap angle to for, rev, next and prev state arrays\&. "
+.ti -1c
+.RI "void \fBhall_param_write\fP (\fBStruct_Motor\fP *motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+.br
+.RI "Use for processing hall FOC related parameters\&. "
+.ti -1c
+.RI "void \fBhall_param_process\fP (\fBStruct_Motor\fP *motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+.br
+.RI "Use for processing hall FOC forward and reverse snap angle\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for hall FOC utility functions\&. 
+
+
+.PP
+Definition in file \fBhall_funcs\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define HALL2EST_ANGLEBLEND_FACTOR_Q12   \fBQCONST\fP((1\&.0 / (float)\fBHALL2EST_ANGLEBLEND_TOTALCNT\fP), \fBQ12\fP)"
+
+.PP
+Definition at line 44 of file hall_funcs\&.h\&.
+.SS "#define HALL2EST_ANGLEBLEND_TOTALCNT   100"
+
+.PP
+Definition at line 43 of file hall_funcs\&.h\&.
+.SS "#define HALL_SPEED_CAL_VALUE_Q0   \fBQCONST\fP(((1\&.0f * HCLK_FREQ_HZ_HALL) / (1\&.0f * HALL_CLK_DIVIDER)), 0)"
+
+.PP
+Definition at line 78 of file hall_funcs\&.h\&.
+.SS "#define HALL_TIMER_TICK_DT_Q26   \fBQCONST\fP(((1\&.0f * HALL_CLK_DIVIDER) / (1\&.0f * HCLK_FREQ_HZ_HALL)), \fBQ26\fP)"
+
+.PP
+Definition at line 79 of file hall_funcs\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void hall_create_sequence_array (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Use to copy hall angle form snap angle to for, rev, next and prev state arrays\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.RE
+.PP
+
+.PP
+Definition at line 416 of file hall_funcs\&.c\&.
+.PP
+.nf
+417 {
+418     uint8_t count;
+419 
+420     // Reset forward and reverse next state table to zero
+421     for (count = 0; count < 8; count++)
+422     {
+423         motor_ptr->mpos\&.hall\&.hall_forward_next_state[count] = 0;
+424         motor_ptr->mpos\&.hall\&.hall_forward_prev_state[count] = 0;
+425         motor_ptr->mpos\&.hall\&.hall_reverse_next_state[count] = 0;
+426         motor_ptr->mpos\&.hall\&.hall_reverse_prev_state[count] = 0;
+427     }
+428 
+429     hall_sort_create_next_state_array(&motor_ptr->mpos\&.hall\&.hall_to_snapangle_forward[0],
+430             &motor_ptr->mpos\&.hall\&.hall_forward_next_state[0]);
+431     hall_sort_create_prev_state_array(&motor_ptr->mpos\&.hall\&.hall_to_snapangle_forward[0],
+432             &motor_ptr->mpos\&.hall\&.hall_forward_prev_state[0]);
+433     hall_sort_create_next_state_array(&motor_ptr->mpos\&.hall\&.hall_to_snapangle_reverse[0],
+434             &motor_ptr->mpos\&.hall\&.hall_reverse_next_state[0]);
+435     hall_sort_create_prev_state_array(&motor_ptr->mpos\&.hall\&.hall_to_snapangle_reverse[0],
+436             &motor_ptr->mpos\&.hall\&.hall_reverse_prev_state[0]);
+437 }
+.fi
+.PP
+References Struct_MPos::hall, Struct_Hall::hall_forward_next_state, Struct_Hall::hall_forward_prev_state, Struct_Hall::hall_reverse_next_state, Struct_Hall::hall_reverse_prev_state, hall_sort_create_next_state_array(), hall_sort_create_prev_state_array(), Struct_Hall::hall_to_snapangle_forward, Struct_Hall::hall_to_snapangle_reverse, and Struct_Motor::mpos\&.
+.PP
+Referenced by hall_param_process()\&.
+.SS "void hall_init (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Use for hall initialization\&. 
+.PP
+Definition at line 176 of file hall_funcs\&.c\&.
+.PP
+.nf
+177 {
+178 }
+.fi
+.SS "void hall_param_process (\fBStruct_Motor\fP * motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+
+.PP
+Use for processing hall FOC forward and reverse snap angle\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.br
+\fIParameterCode\fP param_code 
+.br
+\fIint32_t\fP rx_data 
+.RE
+.PP
+
+.PP
+Definition at line 519 of file hall_funcs\&.c\&.
+.PP
+.nf
+520 {
+521     switch(param_code)
+522     {
+523     case HallConfig_Snap_1_Fwd:
+524     case HallConfig_Snap_1_Rev:
+525     case HallConfig_Snap_2_Fwd:
+526     case HallConfig_Snap_2_Rev:
+527     case HallConfig_Snap_3_Fwd:
+528     case HallConfig_Snap_3_Rev:
+529     case HallConfig_Snap_4_Fwd:
+530     case HallConfig_Snap_4_Rev:
+531     case HallConfig_Snap_5_Fwd:
+532     case HallConfig_Snap_5_Rev:
+533     case HallConfig_Snap_6_Fwd:
+534     case HallConfig_Snap_6_Rev:
+535         hall_create_sequence_array(motor_ptr);
+536         break;
+537     default:
+538         break;
+539     }
+540 }
+.fi
+.PP
+References hall_create_sequence_array(), HallConfig_Snap_1_Fwd, HallConfig_Snap_1_Rev, HallConfig_Snap_2_Fwd, HallConfig_Snap_2_Rev, HallConfig_Snap_3_Fwd, HallConfig_Snap_3_Rev, HallConfig_Snap_4_Fwd, HallConfig_Snap_4_Rev, HallConfig_Snap_5_Fwd, HallConfig_Snap_5_Rev, HallConfig_Snap_6_Fwd, and HallConfig_Snap_6_Rev\&.
+.SS "void hall_param_write (\fBStruct_Motor\fP * motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+
+.PP
+Use for processing hall FOC related parameters\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.br
+\fIParameterCode\fP param_code 
+.br
+\fIint32_t\fP rx_data 
+.RE
+.PP
+
+.PP
+Definition at line 446 of file hall_funcs\&.c\&.
+.PP
+.nf
+447 {
+448     switch(param_code)
+449     {
+450     case HallConfig_Istart:
+451         motor_ptr->startup\&.i_total_hall_gui = rx_data;
+452         break;
+453     case HallConfig_Gain_Fwd:
+454         motor_ptr->mpos\&.hall\&.angcorr_gain_fwd_q20 = rx_data;
+455         break;
+456     case HallConfig_Gain_Rev:
+457         motor_ptr->mpos\&.hall\&.angcorr_gain_rev_q20 = rx_data;
+458         break;
+459     case HallConfig_Offset_Fwd:
+460         motor_ptr->mpos\&.hall\&.angcorr_offset_fwd = rx_data;
+461         break;
+462     case HallConfig_Offset_Rev:
+463         motor_ptr->mpos\&.hall\&.angcorr_offset_rev = rx_data;
+464         break;
+465 #if (MODULE_MPOS_HALL == ENABLED) && (MODULE_MPOS_LBG1 == ENABLED)
+466     case HallConfig_Speed:
+467         motor_ptr->mpos\&.hall\&.switchover_spd_lo2hi_radps = rx_data;
+468         motor_ptr->mpos\&.hall\&.switchover_spd_hi2lo_radps = fix16_mul(motor_ptr->mpos\&.hall\&.switchover_spd_lo2hi_radps, (Q16_1P0 - SWITCHOVER_SPD_HALLEST_HYST_PCT_Q16));
+469         break;
+470 #endif
+471     case HallConfig_Snap_1_Fwd:
+472         motor_ptr->mpos\&.hall\&.hall_to_snapangle_forward[1] = rx_data;
+473         break;
+474     case HallConfig_Snap_1_Rev:
+475         motor_ptr->mpos\&.hall\&.hall_to_snapangle_reverse[1] = rx_data;
+476         break;
+477     case HallConfig_Snap_2_Fwd:
+478         motor_ptr->mpos\&.hall\&.hall_to_snapangle_forward[2] = rx_data;
+479         break;
+480     case HallConfig_Snap_2_Rev:
+481         motor_ptr->mpos\&.hall\&.hall_to_snapangle_reverse[2] = rx_data;
+482         break;
+483     case HallConfig_Snap_3_Fwd:
+484         motor_ptr->mpos\&.hall\&.hall_to_snapangle_forward[3] = rx_data;
+485         break;
+486     case HallConfig_Snap_3_Rev:
+487         motor_ptr->mpos\&.hall\&.hall_to_snapangle_reverse[3] = rx_data;
+488         break;
+489     case HallConfig_Snap_4_Fwd:
+490         motor_ptr->mpos\&.hall\&.hall_to_snapangle_forward[4] = rx_data;
+491         break;
+492     case HallConfig_Snap_4_Rev:
+493         motor_ptr->mpos\&.hall\&.hall_to_snapangle_reverse[4] = rx_data;
+494         break;
+495     case HallConfig_Snap_5_Fwd:
+496         motor_ptr->mpos\&.hall\&.hall_to_snapangle_forward[5] = rx_data;
+497         break;
+498     case HallConfig_Snap_5_Rev:
+499         motor_ptr->mpos\&.hall\&.hall_to_snapangle_reverse[5] = rx_data;
+500         break;
+501     case HallConfig_Snap_6_Fwd:
+502         motor_ptr->mpos\&.hall\&.hall_to_snapangle_forward[6] = rx_data;
+503         break;
+504     case HallConfig_Snap_6_Rev:
+505         motor_ptr->mpos\&.hall\&.hall_to_snapangle_reverse[6] = rx_data;
+506         break;
+507     default:
+508         break;
+509     }
+510 }
+.fi
+.PP
+References Struct_Hall::angcorr_gain_fwd_q20, Struct_Hall::angcorr_gain_rev_q20, Struct_Hall::angcorr_offset_fwd, Struct_Hall::angcorr_offset_rev, fix16_mul(), Struct_MPos::hall, Struct_Hall::hall_to_snapangle_forward, Struct_Hall::hall_to_snapangle_reverse, HallConfig_Gain_Fwd, HallConfig_Gain_Rev, HallConfig_Istart, HallConfig_Offset_Fwd, HallConfig_Offset_Rev, HallConfig_Snap_1_Fwd, HallConfig_Snap_1_Rev, HallConfig_Snap_2_Fwd, HallConfig_Snap_2_Rev, HallConfig_Snap_3_Fwd, HallConfig_Snap_3_Rev, HallConfig_Snap_4_Fwd, HallConfig_Snap_4_Rev, HallConfig_Snap_5_Fwd, HallConfig_Snap_5_Rev, HallConfig_Snap_6_Fwd, HallConfig_Snap_6_Rev, HallConfig_Speed, Struct_Motor::mpos, Q16_1P0, Struct_Motor::startup, Struct_Hall::switchover_spd_hi2lo_radps, and Struct_Hall::switchover_spd_lo2hi_radps\&.
+.SS "PAC5XXX_RAMFUNC void hall_process (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+This function use for hall processing\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr pointer to motor structure 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file hall_funcs\&.c\&.
+.PP
+.nf
+39 {
+40     int32_t local_flag_hall_state_int = 0;
+41 
+42     __disable_irq();
+43     // Read hall interrupt flag atomically
+44     local_flag_hall_state_int = motor_ptr->mpos\&.hall\&.flag_hall_int;
+45     // Clear hall interrupt flag to signal hall ISR transition is processed
+46     motor_ptr->mpos\&.hall\&.flag_hall_int = FALSE;
+47     __enable_irq();
+48 
+49     // Check if hall transition has occurred after transition flag indicates that previous transition has been processed
+50     if (!motor_ptr->mpos\&.hall\&.transition_flag)
+51     {
+52         hall_check_hall_state_changed(motor_ptr);
+53     }
+54 
+55     // Process hall transition if state transition is detected and if hall interrupt has been detected
+56     if(motor_ptr->mpos\&.hall\&.transition_flag && local_flag_hall_state_int)
+57     {
+58         // Clear hall state transition flag
+59         motor_ptr->mpos\&.hall\&.transition_flag = FALSE;
+60 
+61         // Set external hall state transition flag
+62         motor_ptr->mpos\&.hall\&.transition_ext_flag = TRUE;
+63 
+64 #if defined(ENABLE_HALL_SEQUENCE_CHECK) && !defined(ENABLE_HALL_TUNING)
+65         hall_check_sequence(motor_ptr);
+66 #endif
+67         // Fault if read hall value is illegal
+68         hall_check_hall_state(motor_ptr);
+69 
+70         // Calculate hall angle
+71         hall_calc_motor_angle(motor_ptr);
+72 
+73         // Handle the case of kickback by decrementing the interpolation angle back to 0 to avoid a sudden jump in angle
+74         if (motor_ptr->mpos\&.hall\&.hall_ptr_prev_state[motor_ptr->mpos\&.hall\&.SensorStateLast] == motor_ptr->mpos\&.hall\&.SensorStateNew)
+75         {
+76             // Skip speed calculation for this transition
+77             motor_ptr->mpos\&.hall\&.do_speed_cal = FALSE;
+78             // Reset the transition counter to skip speed calculation on the first forward transition
+79             motor_ptr->mpos\&.hall\&.transition_counter = 0;
+80 
+81             // Set speed and speed filter to 0
+82             motor_ptr->mpos\&.hall\&.hall_spd_radps = 0;
+83             motor_ptr->mpos\&.hall\&.hall_spd_scaled_q14 = 0;
+84             motor_ptr->mpos\&.hall\&.hall_spd_scaled_q28 = 0;
+85             motor_ptr->mpos\&.hall\&.hall_spd_radps = 0;
+86 
+87             // Set interpolation to decrement interpolation angle from current value down to 0
+88             motor_ptr->mpos\&.hall\&.accumulate_degree_per_dt = -QCONST(0\&.026f, Q16);
+89         }
+90         // Handle the case of normal forward transition
+91         else
+92         {
+93             // Reset interpolation angle and let speed calculator determine interpolation increment
+94             motor_ptr->mpos\&.hall\&.accumulate_degree_value = 0;
+95 
+96             // Skip speed calculation on the first transition because speed reading is not valid
+97             if (motor_ptr->mpos\&.hall\&.transition_counter >= 1)
+98             {
+99                 motor_ptr->mpos\&.hall\&.flag_speed_calc_enabled = TRUE;
+100                 motor_ptr->mpos\&.hall\&.do_speed_cal = TRUE;
+101             }
+102             // Increment internal hall transition counter
+103             motor_ptr->mpos\&.hall\&.transition_counter++;
+104         }
+105 
+106 #if defined(ENABLE_HALL_TUNING)
+107         halltune_store_transition_angle(motor_ptr);
+108 #endif
+109 
+110 #if defined(ENABLE_ANGLE_CORRECTION) || defined(ENABLE_MTPA)
+111         hall_angle_correction(motor_ptr);
+112 #else
+113         motor_ptr->mpos\&.hall\&.hall_interpolated_angle = motor_ptr->mpos\&.hall\&.angle_fix16;
+114 #endif
+115 
+116 #if defined(ENABLE_HALL_TUNING)
+117         halltune_edgetuning(motor_ptr);
+118 #endif
+119 
+120         // Store the last state
+121         motor_ptr->mpos\&.hall\&.SensorStateLast = motor_ptr->mpos\&.hall\&.SensorStateNew;
+122 
+123         __disable_irq();
+124         // Re-enable hall port interrupts
+125         hall_int_hallport_enable();
+126         __enable_irq();
+127     }
+128     else
+129     {
+130         // Calculate hall speed and interpolation increment
+131         if (motor_ptr->mpos\&.hall\&.do_speed_cal)
+132         {
+133             // Calculate speed only in the first cycle after hall state transition
+134             motor_ptr->mpos\&.hall\&.do_speed_cal = FALSE;
+135 
+136             // Calculate motor speed
+137             hall_calc_motor_speed(motor_ptr);
+138 
+139 #if defined(ENABLE_HALL_TUNING)
+140             halltune_edge_pol_skew_tuning(motor_ptr);
+141 #endif
+142         }
+143 
+144         // Clear external hall state transition flag
+145         motor_ptr->mpos\&.hall\&.transition_ext_flag = FALSE;
+146 
+147         // Interpolate angle between hall state transitions
+148         hall_angle_interpolate(motor_ptr);
+149     }
+150 
+151 #if defined(ENABLE_HALL_ASSIST)
+152     hall_assist(motor_ptr);
+153 #endif
+154 
+155 #if 0
+156 //    debug_dac_1a = motor_ptr->mpos\&.hall\&.SensorStateNew << 13;
+157 //    debug_dac_1a = GET_HALL_VALUE << 11;
+158 //    debug_dac_1b = motor_ptr->mpos\&.hall\&.SensorStateNew << 11;
+159 //    debug_dac_1a = motor_ptr->mpos\&.hall\&.hall_spd_scaled_q14;
+160 //    debug_dac_2b = motor_ptr->mpos\&.hall\&.angle_fix16 >> 5;
+161 //    debug_dac_1c = motor_ptr->mpos\&.hall\&.hall_interpolated_angle >> 5;
+162 //    debug_dac_1a = motor_ptr->mpos\&.hall\&.accumulate_degree_per_dt;
+163 //    debug_dac_2c = motor_ptr->mpos\&.hall\&.accumulate_degree_value >> 5;
+164 //    debug_dac_2a = motor_ptr->mpos\&.hall\&.hall_angle >> 5;
+165 //    debug_dac_1a = motor_ptr->control\&.dt_control_q26;
+166 #endif
+167 }
+.fi
+.PP
+References FALSE, Struct_Hall::flag_hall_int, Struct_MPos::hall, Struct_Motor::mpos, and Struct_Hall::transition_flag\&.
+.SS "void hall_reset (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Use for reset FOC hall related variables, interrupt, ports\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.RE
+.PP
+
+.PP
+Definition at line 185 of file hall_funcs\&.c\&.
+.PP
+.nf
+186 {
+187     // JAGTAG: Maybe move to hall_init()
+188     NVIC_EnableIRQ(Hall_Gpio_IRQn);
+189 
+190     // Set hall angle and next state array pointer according to motor direction
+191     if(motor_ptr->app\&.direction_reverse_cmd == 0)
+192     {
+193         motor_ptr->mpos\&.hall\&.hall_ptr_snapangle = &motor_ptr->mpos\&.hall\&.hall_to_snapangle_forward[0];
+194         motor_ptr->mpos\&.hall\&.ptr_angcorr_gain = &motor_ptr->mpos\&.hall\&.angcorr_gain_fwd_q20;
+195         motor_ptr->mpos\&.hall\&.ptr_angcorr_offset = &motor_ptr->mpos\&.hall\&.angcorr_offset_fwd;
+196         motor_ptr->mpos\&.hall\&.hall_ptr_next_state = &motor_ptr->mpos\&.hall\&.hall_forward_next_state[0];
+197         motor_ptr->mpos\&.hall\&.hall_ptr_prev_state = &motor_ptr->mpos\&.hall\&.hall_forward_prev_state[0];
+198     }
+199     else
+200     {
+201         motor_ptr->mpos\&.hall\&.hall_ptr_snapangle = &motor_ptr->mpos\&.hall\&.hall_to_snapangle_reverse[0];
+202         motor_ptr->mpos\&.hall\&.ptr_angcorr_gain = &motor_ptr->mpos\&.hall\&.angcorr_gain_rev_q20;
+203         motor_ptr->mpos\&.hall\&.ptr_angcorr_offset = &motor_ptr->mpos\&.hall\&.angcorr_offset_rev;
+204         motor_ptr->mpos\&.hall\&.hall_ptr_next_state = &motor_ptr->mpos\&.hall\&.hall_reverse_next_state[0];
+205         motor_ptr->mpos\&.hall\&.hall_ptr_prev_state = &motor_ptr->mpos\&.hall\&.hall_reverse_prev_state[0];
+206     }
+207 
+208     // Reset hall transition counter
+209     motor_ptr->mpos\&.hall\&.transition_counter = 0;
+210 
+211     // Reset hall speed and filter
+212     motor_ptr->mpos\&.hall\&.hall_spd_radps = 0;
+213     motor_ptr->mpos\&.hall\&.hall_spd_scaled_q14 = 0;
+214     motor_ptr->mpos\&.hall\&.hall_spd_scaled_q28 = 0;
+215     motor_ptr->mpos\&.hall\&.hall_spd_radps = 0;
+216 
+217     // Reset interpolation
+218     motor_ptr->mpos\&.hall\&.accumulate_degree_value = 0;
+219     motor_ptr->mpos\&.hall\&.accumulate_degree_per_dt = 0;
+220 
+221     // Reset state flags
+222     motor_ptr->mpos\&.hall\&.transition_flag = FALSE;
+223     motor_ptr->mpos\&.hall\&.transition_ext_flag = FALSE;
+224     motor_ptr->mpos\&.hall\&.do_speed_cal = FALSE;
+225     motor_ptr->mpos\&.hall\&.flag_speed_calc_enabled = FALSE;
+226     motor_ptr->mpos\&.hall\&.flag_hall_int = FALSE;
+227     motor_ptr->mpos\&.hall\&.flag_inithallspdfilt = TRUE;
+228 
+229     // Reset hall state to current state
+230     motor_ptr->mpos\&.hall\&.SensorStateLast = motor_ptr->mpos\&.hall\&.SensorStateNew = GET_HALL_VALUE;
+231 
+232     // Calculate hall angle for current state
+233     hall_calc_motor_angle(motor_ptr);
+234 #ifdef ENABLE_ANGLE_CORRECTION
+235     // Angle Correction (only offset)
+236     motor_ptr->mpos\&.hall\&.hall_angle = motor_ptr->mpos\&.hall\&.angle_fix16 + *motor_ptr->mpos\&.hall\&.ptr_angcorr_offset;
+237 #endif
+238 
+239     // Enable hall timer
+240     hall_timer_clear();
+241 
+242 #if defined(FAMILY_52XX)
+243     // Configure the hall interrupt edge polarity depending on hall port input
+244     pac5xxx_gpio_int_polarity_hallport_bit_set_value(HALLA_PORT_BIT, PAC5XXX_GPIO_HALLA->IN\&.b & HALLA_PORT_BIT);
+245     pac5xxx_gpio_int_polarity_hallport_bit_set_value(HALLB_PORT_BIT, PAC5XXX_GPIO_HALLB->IN\&.b & HALLB_PORT_BIT);
+246     pac5xxx_gpio_int_polarity_hallport_bit_set_value(HALLC_PORT_BIT, PAC5XXX_GPIO_HALLC->IN\&.b & HALLC_PORT_BIT);
+247 #endif
+248 
+249     // Reset diagnostics
+250     motor_ptr->mpos\&.hall\&.hall_check_error_code = 0;
+251     motor_ptr->mpos\&.hall\&.hall_check_error_state_new = 0;
+252     motor_ptr->mpos\&.hall\&.hall_check_error_state_prev = 0;
+253 
+254     // Reset observer hall angle correction
+255     motor_ptr->mpos\&.hall\&.hall_est_angle_corr = 0;
+256 
+257     __disable_irq();
+258     // Enable hall port interrupts
+259     hall_int_hallport_enable();
+260     __enable_irq();
+261 }
+.fi
+.PP
+References Struct_Hall::accumulate_degree_per_dt, Struct_Hall::accumulate_degree_value, Struct_Hall::angcorr_gain_fwd_q20, Struct_Hall::angcorr_gain_rev_q20, Struct_Hall::angcorr_offset_fwd, Struct_Hall::angcorr_offset_rev, Struct_Motor::app, Struct_App::direction_reverse_cmd, Struct_Hall::do_speed_cal, FALSE, Struct_Hall::flag_hall_int, Struct_Hall::flag_inithallspdfilt, Struct_Hall::flag_speed_calc_enabled, GET_HALL_VALUE, Struct_MPos::hall, Struct_Hall::hall_forward_next_state, Struct_Hall::hall_forward_prev_state, Struct_Hall::hall_ptr_next_state, Struct_Hall::hall_ptr_prev_state, Struct_Hall::hall_ptr_snapangle, Struct_Hall::hall_reverse_next_state, Struct_Hall::hall_reverse_prev_state, Struct_Hall::hall_spd_radps, Struct_Hall::hall_spd_scaled_q14, Struct_Hall::hall_spd_scaled_q28, Struct_Hall::hall_to_snapangle_forward, Struct_Hall::hall_to_snapangle_reverse, Struct_Motor::mpos, Struct_Hall::ptr_angcorr_gain, Struct_Hall::ptr_angcorr_offset, Struct_Hall::SensorStateLast, Struct_Hall::SensorStateNew, Struct_Hall::transition_counter, Struct_Hall::transition_ext_flag, Struct_Hall::transition_flag, and TRUE\&.
+.SS "void hall_sort_create_next_state_array (int32_t * array_ptr_src, char * array_ptr_dest)"
+
+.PP
+Use to sort and create next state table using source hall state array\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIint32_t*\fP array_ptr_src 
+.br
+\fIchar*\fP array_ptr_dest 
+.RE
+.PP
+
+.PP
+Definition at line 332 of file hall_funcs\&.c\&.
+.PP
+.nf
+333 {
+334 #define START_INDEX_1    1
+335 #define END_INDEX_1      7
+336 
+337     int32_t temp_angle_array[8] = {0,0,0,0,0,0,0,0};
+338     int32_t temp_index_array[8] = {0,0,0,0,0,0,0,0};
+339     volatile uint8_t count, count_element;
+340 
+341     // Copy angle info from 1D array to 1D array for sorting
+342     // Copy only data from index 1 to 6, indexes 0 and 7 are invalid
+343     for (count = START_INDEX_1; count < END_INDEX_1; count++)
+344         temp_angle_array[count] = array_ptr_src[count];
+345 
+346     // Sort array in ascending order for hall angles, smaller to bigger hall angle values and store in temporary 1D array
+347     // Sort function is a generic bubble sort also used in IPD
+348     bubble_sort_array(&temp_angle_array[START_INDEX_1], sizeof(temp_angle_array)/sizeof(temp_angle_array[0]) - 2);
+349 
+350     // Do a search and find hall states corresponding to hall angle values and save in temporary 1D array
+351     for (count = START_INDEX_1; count < END_INDEX_1; count++)
+352     {
+353         for (count_element = START_INDEX_1; count_element < END_INDEX_1; count_element++)
+354         {
+355             // Check if the hall angle value of sorted array matches the default hall angle array
+356             // If yes copy the array index for final hall angle, index array creation, use for next hall state calculation
+357             if(temp_angle_array[count] == array_ptr_src[count_element])
+358             {
+359                 temp_index_array[count] = count_element;
+360                 break;
+361             }
+362         }
+363     }
+364 
+365     // Call use to create next state table using hall state index information from ascending order angle table array
+366     hall_create_next_state_array(&temp_index_array[0], array_ptr_dest);
+367 }
+.fi
+.PP
+References bubble_sort_array(), END_INDEX_1, hall_create_next_state_array(), and START_INDEX_1\&.
+.PP
+Referenced by hall_create_sequence_array()\&.
+.SS "void hall_sort_create_prev_state_array (int32_t * array_ptr_src, char * array_ptr_dest)"
+
+.PP
+Use to sort in descending order and create next state table using source hall state array\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIint32_t*\fP array_ptr_src 
+.br
+\fIchar*\fP array_ptr_dest 
+.RE
+.PP
+
+.PP
+Definition at line 374 of file hall_funcs\&.c\&.
+.PP
+.nf
+375 {
+376 #define START_INDEX_1    1
+377 #define END_INDEX_1      7
+378 
+379     int32_t temp_angle_array[8] = {0,0,0,0,0,0,0,0};
+380     int32_t temp_index_array[8] = {0,0,0,0,0,0,0,0};
+381     volatile uint8_t count, count_element;
+382 
+383     // Copy angle info from 1D array to 1D array for sorting
+384     // Copy only data from index 1 to 6, indexes 0 and 7 are invalid
+385     for (count = START_INDEX_1; count < END_INDEX_1; count++)
+386         temp_angle_array[count] = array_ptr_src[count];
+387 
+388     // Sort array in ascending order for hall angles, smaller to bigger hall angle values and store in temporary 1D array
+389     // Sort function is a generic bubble sort also used in IPD
+390     bubble_sort_array_descending(&temp_angle_array[START_INDEX_1], sizeof(temp_angle_array)/sizeof(temp_angle_array[0]) - 2);
+391 
+392     // Do a search and find hall states corresponding to hall angle values and save in temporary 1D array
+393     for (count = START_INDEX_1; count < END_INDEX_1; count++)
+394     {
+395         for (count_element = START_INDEX_1; count_element < END_INDEX_1; count_element++)
+396         {
+397             // Check if the hall angle value of sorted array matches the default hall angle array
+398             // If yes copy the array index for final hall angle, index array creation, use for next hall state calculation
+399             if(temp_angle_array[count] == array_ptr_src[count_element])
+400             {
+401                 temp_index_array[count] = count_element;
+402                 break;
+403             }
+404         }
+405     }
+406 
+407     // Call use to create next state table using hall state index information from ascending order angle table array
+408     hall_create_next_state_array(&temp_index_array[0], array_ptr_dest);
+409 }
+.fi
+.PP
+References bubble_sort_array_descending(), END_INDEX_1, hall_create_next_state_array(), and START_INDEX_1\&.
+.PP
+Referenced by hall_create_sequence_array()\&.
+.SS "void hall_timer_isr (void)"
+
+.PP
+Use for processing hall timer ISR\&. 
+.PP
+Definition at line 267 of file hall_funcs\&.c\&.
+.PP
+.nf
+268 {
+269     static Struct_Motor* motor_ptr = &motor;
+270 
+271 #if defined(CONFIG_HALL_TIMEOUT_MDISABLE)
+272     // Disable motor on hall timeout event
+273     if (motor_ptr->state\&.main == STATE_MAIN_RUN)
+274     {
+275         set_fault(FAULT_HALL_TIMEOUT);
+276     }
+277 #else
+278     // Handle hall timeout by treating as 0 speed
+279     // Reset hall transition counter
+280     motor_ptr->mpos\&.hall\&.transition_counter = 0;
+281 
+282     // Set speed and speed filter to 0
+283     motor_ptr->mpos\&.hall\&.hall_spd_radps = 0;
+284     motor_ptr->mpos\&.hall\&.hall_spd_scaled_q14 = 0;
+285     motor_ptr->mpos\&.hall\&.hall_spd_scaled_q28 = 0;
+286     motor_ptr->mpos\&.hall\&.hall_spd_radps = 0;
+287 
+288     // Reset interpolation
+289     motor_ptr->mpos\&.hall\&.accumulate_degree_per_dt = 0;
+290 #endif
+291 
+292 #if defined(ENABLE_SIM)
+293     sim_halltimer_intflag_set(motor_ptr);
+294 #endif
+295 
+296     // Clear interrupt bit
+297     hall_timer_clr_interrupt();
+298 }
+.fi
+.PP
+References Struct_Hall::accumulate_degree_per_dt, FAULT_HALL_TIMEOUT, Struct_MPos::hall, Struct_Hall::hall_spd_radps, Struct_Hall::hall_spd_scaled_q14, Struct_Hall::hall_spd_scaled_q28, Struct_State::main, motor, Struct_Motor::mpos, set_fault(), Struct_Motor::state, STATE_MAIN_RUN, and Struct_Hall::transition_counter\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

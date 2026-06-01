@@ -1,0 +1,602 @@
+.TH "PAC5XXX_Driver_I2C" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_I2C \- PAC5XXX I2C Peripheral Driver Functions
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_I2C\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_master_config\fP (\fBI2C_AddrMode_Type\fP addr_type, int disable_pulse_filter)"
+.br
+.RI "This function configures I2C peripheral for master mode\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_io_config\fP (int master)"
+.br
+.RI "This function configures the IO for use with the I2C peripheral\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_set_baud\fP (int scl_low_clocks, int scl_high_clocks)"
+.br
+.RI "This function sets the I2C baud rate when configured for master mode\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP int \fBpac5xxx_i2c_master_write\fP (uint8_t address, uint8_t *write_data, int bytes_to_write)"
+.br
+.RI "This function writes multiple bytes of data to the I2C slave\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP int \fBpac5xxx_i2c_master_write_byte\fP (uint8_t data)"
+.br
+.RI "This function writes one byte to the I2C slave\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP int \fBact02_i2c_master_read\fP (uint8_t *write_data, int bytes_to_write, uint8_t *read_data, int bytes_to_read)"
+.br
+.RI "This function performs and I2C read to the slave by writing a set of bytes, then reading the given number of bytes back from the slave\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_slave_config\fP (\fBI2C_AddrMode_Type\fP addr_type, int disable_pulse_filter)"
+.br
+.RI "This function configures the I2C bus for slave mode\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_disable\fP (void)"
+.br
+.RI "This function disables the I2C bus controller\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_int_enable_MST_TX_EMPTIED\fP (int enable)"
+.br
+.RI "This function enables or disables the MST_TX_EMPTIED interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_int_enable_MST_ACC_CTL_EMP\fP (int enable)"
+.br
+.RI "This function enables or disables the MST_ACC_CTL_EMP interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_int_enable_MST_RX_FILLED\fP (int enable)"
+.br
+.RI "This function enables or disables the MST_RX_FILLED interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_int_enable_MST_XFER_DONE\fP (int enable)"
+.br
+.RI "This function enables or disables the MST_XFER_DONE interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_int_enable_MST_LOST_ARB\fP (int enable)"
+.br
+.RI "This function enables or disables the MST_LOST_ARB interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_int_enable_SLV_ADDR_MATCH\fP (int enable)"
+.br
+.RI "This function enables or disables the SLV_ADDR_MATCH interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_int_enable_SLV_TX_EMPTIED\fP (int enable)"
+.br
+.RI "This function enables or disables the SLV_TX_EMPTIED interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_int_enable_SLV_RX_FILLED\fP (int enable)"
+.br
+.RI "This function enables or disables the SLV_RX_FILLED interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_int_enable_SLV_XFER_DONE\fP (int enable)"
+.br
+.RI "This function enables or disables the SLV_XFER_DONE interrupt\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_I2C"
+
+.PP
+Definition at line 31 of file pac5xxx_driver_i2c\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_I2C\fP int act02_i2c_master_read (uint8_t * write_data, int bytes_to_write, uint8_t * read_data, int bytes_to_read)"
+
+.PP
+This function performs and I2C read to the slave by writing a set of bytes, then reading the given number of bytes back from the slave\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwrite_data\fP Pointer to data to write 
+.br
+\fIbytes_to_write\fP Number of bytes to write 
+.br
+\fIread_data\fP Pointer to storage for data read from I2C bus 
+.br
+\fINumber\fP of bytes to read 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0: Success; non-zero: failure 
+.RE
+.PP
+
+.SS "\fBRAMFUNC_I2C\fP void pac5xxx_i2c_disable (void)"
+
+.PP
+This function disables the I2C bus controller\&. 
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 42 of file pac5xxx_driver_i2c_config\&.c\&.
+.PP
+.nf
+43 {
+44     PAC5XXX_I2C->CFG\&.SLV_ENBL = 0;
+45     PAC5XXX_I2C->CFG\&.MST_ENBL = 0;
+46 }
+.fi
+.PP
+References PAC5XXX_I2C\&.
+.SS "\fBRAMFUNC_I2C\fP void pac5xxx_i2c_int_enable_MST_ACC_CTL_EMP (int enable)"
+
+.PP
+This function enables or disables the MST_ACC_CTL_EMP interrupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP Set to 1 to enable interrupt, 0 to disable 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file pac5xxx_driver_i2c_int\&.c\&.
+.PP
+.nf
+27 {
+28     volatile int dummy = PAC5XXX_I2C->STATUS\&.MST_ACC_CTL_EMP;   // Force read (RTC)
+29     PAC5XXX_I2C->IE\&.MST_ACC_CTL_EMP_IE = enable;
+30 }
+.fi
+.PP
+References PAC5XXX_I2C\&.
+.SS "\fBRAMFUNC_I2C\fP void pac5xxx_i2c_int_enable_MST_LOST_ARB (int enable)"
+
+.PP
+This function enables or disables the MST_LOST_ARB interrupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP Set to 1 to enable interrupt, 0 to disable 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.SS "\fBRAMFUNC_I2C\fP void pac5xxx_i2c_int_enable_MST_RX_FILLED (int enable)"
+
+.PP
+This function enables or disables the MST_RX_FILLED interrupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP Set to 1 to enable interrupt, 0 to disable 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 32 of file pac5xxx_driver_i2c_int\&.c\&.
+.PP
+.nf
+33 {
+34     volatile int dummy = PAC5XXX_I2C->STATUS\&.MST_RX_FILLED;   // Force read (RTC)
+35     PAC5XXX_I2C->IE\&.MST_RX_FILLED_IE = enable;
+36 }
+.fi
+.PP
+References PAC5XXX_I2C\&.
+.SS "\fBRAMFUNC_I2C\fP void pac5xxx_i2c_int_enable_MST_TX_EMPTIED (int enable)"
+
+.PP
+This function enables or disables the MST_TX_EMPTIED interrupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP Set to 1 to enable interrupt, 0 to disable 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_i2c_int\&.c\&.
+.PP
+.nf
+21 {
+22     volatile int dummy = PAC5XXX_I2C->STATUS\&.MST_TX_EMPTIED;   // Force read (RTC)
+23     PAC5XXX_I2C->IE\&.MST_TX_EMP_IE = enable;
+24 }
+.fi
+.PP
+References PAC5XXX_I2C\&.
+.SS "\fBRAMFUNC_I2C\fP void pac5xxx_i2c_int_enable_MST_XFER_DONE (int enable)"
+
+.PP
+This function enables or disables the MST_XFER_DONE interrupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP Set to 1 to enable interrupt, 0 to disable 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file pac5xxx_driver_i2c_int\&.c\&.
+.PP
+.nf
+39 {
+40     volatile int dummy = PAC5XXX_I2C->STATUS\&.MST_XFER_DONE;   // Force read (RTC)
+41     PAC5XXX_I2C->IE\&.MST_XFER_DONE_IE = enable;
+42 }
+.fi
+.PP
+References PAC5XXX_I2C\&.
+.SS "\fBRAMFUNC_I2C\fP void pac5xxx_i2c_int_enable_SLV_ADDR_MATCH (int enable)"
+
+.PP
+This function enables or disables the SLV_ADDR_MATCH interrupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP Set to 1 to enable interrupt, 0 to disable 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 44 of file pac5xxx_driver_i2c_int\&.c\&.
+.PP
+.nf
+45 {
+46     volatile int dummy = PAC5XXX_I2C->STATUS\&.SLV_ADDR_MATCH;   // Force read (RTC)
+47     PAC5XXX_I2C->IE\&.SLV_ADDR_MATCH_IE = enable;
+48 }
+.fi
+.PP
+References PAC5XXX_I2C\&.
+.SS "\fBRAMFUNC_I2C\fP void pac5xxx_i2c_int_enable_SLV_RX_FILLED (int enable)"
+
+.PP
+This function enables or disables the SLV_RX_FILLED interrupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP Set to 1 to enable interrupt, 0 to disable 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 56 of file pac5xxx_driver_i2c_int\&.c\&.
+.PP
+.nf
+57 {
+58     volatile int dummy = PAC5XXX_I2C->STATUS\&.SLV_RX_FILLED;   // Force read (RTC)
+59     PAC5XXX_I2C->IE\&.SLV_RX_FILLED_IE = enable;
+60 }
+.fi
+.PP
+References PAC5XXX_I2C\&.
+.SS "\fBRAMFUNC_I2C\fP void pac5xxx_i2c_int_enable_SLV_TX_EMPTIED (int enable)"
+
+.PP
+This function enables or disables the SLV_TX_EMPTIED interrupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP Set to 1 to enable interrupt, 0 to disable 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file pac5xxx_driver_i2c_int\&.c\&.
+.PP
+.nf
+51 {
+52     volatile int dummy = PAC5XXX_I2C->STATUS\&.SLV_TX_EMPTIED;   // Force read (RTC)
+53     PAC5XXX_I2C->IE\&.SLV_TX_EMP_IE = enable;
+54 }
+.fi
+.PP
+References PAC5XXX_I2C\&.
+.SS "\fBRAMFUNC_I2C\fP void pac5xxx_i2c_int_enable_SLV_XFER_DONE (int enable)"
+
+.PP
+This function enables or disables the SLV_XFER_DONE interrupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP Set to 1 to enable interrupt, 0 to disable 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 62 of file pac5xxx_driver_i2c_int\&.c\&.
+.PP
+.nf
+63 {
+64     volatile int dummy = PAC5XXX_I2C->STATUS\&.SLV_XFER_DONE;   // Force read (RTC)
+65     PAC5XXX_I2C->IE\&.SLV_XFER_DONE_IE = enable;
+66 }
+.fi
+.PP
+References PAC5XXX_I2C\&.
+.SS "\fBRAMFUNC_I2C\fP void pac5xxx_i2c_io_config (int master)"
+
+.PP
+This function configures the IO for use with the I2C peripheral\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImaster\fP Set to 1 if this is an I2C master, 0 for I2C slave 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 48 of file pac5xxx_driver_i2c_config\&.c\&.
+.PP
+.nf
+49 {
+50   PAC5XXX_GPIOE->PSEL\&.P4 = 2;       // I2CSCL
+51   PAC5XXX_GPIOE->PSEL\&.P5 = 2;       // I2CSDA
+52   
+53   PAC5XXX_GPIOE->OUTEN\&.P5 = 1;      // I2CSDA output, even for slave mode
+54   
+55   if (master)
+56     PAC5XXX_GPIOE->OUTEN\&.P4 = 1;    // I2CSCL (master)
+57   else
+58     PAC5XXX_GPIOE->OUTEN\&.P4 = 0;    // I2CSCL (slave)
+59 
+60   PAC5XXX_GPIOE->PU\&.P4 = 1;          // I2CSCL internal pull-up on
+61   PAC5XXX_GPIOE->PU\&.P5 = 1;          // I2CSDA internal pull-up on
+62 
+63 }
+.fi
+.PP
+References PAC5XXX_GPIOE\&.
+.SS "\fBRAMFUNC_I2C\fP void pac5xxx_i2c_master_config (\fBI2C_AddrMode_Type\fP addr_type, int disable_pulse_filter)"
+
+.PP
+This function configures I2C peripheral for master mode\&. Master Configuration
+.PP
+\fBParameters\fP
+.RS 4
+\fIaddr_type\fP The type of addressing used (7b or 10b) 
+.br
+\fIdisable_pulse_filter\fP When set to 1, disables the pulse filter\&. When set to 0 the pulse filter is active\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_i2c_config\&.c\&.
+.PP
+.nf
+21 {
+22     PAC5XXX_I2C->CFG\&.ADDR_MODE = addr_type;
+23     PAC5XXX_I2C->CFG\&.DSBL_PULSE_FILTER = disable_pulse_filter;
+24     PAC5XXX_I2C->CFG\&.SLV_ENBL = 0;
+25     PAC5XXX_I2C->CFG\&.MST_ENBL = 1;
+26     }
+.fi
+.PP
+References PAC5XXX_I2C\&.
+.SS "\fBRAMFUNC_I2C\fP int pac5xxx_i2c_master_write (uint8_t address, uint8_t * write_data, int bytes_to_write)"
+
+.PP
+This function writes multiple bytes of data to the I2C slave\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP Pointer to data to write to the bus 
+.br
+\fInum_bytes\fP Number of bytes to write 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0: success; non-zero: failure 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_i2c_write\&.c\&.
+.PP
+.nf
+21 {
+22     int i;
+23 
+24     for (i = 0; i < bytes_to_write; i++)
+25     {
+26         /* Verify that the full flag for the MCTRL register is clear */
+27     
+28         while (PAC5XXX_I2C->MCTRL\&.REG_FULL_FLAG);
+29 
+30         /* Write first data byte to transmit in MTXDATA register */
+31     
+32         PAC5XXX_I2C->MTXDATA\&.VAL = *write_data++;
+33 
+34         /* See if last byte of transfer, and write MCTRL accordingly\&. This will start transfer */
+35     
+36         if (i == (bytes_to_write - 1))
+37             PAC5XXX_I2C->MCTRL\&.w = (address | 0xC00);      /* XFER_TYPE = write, AUTONO_XFER = 1 [stop] */
+38         else
+39             PAC5XXX_I2C->MCTRL\&.w = (address | 0x400);      /* XFER_TYPE = write */
+40     }
+41 
+42     /* Check for bad status */
+43   
+44     if (PAC5XXX_I2C->STATUS\&.w & 0xFFFF)                      /* Any I2C master status bit set */
+45         return 1;
+46 
+47     return 0;
+48 }
+.fi
+.PP
+References PAC5XXX_I2C\&.
+.SS "\fBRAMFUNC_I2C\fP int pac5xxx_i2c_master_write_byte (uint8_t data)"
+
+.PP
+This function writes one byte to the I2C slave\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP 8b data to write 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0: success; non-zero: failure 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file pac5xxx_driver_i2c_write\&.c\&.
+.PP
+.nf
+51 {
+52     /* Verify that the full flag for the MCTRL register is clear */
+53   
+54     while (PAC5XXX_I2C->MCTRL\&.REG_FULL_FLAG);
+55 
+56     /* Write first data byte to transmit in MTXDATA register */
+57   
+58     PAC5XXX_I2C->MTXDATA\&.VAL = data;
+59 
+60     /* See if last byte of transfer, and write MCTRL accordingly\&. This will start transfer */
+61   
+62     PAC5XXX_I2C->MCTRL\&.w = 0xC00;           /* XFER_TYPE = write, AUTONO_XFER = 1 [stop] */
+63 
+64     /* Check for bad status */
+65   
+66     if (PAC5XXX_I2C->STATUS\&.w & 0xFFFF)      /* Any I2C master status bit set */
+67         return 1;
+68 
+69     return 0;
+70 }
+.fi
+.PP
+References PAC5XXX_I2C\&.
+.SS "\fBRAMFUNC_I2C\fP void pac5xxx_i2c_set_baud (int scl_low_clocks, int scl_high_clocks)"
+
+.PP
+This function sets the I2C baud rate when configured for master mode\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIscl_high_clocks\fP The number of clock periods that the SCL will stay high when mastering the bus 
+.br
+\fIscl_low_clocks\fP The number of clock periods that the SCL will stay low when mastering the bus 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file pac5xxx_driver_i2c_config\&.c\&.
+.PP
+.nf
+29 {
+30     PAC5XXX_I2C->BAUD\&.SCL_LOW_CLOCKS = scl_low_clocks;
+31     PAC5XXX_I2C->BAUD\&.SCL_HIGH_CLOCKS = scl_high_clocks;
+32 }
+.fi
+.PP
+References PAC5XXX_I2C\&.
+.SS "\fBRAMFUNC_I2C\fP void pac5xxx_i2c_slave_config (\fBI2C_AddrMode_Type\fP addr_type, int disable_pulse_filter)"
+
+.PP
+This function configures the I2C bus for slave mode\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIaddr_type\fP The address type (7b or 10b) 
+.br
+\fIdisable_pulse_filter\fP When set to 1, disables the pulse filter\&. When set to 0, the pulse filter is active\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Non-zero if the last byte has been received, 0 if not\&. 
+.RE
+.PP
+
+.PP
+Definition at line 34 of file pac5xxx_driver_i2c_config\&.c\&.
+.PP
+.nf
+35 {
+36     PAC5XXX_I2C->CFG\&.SLV_ENBL = 1;
+37     PAC5XXX_I2C->CFG\&.MST_ENBL = 0;
+38     PAC5XXX_I2C->CFG\&.ADDR_MODE = addr_type;
+39     PAC5XXX_I2C->CFG\&.DSBL_PULSE_FILTER = disable_pulse_filter;
+40 }
+.fi
+.PP
+References PAC5XXX_I2C\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

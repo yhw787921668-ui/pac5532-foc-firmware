@@ -1,0 +1,288 @@
+.TH "PAC5XXX_Driver_SocBridge" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_SocBridge \- PAC5XXX SOC Bridge Peripheral Driver Functions
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_SOCBRIDGE\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_SOCBRIDGE\fP void \fBpac5xxx_socbridge_config\fP (int enable, int int_enable)"
+.br
+.RI "This function configures and enables the SOC bridge\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SOCBRIDGE\fP void \fBpac5xxx_socbridge_config_chip_select\fP (uint8_t cs_setup, uint8_t cs_hold, uint8_t cs_wait)"
+.br
+.RI "This function configures the behavior of the SOC bridge chip select signal\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SOCBRIDGE\fP void \fBpac5xxx_socbridge_config_io\fP (void)"
+.br
+.RI "This function configures the IO ports on the device for SOC bridge operation\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SOCBRIDGE\fP void \fBpac5xxx_socbridge_int_enable\fP (int enable)"
+.br
+.RI "This function configures SOC Bridge interrupts to the given state\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SOCBRIDGE\fP void \fBpac5xxx_socbridge_int_enable_RDOFL\fP (int enable)"
+.br
+.RI "This function configures the state of the Read Buffer Overflow (RDOFL) interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SOCBRIDGE\fP void \fBpac5xxx_socbridge_int_enable_CYC_DONE\fP (int enable)"
+.br
+.RI "This function configures the state of the Cycle Done (CYC_DONE) interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SOCBRIDGE\fP void \fBpac5xxx_socbridge_int_enable_WRUFL\fP (int enable)"
+.br
+.RI "This function configures the state of the Write Buffer Underflow (WRUFL) interupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SOCBRIDGE\fP uint8_t \fBpac5xxx_socbridge_data_read_8b\fP (uint8_t tx_data)"
+.br
+.RI "This function reads 8b of data from the SOC Bridge receive register\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_SOCBRIDGE"
+
+.PP
+Definition at line 32 of file pac5xxx_driver_socbridge\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_SOCBRIDGE\fP void pac5xxx_socbridge_config (int enable, int int_enable)"
+
+.PP
+This function configures and enables the SOC bridge\&. @paramn enable Set to 1 to enable SOC Bridge, 0 to disable 
+.PP
+\fBParameters\fP
+.RS 4
+\fIint_enable\fP Set to 1 to enable interrupts, 0 to disable interrupts 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_socbridge_config\&.c\&.
+.PP
+.nf
+21 {
+22 
+23     PAC5XXX_SOCBRIDGE->SOCBCTL\&.SETTO3 = 3;               // Need to set these bits to 3 for SOCBCTL write
+24     PAC5XXX_SOCBRIDGE->SOCBCTL\&.SIE = int_enable;     // Interrupts enabled
+25 
+26     PAC5XXX_SOCBRIDGE->SOCBCFG\&.SETTO3 = 3;               // Need to set these bits to 3 for SOCBCFG write
+27     PAC5XXX_SOCBRIDGE->SOCBCFG\&.SETTO0 = 0;               // Need to set this bit to 0 for SOCBCFG write
+28 
+29     PAC5XXX_SOCBRIDGE->SOCBCFG\&.WL = 1;                  // Set Word Length to 16 bits\&.
+30 
+31     PAC5XXX_SOCBRIDGE->SOCBCLKDIV\&.VAL = 1;               // SPI CLK = 12\&.5 MHz = 50 MHz/ ((CLKDIV + 1) * 2)
+32 
+33     PAC5XXX_SOCBRIDGE->SOCBINT_EN\&.w = 0;             // Clear interrupt enables
+34 
+35     PAC5XXX_SOCBRIDGE->SOCBCTL\&.SSEN = enable;            // enable peripheral
+36 
+37 }
+.fi
+.PP
+References PAC5XXX_SOCBRIDGE\&.
+.PP
+Referenced by pac5xxx_tile_socbridge_config()\&.
+.SS "\fBRAMFUNC_SOCBRIDGE\fP void pac5xxx_socbridge_config_chip_select (uint8_t cs_setup, uint8_t cs_hold, uint8_t cs_wait)"
+
+.PP
+This function configures the behavior of the SOC bridge chip select signal\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcs_setup\fP This value is the minimum number of clock periods to wait from the assertion of the chip select to the first clock transition\&. 
+.br
+\fIcs_hold\fP This value is the minimum number of clock periods to wait from the last clock transition to de-assertion of the chip select signal\&. 
+.br
+\fIcs_wait\fP This value determines the minimum number of clock periods to wait between the de-assertion of the chip select and the re-assertion of the chip select signal\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Referenced by pac5xxx_tile_socbridge_config()\&.
+.SS "\fBRAMFUNC_SOCBRIDGE\fP void pac5xxx_socbridge_config_io (void)"
+
+.PP
+This function configures the IO ports on the device for SOC bridge operation\&. 
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_socbridge_config_io\&.c\&.
+.PP
+.nf
+21 {
+22   // 
+23   // CS0:  GPIOBSEL1 = 01b (PB1 - output)
+24   // CLK:  GPIOBSEL4 = 01b (PB4 - output)
+25   // MOSI: GPIOBSEL2 = 01b (PB2 - output)
+26   // MISO: GPIOBSEL3 = 01b (PB3 - input)
+27   //
+28   
+29   PAC5XXX_GPIOB->PSEL\&.P1 = 1;         // CS0
+30   PAC5XXX_GPIOB->OUTEN\&.P1 = 1;       // output
+31 
+32   PAC5XXX_GPIOB->PSEL\&.P4 = 1;         // CLK
+33   PAC5XXX_GPIOB->OUTEN\&.P4 = 1;       // output
+34 
+35   PAC5XXX_GPIOB->PSEL\&.P2 = 1;         // MOSI
+36   PAC5XXX_GPIOB->OUTEN\&.P2 = 1;       // output
+37 
+38   PAC5XXX_GPIOB->PSEL\&.P3 = 1;         // MISO, input by default
+39 }
+.fi
+.PP
+References PAC5XXX_GPIOB\&.
+.PP
+Referenced by pac5xxx_tile_socbridge_config()\&.
+.SS "\fBRAMFUNC_SOCBRIDGE\fP uint8_t pac5xxx_socbridge_data_read_8b (uint8_t tx_data)"
+
+.PP
+This function reads 8b of data from the SOC Bridge receive register\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIData\fP to write on MOSI during read operation
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Data read from the receive register 
+.RE
+.PP
+
+.PP
+Definition at line 19 of file pac5xxx_driver_socbridge_data\&.c\&.
+.PP
+.nf
+20 {
+21     uint8_t data;
+22 
+23     PAC5XXX_SOCBRIDGE->SOCBD\&.b = tx_data;
+24 
+25     // Wait for transmission to be complete
+26     while (!pac5xxx_socbridge_stat_CYC_DONE());
+27     PAC5XXX_SOCBRIDGE->SOCBSTAT\&.CYC_DONE = 0x1;
+28 
+29     data = PAC5XXX_SOCBRIDGE->SOCBD\&.b;
+30 
+31     return data;
+32 }
+.fi
+.PP
+References PAC5XXX_SOCBRIDGE\&.
+.SS "\fBRAMFUNC_SOCBRIDGE\fP void pac5xxx_socbridge_int_enable (int enable)"
+
+.PP
+This function configures SOC Bridge interrupts to the given state\&. Interrupts and status
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP When set to 1, enables interrupts\&. When set to 0, disables interrupts\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function must be used to enable any interrupts\&. This must be used in conjunction with another function that enables specific interrupts\&. This function does not enable interrupts in the Cortex NVIC\&. That must be done explictly using the CMSIS API functions for the NVIC\&. 
+.RE
+.PP
+
+.SS "\fBRAMFUNC_SOCBRIDGE\fP void pac5xxx_socbridge_int_enable_CYC_DONE (int enable)"
+
+.PP
+This function configures the state of the Cycle Done (CYC_DONE) interrupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP When set to 1, enables this interrupt\&. When set to 0, disables this interrupt\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function must be used in conjunction with the \fI\fBpac5xxx_socbridge_int_enable()\fP\fP function to enable this interrupt\&. 
+.RE
+.PP
+
+.SS "\fBRAMFUNC_SOCBRIDGE\fP void pac5xxx_socbridge_int_enable_RDOFL (int enable)"
+
+.PP
+This function configures the state of the Read Buffer Overflow (RDOFL) interrupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP When set to 1, enables this interrupts\&. When set to 0, disables this interrupt\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function must be used in conjunction with the \fI\fBpac5xxx_socbridge_int_enable()\fP\fP function to enable this interrupt\&. 
+.RE
+.PP
+
+.SS "\fBRAMFUNC_SOCBRIDGE\fP void pac5xxx_socbridge_int_enable_WRUFL (int enable)"
+
+.PP
+This function configures the state of the Write Buffer Underflow (WRUFL) interupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP When set to 1, enables this interrupts\&. When set to 0, disables this interrupt\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function must be used in conjunction with the \fI\fBpac5xxx_socbridge_int_enable()\fP\fP function to enable this interrupt\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

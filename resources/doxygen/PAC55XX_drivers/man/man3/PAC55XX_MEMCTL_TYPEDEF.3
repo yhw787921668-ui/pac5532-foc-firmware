@@ -1,0 +1,300 @@
+.TH "PAC55XX_MEMCTL_TYPEDEF" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC55XX_MEMCTL_TYPEDEF
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pac5xxx_memory\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBWSTATE\fP: 4"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBMCLKDIV\fP: 4"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBWRITEWORDCNT\fP: 2"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 6"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSEIE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBDEIE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINVADDRIE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSTDBY\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBECCDIS\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCACHEDIS\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBMCLKSEL\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad1__\fP: 9"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBMEMCTL\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBWBUSY\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBEBUSY\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 6"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBWRITEWORDCNT\fP: 2"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad1__\fP: 6"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBDE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINVADDR\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad2__\fP: 13"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBMEMSTATUS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBFLASHLOCK\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAGE\fP: 7"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 25"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBFLASHPAGE\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBSWDUNLOCK\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED1\fP [3]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBFLASHERASE\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED2\fP [0x37]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCACHE1ADDR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCACHE1DATA\fP [4]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCACHE2ADDR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCACHE2DATA\fP [4]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCACHE3ADDR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCACHE3DATA\fP [4]"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 91 of file pac5xxx_memory\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t PAC55XX_MEMCTL_TYPEDEF::__pad0__"
+
+.PP
+Definition at line 100 of file pac5xxx_memory\&.h\&.
+.SS "uint32_t PAC55XX_MEMCTL_TYPEDEF::__pad1__"
+
+.PP
+Definition at line 108 of file pac5xxx_memory\&.h\&.
+.SS "uint32_t PAC55XX_MEMCTL_TYPEDEF::__pad2__"
+
+.PP
+Definition at line 124 of file pac5xxx_memory\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::CACHE1ADDR"
+
+.PP
+Definition at line 152 of file pac5xxx_memory\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::CACHE1DATA[4]"
+
+.PP
+Definition at line 153 of file pac5xxx_memory\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::CACHE2ADDR"
+
+.PP
+Definition at line 155 of file pac5xxx_memory\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::CACHE2DATA[4]"
+
+.PP
+Definition at line 156 of file pac5xxx_memory\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::CACHE3ADDR"
+
+.PP
+Definition at line 158 of file pac5xxx_memory\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::CACHE3DATA[4]"
+
+.PP
+Definition at line 159 of file pac5xxx_memory\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::CACHEDIS"
+
+.PP
+Definition at line 106 of file pac5xxx_memory\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::DE"
+
+.PP
+Definition at line 122 of file pac5xxx_memory\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::DEIE"
+
+.PP
+Definition at line 102 of file pac5xxx_memory\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::EBUSY"
+
+.PP
+Definition at line 117 of file pac5xxx_memory\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::ECCDIS"
+
+.PP
+Definition at line 105 of file pac5xxx_memory\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::FLASHERASE"
+
+.PP
+Definition at line 147 of file pac5xxx_memory\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::FLASHLOCK"
+
+.PP
+Definition at line 129 of file pac5xxx_memory\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_MEMCTL_TYPEDEF::FLASHPAGE"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::INVADDR"
+
+.PP
+Definition at line 123 of file pac5xxx_memory\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::INVADDRIE"
+
+.PP
+Definition at line 103 of file pac5xxx_memory\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::MCLKDIV"
+
+.PP
+Definition at line 98 of file pac5xxx_memory\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::MCLKSEL"
+
+.PP
+Definition at line 107 of file pac5xxx_memory\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_MEMCTL_TYPEDEF::MEMCTL"
+
+.SS "union { \&.\&.\&. }  PAC55XX_MEMCTL_TYPEDEF::MEMSTATUS"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::PAGE"
+
+.PP
+Definition at line 135 of file pac5xxx_memory\&.h\&.
+.SS "uint32_t PAC55XX_MEMCTL_TYPEDEF::RESERVED1[3]"
+
+.PP
+Definition at line 144 of file pac5xxx_memory\&.h\&.
+.SS "uint32_t PAC55XX_MEMCTL_TYPEDEF::RESERVED2[0x37]"
+
+.PP
+Definition at line 150 of file pac5xxx_memory\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::SE"
+
+.PP
+Definition at line 121 of file pac5xxx_memory\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::SEIE"
+
+.PP
+Definition at line 101 of file pac5xxx_memory\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::STDBY"
+
+.PP
+Definition at line 104 of file pac5xxx_memory\&.h\&.
+.SS "\fB__O\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::SWDUNLOCK"
+
+.PP
+Definition at line 141 of file pac5xxx_memory\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::w"
+
+.PP
+Definition at line 95 of file pac5xxx_memory\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::WBUSY"
+
+.PP
+Definition at line 116 of file pac5xxx_memory\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::WRITEWORDCNT"
+
+.PP
+Definition at line 99 of file pac5xxx_memory\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_MEMCTL_TYPEDEF::WSTATE"
+
+.PP
+Definition at line 97 of file pac5xxx_memory\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

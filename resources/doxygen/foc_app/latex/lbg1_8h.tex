@@ -1,0 +1,191 @@
+\hypertarget{lbg1_8h}{}\doxysection{pac\+\_\+foc/src/mpos/estimator/lbg1.h File Reference}
+\label{lbg1_8h}\index{pac\_foc/src/mpos/estimator/lbg1.h@{pac\_foc/src/mpos/estimator/lbg1.h}}
+
+
+Estimator main functions.  
+
+
+{\ttfamily \#include \char`\"{}pac5xxx.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}maths.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lbg1\+\_\+struct.\+h\char`\"{}}\newline
+Include dependency graph for lbg1.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{lbg1_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lbg1_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{lbg1_8h_ac82dcaef30611c95cf3422986928902b}{L\+B\+G\+\_\+\+G\+A\+I\+N\+\_\+\+S\+C\+A\+L\+E\+R\+\_\+\+Q06}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(20000.\+0f, \mbox{\hyperlink{maths_8h_adeb492ed1697f26f028e6c058b5a2604}{Q06}})
+\item 
+\#define \mbox{\hyperlink{lbg1_8h_a3fb53adb5e1faf771a186f5d7ae3c003}{L\+B\+G\+\_\+\+K\+G\+A\+I\+N\+\_\+\+S\+T\+A\+R\+T\+\_\+\+P\+C\+T\+\_\+\+F16}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+2, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{lbg1_8h_acf0ad263d9e8ccc336349eca025a5657}{L\+B\+G\+\_\+\+K\+G\+A\+I\+N\+\_\+\+I\+N\+C\+\_\+\+P\+C\+T\+\_\+\+F16}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+10, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lbg1_8h_a320b83de743c2e3890011fec7b5020f0}{lbg1\+\_\+process\+\_\+voltage\+\_\+scale\+\_\+lib}} (\mbox{\hyperlink{struct_struct___est}{Struct\+\_\+\+Est}} $\ast$est\+\_\+ptr, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} descale\+\_\+voltage\+\_\+factor)
+\item 
+void \mbox{\hyperlink{lbg1_8h_a73beed26e59a60ff910d6213d45de341}{lbg1\+\_\+update\+\_\+state\+\_\+lib}} (\mbox{\hyperlink{struct_struct___est}{Struct\+\_\+\+Est}} $\ast$est\+\_\+ptr, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} update\+\_\+angle\+\_\+q16, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} update\+\_\+speed\+\_\+radps\+\_\+q16, uint16\+\_\+t speed\+\_\+scale\+\_\+shift, int32\+\_\+t dt\+\_\+control\+\_\+q26)
+\item 
+void \mbox{\hyperlink{lbg1_8h_ae5c11d45639222fed178fb7490da34d9}{lbg1\+\_\+check\+\_\+transition\+\_\+ready}} (\mbox{\hyperlink{struct_struct___est}{Struct\+\_\+\+Est}} $\ast$est\+\_\+ptr)
+\item 
+void \mbox{\hyperlink{lbg1_8h_a2e097391b30c1feb8c9dccc0697fd9fa}{lbg1\+\_\+calculate\+\_\+coefficients\+\_\+lib}} (\mbox{\hyperlink{struct_struct___est}{Struct\+\_\+\+Est}} $\ast$est\+\_\+ptr, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} dt\+\_\+control\+\_\+q26, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} factor\+\_\+current\+\_\+descale, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} motorparam\+\_\+r, int32\+\_\+t motorparam\+\_\+l\+\_\+x1024, uint16\+\_\+t speed\+\_\+scale\+\_\+shift, int32\+\_\+t gain\+\_\+scaler\+\_\+q06, int32\+\_\+t nom\+\_\+spd\+\_\+q16)
+\item 
+void \mbox{\hyperlink{lbg1_8h_a82ab17b6d784f3fca963109e20bf976e}{lbg1\+\_\+switch2cl}} (\mbox{\hyperlink{struct_struct___est}{Struct\+\_\+\+Est}} $\ast$est\+\_\+ptr)
+\item 
+void \mbox{\hyperlink{lbg1_8h_a891d949942ebb42a1b2112ce54e8c177}{lbg1\+\_\+statemon\+\_\+lib}} (\mbox{\hyperlink{struct_struct___est}{Struct\+\_\+\+Est}} $\ast$est\+\_\+ptr, int32\+\_\+t lq\+\_\+q26, int32\+\_\+t rs\+\_\+q16, int32\+\_\+t dt\+\_\+control\+\_\+q26, int32\+\_\+t \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a867fe6776366cdfbf3ec13e7aff7a51f}{descale\+\_\+current\+\_\+factor}})
+\item 
+void \mbox{\hyperlink{lbg1_8h_ae7f7d3106155bf4e3757a44473cff110}{lbg1\+\_\+init}} (\mbox{\hyperlink{struct_struct___est}{Struct\+\_\+\+Est}} $\ast$est\+\_\+ptr, int32\+\_\+t lq\+\_\+q26, int32\+\_\+t rs\+\_\+q16, int32\+\_\+t dt\+\_\+control\+\_\+q26, int32\+\_\+t \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a867fe6776366cdfbf3ec13e7aff7a51f}{descale\+\_\+current\+\_\+factor}})
+\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{lbg1_8h_aa3e2bbf75275b5ce0586be0994b6acac}{lbg1\+\_\+estimator\+\_\+lib}} (\mbox{\hyperlink{struct_struct___est}{Struct\+\_\+\+Est}} $\ast$est\+\_\+ptr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Estimator main functions. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{lbg1_8h_ac82dcaef30611c95cf3422986928902b}\label{lbg1_8h_ac82dcaef30611c95cf3422986928902b}} 
+\index{lbg1.h@{lbg1.h}!LBG\_GAIN\_SCALER\_Q06@{LBG\_GAIN\_SCALER\_Q06}}
+\index{LBG\_GAIN\_SCALER\_Q06@{LBG\_GAIN\_SCALER\_Q06}!lbg1.h@{lbg1.h}}
+\doxysubsubsection{\texorpdfstring{LBG\_GAIN\_SCALER\_Q06}{LBG\_GAIN\_SCALER\_Q06}}
+{\footnotesize\ttfamily \#define L\+B\+G\+\_\+\+G\+A\+I\+N\+\_\+\+S\+C\+A\+L\+E\+R\+\_\+\+Q06~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(20000.\+0f, \mbox{\hyperlink{maths_8h_adeb492ed1697f26f028e6c058b5a2604}{Q06}})}
+
+
+
+Definition at line 28 of file lbg1.\+h.
+
+\mbox{\Hypertarget{lbg1_8h_acf0ad263d9e8ccc336349eca025a5657}\label{lbg1_8h_acf0ad263d9e8ccc336349eca025a5657}} 
+\index{lbg1.h@{lbg1.h}!LBG\_KGAIN\_INC\_PCT\_F16@{LBG\_KGAIN\_INC\_PCT\_F16}}
+\index{LBG\_KGAIN\_INC\_PCT\_F16@{LBG\_KGAIN\_INC\_PCT\_F16}!lbg1.h@{lbg1.h}}
+\doxysubsubsection{\texorpdfstring{LBG\_KGAIN\_INC\_PCT\_F16}{LBG\_KGAIN\_INC\_PCT\_F16}}
+{\footnotesize\ttfamily \#define L\+B\+G\+\_\+\+K\+G\+A\+I\+N\+\_\+\+I\+N\+C\+\_\+\+P\+C\+T\+\_\+\+F16~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+10, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 32 of file lbg1.\+h.
+
+\mbox{\Hypertarget{lbg1_8h_a3fb53adb5e1faf771a186f5d7ae3c003}\label{lbg1_8h_a3fb53adb5e1faf771a186f5d7ae3c003}} 
+\index{lbg1.h@{lbg1.h}!LBG\_KGAIN\_START\_PCT\_F16@{LBG\_KGAIN\_START\_PCT\_F16}}
+\index{LBG\_KGAIN\_START\_PCT\_F16@{LBG\_KGAIN\_START\_PCT\_F16}!lbg1.h@{lbg1.h}}
+\doxysubsubsection{\texorpdfstring{LBG\_KGAIN\_START\_PCT\_F16}{LBG\_KGAIN\_START\_PCT\_F16}}
+{\footnotesize\ttfamily \#define L\+B\+G\+\_\+\+K\+G\+A\+I\+N\+\_\+\+S\+T\+A\+R\+T\+\_\+\+P\+C\+T\+\_\+\+F16~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+2, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 31 of file lbg1.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{lbg1_8h_a2e097391b30c1feb8c9dccc0697fd9fa}\label{lbg1_8h_a2e097391b30c1feb8c9dccc0697fd9fa}} 
+\index{lbg1.h@{lbg1.h}!lbg1\_calculate\_coefficients\_lib@{lbg1\_calculate\_coefficients\_lib}}
+\index{lbg1\_calculate\_coefficients\_lib@{lbg1\_calculate\_coefficients\_lib}!lbg1.h@{lbg1.h}}
+\doxysubsubsection{\texorpdfstring{lbg1\_calculate\_coefficients\_lib()}{lbg1\_calculate\_coefficients\_lib()}}
+{\footnotesize\ttfamily void lbg1\+\_\+calculate\+\_\+coefficients\+\_\+lib (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___est}{Struct\+\_\+\+Est}} $\ast$}]{est\+\_\+ptr,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{dt\+\_\+control\+\_\+q26,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{factor\+\_\+current\+\_\+descale,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{motorparam\+\_\+r,  }\item[{int32\+\_\+t}]{motorparam\+\_\+l\+\_\+x1024,  }\item[{uint16\+\_\+t}]{speed\+\_\+scale\+\_\+shift,  }\item[{int32\+\_\+t}]{gain\+\_\+scaler\+\_\+q06,  }\item[{int32\+\_\+t}]{nom\+\_\+spd\+\_\+q16 }\end{DoxyParamCaption})}
+
+
+
+Referenced by lbg1\+\_\+calculate\+\_\+coefficients().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lbg1_8h_a2e097391b30c1feb8c9dccc0697fd9fa_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lbg1_8h_ae5c11d45639222fed178fb7490da34d9}\label{lbg1_8h_ae5c11d45639222fed178fb7490da34d9}} 
+\index{lbg1.h@{lbg1.h}!lbg1\_check\_transition\_ready@{lbg1\_check\_transition\_ready}}
+\index{lbg1\_check\_transition\_ready@{lbg1\_check\_transition\_ready}!lbg1.h@{lbg1.h}}
+\doxysubsubsection{\texorpdfstring{lbg1\_check\_transition\_ready()}{lbg1\_check\_transition\_ready()}}
+{\footnotesize\ttfamily void lbg1\+\_\+check\+\_\+transition\+\_\+ready (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___est}{Struct\+\_\+\+Est}} $\ast$}]{est\+\_\+ptr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lbg1_8h_aa3e2bbf75275b5ce0586be0994b6acac}\label{lbg1_8h_aa3e2bbf75275b5ce0586be0994b6acac}} 
+\index{lbg1.h@{lbg1.h}!lbg1\_estimator\_lib@{lbg1\_estimator\_lib}}
+\index{lbg1\_estimator\_lib@{lbg1\_estimator\_lib}!lbg1.h@{lbg1.h}}
+\doxysubsubsection{\texorpdfstring{lbg1\_estimator\_lib()}{lbg1\_estimator\_lib()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void lbg1\+\_\+estimator\+\_\+lib (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___est}{Struct\+\_\+\+Est}} $\ast$}]{est\+\_\+ptr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lbg1_8h_ae7f7d3106155bf4e3757a44473cff110}\label{lbg1_8h_ae7f7d3106155bf4e3757a44473cff110}} 
+\index{lbg1.h@{lbg1.h}!lbg1\_init@{lbg1\_init}}
+\index{lbg1\_init@{lbg1\_init}!lbg1.h@{lbg1.h}}
+\doxysubsubsection{\texorpdfstring{lbg1\_init()}{lbg1\_init()}}
+{\footnotesize\ttfamily void lbg1\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___est}{Struct\+\_\+\+Est}} $\ast$}]{est\+\_\+ptr,  }\item[{int32\+\_\+t}]{lq\+\_\+q26,  }\item[{int32\+\_\+t}]{rs\+\_\+q16,  }\item[{int32\+\_\+t}]{dt\+\_\+control\+\_\+q26,  }\item[{int32\+\_\+t}]{descale\+\_\+current\+\_\+factor }\end{DoxyParamCaption})}
+
+
+
+Referenced by lbg1\+\_\+reset().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{lbg1_8h_ae7f7d3106155bf4e3757a44473cff110_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lbg1_8h_a320b83de743c2e3890011fec7b5020f0}\label{lbg1_8h_a320b83de743c2e3890011fec7b5020f0}} 
+\index{lbg1.h@{lbg1.h}!lbg1\_process\_voltage\_scale\_lib@{lbg1\_process\_voltage\_scale\_lib}}
+\index{lbg1\_process\_voltage\_scale\_lib@{lbg1\_process\_voltage\_scale\_lib}!lbg1.h@{lbg1.h}}
+\doxysubsubsection{\texorpdfstring{lbg1\_process\_voltage\_scale\_lib()}{lbg1\_process\_voltage\_scale\_lib()}}
+{\footnotesize\ttfamily void lbg1\+\_\+process\+\_\+voltage\+\_\+scale\+\_\+lib (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___est}{Struct\+\_\+\+Est}} $\ast$}]{est\+\_\+ptr,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{descale\+\_\+voltage\+\_\+factor }\end{DoxyParamCaption})}
+
+
+
+Referenced by lbg1\+\_\+process\+\_\+voltage\+\_\+scale().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{lbg1_8h_a320b83de743c2e3890011fec7b5020f0_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lbg1_8h_a891d949942ebb42a1b2112ce54e8c177}\label{lbg1_8h_a891d949942ebb42a1b2112ce54e8c177}} 
+\index{lbg1.h@{lbg1.h}!lbg1\_statemon\_lib@{lbg1\_statemon\_lib}}
+\index{lbg1\_statemon\_lib@{lbg1\_statemon\_lib}!lbg1.h@{lbg1.h}}
+\doxysubsubsection{\texorpdfstring{lbg1\_statemon\_lib()}{lbg1\_statemon\_lib()}}
+{\footnotesize\ttfamily void lbg1\+\_\+statemon\+\_\+lib (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___est}{Struct\+\_\+\+Est}} $\ast$}]{est\+\_\+ptr,  }\item[{int32\+\_\+t}]{lq\+\_\+q26,  }\item[{int32\+\_\+t}]{rs\+\_\+q16,  }\item[{int32\+\_\+t}]{dt\+\_\+control\+\_\+q26,  }\item[{int32\+\_\+t}]{descale\+\_\+current\+\_\+factor }\end{DoxyParamCaption})}
+
+
+
+Referenced by lbg1\+\_\+statemon().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lbg1_8h_a891d949942ebb42a1b2112ce54e8c177_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lbg1_8h_a82ab17b6d784f3fca963109e20bf976e}\label{lbg1_8h_a82ab17b6d784f3fca963109e20bf976e}} 
+\index{lbg1.h@{lbg1.h}!lbg1\_switch2cl@{lbg1\_switch2cl}}
+\index{lbg1\_switch2cl@{lbg1\_switch2cl}!lbg1.h@{lbg1.h}}
+\doxysubsubsection{\texorpdfstring{lbg1\_switch2cl()}{lbg1\_switch2cl()}}
+{\footnotesize\ttfamily void lbg1\+\_\+switch2cl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___est}{Struct\+\_\+\+Est}} $\ast$}]{est\+\_\+ptr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{lbg1_8h_a73beed26e59a60ff910d6213d45de341}\label{lbg1_8h_a73beed26e59a60ff910d6213d45de341}} 
+\index{lbg1.h@{lbg1.h}!lbg1\_update\_state\_lib@{lbg1\_update\_state\_lib}}
+\index{lbg1\_update\_state\_lib@{lbg1\_update\_state\_lib}!lbg1.h@{lbg1.h}}
+\doxysubsubsection{\texorpdfstring{lbg1\_update\_state\_lib()}{lbg1\_update\_state\_lib()}}
+{\footnotesize\ttfamily void lbg1\+\_\+update\+\_\+state\+\_\+lib (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___est}{Struct\+\_\+\+Est}} $\ast$}]{est\+\_\+ptr,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{update\+\_\+angle\+\_\+q16,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{update\+\_\+speed\+\_\+radps\+\_\+q16,  }\item[{uint16\+\_\+t}]{speed\+\_\+scale\+\_\+shift,  }\item[{int32\+\_\+t}]{dt\+\_\+control\+\_\+q26 }\end{DoxyParamCaption})}
+

@@ -1,0 +1,836 @@
+\hypertarget{parameter__process_8c}{}\doxysection{pac\+\_\+foc/src/param/parameter\+\_\+process.c File Reference}
+\label{parameter__process_8c}\index{pac\_foc/src/param/parameter\_process.c@{pac\_foc/src/param/parameter\_process.c}}
+
+
+Use for parameter processing.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parameter\+\_\+process.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fault.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driver\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+tile.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pid.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}control\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mpos\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac\+\_\+init.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config\+\_\+features.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}app\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}foc\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ppm.\+h\char`\"{}}\newline
+Include dependency graph for parameter\+\_\+process.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{parameter__process_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{parameter__process_8c_a64be8a66270f29a133c1e86132a0b7af}{init\+\_\+default\+\_\+parameters}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Use to initialize default F\+OC parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{parameter__process_8c_aab14ff7abd1d196bb01ccfaf0a2d3036}{parameters\+\_\+write\+\_\+foc}} (\mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28}{Parameter\+Code}} param\+\_\+code, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} rx\+\_\+data, \mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Use to write F\+OC parameters as per function code. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{parameter__process_8c_a5403febaebc7370708da1b0d7789717b}{check\+\_\+param\+\_\+while\+\_\+run}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Use to check motor states before writing parameters, post error if not valid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{parameter__process_8c_afd9d5a36f9d1a424a1b81903672f84e0}{write\+\_\+itotstart\+\_\+target}} (int32\+\_\+t iref\+\_\+q16, int32\+\_\+t $\ast$itotref\+\_\+target\+\_\+q16, int32\+\_\+t $\ast$itotref\+\_\+target\+\_\+1div\+\_\+q16)
+\begin{DoxyCompactList}\small\item\em Use to write itotal current. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{parameter__process_8c_a9d602ace3a6127b14fd31f29e89e0ecf}{init\+\_\+over\+\_\+current\+\_\+limit}} (uint32\+\_\+t \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28ad07582a0d98997491db397c3f3cce62a}{current\+\_\+limit}})
+\begin{DoxyCompactList}\small\item\em Use to initialize over current limit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const Motor\+\_\+\+Parameter\+\_\+\+Default \mbox{\hyperlink{parameter__process_8c_a374c9b9a49ec58695a243cb3cfc8e5d3}{motor\+\_\+parameters}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Motor\+\_\+\+Parameter\+\_\+\+Default List. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for parameter processing. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{parameter__process_8c_a5403febaebc7370708da1b0d7789717b}\label{parameter__process_8c_a5403febaebc7370708da1b0d7789717b}} 
+\index{parameter\_process.c@{parameter\_process.c}!check\_param\_while\_run@{check\_param\_while\_run}}
+\index{check\_param\_while\_run@{check\_param\_while\_run}!parameter\_process.c@{parameter\_process.c}}
+\doxysubsubsection{\texorpdfstring{check\_param\_while\_run()}{check\_param\_while\_run()}}
+{\footnotesize\ttfamily void check\+\_\+param\+\_\+while\+\_\+run (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Use to check motor states before writing parameters, post error if not valid. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 598 of file parameter\+\_\+process.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{599 \{}
+\DoxyCodeLine{600     \textcolor{keywordflow}{if} ((motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} != \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa8c8d442c44522dad62c8821b70a25cfa}{STATE\_MAIN\_STOPPED}}) \&\&}
+\DoxyCodeLine{601             (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} != \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daaa3f8351726ef20a7963ea52f88c68bd5}{STATE\_MAIN\_RESET}}) \&\&}
+\DoxyCodeLine{602             (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} != \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daaf5451846c5249486cf63c269a54c95d7}{STATE\_MAIN\_POST}}))}
+\DoxyCodeLine{603     \{}
+\DoxyCodeLine{604         \mbox{\hyperlink{fault_8c_a27e9497981905b8f49967f8b4bffb194}{set\_fault}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af99948c55499a7ba575229fb0551c83d}{FAULT\_PARAM\_WHILE\_RUN}});}
+\DoxyCodeLine{605     \}}
+\DoxyCodeLine{606 \}}
+
+\end{DoxyCode}
+
+
+References F\+A\+U\+L\+T\+\_\+\+P\+A\+R\+A\+M\+\_\+\+W\+H\+I\+L\+E\+\_\+\+R\+UN, Struct\+\_\+\+State\+::main, set\+\_\+fault(), Struct\+\_\+\+Motor\+::state, S\+T\+A\+T\+E\+\_\+\+M\+A\+I\+N\+\_\+\+P\+O\+ST, S\+T\+A\+T\+E\+\_\+\+M\+A\+I\+N\+\_\+\+R\+E\+S\+ET, and S\+T\+A\+T\+E\+\_\+\+M\+A\+I\+N\+\_\+\+S\+T\+O\+P\+P\+ED.
+
+
+
+Referenced by parameters\+\_\+write\+\_\+foc().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{parameter__process_8c_a5403febaebc7370708da1b0d7789717b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{parameter__process_8c_a5403febaebc7370708da1b0d7789717b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{parameter__process_8c_a64be8a66270f29a133c1e86132a0b7af}\label{parameter__process_8c_a64be8a66270f29a133c1e86132a0b7af}} 
+\index{parameter\_process.c@{parameter\_process.c}!init\_default\_parameters@{init\_default\_parameters}}
+\index{init\_default\_parameters@{init\_default\_parameters}!parameter\_process.c@{parameter\_process.c}}
+\doxysubsubsection{\texorpdfstring{init\_default\_parameters()}{init\_default\_parameters()}}
+{\footnotesize\ttfamily void init\+\_\+default\+\_\+parameters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Use to initialize default F\+OC parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 212 of file parameter\+\_\+process.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{213 \{}
+\DoxyCodeLine{214     uint32\_t count, array\_total\_elements;}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216     array\_total\_elements = (\textcolor{keyword}{sizeof}(\mbox{\hyperlink{parameter__process_8c_a374c9b9a49ec58695a243cb3cfc8e5d3}{motor\_parameters}})/\textcolor{keyword}{sizeof}(\mbox{\hyperlink{parameter__process_8c_a374c9b9a49ec58695a243cb3cfc8e5d3}{motor\_parameters}}[0]));}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{218     \textcolor{keywordflow}{for} (count = 0; count < array\_total\_elements; count++)}
+\DoxyCodeLine{219     \{}
+\DoxyCodeLine{220         \mbox{\hyperlink{parameter__process_8c_aab14ff7abd1d196bb01ccfaf0a2d3036}{parameters\_write\_foc}}(\mbox{\hyperlink{parameter__process_8c_a374c9b9a49ec58695a243cb3cfc8e5d3}{motor\_parameters}}[count].enum\_value, \mbox{\hyperlink{parameter__process_8c_a374c9b9a49ec58695a243cb3cfc8e5d3}{motor\_parameters}}[count].value, motor\_ptr);}
+\DoxyCodeLine{221     \}}
+\DoxyCodeLine{222 \}}
+
+\end{DoxyCode}
+
+
+References motor\+\_\+parameters, and parameters\+\_\+write\+\_\+foc().
+
+
+
+Referenced by statemachine\+\_\+appmain().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{parameter__process_8c_a64be8a66270f29a133c1e86132a0b7af_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{parameter__process_8c_a64be8a66270f29a133c1e86132a0b7af_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{parameter__process_8c_a9d602ace3a6127b14fd31f29e89e0ecf}\label{parameter__process_8c_a9d602ace3a6127b14fd31f29e89e0ecf}} 
+\index{parameter\_process.c@{parameter\_process.c}!init\_over\_current\_limit@{init\_over\_current\_limit}}
+\index{init\_over\_current\_limit@{init\_over\_current\_limit}!parameter\_process.c@{parameter\_process.c}}
+\doxysubsubsection{\texorpdfstring{init\_over\_current\_limit()}{init\_over\_current\_limit()}}
+{\footnotesize\ttfamily void init\+\_\+over\+\_\+current\+\_\+limit (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{current\+\_\+limit }\end{DoxyParamCaption})}
+
+
+
+Use to initialize over current limit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint32\+\_\+t} & current\+\_\+limit \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 617 of file parameter\+\_\+process.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{618 \{}
+\DoxyCodeLine{619     \mbox{\hyperlink{struct_struct___motor}{Struct\_Motor}}* motor\_ptr = \&\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}};}
+\DoxyCodeLine{620     \textcolor{keywordtype}{char} lpdac\_factor = 1;}
+\DoxyCodeLine{621     uint32\_t lpdac\_value = 0x00;}
+\DoxyCodeLine{622 }
+\DoxyCodeLine{623 }
+\DoxyCodeLine{624     lpdac\_value = \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28ad07582a0d98997491db397c3f3cce62a}{current\_limit}};}
+\DoxyCodeLine{625 }
+\DoxyCodeLine{626     \textcolor{keywordflow}{switch} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a0668fe8cd000768cc38b34d4c1140c75}{iphase\_amp\_gain}})}
+\DoxyCodeLine{627     \{}
+\DoxyCodeLine{628         \textcolor{keywordflow}{case} 0:}
+\DoxyCodeLine{629             lpdac\_factor = 1;}
+\DoxyCodeLine{630             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{631         \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{632             lpdac\_factor = 1;}
+\DoxyCodeLine{633             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{634         \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{635             lpdac\_factor = 2;}
+\DoxyCodeLine{636             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{637         \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{638             lpdac\_factor = 4;}
+\DoxyCodeLine{639             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{640         \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{641             lpdac\_factor = 8;}
+\DoxyCodeLine{642             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{643         \textcolor{keywordflow}{case} 5:}
+\DoxyCodeLine{644             lpdac\_factor = 16;}
+\DoxyCodeLine{645             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{646         \textcolor{keywordflow}{case} 6:}
+\DoxyCodeLine{647             lpdac\_factor = 32;}
+\DoxyCodeLine{648             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{649         \textcolor{keywordflow}{case} 7:}
+\DoxyCodeLine{650             lpdac\_factor = 48;}
+\DoxyCodeLine{651             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{652         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{653             lpdac\_factor = 1;}
+\DoxyCodeLine{654             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{655     \}}
+\DoxyCodeLine{656 }
+\DoxyCodeLine{657     \textcolor{comment}{// Calculate current descale factor}}
+\DoxyCodeLine{658     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_afc7224469e53f1be293f573436f699fe}{descale\_current\_factor}} = \mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}(\mbox{\hyperlink{param__calc_8h_a0873eb916e9589082f1d042bf92f4429}{CURRENT\_SCALE\_FACTOR\_X1\_Q16}}, (lpdac\_factor << 16));}
+\DoxyCodeLine{659 }
+\DoxyCodeLine{660     \textcolor{comment}{// Set LPROT protection threshold}}
+\DoxyCodeLine{661 }
+\DoxyCodeLine{662      \textcolor{comment}{// Handle LPDAC value calculation overflow}}
+\DoxyCodeLine{663      \textcolor{keywordflow}{if} (lpdac\_value > 0x3FF)}
+\DoxyCodeLine{664      \{}
+\DoxyCodeLine{665          lpdac\_value = 0x3FF;}
+\DoxyCodeLine{666          \mbox{\hyperlink{fault_8c_a8ea8474835dbcb70ebc28b77e48207fc}{set\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a3f05ac4748436d1780b970fe284d85f5}{WARNING\_MAIN\_OC\_VALUE}});}
+\DoxyCodeLine{667      \}}
+\DoxyCodeLine{668      \textcolor{keywordflow}{else}}
+\DoxyCodeLine{669      \{}
+\DoxyCodeLine{670          \mbox{\hyperlink{fault_8c_a39db699740c3dffa0b3f76f14cb26e33}{clear\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a3f05ac4748436d1780b970fe284d85f5}{WARNING\_MAIN\_OC\_VALUE}});}
+\DoxyCodeLine{671      \}}
+\DoxyCodeLine{672 }
+\DoxyCodeLine{673 \textcolor{preprocessor}{\#ifdef CAFE\_ARCH1}}
+\DoxyCodeLine{674     pac5xxx\_tile\_register\_write(ADDR\_LPDAC0, (uint8\_t)((lpdac\_value >> 2) \& 0xFF));   \textcolor{comment}{// HB: 8b MSB}}
+\DoxyCodeLine{675     pac5xxx\_tile\_register\_write(ADDR\_LPDAC1, (uint8\_t)((lpdac\_value \& 0x3)));         \textcolor{comment}{// LB: 2b LSB}}
+\DoxyCodeLine{676 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{677 }
+\DoxyCodeLine{678 \textcolor{preprocessor}{\#ifdef CAFE\_ARCH2}}
+\DoxyCodeLine{679     pac5xxx\_tile\_register\_write(ADDR\_LPDACH, (uint8\_t)((lpdac\_value >> 2) \& 0xFF));   \textcolor{comment}{// HB: 8b MSB}}
+\DoxyCodeLine{680     pac5xxx\_tile\_register\_write(ADDR\_LPDACL, (uint8\_t)((lpdac\_value \& 0x3)));         \textcolor{comment}{// LB: 2b LSB}}
+\DoxyCodeLine{681 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{682          }
+\DoxyCodeLine{683 \textcolor{preprocessor}{\#ifdef CAFE\_ARCH3}}
+\DoxyCodeLine{684      \textcolor{keywordflow}{if} ((\mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28ad07582a0d98997491db397c3f3cce62a}{current\_limit}} >> 6) > 15)}
+\DoxyCodeLine{685              lpdac\_value = 15;}
+\DoxyCodeLine{686          \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((\mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28ad07582a0d98997491db397c3f3cce62a}{current\_limit}} >> 6) < 1)}
+\DoxyCodeLine{687                 lpdac\_value = 1;}
+\DoxyCodeLine{688          \textcolor{keywordflow}{else}}
+\DoxyCodeLine{689                 lpdac\_value = \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28ad07582a0d98997491db397c3f3cce62a}{current\_limit}} >> 6; }
+\DoxyCodeLine{690          pac5xxx\_tile\_register\_write(ADDR\_LPDACH, (uint8\_t)(lpdac\_value \& 0x0F));   \textcolor{comment}{// 4bits scale from 10 bits}}
+\DoxyCodeLine{691 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{692 }
+\DoxyCodeLine{693 \textcolor{preprocessor}{\#ifdef CAFE\_ARCH1}}
+\DoxyCodeLine{694 \textcolor{preprocessor}{\#ifdef ENABLE\_CBC\_CURRENT\_LIMIT}}
+\DoxyCodeLine{695     uint32\_t hpdac\_value = 0;     }
+\DoxyCodeLine{696     \textcolor{comment}{// divide subtract 512 for current limit then des-\/scale it to fix16, divide it the amp gain in fix16,}}
+\DoxyCodeLine{697     \textcolor{comment}{// scale it back divide it by 4 to fit for hpdac}}
+\DoxyCodeLine{698     hpdac\_value = (\mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\_mul}}(\mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}(((lpdac\_value -\/ 512) << 16), (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}}) (lpdac\_factor << 16)), (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}}) (\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(HPDAC\_OC\_LIMIT\_MULTIPLIER, 16))) >> 16) >> 2;}
+\DoxyCodeLine{699 }
+\DoxyCodeLine{700     \textcolor{keywordflow}{if} (hpdac\_value > 255)}
+\DoxyCodeLine{701     \{}
+\DoxyCodeLine{702         hpdac\_value = 255;}
+\DoxyCodeLine{703         \mbox{\hyperlink{fault_8c_a8ea8474835dbcb70ebc28b77e48207fc}{set\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a3f05ac4748436d1780b970fe284d85f5}{WARNING\_MAIN\_OC\_VALUE}});}
+\DoxyCodeLine{704     \}}
+\DoxyCodeLine{705     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{706     \{}
+\DoxyCodeLine{707         \mbox{\hyperlink{fault_8c_a39db699740c3dffa0b3f76f14cb26e33}{clear\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a3f05ac4748436d1780b970fe284d85f5}{WARNING\_MAIN\_OC\_VALUE}});}
+\DoxyCodeLine{708     \}}
+\DoxyCodeLine{709 }
+\DoxyCodeLine{710         pac5xxx\_tile\_register\_write(ADDR\_HPDAC, hpdac\_value);}
+\DoxyCodeLine{711 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{712 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{713 }
+\DoxyCodeLine{714 \textcolor{preprocessor}{\#ifdef CAFE\_ARCH2}}
+\DoxyCodeLine{715 \textcolor{preprocessor}{    \#ifdef ENABLE\_CBC\_CURRENT\_LIMIT}}
+\DoxyCodeLine{716         uint32\_t hpdac\_value = 0;  }
+\DoxyCodeLine{717 }
+\DoxyCodeLine{718 \textcolor{preprocessor}{\#if defined(PAC5532) || defined(PAC5232)}}
+\DoxyCodeLine{719         hpdac\_value = (\mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\_mul}}((\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}}) ((lpdac\_value -\/ 512) << 16), (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}}) (\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(HPDAC\_OC\_LIMIT\_MULTIPLIER, 16))) >> 16);}
+\DoxyCodeLine{720         hpdac\_value = hpdac\_value + 512;}
+\DoxyCodeLine{721 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{722         \textcolor{comment}{// Pre diff amp signal use for hpdac}}
+\DoxyCodeLine{723         hpdac\_value = (\mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\_mul}}(\mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}(((lpdac\_value -\/ 512) << 16), (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}}) (lpdac\_factor << 16)), (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}}) (\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(HPDAC\_OC\_LIMIT\_MULTIPLIER, 16))) >> 16);}
+\DoxyCodeLine{724 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{725 }
+\DoxyCodeLine{726 \textcolor{preprocessor}{\#if (BOARD\_SELECT == BOARD\_PAC5256EVK1\_REV\_AB) || (BOARD\_SELECT == BOARD\_PAC5256EVK1\_REV\_AB\_1SHUNT)}}
+\DoxyCodeLine{727         hpdac\_value = (\mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\_mul}}((\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}}) ((lpdac\_value -\/ 512) << 16), (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}}) (\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(HPDAC\_OC\_LIMIT\_MULTIPLIER, 16))) >> 16);}
+\DoxyCodeLine{728         hpdac\_value = hpdac\_value + 512;}
+\DoxyCodeLine{729 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{730 }
+\DoxyCodeLine{731         \textcolor{keywordflow}{if} (hpdac\_value > 1023)}
+\DoxyCodeLine{732         \{}
+\DoxyCodeLine{733             hpdac\_value = 1023;}
+\DoxyCodeLine{734             \mbox{\hyperlink{fault_8c_a8ea8474835dbcb70ebc28b77e48207fc}{set\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a3f05ac4748436d1780b970fe284d85f5}{WARNING\_MAIN\_OC\_VALUE}});}
+\DoxyCodeLine{735         \}}
+\DoxyCodeLine{736         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{737         \{}
+\DoxyCodeLine{738             \mbox{\hyperlink{fault_8c_a39db699740c3dffa0b3f76f14cb26e33}{clear\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a3f05ac4748436d1780b970fe284d85f5}{WARNING\_MAIN\_OC\_VALUE}});}
+\DoxyCodeLine{739         \}}
+\DoxyCodeLine{740 }
+\DoxyCodeLine{741         pac5xxx\_tile\_register\_write(ADDR\_HPDACH, (uint8\_t)((hpdac\_value >> 2) \& 0xFF));   \textcolor{comment}{// HB: 8b MSB}}
+\DoxyCodeLine{742         pac5xxx\_tile\_register\_write(ADDR\_HPDACL, (uint8\_t)((hpdac\_value \& 0x3)));         \textcolor{comment}{// LB: 2b LSB}}
+\DoxyCodeLine{743 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{744 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{745 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::app, clear\+\_\+warning(), current\+\_\+limit, C\+U\+R\+R\+E\+N\+T\+\_\+\+S\+C\+A\+L\+E\+\_\+\+F\+A\+C\+T\+O\+R\+\_\+\+X1\+\_\+\+Q16, Struct\+\_\+\+App\+::descale\+\_\+current\+\_\+factor, fix16\+\_\+div(), fix16\+\_\+mul(), Struct\+\_\+\+App\+::iphase\+\_\+amp\+\_\+gain, motor, Q\+C\+O\+N\+ST, set\+\_\+warning(), and W\+A\+R\+N\+I\+N\+G\+\_\+\+M\+A\+I\+N\+\_\+\+O\+C\+\_\+\+V\+A\+L\+UE.
+
+
+
+Referenced by parameters\+\_\+write\+\_\+foc().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{parameter__process_8c_a9d602ace3a6127b14fd31f29e89e0ecf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{parameter__process_8c_a9d602ace3a6127b14fd31f29e89e0ecf_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{parameter__process_8c_aab14ff7abd1d196bb01ccfaf0a2d3036}\label{parameter__process_8c_aab14ff7abd1d196bb01ccfaf0a2d3036}} 
+\index{parameter\_process.c@{parameter\_process.c}!parameters\_write\_foc@{parameters\_write\_foc}}
+\index{parameters\_write\_foc@{parameters\_write\_foc}!parameter\_process.c@{parameter\_process.c}}
+\doxysubsubsection{\texorpdfstring{parameters\_write\_foc()}{parameters\_write\_foc()}}
+{\footnotesize\ttfamily void parameters\+\_\+write\+\_\+foc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28}{Parameter\+Code}}}]{param\+\_\+code,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{rx\+\_\+data,  }\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Use to write F\+OC parameters as per function code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Parameter\+Code} & param\+\_\+code \\
+\hline
+{\em fix16\+\_\+t} & rx\+\_\+data \\
+\hline
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 225 of file parameter\+\_\+process.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{226 \{}
+\DoxyCodeLine{227 \textcolor{comment}{//    int32\_t temp;}}
+\DoxyCodeLine{228 }
+\DoxyCodeLine{229 \textcolor{preprocessor}{\#if defined(ENABLE\_AUTOTUNE\_PI)}}
+\DoxyCodeLine{230     atpi\_paramchange\_check(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{231 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233     \textcolor{keywordflow}{switch} (param\_code)}
+\DoxyCodeLine{234     \{}
+\DoxyCodeLine{235 \textcolor{comment}{// Motor Config}}
+\DoxyCodeLine{236         \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28ad07582a0d98997491db397c3f3cce62a}{current\_limit}}:}
+\DoxyCodeLine{237             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_ab071c675f63006f73bd4e6b649ffc266}{current\_limit}} = rx\_data;}
+\DoxyCodeLine{238             \mbox{\hyperlink{parameter__process_8c_a9d602ace3a6127b14fd31f29e89e0ecf}{init\_over\_current\_limit}}(motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_ab071c675f63006f73bd4e6b649ffc266}{current\_limit}});}
+\DoxyCodeLine{239             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{240         \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28ace72dfc61c6b4eec681c484e0afa7474}{dt}}:}
+\DoxyCodeLine{241             \mbox{\hyperlink{parameter__process_8c_a5403febaebc7370708da1b0d7789717b}{check\_param\_while\_run}}(motor\_ptr);}
+\DoxyCodeLine{242             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a53d396a9cd99df24ea0cecf75cae7d3e}{dt\_control\_q26}} = rx\_data;}
+\DoxyCodeLine{243             \textcolor{comment}{// Calculate PWM timer period ticks}}
+\DoxyCodeLine{244             \mbox{\hyperlink{foc__funcs_8c_aeabbcc786cd687718fa87acf49fa00d3}{foc\_calc\_pwmtimer}}(motor\_ptr);}
+\DoxyCodeLine{245             \textcolor{comment}{// Configure control loop for FOC mode}}
+\DoxyCodeLine{246             \mbox{\hyperlink{foc__funcs_8c_aef5fe09425d67d651fbf7292e2f304c4}{foc\_config}}(motor\_ptr);}
+\DoxyCodeLine{247             \textcolor{comment}{// Update PI dt's}}
+\DoxyCodeLine{248             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7634d99c5262356aff936bf09765b8f7}{outerloop\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_a3106312c52393ef367054cbc514749ea}{dt\_q26}} = \mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\_mul}}(rx\_data, fix16\_from\_int(\mbox{\hyperlink{config__app_8h_acae76d167809ecc08e61af09064aa32a}{SPEED\_PI\_LOOP\_DIVIDER}}));}
+\DoxyCodeLine{249             \mbox{\hyperlink{pid_8c_a176d8fc72495c984e363ee961d699607}{picon\_convert\_gain}}(\&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7634d99c5262356aff936bf09765b8f7}{outerloop\_pid}}, (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a5e94c4f022c7fbd2217fe88184944d04}{outerloop\_scale\_q0}} << 16), motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_afc7224469e53f1be293f573436f699fe}{descale\_current\_factor}});}
+\DoxyCodeLine{250             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_ad17bb837caae66cbb412809f6ba20ff5}{Id\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_a3106312c52393ef367054cbc514749ea}{dt\_q26}} = rx\_data;}
+\DoxyCodeLine{251             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a61517e1b8a9490a4fb3dfd60e891eb41}{Iq\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_a3106312c52393ef367054cbc514749ea}{dt\_q26}} = rx\_data;}
+\DoxyCodeLine{252 \textcolor{preprocessor}{\#if (COMMSEL\_PPM == TRUE)}}
+\DoxyCodeLine{253             \textcolor{comment}{// Convert into ADC ISR ticks count}}
+\DoxyCodeLine{254             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2abb6c0c82c94d5cb7e0637cab985fd3}{ppm}}.\mbox{\hyperlink{struct_struct___p_p_m_a18f02ce4d00e6936eb6003c4574539f5}{pulse\_timeout\_in\_sys\_tick\_isr\_counts}} = (\mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}((\mbox{\hyperlink{ppm_8h_a29fc0a1fbb5bd2b8546d08da769318ac}{PPM\_PULSE\_VALID\_CHECK\_IN\_SEC\_FIX16}}), \mbox{\hyperlink{config__app_8h_a1ede8f484130cc2bd7093ce473515488}{DT\_SYSTICK\_Q16}})) >> 16;}
+\DoxyCodeLine{255             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2abb6c0c82c94d5cb7e0637cab985fd3}{ppm}}.\mbox{\hyperlink{struct_struct___p_p_m_acd37cd9bca7b6ca604e0f17d4b196c36}{motor\_off\_timeout\_in\_pulse\_timeout\_counts}} = (\mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}((\mbox{\hyperlink{ppm_8h_ac373c164d7adba66f1307da278e7cdf1}{PPM\_MOTOR\_OFF\_TIMEOUT\_IN\_SEC\_FIX16}}), \mbox{\hyperlink{config__app_8h_a1ede8f484130cc2bd7093ce473515488}{DT\_SYSTICK\_Q16}})) >> 16;}
+\DoxyCodeLine{256             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2abb6c0c82c94d5cb7e0637cab985fd3}{ppm}}.\mbox{\hyperlink{struct_struct___p_p_m_acd37cd9bca7b6ca604e0f17d4b196c36}{motor\_off\_timeout\_in\_pulse\_timeout\_counts}} = (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2abb6c0c82c94d5cb7e0637cab985fd3}{ppm}}.\mbox{\hyperlink{struct_struct___p_p_m_acd37cd9bca7b6ca604e0f17d4b196c36}{motor\_off\_timeout\_in\_pulse\_timeout\_counts}}/motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2abb6c0c82c94d5cb7e0637cab985fd3}{ppm}}.\mbox{\hyperlink{struct_struct___p_p_m_a18f02ce4d00e6936eb6003c4574539f5}{pulse\_timeout\_in\_sys\_tick\_isr\_counts}});}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{258 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{259 \textcolor{preprocessor}{\#if defined(ENABLE\_POWERMEASURE)}}
+\DoxyCodeLine{260             power\_calc\_filter\_alpha(motor\_ptr, POWER\_FILTER\_FREQ\_CUTOFF\_HZ\_Q16);}
+\DoxyCodeLine{261 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{262 \textcolor{preprocessor}{\#if (INTERNAL\_VMS == TRUE)}}
+\DoxyCodeLine{263 \textcolor{preprocessor}{\#if (CONFIG\_SHUNT == CONFIG\_SHUNT\_3SHUNT)}}
+\DoxyCodeLine{264             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a96657a84ac9c87ef8f87d0d19912c79c}{u\_duty\_cycle\_max\_limit}} = (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} * VMS\_VALUE\_EXCLUDE\_BAND\_LIMIT\_3SHUNT) >> 16;}
+\DoxyCodeLine{265 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{266 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{267             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{268         \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a867fe6776366cdfbf3ec13e7aff7a51f}{descale\_current\_factor}}:}
+\DoxyCodeLine{269             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{270         \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a2aa94469e452a04de6e5a3007e975f69}{diff\_amp\_gain}}:}
+\DoxyCodeLine{271             \mbox{\hyperlink{parameter__process_8c_a5403febaebc7370708da1b0d7789717b}{check\_param\_while\_run}}(motor\_ptr);}
+\DoxyCodeLine{272             \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a0668fe8cd000768cc38b34d4c1140c75}{iphase\_amp\_gain}} != rx\_data)}
+\DoxyCodeLine{273             \{}
+\DoxyCodeLine{274 \textcolor{preprocessor}{\#if defined(CAFE\_ARCH3) \&\& (DEVICE\_SELECT == DEVICE\_5285)}}
+\DoxyCodeLine{275                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a0668fe8cd000768cc38b34d4c1140c75}{iphase\_amp\_gain}} = UVW\_PHASE\_RSENSE\_GAIN\_DEFAULT\_VALUE\_5285;                        }
+\DoxyCodeLine{276 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{277                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a0668fe8cd000768cc38b34d4c1140c75}{iphase\_amp\_gain}} = rx\_data;                         }
+\DoxyCodeLine{278 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{279                 \mbox{\hyperlink{parameter__process_8h_ac12a9955fedf45671b4a40c4f3f64cee}{init\_diff\_amp\_gain}}();}
+\DoxyCodeLine{280                 \mbox{\hyperlink{parameter__process_8c_a9d602ace3a6127b14fd31f29e89e0ecf}{init\_over\_current\_limit}}(motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_ab071c675f63006f73bd4e6b649ffc266}{current\_limit}});}
+\DoxyCodeLine{281 \textcolor{preprocessor}{\#ifdef ENABLE\_ADCCAL}}
+\DoxyCodeLine{282                 \_\_disable\_irq();}
+\DoxyCodeLine{283                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daaf5451846c5249486cf63c269a54c95d7}{STATE\_MAIN\_POST}};}
+\DoxyCodeLine{284                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a9dcb8822caf6658caf9e1cf68f109ae5}{post}} = \mbox{\hyperlink{state__struct_8h_a9fc5c989428be8c434312555e661d6e5a1d203ce7d5a577370a1443d35cafc302}{STATE\_POST\_RESET}};}
+\DoxyCodeLine{285                 \_\_enable\_irq();}
+\DoxyCodeLine{286 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{287             \}}
+\DoxyCodeLine{288 \textcolor{preprocessor}{\#if defined(ENABLE\_POWERMEASURE) \&\& (POWER\_MEASURE\_SELECT == POWER\_MEASURE\_METHOD\_1)}}
+\DoxyCodeLine{289             power1\_calc\_param(motor\_ptr);}
+\DoxyCodeLine{290 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{291             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{292         \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a577e8366489fafd9d9a67ffa3d602515}{cl\_mode\_selection}}:}
+\DoxyCodeLine{293             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a59571a5c31674a41408769620c09a0e1}{speed\_mode\_flag}} = rx\_data;}
+\DoxyCodeLine{294             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{295         \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a676f061e4434d5ef40805411a2a85527}{reverse\_direction}}:}
+\DoxyCodeLine{296 \textcolor{preprocessor}{\#ifndef ENABLE\_NEGATIVE\_IQ\_COASTING}}
+\DoxyCodeLine{297             \mbox{\hyperlink{parameter__process_8c_a5403febaebc7370708da1b0d7789717b}{check\_param\_while\_run}}(motor\_ptr);}
+\DoxyCodeLine{298 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{299             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_aa18e2135661f9851385f746bf538fddf}{direction\_reverse\_cmd}} = rx\_data;}
+\DoxyCodeLine{300             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{301 }
+\DoxyCodeLine{302 \textcolor{comment}{// Misc}}
+\DoxyCodeLine{303          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a385edeefb718c3e8cbb696059494e16d}{Vdc\_gui}}:}
+\DoxyCodeLine{304              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{306 \textcolor{comment}{// Id \& Iq}}
+\DoxyCodeLine{307          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a003391a24d83bf94612c39b587543309}{id\_pi\_filter\_coeff}}:}
+\DoxyCodeLine{308              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a321e9a4ba0964db1a9124b04b407bcfc}{Id\_filter\_gain}} = rx\_data;}
+\DoxyCodeLine{309              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{310          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a6ad4a9ff3c3ea6a86601b05477234d1d}{iq\_pi\_filter\_coeff}}:}
+\DoxyCodeLine{311              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_aecac82b05dbcd8620d6f6c6c8afa82c0}{Iq\_filter\_gain}} = rx\_data;}
+\DoxyCodeLine{312              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{313          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a00567bed061a9034d7491e1b12201bc9}{idiq\_ramp\_rate}}:}
+\DoxyCodeLine{314              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7e1efe802bcf21763ff298f0863abf09}{idiqref\_rate\_f16}} = (rx\_data);}
+\DoxyCodeLine{315              \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7e1efe802bcf21763ff298f0863abf09}{idiqref\_rate\_f16}} == 0)}
+\DoxyCodeLine{316                  motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7e1efe802bcf21763ff298f0863abf09}{idiqref\_rate\_f16}} = 1;}
+\DoxyCodeLine{317 \textcolor{preprocessor}{\#ifdef ENABLE\_NEGATIVE\_IQ\_COASTING}}
+\DoxyCodeLine{318              motor\_ptr-\/>idiqref\_rate\_gui\_f16 = motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7e1efe802bcf21763ff298f0863abf09}{idiqref\_rate\_f16}};}
+\DoxyCodeLine{319 \textcolor{preprocessor}{\#endif           }}
+\DoxyCodeLine{320              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{322 \textcolor{comment}{// Closed Loop}}
+\DoxyCodeLine{323          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a13cb85e06c975e6725af9c0333745a65}{closed\_loop\_speed\_slew\_rate}}:}
+\DoxyCodeLine{324 \textcolor{preprocessor}{\#if (OUTERLOOP\_CONTROL\_SELECT == OUTERLOOP\_CONTROL\_SPEED)}}
+\DoxyCodeLine{325              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a8c03557934eeb10638a818621be19ada}{outerloop\_rate\_store}} = rx\_data;}
+\DoxyCodeLine{326              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_ae49f09f24dde4ba0ec403f57c09ad135}{outerloop\_rate}} = (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a8c03557934eeb10638a818621be19ada}{outerloop\_rate\_store}} * \mbox{\hyperlink{config__app_8h_acae76d167809ecc08e61af09064aa32a}{SPEED\_PI\_LOOP\_DIVIDER}}) ;    \textcolor{comment}{// Descaled f16}}
+\DoxyCodeLine{327 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{328              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{329          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a9feb096081c41c297cc7be74068f2f22}{closed\_loop\_speed\_setpoint}}:}
+\DoxyCodeLine{330 \textcolor{preprocessor}{\#if (OUTERLOOP\_CONTROL\_SELECT == OUTERLOOP\_CONTROL\_SPEED)}}
+\DoxyCodeLine{331              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a712d2444c74ca85833716c0109b1c043}{outerloop\_target}} = rx\_data;}
+\DoxyCodeLine{332 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{333 \textcolor{preprocessor}{\#ifdef ENABLE\_CLSPEED\_LIMIT\_CHANGE\_CHECK}}
+\DoxyCodeLine{334              motor\_ptr-\/>debug.cl\_speed\_backup = rx\_data;}
+\DoxyCodeLine{335 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{336              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{337          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a792eb46541c99be38af703a8d3d31063}{id\_ref\_cl}}:}
+\DoxyCodeLine{338              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a42a731eb0384eaee0b497241c6c0547d}{idrefcl\_cmd\_f16}} = rx\_data;}
+\DoxyCodeLine{339              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa2a8f216248891280573b85cd9f1d671}{idrefcl\_target\_f16}} = rx\_data;}
+\DoxyCodeLine{340              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{341          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a5871cc983af9e1ad2aee9a9ff3e51a72}{iq\_ref\_cl}}:}
+\DoxyCodeLine{342              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a3f149e8c07b0a0f4730ac4bab245848b}{iqrefcl\_cmd\_f16}} = rx\_data;}
+\DoxyCodeLine{343 \textcolor{preprocessor}{\#ifdef ENABLE\_AUTOTUNE\_REGULATE\_IQREF}}
+\DoxyCodeLine{344              \textcolor{keywordflow}{if} ((!motor\_ptr-\/>atune.flag\_iqref\_reg\_active) || (motor\_ptr-\/>atune.flag\_iqref\_reg\_active \&\& (rx\_data >= motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_ad63c1fc824758afbaf818b5018c58df8}{iqrefcl\_target\_f16}})))}
+\DoxyCodeLine{345              \{}
+\DoxyCodeLine{346                  motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_ad63c1fc824758afbaf818b5018c58df8}{iqrefcl\_target\_f16}} = rx\_data;}
+\DoxyCodeLine{347              \}}
+\DoxyCodeLine{348 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{349              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_ad63c1fc824758afbaf818b5018c58df8}{iqrefcl\_target\_f16}} = rx\_data;}
+\DoxyCodeLine{350 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{351              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{352          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a40af65c50dbe2da755c82a0e2afb3b92}{max\_cl\_speed\_limit}}:}
+\DoxyCodeLine{353              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a5e3562e64dea445ae286b80b54b7cdf7}{speedrefcl\_max}} = rx\_data;}
+\DoxyCodeLine{354              \mbox{\hyperlink{control__funcs_8c_a825665f713ad8071a89c9b2a0320aee2}{calculate\_outerloop\_scale\_shift}}(motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a5e3562e64dea445ae286b80b54b7cdf7}{speedrefcl\_max}}, \&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a9d5bb2491a0253c5706583aeb3218226}{speed\_scale\_shift}}, \&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a5e94c4f022c7fbd2217fe88184944d04}{outerloop\_scale\_q0}});}
+\DoxyCodeLine{355 \textcolor{preprocessor}{\#if (OUTERLOOP\_CONTROL\_SELECT == OUTERLOOP\_CONTROL\_SPEED)}}
+\DoxyCodeLine{356              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_acb3fc7dea7622f76a8aceb5b601ebf5c}{outerloop\_pi\_scale\_shift}} = motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a9d5bb2491a0253c5706583aeb3218226}{speed\_scale\_shift}};}
+\DoxyCodeLine{357 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{358              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{359 }
+\DoxyCodeLine{360 \textcolor{comment}{// Speed PID}}
+\DoxyCodeLine{361 \textcolor{preprocessor}{\#if (OUTERLOOP\_CONTROL\_SELECT == OUTERLOOP\_CONTROL\_SPEED)}}
+\DoxyCodeLine{362          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a5838698e97a813c1e7eaf2d6671a7ab6}{speed\_pid\_Kp}}:}
+\DoxyCodeLine{363              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7634d99c5262356aff936bf09765b8f7}{outerloop\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_a69d70e8a34bdede3030fd6bc8f590259}{ka\_q16}} = rx\_data;}
+\DoxyCodeLine{364              \mbox{\hyperlink{pid_8c_a176d8fc72495c984e363ee961d699607}{picon\_convert\_gain}}(\&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7634d99c5262356aff936bf09765b8f7}{outerloop\_pid}}, (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a5e94c4f022c7fbd2217fe88184944d04}{outerloop\_scale\_q0}} << 16), motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_afc7224469e53f1be293f573436f699fe}{descale\_current\_factor}});}
+\DoxyCodeLine{365              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{366          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a6d46aa6a1ece5e34e14486863a8ed3b5}{speed\_pid\_Ki}}:}
+\DoxyCodeLine{367              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7634d99c5262356aff936bf09765b8f7}{outerloop\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_aa85c08bf211e5e9ef5f34fdb43b29382}{kb\_q16}} = rx\_data;}
+\DoxyCodeLine{368              \mbox{\hyperlink{pid_8c_a176d8fc72495c984e363ee961d699607}{picon\_convert\_gain}}(\&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7634d99c5262356aff936bf09765b8f7}{outerloop\_pid}}, (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a5e94c4f022c7fbd2217fe88184944d04}{outerloop\_scale\_q0}} << 16), motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_afc7224469e53f1be293f573436f699fe}{descale\_current\_factor}});}
+\DoxyCodeLine{369              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{370 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{371 }
+\DoxyCodeLine{372          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28aacdb4d51c229bed314730aad8e84869e}{outerloop\_pid\_min}}:}
+\DoxyCodeLine{373              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7634d99c5262356aff936bf09765b8f7}{outerloop\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_ae96634b7c043aac25c835a15403e85d5}{min\_value}} = (rx\_data >> 2);}
+\DoxyCodeLine{374              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{375          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28aa787168095e0621f7ecd4c86d833f520}{outerloop\_pid\_max}}:}
+\DoxyCodeLine{376              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7634d99c5262356aff936bf09765b8f7}{outerloop\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_a2306918ba077e946e2055305c9f46087}{max\_value}} = (rx\_data >> 2);}
+\DoxyCodeLine{377              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a56b4edfdaf4bbf6466f8bb6e78489407}{imax\_q16}} = rx\_data;}
+\DoxyCodeLine{378              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a40542405610d46d00eb03fb9122137ea}{imax\_1div\_q16}} = \mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}(\mbox{\hyperlink{fix16_8h_ab8732af29723661b66f6570881cebc6c}{FIX16\_ONE}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a56b4edfdaf4bbf6466f8bb6e78489407}{imax\_q16}});}
+\DoxyCodeLine{379              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{380 \textcolor{comment}{// Id PID}}
+\DoxyCodeLine{381          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28ae9a3420faf9d1c31793b833a64e04345}{Id\_pid\_Kp}}:}
+\DoxyCodeLine{382              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_ad17bb837caae66cbb412809f6ba20ff5}{Id\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_a69d70e8a34bdede3030fd6bc8f590259}{ka\_q16}} = rx\_data;}
+\DoxyCodeLine{383              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{384          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a047581aa08f80e7863d175666685dd35}{Id\_pid\_Ki}}:}
+\DoxyCodeLine{385              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_ad17bb837caae66cbb412809f6ba20ff5}{Id\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_aa85c08bf211e5e9ef5f34fdb43b29382}{kb\_q16}} = rx\_data;}
+\DoxyCodeLine{386              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{387          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a1eed2949af040c69adf6acc40ba1ead4}{Id\_pid\_min}}:}
+\DoxyCodeLine{388              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_ad17bb837caae66cbb412809f6ba20ff5}{Id\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_ae96634b7c043aac25c835a15403e85d5}{min\_value}} = (rx\_data >> 2);}
+\DoxyCodeLine{389              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{390          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a5200511ae145ff07d43e4faa168f437b}{Id\_pid\_max}}:}
+\DoxyCodeLine{391              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_ad17bb837caae66cbb412809f6ba20ff5}{Id\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_a2306918ba077e946e2055305c9f46087}{max\_value}} = (rx\_data >> 2);}
+\DoxyCodeLine{392              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{393 \textcolor{comment}{// Iq PID}}
+\DoxyCodeLine{394          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28aa065e7749ed99bcc9b47ea34c478e5ee}{Iq\_pid\_Kp}}:}
+\DoxyCodeLine{395              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a61517e1b8a9490a4fb3dfd60e891eb41}{Iq\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_a69d70e8a34bdede3030fd6bc8f590259}{ka\_q16}} = rx\_data;}
+\DoxyCodeLine{396              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{397          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a68a36648d17d2aba199dd17a972e2228}{Iq\_pid\_Ki}}:}
+\DoxyCodeLine{398              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a61517e1b8a9490a4fb3dfd60e891eb41}{Iq\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_aa85c08bf211e5e9ef5f34fdb43b29382}{kb\_q16}} = rx\_data;}
+\DoxyCodeLine{399              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{400          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a9dc8f494e9d16b5d53595f1e1c99c579}{Iq\_pid\_min}}:}
+\DoxyCodeLine{401              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a61517e1b8a9490a4fb3dfd60e891eb41}{Iq\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_ae96634b7c043aac25c835a15403e85d5}{min\_value}} = (rx\_data >> 2);}
+\DoxyCodeLine{402              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{403          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a816e4383e6923b76d3dc269fed683f5b}{Iq\_pid\_max}}:}
+\DoxyCodeLine{404              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a61517e1b8a9490a4fb3dfd60e891eb41}{Iq\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_a2306918ba077e946e2055305c9f46087}{max\_value}} = (rx\_data >> 2);}
+\DoxyCodeLine{405              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{406 }
+\DoxyCodeLine{407 \textcolor{comment}{// Motor}}
+\DoxyCodeLine{408          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a1ede35c2697b8894348a1dfb31e04d86}{Ld}}:}
+\DoxyCodeLine{409              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}.\mbox{\hyperlink{struct_struct___m_param_aba49e77df867b0db647120161410586b}{ld\_q26}} = rx\_data;}
+\DoxyCodeLine{410              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{411          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a1b3667b38cf2b9fafccdc7ef9ba4549c}{Lq}}:}
+\DoxyCodeLine{412              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}.\mbox{\hyperlink{struct_struct___m_param_a41005a0df1e48dce8a42bbabf26369e3}{lq\_q26}} = rx\_data;}
+\DoxyCodeLine{413              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{414          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a0c6befdcc666a5f0842b20a715a93387}{Ralpha}}:}
+\DoxyCodeLine{415              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}.\mbox{\hyperlink{struct_struct___m_param_ab1a6809c410c813be204dfabf9f8725f}{rs\_q16}} = rx\_data;}
+\DoxyCodeLine{416              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{417          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a0bb19fb5c809b01ca7dd01a557261dfe}{num\_pole\_pairs}}:}
+\DoxyCodeLine{418              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}.\mbox{\hyperlink{struct_struct___m_param_a2692219064418831503873a599929af4}{pole\_pairs}} = rx\_data;}
+\DoxyCodeLine{419              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{420          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a158f07146ff3b0d80aac08eb34851aa0}{Config\_Ke}}:}
+\DoxyCodeLine{421              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}.\mbox{\hyperlink{struct_struct___m_param_a2660eb79506ae89d8e2a1733bf50d74e}{ke\_q26}} = rx\_data;}
+\DoxyCodeLine{422              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{423          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28afb4bd556016eea804a4ddee5e361bf40}{Confi\_J}}:}
+\DoxyCodeLine{424              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}.\mbox{\hyperlink{struct_struct___m_param_a27498dfa898b789c2fb9bef4d93cc170}{j\_q26}} = rx\_data;}
+\DoxyCodeLine{425              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{426          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28afd2d6aa14cf9c1bc29c4646cbf52fed6}{NominalSpeed}}:}
+\DoxyCodeLine{427              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}.\mbox{\hyperlink{struct_struct___m_param_aaee06f5ea5b176b17ce37d156bb5bc7c}{nom\_spd\_q16}} = rx\_data;}
+\DoxyCodeLine{428              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{429          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a222311dd09459f967b3e7092d4f627b4}{PWM\_to\_FOC\_control\_ratio}}:}
+\DoxyCodeLine{430              \mbox{\hyperlink{parameter__process_8c_a5403febaebc7370708da1b0d7789717b}{check\_param\_while\_run}}(motor\_ptr);}
+\DoxyCodeLine{431              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_aaddf83287ef2ff6dacff87057bfa8ab7}{ctrl\_divider\_foc}} = rx\_data;}
+\DoxyCodeLine{432              \textcolor{comment}{// Calculate PWM timer period ticks}}
+\DoxyCodeLine{433              \mbox{\hyperlink{foc__funcs_8c_aeabbcc786cd687718fa87acf49fa00d3}{foc\_calc\_pwmtimer}}(motor\_ptr);}
+\DoxyCodeLine{434              \textcolor{comment}{// Configure control loop for FOC mode}}
+\DoxyCodeLine{435              \mbox{\hyperlink{foc__funcs_8c_aef5fe09425d67d651fbf7292e2f304c4}{foc\_config}}(motor\_ptr);}
+\DoxyCodeLine{436              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{437          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28ad25e6e5a04fedbc37fb73a43054c378d}{Auto\_Mode\_Open\_Close\_Loop}}:}
+\DoxyCodeLine{438              \textcolor{keywordflow}{if} (rx\_data)}
+\DoxyCodeLine{439              \{}
+\DoxyCodeLine{440                  motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_ab892ca750c8b4560e4147c0fcc0cde69}{auto\_close\_loop\_cmd}} = 1;}
+\DoxyCodeLine{441              \}}
+\DoxyCodeLine{442              \textcolor{keywordflow}{else}}
+\DoxyCodeLine{443              \{}
+\DoxyCodeLine{444                  motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_ab892ca750c8b4560e4147c0fcc0cde69}{auto\_close\_loop\_cmd}} = 0;}
+\DoxyCodeLine{445              \}}
+\DoxyCodeLine{446              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{447          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a82d628281d3b493897491c86e297e33b}{Clear\_Fault\_Flags}}:}
+\DoxyCodeLine{448              \mbox{\hyperlink{fault_8c_acb1b29532be372e85eb02188e6255e47}{clear\_fault}}(\mbox{\hyperlink{fault__struct_8h_ac15b6a1aaffaf53c1151c1f42fb882b2}{FAULT\_MAIN\_GRP\_CLEARCMD}});}
+\DoxyCodeLine{449              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{450 }
+\DoxyCodeLine{451 \textcolor{preprocessor}{\#ifdef ENABLE\_IPD}}
+\DoxyCodeLine{452          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28ac388d90fbf232b93fb8adf4e7d062591}{ipd\_charge}}:}
+\DoxyCodeLine{453              \textcolor{comment}{// Load new pwm\_charge\_ticks from rx\_data; calculate new parameters}}
+\DoxyCodeLine{454              motor\_ptr-\/>ipd.pwm\_charge\_ticks = rx\_data;}
+\DoxyCodeLine{455              \textcolor{keywordflow}{if} (motor\_ptr-\/>ipd.pwm\_charge\_ticks <= \mbox{\hyperlink{ipd__config_8h_afbb1677638436e2d4fe55a2590d2aad1}{IPD\_ADC\_TRIGGER\_OFFSET\_TICKS}}*motor\_ptr-\/>ipd.num\_periods\_per\_pulse)}
+\DoxyCodeLine{456              \{}
+\DoxyCodeLine{457                  motor\_ptr-\/>ipd.pwm\_charge\_ticks = (\mbox{\hyperlink{ipd__config_8h_afbb1677638436e2d4fe55a2590d2aad1}{IPD\_ADC\_TRIGGER\_OFFSET\_TICKS}}+1)*motor\_ptr-\/>ipd.num\_periods\_per\_pulse;}
+\DoxyCodeLine{458              \}}
+\DoxyCodeLine{459              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{460          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28afafd53828943f35a9fd9c1324fda79fa}{ipd\_discharge}}:}
+\DoxyCodeLine{461              \textcolor{comment}{// Load new pwm\_discharge\_percent from rx\_data; calculate new parameters}}
+\DoxyCodeLine{462              motor\_ptr-\/>ipd.pwm\_discharge\_percent = rx\_data;}
+\DoxyCodeLine{463              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{464          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a090f0642b7c5d7169f4c842e315ebe2f}{ipd\_num\_periods\_per\_pulse}}:}
+\DoxyCodeLine{465              motor\_ptr-\/>ipd.num\_periods\_per\_pulse = rx\_data;}
+\DoxyCodeLine{466              \textcolor{keywordflow}{if} (motor\_ptr-\/>ipd.pwm\_charge\_ticks <= \mbox{\hyperlink{ipd__config_8h_afbb1677638436e2d4fe55a2590d2aad1}{IPD\_ADC\_TRIGGER\_OFFSET\_TICKS}}*motor\_ptr-\/>ipd.num\_periods\_per\_pulse)}
+\DoxyCodeLine{467              \{}
+\DoxyCodeLine{468                  motor\_ptr-\/>ipd.pwm\_charge\_ticks = (\mbox{\hyperlink{ipd__config_8h_afbb1677638436e2d4fe55a2590d2aad1}{IPD\_ADC\_TRIGGER\_OFFSET\_TICKS}}+1)*motor\_ptr-\/>ipd.num\_periods\_per\_pulse;}
+\DoxyCodeLine{469              \}}
+\DoxyCodeLine{470              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{471          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a4f93e3fdd9679c2ed3c4fb292330322c}{ipd\_angle\_offset\_forward}}:}
+\DoxyCodeLine{472              motor\_ptr-\/>ipd.ipd\_angle\_forward\_offset = rx\_data;}
+\DoxyCodeLine{473              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{474          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a29093c547b8b7dce776e8f96df090157}{ipd\_angle\_offset\_reverse}}:}
+\DoxyCodeLine{475              motor\_ptr-\/>ipd.ipd\_angle\_reverse\_offset = rx\_data;}
+\DoxyCodeLine{476              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{477 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{478 }
+\DoxyCodeLine{479          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28abdc76b3efb106acc24bd651bb394d797}{close\_loop\_coast\_timeout}}:}
+\DoxyCodeLine{480              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_ad48134deb82c4cf369e3326980ea9154}{coast\_timeout\_target}} = rx\_data;}
+\DoxyCodeLine{481              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{482 }
+\DoxyCodeLine{483 \textcolor{preprocessor}{\#if (OUTERLOOP\_CONTROL\_SELECT == OUTERLOOP\_CONTROL\_POWER)}}
+\DoxyCodeLine{484          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a114fd702627024067c9e15ef4996262c}{Power\_pid\_Kp}}:}
+\DoxyCodeLine{485              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7634d99c5262356aff936bf09765b8f7}{outerloop\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_a69d70e8a34bdede3030fd6bc8f590259}{ka\_q16}} = rx\_data;}
+\DoxyCodeLine{486              \mbox{\hyperlink{pid_8c_a176d8fc72495c984e363ee961d699607}{picon\_convert\_gain}}(\&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7634d99c5262356aff936bf09765b8f7}{outerloop\_pid}}, (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a5e94c4f022c7fbd2217fe88184944d04}{outerloop\_scale\_q0}} << 16), motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_afc7224469e53f1be293f573436f699fe}{descale\_current\_factor}});}
+\DoxyCodeLine{487              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{488 }
+\DoxyCodeLine{489          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a8b918f96aed491b0af9c47c6e56c5ae7}{Power\_pid\_Ki}}:}
+\DoxyCodeLine{490              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7634d99c5262356aff936bf09765b8f7}{outerloop\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_aa85c08bf211e5e9ef5f34fdb43b29382}{kb\_q16}} = rx\_data;}
+\DoxyCodeLine{491              \mbox{\hyperlink{pid_8c_a176d8fc72495c984e363ee961d699607}{picon\_convert\_gain}}(\&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7634d99c5262356aff936bf09765b8f7}{outerloop\_pid}}, (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a5e94c4f022c7fbd2217fe88184944d04}{outerloop\_scale\_q0}} << 16), motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_afc7224469e53f1be293f573436f699fe}{descale\_current\_factor}});}
+\DoxyCodeLine{492              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{493 }
+\DoxyCodeLine{494          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a641a37a03c29715e8b5aaf2e9da46b31}{Power\_ramp\_rate}}:}
+\DoxyCodeLine{495              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a8c03557934eeb10638a818621be19ada}{outerloop\_rate\_store}} = rx\_data;}
+\DoxyCodeLine{496              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_ae49f09f24dde4ba0ec403f57c09ad135}{outerloop\_rate}} = (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a8c03557934eeb10638a818621be19ada}{outerloop\_rate\_store}} * \mbox{\hyperlink{config__app_8h_acae76d167809ecc08e61af09064aa32a}{SPEED\_PI\_LOOP\_DIVIDER}}) ;    \textcolor{comment}{// Descaled f16}}
+\DoxyCodeLine{497              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{498 }
+\DoxyCodeLine{499          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a7b0a5b6df3d6830ecd090e7c2abc3d26}{Power\_setpoint}}:}
+\DoxyCodeLine{500              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a712d2444c74ca85833716c0109b1c043}{outerloop\_target}} = rx\_data;}
+\DoxyCodeLine{501              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{502 }
+\DoxyCodeLine{503          \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28ae012fce5ec2c85ad54d0047aeabb8381}{Power\_max\_limit}}:}
+\DoxyCodeLine{504              motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a30769f16d07a7e1078dcc0b14da81f68}{powerrefcl\_max}} = rx\_data;}
+\DoxyCodeLine{505              \mbox{\hyperlink{control__funcs_8c_a825665f713ad8071a89c9b2a0320aee2}{calculate\_outerloop\_scale\_shift}}(motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a30769f16d07a7e1078dcc0b14da81f68}{powerrefcl\_max}}, \&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_acb3fc7dea7622f76a8aceb5b601ebf5c}{outerloop\_pi\_scale\_shift}}, \&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a5e94c4f022c7fbd2217fe88184944d04}{outerloop\_scale\_q0}});}
+\DoxyCodeLine{506              \textcolor{keywordflow}{break};}
+\DoxyCodeLine{507 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{508 }
+\DoxyCodeLine{509         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{510             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{511     \}}
+\DoxyCodeLine{512 }
+\DoxyCodeLine{514     \textcolor{comment}{// Parameter Write Functions Calls}}
+\DoxyCodeLine{516 \textcolor{comment}{}}
+\DoxyCodeLine{517 \textcolor{preprocessor}{\#ifdef ENABLE\_STALL\_DETECT}}
+\DoxyCodeLine{518     \mbox{\hyperlink{stalldet__funcs_8h_a4bb96472b6ae336efd06c8f4a7e6a876}{stalldet\_param\_write}}(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{519 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{520 }
+\DoxyCodeLine{521 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_ALIGNGO == ENABLED) \&\& !defined(ENABLE\_HALL\_TUNING)}}
+\DoxyCodeLine{522     \mbox{\hyperlink{aligngo__funcs_8c_a52f326f912256bfcf89f3af381c5b53e}{aligngo\_param\_write}}(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{523 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{524 }
+\DoxyCodeLine{525 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_LBG1 == ENABLED)}}
+\DoxyCodeLine{526     \mbox{\hyperlink{lbg1__funcs_8c_a61a2a6afa652dc03bc498a53fdaa4e9f}{lbg1\_param\_write}}(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{527 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{528 }
+\DoxyCodeLine{529 \textcolor{preprocessor}{\#if defined(ENABLE\_AUTOTUNE\_PI)}}
+\DoxyCodeLine{530     at\_param\_write(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{531 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{532 }
+\DoxyCodeLine{533 \textcolor{preprocessor}{\#ifdef ENABLE\_SIM}}
+\DoxyCodeLine{534     sim\_param\_write(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{535 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{536 }
+\DoxyCodeLine{537 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_HALL == ENABLED)}}
+\DoxyCodeLine{538     \mbox{\hyperlink{hall__funcs_8c_ad894a1b47a469cefdb149da1da76d217}{hall\_param\_write}}(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{539 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{540 }
+\DoxyCodeLine{541 \textcolor{preprocessor}{\#if defined(ENABLE\_HALL\_TUNING)}}
+\DoxyCodeLine{542     halltune\_param\_write(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{543 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{544 }
+\DoxyCodeLine{545 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_QEP == ENABLED)}}
+\DoxyCodeLine{546     \mbox{\hyperlink{qep__funcs_8c_a935c9f07596447bcf43e9ee92d9459ec}{qep\_param\_write}}(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{547 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{548 }
+\DoxyCodeLine{549 \textcolor{preprocessor}{\#if defined(ENABLE\_FIELD\_WEAKENING)}}
+\DoxyCodeLine{550     fw\_param\_write(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{551 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{552 }
+\DoxyCodeLine{553 \textcolor{preprocessor}{\#if defined(ENABLE\_MTPA)}}
+\DoxyCodeLine{554     \mbox{\hyperlink{mtpa__funcs_8h_a302ba7df57c4cbd195728d8c600e32ec}{mtpa\_param\_write}}(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{555 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{556 }
+\DoxyCodeLine{558     \textcolor{comment}{// Parameter Process Functions Calls}}
+\DoxyCodeLine{560 \textcolor{comment}{}}
+\DoxyCodeLine{561     \textcolor{comment}{// Application parameter process function always needs to run first}}
+\DoxyCodeLine{562     \mbox{\hyperlink{app__funcs_8c_a68bfe593e658da6039ea5dc036645923}{app\_param\_process}}(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{563 }
+\DoxyCodeLine{564 \textcolor{preprocessor}{\#ifdef ENABLE\_OPD\_CL}}
+\DoxyCodeLine{565     opdcl\_param\_process(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{566 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{567 }
+\DoxyCodeLine{568 \textcolor{preprocessor}{\#ifdef ENABLE\_STALL\_DETECT}}
+\DoxyCodeLine{569     \mbox{\hyperlink{stalldet__funcs_8h_a8bebd8f7bc8d99398f22882c4f516b50}{stalldet\_param\_process}}(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{570 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{571 }
+\DoxyCodeLine{572 \textcolor{preprocessor}{\#ifdef ENABLE\_SIM}}
+\DoxyCodeLine{573     sim\_param\_process(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{574 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{575 }
+\DoxyCodeLine{576 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_LBG1 == ENABLED)}}
+\DoxyCodeLine{577     \mbox{\hyperlink{lbg1__funcs_8c_acf0eab32000596e0ce4bae079b0a0450}{lbg1\_param\_process}}(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{578 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{579 }
+\DoxyCodeLine{580 \textcolor{preprocessor}{\#if defined(ENABLE\_AUTOTUNE\_PI)}}
+\DoxyCodeLine{581     at\_param\_process(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{582 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{583 }
+\DoxyCodeLine{584 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_HALL == ENABLED)}}
+\DoxyCodeLine{585     \mbox{\hyperlink{hall__funcs_8c_afe61e6dcc4f41aa8328b2de4f61cf99b}{hall\_param\_process}}(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{586 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{587 }
+\DoxyCodeLine{588 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_QEP == ENABLED)}}
+\DoxyCodeLine{589     \mbox{\hyperlink{qep__funcs_8c_aad93894c7fb9377245bedb3588e7f060}{qep\_param\_process}}(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{590 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{591 }
+\DoxyCodeLine{592 \textcolor{preprocessor}{\#if defined(ENABLE\_FIELD\_WEAKENING)}}
+\DoxyCodeLine{593     fw\_param\_process(motor\_ptr, param\_code, rx\_data);}
+\DoxyCodeLine{594 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{595 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::app, check\+\_\+param\+\_\+while\+\_\+run(), Struct\+\_\+\+Motor\+::control, Struct\+\_\+\+App\+::current\+\_\+limit, current\+\_\+limit, dt, Struct\+\_\+\+F\+O\+C\+::dt\+\_\+control\+\_\+q26, P\+I\+D\+\_\+\+Data\+\_\+\+Type\+::dt\+\_\+q26, fix16\+\_\+mul(), Struct\+\_\+\+Motor\+::foc, foc\+\_\+calc\+\_\+pwmtimer(), foc\+\_\+config(), init\+\_\+over\+\_\+current\+\_\+limit(), and Struct\+\_\+\+Control\+::outerloop\+\_\+pid.
+
+
+
+Referenced by init\+\_\+default\+\_\+parameters().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{parameter__process_8c_aab14ff7abd1d196bb01ccfaf0a2d3036_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{parameter__process_8c_aab14ff7abd1d196bb01ccfaf0a2d3036_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{parameter__process_8c_afd9d5a36f9d1a424a1b81903672f84e0}\label{parameter__process_8c_afd9d5a36f9d1a424a1b81903672f84e0}} 
+\index{parameter\_process.c@{parameter\_process.c}!write\_itotstart\_target@{write\_itotstart\_target}}
+\index{write\_itotstart\_target@{write\_itotstart\_target}!parameter\_process.c@{parameter\_process.c}}
+\doxysubsubsection{\texorpdfstring{write\_itotstart\_target()}{write\_itotstart\_target()}}
+{\footnotesize\ttfamily void write\+\_\+itotstart\+\_\+target (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{iref\+\_\+q16,  }\item[{int32\+\_\+t $\ast$}]{itotref\+\_\+target\+\_\+q16,  }\item[{int32\+\_\+t $\ast$}]{itotref\+\_\+target\+\_\+1div\+\_\+q16 }\end{DoxyParamCaption})}
+
+
+
+Use to write itotal current. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int32\+\_\+t} & iref\+\_\+q16 \\
+\hline
+{\em int32\+\_\+t} & $\ast$itotref\+\_\+target\+\_\+q16 \\
+\hline
+{\em int32\+\_\+t} & $\ast$itotref\+\_\+target\+\_\+1div\+\_\+q16 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 609 of file parameter\+\_\+process.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{610 \{}
+\DoxyCodeLine{611     \textcolor{comment}{// Copy startup itotal and calculate one over itotal}}
+\DoxyCodeLine{612     *itotref\_target\_q16 = iref\_q16;}
+\DoxyCodeLine{613     *itotref\_target\_1div\_q16 = \mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}(\mbox{\hyperlink{fix16_8h_ab8732af29723661b66f6570881cebc6c}{FIX16\_ONE}}, iref\_q16);}
+\DoxyCodeLine{614 \}}
+
+\end{DoxyCode}
+
+
+References fix16\+\_\+div(), and F\+I\+X16\+\_\+\+O\+NE.
+
+
+
+Referenced by aligngo\+\_\+param\+\_\+write().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{parameter__process_8c_afd9d5a36f9d1a424a1b81903672f84e0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{parameter__process_8c_afd9d5a36f9d1a424a1b81903672f84e0_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{parameter__process_8c_a374c9b9a49ec58695a243cb3cfc8e5d3}\label{parameter__process_8c_a374c9b9a49ec58695a243cb3cfc8e5d3}} 
+\index{parameter\_process.c@{parameter\_process.c}!motor\_parameters@{motor\_parameters}}
+\index{motor\_parameters@{motor\_parameters}!parameter\_process.c@{parameter\_process.c}}
+\doxysubsubsection{\texorpdfstring{motor\_parameters}{motor\_parameters}}
+{\footnotesize\ttfamily const Motor\+\_\+\+Parameter\+\_\+\+Default motor\+\_\+parameters\mbox{[}$\,$\mbox{]}}
+
+
+
+Motor\+\_\+\+Parameter\+\_\+\+Default List. 
+
+
+
+Definition at line 80 of file parameter\+\_\+process.\+c.
+
+
+
+Referenced by init\+\_\+default\+\_\+parameters().
+

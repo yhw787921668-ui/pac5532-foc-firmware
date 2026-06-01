@@ -1,0 +1,67 @@
+.TH "pac_foc/src/features/ipd/ipd_config.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/features/ipd/ipd_config.h \- Use for ipd configuration\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTIMERA_MHz\fP   50\&.0"
+.br
+.ti -1c
+.RI "#define \fBADC_ISR_uS\fP   45\&.0"
+.br
+.ti -1c
+.RI "#define \fBADC_ISR_TICKS\fP   (uint32_t)(\fBADC_ISR_uS\fP * \fBTIMERA_MHz\fP)"
+.br
+.ti -1c
+.RI "#define \fBIPD_ANGLE_DECISION_THRESHOLD\fP   0"
+.br
+.ti -1c
+.RI "#define \fBIPD_PHASE_LOST_DETECT_MIN_CURRENT_COUNT\fP   15"
+.br
+.ti -1c
+.RI "#define \fBIPD_ADC_TRIGGER_OFFSET_TICKS\fP   10"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for ipd configuration\&. 
+
+
+.PP
+Definition in file \fBipd_config\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ADC_ISR_TICKS   (uint32_t)(\fBADC_ISR_uS\fP * \fBTIMERA_MHz\fP)"
+
+.PP
+Definition at line 25 of file ipd_config\&.h\&.
+.SS "#define ADC_ISR_uS   45\&.0"
+
+.PP
+Definition at line 24 of file ipd_config\&.h\&.
+.SS "#define IPD_ADC_TRIGGER_OFFSET_TICKS   10"
+
+.PP
+Definition at line 29 of file ipd_config\&.h\&.
+.SS "#define IPD_ANGLE_DECISION_THRESHOLD   0"
+
+.PP
+Definition at line 27 of file ipd_config\&.h\&.
+.SS "#define IPD_PHASE_LOST_DETECT_MIN_CURRENT_COUNT   15"
+
+.PP
+Definition at line 28 of file ipd_config\&.h\&.
+.SS "#define TIMERA_MHz   50\&.0"
+
+.PP
+Definition at line 23 of file ipd_config\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

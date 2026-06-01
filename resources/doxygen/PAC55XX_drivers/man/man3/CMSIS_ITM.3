@@ -1,0 +1,263 @@
+.TH "CMSIS_ITM" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CMSIS_ITM \- Instrumentation Trace Macrocell (ITM)
+.PP
+ \- Type definitions for the Instrumentation Trace Macrocell (ITM)  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBData Watchpoint and Trace (DWT)\fP"
+.br
+.RI "Type definitions for the Data Watchpoint and Trace (DWT) "
+.in -1c
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBITM_Type\fP"
+.br
+.RI "Structure type to access the Instrumentation Trace Macrocell Register (ITM)\&. "
+.in -1c
+.in +1c
+.ti -1c
+.RI "#define \fBITM_TPR_PRIVMASK_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBITM_TPR_PRIVMASK_Msk\fP   (0xFUL << \fBITM_TPR_PRIVMASK_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBITM_TCR_BUSY_Pos\fP   23"
+.br
+.ti -1c
+.RI "#define \fBITM_TCR_BUSY_Msk\fP   (1UL << \fBITM_TCR_BUSY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBITM_TCR_TraceBusID_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBITM_TCR_TraceBusID_Msk\fP   (0x7FUL << \fBITM_TCR_TraceBusID_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBITM_TCR_GTSFREQ_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBITM_TCR_GTSFREQ_Msk\fP   (3UL << \fBITM_TCR_GTSFREQ_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBITM_TCR_TSPrescale_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBITM_TCR_TSPrescale_Msk\fP   (3UL << \fBITM_TCR_TSPrescale_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBITM_TCR_SWOENA_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBITM_TCR_SWOENA_Msk\fP   (1UL << \fBITM_TCR_SWOENA_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBITM_TCR_DWTENA_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBITM_TCR_DWTENA_Msk\fP   (1UL << \fBITM_TCR_DWTENA_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBITM_TCR_SYNCENA_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBITM_TCR_SYNCENA_Msk\fP   (1UL << \fBITM_TCR_SYNCENA_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBITM_TCR_TSENA_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBITM_TCR_TSENA_Msk\fP   (1UL << \fBITM_TCR_TSENA_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBITM_TCR_ITMENA_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBITM_TCR_ITMENA_Msk\fP   (1UL << \fBITM_TCR_ITMENA_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBITM_IWR_ATVALIDM_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBITM_IWR_ATVALIDM_Msk\fP   (1UL << \fBITM_IWR_ATVALIDM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBITM_IRR_ATREADYM_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBITM_IRR_ATREADYM_Msk\fP   (1UL << \fBITM_IRR_ATREADYM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBITM_IMCR_INTEGRATION_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBITM_IMCR_INTEGRATION_Msk\fP   (1UL << \fBITM_IMCR_INTEGRATION_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBITM_LSR_ByteAcc_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBITM_LSR_ByteAcc_Msk\fP   (1UL << \fBITM_LSR_ByteAcc_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBITM_LSR_Access_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBITM_LSR_Access_Msk\fP   (1UL << \fBITM_LSR_Access_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBITM_LSR_Present_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBITM_LSR_Present_Msk\fP   (1UL << \fBITM_LSR_Present_Pos\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Type definitions for the Instrumentation Trace Macrocell (ITM) 
+
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ITM_IMCR_INTEGRATION_Msk   (1UL << \fBITM_IMCR_INTEGRATION_Pos\fP)"
+ITM IMCR: INTEGRATION Mask 
+.PP
+Definition at line 736 of file core_cm4\&.h\&.
+.SS "#define ITM_IMCR_INTEGRATION_Pos   0"
+ITM IMCR: INTEGRATION Position 
+.PP
+Definition at line 735 of file core_cm4\&.h\&.
+.SS "#define ITM_IRR_ATREADYM_Msk   (1UL << \fBITM_IRR_ATREADYM_Pos\fP)"
+ITM IRR: ATREADYM Mask 
+.PP
+Definition at line 732 of file core_cm4\&.h\&.
+.SS "#define ITM_IRR_ATREADYM_Pos   0"
+ITM IRR: ATREADYM Position 
+.PP
+Definition at line 731 of file core_cm4\&.h\&.
+.SS "#define ITM_IWR_ATVALIDM_Msk   (1UL << \fBITM_IWR_ATVALIDM_Pos\fP)"
+ITM IWR: ATVALIDM Mask 
+.PP
+Definition at line 728 of file core_cm4\&.h\&.
+.SS "#define ITM_IWR_ATVALIDM_Pos   0"
+ITM IWR: ATVALIDM Position 
+.PP
+Definition at line 727 of file core_cm4\&.h\&.
+.SS "#define ITM_LSR_Access_Msk   (1UL << \fBITM_LSR_Access_Pos\fP)"
+ITM LSR: Access Mask 
+.PP
+Definition at line 743 of file core_cm4\&.h\&.
+.SS "#define ITM_LSR_Access_Pos   1"
+ITM LSR: Access Position 
+.PP
+Definition at line 742 of file core_cm4\&.h\&.
+.SS "#define ITM_LSR_ByteAcc_Msk   (1UL << \fBITM_LSR_ByteAcc_Pos\fP)"
+ITM LSR: ByteAcc Mask 
+.PP
+Definition at line 740 of file core_cm4\&.h\&.
+.SS "#define ITM_LSR_ByteAcc_Pos   2"
+ITM LSR: ByteAcc Position 
+.PP
+Definition at line 739 of file core_cm4\&.h\&.
+.SS "#define ITM_LSR_Present_Msk   (1UL << \fBITM_LSR_Present_Pos\fP)"
+ITM LSR: Present Mask 
+.PP
+Definition at line 746 of file core_cm4\&.h\&.
+.SS "#define ITM_LSR_Present_Pos   0"
+ITM LSR: Present Position 
+.PP
+Definition at line 745 of file core_cm4\&.h\&.
+.SS "#define ITM_TCR_BUSY_Msk   (1UL << \fBITM_TCR_BUSY_Pos\fP)"
+ITM TCR: BUSY Mask 
+.PP
+Definition at line 700 of file core_cm4\&.h\&.
+.SS "#define ITM_TCR_BUSY_Pos   23"
+ITM TCR: BUSY Position 
+.PP
+Definition at line 699 of file core_cm4\&.h\&.
+.SS "#define ITM_TCR_DWTENA_Msk   (1UL << \fBITM_TCR_DWTENA_Pos\fP)"
+ITM TCR: DWTENA Mask 
+.PP
+Definition at line 715 of file core_cm4\&.h\&.
+.SS "#define ITM_TCR_DWTENA_Pos   3"
+ITM TCR: DWTENA Position 
+.PP
+Definition at line 714 of file core_cm4\&.h\&.
+.SS "#define ITM_TCR_GTSFREQ_Msk   (3UL << \fBITM_TCR_GTSFREQ_Pos\fP)"
+ITM TCR: Global timestamp frequency Mask 
+.PP
+Definition at line 706 of file core_cm4\&.h\&.
+.SS "#define ITM_TCR_GTSFREQ_Pos   10"
+ITM TCR: Global timestamp frequency Position 
+.PP
+Definition at line 705 of file core_cm4\&.h\&.
+.SS "#define ITM_TCR_ITMENA_Msk   (1UL << \fBITM_TCR_ITMENA_Pos\fP)"
+ITM TCR: ITM Enable bit Mask 
+.PP
+Definition at line 724 of file core_cm4\&.h\&.
+.SS "#define ITM_TCR_ITMENA_Pos   0"
+ITM TCR: ITM Enable bit Position 
+.PP
+Definition at line 723 of file core_cm4\&.h\&.
+.SS "#define ITM_TCR_SWOENA_Msk   (1UL << \fBITM_TCR_SWOENA_Pos\fP)"
+ITM TCR: SWOENA Mask 
+.PP
+Definition at line 712 of file core_cm4\&.h\&.
+.SS "#define ITM_TCR_SWOENA_Pos   4"
+ITM TCR: SWOENA Position 
+.PP
+Definition at line 711 of file core_cm4\&.h\&.
+.SS "#define ITM_TCR_SYNCENA_Msk   (1UL << \fBITM_TCR_SYNCENA_Pos\fP)"
+ITM TCR: SYNCENA Mask 
+.PP
+Definition at line 718 of file core_cm4\&.h\&.
+.SS "#define ITM_TCR_SYNCENA_Pos   2"
+ITM TCR: SYNCENA Position 
+.PP
+Definition at line 717 of file core_cm4\&.h\&.
+.SS "#define ITM_TCR_TraceBusID_Msk   (0x7FUL << \fBITM_TCR_TraceBusID_Pos\fP)"
+ITM TCR: ATBID Mask 
+.PP
+Definition at line 703 of file core_cm4\&.h\&.
+.SS "#define ITM_TCR_TraceBusID_Pos   16"
+ITM TCR: ATBID Position 
+.PP
+Definition at line 702 of file core_cm4\&.h\&.
+.SS "#define ITM_TCR_TSENA_Msk   (1UL << \fBITM_TCR_TSENA_Pos\fP)"
+ITM TCR: TSENA Mask 
+.PP
+Definition at line 721 of file core_cm4\&.h\&.
+.SS "#define ITM_TCR_TSENA_Pos   1"
+ITM TCR: TSENA Position 
+.PP
+Definition at line 720 of file core_cm4\&.h\&.
+.SS "#define ITM_TCR_TSPrescale_Msk   (3UL << \fBITM_TCR_TSPrescale_Pos\fP)"
+ITM TCR: TSPrescale Mask 
+.PP
+Definition at line 709 of file core_cm4\&.h\&.
+.SS "#define ITM_TCR_TSPrescale_Pos   8"
+ITM TCR: TSPrescale Position 
+.PP
+Definition at line 708 of file core_cm4\&.h\&.
+.SS "#define ITM_TPR_PRIVMASK_Msk   (0xFUL << \fBITM_TPR_PRIVMASK_Pos\fP)"
+ITM TPR: PRIVMASK Mask 
+.PP
+Definition at line 696 of file core_cm4\&.h\&.
+.SS "#define ITM_TPR_PRIVMASK_Pos   0"
+ITM TPR: PRIVMASK Position 
+.PP
+Definition at line 695 of file core_cm4\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

@@ -1,0 +1,717 @@
+.TH "pac_foc/src/param/parameter_process.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/param/parameter_process.c \- Use for parameter processing\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'parameter_process\&.h'\fP
+.br
+\fC#include 'fault\&.h'\fP
+.br
+\fC#include 'driver_funcs\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_timer\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_tile\&.h'\fP
+.br
+\fC#include 'pid\&.h'\fP
+.br
+\fC#include 'control_funcs\&.h'\fP
+.br
+\fC#include 'mpos_funcs\&.h'\fP
+.br
+\fC#include 'pac_init\&.h'\fP
+.br
+\fC#include 'config_features\&.h'\fP
+.br
+\fC#include 'app_funcs\&.h'\fP
+.br
+\fC#include 'foc_funcs\&.h'\fP
+.br
+\fC#include 'ppm\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinit_default_parameters\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Use to initialize default FOC parameters\&. "
+.ti -1c
+.RI "void \fBparameters_write_foc\fP (\fBParameterCode\fP param_code, \fBfix16_t\fP rx_data, \fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Use to write FOC parameters as per function code\&. "
+.ti -1c
+.RI "void \fBcheck_param_while_run\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Use to check motor states before writing parameters, post error if not valid\&. "
+.ti -1c
+.RI "void \fBwrite_itotstart_target\fP (int32_t iref_q16, int32_t *itotref_target_q16, int32_t *itotref_target_1div_q16)"
+.br
+.RI "Use to write itotal current\&. "
+.ti -1c
+.RI "void \fBinit_over_current_limit\fP (uint32_t \fBcurrent_limit\fP)"
+.br
+.RI "Use to initialize over current limit\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const Motor_Parameter_Default \fBmotor_parameters\fP []"
+.br
+.RI "Motor_Parameter_Default List\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for parameter processing\&. 
+
+
+.PP
+Definition in file \fBparameter_process\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void check_param_while_run (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Use to check motor states before writing parameters, post error if not valid\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.RE
+.PP
+
+.PP
+Definition at line 598 of file parameter_process\&.c\&.
+.PP
+.nf
+599 {
+600     if ((motor_ptr->state\&.main != STATE_MAIN_STOPPED) &&
+601             (motor_ptr->state\&.main != STATE_MAIN_RESET) &&
+602             (motor_ptr->state\&.main != STATE_MAIN_POST))
+603     {
+604         set_fault(FAULT_PARAM_WHILE_RUN);
+605     }
+606 }
+.fi
+.PP
+References FAULT_PARAM_WHILE_RUN, Struct_State::main, set_fault(), Struct_Motor::state, STATE_MAIN_POST, STATE_MAIN_RESET, and STATE_MAIN_STOPPED\&.
+.PP
+Referenced by parameters_write_foc()\&.
+.SS "void init_default_parameters (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Use to initialize default FOC parameters\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.RE
+.PP
+
+.PP
+Definition at line 212 of file parameter_process\&.c\&.
+.PP
+.nf
+213 {
+214     uint32_t count, array_total_elements;
+215 
+216     array_total_elements = (sizeof(motor_parameters)/sizeof(motor_parameters[0]));
+217 
+218     for (count = 0; count < array_total_elements; count++)
+219     {
+220         parameters_write_foc(motor_parameters[count]\&.enum_value, motor_parameters[count]\&.value, motor_ptr);
+221     }
+222 }
+.fi
+.PP
+References motor_parameters, and parameters_write_foc()\&.
+.PP
+Referenced by statemachine_appmain()\&.
+.SS "void init_over_current_limit (uint32_t current_limit)"
+
+.PP
+Use to initialize over current limit\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIuint32_t\fP current_limit 
+.RE
+.PP
+
+.PP
+Definition at line 617 of file parameter_process\&.c\&.
+.PP
+.nf
+618 {
+619     Struct_Motor* motor_ptr = &motor;
+620     char lpdac_factor = 1;
+621     uint32_t lpdac_value = 0x00;
+622 
+623 
+624     lpdac_value = current_limit;
+625 
+626     switch (motor_ptr->app\&.iphase_amp_gain)
+627     {
+628         case 0:
+629             lpdac_factor = 1;
+630             break;
+631         case 1:
+632             lpdac_factor = 1;
+633             break;
+634         case 2:
+635             lpdac_factor = 2;
+636             break;
+637         case 3:
+638             lpdac_factor = 4;
+639             break;
+640         case 4:
+641             lpdac_factor = 8;
+642             break;
+643         case 5:
+644             lpdac_factor = 16;
+645             break;
+646         case 6:
+647             lpdac_factor = 32;
+648             break;
+649         case 7:
+650             lpdac_factor = 48;
+651             break;
+652         default:
+653             lpdac_factor = 1;
+654             break;
+655     }
+656 
+657     // Calculate current descale factor
+658     motor_ptr->app\&.descale_current_factor = fix16_div(CURRENT_SCALE_FACTOR_X1_Q16, (lpdac_factor << 16));
+659 
+660     // Set LPROT protection threshold
+661 
+662      // Handle LPDAC value calculation overflow
+663      if (lpdac_value > 0x3FF)
+664      {
+665          lpdac_value = 0x3FF;
+666          set_warning(WARNING_MAIN_OC_VALUE);
+667      }
+668      else
+669      {
+670          clear_warning(WARNING_MAIN_OC_VALUE);
+671      }
+672 
+673 #ifdef CAFE_ARCH1
+674     pac5xxx_tile_register_write(ADDR_LPDAC0, (uint8_t)((lpdac_value >> 2) & 0xFF));   // HB: 8b MSB
+675     pac5xxx_tile_register_write(ADDR_LPDAC1, (uint8_t)((lpdac_value & 0x3)));         // LB: 2b LSB
+676 #endif
+677 
+678 #ifdef CAFE_ARCH2
+679     pac5xxx_tile_register_write(ADDR_LPDACH, (uint8_t)((lpdac_value >> 2) & 0xFF));   // HB: 8b MSB
+680     pac5xxx_tile_register_write(ADDR_LPDACL, (uint8_t)((lpdac_value & 0x3)));         // LB: 2b LSB
+681 #endif
+682          
+683 #ifdef CAFE_ARCH3
+684      if ((current_limit >> 6) > 15)
+685              lpdac_value = 15;
+686          else if ((current_limit >> 6) < 1)
+687                 lpdac_value = 1;
+688          else
+689                 lpdac_value = current_limit >> 6; 
+690          pac5xxx_tile_register_write(ADDR_LPDACH, (uint8_t)(lpdac_value & 0x0F));   // 4bits scale from 10 bits
+691 #endif
+692 
+693 #ifdef CAFE_ARCH1
+694 #ifdef ENABLE_CBC_CURRENT_LIMIT
+695     uint32_t hpdac_value = 0;     
+696     // divide subtract 512 for current limit then des-scale it to fix16, divide it the amp gain in fix16,
+697     // scale it back divide it by 4 to fit for hpdac
+698     hpdac_value = (fix16_mul(fix16_div(((lpdac_value - 512) << 16), (fix16_t) (lpdac_factor << 16)), (fix16_t) (QCONST(HPDAC_OC_LIMIT_MULTIPLIER, 16))) >> 16) >> 2;
+699 
+700     if (hpdac_value > 255)
+701     {
+702         hpdac_value = 255;
+703         set_warning(WARNING_MAIN_OC_VALUE);
+704     }
+705     else
+706     {
+707         clear_warning(WARNING_MAIN_OC_VALUE);
+708     }
+709 
+710         pac5xxx_tile_register_write(ADDR_HPDAC, hpdac_value);
+711     #endif
+712 #endif
+713 
+714 #ifdef CAFE_ARCH2
+715     #ifdef ENABLE_CBC_CURRENT_LIMIT
+716         uint32_t hpdac_value = 0;  
+717 
+718 #if defined(PAC5532) || defined(PAC5232)
+719         hpdac_value = (fix16_mul((fix16_t) ((lpdac_value - 512) << 16), (fix16_t) (QCONST(HPDAC_OC_LIMIT_MULTIPLIER, 16))) >> 16);
+720         hpdac_value = hpdac_value + 512;
+721 #else
+722         // Pre diff amp signal use for hpdac
+723         hpdac_value = (fix16_mul(fix16_div(((lpdac_value - 512) << 16), (fix16_t) (lpdac_factor << 16)), (fix16_t) (QCONST(HPDAC_OC_LIMIT_MULTIPLIER, 16))) >> 16);
+724 #endif
+725 
+726 #if (BOARD_SELECT == BOARD_PAC5256EVK1_REV_AB) || (BOARD_SELECT == BOARD_PAC5256EVK1_REV_AB_1SHUNT)
+727         hpdac_value = (fix16_mul((fix16_t) ((lpdac_value - 512) << 16), (fix16_t) (QCONST(HPDAC_OC_LIMIT_MULTIPLIER, 16))) >> 16);
+728         hpdac_value = hpdac_value + 512;
+729 #endif
+730 
+731         if (hpdac_value > 1023)
+732         {
+733             hpdac_value = 1023;
+734             set_warning(WARNING_MAIN_OC_VALUE);
+735         }
+736         else
+737         {
+738             clear_warning(WARNING_MAIN_OC_VALUE);
+739         }
+740 
+741         pac5xxx_tile_register_write(ADDR_HPDACH, (uint8_t)((hpdac_value >> 2) & 0xFF));   // HB: 8b MSB
+742         pac5xxx_tile_register_write(ADDR_HPDACL, (uint8_t)((hpdac_value & 0x3)));         // LB: 2b LSB
+743     #endif
+744 #endif
+745 }
+.fi
+.PP
+References Struct_Motor::app, clear_warning(), current_limit, CURRENT_SCALE_FACTOR_X1_Q16, Struct_App::descale_current_factor, fix16_div(), fix16_mul(), Struct_App::iphase_amp_gain, motor, QCONST, set_warning(), and WARNING_MAIN_OC_VALUE\&.
+.PP
+Referenced by parameters_write_foc()\&.
+.SS "void parameters_write_foc (\fBParameterCode\fP param_code, \fBfix16_t\fP rx_data, \fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Use to write FOC parameters as per function code\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIParameterCode\fP param_code 
+.br
+\fIfix16_t\fP rx_data 
+.br
+\fIStruct_Motor*\fP motor_ptr 
+.RE
+.PP
+
+.PP
+Definition at line 225 of file parameter_process\&.c\&.
+.PP
+.nf
+226 {
+227 //    int32_t temp;
+228 
+229 #if defined(ENABLE_AUTOTUNE_PI)
+230     atpi_paramchange_check(motor_ptr, param_code, rx_data);
+231 #endif
+232 
+233     switch (param_code)
+234     {
+235 // Motor Config
+236         case current_limit:
+237             motor_ptr->app\&.current_limit = rx_data;
+238             init_over_current_limit(motor_ptr->app\&.current_limit);
+239             break;
+240         case dt:
+241             check_param_while_run(motor_ptr);
+242             motor_ptr->foc\&.dt_control_q26 = rx_data;
+243             // Calculate PWM timer period ticks
+244             foc_calc_pwmtimer(motor_ptr);
+245             // Configure control loop for FOC mode
+246             foc_config(motor_ptr);
+247             // Update PI dt's
+248             motor_ptr->control\&.outerloop_pid\&.dt_q26 = fix16_mul(rx_data, fix16_from_int(SPEED_PI_LOOP_DIVIDER));
+249             picon_convert_gain(&motor_ptr->control\&.outerloop_pid, (motor_ptr->app\&.outerloop_scale_q0 << 16), motor_ptr->app\&.descale_current_factor);
+250             motor_ptr->foc\&.Id_pid\&.dt_q26 = rx_data;
+251             motor_ptr->foc\&.Iq_pid\&.dt_q26 = rx_data;
+252 #if (COMMSEL_PPM == TRUE)
+253             // Convert into ADC ISR ticks count
+254             motor_ptr->ppm\&.pulse_timeout_in_sys_tick_isr_counts = (fix16_div((PPM_PULSE_VALID_CHECK_IN_SEC_FIX16), DT_SYSTICK_Q16)) >> 16;
+255             motor_ptr->ppm\&.motor_off_timeout_in_pulse_timeout_counts = (fix16_div((PPM_MOTOR_OFF_TIMEOUT_IN_SEC_FIX16), DT_SYSTICK_Q16)) >> 16;
+256             motor_ptr->ppm\&.motor_off_timeout_in_pulse_timeout_counts = (motor_ptr->ppm\&.motor_off_timeout_in_pulse_timeout_counts/motor_ptr->ppm\&.pulse_timeout_in_sys_tick_isr_counts);
+257 
+258 #endif
+259 #if defined(ENABLE_POWERMEASURE)
+260             power_calc_filter_alpha(motor_ptr, POWER_FILTER_FREQ_CUTOFF_HZ_Q16);
+261 #endif
+262 #if (INTERNAL_VMS == TRUE)
+263 #if (CONFIG_SHUNT == CONFIG_SHUNT_3SHUNT)
+264             motor_ptr->u_duty_cycle_max_limit = (motor_ptr->control\&.motor_period_ticks * VMS_VALUE_EXCLUDE_BAND_LIMIT_3SHUNT) >> 16;
+265 #endif
+266 #endif
+267             break;
+268         case descale_current_factor:
+269             break;
+270         case diff_amp_gain:
+271             check_param_while_run(motor_ptr);
+272             if (motor_ptr->app\&.iphase_amp_gain != rx_data)
+273             {
+274 #if defined(CAFE_ARCH3) && (DEVICE_SELECT == DEVICE_5285)
+275                 motor_ptr->app\&.iphase_amp_gain = UVW_PHASE_RSENSE_GAIN_DEFAULT_VALUE_5285;                       
+276 #else
+277                 motor_ptr->app\&.iphase_amp_gain = rx_data;                            
+278 #endif
+279                 init_diff_amp_gain();
+280                 init_over_current_limit(motor_ptr->app\&.current_limit);
+281 #ifdef ENABLE_ADCCAL
+282                 __disable_irq();
+283                 motor_ptr->state\&.main = STATE_MAIN_POST;
+284                 motor_ptr->state\&.post = STATE_POST_RESET;
+285                 __enable_irq();
+286 #endif
+287             }
+288 #if defined(ENABLE_POWERMEASURE) && (POWER_MEASURE_SELECT == POWER_MEASURE_METHOD_1)
+289             power1_calc_param(motor_ptr);
+290 #endif
+291             break;
+292         case cl_mode_selection:
+293             motor_ptr->app\&.speed_mode_flag = rx_data;
+294             break;
+295         case reverse_direction:
+296 #ifndef ENABLE_NEGATIVE_IQ_COASTING
+297             check_param_while_run(motor_ptr);
+298 #endif
+299             motor_ptr->app\&.direction_reverse_cmd = rx_data;
+300             break;
+301 
+302 // Misc
+303          case Vdc_gui:
+304              break;
+305 
+306 // Id & Iq
+307          case id_pi_filter_coeff:
+308              motor_ptr->foc\&.Id_filter_gain = rx_data;
+309              break;
+310          case iq_pi_filter_coeff:
+311              motor_ptr->foc\&.Iq_filter_gain = rx_data;
+312              break;
+313          case idiq_ramp_rate:
+314              motor_ptr->control\&.idiqref_rate_f16 = (rx_data);
+315              if (motor_ptr->control\&.idiqref_rate_f16 == 0)
+316                  motor_ptr->control\&.idiqref_rate_f16 = 1;
+317 #ifdef ENABLE_NEGATIVE_IQ_COASTING
+318              motor_ptr->idiqref_rate_gui_f16 = motor_ptr->control\&.idiqref_rate_f16;
+319 #endif           
+320              break;
+321 
+322 // Closed Loop
+323          case closed_loop_speed_slew_rate:
+324 #if (OUTERLOOP_CONTROL_SELECT == OUTERLOOP_CONTROL_SPEED)
+325              motor_ptr->control\&.outerloop_rate_store = rx_data;
+326              motor_ptr->control\&.outerloop_rate = (motor_ptr->control\&.outerloop_rate_store * SPEED_PI_LOOP_DIVIDER) ;    // Descaled f16
+327 #endif
+328              break;
+329          case closed_loop_speed_setpoint:
+330 #if (OUTERLOOP_CONTROL_SELECT == OUTERLOOP_CONTROL_SPEED)
+331              motor_ptr->control\&.outerloop_target = rx_data;
+332 #endif
+333 #ifdef ENABLE_CLSPEED_LIMIT_CHANGE_CHECK
+334              motor_ptr->debug\&.cl_speed_backup = rx_data;
+335 #endif
+336              break;
+337          case id_ref_cl:
+338              motor_ptr->app\&.idrefcl_cmd_f16 = rx_data;
+339              motor_ptr->control\&.idrefcl_target_f16 = rx_data;
+340              break;
+341          case iq_ref_cl:
+342              motor_ptr->app\&.iqrefcl_cmd_f16 = rx_data;
+343 #ifdef ENABLE_AUTOTUNE_REGULATE_IQREF
+344              if ((!motor_ptr->atune\&.flag_iqref_reg_active) || (motor_ptr->atune\&.flag_iqref_reg_active && (rx_data >= motor_ptr->control\&.iqrefcl_target_f16)))
+345              {
+346                  motor_ptr->control\&.iqrefcl_target_f16 = rx_data;
+347              }
+348 #else
+349              motor_ptr->control\&.iqrefcl_target_f16 = rx_data;
+350 #endif
+351              break;
+352          case max_cl_speed_limit:
+353              motor_ptr->app\&.speedrefcl_max = rx_data;
+354              calculate_outerloop_scale_shift(motor_ptr->app\&.speedrefcl_max, &motor_ptr->app\&.speed_scale_shift, &motor_ptr->app\&.outerloop_scale_q0);
+355 #if (OUTERLOOP_CONTROL_SELECT == OUTERLOOP_CONTROL_SPEED)
+356              motor_ptr->control\&.outerloop_pi_scale_shift = motor_ptr->app\&.speed_scale_shift;
+357 #endif
+358              break;
+359 
+360 // Speed PID
+361 #if (OUTERLOOP_CONTROL_SELECT == OUTERLOOP_CONTROL_SPEED)
+362          case speed_pid_Kp:
+363              motor_ptr->control\&.outerloop_pid\&.ka_q16 = rx_data;
+364              picon_convert_gain(&motor_ptr->control\&.outerloop_pid, (motor_ptr->app\&.outerloop_scale_q0 << 16), motor_ptr->app\&.descale_current_factor);
+365              break;
+366          case speed_pid_Ki:
+367              motor_ptr->control\&.outerloop_pid\&.kb_q16 = rx_data;
+368              picon_convert_gain(&motor_ptr->control\&.outerloop_pid, (motor_ptr->app\&.outerloop_scale_q0 << 16), motor_ptr->app\&.descale_current_factor);
+369              break;
+370 #endif
+371 
+372          case outerloop_pid_min:
+373              motor_ptr->control\&.outerloop_pid\&.min_value = (rx_data >> 2);
+374              break;
+375          case outerloop_pid_max:
+376              motor_ptr->control\&.outerloop_pid\&.max_value = (rx_data >> 2);
+377              motor_ptr->control\&.imax_q16 = rx_data;
+378              motor_ptr->control\&.imax_1div_q16 = fix16_div(FIX16_ONE, motor_ptr->control\&.imax_q16);
+379              break;
+380 // Id PID
+381          case Id_pid_Kp:
+382              motor_ptr->foc\&.Id_pid\&.ka_q16 = rx_data;
+383              break;
+384          case Id_pid_Ki:
+385              motor_ptr->foc\&.Id_pid\&.kb_q16 = rx_data;
+386              break;
+387          case Id_pid_min:
+388              motor_ptr->foc\&.Id_pid\&.min_value = (rx_data >> 2);
+389              break;
+390          case Id_pid_max:
+391              motor_ptr->foc\&.Id_pid\&.max_value = (rx_data >> 2);
+392              break;
+393 // Iq PID
+394          case Iq_pid_Kp:
+395              motor_ptr->foc\&.Iq_pid\&.ka_q16 = rx_data;
+396              break;
+397          case Iq_pid_Ki:
+398              motor_ptr->foc\&.Iq_pid\&.kb_q16 = rx_data;
+399              break;
+400          case Iq_pid_min:
+401              motor_ptr->foc\&.Iq_pid\&.min_value = (rx_data >> 2);
+402              break;
+403          case Iq_pid_max:
+404              motor_ptr->foc\&.Iq_pid\&.max_value = (rx_data >> 2);
+405              break;
+406 
+407 // Motor
+408          case Ld:
+409              motor_ptr->mparam\&.ld_q26 = rx_data;
+410              break;
+411          case Lq:
+412              motor_ptr->mparam\&.lq_q26 = rx_data;
+413              break;
+414          case Ralpha:
+415              motor_ptr->mparam\&.rs_q16 = rx_data;
+416              break;
+417          case num_pole_pairs:
+418              motor_ptr->mparam\&.pole_pairs = rx_data;
+419              break;
+420          case Config_Ke:
+421              motor_ptr->mparam\&.ke_q26 = rx_data;
+422              break;
+423          case Confi_J:
+424              motor_ptr->mparam\&.j_q26 = rx_data;
+425              break;
+426          case NominalSpeed:
+427              motor_ptr->mparam\&.nom_spd_q16 = rx_data;
+428              break;
+429          case PWM_to_FOC_control_ratio:
+430              check_param_while_run(motor_ptr);
+431              motor_ptr->foc\&.ctrl_divider_foc = rx_data;
+432              // Calculate PWM timer period ticks
+433              foc_calc_pwmtimer(motor_ptr);
+434              // Configure control loop for FOC mode
+435              foc_config(motor_ptr);
+436              break;
+437          case Auto_Mode_Open_Close_Loop:
+438              if (rx_data)
+439              {
+440                  motor_ptr->app\&.auto_close_loop_cmd = 1;
+441              }
+442              else
+443              {
+444                  motor_ptr->app\&.auto_close_loop_cmd = 0;
+445              }
+446              break;
+447          case Clear_Fault_Flags:
+448              clear_fault(FAULT_MAIN_GRP_CLEARCMD);
+449              break;
+450 
+451 #ifdef ENABLE_IPD
+452          case ipd_charge:
+453              // Load new pwm_charge_ticks from rx_data; calculate new parameters
+454              motor_ptr->ipd\&.pwm_charge_ticks = rx_data;
+455              if (motor_ptr->ipd\&.pwm_charge_ticks <= IPD_ADC_TRIGGER_OFFSET_TICKS*motor_ptr->ipd\&.num_periods_per_pulse)
+456              {
+457                  motor_ptr->ipd\&.pwm_charge_ticks = (IPD_ADC_TRIGGER_OFFSET_TICKS+1)*motor_ptr->ipd\&.num_periods_per_pulse;
+458              }
+459              break;
+460          case ipd_discharge:
+461              // Load new pwm_discharge_percent from rx_data; calculate new parameters
+462              motor_ptr->ipd\&.pwm_discharge_percent = rx_data;
+463              break;
+464          case ipd_num_periods_per_pulse:
+465              motor_ptr->ipd\&.num_periods_per_pulse = rx_data;
+466              if (motor_ptr->ipd\&.pwm_charge_ticks <= IPD_ADC_TRIGGER_OFFSET_TICKS*motor_ptr->ipd\&.num_periods_per_pulse)
+467              {
+468                  motor_ptr->ipd\&.pwm_charge_ticks = (IPD_ADC_TRIGGER_OFFSET_TICKS+1)*motor_ptr->ipd\&.num_periods_per_pulse;
+469              }
+470              break;
+471          case ipd_angle_offset_forward:
+472              motor_ptr->ipd\&.ipd_angle_forward_offset = rx_data;
+473              break;
+474          case ipd_angle_offset_reverse:
+475              motor_ptr->ipd\&.ipd_angle_reverse_offset = rx_data;
+476              break;
+477 #endif
+478 
+479          case close_loop_coast_timeout:
+480              motor_ptr->app\&.coast_timeout_target = rx_data;
+481              break;
+482 
+483 #if (OUTERLOOP_CONTROL_SELECT == OUTERLOOP_CONTROL_POWER)
+484          case Power_pid_Kp:
+485              motor_ptr->control\&.outerloop_pid\&.ka_q16 = rx_data;
+486              picon_convert_gain(&motor_ptr->control\&.outerloop_pid, (motor_ptr->app\&.outerloop_scale_q0 << 16), motor_ptr->app\&.descale_current_factor);
+487              break;
+488 
+489          case Power_pid_Ki:
+490              motor_ptr->control\&.outerloop_pid\&.kb_q16 = rx_data;
+491              picon_convert_gain(&motor_ptr->control\&.outerloop_pid, (motor_ptr->app\&.outerloop_scale_q0 << 16), motor_ptr->app\&.descale_current_factor);
+492              break;
+493 
+494          case Power_ramp_rate:
+495              motor_ptr->control\&.outerloop_rate_store = rx_data;
+496              motor_ptr->control\&.outerloop_rate = (motor_ptr->control\&.outerloop_rate_store * SPEED_PI_LOOP_DIVIDER) ;    // Descaled f16
+497              break;
+498 
+499          case Power_setpoint:
+500              motor_ptr->control\&.outerloop_target = rx_data;
+501              break;
+502 
+503          case Power_max_limit:
+504              motor_ptr->app\&.powerrefcl_max = rx_data;
+505              calculate_outerloop_scale_shift(motor_ptr->app\&.powerrefcl_max, &motor_ptr->control\&.outerloop_pi_scale_shift, &motor_ptr->app\&.outerloop_scale_q0);
+506              break;
+507 #endif
+508 
+509         default:
+510             break;
+511     }
+512 
+514     // Parameter Write Functions Calls
+516 
+517 #ifdef ENABLE_STALL_DETECT
+518     stalldet_param_write(motor_ptr, param_code, rx_data);
+519 #endif
+520 
+521 #if (MODULE_MPOS_ALIGNGO == ENABLED) && !defined(ENABLE_HALL_TUNING)
+522     aligngo_param_write(motor_ptr, param_code, rx_data);
+523 #endif
+524 
+525 #if (MODULE_MPOS_LBG1 == ENABLED)
+526     lbg1_param_write(motor_ptr, param_code, rx_data);
+527 #endif
+528 
+529 #if defined(ENABLE_AUTOTUNE_PI)
+530     at_param_write(motor_ptr, param_code, rx_data);
+531 #endif
+532 
+533 #ifdef ENABLE_SIM
+534     sim_param_write(motor_ptr, param_code, rx_data);
+535 #endif
+536 
+537 #if (MODULE_MPOS_HALL == ENABLED)
+538     hall_param_write(motor_ptr, param_code, rx_data);
+539 #endif
+540 
+541 #if defined(ENABLE_HALL_TUNING)
+542     halltune_param_write(motor_ptr, param_code, rx_data);
+543 #endif
+544 
+545 #if (MODULE_MPOS_QEP == ENABLED)
+546     qep_param_write(motor_ptr, param_code, rx_data);
+547 #endif
+548 
+549 #if defined(ENABLE_FIELD_WEAKENING)
+550     fw_param_write(motor_ptr, param_code, rx_data);
+551 #endif
+552 
+553 #if defined(ENABLE_MTPA)
+554     mtpa_param_write(motor_ptr, param_code, rx_data);
+555 #endif
+556 
+558     // Parameter Process Functions Calls
+560 
+561     // Application parameter process function always needs to run first
+562     app_param_process(motor_ptr, param_code, rx_data);
+563 
+564 #ifdef ENABLE_OPD_CL
+565     opdcl_param_process(motor_ptr, param_code, rx_data);
+566 #endif
+567 
+568 #ifdef ENABLE_STALL_DETECT
+569     stalldet_param_process(motor_ptr, param_code, rx_data);
+570 #endif
+571 
+572 #ifdef ENABLE_SIM
+573     sim_param_process(motor_ptr, param_code, rx_data);
+574 #endif
+575 
+576 #if (MODULE_MPOS_LBG1 == ENABLED)
+577     lbg1_param_process(motor_ptr, param_code, rx_data);
+578 #endif
+579 
+580 #if defined(ENABLE_AUTOTUNE_PI)
+581     at_param_process(motor_ptr, param_code, rx_data);
+582 #endif
+583 
+584 #if (MODULE_MPOS_HALL == ENABLED)
+585     hall_param_process(motor_ptr, param_code, rx_data);
+586 #endif
+587 
+588 #if (MODULE_MPOS_QEP == ENABLED)
+589     qep_param_process(motor_ptr, param_code, rx_data);
+590 #endif
+591 
+592 #if defined(ENABLE_FIELD_WEAKENING)
+593     fw_param_process(motor_ptr, param_code, rx_data);
+594 #endif
+595 }
+.fi
+.PP
+References Struct_Motor::app, check_param_while_run(), Struct_Motor::control, Struct_App::current_limit, current_limit, dt, Struct_FOC::dt_control_q26, PID_Data_Type::dt_q26, fix16_mul(), Struct_Motor::foc, foc_calc_pwmtimer(), foc_config(), init_over_current_limit(), and Struct_Control::outerloop_pid\&.
+.PP
+Referenced by init_default_parameters()\&.
+.SS "void write_itotstart_target (int32_t iref_q16, int32_t * itotref_target_q16, int32_t * itotref_target_1div_q16)"
+
+.PP
+Use to write itotal current\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIint32_t\fP iref_q16 
+.br
+\fIint32_t\fP *itotref_target_q16 
+.br
+\fIint32_t\fP *itotref_target_1div_q16 
+.RE
+.PP
+
+.PP
+Definition at line 609 of file parameter_process\&.c\&.
+.PP
+.nf
+610 {
+611     // Copy startup itotal and calculate one over itotal
+612     *itotref_target_q16 = iref_q16;
+613     *itotref_target_1div_q16 = fix16_div(FIX16_ONE, iref_q16);
+614 }
+.fi
+.PP
+References fix16_div(), and FIX16_ONE\&.
+.PP
+Referenced by aligngo_param_write()\&.
+.SH "Variable Documentation"
+.PP 
+.SS "const Motor_Parameter_Default motor_parameters[]"
+
+.PP
+Motor_Parameter_Default List\&. 
+.PP
+Definition at line 80 of file parameter_process\&.c\&.
+.PP
+Referenced by init_default_parameters()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

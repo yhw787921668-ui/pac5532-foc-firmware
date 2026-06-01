@@ -1,0 +1,92 @@
+.TH "pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_peripheral/pac5xxx_WDT.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_peripheral/pac5xxx_WDT.h \- CMSIS Cortex-M Header File for the PAC5XXX Watchdog Timer\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPAC5XXX_WDT_TypeDef\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBWDTCTL_PASS_WRITE\fP   0x4A000000"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_PASS_READ\fP   0x63000000"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_IF_SHIFT\fP   4"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_IF_MASK\fP   0x00000010"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_RST_SHIFT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_RST_VAL\fP   0x00000005"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_IE_SHIFT\fP   3"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_IE_MASK\fP   0x00000008"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_POREN_SHIFT\fP   5"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_POREN_MASK\fP   0x00000020"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_WRBUSY_SHIFT\fP   11"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_WRBUSY_MASK\fP   0x00000800"
+.br
+.ti -1c
+.RI "#define \fBWDT_WAIT_WRITE_BLOCK\fP   while ((\fBPAC5XXX_WDT\fP\->WDTCTL & \fBWDTCTL_WRBUSY_MASK\fP) != 0);"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_PS_SHIFT\fP   6"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_CLKSEL_SHIFT\fP   10"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBWDTCTL_PS_Type\fP { \fBWDTCTL_PS_DIV2\fP = 0, \fBWDTCTL_PS_DIV4\fP = 1, \fBWDTCTL_PS_DIV8\fP = 2, \fBWDTCTL_PS_DIV16\fP = 3, \fBWDTCTL_PS_DIV32\fP = 4, \fBWDTCTL_PS_DIV64\fP = 5, \fBWDTCTL_PS_DIV128\fP = 6, \fBWDTCTL_PS_DIV256\fP = 7, \fBWDTCTL_PS_DIV512\fP = 8, \fBWDTCTL_PS_DIV1024\fP = 9, \fBWDTCTL_PS_DIV2048\fP = 10, \fBWDTCTL_PS_DIV4096\fP = 11, \fBWDTCTL_PS_DIV8192\fP = 12, \fBWDTCTL_PS_DIV16384\fP = 13, \fBWDTCTL_PS_DIV32767\fP = 14, \fBWDTCTL_PS_DIV65536\fP = 15 }"
+.br
+.ti -1c
+.RI "enum \fBWDTCTL_CLKSEL_Type\fP { \fBWDTCTL_CLKSEL_FRCLK\fP = 0, \fBWDTCTL_CLKSEL_PLLCLK\fP = 1 }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CMSIS Cortex-M Header File for the PAC5XXX Watchdog Timer\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_WDT\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

@@ -1,0 +1,291 @@
+\hypertarget{struct_struct___stall_det}{}\doxysection{Struct\+\_\+\+Stall\+Det Struct Reference}
+\label{struct_struct___stall_det}\index{Struct\_StallDet@{Struct\_StallDet}}
+
+
+\mbox{\hyperlink{struct_struct___stall_det}{Struct\+\_\+\+Stall\+Det}} structure.  
+
+
+
+
+{\ttfamily \#include $<$stalldet.\+h$>$}
+
+
+
+Collaboration diagram for Struct\+\_\+\+Stall\+Det\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_struct___stall_det__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_struct___stall_det_aa6a2c27b6cfa3da652caff8de070d1b8}{bemf\+\_\+constant}}
+\item 
+unsigned int \mbox{\hyperlink{struct_struct___stall_det_ab90b65ff3d32d7f5f25ccfc075c69a7f}{timeout\+\_\+systicks}}
+\item 
+unsigned int \mbox{\hyperlink{struct_struct___stall_det_ad14e62ec0c265e3b5e98af8eaf1467bf}{sampletime\+\_\+systicks}}
+\item 
+unsigned long \mbox{\hyperlink{struct_struct___stall_det_a20d50612e83fa6377bc1ecba643e2aa5}{systick\+\_\+stamp}}
+\item 
+\mbox{\hyperlink{maths_8h_a292cc6836a9316ee646c918689614774}{q1p14\+\_\+t}} \mbox{\hyperlink{struct_struct___stall_det_a2398c926e0000f091d4e00b98f589d2e}{ve\+\_\+sqr\+\_\+q14}}
+\item 
+unsigned int \mbox{\hyperlink{struct_struct___stall_det_afcfec79535206ccb379041546f555729}{ctr\+\_\+stamp}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_struct___stall_det_a46701b0e80c57fe6cefb53c590d14fe7}{flag\+\_\+event1}}\+: 1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_struct___stall_det_a634328cbacb8e2c07d88df4d75e010e9}{flag\+\_\+event2}}\+: 1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_struct___stall_det_a9e8fab1e5901b30032a4dc99c81ad7fc}{flag\+\_\+event3}}\+: 1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_struct___stall_det_acfc9c3e07da0859e77de7583165597a5}{flag\+\_\+event4}}\+: 1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_struct___stall_det_ace64ad8f20686a76ac79e17cfb576dbf}{flag\+\_\+process}}\+: 1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_struct___stall_det_a4f87187952d8b4cbe84ef921793ad663}{temp2}}\+: 3
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_struct___stall_det_a6433797ac7dc6bcac0dc685a715e8eca}{ctr\+\_\+event\+\_\+1}}\+: 8
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_struct___stall_det_ade62a9c5aac46359524db8975acb6479}{ctr\+\_\+event\+\_\+2}}\+: 8
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_struct___stall_det_a168b90c4528e84e4eafb75450921ad82}{ctr\+\_\+event\+\_\+3}}\+: 8
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_struct___stall_det_abf97da9b9137c778cc32ae97ff49ab76}{ctr\+\_\+event\+\_\+4}}\+: 8
+\item 
+uint8\+\_\+t \mbox{\hyperlink{struct_struct___stall_det_a5f0bcc3d7a195fd3b6f67ba622a3d43a}{ctr\+\_\+event}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___stall_det_abeb1531849480669f7da8b656cd923fb}{speed\+\_\+est}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___stall_det_ab0e83976d333fe2f7deba67e3281e872}{speed\+\_\+cmd}}
+\item 
+\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{struct_struct___stall_det_af67cfa7df9e160660c8505601d856616}{filter\+\_\+alpha}}
+\item 
+\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{struct_struct___stall_det_aa250e89272ebb9a29e00c7bbbe9089b9}{flag\+\_\+cbc\+\_\+triggered}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{struct_struct___stall_det}{Struct\+\_\+\+Stall\+Det}} structure. 
+
+Definition at line 30 of file stalldet.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_struct___stall_det_aa6a2c27b6cfa3da652caff8de070d1b8}\label{struct_struct___stall_det_aa6a2c27b6cfa3da652caff8de070d1b8}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!bemf\_constant@{bemf\_constant}}
+\index{bemf\_constant@{bemf\_constant}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{bemf\_constant}{bemf\_constant}}
+{\footnotesize\ttfamily uint16\+\_\+t Struct\+\_\+\+Stall\+Det\+::bemf\+\_\+constant}
+
+motor bemf constant measured during open loop and no load 
+
+Definition at line 32 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_a5f0bcc3d7a195fd3b6f67ba622a3d43a}\label{struct_struct___stall_det_a5f0bcc3d7a195fd3b6f67ba622a3d43a}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!ctr\_event@{ctr\_event}}
+\index{ctr\_event@{ctr\_event}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{ctr\_event}{ctr\_event}}
+{\footnotesize\ttfamily uint8\+\_\+t Struct\+\_\+\+Stall\+Det\+::ctr\+\_\+event}
+
+
+
+Definition at line 48 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_a6433797ac7dc6bcac0dc685a715e8eca}\label{struct_struct___stall_det_a6433797ac7dc6bcac0dc685a715e8eca}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!ctr\_event\_1@{ctr\_event\_1}}
+\index{ctr\_event\_1@{ctr\_event\_1}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{ctr\_event\_1}{ctr\_event\_1}}
+{\footnotesize\ttfamily uint32\+\_\+t Struct\+\_\+\+Stall\+Det\+::ctr\+\_\+event\+\_\+1}
+
+
+
+Definition at line 44 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_ade62a9c5aac46359524db8975acb6479}\label{struct_struct___stall_det_ade62a9c5aac46359524db8975acb6479}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!ctr\_event\_2@{ctr\_event\_2}}
+\index{ctr\_event\_2@{ctr\_event\_2}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{ctr\_event\_2}{ctr\_event\_2}}
+{\footnotesize\ttfamily uint32\+\_\+t Struct\+\_\+\+Stall\+Det\+::ctr\+\_\+event\+\_\+2}
+
+
+
+Definition at line 45 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_a168b90c4528e84e4eafb75450921ad82}\label{struct_struct___stall_det_a168b90c4528e84e4eafb75450921ad82}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!ctr\_event\_3@{ctr\_event\_3}}
+\index{ctr\_event\_3@{ctr\_event\_3}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{ctr\_event\_3}{ctr\_event\_3}}
+{\footnotesize\ttfamily uint32\+\_\+t Struct\+\_\+\+Stall\+Det\+::ctr\+\_\+event\+\_\+3}
+
+
+
+Definition at line 46 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_abf97da9b9137c778cc32ae97ff49ab76}\label{struct_struct___stall_det_abf97da9b9137c778cc32ae97ff49ab76}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!ctr\_event\_4@{ctr\_event\_4}}
+\index{ctr\_event\_4@{ctr\_event\_4}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{ctr\_event\_4}{ctr\_event\_4}}
+{\footnotesize\ttfamily uint32\+\_\+t Struct\+\_\+\+Stall\+Det\+::ctr\+\_\+event\+\_\+4}
+
+
+
+Definition at line 47 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_afcfec79535206ccb379041546f555729}\label{struct_struct___stall_det_afcfec79535206ccb379041546f555729}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!ctr\_stamp@{ctr\_stamp}}
+\index{ctr\_stamp@{ctr\_stamp}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{ctr\_stamp}{ctr\_stamp}}
+{\footnotesize\ttfamily unsigned int Struct\+\_\+\+Stall\+Det\+::ctr\+\_\+stamp}
+
+
+
+Definition at line 37 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_af67cfa7df9e160660c8505601d856616}\label{struct_struct___stall_det_af67cfa7df9e160660c8505601d856616}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!filter\_alpha@{filter\_alpha}}
+\index{filter\_alpha@{filter\_alpha}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{filter\_alpha}{filter\_alpha}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} Struct\+\_\+\+Stall\+Det\+::filter\+\_\+alpha}
+
+
+
+Definition at line 51 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_aa250e89272ebb9a29e00c7bbbe9089b9}\label{struct_struct___stall_det_aa250e89272ebb9a29e00c7bbbe9089b9}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!flag\_cbc\_triggered@{flag\_cbc\_triggered}}
+\index{flag\_cbc\_triggered@{flag\_cbc\_triggered}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{flag\_cbc\_triggered}{flag\_cbc\_triggered}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} Struct\+\_\+\+Stall\+Det\+::flag\+\_\+cbc\+\_\+triggered}
+
+
+
+Definition at line 52 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_a46701b0e80c57fe6cefb53c590d14fe7}\label{struct_struct___stall_det_a46701b0e80c57fe6cefb53c590d14fe7}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!flag\_event1@{flag\_event1}}
+\index{flag\_event1@{flag\_event1}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{flag\_event1}{flag\_event1}}
+{\footnotesize\ttfamily uint8\+\_\+t Struct\+\_\+\+Stall\+Det\+::flag\+\_\+event1}
+
+Bit set means system detect 1 stall condition 
+
+Definition at line 38 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_a634328cbacb8e2c07d88df4d75e010e9}\label{struct_struct___stall_det_a634328cbacb8e2c07d88df4d75e010e9}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!flag\_event2@{flag\_event2}}
+\index{flag\_event2@{flag\_event2}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{flag\_event2}{flag\_event2}}
+{\footnotesize\ttfamily uint8\+\_\+t Struct\+\_\+\+Stall\+Det\+::flag\+\_\+event2}
+
+Bit set means system detect 1 stall condition 
+
+Definition at line 39 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_a9e8fab1e5901b30032a4dc99c81ad7fc}\label{struct_struct___stall_det_a9e8fab1e5901b30032a4dc99c81ad7fc}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!flag\_event3@{flag\_event3}}
+\index{flag\_event3@{flag\_event3}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{flag\_event3}{flag\_event3}}
+{\footnotesize\ttfamily uint8\+\_\+t Struct\+\_\+\+Stall\+Det\+::flag\+\_\+event3}
+
+Bit set means system detect 1 stall condition 
+
+Definition at line 40 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_acfc9c3e07da0859e77de7583165597a5}\label{struct_struct___stall_det_acfc9c3e07da0859e77de7583165597a5}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!flag\_event4@{flag\_event4}}
+\index{flag\_event4@{flag\_event4}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{flag\_event4}{flag\_event4}}
+{\footnotesize\ttfamily uint8\+\_\+t Struct\+\_\+\+Stall\+Det\+::flag\+\_\+event4}
+
+Bit set means system detect 1 stall condition 
+
+Definition at line 41 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_ace64ad8f20686a76ac79e17cfb576dbf}\label{struct_struct___stall_det_ace64ad8f20686a76ac79e17cfb576dbf}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!flag\_process@{flag\_process}}
+\index{flag\_process@{flag\_process}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{flag\_process}{flag\_process}}
+{\footnotesize\ttfamily uint8\+\_\+t Struct\+\_\+\+Stall\+Det\+::flag\+\_\+process}
+
+
+
+Definition at line 42 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_ad14e62ec0c265e3b5e98af8eaf1467bf}\label{struct_struct___stall_det_ad14e62ec0c265e3b5e98af8eaf1467bf}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!sampletime\_systicks@{sampletime\_systicks}}
+\index{sampletime\_systicks@{sampletime\_systicks}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{sampletime\_systicks}{sampletime\_systicks}}
+{\footnotesize\ttfamily unsigned int Struct\+\_\+\+Stall\+Det\+::sampletime\+\_\+systicks}
+
+Check for stall condition for multiple of dt ticks then set stall detect variable 
+
+Definition at line 34 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_ab0e83976d333fe2f7deba67e3281e872}\label{struct_struct___stall_det_ab0e83976d333fe2f7deba67e3281e872}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!speed\_cmd@{speed\_cmd}}
+\index{speed\_cmd@{speed\_cmd}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{speed\_cmd}{speed\_cmd}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Stall\+Det\+::speed\+\_\+cmd}
+
+
+
+Definition at line 50 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_abeb1531849480669f7da8b656cd923fb}\label{struct_struct___stall_det_abeb1531849480669f7da8b656cd923fb}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!speed\_est@{speed\_est}}
+\index{speed\_est@{speed\_est}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{speed\_est}{speed\_est}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Stall\+Det\+::speed\+\_\+est}
+
+
+
+Definition at line 49 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_a20d50612e83fa6377bc1ecba643e2aa5}\label{struct_struct___stall_det_a20d50612e83fa6377bc1ecba643e2aa5}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!systick\_stamp@{systick\_stamp}}
+\index{systick\_stamp@{systick\_stamp}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{systick\_stamp}{systick\_stamp}}
+{\footnotesize\ttfamily unsigned long Struct\+\_\+\+Stall\+Det\+::systick\+\_\+stamp}
+
+Bit set when motor need to switch from close loop F\+OC to open loop mode to speed down the motor 
+
+Definition at line 35 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_a4f87187952d8b4cbe84ef921793ad663}\label{struct_struct___stall_det_a4f87187952d8b4cbe84ef921793ad663}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!temp2@{temp2}}
+\index{temp2@{temp2}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{temp2}{temp2}}
+{\footnotesize\ttfamily uint8\+\_\+t Struct\+\_\+\+Stall\+Det\+::temp2}
+
+Unused 28 bits out of 32 bits 
+
+Definition at line 43 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_ab90b65ff3d32d7f5f25ccfc075c69a7f}\label{struct_struct___stall_det_ab90b65ff3d32d7f5f25ccfc075c69a7f}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!timeout\_systicks@{timeout\_systicks}}
+\index{timeout\_systicks@{timeout\_systicks}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{timeout\_systicks}{timeout\_systicks}}
+{\footnotesize\ttfamily unsigned int Struct\+\_\+\+Stall\+Det\+::timeout\+\_\+systicks}
+
+Check for stall condition for multiple of dt ticks then set stall detect variable 
+
+Definition at line 33 of file stalldet.\+h.
+
+\mbox{\Hypertarget{struct_struct___stall_det_a2398c926e0000f091d4e00b98f589d2e}\label{struct_struct___stall_det_a2398c926e0000f091d4e00b98f589d2e}} 
+\index{Struct\_StallDet@{Struct\_StallDet}!ve\_sqr\_q14@{ve\_sqr\_q14}}
+\index{ve\_sqr\_q14@{ve\_sqr\_q14}!Struct\_StallDet@{Struct\_StallDet}}
+\doxysubsubsection{\texorpdfstring{ve\_sqr\_q14}{ve\_sqr\_q14}}
+{\footnotesize\ttfamily \mbox{\hyperlink{maths_8h_a292cc6836a9316ee646c918689614774}{q1p14\+\_\+t}} Struct\+\_\+\+Stall\+Det\+::ve\+\_\+sqr\+\_\+q14}
+
+
+
+Definition at line 36 of file stalldet.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+pac\+\_\+foc/src/features/stalldet/\mbox{\hyperlink{stalldet_8h}{stalldet.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,42 @@
+///
+/// @defgroup sdk_headers PAC2xx SDK Peripheral Headers
+/// @{
+///     @defgroup PAC52XX_Definitions               PAC52XX Definitions      
+///     @defgroup PAC5XXX_MemoryMap                 PAC5XXX Memory Mapping
+///     @defgroup PAC5XXX_PeripheralDecl            PAC5XXX Peripheral Declaration
+///     @defgroup PAC5XXX_ADC                       PAC5XXX Analog to Digital Converter (ADC)
+///     @defgroup PAC5XXX_GPIO                      PAC5XXX General-Purpose IO (GPIO)
+///     @defgroup PAC5XXX_I2C                       PAC5XXX I2C Controller (I2C)
+///     @defgroup PAC5XXX_MEMCTL                    PAC5XXX FLASH Memory Controller (MEMCTL)
+///     @defgroup PAC5XXX_RTC                       PAC5XXX Real-Time Clock (RTC)
+///     @defgroup PAC5XXX_SocBridge                 PAC5XXX SOC Bridge
+///     @defgroup PAC5XXX_SPI                       PAC5XXX SPI Controller (SPI)
+///     @defgroup PAC5XXX_SYSCLKCTL                 PAC5XXX System and Clock Controller (SYSCLKCTL)
+///     @defgroup PAC5XXX_Tile_DriverManager        PAC5XXX Driver Manager Tile
+///     @defgroup PAC5XXX_Tile_PowerManager         PAC5XXX Power Manager Tile
+///     @defgroup PAC5XXX_Tile_SignalManager        PAC5XXX Signal Manager Tile
+///     @defgroup PAC5XXX_Tile_SystemManager_INT    PAC5XXX System Manager Tile
+///     @defgroup PAC5XXX_Timer8CC                  PAC5XXX Timer Capture/Compare/PWM outputs (TIMER8CC)
+///     @defgroup PAC5XXX_Timer4CC                  PAC5XXX Timer Capture/Compare/PWM outputs (TIMER4CC)
+///     @defgroup PAC5XXX_Timer2CC                  PAC5XXX Timer Capture/Compare/PWM outputs (TIMER2CC)
+///     @defgroup PAC5XXX_UART                      PAC5XXX UART Controller (UART)
+///     @defgroup PAC5XXX_WDT                       PAC5XXX Watchdog Timer (WDT)
+/// @}
+///
+/// @defgroup sdk_drivers PAC52xx SDK Driver Functions
+/// @{
+///     @defgroup PAC5XXX_Driver_ADC                PAC5XXX ADC Driver Functions
+///     @defgroup PAC5XXX_Driver_Config             PAC5XXX Driver Config
+///     @defgroup PAC5XXX_Driver_GPIO               PAC5XXX GPIO Peripheral Driver Functions
+///     @defgroup PAC5XXX_Driver_I2C                PAC5XXX I2C Peripheral Driver Functions
+///     @defgroup PAC5XXX_Driver_Memory             PAC5XXX Memory Controller Driver Functions
+///     @defgroup PAC5XXX_Driver_Rtc                PAC5XXX Real-Time Clock Driver Functions`
+///     @defgroup PAC5XXX_Driver_SocBridge          PAC5XXX SOC Bridge Peripheral Driver Functions
+///     @defgroup PAC5XXX_Driver_SPI                PAC5XXX SPI Peripheral Drviers
+///     @defgroup PAC5XXX_Driver_System             PAC5XXX System and Clock Controller Driver Functions
+///     @defgroup PAC5XXX_Driver_Tile               PAC5XXX Tile Driver Functions
+///     @defgroup PAC5XXX_Driver_Timer              PAC5XXX Analog Timer and DTG Driver Functions
+///     @defgroup PAC5XXX_Driver_UART               PAC5XXX UART Driver Functions
+///     @defgroup PAC5XXX_Driver_Watchdog           PAC5XXX Watchdog Timer Driver Functions
+/// @}
+///

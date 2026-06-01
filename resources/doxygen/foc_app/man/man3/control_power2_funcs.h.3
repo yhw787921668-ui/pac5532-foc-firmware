@@ -1,0 +1,55 @@
+.TH "pac_foc/src/control/control_power2_funcs.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/control/control_power2_funcs.h \- Use for control power functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'control_power2_struct\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCURRENT_IBUS_SCALE_FACTOR_FLT\fP   (float)(2\&.5f / (PCB_RSENSE_IUVW_OHMS * AMPGAIN_AIO6))"
+.br
+.ti -1c
+.RI "#define \fBPOWER_CURRENT_DESCALE_FACTOR_Q16\fP   \fBQCONST\fP(\fBCURRENT_IBUS_SCALE_FACTOR_FLT\fP, \fBQ16\fP)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBpower_compensation_coefficient_calc\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for control power functions\&. 
+
+
+.PP
+Definition in file \fBcontrol_power2_funcs\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define CURRENT_IBUS_SCALE_FACTOR_FLT   (float)(2\&.5f / (PCB_RSENSE_IUVW_OHMS * AMPGAIN_AIO6))"
+
+.PP
+Definition at line 14 of file control_power2_funcs\&.h\&.
+.SS "#define POWER_CURRENT_DESCALE_FACTOR_Q16   \fBQCONST\fP(\fBCURRENT_IBUS_SCALE_FACTOR_FLT\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 15 of file control_power2_funcs\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void power_compensation_coefficient_calc (\fBStruct_Motor\fP * motor_ptr)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

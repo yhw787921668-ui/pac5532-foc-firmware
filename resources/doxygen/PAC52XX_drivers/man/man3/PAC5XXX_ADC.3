@@ -1,0 +1,2753 @@
+.TH "PAC5XXX_ADC" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_ADC \- PAC5XXX Analog to Digital Converter (ADC)
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBPAC5XXX_ADCRESULT_Type\fP"
+.br
+.ti -1c
+.RI "union \fBPAC5XXX_ADCSEQCTL_Type\fP"
+.br
+.ti -1c
+.RI "struct \fBPAC5XXX_ADC_TypeDef\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBADC_EMUX_CTL_Type\fP { \fBADCEMUXCTL_EMUXC_MUXDATA\fP = 0, \fBADCEMUXCTL_EMUXC_SEQ\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBADC_EMUX_DIV_Type\fP { \fBADCEMUXCTL_EMUXDIV_DIV1\fP = 0, \fBADCEMUXCTL_EMUXDIV_DIV2\fP = 1, \fBADCEMUXCTL_EMUXDIV_DIV3\fP = 2, \fBADCEMUXCTL_EMUXDIV_DIV4\fP = 3, \fBADCEMUXCTL_EMUXDIV_DIV5\fP = 4, \fBADCEMUXCTL_EMUXDIV_DIV6\fP = 5, \fBADCEMUXCTL_EMUXDIV_DIV7\fP = 6, \fBADCEMUXCTL_EMUXDIV_DIV8\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBADCCTL_ADMODE_Type\fP { \fBADCCTL_ADSTART_SINGLE\fP = 0, \fBADCCTL_ADSTART_AUTO_0\fP = 1, \fBADCCTL_ADSTART_AUTO_1\fP = 2, \fBADCCTL_ADSTART_AUTO_01_CHAIN\fP = 3, \fBADCCTL_ADSTART_AUTO_0_TRIG\fP = 4, \fBADCCTL_ADSTART_AUTO_1_TRIG\fP = 5, \fBADCCTL_ADSTART_AUTO_01_CHAIN_TRIG\fP = 6, \fBADCCTL_ADSTART_AUTO_01_IND_TRIG\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBADCCTL_ADMUX_Type\fP { \fBADCCTL_ADMUX_AD0\fP = 0, \fBADCCTL_ADMUX_AD1\fP = 1, \fBADCCTL_ADMUX_AD2\fP = 2, \fBADCCTL_ADMUX_AD3\fP = 3, \fBADCCTL_ADMUX_AD4\fP = 4, \fBADCCTL_ADMUX_AD5\fP = 5, \fBADCCTL_ADMUX_VSSA\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBADCCTL_CLKDIV_Type\fP { \fBADCCTL_ADCDIV_DIV1\fP = 0, \fBADCCTL_ADCDIV_DIV2\fP = 1, \fBADCCTL_ADCDIV_DIV3\fP = 2, \fBADCCTL_ADCDIV_DIV4\fP = 3, \fBADCCTL_ADCDIV_DIV5\fP = 4, \fBADCCTL_ADCDIV_DIV6\fP = 5, \fBADCCTL_ADCDIV_DIV7\fP = 6, \fBADCCTL_ADCDIV_DIV8\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBADCCTLX_STRIG_Type\fP { \fBADCCTLX_ASTR_PWM\fP = 0, \fBADCCTLX_ASTR_TIMER\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBADCCTLX_SDEPTH_Type\fP { \fBADCCTLX_AS1D_DEPTH1\fP = 0, \fBADCCTLX_AS1D_DEPTH2\fP = 1, \fBADCCTLX_AS1D_DEPTH3\fP = 2, \fBADCCTLX_AS1D_DEPTH4\fP = 3, \fBADCCTLX_AS1D_DEPTH5\fP = 4, \fBADCCTLX_AS1D_DEPTH6\fP = 5, \fBADCCTLX_AS1D_DEPTH7\fP = 6, \fBADCCTLX_AS1D_DEPTH8\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBADCCTLX_TRIGEDGE_Type\fP { \fBADCCTLX_TRIGEDGE_LOWTOHI\fP = 0, \fBADCCTLX_TRIGEDGE_HITOLOW\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBADCCTLX_TRIGPWM_Type\fP { \fBADCCTLX_TRIGPWM_PWMA0\fP = 0, \fBADCCTLX_TRIGPWM_PWMA1\fP = 1, \fBADCCTLX_TRIGPWM_PWMA2\fP = 2, \fBADCCTLX_TRIGPWM_PWMA3\fP = 3, \fBADCCTLX_TRIGPWM_PWMA4\fP = 4, \fBADCCTLX_TRIGPWM_PWMA5\fP = 5, \fBADCCTLX_TRIGPWM_PWMA6\fP = 6, \fBADCCTLX_TRIGPWM_PWMA7\fP = 7, \fBADCCTLX_TRIGPWM_PWMB0\fP = 8, \fBADCCTLX_TRIGPWM_PWMB1\fP = 9, \fBADCCTLX_TRIGPWM_PWMC0\fP = 10, \fBADCCTLX_TRIGPWM_PWMC1\fP = 11, \fBADCCTLX_TRIGPWM_PWMD0\fP = 12, \fBADCCTLX_TRIGPWM_PWMD1\fP = 13 }"
+.br
+.ti -1c
+.RI "enum \fBADCCTLX_TRIGTIMER_Type\fP { \fBADCCTLX_TRIGTIM_TIMERA\fP = 0, \fBADCCTLX_TRIGTIM_TIMERB\fP = 1, \fBADCCTLX_TRIGTIM_TIMERC\fP = 2, \fBADCCTLX_TRIGTIM_TIMERD\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBASSEQ_DELAY_Type\fP { \fBASSEQ_DELAY_0\fP = 0, \fBASSEQ_DELAY_4\fP = 1, \fBASSEQ_DELAY_8\fP = 2, \fBASSEQ_DELAY_16\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBASSEQ_MSPI_Type\fP { \fBASSEQ_MSPI_NOSEND\fP = 0, \fBASSEQ_MSPI_BEG\fP = 1, \fBASSEQ_MSPI_AFTER_SH\fP = 2 }"
+.br
+.ti -1c
+.RI "enum \fBASCINT_SEQ_Type\fP { \fBASCINT_SEQ_0\fP = 1, \fBASCINT_SEQ_1\fP = 2 }"
+.br
+.ti -1c
+.RI "enum \fBADCINT_BITS\fP { \fBADCINT_ADCINT\fP = 0x01, \fBADCINT_EMUXINT\fP = 0x02, \fBADCINT_AS0INT\fP = 0x04, \fBADCINT_AS1INT\fP = 0x08, \fBADCINT_ASCINT\fP = 0x10, \fBADCINT_ALL\fP = 0x1F }"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_ADCRESULT_Type::w\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_ADCRESULT_Type::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADCRESULT_Type::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_ADCRESULT_Type::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADCRESULT_Type::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_ADCRESULT_Type::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADCRESULT_Type::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_ADCRESULT_Type::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADCRESULT_Type::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_ADCRESULT_Type::VAL\fP: 10"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADCRESULT_Type::__pad0__\fP: 22"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_ADCRESULT_Type::VAL\fP: 10"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADCRESULT_Type::__pad0__\fP: 22"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADCSEQCTL_Type::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADCSEQCTL_Type::EMUXD\fP: 8"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADCSEQCTL_Type::EMUXS\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADCSEQCTL_Type::DELAY\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADCSEQCTL_Type::ADCMUX\fP: 3"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADCSEQCTL_Type::__pad0__\fP: 17"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADCSEQCTL_Type::EMUXD\fP: 8"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADCSEQCTL_Type::EMUXS\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADCSEQCTL_Type::DELAY\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADCSEQCTL_Type::ADCMUX\fP: 3"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADCSEQCTL_Type::__pad0__\fP: 17"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::EMUXDIV\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::EMUXDONE\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::EMUXBUSY\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::EMUXC\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 26"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::EMUXDIV\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::EMUXDONE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::EMUXBUSY\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::EMUXC\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 26"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::EMUXDIV\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::EMUXDONE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::EMUXBUSY\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::EMUXC\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 26"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_ADC_TypeDef::EMUXCTL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_ADC_TypeDef::EMUXDATA\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCDIV\fP: 3"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCDONE\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCMUX\fP: 3"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCBUSY\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCMODE\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCREPEAT\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCSTART\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCEN\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad1__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCDIV\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCDONE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCMUX\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCBUSY\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCMODE\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCREPEAT\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCSTART\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCEN\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad1__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCDIV\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCDONE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCMUX\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCBUSY\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCMODE\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCREPEAT\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCSTART\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCEN\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_ADC_TypeDef::__pad1__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_ADC_TypeDef::ADCCTL\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP \fBPAC5XXX_ADCRESULT_Type\fP \fBPAC5XXX_ADC_TypeDef::ADCCR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCINT\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::EMUXINT\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0INT\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1INT\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ASCINT\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCINT_EN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::EMUXINT_EN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0INT_EN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1INT_EN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ASCINT_EN\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad1__\fP: 3"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ASCTR\fP: 2"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ASCSEQ\fP: 2"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad2__\fP: 12"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCINT\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::EMUXINT\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0INT\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1INT\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ASCINT\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCINT_EN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::EMUXINT_EN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0INT_EN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1INT_EN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ASCINT_EN\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad1__\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ASCTR\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ASCSEQ\fP: 2"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad2__\fP: 12"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCINT\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::EMUXINT\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0INT\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1INT\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ASCINT\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ADCINT_EN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::EMUXINT_EN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0INT_EN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1INT_EN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ASCINT_EN\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_ADC_TypeDef::__pad1__\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ASCTR\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::ASCSEQ\fP: 2"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_ADC_TypeDef::__pad2__\fP: 12"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_ADC_TypeDef::ADCINT\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::RESERVED9\fP [11]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0TRPWM\fP: 4"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0TRTMR\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0TRE\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0TR\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0D\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0SEQEN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1BUSY\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 19"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0TRPWM\fP: 4"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0TRTMR\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0TRE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0TR\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0D\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0SEQEN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1BUSY\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 19"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0TRPWM\fP: 4"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0TRTMR\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0TRE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0TR\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0D\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS0SEQEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1BUSY\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 19"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_ADC_TypeDef::ASCTL0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP \fBPAC5XXX_ADC_TypeDef::AS0S0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP \fBPAC5XXX_ADC_TypeDef::AS0R0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP \fBPAC5XXX_ADC_TypeDef::AS0S1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP \fBPAC5XXX_ADC_TypeDef::AS0R1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP \fBPAC5XXX_ADC_TypeDef::AS0S2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP \fBPAC5XXX_ADC_TypeDef::AS0R2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP \fBPAC5XXX_ADC_TypeDef::AS0S3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP \fBPAC5XXX_ADC_TypeDef::AS0R3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP \fBPAC5XXX_ADC_TypeDef::AS0S4\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP \fBPAC5XXX_ADC_TypeDef::AS0R4\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP \fBPAC5XXX_ADC_TypeDef::AS0S5\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP \fBPAC5XXX_ADC_TypeDef::AS0R5\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP \fBPAC5XXX_ADC_TypeDef::AS0S6\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP \fBPAC5XXX_ADC_TypeDef::AS0R6\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP \fBPAC5XXX_ADC_TypeDef::AS0S7\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP \fBPAC5XXX_ADC_TypeDef::AS0R7\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::RESERVED13\fP [31]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1TRPWM\fP: 4"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1TRTMR\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1TRE\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1TR\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1D\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1SEQEN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1BUSY\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 19"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1TRPWM\fP: 4"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1TRTMR\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1TRE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1TR\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1D\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1SEQEN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1BUSY\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 19"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1TRPWM\fP: 4"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1TRTMR\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1TRE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1TR\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1D\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1SEQEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_ADC_TypeDef::AS1BUSY\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_ADC_TypeDef::__pad0__\fP: 19"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_ADC_TypeDef::ASCTL1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP \fBPAC5XXX_ADC_TypeDef::AS1S0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP \fBPAC5XXX_ADC_TypeDef::AS1R0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP \fBPAC5XXX_ADC_TypeDef::AS1S1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP \fBPAC5XXX_ADC_TypeDef::AS1R1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP \fBPAC5XXX_ADC_TypeDef::AS1S2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP \fBPAC5XXX_ADC_TypeDef::AS1R2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP \fBPAC5XXX_ADC_TypeDef::AS1S3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP \fBPAC5XXX_ADC_TypeDef::AS1R3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP \fBPAC5XXX_ADC_TypeDef::AS1S4\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP \fBPAC5XXX_ADC_TypeDef::AS1R4\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP \fBPAC5XXX_ADC_TypeDef::AS1S5\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP \fBPAC5XXX_ADC_TypeDef::AS1R5\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP \fBPAC5XXX_ADC_TypeDef::AS1S6\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP \fBPAC5XXX_ADC_TypeDef::AS1R6\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP \fBPAC5XXX_ADC_TypeDef::AS1S7\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP \fBPAC5XXX_ADC_TypeDef::AS1R7\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBADC_EMUX_CTL_Type\fP"
+ADC EMUX Control Type Enumeration 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCEMUXCTL_EMUXC_MUXDATA \fP\fP
+EMUX is controlled by EMUXDATA 
+.br
+ 
+.TP
+\fB\fIADCEMUXCTL_EMUXC_SEQ \fP\fP
+EMUX is controlled by automated ADC sequencer 
+.br
+ 
+.PP
+Definition at line 31 of file pac5xxx_ADC\&.h\&.
+.PP
+.nf
+31              {
+32   ADCEMUXCTL_EMUXC_MUXDATA = 0,                
+33   ADCEMUXCTL_EMUXC_SEQ = 1                     
+34 } ADC_EMUX_CTL_Type;
+.fi
+.SS "enum \fBADC_EMUX_DIV_Type\fP"
+ADC EMUX Clock Divider Type Enumeration 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV1 \fP\fP
+External MUX clock divider: /1 
+.br
+ 
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV2 \fP\fP
+External MUX clock divider: /2 
+.br
+ 
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV3 \fP\fP
+External MUX clock divider: /3 
+.br
+ 
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV4 \fP\fP
+External MUX clock divider: /4 
+.br
+ 
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV5 \fP\fP
+External MUX clock divider: /5 
+.br
+ 
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV6 \fP\fP
+External MUX clock divider: /6 
+.br
+ 
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV7 \fP\fP
+External MUX clock divider: /7 
+.br
+ 
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV8 \fP\fP
+External MUX clock divider: /8 
+.br
+ 
+.PP
+Definition at line 37 of file pac5xxx_ADC\&.h\&.
+.PP
+.nf
+37              {
+38   ADCEMUXCTL_EMUXDIV_DIV1 = 0,                 
+39   ADCEMUXCTL_EMUXDIV_DIV2 = 1,                 
+40   ADCEMUXCTL_EMUXDIV_DIV3 = 2,                 
+41   ADCEMUXCTL_EMUXDIV_DIV4 = 3,                 
+42   ADCEMUXCTL_EMUXDIV_DIV5 = 4,                 
+43   ADCEMUXCTL_EMUXDIV_DIV6 = 5,                 
+44   ADCEMUXCTL_EMUXDIV_DIV7 = 6,                 
+45   ADCEMUXCTL_EMUXDIV_DIV8 = 7                  
+46 } ADC_EMUX_DIV_Type;
+.fi
+.SS "enum \fBADCCTL_ADMODE_Type\fP"
+ADCCTL Conversion Mode Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCCTL_ADSTART_SINGLE \fP\fP
+Single channel conversion 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADSTART_AUTO_0 \fP\fP
+Automated sequencer 0 only 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADSTART_AUTO_1 \fP\fP
+Automated sequencer 1 only 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADSTART_AUTO_01_CHAIN \fP\fP
+Automated sequencer 0, 1 chained 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADSTART_AUTO_0_TRIG \fP\fP
+Automated sequencer 0 with trigger 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADSTART_AUTO_1_TRIG \fP\fP
+Automated sequencer 1 with trigger 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADSTART_AUTO_01_CHAIN_TRIG \fP\fP
+Automated sequencer 0 and 1 trigger independently on AS0 trigger 
+.TP
+\fB\fIADCCTL_ADSTART_AUTO_01_IND_TRIG \fP\fP
+Automated sequencer 0 and 1 trigger independently on AS0 and AS1 
+.PP
+Definition at line 49 of file pac5xxx_ADC\&.h\&.
+.PP
+.nf
+49              {
+50   ADCCTL_ADSTART_SINGLE = 0,                   
+51   ADCCTL_ADSTART_AUTO_0 = 1,                   
+52   ADCCTL_ADSTART_AUTO_1 = 2,                   
+53   ADCCTL_ADSTART_AUTO_01_CHAIN = 3,            
+54   ADCCTL_ADSTART_AUTO_0_TRIG = 4,              
+55   ADCCTL_ADSTART_AUTO_1_TRIG = 5,              
+56   ADCCTL_ADSTART_AUTO_01_CHAIN_TRIG = 6,       
+57   ADCCTL_ADSTART_AUTO_01_IND_TRIG = 7          
+58 } ADCCTL_ADMODE_Type;
+.fi
+.SS "enum \fBADCCTL_ADMUX_Type\fP"
+ADCCTL Positive Input MUX channel select 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCCTL_ADMUX_AD0 \fP\fP
+ADC positive input MUX channel select: AD0 (Analog die) 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADMUX_AD1 \fP\fP
+ADC positive input MUX channel select: AD1 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADMUX_AD2 \fP\fP
+ADC positive input MUX channel select: AD2 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADMUX_AD3 \fP\fP
+ADC positive input MUX channel select: AD3 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADMUX_AD4 \fP\fP
+ADC positive input MUX channel select: AD4 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADMUX_AD5 \fP\fP
+ADC positive input MUX channel select: AD5 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADMUX_VSSA \fP\fP
+ADC positive input MUX channel select: VSSA 
+.br
+ 
+.PP
+Definition at line 61 of file pac5xxx_ADC\&.h\&.
+.PP
+.nf
+61              {
+62   ADCCTL_ADMUX_AD0 = 0,                        
+63   ADCCTL_ADMUX_AD1 = 1,                        
+64   ADCCTL_ADMUX_AD2 = 2,                        
+65   ADCCTL_ADMUX_AD3 = 3,                        
+66   ADCCTL_ADMUX_AD4 = 4,                        
+67   ADCCTL_ADMUX_AD5 = 5,                        
+68   ADCCTL_ADMUX_VSSA = 7                        
+69 } ADCCTL_ADMUX_Type;
+.fi
+.SS "enum \fBADCCTL_CLKDIV_Type\fP"
+ADCCTL clock input divider 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCCTL_ADCDIV_DIV1 \fP\fP
+ADC module clock input divider: /1 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADCDIV_DIV2 \fP\fP
+ADC module clock input divider: /2 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADCDIV_DIV3 \fP\fP
+ADC module clock input divider: /3 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADCDIV_DIV4 \fP\fP
+ADC module clock input divider: /4 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADCDIV_DIV5 \fP\fP
+ADC module clock input divider: /5 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADCDIV_DIV6 \fP\fP
+ADC module clock input divider: /6 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADCDIV_DIV7 \fP\fP
+ADC module clock input divider: /7 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADCDIV_DIV8 \fP\fP
+ADC module clock input divider: /8 
+.br
+ 
+.PP
+Definition at line 72 of file pac5xxx_ADC\&.h\&.
+.PP
+.nf
+72              {
+73   ADCCTL_ADCDIV_DIV1 = 0,                      
+74   ADCCTL_ADCDIV_DIV2 = 1,                      
+75   ADCCTL_ADCDIV_DIV3 = 2,                      
+76   ADCCTL_ADCDIV_DIV4 = 3,                      
+77   ADCCTL_ADCDIV_DIV5 = 4,                      
+78   ADCCTL_ADCDIV_DIV6 = 5,                      
+79   ADCCTL_ADCDIV_DIV7 = 6,                      
+80   ADCCTL_ADCDIV_DIV8 = 7                       
+81 } ADCCTL_CLKDIV_Type;
+.fi
+.SS "enum \fBADCCTLX_SDEPTH_Type\fP"
+ASCTLX Sampling Trigger Depth Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCCTLX_AS1D_DEPTH1 \fP\fP
+Automated ADC sampling depth: 1 samples 
+.br
+ 
+.TP
+\fB\fIADCCTLX_AS1D_DEPTH2 \fP\fP
+Automated ADC sampling depth: 2 samples 
+.br
+ 
+.TP
+\fB\fIADCCTLX_AS1D_DEPTH3 \fP\fP
+Automated ADC sampling depth: 3 samples 
+.br
+ 
+.TP
+\fB\fIADCCTLX_AS1D_DEPTH4 \fP\fP
+Automated ADC sampling depth: 4 samples 
+.br
+ 
+.TP
+\fB\fIADCCTLX_AS1D_DEPTH5 \fP\fP
+Automated ADC sampling depth: 5 samples 
+.br
+ 
+.TP
+\fB\fIADCCTLX_AS1D_DEPTH6 \fP\fP
+Automated ADC sampling depth: 6 samples 
+.br
+ 
+.TP
+\fB\fIADCCTLX_AS1D_DEPTH7 \fP\fP
+Automated ADC sampling depth: 7 samples 
+.br
+ 
+.TP
+\fB\fIADCCTLX_AS1D_DEPTH8 \fP\fP
+Automated ADC sampling depth: 8 samples 
+.br
+ 
+.PP
+Definition at line 90 of file pac5xxx_ADC\&.h\&.
+.PP
+.nf
+90              {
+91   ADCCTLX_AS1D_DEPTH1 = 0,                     
+92   ADCCTLX_AS1D_DEPTH2 = 1,                     
+93   ADCCTLX_AS1D_DEPTH3 = 2,                     
+94   ADCCTLX_AS1D_DEPTH4 = 3,                     
+95   ADCCTLX_AS1D_DEPTH5 = 4,                     
+96   ADCCTLX_AS1D_DEPTH6 = 5,                     
+97   ADCCTLX_AS1D_DEPTH7 = 6,                     
+98   ADCCTLX_AS1D_DEPTH8 = 7                      
+99 } ADCCTLX_SDEPTH_Type;
+.fi
+.SS "enum \fBADCCTLX_STRIG_Type\fP"
+ASCTLX Sampling Trigger Source Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCCTLX_ASTR_PWM \fP\fP
+Automated ADC sampling trigger: PWM 
+.br
+ 
+.TP
+\fB\fIADCCTLX_ASTR_TIMER \fP\fP
+Automated ADC sampling trigger: Timer 
+.br
+ 
+.PP
+Definition at line 84 of file pac5xxx_ADC\&.h\&.
+.PP
+.nf
+84              {
+85   ADCCTLX_ASTR_PWM = 0,                        
+86   ADCCTLX_ASTR_TIMER = 1                       
+87 } ADCCTLX_STRIG_Type;
+.fi
+.SS "enum \fBADCCTLX_TRIGEDGE_Type\fP"
+ADCCTLX Sampling Trigger Edge Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCCTLX_TRIGEDGE_LOWTOHI \fP\fP
+Automated ADC trigger edge: Low to High 
+.br
+ 
+.TP
+\fB\fIADCCTLX_TRIGEDGE_HITOLOW \fP\fP
+Automated ADC trigger edge: High to Low 
+.br
+ 
+.PP
+Definition at line 102 of file pac5xxx_ADC\&.h\&.
+.PP
+.nf
+102              {
+103   ADCCTLX_TRIGEDGE_LOWTOHI = 0,                
+104   ADCCTLX_TRIGEDGE_HITOLOW = 1                 
+105 } ADCCTLX_TRIGEDGE_Type;
+.fi
+.SS "enum \fBADCCTLX_TRIGPWM_Type\fP"
+ADCCTLX Sampling PWM Trigger Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCCTLX_TRIGPWM_PWMA0 \fP\fP
+Automated ADC PWM trigger source: PWMA0 
+.br
+ 
+.TP
+\fB\fIADCCTLX_TRIGPWM_PWMA1 \fP\fP
+Automated ADC PWM trigger source: PWMA1 
+.br
+ 
+.TP
+\fB\fIADCCTLX_TRIGPWM_PWMA2 \fP\fP
+Automated ADC PWM trigger source: PWMA2 
+.br
+ 
+.TP
+\fB\fIADCCTLX_TRIGPWM_PWMA3 \fP\fP
+Automated ADC PWM trigger source: PWMA3 
+.br
+ 
+.TP
+\fB\fIADCCTLX_TRIGPWM_PWMA4 \fP\fP
+Automated ADC PWM trigger source: PWMA4 
+.br
+ 
+.TP
+\fB\fIADCCTLX_TRIGPWM_PWMA5 \fP\fP
+Automated ADC PWM trigger source: PWMA5 
+.br
+ 
+.TP
+\fB\fIADCCTLX_TRIGPWM_PWMA6 \fP\fP
+Automated ADC PWM trigger source: PWMA6 
+.br
+ 
+.TP
+\fB\fIADCCTLX_TRIGPWM_PWMA7 \fP\fP
+Automated ADC PWM trigger source: PWMA7 
+.br
+ 
+.TP
+\fB\fIADCCTLX_TRIGPWM_PWMB0 \fP\fP
+Automated ADC PWM trigger source: PWMB0 
+.br
+ 
+.TP
+\fB\fIADCCTLX_TRIGPWM_PWMB1 \fP\fP
+Automated ADC PWM trigger source: PWMB1 
+.br
+ 
+.TP
+\fB\fIADCCTLX_TRIGPWM_PWMC0 \fP\fP
+Automated ADC PWM trigger source: PWMC0 
+.br
+ 
+.TP
+\fB\fIADCCTLX_TRIGPWM_PWMC1 \fP\fP
+Automated ADC PWM trigger source: PWMC1 
+.br
+ 
+.TP
+\fB\fIADCCTLX_TRIGPWM_PWMD0 \fP\fP
+Automated ADC PWM trigger source: PWMD0 
+.br
+ 
+.TP
+\fB\fIADCCTLX_TRIGPWM_PWMD1 \fP\fP
+Automated ADC PWM trigger source: PWMD1 
+.br
+ 
+.PP
+Definition at line 108 of file pac5xxx_ADC\&.h\&.
+.PP
+.nf
+108              {
+109   ADCCTLX_TRIGPWM_PWMA0 = 0,                   
+110   ADCCTLX_TRIGPWM_PWMA1 = 1,                   
+111   ADCCTLX_TRIGPWM_PWMA2 = 2,                   
+112   ADCCTLX_TRIGPWM_PWMA3 = 3,                   
+113   ADCCTLX_TRIGPWM_PWMA4 = 4,                   
+114   ADCCTLX_TRIGPWM_PWMA5 = 5,                   
+115   ADCCTLX_TRIGPWM_PWMA6 = 6,                   
+116   ADCCTLX_TRIGPWM_PWMA7 = 7,                   
+117   ADCCTLX_TRIGPWM_PWMB0 = 8,                   
+118   ADCCTLX_TRIGPWM_PWMB1 = 9,                   
+119   ADCCTLX_TRIGPWM_PWMC0 = 10,                  
+120   ADCCTLX_TRIGPWM_PWMC1 = 11,                  
+121   ADCCTLX_TRIGPWM_PWMD0 = 12,                  
+122   ADCCTLX_TRIGPWM_PWMD1 = 13                   
+123 } ADCCTLX_TRIGPWM_Type;
+.fi
+.SS "enum \fBADCCTLX_TRIGTIMER_Type\fP"
+ADCCTLX Sampling Timer Trigger Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCCTLX_TRIGTIM_TIMERA \fP\fP
+Automated ADC Timer trigger source: Timer A 
+.br
+ 
+.TP
+\fB\fIADCCTLX_TRIGTIM_TIMERB \fP\fP
+Automated ADC Timer trigger source: Timer B 
+.br
+ 
+.TP
+\fB\fIADCCTLX_TRIGTIM_TIMERC \fP\fP
+Automated ADC Timer trigger source: Timer C 
+.br
+ 
+.TP
+\fB\fIADCCTLX_TRIGTIM_TIMERD \fP\fP
+Automated ADC Timer trigger source: Timer D 
+.br
+ 
+.PP
+Definition at line 126 of file pac5xxx_ADC\&.h\&.
+.PP
+.nf
+126              {
+127   ADCCTLX_TRIGTIM_TIMERA = 0,                  
+128   ADCCTLX_TRIGTIM_TIMERB = 1,                  
+129   ADCCTLX_TRIGTIM_TIMERC = 2,                  
+130   ADCCTLX_TRIGTIM_TIMERD = 3                   
+131 } ADCCTLX_TRIGTIMER_Type;
+.fi
+.SS "enum \fBADCINT_BITS\fP"
+ADCINT bit positions 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCINT_ADCINT \fP\fP
+.TP
+\fB\fIADCINT_EMUXINT \fP\fP
+.TP
+\fB\fIADCINT_AS0INT \fP\fP
+.TP
+\fB\fIADCINT_AS1INT \fP\fP
+.TP
+\fB\fIADCINT_ASCINT \fP\fP
+.TP
+\fB\fIADCINT_ALL \fP\fP
+.PP
+Definition at line 155 of file pac5xxx_ADC\&.h\&.
+.PP
+.nf
+155              {
+156   ADCINT_ADCINT =   0x01,
+157   ADCINT_EMUXINT =  0x02,
+158   ADCINT_AS0INT =   0x04,
+159   ADCINT_AS1INT =   0x08,
+160   ADCINT_ASCINT =   0x10,
+161   ADCINT_ALL =      0x1F
+162 } ADCINT_BITS;
+.fi
+.SS "enum \fBASCINT_SEQ_Type\fP"
+ASCINT Sequence ID for \fIASCTR\fP and ASCSEQ bits 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIASCINT_SEQ_0 \fP\fP
+.TP
+\fB\fIASCINT_SEQ_1 \fP\fP
+.PP
+Definition at line 149 of file pac5xxx_ADC\&.h\&.
+.PP
+.nf
+149              {
+150   ASCINT_SEQ_0 = 1,
+151   ASCINT_SEQ_1 = 2
+152 } ASCINT_SEQ_Type;
+.fi
+.SS "enum \fBASSEQ_DELAY_Type\fP"
+ASXS Sampling Trigger Delay 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIASSEQ_DELAY_0 \fP\fP
+Delay between trigger and S/H: 0 ADC module clocks 
+.br
+ 
+.TP
+\fB\fIASSEQ_DELAY_4 \fP\fP
+Delay between trigger and S/H: 4 ADC module clocks 
+.br
+ 
+.TP
+\fB\fIASSEQ_DELAY_8 \fP\fP
+Delay between trigger and S/H: 8 ADC module clocks 
+.br
+ 
+.TP
+\fB\fIASSEQ_DELAY_16 \fP\fP
+Delay between trigger and S/H: 16 ADC module clocks 
+.br
+ 
+.PP
+Definition at line 134 of file pac5xxx_ADC\&.h\&.
+.PP
+.nf
+134              {
+135   ASSEQ_DELAY_0 = 0,                           
+136   ASSEQ_DELAY_4 = 1,                           
+137   ASSEQ_DELAY_8 = 2,                           
+138   ASSEQ_DELAY_16 = 3                           
+139 } ASSEQ_DELAY_Type;
+.fi
+.SS "enum \fBASSEQ_MSPI_Type\fP"
+ASXS Mini SPI MUX Control Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIASSEQ_MSPI_NOSEND \fP\fP
+When to send EMUX message: never 
+.br
+ 
+.TP
+\fB\fIASSEQ_MSPI_BEG \fP\fP
+When to send EMUX message: at beginning of this sequence 
+.br
+ 
+.TP
+\fB\fIASSEQ_MSPI_AFTER_SH \fP\fP
+When to send EMUX message: after S/H of ADC 
+.br
+ 
+.PP
+Definition at line 142 of file pac5xxx_ADC\&.h\&.
+.PP
+.nf
+142              {
+143   ASSEQ_MSPI_NOSEND = 0,                       
+144   ASSEQ_MSPI_BEG = 1,                          
+145   ASSEQ_MSPI_AFTER_SH = 2                      
+146 } ASSEQ_MSPI_Type;
+.fi
+.SH "Variable Documentation"
+.PP 
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 169 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t PAC5XXX_ADCRESULT_Type::__pad0__"
+
+.PP
+Definition at line 169 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 173 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 177 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t PAC5XXX_ADCSEQCTL_Type::__pad0__"
+
+.PP
+Definition at line 189 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 189 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 200 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t PAC5XXX_ADC_TypeDef::__pad0__"
+
+.PP
+Definition at line 200 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 204 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 211 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 218 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 226 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 230 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 237 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 253 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 257 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 265 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 285 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 289 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 299 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 327 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 331 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 341 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t PAC5XXX_ADC_TypeDef::__pad1__"
+
+.PP
+Definition at line 242 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 242 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 271 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t PAC5XXX_ADC_TypeDef::__pad2__"
+
+.PP
+Definition at line 274 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad2__"
+
+.PP
+Definition at line 274 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_ADC_TypeDef::ADCBUSY"
+ADC Busy 
+.br
+ 
+.PP
+Definition at line 236 of file pac5xxx_ADC\&.h\&.
+.SS "__I { \&.\&.\&. } ::ADCBUSY"
+ADC Busy 
+.br
+ 
+.PP
+Definition at line 236 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__I\fP \fBPAC5XXX_ADCRESULT_Type\fP PAC5XXX_ADC_TypeDef::ADCCR"
+ADCCR Offset: 0x000C ADC Conversion Result Register 
+.br
+ ADCINT: Offset: 0x0010 ADC Interrupt Control Register 
+.br
+ 
+.PP
+Definition at line 246 of file pac5xxx_ADC\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_ADC_TypeDef::ADCCTL"
+
+.SS "__IO { \&.\&.\&. } ::ADCDIV"
+ADC module clock input divider 
+.br
+ 
+.PP
+Definition at line 233 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::ADCDIV"
+ADC module clock input divider 
+.br
+ 
+.PP
+Definition at line 233 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_ADC_TypeDef::ADCDONE"
+ADC conversion completed\&. Auto-clear on read or on new conv\&. 
+.br
+ 
+.PP
+Definition at line 234 of file pac5xxx_ADC\&.h\&.
+.SS "__I { \&.\&.\&. } ::ADCDONE"
+ADC conversion completed\&. Auto-clear on read or on new conv\&. 
+.br
+ 
+.PP
+Definition at line 234 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::ADCEN"
+ADC Enable 
+.br
+ 
+.PP
+Definition at line 241 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::ADCEN"
+ADC Enable 
+.br
+ 
+.PP
+Definition at line 241 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::ADCINT"
+ADC Conversion Finished Interrupt Flag 
+.br
+ 
+.PP
+Definition at line 260 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::ADCINT"
+ADC Conversion Finished Interrupt Flag 
+.br
+ 
+.PP
+Definition at line 260 of file pac5xxx_ADC\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_ADC_TypeDef::ADCINT"
+
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::ADCINT_EN"
+ADC Conversion Finished Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 266 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::ADCINT_EN"
+ADC Conversion Finished Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 266 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::ADCMODE"
+ADC Mode 
+.br
+ 
+.PP
+Definition at line 238 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::ADCMODE"
+ADC Mode 
+.br
+ 
+.PP
+Definition at line 238 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::ADCMUX"
+ADC Positive Input MUX Channel Select 
+.br
+ 
+.PP
+Definition at line 188 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADCSEQCTL_Type::ADCMUX"
+ADC Positive Input MUX Channel Select 
+.br
+ 
+.PP
+Definition at line 188 of file pac5xxx_ADC\&.h\&.
+.PP
+Referenced by pac5xxx_adc_as0_sequence_config(), and pac5xxx_adc_as1_sequence_config()\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::ADCMUX"
+ADC MUX Input Channel Select 
+.br
+ 
+.PP
+Definition at line 235 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::ADCMUX"
+ADC MUX Input Channel Select 
+.br
+ 
+.PP
+Definition at line 235 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::ADCREPEAT"
+ADC Repeated Conversion Mode 
+.br
+ 
+.PP
+Definition at line 239 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::ADCREPEAT"
+ADC Repeated Conversion Mode 
+.br
+ 
+.PP
+Definition at line 239 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::ADCSTART"
+ADC Conversion Start 
+.br
+ 
+.PP
+Definition at line 240 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::ADCSTART"
+ADC Conversion Start 
+.br
+ 
+.PP
+Definition at line 240 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::AS0D"
+Automated ADC Sampling 0 Sequence Sampling Depth 
+.br
+ 
+.PP
+Definition at line 296 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AS0D"
+Automated ADC Sampling 0 Sequence Sampling Depth 
+.br
+ 
+.PP
+Definition at line 296 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::AS0INT"
+Automated Sequence 0 Finished Interrupt Flag 
+.br
+ 
+.PP
+Definition at line 262 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AS0INT"
+Automated Sequence 0 Finished Interrupt Flag 
+.br
+ 
+.PP
+Definition at line 262 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::AS0INT_EN"
+Automated Sequence 0 Finished Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 268 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AS0INT_EN"
+Automated Sequence 0 Finished Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 268 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP PAC5XXX_ADC_TypeDef::AS0R0"
+Offset: 0x0048 Automated Sampling 0 Result 0 Register 
+.br
+ 
+.PP
+Definition at line 304 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP PAC5XXX_ADC_TypeDef::AS0R1"
+Offset: 0x0050 Automated Sampling 0 Result 1 Register 
+.br
+ 
+.PP
+Definition at line 306 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP PAC5XXX_ADC_TypeDef::AS0R2"
+Offset: 0x0058 Automated Sampling 0 Result 2 Register 
+.br
+ 
+.PP
+Definition at line 308 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP PAC5XXX_ADC_TypeDef::AS0R3"
+Offset: 0x0060 Automated Sampling 0 Result 3 Register 
+.br
+ 
+.PP
+Definition at line 310 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP PAC5XXX_ADC_TypeDef::AS0R4"
+Offset: 0x0068 Automated Sampling 0 Result 4 Register 
+.br
+ 
+.PP
+Definition at line 312 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP PAC5XXX_ADC_TypeDef::AS0R5"
+Offset: 0x0070 Automated Sampling 0 Result 5 Register 
+.br
+ 
+.PP
+Definition at line 314 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP PAC5XXX_ADC_TypeDef::AS0R6"
+Offset: 0x0078 Automated Sampling 0 Result 6 Register 
+.br
+ 
+.PP
+Definition at line 316 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP PAC5XXX_ADC_TypeDef::AS0R7"
+Offset: 0x0080 Automated Sampling 0 Result 7 Register 
+.br
+ 
+.PP
+Definition at line 318 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP PAC5XXX_ADC_TypeDef::AS0S0"
+Offset: 0x0044 Automated Sampling 0 Sequence 0 Register 
+.br
+ 
+.PP
+Definition at line 303 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP PAC5XXX_ADC_TypeDef::AS0S1"
+Offset: 0x004C Automated Sampling 0 Sequence 1 Register 
+.br
+ 
+.PP
+Definition at line 305 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP PAC5XXX_ADC_TypeDef::AS0S2"
+Offset: 0x0054 Automated Sampling 0 Sequence 2 Register 
+.br
+ 
+.PP
+Definition at line 307 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP PAC5XXX_ADC_TypeDef::AS0S3"
+Offset: 0x005C Automated Sampling 0 Sequence 3 Register 
+.br
+ 
+.PP
+Definition at line 309 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP PAC5XXX_ADC_TypeDef::AS0S4"
+Offset: 0x0064 Automated Sampling 0 Sequence 4 Register 
+.br
+ 
+.PP
+Definition at line 311 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP PAC5XXX_ADC_TypeDef::AS0S5"
+Offset: 0x006C Automated Sampling 0 Sequence 5 Register 
+.br
+ 
+.PP
+Definition at line 313 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP PAC5XXX_ADC_TypeDef::AS0S6"
+Offset: 0x0074 Automated Sampling 0 Sequence 6 Register 
+.br
+ 
+.PP
+Definition at line 315 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP PAC5XXX_ADC_TypeDef::AS0S7"
+Offset: 0x007C Automated Sampling 0 Sequence 7 Register 
+.br
+ 
+.PP
+Definition at line 317 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::AS0SEQEN"
+Automated ADC Sampling 0 Sequence Enable 
+.br
+ 
+.PP
+Definition at line 297 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AS0SEQEN"
+Automated ADC Sampling 0 Sequence Enable 
+.br
+ 
+.PP
+Definition at line 297 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::AS0TR"
+Automated ADC Sampling 0 Trigger Source 
+.br
+ 
+.PP
+Definition at line 295 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AS0TR"
+Automated ADC Sampling 0 Trigger Source 
+.br
+ 
+.PP
+Definition at line 295 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::AS0TRE"
+Automated ADC Sampling 0 Trigger Edge 
+.br
+ 
+.PP
+Definition at line 294 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AS0TRE"
+Automated ADC Sampling 0 Trigger Edge 
+.br
+ 
+.PP
+Definition at line 294 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AS0TRPWM"
+Automated ADC Sampling 0 Trigger PWM source 
+.br
+ 
+.PP
+Definition at line 292 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::AS0TRPWM"
+Automated ADC Sampling 0 Trigger PWM source 
+.br
+ 
+.PP
+Definition at line 292 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AS0TRTMR"
+Automated ADC Sampling 0 Trigger Timer Source 
+.br
+ 
+.PP
+Definition at line 293 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::AS0TRTMR"
+Automated ADC Sampling 0 Trigger Timer Source 
+.br
+ 
+.PP
+Definition at line 293 of file pac5xxx_ADC\&.h\&.
+.SS "__I { \&.\&.\&. } ::AS1BUSY"
+Automated ADC Sampling 0 Sequence Active 
+.br
+ 
+.PP
+Definition at line 298 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_ADC_TypeDef::AS1BUSY"
+Automated ADC Sampling 0 Sequence Active 
+.br
+.PP
+Automated ADC Sampling 1 Sequence Active 
+.br
+ 
+.PP
+Definition at line 298 of file pac5xxx_ADC\&.h\&.
+.SS "__I { \&.\&.\&. } ::AS1BUSY"
+Automated ADC Sampling 1 Sequence Active 
+.br
+ 
+.PP
+Definition at line 340 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::AS1D"
+Automated ADC Sampling 1 Sequence Sampling Depth 
+.br
+ 
+.PP
+Definition at line 338 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AS1D"
+Automated ADC Sampling 1 Sequence Sampling Depth 
+.br
+ 
+.PP
+Definition at line 338 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::AS1INT"
+Automated Sequence 1 Finished Interrupt Flag 
+.br
+ 
+.PP
+Definition at line 263 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AS1INT"
+Automated Sequence 1 Finished Interrupt Flag 
+.br
+ 
+.PP
+Definition at line 263 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::AS1INT_EN"
+Automated Sequence 1 Finished Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 269 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AS1INT_EN"
+Automated Sequence 1 Finished Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 269 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP PAC5XXX_ADC_TypeDef::AS1R0"
+Offset: 0x0108 Automated Sampling 1 Result 0 Register 
+.br
+ 
+.PP
+Definition at line 346 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP PAC5XXX_ADC_TypeDef::AS1R1"
+Offset: 0x0110 Automated Sampling 1 Result 1 Register 
+.br
+ 
+.PP
+Definition at line 348 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP PAC5XXX_ADC_TypeDef::AS1R2"
+Offset: 0x0118 Automated Sampling 1 Result 2 Register 
+.br
+ 
+.PP
+Definition at line 350 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP PAC5XXX_ADC_TypeDef::AS1R3"
+Offset: 0x0120 Automated Sampling 1 Result 3 Register 
+.br
+ 
+.PP
+Definition at line 352 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP PAC5XXX_ADC_TypeDef::AS1R4"
+Offset: 0x0128 Automated Sampling 1 Result 4 Register 
+.br
+ 
+.PP
+Definition at line 354 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP PAC5XXX_ADC_TypeDef::AS1R5"
+Offset: 0x0130 Automated Sampling 1 Result 5 Register 
+.br
+ 
+.PP
+Definition at line 356 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP PAC5XXX_ADC_TypeDef::AS1R6"
+Offset: 0x0138 Automated Sampling 1 Result 6 Register 
+.br
+ 
+.PP
+Definition at line 358 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCRESULT_Type\fP PAC5XXX_ADC_TypeDef::AS1R7"
+Offset: 0x0140 Automated Sampling 1 Result 7 Register 
+.br
+ 
+.PP
+Definition at line 360 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP PAC5XXX_ADC_TypeDef::AS1S0"
+Offset: 0x0104 Automated Sampling 1 Sequence 0 Register 
+.br
+ 
+.PP
+Definition at line 345 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP PAC5XXX_ADC_TypeDef::AS1S1"
+Offset: 0x010C Automated Sampling 1 Sequence 1 Register 
+.br
+ 
+.PP
+Definition at line 347 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP PAC5XXX_ADC_TypeDef::AS1S2"
+Offset: 0x0114 Automated Sampling 1 Sequence 2 Register 
+.br
+ 
+.PP
+Definition at line 349 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP PAC5XXX_ADC_TypeDef::AS1S3"
+Offset: 0x011C Automated Sampling 1 Sequence 3 Register 
+.br
+ 
+.PP
+Definition at line 351 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP PAC5XXX_ADC_TypeDef::AS1S4"
+Offset: 0x0124 Automated Sampling 1 Sequence 4 Register 
+.br
+ 
+.PP
+Definition at line 353 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP PAC5XXX_ADC_TypeDef::AS1S5"
+Offset: 0x012C Automated Sampling 1 Sequence 5 Register 
+.br
+ 
+.PP
+Definition at line 355 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP PAC5XXX_ADC_TypeDef::AS1S6"
+Offset: 0x0134 Automated Sampling 1 Sequence 6 Register 
+.br
+ 
+.PP
+Definition at line 357 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_ADCSEQCTL_Type\fP PAC5XXX_ADC_TypeDef::AS1S7"
+Offset: 0x013C Automated Sampling 1 Sequence 7 Register 
+.br
+ 
+.PP
+Definition at line 359 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AS1SEQEN"
+Automated ADC Sampling 1 Sequence Enable 
+.br
+ 
+.PP
+Definition at line 339 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::AS1SEQEN"
+Automated ADC Sampling 1 Sequence Enable 
+.br
+ 
+.PP
+Definition at line 339 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::AS1TR"
+Automated ADC Sampling 1 Trigger Source 
+.br
+ 
+.PP
+Definition at line 337 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AS1TR"
+Automated ADC Sampling 1 Trigger Source 
+.br
+ 
+.PP
+Definition at line 337 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AS1TRE"
+Automated ADC Sampling 1 Trigger Edge 
+.br
+ 
+.PP
+Definition at line 336 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::AS1TRE"
+Automated ADC Sampling 1 Trigger Edge 
+.br
+ 
+.PP
+Definition at line 336 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::AS1TRPWM"
+Automated ADC Sampling 1 Trigger PWM source 
+.br
+ 
+.PP
+Definition at line 334 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AS1TRPWM"
+Automated ADC Sampling 1 Trigger PWM source 
+.br
+ 
+.PP
+Definition at line 334 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::AS1TRTMR"
+Automated ADC Sampling 1 Trigger Timer Source 
+.br
+ 
+.PP
+Definition at line 335 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::AS1TRTMR"
+Automated ADC Sampling 1 Trigger Timer Source 
+.br
+ 
+.PP
+Definition at line 335 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::ASCINT"
+Automated Sequence Collision Interrupt Flag 
+.br
+ 
+.PP
+Definition at line 264 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::ASCINT"
+Automated Sequence Collision Interrupt Flag 
+.br
+ 
+.PP
+Definition at line 264 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::ASCINT_EN"
+Automated Sequence Collision Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 270 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::ASCINT_EN"
+Automated Sequence Collision Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 270 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_ADC_TypeDef::ASCSEQ"
+Last Automated Sequence to run 
+.br
+ 
+.PP
+Definition at line 273 of file pac5xxx_ADC\&.h\&.
+.SS "__I { \&.\&.\&. } ::ASCSEQ"
+Last Automated Sequence to run 
+.br
+ 
+.PP
+Definition at line 273 of file pac5xxx_ADC\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_ADC_TypeDef::ASCTL0"
+
+.SS "union { \&.\&.\&. }  PAC5XXX_ADC_TypeDef::ASCTL1"
+
+.SS "\fB__I\fP uint32_t PAC5XXX_ADC_TypeDef::ASCTR"
+Last Automated Sequence to generate ASCINT 
+.br
+ 
+.PP
+Definition at line 272 of file pac5xxx_ADC\&.h\&.
+.SS "__I { \&.\&.\&. } ::ASCTR"
+Last Automated Sequence to generate ASCINT 
+.br
+ 
+.PP
+Definition at line 272 of file pac5xxx_ADC\&.h\&.
+.SS "__I { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 172 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_ADCRESULT_Type::b"
+
+.PP
+Definition at line 172 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::b"
+
+.PP
+Definition at line 203 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 203 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 229 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 256 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 288 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 330 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DELAY"
+Delay between trigger and S/H 
+.br
+ 
+.PP
+Definition at line 187 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADCSEQCTL_Type::DELAY"
+Delay between trigger and S/H 
+.br
+ 
+.PP
+Definition at line 187 of file pac5xxx_ADC\&.h\&.
+.PP
+Referenced by pac5xxx_adc_as0_sequence_config(), and pac5xxx_adc_as1_sequence_config()\&.
+.SS "__I { \&.\&.\&. } ::EMUXBUSY"
+External MUX Busy 
+.br
+ 
+.PP
+Definition at line 209 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_ADC_TypeDef::EMUXBUSY"
+External MUX Busy 
+.br
+ 
+.PP
+Definition at line 209 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::EMUXC"
+External MUX Control 
+.br
+ 
+.PP
+Definition at line 210 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::EMUXC"
+External MUX Control 
+.br
+ 
+.PP
+Definition at line 210 of file pac5xxx_ADC\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_ADC_TypeDef::EMUXCTL"
+< EMUXCTL: Offset: 0x0000 ADC External MUX Control 
+.br
+ EMUXDATA: Offset: 0x0004 ADC External MUX Data 
+.br
+ 
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADCSEQCTL_Type::EMUXD"
+MUX data to send 
+.br
+ 
+.PP
+Definition at line 185 of file pac5xxx_ADC\&.h\&.
+.PP
+Referenced by pac5xxx_adc_as0_sequence_config(), and pac5xxx_adc_as1_sequence_config()\&.
+.SS "__IO { \&.\&.\&. } ::EMUXD"
+MUX data to send 
+.br
+ 
+.PP
+Definition at line 185 of file pac5xxx_ADC\&.h\&.
+.SS "struct { \&.\&.\&. }  PAC5XXX_ADC_TypeDef::EMUXDATA"
+ADCCTL: Offset: 0x0008 ADC Control Register 
+.br
+ 
+.SS "__IO { \&.\&.\&. } ::EMUXDIV"
+External MUX Clock Divider 
+.br
+ 
+.PP
+Definition at line 207 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::EMUXDIV"
+External MUX Clock Divider 
+.br
+ 
+.PP
+Definition at line 207 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::EMUXDONE"
+External MUX Data Send Finished 
+.br
+ 
+.PP
+Definition at line 208 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::EMUXDONE"
+External MUX Data Send Finished 
+.br
+ 
+.PP
+Definition at line 208 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::EMUXINT"
+External MUX Interrupt Flag 
+.br
+ 
+.PP
+Definition at line 261 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::EMUXINT"
+External MUX Interrupt Flag 
+.br
+ 
+.PP
+Definition at line 261 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::EMUXINT_EN"
+External MUX Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 267 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::EMUXINT_EN"
+External MUX Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 267 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::EMUXS"
+MUX Command Send Control 
+.br
+ 
+.PP
+Definition at line 186 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADCSEQCTL_Type::EMUXS"
+MUX Command Send Control 
+.br
+ 
+.PP
+Definition at line 186 of file pac5xxx_ADC\&.h\&.
+.PP
+Referenced by pac5xxx_adc_as0_sequence_config(), and pac5xxx_adc_as1_sequence_config()\&.
+.SS "uint32_t PAC5XXX_ADC_TypeDef::RESERVED13[31]"
+ASCTL1: Offset: 0x0100 Automated Sampling Control 0 Register 
+.br
+ 
+.PP
+Definition at line 320 of file pac5xxx_ADC\&.h\&.
+.SS "uint32_t PAC5XXX_ADC_TypeDef::RESERVED9[11]"
+ASCTL0: Offset: 0x0040 Automated Sampling Control 0 Register 
+.br
+ 
+.PP
+Definition at line 278 of file pac5xxx_ADC\&.h\&.
+.SS "__I { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 168 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_ADCRESULT_Type::s"
+
+.PP
+Definition at line 168 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::s"
+
+.PP
+Definition at line 199 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 199 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 225 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 252 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 284 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 326 of file pac5xxx_ADC\&.h\&.
+.SS "__I { \&.\&.\&. } ::VAL"
+ADC Conversion Result Value 
+.br
+ 
+.PP
+Definition at line 176 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_ADCRESULT_Type::VAL"
+ADC Conversion Result Value 
+.br
+ 
+.PP
+Definition at line 176 of file pac5xxx_ADC\&.h\&.
+.PP
+Referenced by pac5xxx_adc_as0_seq_get_result(), and pac5xxx_adc_as1_seq_get_result()\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::VAL"
+EMUX Data Value 
+.br
+ 
+.PP
+Definition at line 217 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::VAL"
+EMUX Data Value 
+.br
+ 
+.PP
+Definition at line 217 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_ADCRESULT_Type::w"
+
+.PP
+Definition at line 166 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADCSEQCTL_Type::w"
+
+.PP
+Definition at line 183 of file pac5xxx_ADC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_ADC_TypeDef::w"
+
+.PP
+Definition at line 197 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 197 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 223 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 250 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 282 of file pac5xxx_ADC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 324 of file pac5xxx_ADC\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

@@ -1,0 +1,90 @@
+.TH "pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_adc.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_adc.h \- Firmware driver for the PAC5XXX ADC\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac52XX\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_config\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_ADC\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_emux_config\fP (\fBADC_EMUX_CTL_Type\fP control_type, \fBADC_EMUX_DIV_Type\fP divider)"
+.br
+.RI "This function configures the ADC's external MUX\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_config\fP (\fBADCCTL_ADMODE_Type\fP adc_mode, \fBADCCTL_CLKDIV_Type\fP clock_divider, int repeat)"
+.br
+.RI "This function configures the ADC\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_config_io\fP (uint8_t channel_mask)"
+.br
+.RI "This function configures the IO ports on the device for the given ADC channels\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_config_emux_io\fP (void)"
+.br
+.RI "This function configures the EMUX IO ports on the device for EMUX output\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_as0_config_timer\fP (\fBADCCTLX_SDEPTH_Type\fP sample_depth, \fBADCCTLX_TRIGTIMER_Type\fP trig_timer_source)"
+.br
+.RI "This function configures the ASC0 unit for use with a timer trigger\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_as0_config_pwm\fP (\fBADCCTLX_SDEPTH_Type\fP sample_depth, \fBADCCTLX_TRIGEDGE_Type\fP trig_edge, \fBADCCTLX_TRIGPWM_Type\fP trig_pwm_source)"
+.br
+.RI "This function configures the ASC0 unit for use with a PWM trigger\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_as1_config_timer\fP (\fBADCCTLX_SDEPTH_Type\fP sample_depth, \fBADCCTLX_TRIGTIMER_Type\fP trig_timer_source)"
+.br
+.RI "This function configures the ASC1 unit for use with a timer trigger\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_as1_config_pwm\fP (\fBADCCTLX_SDEPTH_Type\fP sample_depth, \fBADCCTLX_TRIGEDGE_Type\fP trig_edge, \fBADCCTLX_TRIGPWM_Type\fP trig_pwm_source)"
+.br
+.RI "This function configures the ASC1 unit for use with a PWM trigger\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_as0_sequence_config\fP (int seq_num, \fBADCCTL_ADMUX_Type\fP mux_select, \fBASSEQ_MSPI_Type\fP emux_control, uint8_t emux_data, \fBASSEQ_DELAY_Type\fP seq_delay)"
+.br
+.RI "This function configures the given sequence number for the ASC0 unit\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_as1_sequence_config\fP (int seq_num, \fBADCCTL_ADMUX_Type\fP mux_select, \fBASSEQ_MSPI_Type\fP emux_control, uint8_t emux_data, \fBASSEQ_DELAY_Type\fP seq_delay)"
+.br
+.RI "This function configures the given sequence number for the ASC1 unit\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP uint16_t \fBpac5xxx_adc_as0_seq_get_result\fP (int seq_num)"
+.br
+.RI "This function returns the ADC result for the given sequence number for the ASC0 unit\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP uint16_t \fBpac5xxx_adc_as1_seq_get_result\fP (int seq_num)"
+.br
+.RI "This function returns the ADC result for the given sequence number for the ASC1 unit\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Firmware driver for the PAC5XXX ADC\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2020, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_driver_adc\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

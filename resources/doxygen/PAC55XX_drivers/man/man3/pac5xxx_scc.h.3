@@ -1,0 +1,316 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_scc.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_scc.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBIO_MUXSEL_TYPEDEF\fP"
+.br
+.ti -1c
+.RI "union \fBIO_PINS_TYPEDEF\fP"
+.br
+.ti -1c
+.RI "union \fBIO_DS_TYPEDEF\fP"
+.br
+.ti -1c
+.RI "struct \fBPAC55XX_SCC_TYPEDEF\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBIO_PINS_TYPEDEF_DEFINE\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBUSART_MODE_TYPE\fP { \fBUSART_MODE_SSP\fP = 0, \fBUSART_MODE_UART\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBCCSCTL_CLKIN_TYPE\fP { \fBCCSCTL_CLKIN_ROSC\fP = 0, \fBCCSCTL_CLKIN_CLKREF\fP = 1, \fBCCSCTL_CLKIN_XTALCLK\fP = 2, \fBCCSCTL_CLKIN_EXTCLK\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBCCSCTL_PLLCLK_TYPE\fP { \fBCCSCTL_PLLCLK_CLKREF\fP = 0, \fBCCSCTL_PLLCLK_XTALCLK\fP = 1, \fBCCSCTL_PLLCLK_EXTCLK\fP = 2 }"
+.br
+.ti -1c
+.RI "enum \fBCCSCTL_SCLK_TYPE\fP { \fBCCSCTL_SCLK_FRCLK\fP = 0, \fBCCSCTL_SCLK_PLLCLK\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBCCSCTL_PCLKDIV_TYPE\fP { \fBCCSCTL_PCLKDIV_DIV1\fP = 0, \fBCCSCTL_PCLKDIV_DIV2\fP = 1, \fBCCSCTL_PCLKDIV_DIV3\fP = 2, \fBCCSCTL_PCLKDIV_DIV4\fP = 3, \fBCCSCTL_PCLKDIV_DIV5\fP = 4, \fBCCSCTL_PCLKDIV_DIV6\fP = 5, \fBCCSCTL_PCLKDIV_DIV7\fP = 6, \fBCCSCTL_PCLKDIV_DIV8\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBCCSCTL_ACLKDIV_TYPE\fP { \fBCCSCTL_ACLKDIV_DIV1\fP = 0, \fBCCSCTL_ACLKDIV_DIV2\fP = 1, \fBCCSCTL_ACLKDIV_DIV3\fP = 2, \fBCCSCTL_ACLKDIV_DIV4\fP = 3, \fBCCSCTL_ACLKDIV_DIV5\fP = 4, \fBCCSCTL_ACLKDIV_DIV6\fP = 5, \fBCCSCTL_ACLKDIV_DIV7\fP = 6, \fBCCSCTL_ACLKDIV_DIV8\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBCCSCTL_HCLKDIV_TYPE\fP { \fBCCSCTL_HCLKDIV_DIV1\fP = 0, \fBCCSCTL_HCLKDIV_DIV2\fP = 1, \fBCCSCTL_HCLKDIV_DIV3\fP = 2, \fBCCSCTL_HCLKDIV_DIV4\fP = 3, \fBCCSCTL_HCLKDIV_DIV5\fP = 4, \fBCCSCTL_HCLKDIV_DIV6\fP = 5, \fBCCSCTL_HCLKDIV_DIV7\fP = 6, \fBCCSCTL_HCLKDIV_DIV8\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBCCSCTL_CLKFAIL_TYPE\fP { \fBCCSCTL_CLKFAIL_FRCLK\fP = 0, \fBCCSCTL_CLKFAIL_PLLCLK\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBIODS_DS_TYPE\fP { \fBIODS_DS_6MA\fP = 0, \fBIODS_DS_8MA\fP = 1, \fBIODS_DS_11MA\fP = 2, \fBIODS_DS_14MA\fP = 3, \fBIODS_DS_17MA\fP = 4, \fBIODS_DS_20MA\fP = 5, \fBIODS_DS_22MA\fP = 6, \fBIODS_DS_25MA\fP = 7 }"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define IO_PINS_TYPEDEF_DEFINE"
+
+.PP
+Definition at line 126 of file pac5xxx_scc\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBCCSCTL_ACLKDIV_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICCSCTL_ACLKDIV_DIV1 \fP\fP
+.TP
+\fB\fICCSCTL_ACLKDIV_DIV2 \fP\fP
+.TP
+\fB\fICCSCTL_ACLKDIV_DIV3 \fP\fP
+.TP
+\fB\fICCSCTL_ACLKDIV_DIV4 \fP\fP
+.TP
+\fB\fICCSCTL_ACLKDIV_DIV5 \fP\fP
+.TP
+\fB\fICCSCTL_ACLKDIV_DIV6 \fP\fP
+.TP
+\fB\fICCSCTL_ACLKDIV_DIV7 \fP\fP
+.TP
+\fB\fICCSCTL_ACLKDIV_DIV8 \fP\fP
+.PP
+Definition at line 61 of file pac5xxx_scc\&.h\&.
+.PP
+.nf
+61              {
+62   CCSCTL_ACLKDIV_DIV1   = 0,                // SCLK /1
+63   CCSCTL_ACLKDIV_DIV2   = 1,                // SCLK /2
+64   CCSCTL_ACLKDIV_DIV3   = 2,                // SCLK /3
+65   CCSCTL_ACLKDIV_DIV4   = 3,                // SCLK /4
+66   CCSCTL_ACLKDIV_DIV5   = 4,                // SCLK /5
+67   CCSCTL_ACLKDIV_DIV6   = 5,                // SCLK /6
+68   CCSCTL_ACLKDIV_DIV7   = 6,                // SCLK /7
+69   CCSCTL_ACLKDIV_DIV8   = 7                 // SCLK /8
+70 } CCSCTL_ACLKDIV_TYPE;
+.fi
+.SS "enum \fBCCSCTL_CLKFAIL_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICCSCTL_CLKFAIL_FRCLK \fP\fP
+.TP
+\fB\fICCSCTL_CLKFAIL_PLLCLK \fP\fP
+.PP
+Definition at line 85 of file pac5xxx_scc\&.h\&.
+.PP
+.nf
+85              {
+86   CCSCTL_CLKFAIL_FRCLK  = 0,                // Select FRCLK for clock failure detection
+87   CCSCTL_CLKFAIL_PLLCLK = 1                 // Select PLLCLK for clock failure detection
+88 } CCSCTL_CLKFAIL_TYPE;
+.fi
+.SS "enum \fBCCSCTL_CLKIN_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICCSCTL_CLKIN_ROSC \fP\fP
+.TP
+\fB\fICCSCTL_CLKIN_CLKREF \fP\fP
+.TP
+\fB\fICCSCTL_CLKIN_XTALCLK \fP\fP
+.TP
+\fB\fICCSCTL_CLKIN_EXTCLK \fP\fP
+.PP
+Definition at line 28 of file pac5xxx_scc\&.h\&.
+.PP
+.nf
+28              {
+29   CCSCTL_CLKIN_ROSC     = 0,                // Select FRCLK = Ring Oscillator Clock
+30   CCSCTL_CLKIN_CLKREF   = 1,                // Select FRCLK = CLKREF
+31   CCSCTL_CLKIN_XTALCLK  = 2,                // Select FRCLK = Crystal Clock
+32   CCSCTL_CLKIN_EXTCLK   = 3                 // Select FRCLK = External Clock
+33 } CCSCTL_CLKIN_TYPE;
+.fi
+.SS "enum \fBCCSCTL_HCLKDIV_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICCSCTL_HCLKDIV_DIV1 \fP\fP
+.TP
+\fB\fICCSCTL_HCLKDIV_DIV2 \fP\fP
+.TP
+\fB\fICCSCTL_HCLKDIV_DIV3 \fP\fP
+.TP
+\fB\fICCSCTL_HCLKDIV_DIV4 \fP\fP
+.TP
+\fB\fICCSCTL_HCLKDIV_DIV5 \fP\fP
+.TP
+\fB\fICCSCTL_HCLKDIV_DIV6 \fP\fP
+.TP
+\fB\fICCSCTL_HCLKDIV_DIV7 \fP\fP
+.TP
+\fB\fICCSCTL_HCLKDIV_DIV8 \fP\fP
+.PP
+Definition at line 73 of file pac5xxx_scc\&.h\&.
+.PP
+.nf
+73              {
+74   CCSCTL_HCLKDIV_DIV1   = 0,                // SCLK /1
+75   CCSCTL_HCLKDIV_DIV2   = 1,                // SCLK /2
+76   CCSCTL_HCLKDIV_DIV3   = 2,                // SCLK /3
+77   CCSCTL_HCLKDIV_DIV4   = 3,                // SCLK /4
+78   CCSCTL_HCLKDIV_DIV5   = 4,                // SCLK /5
+79   CCSCTL_HCLKDIV_DIV6   = 5,                // SCLK /6
+80   CCSCTL_HCLKDIV_DIV7   = 6,                // SCLK /7
+81   CCSCTL_HCLKDIV_DIV8   = 7                 // SCLK /8
+82 } CCSCTL_HCLKDIV_TYPE;
+.fi
+.SS "enum \fBCCSCTL_PCLKDIV_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICCSCTL_PCLKDIV_DIV1 \fP\fP
+.TP
+\fB\fICCSCTL_PCLKDIV_DIV2 \fP\fP
+.TP
+\fB\fICCSCTL_PCLKDIV_DIV3 \fP\fP
+.TP
+\fB\fICCSCTL_PCLKDIV_DIV4 \fP\fP
+.TP
+\fB\fICCSCTL_PCLKDIV_DIV5 \fP\fP
+.TP
+\fB\fICCSCTL_PCLKDIV_DIV6 \fP\fP
+.TP
+\fB\fICCSCTL_PCLKDIV_DIV7 \fP\fP
+.TP
+\fB\fICCSCTL_PCLKDIV_DIV8 \fP\fP
+.PP
+Definition at line 49 of file pac5xxx_scc\&.h\&.
+.PP
+.nf
+49              {
+50   CCSCTL_PCLKDIV_DIV1   = 0,                // SCLK /1
+51   CCSCTL_PCLKDIV_DIV2   = 1,                // SCLK /2
+52   CCSCTL_PCLKDIV_DIV3   = 2,                // SCLK /3
+53   CCSCTL_PCLKDIV_DIV4   = 3,                // SCLK /4
+54   CCSCTL_PCLKDIV_DIV5   = 4,                // SCLK /5
+55   CCSCTL_PCLKDIV_DIV6   = 5,                // SCLK /6
+56   CCSCTL_PCLKDIV_DIV7   = 6,                // SCLK /7
+57   CCSCTL_PCLKDIV_DIV8   = 7                 // SCLK /8
+58 } CCSCTL_PCLKDIV_TYPE;
+.fi
+.SS "enum \fBCCSCTL_PLLCLK_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICCSCTL_PLLCLK_CLKREF \fP\fP
+.TP
+\fB\fICCSCTL_PLLCLK_XTALCLK \fP\fP
+.TP
+\fB\fICCSCTL_PLLCLK_EXTCLK \fP\fP
+.PP
+Definition at line 36 of file pac5xxx_scc\&.h\&.
+.PP
+.nf
+36              {
+37   CCSCTL_PLLCLK_CLKREF  = 0,                // Select PLLCLK = CLKREF
+38   CCSCTL_PLLCLK_XTALCLK = 1,                // Select PLLCLK = Crystal Clock
+39   CCSCTL_PLLCLK_EXTCLK  = 2                 // Select PLLCLK = External Clock
+40 } CCSCTL_PLLCLK_TYPE;
+.fi
+.SS "enum \fBCCSCTL_SCLK_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICCSCTL_SCLK_FRCLK \fP\fP
+.TP
+\fB\fICCSCTL_SCLK_PLLCLK \fP\fP
+.PP
+Definition at line 43 of file pac5xxx_scc\&.h\&.
+.PP
+.nf
+43              {
+44   CCSCTL_SCLK_FRCLK     = 0,                // Select SCLK = FRCLK
+45   CCSCTL_SCLK_PLLCLK    = 1                 // Select SCLK = PLLCLK
+46 } CCSCTL_SCLK_TYPE;
+.fi
+.SS "enum \fBIODS_DS_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIODS_DS_6MA \fP\fP
+.TP
+\fB\fIIODS_DS_8MA \fP\fP
+.TP
+\fB\fIIODS_DS_11MA \fP\fP
+.TP
+\fB\fIIODS_DS_14MA \fP\fP
+.TP
+\fB\fIIODS_DS_17MA \fP\fP
+.TP
+\fB\fIIODS_DS_20MA \fP\fP
+.TP
+\fB\fIIODS_DS_22MA \fP\fP
+.TP
+\fB\fIIODS_DS_25MA \fP\fP
+.PP
+Definition at line 91 of file pac5xxx_scc\&.h\&.
+.PP
+.nf
+91              {
+92   IODS_DS_6MA           = 0,                // Select Drive Strength 6mA
+93   IODS_DS_8MA           = 1,                // Select Drive Strength 8mA
+94   IODS_DS_11MA          = 2,                // Select Drive Strength 11mA
+95   IODS_DS_14MA          = 3,                // Select Drive Strength 14mA  
+96   IODS_DS_17MA          = 4,                // Select Drive Strength 17mA
+97   IODS_DS_20MA          = 5,                // Select Drive Strength 20mA
+98   IODS_DS_22MA          = 6,                // Select Drive Strength 22mA
+99   IODS_DS_25MA          = 7                 // Select Drive Strength 25mA   
+100 } IODS_DS_TYPE;
+.fi
+.SS "enum \fBUSART_MODE_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUSART_MODE_SSP \fP\fP
+.TP
+\fB\fIUSART_MODE_UART \fP\fP
+.PP
+Definition at line 22 of file pac5xxx_scc\&.h\&.
+.PP
+.nf
+22              {
+23     USART_MODE_SSP      = 0,                //SSP mode
+24     USART_MODE_UART     = 1                 //UART mode
+25 } USART_MODE_TYPE;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

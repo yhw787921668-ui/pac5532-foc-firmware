@@ -1,0 +1,164 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_wwdt.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_wwdt.h \- CMSIS Cortex-M Header File for the PAC55XX Windowed Watch Dog Timer\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPAC55XX_WWDT_TYPEDEF\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBWWDTLOCK_REGS_WRITE_AVALABLE\fP   0x55AA6699"
+.br
+.ti -1c
+.RI "#define \fBWWDTLOCK_REGS_READ_ONLY\fP   0x55AA6698"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBWWDTCTL_CLKSEL_TYPE\fP { \fBWWDTCTL_CLKSEL_FRCLK\fP = 0, \fBWWDTCTL_CLKSEL_ROSCCLK\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBWWDT_CLKDIV_TYPE\fP { \fBWWDT_CLKDIV_DIV1\fP = 0, \fBWWDT_CLKDIV_DIV2\fP = 1, \fBWWDT_CLKDIV_DIV4\fP = 2, \fBWWDT_CLKDIV_DIV8\fP = 3, \fBWWDT_CLKDIV_DIV16\fP = 4, \fBWWDT_CLKDIV_DIV32\fP = 5, \fBWWDT_CLKDIV_DIV64\fP = 6, \fBWWDT_CLKDIV_DIV128\fP = 7, \fBWWDT_CLKDIV_DIV256\fP = 8, \fBWWDT_CLKDIV_DIV512\fP = 9, \fBWWDT_CLKDIV_DIV1024\fP = 10, \fBWWDT_CLKDIV_DIV2048\fP = 11, \fBWWDT_CLKDIV_DIV4096\fP = 12, \fBWWDT_CLKDIV_DIV8192\fP = 13, \fBWWDT_CLKDIV_DIV16384\fP = 14, \fBWWDT_CLKDIV_DIV32768\fP = 15 }"
+.br
+.ti -1c
+.RI "enum \fBWWDT_INTF_TYPE\fP { \fBWWDT_INTF_NO_FLAG\fP = 0, \fBWWDT_INTF_FLAG\fP = 1 }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CMSIS Cortex-M Header File for the PAC55XX Windowed Watch Dog Timer\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2017-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_wwdt\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define WWDTLOCK_REGS_READ_ONLY   0x55AA6698"
+
+.PP
+Definition at line 54 of file pac5xxx_wwdt\&.h\&.
+.SS "#define WWDTLOCK_REGS_WRITE_AVALABLE   0x55AA6699"
+
+.PP
+Definition at line 53 of file pac5xxx_wwdt\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBWWDT_CLKDIV_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIWWDT_CLKDIV_DIV1 \fP\fP
+.TP
+\fB\fIWWDT_CLKDIV_DIV2 \fP\fP
+.TP
+\fB\fIWWDT_CLKDIV_DIV4 \fP\fP
+.TP
+\fB\fIWWDT_CLKDIV_DIV8 \fP\fP
+.TP
+\fB\fIWWDT_CLKDIV_DIV16 \fP\fP
+.TP
+\fB\fIWWDT_CLKDIV_DIV32 \fP\fP
+.TP
+\fB\fIWWDT_CLKDIV_DIV64 \fP\fP
+.TP
+\fB\fIWWDT_CLKDIV_DIV128 \fP\fP
+.TP
+\fB\fIWWDT_CLKDIV_DIV256 \fP\fP
+.TP
+\fB\fIWWDT_CLKDIV_DIV512 \fP\fP
+.TP
+\fB\fIWWDT_CLKDIV_DIV1024 \fP\fP
+.TP
+\fB\fIWWDT_CLKDIV_DIV2048 \fP\fP
+.TP
+\fB\fIWWDT_CLKDIV_DIV4096 \fP\fP
+.TP
+\fB\fIWWDT_CLKDIV_DIV8192 \fP\fP
+.TP
+\fB\fIWWDT_CLKDIV_DIV16384 \fP\fP
+.TP
+\fB\fIWWDT_CLKDIV_DIV32768 \fP\fP
+.PP
+Definition at line 28 of file pac5xxx_wwdt\&.h\&.
+.PP
+.nf
+28              {
+29     WWDT_CLKDIV_DIV1     =  0, // WWDTCTL\&.CLKSEL / 1
+30     WWDT_CLKDIV_DIV2     =  1, // WWDTCTL\&.CLKSEL / 2
+31     WWDT_CLKDIV_DIV4     =  2, // WWDTCTL\&.CLKSEL / 4
+32     WWDT_CLKDIV_DIV8     =  3, // WWDTCTL\&.CLKSEL / 8
+33     WWDT_CLKDIV_DIV16    =  4, // WWDTCTL\&.CLKSEL / 16
+34     WWDT_CLKDIV_DIV32    =  5, // WWDTCTL\&.CLKSEL / 32
+35     WWDT_CLKDIV_DIV64    =  6, // WWDTCTL\&.CLKSEL / 64
+36     WWDT_CLKDIV_DIV128   =  7, // WWDTCTL\&.CLKSEL / 128
+37     WWDT_CLKDIV_DIV256   =  8, // WWDTCTL\&.CLKSEL / 256
+38     WWDT_CLKDIV_DIV512   =  9, // WWDTCTL\&.CLKSEL / 512
+39     WWDT_CLKDIV_DIV1024  = 10, // WWDTCTL\&.CLKSEL / 1024
+40     WWDT_CLKDIV_DIV2048  = 11, // WWDTCTL\&.CLKSEL / 2048
+41     WWDT_CLKDIV_DIV4096  = 12, // WWDTCTL\&.CLKSEL / 4096
+42     WWDT_CLKDIV_DIV8192  = 13, // WWDTCTL\&.CLKSEL / 8192
+43     WWDT_CLKDIV_DIV16384 = 14, // WWDTCTL\&.CLKSEL / 16384
+44     WWDT_CLKDIV_DIV32768 = 15  // WWDTCTL\&.CLKSEL / 32768
+45 } WWDT_CLKDIV_TYPE;
+.fi
+.SS "enum \fBWWDT_INTF_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIWWDT_INTF_NO_FLAG \fP\fP
+.TP
+\fB\fIWWDT_INTF_FLAG \fP\fP
+.PP
+Definition at line 48 of file pac5xxx_wwdt\&.h\&.
+.PP
+.nf
+48              {
+49     WWDT_INTF_NO_FLAG =  0,                  // no flags
+50     WWDT_INTF_FLAG    =  1                   // flags
+51 } WWDT_INTF_TYPE;
+.fi
+.SS "enum \fBWWDTCTL_CLKSEL_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIWWDTCTL_CLKSEL_FRCLK \fP\fP
+.TP
+\fB\fIWWDTCTL_CLKSEL_ROSCCLK \fP\fP
+.PP
+Definition at line 22 of file pac5xxx_wwdt\&.h\&.
+.PP
+.nf
+22              {
+23     WWDTCTL_CLKSEL_FRCLK   =    0,
+24     WWDTCTL_CLKSEL_ROSCCLK =    1
+25 } WWDTCTL_CLKSEL_TYPE;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

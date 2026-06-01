@@ -1,0 +1,221 @@
+.TH "PAC5XXX_Driver_Timer" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_Timer \- PAC5XXX Analog Timer and DTG Driver
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_TIMER\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBTimerInstance\fP { \fBTimerA\fP, \fBTimerB\fP, \fBTimerC\fP, \fBTimerD\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_base_config\fP (\fBTimerInstance\fP timer, uint16_t period, int single_shot, \fBTXCTRL_MODE_Type\fP mode, int sync)"
+.br
+.RI "This function configures the base timer period, mode and single-use mode for the given timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_dtg_config2\fP (\fBDTGCTL_TYPEDEF\fP *p_dtg, uint16_t red, uint16_t fed)"
+.br
+.RI "This function configures and enables the given Dead-Time Generator (DTG) "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_clock_config\fP (\fBTimerInstance\fP timer, \fBTXCTRL_CLKIN_Type\fP source, \fBTXCTRL_PS_Type\fP prescale)"
+.br
+.RI "This function configures the clock source and pre-scaler for the given timer\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_TIMER"
+
+.PP
+Definition at line 32 of file pac5xxx_driver_timer\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBTimerInstance\fP"
+Timer Instance for Timer Driver Configuration 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fITimerA \fP\fP
+.TP
+\fB\fITimerB \fP\fP
+.TP
+\fB\fITimerC \fP\fP
+.TP
+\fB\fITimerD \fP\fP
+.PP
+Definition at line 36 of file pac5xxx_driver_timer\&.h\&.
+.PP
+.nf
+36              { 
+37     TimerA,
+38     TimerB,
+39     TimerC,
+40     TimerD
+41 } TimerInstance; 
+.fi
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_TIMER\fP void pac5xxx_dtg_config2 (\fBDTGCTL_TYPEDEF\fP * p_dtg, uint16_t red, uint16_t fed)"
+
+.PP
+This function configures and enables the given Dead-Time Generator (DTG) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIp_dtg\fP DTG Instance 
+.br
+\fIred\fP Risigin Edge Delay 
+.br
+\fIfed\fP Trailing Edge Delay 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_timer\&.c\&.
+.PP
+.nf
+21 {
+22     p_dtg->RED = red;
+23     p_dtg->FED = fed;
+24     p_dtg->DTEN = 1;
+25 }
+.fi
+.PP
+References DTGCTL_TYPEDEF::DTEN, DTGCTL_TYPEDEF::FED, and DTGCTL_TYPEDEF::RED\&.
+.PP
+Referenced by configure_foc_timer()\&.
+.SS "\fBRAMFUNC_TIMER\fP void pac5xxx_timer_base_config (\fBTimerInstance\fP timer, uint16_t period, int single_shot, \fBTXCTRL_MODE_Type\fP mode, int sync)"
+
+.PP
+This function configures the base timer period, mode and single-use mode for the given timer\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimer\fP Timer Instance 
+.br
+\fIperiod\fP Timer Period in clock ticks 
+.br
+\fIsingle_shot\fP Set to 1 for single-use timer mode, 0 for auto-reload 
+.br
+\fImode\fP Timer Mode (up, up/down, etc\&.) 
+.br
+\fIsync\fP Timer slave synchronize (set for slave sync) if set to 1 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 51 of file pac5xxx_driver_timer\&.c\&.
+.PP
+.nf
+52 {
+53     PAC55XX_TIMER_TYPEDEF * p_timer = PAC55XX_TIMERD;
+54     
+55     switch (timer)
+56     {
+57         case TimerA:
+58             p_timer = PAC55XX_TIMERA;
+59             break;
+60         case TimerB:
+61             p_timer = PAC55XX_TIMERB;
+62             break;
+63         case TimerC:
+64             p_timer = PAC55XX_TIMERC;
+65             break;
+66         case TimerD:
+67             p_timer = PAC55XX_TIMERD;
+68             break;
+69     }
+70         
+71     p_timer->CTL\&.SSYNC = slave_sync; // Be sure to set sync bit first
+72     p_timer->PRD\&.w = period;
+73     p_timer->CTL\&.MODE = mode;
+74     p_timer->CTL\&.SINGLE = single_shot;
+75  
+76 }
+.fi
+.PP
+References PAC55XX_TIMER_TYPEDEF::CTL, TIMER_CTL_TYPEDEF::MODE, PAC55XX_TIMERA, PAC55XX_TIMERB, PAC55XX_TIMERC, PAC55XX_TIMERD, PAC55XX_TIMER_TYPEDEF::PRD, TIMER_CTL_TYPEDEF::SINGLE, TIMER_CTL_TYPEDEF::SSYNC, TimerA, TimerB, TimerC, TimerD, and PAC55XX_TIMER_TYPEDEF::w\&.
+.PP
+Referenced by configure_foc_timer(), and configure_pwm_dac()\&.
+.SS "\fBRAMFUNC_TIMER\fP void pac5xxx_timer_clock_config (\fBTimerInstance\fP timer, \fBTXCTRL_CLKIN_Type\fP source, \fBTXCTRL_PS_Type\fP prescale)"
+
+.PP
+This function configures the clock source and pre-scaler for the given timer\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimer\fP Timer Instance 
+.br
+\fIsource\fP Timer clock input source 
+.br
+\fIprescale\fP Timer pre-scaler 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 27 of file pac5xxx_driver_timer\&.c\&.
+.PP
+.nf
+28 {
+29     PAC55XX_TIMER_TYPEDEF * p_timer = PAC55XX_TIMERD;;
+30     
+31     switch (timer)
+32     {
+33         case TimerA:
+34             p_timer = PAC55XX_TIMERA;
+35             break;
+36         case TimerB:
+37             p_timer = PAC55XX_TIMERB;
+38             break;
+39         case TimerC:
+40             p_timer = PAC55XX_TIMERC;
+41             break;
+42         case TimerD:
+43             p_timer = PAC55XX_TIMERD;
+44             break;
+45     }
+46     
+47     p_timer->CTL\&.CLKSRC = source;
+48     p_timer->CTL\&.CLKDIV = prescale;
+49 }
+.fi
+.PP
+References TIMER_CTL_TYPEDEF::CLKDIV, TIMER_CTL_TYPEDEF::CLKSRC, PAC55XX_TIMER_TYPEDEF::CTL, PAC55XX_TIMERA, PAC55XX_TIMERB, PAC55XX_TIMERC, PAC55XX_TIMERD, TimerA, TimerB, TimerC, and TimerD\&.
+.PP
+Referenced by configure_foc_timer(), and configure_pwm_dac()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

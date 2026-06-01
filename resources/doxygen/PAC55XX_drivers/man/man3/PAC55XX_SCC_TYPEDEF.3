@@ -1,0 +1,500 @@
+.TH "PAC55XX_SCC_TYPEDEF" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC55XX_SCC_TYPEDEF
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pac5xxx_scc\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFRCLKMUXSEL\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBROSCEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBXTALEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSCLKMUXSEL\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCLKFAILEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCLKFAILMUXSEL\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCLKFAILIF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBLDOEN\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSWPOR\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPCLKEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBACLKEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBADCCLKEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSTCLKSLPEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPCLKDIV\fP: 3"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBACLKDIV\fP: 3"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad2__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBHCLKDIV\fP: 3"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad3__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBUSAMODE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBUSBMODE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBUSCMODE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBUSDMODE\fP: 1"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBCCSCTL\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPLLEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPLLBP\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPLLOUTDIV\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPLLINDIV\fP: 4"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPLLFBDIV\fP: 14"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPLLLOCK\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad1__\fP: 7"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBCCSPLLCTL\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIM\fP: 7"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 25"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBCCSROSCTRIM\fP"
+.br
+.ti -1c
+.RI "\fBIO_MUXSEL_TYPEDEF\fP \fBPAMUXSEL\fP"
+.br
+.ti -1c
+.RI "\fBIO_MUXSEL_TYPEDEF\fP \fBPBMUXSEL\fP"
+.br
+.ti -1c
+.RI "\fBIO_MUXSEL_TYPEDEF\fP \fBPCMUXSEL\fP"
+.br
+.ti -1c
+.RI "\fBIO_MUXSEL_TYPEDEF\fP \fBPDMUXSEL\fP"
+.br
+.ti -1c
+.RI "\fBIO_MUXSEL_TYPEDEF\fP \fBPEMUXSEL\fP"
+.br
+.ti -1c
+.RI "\fBIO_MUXSEL_TYPEDEF\fP \fBPFMUXSEL\fP"
+.br
+.ti -1c
+.RI "\fBIO_MUXSEL_TYPEDEF\fP \fBPGMUXSEL\fP"
+.br
+.ti -1c
+.RI "\fBIO_PINS_TYPEDEF\fP \fBPAPUEN\fP"
+.br
+.ti -1c
+.RI "\fBIO_PINS_TYPEDEF\fP \fBPBPUEN\fP"
+.br
+.ti -1c
+.RI "\fBIO_PINS_TYPEDEF\fP \fBPCPUEN\fP"
+.br
+.ti -1c
+.RI "\fBIO_PINS_TYPEDEF\fP \fBPDPUEN\fP"
+.br
+.ti -1c
+.RI "\fBIO_PINS_TYPEDEF\fP \fBPEPUEN\fP"
+.br
+.ti -1c
+.RI "\fBIO_PINS_TYPEDEF\fP \fBPFPUEN\fP"
+.br
+.ti -1c
+.RI "\fBIO_PINS_TYPEDEF\fP \fBPGPUEN\fP"
+.br
+.ti -1c
+.RI "\fBIO_PINS_TYPEDEF\fP \fBPAPDEN\fP"
+.br
+.ti -1c
+.RI "\fBIO_PINS_TYPEDEF\fP \fBPBPDEN\fP"
+.br
+.ti -1c
+.RI "\fBIO_PINS_TYPEDEF\fP \fBPCPDEN\fP"
+.br
+.ti -1c
+.RI "\fBIO_PINS_TYPEDEF\fP \fBPDPDEN\fP"
+.br
+.ti -1c
+.RI "\fBIO_PINS_TYPEDEF\fP \fBPEPDEN\fP"
+.br
+.ti -1c
+.RI "\fBIO_PINS_TYPEDEF\fP \fBPFPDEN\fP"
+.br
+.ti -1c
+.RI "\fBIO_PINS_TYPEDEF\fP \fBPGPDEN\fP"
+.br
+.ti -1c
+.RI "\fBIO_DS_TYPEDEF\fP \fBPADS\fP"
+.br
+.ti -1c
+.RI "\fBIO_DS_TYPEDEF\fP \fBPBDS\fP"
+.br
+.ti -1c
+.RI "\fBIO_DS_TYPEDEF\fP \fBPCDS\fP"
+.br
+.ti -1c
+.RI "\fBIO_DS_TYPEDEF\fP \fBPDDS\fP"
+.br
+.ti -1c
+.RI "\fBIO_DS_TYPEDEF\fP \fBPEDS\fP"
+.br
+.ti -1c
+.RI "\fBIO_DS_TYPEDEF\fP \fBPFDS\fP"
+.br
+.ti -1c
+.RI "\fBIO_DS_TYPEDEF\fP \fBPGDS\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 170 of file pac5xxx_scc\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t PAC55XX_SCC_TYPEDEF::__pad0__"
+
+.PP
+Definition at line 188 of file pac5xxx_scc\&.h\&.
+.SS "uint32_t PAC55XX_SCC_TYPEDEF::__pad1__"
+
+.PP
+Definition at line 197 of file pac5xxx_scc\&.h\&.
+.SS "uint32_t PAC55XX_SCC_TYPEDEF::__pad2__"
+
+.PP
+Definition at line 200 of file pac5xxx_scc\&.h\&.
+.SS "uint32_t PAC55XX_SCC_TYPEDEF::__pad3__"
+
+.PP
+Definition at line 203 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::ACLKDIV"
+
+.PP
+Definition at line 199 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::ACLKEN"
+
+.PP
+Definition at line 192 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::ADCCLKEN"
+
+.PP
+Definition at line 193 of file pac5xxx_scc\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_SCC_TYPEDEF::CCSCTL"
+
+.SS "union { \&.\&.\&. }  PAC55XX_SCC_TYPEDEF::CCSPLLCTL"
+
+.SS "union { \&.\&.\&. }  PAC55XX_SCC_TYPEDEF::CCSROSCTRIM"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::CLKFAILEN"
+
+.PP
+Definition at line 183 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::CLKFAILIF"
+
+.PP
+Definition at line 185 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::CLKFAILMUXSEL"
+
+.PP
+Definition at line 184 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::FRCLKMUXSEL"
+
+.PP
+Definition at line 178 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::HCLKDIV"
+
+.PP
+Definition at line 202 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::LDOEN"
+
+.PP
+Definition at line 187 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_DS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PADS"
+
+.PP
+Definition at line 308 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_MUXSEL_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PAMUXSEL"
+
+.PP
+Definition at line 239 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_PINS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PAPDEN"
+
+.PP
+Definition at line 285 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_PINS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PAPUEN"
+
+.PP
+Definition at line 262 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_DS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PBDS"
+
+.PP
+Definition at line 311 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_MUXSEL_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PBMUXSEL"
+
+.PP
+Definition at line 242 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_PINS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PBPDEN"
+
+.PP
+Definition at line 288 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_PINS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PBPUEN"
+
+.PP
+Definition at line 265 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_DS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PCDS"
+
+.PP
+Definition at line 314 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::PCLKDIV"
+
+.PP
+Definition at line 196 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::PCLKEN"
+
+.PP
+Definition at line 191 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_MUXSEL_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PCMUXSEL"
+
+.PP
+Definition at line 245 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_PINS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PCPDEN"
+
+.PP
+Definition at line 291 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_PINS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PCPUEN"
+
+.PP
+Definition at line 268 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_DS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PDDS"
+
+.PP
+Definition at line 317 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_MUXSEL_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PDMUXSEL"
+
+.PP
+Definition at line 248 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_PINS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PDPDEN"
+
+.PP
+Definition at line 294 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_PINS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PDPUEN"
+
+.PP
+Definition at line 271 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_DS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PEDS"
+
+.PP
+Definition at line 320 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_MUXSEL_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PEMUXSEL"
+
+.PP
+Definition at line 251 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_PINS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PEPDEN"
+
+.PP
+Definition at line 297 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_PINS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PEPUEN"
+
+.PP
+Definition at line 274 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_DS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PFDS"
+
+.PP
+Definition at line 323 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_MUXSEL_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PFMUXSEL"
+
+.PP
+Definition at line 254 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_PINS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PFPDEN"
+
+.PP
+Definition at line 300 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_PINS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PFPUEN"
+
+.PP
+Definition at line 277 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_DS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PGDS"
+
+.PP
+Definition at line 326 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_MUXSEL_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PGMUXSEL"
+
+.PP
+Definition at line 257 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_PINS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PGPDEN"
+
+.PP
+Definition at line 303 of file pac5xxx_scc\&.h\&.
+.SS "\fBIO_PINS_TYPEDEF\fP PAC55XX_SCC_TYPEDEF::PGPUEN"
+
+.PP
+Definition at line 280 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::PLLBP"
+
+.PP
+Definition at line 218 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::PLLEN"
+
+.PP
+Definition at line 217 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::PLLFBDIV"
+
+.PP
+Definition at line 221 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::PLLINDIV"
+
+.PP
+Definition at line 220 of file pac5xxx_scc\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_SCC_TYPEDEF::PLLLOCK"
+
+.PP
+Definition at line 223 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::PLLOUTDIV"
+
+.PP
+Definition at line 219 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::ROSCEN"
+
+.PP
+Definition at line 179 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::SCLKMUXSEL"
+
+.PP
+Definition at line 182 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::STCLKSLPEN"
+
+.PP
+Definition at line 194 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::SWPOR"
+
+.PP
+Definition at line 189 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::TRIM"
+
+.PP
+Definition at line 233 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::USAMODE"
+
+.PP
+Definition at line 205 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::USBMODE"
+
+.PP
+Definition at line 206 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::USCMODE"
+
+.PP
+Definition at line 207 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::USDMODE"
+
+.PP
+Definition at line 208 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::w"
+
+.PP
+Definition at line 175 of file pac5xxx_scc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SCC_TYPEDEF::XTALEN"
+
+.PP
+Definition at line 180 of file pac5xxx_scc\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

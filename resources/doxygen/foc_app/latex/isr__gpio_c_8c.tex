@@ -1,0 +1,43 @@
+\hypertarget{isr__gpio_c_8c}{}\doxysection{pac\+\_\+foc/src/isr/isr\+\_\+gpioC.c File Reference}
+\label{isr__gpio_c_8c}\index{pac\_foc/src/isr/isr\_gpioC.c@{pac\_foc/src/isr/isr\_gpioC.c}}
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac\+\_\+init.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fault.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+tile.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hall\+\_\+funcs.\+h\char`\"{}}\newline
+Include dependency graph for isr\+\_\+gpio\+C.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{isr__gpio_c_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{isr__gpio_c_8c_aa053cbab26a9794b00a82ba52317d4e4}{Gpio\+C\+\_\+\+I\+R\+Q\+Handler}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{isr__gpio_c_8c_aa053cbab26a9794b00a82ba52317d4e4}\label{isr__gpio_c_8c_aa053cbab26a9794b00a82ba52317d4e4}} 
+\index{isr\_gpioC.c@{isr\_gpioC.c}!GpioC\_IRQHandler@{GpioC\_IRQHandler}}
+\index{GpioC\_IRQHandler@{GpioC\_IRQHandler}!isr\_gpioC.c@{isr\_gpioC.c}}
+\doxysubsubsection{\texorpdfstring{GpioC\_IRQHandler()}{GpioC\_IRQHandler()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void Gpio\+C\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 26 of file isr\+\_\+gpio\+C.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_HALL == ENABLED) \& (HALL\_METHOD\_SELECT == HALL\_METHOD\_INTERRUPT) \& (Hall\_Gpio\_IRQn == GpioC\_IRQn)}}
+\DoxyCodeLine{29     hall\_isr\_handler();}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{31 \}}
+
+\end{DoxyCode}

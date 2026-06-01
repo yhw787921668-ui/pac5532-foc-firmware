@@ -1,0 +1,201 @@
+.TH "pac_foc/src/features/ipd/ipd_funcs.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/features/ipd/ipd_funcs.h \- Use for ipd related utility functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'ipd\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBipd_save_and_init_config_for_ipd_mode\fP (void *v_motor_ptr)"
+.br
+.RI "Use to save and init config for ipd mode\&. "
+.ti -1c
+.RI "void \fBipd_restore_config_for_non_ipd_mode\fP (void *v_motor_ptr)"
+.br
+.RI "Use to restore config for non ipd mode\&. "
+.ti -1c
+.RI "void \fBipd_m1_u_set_duty\fP (uint16_t duty)"
+.br
+.RI "Use to set u duty cycle\&. "
+.ti -1c
+.RI "void \fBipd_m1_v_set_duty\fP (uint16_t duty)"
+.br
+.RI "Use to set v duty cycle\&. "
+.ti -1c
+.RI "void \fBipd_m1_w_set_duty\fP (uint16_t duty)"
+.br
+.RI "Use to set w duty cycle\&. "
+.ti -1c
+.RI "void \fBipd_read_phase_currents\fP (\fBStruct_IPD\fP *ipd_ptr)"
+.br
+.RI "Use to read motor phase curents\&. "
+.ti -1c
+.RI "void \fBconfig_seq_ipd\fP (uint32_t sequencer_trigger_value)"
+.br
+.RI "Use to set ipd sequence configuration\&. "
+.ti -1c
+.RI "void \fBipd_empty_function\fP (void *m_ptr)"
+.br
+.RI "Use to as ipd empty function\&. "
+.ti -1c
+.RI "void \fBm1_enable_with_duty\fP (uint32_t duty)"
+.br
+.RI "Use to enable motor with duty cycle\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for ipd related utility functions\&. 
+
+
+.PP
+Definition in file \fBipd_funcs\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void config_seq_ipd (uint32_t sequencer_trigger_value)"
+
+.PP
+Use to set ipd sequence configuration\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIuint32_t\fP sequencer_trigger_value 
+.RE
+.PP
+
+.SS "void ipd_empty_function (void * m_ptr)"
+
+.PP
+Use to as ipd empty function\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvoid\fP *m_ptr void motor pointer 
+.RE
+.PP
+
+.PP
+Referenced by sm_mainsub_prestart()\&.
+.SS "void ipd_m1_u_set_duty (uint16_t duty)"
+
+.PP
+Use to set u duty cycle\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIuint16_t\fP duty 
+.RE
+.PP
+
+.SS "void ipd_m1_v_set_duty (uint16_t duty)"
+
+.PP
+Use to set v duty cycle\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIuint16_t\fP duty 
+.RE
+.PP
+
+.SS "void ipd_m1_w_set_duty (uint16_t duty)"
+
+.PP
+Use to set w duty cycle\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIuint16_t\fP duty 
+.RE
+.PP
+
+.SS "void ipd_read_phase_currents (\fBStruct_IPD\fP * ipd_ptr)"
+
+.PP
+Use to read motor phase curents\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_IPD\fP\fP *ipd_ptr 
+.RE
+.PP
+
+.SS "void ipd_restore_config_for_non_ipd_mode (void * v_motor_ptr)"
+
+.PP
+Use to restore config for non ipd mode\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvoid\fP *v_motor_ptr void motor pointer 
+.RE
+.PP
+
+.SS "void ipd_save_and_init_config_for_ipd_mode (void * v_motor_ptr)"
+
+.PP
+Use to save and init config for ipd mode\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvoid\fP *v_motor_ptr void motor pointer 
+.RE
+.PP
+
+.SS "void m1_enable_with_duty (uint32_t duty_cycle)"
+
+.PP
+Use to enable motor with duty cycle\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIuint32_t\fP duty
+.RE
+.PP
+Use to enable motor with duty cycle\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIduty_cycle\fP 
+.RE
+.PP
+
+.PP
+Definition at line 40 of file driver_funcs\&.c\&.
+.PP
+.nf
+41 {
+42     // Set duty cycles to 50%
+43     m1_u_set_duty(duty_cycle);
+44     m1_v_set_duty(duty_cycle);
+45     m1_w_set_duty(duty_cycle);
+46 
+47     // Select PWM peripheral for Driver Port
+48     motor_psel_pwm();
+49     
+50    // Select GPIO mode for Driver Port
+51     motor_modesel_gpio();
+52     
+53     // Turn on output enables
+54     motor_outen_enable();
+55 
+56     // Enable driver manager and verify active - need to enable even in PAC5210 to get ENHS pin to work
+57 #ifdef CAFE_ARCH3
+58     pac5xxx_tile_register_write(ADDR_ENDRV, 1 | (1 << 1));
+59 #else
+60       pac5xxx_tile_register_write(ADDR_ENDRV, 1);   
+61 #endif
+62 }
+.fi
+.PP
+Referenced by m1_enable()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

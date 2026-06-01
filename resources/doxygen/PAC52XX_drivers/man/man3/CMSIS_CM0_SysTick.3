@@ -1,0 +1,160 @@
+.TH "CMSIS_CM0_SysTick" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CMSIS_CM0_SysTick \- CMSIS CM0 SysTick
+.SH SYNOPSIS
+.br
+.PP
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBCMSIS CM0 Core Debug\fP"
+.br
+.in -1c
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBSysTick_Type\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSysTick_CTRL_COUNTFLAG_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSysTick_CTRL_COUNTFLAG_Msk\fP   (1ul << \fBSysTick_CTRL_COUNTFLAG_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSysTick_CTRL_CLKSOURCE_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSysTick_CTRL_CLKSOURCE_Msk\fP   (1ul << \fBSysTick_CTRL_CLKSOURCE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSysTick_CTRL_TICKINT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSysTick_CTRL_TICKINT_Msk\fP   (1ul << \fBSysTick_CTRL_TICKINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSysTick_CTRL_ENABLE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSysTick_CTRL_ENABLE_Msk\fP   (1ul << \fBSysTick_CTRL_ENABLE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSysTick_LOAD_RELOAD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSysTick_LOAD_RELOAD_Msk\fP   (0xFFFFFFul << \fBSysTick_LOAD_RELOAD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSysTick_VAL_CURRENT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSysTick_VAL_CURRENT_Msk\fP   (0xFFFFFFul << \fBSysTick_VAL_CURRENT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSysTick_CALIB_NOREF_Pos\fP   31"
+.br
+.ti -1c
+.RI "#define \fBSysTick_CALIB_NOREF_Msk\fP   (1ul << \fBSysTick_CALIB_NOREF_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSysTick_CALIB_SKEW_Pos\fP   30"
+.br
+.ti -1c
+.RI "#define \fBSysTick_CALIB_SKEW_Msk\fP   (1ul << \fBSysTick_CALIB_SKEW_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSysTick_CALIB_TENMS_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSysTick_CALIB_TENMS_Msk\fP   (0xFFFFFFul << \fBSysTick_VAL_CURRENT_Pos\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+memory mapped structure for SysTick 
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define SysTick_CALIB_NOREF_Msk   (1ul << \fBSysTick_CALIB_NOREF_Pos\fP)"
+SysTick CALIB: NOREF Mask 
+.PP
+Definition at line 256 of file core_cm0\&.h\&.
+.SS "#define SysTick_CALIB_NOREF_Pos   31"
+SysTick CALIB: NOREF Position 
+.PP
+Definition at line 255 of file core_cm0\&.h\&.
+.SS "#define SysTick_CALIB_SKEW_Msk   (1ul << \fBSysTick_CALIB_SKEW_Pos\fP)"
+SysTick CALIB: SKEW Mask 
+.PP
+Definition at line 259 of file core_cm0\&.h\&.
+.SS "#define SysTick_CALIB_SKEW_Pos   30"
+SysTick CALIB: SKEW Position 
+.PP
+Definition at line 258 of file core_cm0\&.h\&.
+.SS "#define SysTick_CALIB_TENMS_Msk   (0xFFFFFFul << \fBSysTick_VAL_CURRENT_Pos\fP)"
+SysTick CALIB: TENMS Mask 
+.PP
+Definition at line 262 of file core_cm0\&.h\&.
+.SS "#define SysTick_CALIB_TENMS_Pos   0"
+SysTick CALIB: TENMS Position 
+.PP
+Definition at line 261 of file core_cm0\&.h\&.
+.SS "#define SysTick_CTRL_CLKSOURCE_Msk   (1ul << \fBSysTick_CTRL_CLKSOURCE_Pos\fP)"
+SysTick CTRL: CLKSOURCE Mask 
+.PP
+Definition at line 238 of file core_cm0\&.h\&.
+.SS "#define SysTick_CTRL_CLKSOURCE_Pos   2"
+SysTick CTRL: CLKSOURCE Position 
+.PP
+Definition at line 237 of file core_cm0\&.h\&.
+.SS "#define SysTick_CTRL_COUNTFLAG_Msk   (1ul << \fBSysTick_CTRL_COUNTFLAG_Pos\fP)"
+SysTick CTRL: COUNTFLAG Mask 
+.PP
+Definition at line 235 of file core_cm0\&.h\&.
+.SS "#define SysTick_CTRL_COUNTFLAG_Pos   16"
+SysTick CTRL: COUNTFLAG Position 
+.PP
+Definition at line 234 of file core_cm0\&.h\&.
+.SS "#define SysTick_CTRL_ENABLE_Msk   (1ul << \fBSysTick_CTRL_ENABLE_Pos\fP)"
+SysTick CTRL: ENABLE Mask 
+.PP
+Definition at line 244 of file core_cm0\&.h\&.
+.SS "#define SysTick_CTRL_ENABLE_Pos   0"
+SysTick CTRL: ENABLE Position 
+.PP
+Definition at line 243 of file core_cm0\&.h\&.
+.SS "#define SysTick_CTRL_TICKINT_Msk   (1ul << \fBSysTick_CTRL_TICKINT_Pos\fP)"
+SysTick CTRL: TICKINT Mask 
+.PP
+Definition at line 241 of file core_cm0\&.h\&.
+.SS "#define SysTick_CTRL_TICKINT_Pos   1"
+SysTick CTRL: TICKINT Position 
+.PP
+Definition at line 240 of file core_cm0\&.h\&.
+.SS "#define SysTick_LOAD_RELOAD_Msk   (0xFFFFFFul << \fBSysTick_LOAD_RELOAD_Pos\fP)"
+SysTick LOAD: RELOAD Mask 
+.PP
+Definition at line 248 of file core_cm0\&.h\&.
+.SS "#define SysTick_LOAD_RELOAD_Pos   0"
+SysTick LOAD: RELOAD Position 
+.PP
+Definition at line 247 of file core_cm0\&.h\&.
+.SS "#define SysTick_VAL_CURRENT_Msk   (0xFFFFFFul << \fBSysTick_VAL_CURRENT_Pos\fP)"
+SysTick VAL: CURRENT Mask 
+.PP
+Definition at line 252 of file core_cm0\&.h\&.
+.SS "#define SysTick_VAL_CURRENT_Pos   0"
+SysTick VAL: CURRENT Position 
+.PP
+Definition at line 251 of file core_cm0\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

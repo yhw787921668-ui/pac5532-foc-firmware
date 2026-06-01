@@ -1,0 +1,45 @@
+.TH "pac_foc/src/isr/isr_gpioC.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/isr/isr_gpioC.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'pac_init\&.h'\fP
+.br
+\fC#include 'fault\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_gpio\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_tile\&.h'\fP
+.br
+\fC#include 'hall_funcs\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBGpioC_IRQHandler\fP (void)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "PAC5XXX_RAMFUNC void GpioC_IRQHandler (void)"
+
+.PP
+Definition at line 26 of file isr_gpioC\&.c\&.
+.PP
+.nf
+27 {
+28 #if (MODULE_MPOS_HALL == ENABLED) & (HALL_METHOD_SELECT == HALL_METHOD_INTERRUPT) & (Hall_Gpio_IRQn == GpioC_IRQn)
+29     hall_isr_handler();
+30 #endif
+31 }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

@@ -1,0 +1,231 @@
+\hypertarget{system__pac5xxx_8c}{}\doxysection{pac\+\_\+foc/pac55xx/pac55xx\+\_\+sdk/boot\+\_\+keil/system\+\_\+pac5xxx.c File Reference}
+\label{system__pac5xxx_8c}\index{pac\_foc/pac55xx/pac55xx\_sdk/boot\_keil/system\_pac5xxx.c@{pac\_foc/pac55xx/pac55xx\_sdk/boot\_keil/system\_pac5xxx.c}}
+{\ttfamily \#include \char`\"{}system\+\_\+pac5xxx.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx.\+h\char`\"{}}\newline
+Include dependency graph for system\+\_\+pac5xxx.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{system__pac5xxx_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{system__pac5xxx_8c_a683ee7064af4b286ba74fe721d3182be}{C\+C\+S\+C\+TL}}~($\ast$((volatile unsigned long $\ast$) 0x400\+D0400))
+\item 
+\#define \mbox{\hyperlink{system__pac5xxx_8c_a4116509f03217e47358f46a23dd8c6e6}{C\+C\+S\+P\+L\+L\+C\+TL}}~($\ast$((volatile unsigned long $\ast$) 0x400\+D0404))
+\item 
+\#define \mbox{\hyperlink{system__pac5xxx_8c_a05282f8d3196734cc2438f9b50b0f032}{\+\_\+\+\_\+\+S\+Y\+S\+\_\+\+C\+L\+K\+R\+E\+F\+\_\+\+C\+LK}}~(4000000\+UL)
+\item 
+\#define \mbox{\hyperlink{system__pac5xxx_8c_af19bf051638f3afbd4d7d23b3dff4311}{\+\_\+\+\_\+\+S\+Y\+S\+\_\+\+R\+O\+S\+C\+\_\+\+C\+LK}}~(16000000\+UL)
+\item 
+\#define \mbox{\hyperlink{system__pac5xxx_8c_ad002c794b791c1ab65129e62e54d41cc}{\+\_\+\+\_\+\+S\+Y\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+LK}}~(\mbox{\hyperlink{system__pac5xxx_8c_af19bf051638f3afbd4d7d23b3dff4311}{\+\_\+\+\_\+\+S\+Y\+S\+\_\+\+R\+O\+S\+C\+\_\+\+C\+LK}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{system__pac5xxx_8c_a93f514700ccf00d08dbdcff7f1224eb2}{System\+Init}} (void)
+\item 
+void \mbox{\hyperlink{system__pac5xxx_8c_ae0c36a9591fe6e9c45ecb21a794f0f0f}{System\+Core\+Clock\+Update}} (void)
+\item 
+void \mbox{\hyperlink{system__pac5xxx_8c_afc17cb45d504e45cded9db5131e3db2c}{System\+External\+Clock\+Update}} (uint32\+\_\+t external\+\_\+clock\+\_\+freq)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{system__pac5xxx_8c_aa3cd3e43291e81e795d642b79b6088e6}{System\+Core\+Clock}} = \mbox{\hyperlink{system__pac5xxx_8c_ad002c794b791c1ab65129e62e54d41cc}{\+\_\+\+\_\+\+S\+Y\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+LK}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{system__pac5xxx_8c_a429c7d412b7ecd81e3155b665fa14976}{System\+External\+Clock}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{system__pac5xxx_8c_a05282f8d3196734cc2438f9b50b0f032}\label{system__pac5xxx_8c_a05282f8d3196734cc2438f9b50b0f032}} 
+\index{system\_pac5xxx.c@{system\_pac5xxx.c}!\_\_SYS\_CLKREF\_CLK@{\_\_SYS\_CLKREF\_CLK}}
+\index{\_\_SYS\_CLKREF\_CLK@{\_\_SYS\_CLKREF\_CLK}!system\_pac5xxx.c@{system\_pac5xxx.c}}
+\doxysubsubsection{\texorpdfstring{\_\_SYS\_CLKREF\_CLK}{\_\_SYS\_CLKREF\_CLK}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+S\+Y\+S\+\_\+\+C\+L\+K\+R\+E\+F\+\_\+\+C\+LK~(4000000\+UL)}
+
+
+
+Definition at line 23 of file system\+\_\+pac5xxx.\+c.
+
+\mbox{\Hypertarget{system__pac5xxx_8c_ad002c794b791c1ab65129e62e54d41cc}\label{system__pac5xxx_8c_ad002c794b791c1ab65129e62e54d41cc}} 
+\index{system\_pac5xxx.c@{system\_pac5xxx.c}!\_\_SYS\_DEFAULT\_CLK@{\_\_SYS\_DEFAULT\_CLK}}
+\index{\_\_SYS\_DEFAULT\_CLK@{\_\_SYS\_DEFAULT\_CLK}!system\_pac5xxx.c@{system\_pac5xxx.c}}
+\doxysubsubsection{\texorpdfstring{\_\_SYS\_DEFAULT\_CLK}{\_\_SYS\_DEFAULT\_CLK}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+S\+Y\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+LK~(\mbox{\hyperlink{system__pac5xxx_8c_af19bf051638f3afbd4d7d23b3dff4311}{\+\_\+\+\_\+\+S\+Y\+S\+\_\+\+R\+O\+S\+C\+\_\+\+C\+LK}})}
+
+
+
+Definition at line 25 of file system\+\_\+pac5xxx.\+c.
+
+\mbox{\Hypertarget{system__pac5xxx_8c_af19bf051638f3afbd4d7d23b3dff4311}\label{system__pac5xxx_8c_af19bf051638f3afbd4d7d23b3dff4311}} 
+\index{system\_pac5xxx.c@{system\_pac5xxx.c}!\_\_SYS\_ROSC\_CLK@{\_\_SYS\_ROSC\_CLK}}
+\index{\_\_SYS\_ROSC\_CLK@{\_\_SYS\_ROSC\_CLK}!system\_pac5xxx.c@{system\_pac5xxx.c}}
+\doxysubsubsection{\texorpdfstring{\_\_SYS\_ROSC\_CLK}{\_\_SYS\_ROSC\_CLK}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+S\+Y\+S\+\_\+\+R\+O\+S\+C\+\_\+\+C\+LK~(16000000\+UL)}
+
+
+
+Definition at line 24 of file system\+\_\+pac5xxx.\+c.
+
+\mbox{\Hypertarget{system__pac5xxx_8c_a683ee7064af4b286ba74fe721d3182be}\label{system__pac5xxx_8c_a683ee7064af4b286ba74fe721d3182be}} 
+\index{system\_pac5xxx.c@{system\_pac5xxx.c}!CCSCTL@{CCSCTL}}
+\index{CCSCTL@{CCSCTL}!system\_pac5xxx.c@{system\_pac5xxx.c}}
+\doxysubsubsection{\texorpdfstring{CCSCTL}{CCSCTL}}
+{\footnotesize\ttfamily \#define C\+C\+S\+C\+TL~($\ast$((volatile unsigned long $\ast$) 0x400\+D0400))}
+
+
+
+Definition at line 20 of file system\+\_\+pac5xxx.\+c.
+
+\mbox{\Hypertarget{system__pac5xxx_8c_a4116509f03217e47358f46a23dd8c6e6}\label{system__pac5xxx_8c_a4116509f03217e47358f46a23dd8c6e6}} 
+\index{system\_pac5xxx.c@{system\_pac5xxx.c}!CCSPLLCTL@{CCSPLLCTL}}
+\index{CCSPLLCTL@{CCSPLLCTL}!system\_pac5xxx.c@{system\_pac5xxx.c}}
+\doxysubsubsection{\texorpdfstring{CCSPLLCTL}{CCSPLLCTL}}
+{\footnotesize\ttfamily \#define C\+C\+S\+P\+L\+L\+C\+TL~($\ast$((volatile unsigned long $\ast$) 0x400\+D0404))}
+
+
+
+Definition at line 21 of file system\+\_\+pac5xxx.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{system__pac5xxx_8c_ae0c36a9591fe6e9c45ecb21a794f0f0f}\label{system__pac5xxx_8c_ae0c36a9591fe6e9c45ecb21a794f0f0f}} 
+\index{system\_pac5xxx.c@{system\_pac5xxx.c}!SystemCoreClockUpdate@{SystemCoreClockUpdate}}
+\index{SystemCoreClockUpdate@{SystemCoreClockUpdate}!system\_pac5xxx.c@{system\_pac5xxx.c}}
+\doxysubsubsection{\texorpdfstring{SystemCoreClockUpdate()}{SystemCoreClockUpdate()}}
+{\footnotesize\ttfamily void System\+Core\+Clock\+Update (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 41 of file system\+\_\+pac5xxx.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42 \{}
+\DoxyCodeLine{43     uint32\_t CCSCTL\_reg = \mbox{\hyperlink{system__pac5xxx_8c_a683ee7064af4b286ba74fe721d3182be}{CCSCTL}};}
+\DoxyCodeLine{44     uint32\_t CCSPLLCTL\_reg = \mbox{\hyperlink{system__pac5xxx_8c_a4116509f03217e47358f46a23dd8c6e6}{CCSPLLCTL}};}
+\DoxyCodeLine{45     }
+\DoxyCodeLine{46     uint32\_t FRCLK\_MUX\_sel = (CCSCTL\_reg \& 0x00000003);}
+\DoxyCodeLine{47     uint32\_t SCLK\_MUX\_sel = (CCSCTL\_reg \& 0x00000010) >> 4;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     uint32\_t HCLK\_div = ((CCSCTL\_reg \& 0x0F000000) >> 24) + 1;}
+\DoxyCodeLine{50     uint32\_t PLL\_FB\_div = (CCSPLLCTL\_reg \& 0x003FFF00) >> 8;}
+\DoxyCodeLine{51     uint32\_t PLL\_IN\_div = (CCSPLLCTL\_reg \& 0x000000F0) >> 4;}
+\DoxyCodeLine{52     uint32\_t PLL\_OUT\_div = ((CCSPLLCTL\_reg \& 0x00000006) >> 2) + 1;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     uint32\_t frclk\_freq = 0;}
+\DoxyCodeLine{55     }
+\DoxyCodeLine{56     \textcolor{keywordflow}{switch} (FRCLK\_MUX\_sel)}
+\DoxyCodeLine{57     \{}
+\DoxyCodeLine{58         \textcolor{keywordflow}{case} 0:     \textcolor{comment}{// ROSC}}
+\DoxyCodeLine{59             frclk\_freq = \mbox{\hyperlink{system__pac5xxx_8c_af19bf051638f3afbd4d7d23b3dff4311}{\_\_SYS\_ROSC\_CLK}};}
+\DoxyCodeLine{60             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{61         \textcolor{keywordflow}{case} 1:     \textcolor{comment}{// CLKREF}}
+\DoxyCodeLine{62             frclk\_freq = \mbox{\hyperlink{system__pac5xxx_8c_a05282f8d3196734cc2438f9b50b0f032}{\_\_SYS\_CLKREF\_CLK}};}
+\DoxyCodeLine{63             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{64         \textcolor{keywordflow}{case} 2:     \textcolor{comment}{// XTALCLK}}
+\DoxyCodeLine{65         \textcolor{keywordflow}{case} 3:     \textcolor{comment}{// EXTCLK}}
+\DoxyCodeLine{66             frclk\_freq = \mbox{\hyperlink{system__pac5xxx_8c_a429c7d412b7ecd81e3155b665fa14976}{SystemExternalClock}};}
+\DoxyCodeLine{67             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordflow}{switch} (SCLK\_MUX\_sel)}
+\DoxyCodeLine{71     \{}
+\DoxyCodeLine{72         \textcolor{keywordflow}{case} 0:     \textcolor{comment}{// FRCLK}}
+\DoxyCodeLine{73             \mbox{\hyperlink{system__pac5xxx_8c_aa3cd3e43291e81e795d642b79b6088e6}{SystemCoreClock}} = frclk\_freq / HCLK\_div;}
+\DoxyCodeLine{74             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{75         \textcolor{keywordflow}{case} 1:     \textcolor{comment}{// PLLCLK}}
+\DoxyCodeLine{76             \mbox{\hyperlink{system__pac5xxx_8c_aa3cd3e43291e81e795d642b79b6088e6}{SystemCoreClock}} = frclk\_freq * PLL\_FB\_div / PLL\_OUT\_div / PLL\_IN\_div / HCLK\_div;}
+\DoxyCodeLine{77             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{78     \}}
+\DoxyCodeLine{79 \}}
+
+\end{DoxyCode}
+
+
+References \+\_\+\+\_\+\+S\+Y\+S\+\_\+\+C\+L\+K\+R\+E\+F\+\_\+\+C\+LK, \+\_\+\+\_\+\+S\+Y\+S\+\_\+\+R\+O\+S\+C\+\_\+\+C\+LK, C\+C\+S\+C\+TL, C\+C\+S\+P\+L\+L\+C\+TL, System\+Core\+Clock, and System\+External\+Clock.
+
+\mbox{\Hypertarget{system__pac5xxx_8c_afc17cb45d504e45cded9db5131e3db2c}\label{system__pac5xxx_8c_afc17cb45d504e45cded9db5131e3db2c}} 
+\index{system\_pac5xxx.c@{system\_pac5xxx.c}!SystemExternalClockUpdate@{SystemExternalClockUpdate}}
+\index{SystemExternalClockUpdate@{SystemExternalClockUpdate}!system\_pac5xxx.c@{system\_pac5xxx.c}}
+\doxysubsubsection{\texorpdfstring{SystemExternalClockUpdate()}{SystemExternalClockUpdate()}}
+{\footnotesize\ttfamily void System\+External\+Clock\+Update (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{external\+\_\+clock\+\_\+freq }\end{DoxyParamCaption})}
+
+
+
+Definition at line 81 of file system\+\_\+pac5xxx.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{82 \{}
+\DoxyCodeLine{83     \mbox{\hyperlink{system__pac5xxx_8c_a429c7d412b7ecd81e3155b665fa14976}{SystemExternalClock}} = external\_clock\_freq;}
+\DoxyCodeLine{84 \}}
+
+\end{DoxyCode}
+
+
+References System\+External\+Clock.
+
+\mbox{\Hypertarget{system__pac5xxx_8c_a93f514700ccf00d08dbdcff7f1224eb2}\label{system__pac5xxx_8c_a93f514700ccf00d08dbdcff7f1224eb2}} 
+\index{system\_pac5xxx.c@{system\_pac5xxx.c}!SystemInit@{SystemInit}}
+\index{SystemInit@{SystemInit}!system\_pac5xxx.c@{system\_pac5xxx.c}}
+\doxysubsubsection{\texorpdfstring{SystemInit()}{SystemInit()}}
+{\footnotesize\ttfamily void System\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 30 of file system\+\_\+pac5xxx.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32     \mbox{\hyperlink{system__pac5xxx_8c_aa3cd3e43291e81e795d642b79b6088e6}{SystemCoreClock}} = \mbox{\hyperlink{system__pac5xxx_8c_ad002c794b791c1ab65129e62e54d41cc}{\_\_SYS\_DEFAULT\_CLK}};        \textcolor{comment}{// Default to ROSC on startup}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#if (\_\_FPU\_USED == 1)                           // Keil}}
+\DoxyCodeLine{35     \textcolor{comment}{// enable FPU if available and used}}
+\DoxyCodeLine{36     \mbox{\hyperlink{group___c_m_s_i_s__core__base_gaaaf6477c2bde2f00f99e3c2fd1060b01}{SCB}}-\/>CPACR |= ( (3UL << 10*2)               \textcolor{comment}{// set CP10 Full Access}}
+\DoxyCodeLine{37                   | (3UL << 11*2) );            \textcolor{comment}{// set CP11 Full Access}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{39 \}}
+
+\end{DoxyCode}
+
+
+References \+\_\+\+\_\+\+S\+Y\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+LK, S\+CB, and System\+Core\+Clock.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{system__pac5xxx_8c_aa3cd3e43291e81e795d642b79b6088e6}\label{system__pac5xxx_8c_aa3cd3e43291e81e795d642b79b6088e6}} 
+\index{system\_pac5xxx.c@{system\_pac5xxx.c}!SystemCoreClock@{SystemCoreClock}}
+\index{SystemCoreClock@{SystemCoreClock}!system\_pac5xxx.c@{system\_pac5xxx.c}}
+\doxysubsubsection{\texorpdfstring{SystemCoreClock}{SystemCoreClock}}
+{\footnotesize\ttfamily uint32\+\_\+t System\+Core\+Clock = \mbox{\hyperlink{system__pac5xxx_8c_ad002c794b791c1ab65129e62e54d41cc}{\+\_\+\+\_\+\+S\+Y\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+LK}}}
+
+
+
+Definition at line 27 of file system\+\_\+pac5xxx.\+c.
+
+
+
+Referenced by System\+Core\+Clock\+Update(), and System\+Init().
+
+\mbox{\Hypertarget{system__pac5xxx_8c_a429c7d412b7ecd81e3155b665fa14976}\label{system__pac5xxx_8c_a429c7d412b7ecd81e3155b665fa14976}} 
+\index{system\_pac5xxx.c@{system\_pac5xxx.c}!SystemExternalClock@{SystemExternalClock}}
+\index{SystemExternalClock@{SystemExternalClock}!system\_pac5xxx.c@{system\_pac5xxx.c}}
+\doxysubsubsection{\texorpdfstring{SystemExternalClock}{SystemExternalClock}}
+{\footnotesize\ttfamily uint32\+\_\+t System\+External\+Clock = 0}
+
+
+
+Definition at line 28 of file system\+\_\+pac5xxx.\+c.
+
+
+
+Referenced by System\+Core\+Clock\+Update(), and System\+External\+Clock\+Update().
+

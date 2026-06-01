@@ -1,0 +1,973 @@
+.TH "pac_foc/src/comm/uart_gui/uart_gui.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/comm/uart_gui/uart_gui.h \- Use for UART parameter write, checksum calculation, message processing\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBUART_MESSAGE_SIZE\fP   9"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBUart_Status\fP { \fBsuccess\fP, \fBhost_write_error\fP, \fBhost_read_error\fP, \fBchecksum_error\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBconfig_uart\fP (void)"
+.br
+.ti -1c
+.RI "\fBUart_Status\fP \fBuart_message_process\fP (void)"
+.br
+.RI "This function use for uart message processing\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBuart_rx_buffer\fP [\fBUART_MESSAGE_SIZE\fP]"
+.br
+.ti -1c
+.RI "uint8_t \fBuart_tx_buffer\fP [\fBUART_MESSAGE_SIZE\fP]"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for UART parameter write, checksum calculation, message processing\&. 
+
+
+.PP
+Definition in file \fBuart_gui\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define UART_MESSAGE_SIZE   9"
+
+.PP
+Definition at line 23 of file uart_gui\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBUart_Status\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIsuccess \fP\fP
+.TP
+\fB\fIhost_write_error \fP\fP
+.TP
+\fB\fIhost_read_error \fP\fP
+.TP
+\fB\fIchecksum_error \fP\fP
+.PP
+Definition at line 25 of file uart_gui\&.h\&.
+.PP
+.nf
+26 {
+27     success,                                    // UART message received successfully
+28     host_write_error,                           // UART error when writing from host to target (receive message)
+29     host_read_error,                            // UART error when reading from target to host (transmit message)
+30     checksum_error,                             // UART checksum error
+31 } Uart_Status;
+.fi
+.SH "Function Documentation"
+.PP 
+.SS "void config_uart (void)"
+
+.SS "\fBUart_Status\fP uart_message_process (void)"
+
+.PP
+This function use for uart message processing\&. 
+.PP
+Definition at line 292 of file uart_gui\&.c\&.
+.PP
+.nf
+293 {
+294     fix16_t rx_data;
+295     fix16_t tx_data;
+296     Uart_Status status = success;
+297 
+298     Struct_Motor* motor_ptr = &motor;
+299 
+300     // Full message received in uart_rx_buffer, process and then queue up transmit (response) message
+301     uart_tx_buffer[0] = 0xEE;                                           // Response message type is always 0xEE
+302     uart_tx_buffer[1] = uart_rx_buffer[1] + 0x80;                       // Response message code is received message code + 0x80
+303 
+304     // Put data from uart_rx_buffer into word for processing (in case read)
+305     rx_data = (uart_rx_buffer[4] << 24);
+306     rx_data |= (uart_rx_buffer[5] << 16);
+307     rx_data |= (uart_rx_buffer[6] << 8);
+308     rx_data |= uart_rx_buffer[7];
+309 
+310     // Validate checksum
+311     if (uart_checksum((uint8_t*)&uart_rx_buffer) != uart_rx_buffer[8])
+312     {
+313         status = checksum_error;                                        // Put in checksum error
+314         uart_tx_buffer[8] = uart_checksum((uint8_t*)&uart_tx_buffer);   // Calculate checksum for outgoing message
+315     }
+316     else
+317     {
+318         switch (uart_rx_buffer[1])              // Switch on command code
+319         {
+320         case cmd_version:
+321 #if (PROJECT_VERSION_RELEASE_STATE != PAC5XXX_IN_DEVELOPMENT)
+322             uart_tx_buffer[4] = PROJECT_VERSION_RELEASE_STATE;
+323             uart_tx_buffer[5] = PROJECT_VERSION_MAJOR;
+324             uart_tx_buffer[6] = PROJECT_VERSION_MINOR;
+325             uart_tx_buffer[7] = PROJECT_VERSION_BUGFIX;
+326 #else //(PROJECT_VERSION_RELEASE_STATE == PAC5XXX_IN_DEVELOPMENT)
+327             uart_tx_buffer[4] = PROJECT_VERSION_RELEASE_STATE;
+328             uart_tx_buffer[5] = (PROJECT_BUILD_DATE_NUM / 10000) % 100;
+329             uart_tx_buffer[6] = (PROJECT_BUILD_DATE_NUM / 100) % 100;
+330             uart_tx_buffer[7] = PROJECT_BUILD_DATE_NUM % 100;
+331 #endif
+332             break;
+333         case cmd_motor_control_read:
+334             uart_tx_buffer[7] = 0;
+335 
+336             if ((motor_ptr->status\&.motor & STATUS_MOTOR_ENABLED) != 0)
+337                 uart_tx_buffer[7] = 1;
+338 
+339             if ((motor_ptr->status\&.motor & STATUS_MOTOR_OPEN_LOOP) != 0)
+340                 uart_tx_buffer[7] |= 2;
+341             break;
+342 
+343         case cmd_motor_control_write:
+344             if (rx_data & 8)
+345             {
+346                 oc_reset();
+347             }
+348             if (rx_data & 1) // enable motor
+349             {
+350                 if (motor_ptr->app\&.motor_enable_cmd == 0)
+351                 {
+352                     motor_ptr->app\&.motor_enable_cmd = 1;
+353                 }
+354             }
+355             else
+356             {
+357                 motor_ptr->app\&.motor_enable_cmd = 0;
+358             }
+359             break;
+360 
+361         case cmd_cafe_reg_read:
+362             uart_tx_buffer[4] = 0;
+363             uart_tx_buffer[5] = 0;
+364             uart_tx_buffer[6] = 0;
+365             uart_tx_buffer[7] = pac5xxx_tile_register_read(uart_rx_buffer[7]);
+366             break;
+367         case cmd_page_read:
+368             uart_tx_buffer[4] = 0;
+369             uart_tx_buffer[5] = 0;
+370             uart_tx_buffer[6] = 0;
+371             uart_tx_buffer[7] = 0;
+372             break;
+373         case cmd_page_write:
+374             break;
+375 
+376 //==========================
+377 //===== Parameter Read =====
+378 //==========================
+379         case cmd_parameter_read:
+380             switch (uart_rx_buffer[2])
+381             {
+382     // Motor Config
+383                 case status_motor:
+384 #if defined(ENABLE_AUTOTUNE_PI)
+385                     at_uistatus(motor_ptr);
+386 #endif
+387                     int_to_buffer(motor_ptr->status\&.motor);
+388                     clear_status(STATUS_MOTOR_GRP_CLEARREAD);
+389 #if defined(ENABLE_AUTOTUNE_PI)
+390 //                    at_status_clear_on_guiread(motor_ptr);
+391 #endif
+392                     break;
+393                 case fault_warning:
+394 #if defined(ENABLE_AUTOTUNE_PI)
+395                     at_uistatus(motor_ptr);
+396 #endif
+397                     int_to_buffer(motor_ptr->fault\&.motor);
+398                     // Clear FOC control over flow warning
+399                     clear_warning(FAULT_MOTOR_GRP_CLEARREAD);
+400                     break;
+401                 case current_limit:
+402                     int_to_buffer(motor_ptr->app\&.current_limit);
+403                     break;
+404                 case dt:
+405                     int_to_buffer(motor_ptr->control\&.dt_control_q26);
+406                     break;
+407                 case pwm_dac_selection1:
+408 #if defined (ENABLE_DEBUG_PWMDAC) || defined (ENABLE_DEBUG_DAS)
+409                     int_to_buffer(motor_ptr->debug\&.debug_buffer_command1);
+410 #endif
+411                     break;
+412                 case pwm_dac_selection2:
+413 #if defined (ENABLE_DEBUG_PWMDAC) || defined (ENABLE_DEBUG_DAS)
+414                     int_to_buffer(motor_ptr->debug\&.debug_buffer_command2);
+415 #endif
+416                     break;
+417                 case pwm_dac_selection3:
+418 #if defined (ENABLE_DEBUG_PWMDAC) || defined (ENABLE_DEBUG_DAS)
+419                     int_to_buffer(motor_ptr->debug\&.debug_buffer_command3);
+420 #endif
+421                     break;
+422                 case pwm_dac_selection4:
+423 #if defined (ENABLE_DEBUG_PWMDAC) || defined (ENABLE_DEBUG_DAS)
+424                     int_to_buffer(motor_ptr->debug\&.debug_buffer_command4);
+425 #endif
+426                     break;
+427                 case descale_current_factor:
+428                     int_to_buffer(motor_ptr->app\&.descale_current_factor);
+429                     break;
+430                 case diff_amp_gain:
+431                     int_to_buffer(motor_ptr->app\&.iphase_amp_gain);
+432                     break;
+433                 case cl_mode_selection:
+434                     int_to_buffer(motor_ptr->app\&.speed_mode_flag);
+435                     break;
+436                 case reverse_direction:
+437                     int_to_buffer(motor_ptr->app\&.direction_reverse_flag);
+438                     break;
+439 
+440 #if (MODULE_MPOS_ALIGNGO == ENABLED)
+441     // Open Loop
+442                 case open_loop_align_hold_num_steps:
+443                     int_to_buffer(motor_ptr->startup\&.aligngo\&.aligntime_cmd);
+444                     break;
+445                 case open_loop_speed_slew_rate:
+446                     int_to_buffer(motor_ptr->startup\&.aligngo\&.speedrefol_rate);
+447                     break;
+448                 case open_loop_speed_setpoint:
+449                     int_to_buffer(motor_ptr->startup\&.aligngo\&.speedrefol_target);
+450                     break;
+451                 case id_ref:
+452                     int_to_buffer(motor_ptr->startup\&.idrefol_gui_q16);
+453                     break;
+454                 case iq_ref:
+455                     int_to_buffer(motor_ptr->startup\&.itotrefol_gui_q16);
+456                     break;
+457 #endif
+458 // Id & Iq
+459                 case id_pi_filter_coeff:
+460                     int_to_buffer(motor_ptr->foc\&.Id_filter_gain);
+461                     break;
+462                 case iq_pi_filter_coeff:
+463                     int_to_buffer(motor_ptr->foc\&.Iq_filter_gain);
+464                     break;
+465                 case id_fdbk:
+466                     int_to_buffer((fix16_t) (motor_ptr->foc\&.id_q14 << 2));
+467                     break;
+468                 case iq_fdbk:
+469                     int_to_buffer((fix16_t) (motor_ptr->foc\&.iq_q14 << 2));
+470                     break;
+471                 case idiq_ramp_rate:
+472                     int_to_buffer(motor_ptr->control\&.idiqref_rate_f16);
+473                     break;
+474 
+475     // Closed Loop
+476                 case closed_loop_speed_slew_rate:
+477                     int_to_buffer(motor_ptr->control\&.outerloop_rate_store);
+478                     break;
+479                 case closed_loop_speed_setpoint:
+480                     int_to_buffer(motor_ptr->control\&.outerloop_target);
+481                     break;
+482                 case id_ref_cl:
+483                     int_to_buffer(motor_ptr->control\&.idrefcl_target_f16);
+484                     break;
+485                 case iq_ref_cl:
+486                     int_to_buffer(motor_ptr->control\&.iqrefcl_target_f16);
+487                     break;
+488                 case max_cl_speed_limit:
+489                     int_to_buffer(motor_ptr->app\&.speedrefcl_max);
+490                     break;
+491     // Misc
+492                 case Vdc_gui:
+493                     int_to_buffer(motor_ptr->app\&.dcbus_voltage);
+494                     break;
+495 
+496     // Speed PID
+497                 case speed_pid_Kp:
+498                     int_to_buffer(motor_ptr->control\&.outerloop_pid\&.ka_q16);
+499                     break;
+500                 case speed_pid_Ki:
+501                     int_to_buffer(motor_ptr->control\&.outerloop_pid\&.kb_q16);
+502                     break;
+503 
+504                 case outerloop_pid_min:
+505                     int_to_buffer(motor_ptr->control\&.outerloop_pid\&.min_value << 2);
+506                     break;
+507                 case outerloop_pid_max:
+508                     int_to_buffer(motor_ptr->control\&.outerloop_pid\&.max_value << 2);
+509                     break;
+510 
+511     // Id PID
+512                 case Id_pid_Kp:
+513                     int_to_buffer(motor_ptr->foc\&.Id_pid\&.ka_q16);
+514                     break;
+515                 case Id_pid_Ki:
+516                     int_to_buffer(motor_ptr->foc\&.Id_pid\&.kb_q16);
+517                     break;
+518                 case Id_pid_min:
+519                     int_to_buffer(motor_ptr->foc\&.Id_pid\&.min_value << 2);
+520                     break;
+521                 case Id_pid_max:
+522                     int_to_buffer(motor_ptr->foc\&.Id_pid\&.max_value << 2);
+523                     break;
+524 
+525     // Iq PID
+526                 case Iq_pid_Kp:
+527                     int_to_buffer(motor_ptr->foc\&.Iq_pid\&.ka_q16);
+528                     break;
+529                 case Iq_pid_Ki:
+530                     int_to_buffer(motor_ptr->foc\&.Iq_pid\&.kb_q16);
+531                     break;
+532                 case Iq_pid_min:
+533                     int_to_buffer(motor_ptr->foc\&.Iq_pid\&.min_value << 2);
+534                     break;
+535                 case Iq_pid_max:
+536                     int_to_buffer(motor_ptr->foc\&.Iq_pid\&.max_value << 2);
+537                     break;
+538 
+539     // Motor Parameters
+540                 case Ld:
+541                     int_to_buffer(motor_ptr->mparam\&.ld_q26);
+542                     break;
+543                 case Lq:
+544                     int_to_buffer(motor_ptr->mparam\&.lq_q26);
+545                     break;
+546                 case Ralpha:
+547                     int_to_buffer(motor_ptr->mparam\&.rs_q16);
+548                     break;
+549                 case num_pole_pairs:
+550                     int_to_buffer(motor_ptr->mparam\&.pole_pairs);
+551                     break;
+552                 case Config_Ke:
+553                     int_to_buffer(motor_ptr->mparam\&.ke_q26);
+554                     break;
+555                 case Confi_J:
+556                     int_to_buffer(motor_ptr->mparam\&.j_q26);
+557                     break;
+558                 case NominalSpeed:
+559                     int_to_buffer(motor_ptr->mparam\&.nom_spd_q16);
+560                     break;
+561 
+562     // Plot variables?
+563                 case estimated_angle:
+564                     int_to_buffer(motor_ptr->mpos\&.mpos_angle);
+565                     break;
+566                 case estimated_speed:
+567                     int_to_buffer(motor_ptr->mpos\&.mpos_spd_radps);
+568                     break;
+569                 case cl_outerloop_setpoint_ramp:
+570                     int_to_buffer(motor_ptr->control\&.outerloop_ramp);
+571                     break;
+572 #ifdef ENABLE_POWERMEASURE
+573                 case calculated_power:
+574                     // If power result is positive send the value else send 0, GUI will display +ve values or zero
+575                     if (motor_ptr->power\&.power_result > 0)
+576                     {
+577                         int_to_buffer(motor_ptr->power\&.power_result);
+578                     }
+579                     else
+580                         int_to_buffer(0);
+581                     break;
+582 #endif
+583 #ifdef ENABLE_DEBUG_DISPLAY
+584 #if defined(IPD_DEBUG_ENABLE)
+585                 case debug1:
+586                     int_to_buffer(motor_ptr->ipd\&.u_pos_current << 16);
+587                     break;
+588                 case debug2:
+589                     int_to_buffer(motor_ptr->ipd\&.u_neg_current << 16);
+590                     break;
+591                 case debug3:
+592                     int_to_buffer(motor_ptr->ipd\&.v_pos_current << 16);
+593                     break;
+594                 case debug4:
+595                     int_to_buffer(motor_ptr->ipd\&.v_neg_current << 16);
+596                     break;
+597                 case debug5:
+598                     int_to_buffer(motor_ptr->ipd\&.w_pos_current << 16);
+599                     break;
+600                 case debug6:
+601                     int_to_buffer(motor_ptr->ipd\&.w_neg_current << 16);
+602                     break;
+603 #elif defined(ENABLE_HALL_TUNING)
+604                 case debug1:
+605                     int_to_buffer(motor_ptr->halltune\&.halltune_output_1);
+606                     break;
+607                 case debug2:
+608                     int_to_buffer(motor_ptr->halltune\&.halltune_output_2);
+609                     break;
+610                 case debug3:
+611                     int_to_buffer(motor_ptr->halltune\&.halltune_output_3);
+612                     break;
+613                 case debug4:
+614                     int_to_buffer(motor_ptr->halltune\&.halltune_output_4);
+615                     break;
+616                 case debug5:
+617                     int_to_buffer(motor_ptr->halltune\&.halltune_output_5);
+618                     break;
+619                 case debug6:
+620                     int_to_buffer(motor_ptr->halltune\&.halltune_output_6);
+621                     break;
+622 #else
+623                 case debug1:
+624                     int_to_buffer(debug_var_1);
+625                     break;
+626                 case debug2:
+627                     int_to_buffer(debug_var_2);
+628                     break;
+629                 case debug3:
+630                     int_to_buffer(debug_var_3);
+631                     break;
+632                 case debug4:
+633                     int_to_buffer(debug_var_4);
+634                     break;
+635                 case debug5:
+636                     int_to_buffer(debug_var_5);
+637                     break;
+638                 case debug6:
+639                     int_to_buffer(debug_var_6);
+640                     break;
+641 #endif
+642 
+643                 case debug1_max:
+644                     if (debug1_index_var < MAX_GUI_DEBUG_ARRAY_LENGHTH)
+645                         int_to_buffer((fix16_t)(debug1_var_max << Debug_Q_Q16_Conv_Table[debug1_index_var]));
+646                     debug1_var_max = 0x80000000;
+647                     break;
+648                 case debug1_min:
+649                     if (debug1_index_var < MAX_GUI_DEBUG_ARRAY_LENGHTH)
+650                         int_to_buffer((fix16_t)(debug1_var_min << Debug_Q_Q16_Conv_Table[debug1_index_var]));
+651                     debug1_var_min = 0x7FFFFFFF;
+652                     break;
+653                 case debug2_max:
+654                     if (debug2_index_var < MAX_GUI_DEBUG_ARRAY_LENGHTH)
+655                         int_to_buffer((fix16_t)(debug2_var_max << Debug_Q_Q16_Conv_Table[debug2_index_var]));
+656                     debug2_var_max = 0x80000000;
+657                     break;
+658                 case debug2_min:
+659                     if (debug2_index_var < MAX_GUI_DEBUG_ARRAY_LENGHTH)
+660                         int_to_buffer((fix16_t)(debug2_var_min << Debug_Q_Q16_Conv_Table[debug2_index_var]));
+661                     debug2_var_min = 0x7FFFFFFF;
+662                     break;
+663                 case debug3_max:
+664                     if (debug3_index_var < MAX_GUI_DEBUG_ARRAY_LENGHTH)
+665                         int_to_buffer((fix16_t)(debug3_var_max << Debug_Q_Q16_Conv_Table[debug3_index_var]));
+666                     debug3_var_max = 0x80000000;
+667                     break;
+668                 case debug3_min:
+669                     if (debug3_index_var < MAX_GUI_DEBUG_ARRAY_LENGHTH)
+670                         int_to_buffer((fix16_t)(debug3_var_min << Debug_Q_Q16_Conv_Table[debug3_index_var]));
+671                     debug3_var_min = 0x7FFFFFFF;
+672                     break;
+673 #endif
+674                     
+675     // MTPA
+676 #if defined(ENABLE_MTPA)
+677                 case mtpa_gain:
+678                     int_to_buffer(motor_ptr->mtpa\&.mtpa_gain_degpa_q16);
+679                     break;
+680 #endif
+681                 
+682     // Misc Vars
+683                 case misc_fix16_1:
+684                     int_to_buffer(0);
+685                     break;
+686                 case misc_fix16_2:
+687                     int_to_buffer(0);
+688                     break;
+689                 case misc_fix16_3:
+690                     int_to_buffer(0);
+691                     break;
+692                 case misc_uint32_1:
+693                     int_to_buffer(0);
+694                     break;
+695                 case misc_uint32_2:
+696                     int_to_buffer(0);
+697                     break;
+698                 case misc_uint32_3:
+699                     int_to_buffer(0);
+700                     break;
+701 #ifdef ENABLE_DEBUG_PARAMEXPORT
+702                 case param_read_command:
+703                     int_to_buffer(gui_parameter_command);
+704                     break;
+705                 case param1:
+706                     int_to_buffer(parameter_value1);
+707                     break;
+708                 case param2:
+709                     int_to_buffer(parameter_value2);
+710                     break;
+711                 case param3:
+712                     int_to_buffer(parameter_value3);
+713                     break;
+714 #endif
+715                 case PWM_to_FOC_control_ratio:
+716                     int_to_buffer(motor_ptr->foc\&.ctrl_divider_foc);
+717                     break;
+718 
+719 #ifdef ENABLE_STALL_DETECT
+720                 case Motor_BEMF_const:
+721                     int_to_buffer(motor_ptr->stall\&.bemf_constant);
+722                     break;
+723                 case Stall_Detection_TimeOut:
+724                     {
+725                         fix16_t temp_value;
+726                         temp_value = motor_ptr->stall\&.timeout_systicks;
+727                         temp_value = (fix16_mul(temp_value << 16, ONE_DIVIDE_BY_5_FIX16)) >> 16;
+728                         int_to_buffer(temp_value);
+729                     }
+730                     break;
+731 #endif
+732                 case Auto_Mode_Open_Close_Loop:
+733                     int_to_buffer(motor_ptr->app\&.auto_close_loop_cmd);
+734                     break;
+735 
+736 #ifdef ENABLE_FIELD_WEAKENING
+737                 case fw_id_sp:
+738                     int_to_buffer(motor_ptr->fw\&.id_sp);
+739                     break;
+740                 case fw_speed_threshold_sp:
+741                     int_to_buffer(motor_ptr->fw\&.spd_threshold);
+742                     break;
+743 #endif
+744 
+745 #ifdef ENABLE_IPD
+746                 case ipd_charge:
+747                     int_to_buffer(motor_ptr->ipd\&.pwm_charge_ticks);
+748                     break;
+749                 case ipd_discharge:
+750                     int_to_buffer(motor_ptr->ipd\&.pwm_discharge_percent);
+751                     break;
+752                 case ipd_num_periods_per_pulse:
+753                     int_to_buffer(motor_ptr->ipd\&.num_periods_per_pulse);
+754                     break;
+755                 case ipd_angle_offset_forward:
+756                     int_to_buffer(motor_ptr->ipd\&.ipd_angle_forward_offset);
+757                     break;
+758                 case ipd_angle_offset_reverse:
+759                     int_to_buffer(motor_ptr->ipd\&.ipd_angle_reverse_offset);
+760                     break;
+761                 case ipd_same_pol_diff:
+762                     int_to_buffer(motor_ptr->ipd\&.same_polarity_current_delta);
+763                     break;
+764                 case ipd_max_min_diff:
+765                     int_to_buffer(motor_ptr->ipd\&.max_to_min_current_delta);
+766                     break;
+767                 case ipd_angle:
+768                     int_to_buffer(motor_ptr->ipd\&.ipd_angle);
+769                     break;
+770 #endif
+771 
+772 #ifdef ENABLE_SIM
+773                 case sim_braking_align:
+774                     int_to_buffer(motor_ptr->sim\&.align_count_braking_timeout);
+775                     break;
+776                 case sim_braking_ol_id_iq_ref_mul:
+777                     int_to_buffer(motor_ptr->sim\&.OL_Id_ref_braking_mul);
+778                     break;
+779                 case sim_braking_ol_iq_ref_mul:
+780                     int_to_buffer(motor_ptr->sim\&.OL_Iq_ref_braking_mul);
+781                     break;
+782                 case sim_braking_timeout:
+783                     // Convert counts back to FOC dt counts for GUI read process
+784                     int_to_buffer(fix16_mul(motor_ptr->sim\&.braking_timeout_countmax << 10, fix16_div((SIM_CONTROL_DIVIDER << 10), (motor_ptr->foc\&.ctrl_divider_foc << 10))) >> 10);
+785                     break;
+786                 case sim_braking_diff_threshold:
+787                     int_to_buffer(0);
+788                     break;
+789 #if defined(ENABLE_SIM) && (SEL_SIM_METHOD == SIM_METHOD_CURRENT)
+790                 case sim_current_track_gain:
+791                     break;
+792 #endif
+793                 case sim_bemf_amp_gain:
+794                     int_to_buffer(motor_ptr->app\&.vphase_amp_gain);
+795                     break;
+796 #endif
+797                 case close_loop_coast_timeout:
+798                     int_to_buffer(motor_ptr->app\&.coast_timeout_target);
+799                     break;
+800 
+801                 case Phase_Rsense:
+802                     int_to_buffer(PCB_RSENSE_IUVW_OHMS*1000*65536);
+803                     break;
+804                 case OC_Rsense:
+805                     int_to_buffer(PCB_RSENSE_OC_OHMS*1000*65536);
+806                     break;
+807 
+808 #if (OUTERLOOP_CONTROL_SELECT == OUTERLOOP_CONTROL_POWER)
+809                 case Power_pid_Kp:
+810                     int_to_buffer(motor_ptr->control\&.outerloop_pid\&.ka_q16);
+811                     break;
+812                 case Power_pid_Ki:
+813                     int_to_buffer(motor_ptr->control\&.outerloop_pid\&.kb_q16);
+814                     break;
+815 
+816                 case Power_ramp_rate:
+817                     int_to_buffer(motor_ptr->control\&.outerloop_rate_store);
+818                     break;
+819                 case Power_setpoint:
+820                     int_to_buffer(motor_ptr->control\&.outerloop_target);
+821                     break;
+822                 case Power_max_limit:
+823                     int_to_buffer(motor_ptr->app\&.powerrefcl_max);
+824                     break;
+825 #endif
+826 
+827 #if (MODULE_MPOS_LBG1 == ENABLED)
+828                 case LBG1_Kpe:
+829                     int_to_buffer(motor_ptr->mpos\&.est\&.kpe_store_q16);
+830                     break;
+831                 case LBG1_Kpi:
+832                     int_to_buffer(motor_ptr->mpos\&.est\&.kpi_store_q16);
+833                     break;
+834                 case LBG1_BandWidth:
+835                     int_to_buffer(motor_ptr->mpos\&.est\&.w0_q06 << 10)
+836                     break;
+837                 case LBG1_DampingFactor:
+838                     int_to_buffer(motor_ptr->mpos\&.est\&.dampfactor_q16);
+839                     break;
+840                 case LBG1_fc_speed:
+841                     int_to_buffer(motor_ptr->mpos\&.est\&.filter_fc_speed_q16);
+842                     break;
+843                 case angle_correction_offset:
+844                     int_to_buffer(motor_ptr->mpos\&.est\&.angcorr_offset);
+845                     break;
+846                 case angle_correction_factor:
+847                     // Value received by GUI in Q20 format
+848                     int_to_buffer(motor_ptr->mpos\&.est\&.angcorr_gain_q20);
+849                     break;
+850 #endif
+851 
+852                 case firmware_options:
+853                 {
+854                     fix16_t temp_value=0;
+855 
+856                     //temp_value |= (MPOS_SELECT);
+857 
+858                     temp_value |= (BOARD_SELECT <<4);
+859 
+860 #ifdef ENABLE_SIM
+861                     temp_value |= (0x01 <<8);
+862 #endif
+863 #ifdef ENABLE_STALL_DETECT
+864                     temp_value |= (0x02 <<8);
+865 #endif
+866 #ifdef ENABLE_IPD
+867                     temp_value |= (0x04 <<8);
+868 #endif
+869 #ifdef ENABLE_FIELD_WEAKENING
+870                     temp_value |= (0x08 <<8);
+871 #endif
+872 #ifdef ENABLE_POWERMEASURE
+873                     temp_value |= (0x10 <<8);
+874 #endif
+875 #ifdef ENABLE_AUTOTUNE_PI
+876                     temp_value |= (0x20 <<8);
+877 #endif
+878 #ifdef ENABLE_IDIQ_FILTER
+879                     temp_value |= (0x40 <<8);
+880 #endif
+881 #if (CONFIG_SHUNT == CONFIG_SHUNT_3SHUNT)
+882                     temp_value |= (0x80 <<8);
+883 #endif
+884 #if (OUTERLOOP_CONTROL_SELECT == OUTERLOOP_CONTROL_POWER)
+885                     temp_value |= (0x01 <<16);
+886 #endif
+887 // 4 Bits reserved for Arch definition
+888 #ifdef CAFE_ARCH1
+889                     temp_value |= (0x01 << 24);
+890 #endif
+891 #ifdef CAFE_ARCH2
+892                     temp_value |= (0x02 << 24);
+893 #endif
+894 #ifdef CAFE_ARCH3
+895                     temp_value |= (0x03 << 24);
+896 #endif
+897                     int_to_buffer(temp_value);
+898                 }
+899                     break;
+900 
+901                 case Vdc_Rsense_ratio:
+902                     int_to_buffer(QCONST(R1_PLUS_R2_BY_R2_RATIO_VBUS, Q16));
+903                     break;
+904                 case Vphase_Rsense_ratio:
+905                     int_to_buffer(QCONST(R1_PLUS_R2_BY_R2_RATIO_SIM, Q16));
+906                     break;
+907                 case Vdc_max_limit:
+908                     int_to_buffer(MAX_VBUS);
+909                     break;
+910 #if defined(ENABLE_AUTOTUNE_PI)
+911                 // Auto Tune
+912                 case AutoTune_Kpv:
+913                     int_to_buffer(motor_ptr->control\&.outerloop_pid\&.ka_q16);
+914                     break;
+915                 case AutoTune_Kiv:
+916                     int_to_buffer(motor_ptr->control\&.outerloop_pid\&.kb_q16);
+917                     break;
+918                 case ATune_Command:
+919                     break;
+920                 case ATune_MID2_Istep:
+921                     int_to_buffer(motor_ptr->atune\&.istep_q16);
+922                     break;
+923                 case ATune_ATPI_Delta:
+924                     int_to_buffer(motor_ptr->atune\&.delta_q6);
+925                     break;
+926                 case AutoTune_Status:
+927                     int_to_buffer(motor_ptr->atune\&.status_atune);
+928                     at_status_clear_on_guiread(motor_ptr);
+929                     break;
+930                     // Read AutoTune storage variables
+931                 case AutoTune_Storage_ke_q26:
+932                     int_to_buffer(motor_ptr->atune\&.ke_q26);
+933                     break;
+934                 case AutoTune_Storage_j_q26:
+935                     int_to_buffer(motor_ptr->atune\&.j_q26);
+936                     break;
+937                 case AutoTune_Storage_speed_ka_q16:
+938                     int_to_buffer(motor_ptr->atune\&.speed_ka_q16);
+939                     break;
+940                 case AutoTune_Storage_speed_kb_q16:
+941                     int_to_buffer(motor_ptr->atune\&.speed_kb_q16);
+942                     break;
+943                 case AutoTune_Storage_id_ka_q16:
+944                     int_to_buffer(motor_ptr->atune\&.id_ka_q16);
+945                     break;
+946                 case AutoTune_Storage_id_kb_q16:
+947                     int_to_buffer(motor_ptr->atune\&.id_kb_q16);
+948                     break;
+949                 case AutoTune_Storage_iq_ka_q16:
+950                     int_to_buffer(motor_ptr->atune\&.iq_ka_q16);
+951                     break;
+952                 case AutoTune_Storage_iq_kb_q16:
+953                     int_to_buffer(motor_ptr->atune\&.iq_kb_q16);
+954                     break;
+955                 case AutoTune_MID1_Storage_R_q16:
+956                     int_to_buffer(motor_ptr->atune\&.rs_q16);
+957                     break;
+958                 case AutoTune_MID1_Storage_Ld_q26:
+959                     int_to_buffer(motor_ptr->atune\&.ld_q26);
+960                     break;
+961                 case AutoTune_MID1_Storage_Lq_q26:
+962                     int_to_buffer(motor_ptr->atune\&.lq_q26);
+963                     break;
+964                 case ATune_MID1_AlignV1:
+965                     int_to_buffer(motor_ptr->atune\&.i_align1_gui_q14 << 2);
+966                     break;
+967                 case ATune_MID1_AlignV2:
+968                     int_to_buffer(motor_ptr->atune\&.i_align2_gui_q14 << 2);
+969                     break;
+970                 case ATune_MID1_Vinj:
+971                     int_to_buffer(motor_ptr->atune\&.i_inj_gui_q14 << 2);
+972                     break;
+973                 case ATune_MID1_numlimit:
+974                     int_to_buffer(motor_ptr->atune\&.num_limit_gui << 0);
+975                     break;
+976                 case ATune_MID1_ManCmd:
+977                     int_to_buffer(motor_ptr->atune\&.mid1_mancmd);
+978                     break;
+979                 case ATune_MID1_PFactor:
+980                     int_to_buffer(motor_ptr->atune\&.power_factor_sq_q16);
+981                     break;
+982 #endif
+983                 case Commutation_Mode:
+984                 {
+985                     fix16_t temp_value = MPOS_SELECT;
+986 #ifdef ENABLE_HALL_TUNING
+987                     temp_value |= (1L << 8);
+988 #endif
+989                     int_to_buffer(temp_value);
+990                 }
+991                     break;
+992 
+993 #if (MODULE_MPOS_HALL == ENABLED)
+994                 case HallConfig_Istart:
+995                     int_to_buffer(motor_ptr->startup\&.i_total_hall_gui);
+996                     break;
+997                 case HallConfig_Speed:
+998                     int_to_buffer(motor_ptr->mpos\&.hall\&.switchover_spd_lo2hi_radps);
+999                     break;
+1000                 case HallConfig_Gain_Fwd:
+1001                     int_to_buffer(motor_ptr->mpos\&.hall\&.angcorr_gain_fwd_q20);
+1002                     break;
+1003                 case HallConfig_Gain_Rev:
+1004                     int_to_buffer(motor_ptr->mpos\&.hall\&.angcorr_gain_rev_q20);
+1005                     break;
+1006                 case HallConfig_Offset_Fwd:
+1007                     int_to_buffer(motor_ptr->mpos\&.hall\&.angcorr_offset_fwd);
+1008                     break;
+1009                 case HallConfig_Offset_Rev:
+1010                     int_to_buffer(motor_ptr->mpos\&.hall\&.angcorr_offset_rev);
+1011                     break;
+1012                 case HallConfig_Snap_1_Fwd:
+1013                     int_to_buffer(motor_ptr->mpos\&.hall\&.hall_to_snapangle_forward[1]);
+1014                     break;
+1015                 case HallConfig_Snap_1_Rev:
+1016                     int_to_buffer(motor_ptr->mpos\&.hall\&.hall_to_snapangle_reverse[1]);
+1017                     break;
+1018                 case HallConfig_Snap_2_Fwd:
+1019                     int_to_buffer(motor_ptr->mpos\&.hall\&.hall_to_snapangle_forward[2]);
+1020                     break;
+1021                 case HallConfig_Snap_2_Rev:
+1022                     int_to_buffer(motor_ptr->mpos\&.hall\&.hall_to_snapangle_reverse[2]);
+1023                     break;
+1024                 case HallConfig_Snap_3_Fwd:
+1025                     int_to_buffer(motor_ptr->mpos\&.hall\&.hall_to_snapangle_forward[3]);
+1026                     break;
+1027                 case HallConfig_Snap_3_Rev:
+1028                     int_to_buffer(motor_ptr->mpos\&.hall\&.hall_to_snapangle_reverse[3]);
+1029                     break;
+1030                 case HallConfig_Snap_4_Fwd:
+1031                     int_to_buffer(motor_ptr->mpos\&.hall\&.hall_to_snapangle_forward[4]);
+1032                     break;
+1033                 case HallConfig_Snap_4_Rev:
+1034                     int_to_buffer(motor_ptr->mpos\&.hall\&.hall_to_snapangle_reverse[4]);
+1035                     break;
+1036                 case HallConfig_Snap_5_Fwd:
+1037                     int_to_buffer(motor_ptr->mpos\&.hall\&.hall_to_snapangle_forward[5]);
+1038                     break;
+1039                 case HallConfig_Snap_5_Rev:
+1040                     int_to_buffer(motor_ptr->mpos\&.hall\&.hall_to_snapangle_reverse[5]);
+1041                     break;
+1042                 case HallConfig_Snap_6_Fwd:
+1043                     int_to_buffer(motor_ptr->mpos\&.hall\&.hall_to_snapangle_forward[6]);
+1044                     break;
+1045                 case HallConfig_Snap_6_Rev:
+1046                     int_to_buffer(motor_ptr->mpos\&.hall\&.hall_to_snapangle_reverse[6]);
+1047                     break;
+1048 #endif
+1049 
+1050 #if defined(ENABLE_HALL_TUNING)
+1051                 case HallTuning_Status:
+1052                     int_to_buffer(motor_ptr->halltune\&.status);
+1053                     break;
+1054                 case HallTuning_Command:
+1055                     int_to_buffer(motor_ptr->halltune\&.gui_cmd);
+1056                     break;
+1057                 case HallTuning_Istart:
+1058                     int_to_buffer(motor_ptr->halltune\&.aligngo\&.itotrefol_target_q16);
+1059                     break;
+1060                 case HallTuning_Speed_Ramp:
+1061                     int_to_buffer(motor_ptr->halltune\&.aligngo\&.speedrefol_rate);
+1062                     break;
+1063                 case HallTuning_Target_Speed:
+1064                     int_to_buffer(motor_ptr->halltune\&.aligngo\&.speedrefol_target);
+1065                     break;
+1066                 case HallTuning_State_1:
+1067                     int_to_buffer(motor_ptr->halltune\&.hall_ptr_hallangle[1]);
+1068                     break;
+1069                 case HallTuning_Snap_1:
+1070                     int_to_buffer(motor_ptr->halltune\&.hall_ptr_snapangle[1]);
+1071                     break;
+1072                 case HallTuning_State_2:
+1073                     int_to_buffer(motor_ptr->halltune\&.hall_ptr_hallangle[2]);
+1074                     break;
+1075                 case HallTuning_Snap_2:
+1076                     int_to_buffer(motor_ptr->halltune\&.hall_ptr_snapangle[2]);
+1077                     break;
+1078                 case HallTuning_State_3:
+1079                     int_to_buffer(motor_ptr->halltune\&.hall_ptr_hallangle[3]);
+1080                     break;
+1081                 case HallTuning_Snap_3:
+1082                     int_to_buffer(motor_ptr->halltune\&.hall_ptr_snapangle[3]);
+1083                     break;
+1084                 case HallTuning_State_4:
+1085                     int_to_buffer(motor_ptr->halltune\&.hall_ptr_hallangle[4]);
+1086                     break;
+1087                 case HallTuning_Snap_4:
+1088                     int_to_buffer(motor_ptr->halltune\&.hall_ptr_snapangle[4]);
+1089                     break;
+1090                 case HallTuning_State_5:
+1091                     int_to_buffer(motor_ptr->halltune\&.hall_ptr_hallangle[5]);
+1092                     break;
+1093                 case HallTuning_Snap_5:
+1094                     int_to_buffer(motor_ptr->halltune\&.hall_ptr_snapangle[5]);
+1095                     break;
+1096                 case HallTuning_State_6:
+1097                     int_to_buffer(motor_ptr->halltune\&.hall_ptr_hallangle[6]);
+1098                     break;
+1099                 case HallTuning_Snap_6:
+1100                     int_to_buffer(motor_ptr->halltune\&.hall_ptr_snapangle[6]);
+1101                     break;
+1102 #endif
+1103 
+1104 #if (MODULE_MPOS_QEP == ENABLED)
+1105                 case QEP_Resolution:
+1106                     int_to_buffer(motor_ptr->mpos\&.qep\&.qep_resolution);
+1107                     break;
+1108                 case QEP_Offset_Angle_Fwd:
+1109                     int_to_buffer(motor_ptr->mpos\&.qep\&.angcorr_offset_fwd);
+1110                     break;
+1111                 case QEP_Offset_Angle_Rev:
+1112                     int_to_buffer(motor_ptr->mpos\&.qep\&.angcorr_offset_rev);
+1113                     break;
+1114                 case QEP_Fc:
+1115                     int_to_buffer(motor_ptr->mpos\&.qep\&.filter_fc_speed_q16);
+1116                     break;
+1117 #endif
+1118                 default:
+1119                     int_to_buffer(1);
+1120                     break;
+1121             }
+1122             uart_tx_buffer[4] = ((tx_data >> 24) & 0xFF);
+1123             uart_tx_buffer[5] = ((tx_data >> 16) & 0xFF);
+1124             uart_tx_buffer[6] = ((tx_data >> 8)  & 0xFF);
+1125             uart_tx_buffer[7] = (tx_data & 0xFF);
+1126             break;
+1127 
+1128 //===========================
+1129 //===== Parameter Write =====
+1130 //===========================
+1131         case cmd_parameter_write:
+1132             Parameters_write_gui((ParameterCode)uart_rx_buffer[2], rx_data, motor_ptr);
+1133 #if defined(ENABLE_TM) && defined(TM_PARAMCHECK)
+1134             if (motor_ptr->debug\&.testmode_enable)
+1135                 parameter_check((ParameterCode)uart_rx_buffer[2], rx_data, motor_ptr);
+1136             else
+1137                 parameters_write_foc((ParameterCode)uart_rx_buffer[2], rx_data, motor_ptr);
+1138 #else
+1139             parameters_write_foc((ParameterCode)uart_rx_buffer[2], rx_data, motor_ptr);
+1140 #endif
+1141         default:
+1142             status = host_write_error;  // Do not respond - invalid command
+1143         }
+1144     }
+1145 
+1146     uart_tx_buffer[2] = status;
+1147     uart_tx_buffer[8] = uart_checksum((uint8_t*)&uart_tx_buffer);               // Calculate checksum for outgoing message
+1148 
+1149     return status;
+1150 }
+.fi
+.PP
+References motor, success, uart_rx_buffer, and uart_tx_buffer\&.
+.SH "Variable Documentation"
+.PP 
+.SS "uint8_t uart_rx_buffer[\fBUART_MESSAGE_SIZE\fP]\fC [extern]\fP"
+
+.PP
+Definition at line 66 of file uart_gui\&.c\&.
+.PP
+Referenced by uart_message_process()\&.
+.SS "uint8_t uart_tx_buffer[\fBUART_MESSAGE_SIZE\fP]\fC [extern]\fP"
+
+.PP
+Definition at line 67 of file uart_gui\&.c\&.
+.PP
+Referenced by uart_message_process()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

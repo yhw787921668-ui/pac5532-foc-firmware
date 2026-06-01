@@ -1,0 +1,635 @@
+\hypertarget{struct_struct___est}{}\doxysection{Struct\+\_\+\+Est Struct Reference}
+\label{struct_struct___est}\index{Struct\_Est@{Struct\_Est}}
+
+
+Estimator structure.  
+
+
+
+
+{\ttfamily \#include $<$lbg1\+\_\+struct.\+h$>$}
+
+
+
+Collaboration diagram for Struct\+\_\+\+Est\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{struct_struct___est__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_struct___est_af73fdd2985d85e53d512d8b98df66724}{state}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_struct___est_a08e9b7692ea86a5b29f61808b58423b1}{est\+\_\+transition\+\_\+complete}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_struct___est_ad9c717a29d51a526183615e188547e40}{switchover\+\_\+check\+\_\+pass}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_struct___est_a03f47ed0935305f1c174631bdbccdd4f}{lbg\+\_\+valid\+\_\+fault\+\_\+flag}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_struct___est_aa004ac74ab046ddaf878223547cdc6af}{flag\+\_\+estbw\+\_\+high}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_struct___est_a057f19da0af1490c9906a786b97a7299}{temp}}\+: 28
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a463e0b12e5303472babcc9affc0ee14d}{angle\+\_\+diff\+\_\+timeout\+\_\+counter}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a420d886ef36580d7afd166c4374f8fd3}{lbg\+\_\+valid\+\_\+check\+\_\+counter}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a1d3049b13ad9e3b9e421a402139d3521}{ialpha1\+\_\+q14}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a296f2957557405b8082c62cafbfeb4c1}{ibeta1\+\_\+q14}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_ac4f6311bf3a66086f30b0e7279027446}{valpha1\+\_\+q14}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_afed04f5bfa1a940838013416348e9c97}{vbeta1\+\_\+q14}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a42aa7aeaa9d4bd41fa7d5555e893798e}{est\+\_\+spd\+\_\+radps}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a7ea2a1d3594a7ae7b2cdcf33fac315c7}{est\+\_\+spd\+\_\+scaled\+\_\+q14}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a863c2d362e9af082d451f52626549aaf}{est\+\_\+spd\+\_\+scaled\+\_\+q28}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a28bff9b0a19f34392f35ea987d73182c}{est\+\_\+spd\+\_\+prefilt\+\_\+scaled\+\_\+q14}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_af684ce39a0b92b57a97d2f2d5993b156}{estimated\+\_\+angle}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_af6767603831aea8a11fdd36c827a36c9}{calculated\+\_\+angle}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_ab59698596da1c3f8b6cdec14a4643bfe}{est\+\_\+ialpha\+\_\+q14}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_ada9155e5d9dfc0933978c756862d79e5}{est\+\_\+ibeta\+\_\+q14}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_af0ca353d3656f39708b35095a8a0999f}{est\+\_\+ealpha\+\_\+q14}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_ae70a6f9a09366fe1b8faff0a143c29a9}{est\+\_\+ebeta\+\_\+q14}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a3a028bd7028a66eafa2e0be4969cb959}{angle\+\_\+previous}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a9aa2c7f80c2d2842ec65b5c7b4ea35d2}{valpha\+\_\+sreg0\+\_\+q14}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a2e9c9f28c0effa9d3f7d9424bd3fb6f1}{vbeta\+\_\+sreg0\+\_\+q14}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a9ad52a84832143edb10d7a5a51a487bf}{fs\+\_\+q15}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_aed32733ae6f7be1e0d87e6f37ced8d21}{gs\+\_\+const\+\_\+q16}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_ae9b546e1889ce8b09669f36fe78bb34d}{gs\+\_\+q15}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a4aed01255f8af4566e5c4d91acabc572}{kpe\+\_\+store\+\_\+q16}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a21b34d664661030341b43394dda13102}{kpe\+\_\+const\+\_\+q14}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_ab85350734edcae71567cf561f2566a2a}{kpe\+\_\+vrble\+\_\+q14}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a54fa5ac24629e0d15d284dd90ce80264}{kpi\+\_\+store\+\_\+q16}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_aed13441abfa8fabecacf3349b116a85c}{kpi\+\_\+const\+\_\+q14}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a74d5c6eaa3e48932d98213bd655462e1}{filter\+\_\+fc\+\_\+speed\+\_\+q16}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a1b49d893a596b1151a030cafad850f44}{filter\+\_\+alpha\+\_\+speed\+\_\+q16}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_af790e3c29527de941ec5a416839d78e3}{kspd\+\_\+radps\+\_\+q16}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a98387f4d64c9e749d8ba64da5d75bc06}{kspd\+\_\+scaled\+\_\+q14}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_struct___est_a1a4aac96e99175b7d007676de8d98ad0}{speed\+\_\+scale\+\_\+shift}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a9ca6d568766db3ccc69948b95ae32d2d}{angcorr\+\_\+gain\+\_\+q20}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a42606b18a8726b5762d40c157743b487}{angcorr\+\_\+offset}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a538288ab49358777f2e20a2464e26b9c}{w0\+\_\+q06}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a38b5392258caca55a4d6fc4d4a864228}{w0\+\_\+target\+\_\+q06}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a9375bf9b99eb3861fe6f773e76c72a56}{w0\+\_\+ramp\+\_\+q06}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a3818aa90e5b24b296c23216fab390d8c}{dampfactor\+\_\+q16}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___est_a6d3f2c2cb6729dfad045994050c5b301}{phscomp\+\_\+multp\+\_\+q20}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Estimator structure. 
+
+Definition at line 26 of file lbg1\+\_\+struct.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_struct___est_a9ca6d568766db3ccc69948b95ae32d2d}\label{struct_struct___est_a9ca6d568766db3ccc69948b95ae32d2d}} 
+\index{Struct\_Est@{Struct\_Est}!angcorr\_gain\_q20@{angcorr\_gain\_q20}}
+\index{angcorr\_gain\_q20@{angcorr\_gain\_q20}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{angcorr\_gain\_q20}{angcorr\_gain\_q20}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::angcorr\+\_\+gain\+\_\+q20}
+
+
+
+Definition at line 77 of file lbg1\+\_\+struct.\+h.
+
+
+
+Referenced by lbg1\+\_\+param\+\_\+write().
+
+\mbox{\Hypertarget{struct_struct___est_a42606b18a8726b5762d40c157743b487}\label{struct_struct___est_a42606b18a8726b5762d40c157743b487}} 
+\index{Struct\_Est@{Struct\_Est}!angcorr\_offset@{angcorr\_offset}}
+\index{angcorr\_offset@{angcorr\_offset}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{angcorr\_offset}{angcorr\_offset}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::angcorr\+\_\+offset}
+
+
+
+Definition at line 78 of file lbg1\+\_\+struct.\+h.
+
+
+
+Referenced by lbg1\+\_\+param\+\_\+write().
+
+\mbox{\Hypertarget{struct_struct___est_a463e0b12e5303472babcc9affc0ee14d}\label{struct_struct___est_a463e0b12e5303472babcc9affc0ee14d}} 
+\index{Struct\_Est@{Struct\_Est}!angle\_diff\_timeout\_counter@{angle\_diff\_timeout\_counter}}
+\index{angle\_diff\_timeout\_counter@{angle\_diff\_timeout\_counter}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{angle\_diff\_timeout\_counter}{angle\_diff\_timeout\_counter}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::angle\+\_\+diff\+\_\+timeout\+\_\+counter}
+
+
+
+Definition at line 37 of file lbg1\+\_\+struct.\+h.
+
+
+
+Referenced by est\+\_\+anglediff\+\_\+check(), and lbg1\+\_\+reset().
+
+\mbox{\Hypertarget{struct_struct___est_a3a028bd7028a66eafa2e0be4969cb959}\label{struct_struct___est_a3a028bd7028a66eafa2e0be4969cb959}} 
+\index{Struct\_Est@{Struct\_Est}!angle\_previous@{angle\_previous}}
+\index{angle\_previous@{angle\_previous}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{angle\_previous}{angle\_previous}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::angle\+\_\+previous}
+
+
+
+Definition at line 59 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_af6767603831aea8a11fdd36c827a36c9}\label{struct_struct___est_af6767603831aea8a11fdd36c827a36c9}} 
+\index{Struct\_Est@{Struct\_Est}!calculated\_angle@{calculated\_angle}}
+\index{calculated\_angle@{calculated\_angle}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{calculated\_angle}{calculated\_angle}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::calculated\+\_\+angle}
+
+
+
+Definition at line 52 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_a3818aa90e5b24b296c23216fab390d8c}\label{struct_struct___est_a3818aa90e5b24b296c23216fab390d8c}} 
+\index{Struct\_Est@{Struct\_Est}!dampfactor\_q16@{dampfactor\_q16}}
+\index{dampfactor\_q16@{dampfactor\_q16}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{dampfactor\_q16}{dampfactor\_q16}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::dampfactor\+\_\+q16}
+
+
+
+Definition at line 82 of file lbg1\+\_\+struct.\+h.
+
+
+
+Referenced by lbg1\+\_\+param\+\_\+write().
+
+\mbox{\Hypertarget{struct_struct___est_af0ca353d3656f39708b35095a8a0999f}\label{struct_struct___est_af0ca353d3656f39708b35095a8a0999f}} 
+\index{Struct\_Est@{Struct\_Est}!est\_ealpha\_q14@{est\_ealpha\_q14}}
+\index{est\_ealpha\_q14@{est\_ealpha\_q14}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{est\_ealpha\_q14}{est\_ealpha\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::est\+\_\+ealpha\+\_\+q14}
+
+
+
+Definition at line 57 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_ae70a6f9a09366fe1b8faff0a143c29a9}\label{struct_struct___est_ae70a6f9a09366fe1b8faff0a143c29a9}} 
+\index{Struct\_Est@{Struct\_Est}!est\_ebeta\_q14@{est\_ebeta\_q14}}
+\index{est\_ebeta\_q14@{est\_ebeta\_q14}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{est\_ebeta\_q14}{est\_ebeta\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::est\+\_\+ebeta\+\_\+q14}
+
+
+
+Definition at line 58 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_ab59698596da1c3f8b6cdec14a4643bfe}\label{struct_struct___est_ab59698596da1c3f8b6cdec14a4643bfe}} 
+\index{Struct\_Est@{Struct\_Est}!est\_ialpha\_q14@{est\_ialpha\_q14}}
+\index{est\_ialpha\_q14@{est\_ialpha\_q14}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{est\_ialpha\_q14}{est\_ialpha\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::est\+\_\+ialpha\+\_\+q14}
+
+
+
+Definition at line 55 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_ada9155e5d9dfc0933978c756862d79e5}\label{struct_struct___est_ada9155e5d9dfc0933978c756862d79e5}} 
+\index{Struct\_Est@{Struct\_Est}!est\_ibeta\_q14@{est\_ibeta\_q14}}
+\index{est\_ibeta\_q14@{est\_ibeta\_q14}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{est\_ibeta\_q14}{est\_ibeta\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::est\+\_\+ibeta\+\_\+q14}
+
+
+
+Definition at line 56 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_a28bff9b0a19f34392f35ea987d73182c}\label{struct_struct___est_a28bff9b0a19f34392f35ea987d73182c}} 
+\index{Struct\_Est@{Struct\_Est}!est\_spd\_prefilt\_scaled\_q14@{est\_spd\_prefilt\_scaled\_q14}}
+\index{est\_spd\_prefilt\_scaled\_q14@{est\_spd\_prefilt\_scaled\_q14}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{est\_spd\_prefilt\_scaled\_q14}{est\_spd\_prefilt\_scaled\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::est\+\_\+spd\+\_\+prefilt\+\_\+scaled\+\_\+q14}
+
+
+
+Definition at line 50 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_a42aa7aeaa9d4bd41fa7d5555e893798e}\label{struct_struct___est_a42aa7aeaa9d4bd41fa7d5555e893798e}} 
+\index{Struct\_Est@{Struct\_Est}!est\_spd\_radps@{est\_spd\_radps}}
+\index{est\_spd\_radps@{est\_spd\_radps}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{est\_spd\_radps}{est\_spd\_radps}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::est\+\_\+spd\+\_\+radps}
+
+
+
+Definition at line 47 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_a7ea2a1d3594a7ae7b2cdcf33fac315c7}\label{struct_struct___est_a7ea2a1d3594a7ae7b2cdcf33fac315c7}} 
+\index{Struct\_Est@{Struct\_Est}!est\_spd\_scaled\_q14@{est\_spd\_scaled\_q14}}
+\index{est\_spd\_scaled\_q14@{est\_spd\_scaled\_q14}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{est\_spd\_scaled\_q14}{est\_spd\_scaled\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::est\+\_\+spd\+\_\+scaled\+\_\+q14}
+
+
+
+Definition at line 48 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_a863c2d362e9af082d451f52626549aaf}\label{struct_struct___est_a863c2d362e9af082d451f52626549aaf}} 
+\index{Struct\_Est@{Struct\_Est}!est\_spd\_scaled\_q28@{est\_spd\_scaled\_q28}}
+\index{est\_spd\_scaled\_q28@{est\_spd\_scaled\_q28}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{est\_spd\_scaled\_q28}{est\_spd\_scaled\_q28}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::est\+\_\+spd\+\_\+scaled\+\_\+q28}
+
+
+
+Definition at line 49 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_a08e9b7692ea86a5b29f61808b58423b1}\label{struct_struct___est_a08e9b7692ea86a5b29f61808b58423b1}} 
+\index{Struct\_Est@{Struct\_Est}!est\_transition\_complete@{est\_transition\_complete}}
+\index{est\_transition\_complete@{est\_transition\_complete}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{est\_transition\_complete}{est\_transition\_complete}}
+{\footnotesize\ttfamily uint32\+\_\+t Struct\+\_\+\+Est\+::est\+\_\+transition\+\_\+complete}
+
+
+
+Definition at line 30 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_af684ce39a0b92b57a97d2f2d5993b156}\label{struct_struct___est_af684ce39a0b92b57a97d2f2d5993b156}} 
+\index{Struct\_Est@{Struct\_Est}!estimated\_angle@{estimated\_angle}}
+\index{estimated\_angle@{estimated\_angle}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{estimated\_angle}{estimated\_angle}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::estimated\+\_\+angle}
+
+
+
+Definition at line 51 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_a1b49d893a596b1151a030cafad850f44}\label{struct_struct___est_a1b49d893a596b1151a030cafad850f44}} 
+\index{Struct\_Est@{Struct\_Est}!filter\_alpha\_speed\_q16@{filter\_alpha\_speed\_q16}}
+\index{filter\_alpha\_speed\_q16@{filter\_alpha\_speed\_q16}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{filter\_alpha\_speed\_q16}{filter\_alpha\_speed\_q16}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::filter\+\_\+alpha\+\_\+speed\+\_\+q16}
+
+
+
+Definition at line 73 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_a74d5c6eaa3e48932d98213bd655462e1}\label{struct_struct___est_a74d5c6eaa3e48932d98213bd655462e1}} 
+\index{Struct\_Est@{Struct\_Est}!filter\_fc\_speed\_q16@{filter\_fc\_speed\_q16}}
+\index{filter\_fc\_speed\_q16@{filter\_fc\_speed\_q16}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{filter\_fc\_speed\_q16}{filter\_fc\_speed\_q16}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::filter\+\_\+fc\+\_\+speed\+\_\+q16}
+
+
+
+Definition at line 72 of file lbg1\+\_\+struct.\+h.
+
+
+
+Referenced by lbg1\+\_\+param\+\_\+write().
+
+\mbox{\Hypertarget{struct_struct___est_aa004ac74ab046ddaf878223547cdc6af}\label{struct_struct___est_aa004ac74ab046ddaf878223547cdc6af}} 
+\index{Struct\_Est@{Struct\_Est}!flag\_estbw\_high@{flag\_estbw\_high}}
+\index{flag\_estbw\_high@{flag\_estbw\_high}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{flag\_estbw\_high}{flag\_estbw\_high}}
+{\footnotesize\ttfamily uint32\+\_\+t Struct\+\_\+\+Est\+::flag\+\_\+estbw\+\_\+high}
+
+
+
+Definition at line 33 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_a9ad52a84832143edb10d7a5a51a487bf}\label{struct_struct___est_a9ad52a84832143edb10d7a5a51a487bf}} 
+\index{Struct\_Est@{Struct\_Est}!fs\_q15@{fs\_q15}}
+\index{fs\_q15@{fs\_q15}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{fs\_q15}{fs\_q15}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::fs\+\_\+q15}
+
+
+
+Definition at line 64 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_aed32733ae6f7be1e0d87e6f37ced8d21}\label{struct_struct___est_aed32733ae6f7be1e0d87e6f37ced8d21}} 
+\index{Struct\_Est@{Struct\_Est}!gs\_const\_q16@{gs\_const\_q16}}
+\index{gs\_const\_q16@{gs\_const\_q16}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{gs\_const\_q16}{gs\_const\_q16}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::gs\+\_\+const\+\_\+q16}
+
+
+
+Definition at line 65 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_ae9b546e1889ce8b09669f36fe78bb34d}\label{struct_struct___est_ae9b546e1889ce8b09669f36fe78bb34d}} 
+\index{Struct\_Est@{Struct\_Est}!gs\_q15@{gs\_q15}}
+\index{gs\_q15@{gs\_q15}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{gs\_q15}{gs\_q15}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::gs\+\_\+q15}
+
+
+
+Definition at line 66 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_a1d3049b13ad9e3b9e421a402139d3521}\label{struct_struct___est_a1d3049b13ad9e3b9e421a402139d3521}} 
+\index{Struct\_Est@{Struct\_Est}!ialpha1\_q14@{ialpha1\_q14}}
+\index{ialpha1\_q14@{ialpha1\_q14}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{ialpha1\_q14}{ialpha1\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::ialpha1\+\_\+q14}
+
+
+
+Definition at line 41 of file lbg1\+\_\+struct.\+h.
+
+
+
+Referenced by lbg1\+\_\+statemon().
+
+\mbox{\Hypertarget{struct_struct___est_a296f2957557405b8082c62cafbfeb4c1}\label{struct_struct___est_a296f2957557405b8082c62cafbfeb4c1}} 
+\index{Struct\_Est@{Struct\_Est}!ibeta1\_q14@{ibeta1\_q14}}
+\index{ibeta1\_q14@{ibeta1\_q14}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{ibeta1\_q14}{ibeta1\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::ibeta1\+\_\+q14}
+
+
+
+Definition at line 42 of file lbg1\+\_\+struct.\+h.
+
+
+
+Referenced by lbg1\+\_\+statemon().
+
+\mbox{\Hypertarget{struct_struct___est_a21b34d664661030341b43394dda13102}\label{struct_struct___est_a21b34d664661030341b43394dda13102}} 
+\index{Struct\_Est@{Struct\_Est}!kpe\_const\_q14@{kpe\_const\_q14}}
+\index{kpe\_const\_q14@{kpe\_const\_q14}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{kpe\_const\_q14}{kpe\_const\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::kpe\+\_\+const\+\_\+q14}
+
+
+
+Definition at line 68 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_a4aed01255f8af4566e5c4d91acabc572}\label{struct_struct___est_a4aed01255f8af4566e5c4d91acabc572}} 
+\index{Struct\_Est@{Struct\_Est}!kpe\_store\_q16@{kpe\_store\_q16}}
+\index{kpe\_store\_q16@{kpe\_store\_q16}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{kpe\_store\_q16}{kpe\_store\_q16}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::kpe\+\_\+store\+\_\+q16}
+
+
+
+Definition at line 67 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_ab85350734edcae71567cf561f2566a2a}\label{struct_struct___est_ab85350734edcae71567cf561f2566a2a}} 
+\index{Struct\_Est@{Struct\_Est}!kpe\_vrble\_q14@{kpe\_vrble\_q14}}
+\index{kpe\_vrble\_q14@{kpe\_vrble\_q14}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{kpe\_vrble\_q14}{kpe\_vrble\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::kpe\+\_\+vrble\+\_\+q14}
+
+
+
+Definition at line 69 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_aed13441abfa8fabecacf3349b116a85c}\label{struct_struct___est_aed13441abfa8fabecacf3349b116a85c}} 
+\index{Struct\_Est@{Struct\_Est}!kpi\_const\_q14@{kpi\_const\_q14}}
+\index{kpi\_const\_q14@{kpi\_const\_q14}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{kpi\_const\_q14}{kpi\_const\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::kpi\+\_\+const\+\_\+q14}
+
+
+
+Definition at line 71 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_a54fa5ac24629e0d15d284dd90ce80264}\label{struct_struct___est_a54fa5ac24629e0d15d284dd90ce80264}} 
+\index{Struct\_Est@{Struct\_Est}!kpi\_store\_q16@{kpi\_store\_q16}}
+\index{kpi\_store\_q16@{kpi\_store\_q16}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{kpi\_store\_q16}{kpi\_store\_q16}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::kpi\+\_\+store\+\_\+q16}
+
+
+
+Definition at line 70 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_af790e3c29527de941ec5a416839d78e3}\label{struct_struct___est_af790e3c29527de941ec5a416839d78e3}} 
+\index{Struct\_Est@{Struct\_Est}!kspd\_radps\_q16@{kspd\_radps\_q16}}
+\index{kspd\_radps\_q16@{kspd\_radps\_q16}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{kspd\_radps\_q16}{kspd\_radps\_q16}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::kspd\+\_\+radps\+\_\+q16}
+
+
+
+Definition at line 74 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_a98387f4d64c9e749d8ba64da5d75bc06}\label{struct_struct___est_a98387f4d64c9e749d8ba64da5d75bc06}} 
+\index{Struct\_Est@{Struct\_Est}!kspd\_scaled\_q14@{kspd\_scaled\_q14}}
+\index{kspd\_scaled\_q14@{kspd\_scaled\_q14}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{kspd\_scaled\_q14}{kspd\_scaled\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::kspd\+\_\+scaled\+\_\+q14}
+
+
+
+Definition at line 75 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_a420d886ef36580d7afd166c4374f8fd3}\label{struct_struct___est_a420d886ef36580d7afd166c4374f8fd3}} 
+\index{Struct\_Est@{Struct\_Est}!lbg\_valid\_check\_counter@{lbg\_valid\_check\_counter}}
+\index{lbg\_valid\_check\_counter@{lbg\_valid\_check\_counter}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{lbg\_valid\_check\_counter}{lbg\_valid\_check\_counter}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::lbg\+\_\+valid\+\_\+check\+\_\+counter}
+
+
+
+Definition at line 38 of file lbg1\+\_\+struct.\+h.
+
+
+
+Referenced by lbg1\+\_\+reset(), and lbg1\+\_\+statemon().
+
+\mbox{\Hypertarget{struct_struct___est_a03f47ed0935305f1c174631bdbccdd4f}\label{struct_struct___est_a03f47ed0935305f1c174631bdbccdd4f}} 
+\index{Struct\_Est@{Struct\_Est}!lbg\_valid\_fault\_flag@{lbg\_valid\_fault\_flag}}
+\index{lbg\_valid\_fault\_flag@{lbg\_valid\_fault\_flag}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{lbg\_valid\_fault\_flag}{lbg\_valid\_fault\_flag}}
+{\footnotesize\ttfamily uint32\+\_\+t Struct\+\_\+\+Est\+::lbg\+\_\+valid\+\_\+fault\+\_\+flag}
+
+
+
+Definition at line 32 of file lbg1\+\_\+struct.\+h.
+
+
+
+Referenced by lbg1\+\_\+reset(), and lbg1\+\_\+statemon().
+
+\mbox{\Hypertarget{struct_struct___est_a6d3f2c2cb6729dfad045994050c5b301}\label{struct_struct___est_a6d3f2c2cb6729dfad045994050c5b301}} 
+\index{Struct\_Est@{Struct\_Est}!phscomp\_multp\_q20@{phscomp\_multp\_q20}}
+\index{phscomp\_multp\_q20@{phscomp\_multp\_q20}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{phscomp\_multp\_q20}{phscomp\_multp\_q20}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::phscomp\+\_\+multp\+\_\+q20}
+
+
+
+Definition at line 83 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_a1a4aac96e99175b7d007676de8d98ad0}\label{struct_struct___est_a1a4aac96e99175b7d007676de8d98ad0}} 
+\index{Struct\_Est@{Struct\_Est}!speed\_scale\_shift@{speed\_scale\_shift}}
+\index{speed\_scale\_shift@{speed\_scale\_shift}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{speed\_scale\_shift}{speed\_scale\_shift}}
+{\footnotesize\ttfamily uint32\+\_\+t Struct\+\_\+\+Est\+::speed\+\_\+scale\+\_\+shift}
+
+
+
+Definition at line 76 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_af73fdd2985d85e53d512d8b98df66724}\label{struct_struct___est_af73fdd2985d85e53d512d8b98df66724}} 
+\index{Struct\_Est@{Struct\_Est}!state@{state}}
+\index{state@{state}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily uint32\+\_\+t Struct\+\_\+\+Est\+::state}
+
+
+
+Definition at line 29 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_ad9c717a29d51a526183615e188547e40}\label{struct_struct___est_ad9c717a29d51a526183615e188547e40}} 
+\index{Struct\_Est@{Struct\_Est}!switchover\_check\_pass@{switchover\_check\_pass}}
+\index{switchover\_check\_pass@{switchover\_check\_pass}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{switchover\_check\_pass}{switchover\_check\_pass}}
+{\footnotesize\ttfamily uint32\+\_\+t Struct\+\_\+\+Est\+::switchover\+\_\+check\+\_\+pass}
+
+
+
+Definition at line 31 of file lbg1\+\_\+struct.\+h.
+
+
+
+Referenced by est\+\_\+anglediff\+\_\+check(), and lbg1\+\_\+reset().
+
+\mbox{\Hypertarget{struct_struct___est_a057f19da0af1490c9906a786b97a7299}\label{struct_struct___est_a057f19da0af1490c9906a786b97a7299}} 
+\index{Struct\_Est@{Struct\_Est}!temp@{temp}}
+\index{temp@{temp}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{temp}{temp}}
+{\footnotesize\ttfamily uint32\+\_\+t Struct\+\_\+\+Est\+::temp}
+
+
+
+Definition at line 34 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_ac4f6311bf3a66086f30b0e7279027446}\label{struct_struct___est_ac4f6311bf3a66086f30b0e7279027446}} 
+\index{Struct\_Est@{Struct\_Est}!valpha1\_q14@{valpha1\_q14}}
+\index{valpha1\_q14@{valpha1\_q14}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{valpha1\_q14}{valpha1\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::valpha1\+\_\+q14}
+
+
+
+Definition at line 43 of file lbg1\+\_\+struct.\+h.
+
+
+
+Referenced by lbg1\+\_\+statemon().
+
+\mbox{\Hypertarget{struct_struct___est_a9aa2c7f80c2d2842ec65b5c7b4ea35d2}\label{struct_struct___est_a9aa2c7f80c2d2842ec65b5c7b4ea35d2}} 
+\index{Struct\_Est@{Struct\_Est}!valpha\_sreg0\_q14@{valpha\_sreg0\_q14}}
+\index{valpha\_sreg0\_q14@{valpha\_sreg0\_q14}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{valpha\_sreg0\_q14}{valpha\_sreg0\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::valpha\+\_\+sreg0\+\_\+q14}
+
+
+
+Definition at line 60 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_afed04f5bfa1a940838013416348e9c97}\label{struct_struct___est_afed04f5bfa1a940838013416348e9c97}} 
+\index{Struct\_Est@{Struct\_Est}!vbeta1\_q14@{vbeta1\_q14}}
+\index{vbeta1\_q14@{vbeta1\_q14}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{vbeta1\_q14}{vbeta1\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::vbeta1\+\_\+q14}
+
+
+
+Definition at line 44 of file lbg1\+\_\+struct.\+h.
+
+
+
+Referenced by lbg1\+\_\+statemon().
+
+\mbox{\Hypertarget{struct_struct___est_a2e9c9f28c0effa9d3f7d9424bd3fb6f1}\label{struct_struct___est_a2e9c9f28c0effa9d3f7d9424bd3fb6f1}} 
+\index{Struct\_Est@{Struct\_Est}!vbeta\_sreg0\_q14@{vbeta\_sreg0\_q14}}
+\index{vbeta\_sreg0\_q14@{vbeta\_sreg0\_q14}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{vbeta\_sreg0\_q14}{vbeta\_sreg0\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::vbeta\+\_\+sreg0\+\_\+q14}
+
+
+
+Definition at line 61 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_a538288ab49358777f2e20a2464e26b9c}\label{struct_struct___est_a538288ab49358777f2e20a2464e26b9c}} 
+\index{Struct\_Est@{Struct\_Est}!w0\_q06@{w0\_q06}}
+\index{w0\_q06@{w0\_q06}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{w0\_q06}{w0\_q06}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::w0\+\_\+q06}
+
+
+
+Definition at line 79 of file lbg1\+\_\+struct.\+h.
+
+
+
+Referenced by lbg1\+\_\+param\+\_\+write().
+
+\mbox{\Hypertarget{struct_struct___est_a9375bf9b99eb3861fe6f773e76c72a56}\label{struct_struct___est_a9375bf9b99eb3861fe6f773e76c72a56}} 
+\index{Struct\_Est@{Struct\_Est}!w0\_ramp\_q06@{w0\_ramp\_q06}}
+\index{w0\_ramp\_q06@{w0\_ramp\_q06}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{w0\_ramp\_q06}{w0\_ramp\_q06}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::w0\+\_\+ramp\+\_\+q06}
+
+
+
+Definition at line 81 of file lbg1\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___est_a38b5392258caca55a4d6fc4d4a864228}\label{struct_struct___est_a38b5392258caca55a4d6fc4d4a864228}} 
+\index{Struct\_Est@{Struct\_Est}!w0\_target\_q06@{w0\_target\_q06}}
+\index{w0\_target\_q06@{w0\_target\_q06}!Struct\_Est@{Struct\_Est}}
+\doxysubsubsection{\texorpdfstring{w0\_target\_q06}{w0\_target\_q06}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Est\+::w0\+\_\+target\+\_\+q06}
+
+
+
+Definition at line 80 of file lbg1\+\_\+struct.\+h.
+
+
+
+Referenced by lbg1\+\_\+param\+\_\+write().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+pac\+\_\+foc/src/mpos/estimator/\mbox{\hyperlink{lbg1__struct_8h}{lbg1\+\_\+struct.\+h}}\end{DoxyCompactItemize}

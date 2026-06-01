@@ -1,0 +1,92 @@
+\hypertarget{pac5xxx__driver__i2c__read_8c}{}\doxysection{pac\+\_\+foc/pac52xx/pac5xxx\+\_\+sdk/pac5xxx\+\_\+drivers/pac5xxx\+\_\+driver\+\_\+i2c\+\_\+read.c File Reference}
+\label{pac5xxx__driver__i2c__read_8c}\index{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_drivers/pac5xxx\_driver\_i2c\_read.c@{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_drivers/pac5xxx\_driver\_i2c\_read.c}}
+
+
+Perform I2C read.  
+
+
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+i2c.\+h\char`\"{}}\newline
+Include dependency graph for pac5xxx\+\_\+driver\+\_\+i2c\+\_\+read.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__driver__i2c__read_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} int \mbox{\hyperlink{pac5xxx__driver__i2c__read_8c_a09f493155e01d15f80d693dcf624eafd}{pac5xxx\+\_\+i2c\+\_\+master\+\_\+read}} (uint8\+\_\+t address, uint8\+\_\+t $\ast$write\+\_\+data, int bytes\+\_\+to\+\_\+write, uint8\+\_\+t $\ast$read\+\_\+data, int bytes\+\_\+to\+\_\+read)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Perform I2C read. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2015-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pac5xxx__driver__i2c__read_8c_a09f493155e01d15f80d693dcf624eafd}\label{pac5xxx__driver__i2c__read_8c_a09f493155e01d15f80d693dcf624eafd}} 
+\index{pac5xxx\_driver\_i2c\_read.c@{pac5xxx\_driver\_i2c\_read.c}!pac5xxx\_i2c\_master\_read@{pac5xxx\_i2c\_master\_read}}
+\index{pac5xxx\_i2c\_master\_read@{pac5xxx\_i2c\_master\_read}!pac5xxx\_driver\_i2c\_read.c@{pac5xxx\_driver\_i2c\_read.c}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_i2c\_master\_read()}{pac5xxx\_i2c\_master\_read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} int pac5xxx\+\_\+i2c\+\_\+master\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address,  }\item[{uint8\+\_\+t $\ast$}]{write\+\_\+data,  }\item[{int}]{bytes\+\_\+to\+\_\+write,  }\item[{uint8\+\_\+t $\ast$}]{read\+\_\+data,  }\item[{int}]{bytes\+\_\+to\+\_\+read }\end{DoxyParamCaption})}
+
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+i2c\+\_\+read.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{comment}{/* Write bytes first */}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordflow}{for} (i = 0; i < bytes\_to\_write; i++)}
+\DoxyCodeLine{27     \{}
+\DoxyCodeLine{28         \textcolor{comment}{/* Wait for bus TX register to be free */}}
+\DoxyCodeLine{29         \textcolor{keywordflow}{while} (\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>MTXDATA.REG\_FULL\_FLAG == 1);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31         \textcolor{comment}{/* Send next byte of I2C data */}}
+\DoxyCodeLine{32         \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>MTXDATA.VAL = *write\_data++;            \textcolor{comment}{/* Data to write */}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         \textcolor{comment}{/* Write control register to initiate transfer */}}
+\DoxyCodeLine{35         \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>MCTRL.b = address;                      \textcolor{comment}{/* XFER\_TYPE = I2C Read */}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37         \textcolor{comment}{/* Test for register to be empty (indicating transfer is done) */}}
+\DoxyCodeLine{38         \textcolor{keywordflow}{while} (\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>MTXDATA.REG\_FULL\_FLAG == 1);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         \textcolor{comment}{/* Read status register for status of transfer */}}
+\DoxyCodeLine{41         \textcolor{keywordflow}{if} (\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>STATUS.w \& 0xFFFF)}
+\DoxyCodeLine{42         \{}
+\DoxyCodeLine{43             \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>MCTRL.w = 0x400;}
+\DoxyCodeLine{44             \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{45         \}}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{comment}{// Read bytes}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{comment}{/* Read bytes */}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordflow}{for} (i = 0; i < bytes\_to\_read; i++)}
+\DoxyCodeLine{53     \{}
+\DoxyCodeLine{54         \textcolor{comment}{/* Wait for RX data register to be empty */}}
+\DoxyCodeLine{55         \textcolor{keywordflow}{while} (!\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>MRXDATA.REG\_FULL\_FLAG);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         \textcolor{comment}{/* Store byte */}}
+\DoxyCodeLine{58         *read\_data++ = \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>MRXDATA.VAL;}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{62 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+I2C.
+

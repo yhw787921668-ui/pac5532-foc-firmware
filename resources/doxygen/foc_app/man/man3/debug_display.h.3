@@ -1,0 +1,160 @@
+.TH "pac_foc/src/debug/debug_display.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/debug/debug_display.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'config_debug\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBMy_GUI_Debug_Q14\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAX_GUI_DEBUG_ARRAY_LENGHTH\fP   25"
+.br
+.ti -1c
+.RI "#define \fBQ0_TO_Q16\fP   16"
+.br
+.ti -1c
+.RI "#define \fBQ6_TO_Q16\fP   10"
+.br
+.ti -1c
+.RI "#define \fBQ12_TO_Q16\fP   4"
+.br
+.ti -1c
+.RI "#define \fBQ14_TO_Q16\fP   2"
+.br
+.ti -1c
+.RI "#define \fBQ2_TO_Q16\fP   14"
+.br
+.ti -1c
+.RI "#define \fBQ16_TO_Q16\fP   0"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "int32_t \fBdebug1_var_min\fP"
+.br
+.ti -1c
+.RI "int32_t \fBdebug1_var_max\fP"
+.br
+.ti -1c
+.RI "int32_t \fBdebug2_var_min\fP"
+.br
+.ti -1c
+.RI "int32_t \fBdebug2_var_max\fP"
+.br
+.ti -1c
+.RI "int32_t \fBdebug3_var_min\fP"
+.br
+.ti -1c
+.RI "int32_t \fBdebug3_var_max\fP"
+.br
+.ti -1c
+.RI "\fBMy_GUI_Debug_Q14\fP * \fBtest_ptr1\fP"
+.br
+.ti -1c
+.RI "\fBMy_GUI_Debug_Q14\fP * \fBtest_ptr2\fP"
+.br
+.ti -1c
+.RI "\fBMy_GUI_Debug_Q14\fP * \fBtest_ptr3\fP"
+.br
+.ti -1c
+.RI "const \fBMy_GUI_Debug_Q14\fP \fBGUI_Debug_Var_Q14\fP [\fBMAX_GUI_DEBUG_ARRAY_LENGHTH\fP]"
+.br
+.ti -1c
+.RI "unsigned char \fBdebug1_index_var\fP"
+.br
+.ti -1c
+.RI "unsigned char \fBdebug2_index_var\fP"
+.br
+.ti -1c
+.RI "unsigned char \fBdebug3_index_var\fP"
+.br
+.ti -1c
+.RI "const unsigned char \fBDebug_Q_Q16_Conv_Table\fP [\fBMAX_GUI_DEBUG_ARRAY_LENGHTH\fP]"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MAX_GUI_DEBUG_ARRAY_LENGHTH   25"
+
+.PP
+Definition at line 20 of file debug_display\&.h\&.
+.SS "#define Q0_TO_Q16   16"
+
+.PP
+Definition at line 43 of file debug_display\&.h\&.
+.SS "#define Q12_TO_Q16   4"
+
+.PP
+Definition at line 45 of file debug_display\&.h\&.
+.SS "#define Q14_TO_Q16   2"
+
+.PP
+Definition at line 46 of file debug_display\&.h\&.
+.SS "#define Q16_TO_Q16   0"
+
+.PP
+Definition at line 48 of file debug_display\&.h\&.
+.SS "#define Q2_TO_Q16   14"
+
+.PP
+Definition at line 47 of file debug_display\&.h\&.
+.SS "#define Q6_TO_Q16   10"
+
+.PP
+Definition at line 44 of file debug_display\&.h\&.
+.SH "Variable Documentation"
+.PP 
+.SS "unsigned char debug1_index_var\fC [extern]\fP"
+
+.SS "int32_t debug1_var_max\fC [extern]\fP"
+
+.SS "int32_t debug1_var_min\fC [extern]\fP"
+
+.SS "unsigned char debug2_index_var\fC [extern]\fP"
+
+.SS "int32_t debug2_var_max\fC [extern]\fP"
+
+.SS "int32_t debug2_var_min\fC [extern]\fP"
+
+.SS "unsigned char debug3_index_var\fC [extern]\fP"
+
+.SS "int32_t debug3_var_max\fC [extern]\fP"
+
+.SS "int32_t debug3_var_min\fC [extern]\fP"
+
+.SS "const unsigned char Debug_Q_Q16_Conv_Table[\fBMAX_GUI_DEBUG_ARRAY_LENGHTH\fP]\fC [extern]\fP"
+
+.SS "const \fBMy_GUI_Debug_Q14\fP GUI_Debug_Var_Q14[\fBMAX_GUI_DEBUG_ARRAY_LENGHTH\fP]\fC [extern]\fP"
+
+.PP
+Referenced by systemvar_init()\&.
+.SS "\fBMy_GUI_Debug_Q14\fP* test_ptr1\fC [extern]\fP"
+
+.PP
+Referenced by systemvar_init()\&.
+.SS "\fBMy_GUI_Debug_Q14\fP* test_ptr2\fC [extern]\fP"
+
+.PP
+Referenced by systemvar_init()\&.
+.SS "\fBMy_GUI_Debug_Q14\fP* test_ptr3\fC [extern]\fP"
+
+.PP
+Referenced by systemvar_init()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

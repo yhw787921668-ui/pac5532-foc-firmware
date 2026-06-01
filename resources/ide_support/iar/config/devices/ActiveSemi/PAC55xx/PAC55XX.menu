@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<optionMenuItem>
+  <tag>PAC55XX</tag>
+  <display>PAC55XX</display>
+  <data>$CUR_DIR$\PAC55XX.i79</data>
+</optionMenuItem>

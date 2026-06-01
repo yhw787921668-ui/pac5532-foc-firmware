@@ -1,0 +1,52 @@
+\hypertarget{pac5xxx__driver__adc_8h}{}\doxysection{pac\+\_\+foc/pac55xx/pac55xx\+\_\+sdk/driver/pac5xxx\+\_\+driver\+\_\+adc.h File Reference}
+\label{pac5xxx__driver__adc_8h}\index{pac\_foc/pac55xx/pac55xx\_sdk/driver/pac5xxx\_driver\_adc.h@{pac\_foc/pac55xx/pac55xx\_sdk/driver/pac5xxx\_driver\_adc.h}}
+
+
+Firmware driver for the P\+A\+C5\+X\+XX A\+DC.  
+
+
+{\ttfamily \#include \char`\"{}pac5xxx.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+config.\+h\char`\"{}}\newline
+Include dependency graph for pac5xxx\+\_\+driver\+\_\+adc.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__driver__adc_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__driver__adc_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga75617cb8e17879fcb4414d2164359757}{pac5xxx\+\_\+adc\+\_\+config\+\_\+emux\+\_\+io}} (void)
+\begin{DoxyCompactList}\small\item\em This function configures the E\+M\+UX IO ports on the device for E\+M\+UX output. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga07d2e742c295e9310a6a43ef109e272c}{pac5xxx\+\_\+adc\+\_\+config\+\_\+io}} (uint8\+\_\+t channel\+\_\+mask)
+\begin{DoxyCompactList}\small\item\em This function configures the IO ports on the device for the given A\+DC channels. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga1a7c8875ca56a19653d333362e9de2f4}{pac5xxx\+\_\+adc\+\_\+emux\+\_\+config}} (\mbox{\hyperlink{pac5xxx__adc_8h_a80b075752bc961a8ec9991cc6a25a620}{A\+D\+C\+\_\+\+E\+M\+U\+X\+\_\+\+C\+T\+L\+\_\+\+T\+Y\+PE}} control\+\_\+type, \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abd}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+D\+I\+V\+\_\+\+T\+Y\+PE}} divider)
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_gab25d0ce3bf393a9043ee4d177f5c5829}{pac5xxx\+\_\+adc\+\_\+config}} (\mbox{\hyperlink{pac5xxx__adc_8h_a94d68ef0e76c1f35f59801a9cf63e2da}{A\+D\+C\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+T\+Y\+PE}} adc\+\_\+mode, \mbox{\hyperlink{pac5xxx__adc_8h_a8ba97287d48b6dbf5a8550b44e9557fc}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+Type}} clock\+\_\+divider, int repeat)
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\+\_\+dtse\+\_\+seq\+\_\+config}} (uint32\+\_\+t entry\+\_\+num, uint32\+\_\+t adc\+\_\+chan, uint32\+\_\+t emux\+\_\+data, uint32\+\_\+t irq\+\_\+num\+\_\+en, uint32\+\_\+t seq\+\_\+done)
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga853dffd2b92a02595013c7d91d046cf1}{pac5xxx\+\_\+dtse\+\_\+seq\+\_\+config\+\_\+table}} (\mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f}{D\+T\+S\+E\+\_\+\+S\+E\+Q\+\_\+\+C\+F\+G\+\_\+\+T\+Y\+P\+E\+D\+EF}} $\ast$ptr\+\_\+seq\+\_\+config\+\_\+table, uint32\+\_\+t emuxc, uint32\+\_\+t channel, uint32\+\_\+t reserved1, uint32\+\_\+t seq\+\_\+done, uint32\+\_\+t emux\+\_\+data, uint32\+\_\+t irq\+\_\+number, uint32\+\_\+t irq\+\_\+enable, uint32\+\_\+t reserved2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Firmware driver for the P\+A\+C5\+X\+XX A\+DC. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2015-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 

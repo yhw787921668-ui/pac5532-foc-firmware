@@ -1,0 +1,1693 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx.h \- CMSIS Cortex-M4 Peripheral Access Layer Header File for for the Active Semiconductor PAC55XX Device Family\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <core_cm4\&.h>\fP
+.br
+\fC#include 'pac5xxx_adc\&.h'\fP
+.br
+\fC#include 'pac5xxx_can\&.h'\fP
+.br
+\fC#include 'pac5xxx_crc\&.h'\fP
+.br
+\fC#include 'pac5xxx_gpio\&.h'\fP
+.br
+\fC#include 'pac5xxx_i2c\&.h'\fP
+.br
+\fC#include 'pac5xxx_memory\&.h'\fP
+.br
+\fC#include 'pac5xxx_rtc\&.h'\fP
+.br
+\fC#include 'pac5xxx_scc\&.h'\fP
+.br
+\fC#include 'pac5xxx_timers\&.h'\fP
+.br
+\fC#include 'pac5xxx_gp_timers\&.h'\fP
+.br
+\fC#include 'pac5xxx_uart\&.h'\fP
+.br
+\fC#include 'pac5xxx_ssp\&.h'\fP
+.br
+\fC#include 'pac5xxx_wwdt\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPAC5XXX_RAMFUNC\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_OPTIMIZE_SPEED_ON\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_OPTIMIZE_SPEED_OFF\fP"
+.br
+.ti -1c
+.RI "#define \fBUNUSED_PARAM\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_RELEASED\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_RC\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_BETA\fP   2"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_ALPHA\fP   3"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_IN_DEVELOPMENT\fP   4"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_RELEASED\fP   \fBPAC55XX_RELEASED\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_RC\fP   \fBPAC55XX_RC\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_BETA\fP   \fBPAC55XX_BETA\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_ALPHA\fP   \fBPAC55XX_ALPHA\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_IN_DEVELOPMENT\fP   \fBPAC55XX_IN_DEVELOPMENT\fP"
+.br
+.ti -1c
+.RI "#define \fB__CM4_REV\fP   0x0001"
+.br
+.ti -1c
+.RI "#define \fB__NVIC_PRIO_BITS\fP   3"
+.br
+.ti -1c
+.RI "#define \fB__Vendor_SysTickConfig\fP   0"
+.br
+.ti -1c
+.RI "#define \fB__MPU_PRESENT\fP   1"
+.br
+.ti -1c
+.RI "#define \fB__FPU_PRESENT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_BASE\fP   (0x00000000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG0_BASE\fP   (0x00000000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG1_BASE\fP   (0x00000400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG2_BASE\fP   (0x00000800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG3_BASE\fP   (0x00000C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG4_BASE\fP   (0x00001000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG5_BASE\fP   (0x00001400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG6_BASE\fP   (0x00001800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG7_BASE\fP   (0x00001C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG8_BASE\fP   (0x00002000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG9_BASE\fP   (0x00002400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG10_BASE\fP   (0x00002800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG11_BASE\fP   (0x00002C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG12_BASE\fP   (0x00003000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG13_BASE\fP   (0x00003400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG14_BASE\fP   (0x00003800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG15_BASE\fP   (0x00003C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG16_BASE\fP   (0x00004000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG17_BASE\fP   (0x00004400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG18_BASE\fP   (0x00004800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG19_BASE\fP   (0x00004C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG20_BASE\fP   (0x00005000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG21_BASE\fP   (0x00005400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG22_BASE\fP   (0x00005800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG23_BASE\fP   (0x00005C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG24_BASE\fP   (0x00006000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG25_BASE\fP   (0x00006400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG26_BASE\fP   (0x00006800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG27_BASE\fP   (0x00006C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG28_BASE\fP   (0x00007000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG29_BASE\fP   (0x00007400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG30_BASE\fP   (0x00007800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG31_BASE\fP   (0x00007C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG32_BASE\fP   (0x00008000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG33_BASE\fP   (0x00008400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG34_BASE\fP   (0x00008800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG35_BASE\fP   (0x00008C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG36_BASE\fP   (0x00009000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG37_BASE\fP   (0x00009400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG38_BASE\fP   (0x00009800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG39_BASE\fP   (0x00009C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG40_BASE\fP   (0x0000A000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG41_BASE\fP   (0x0000A400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG42_BASE\fP   (0x0000A800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG43_BASE\fP   (0x0000AC00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG44_BASE\fP   (0x0000B000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG45_BASE\fP   (0x0000B400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG46_BASE\fP   (0x0000B800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG47_BASE\fP   (0x0000BC00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG48_BASE\fP   (0x0000C000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG49_BASE\fP   (0x0000C400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG50_BASE\fP   (0x0000C800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG51_BASE\fP   (0x0000CC00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG52_BASE\fP   (0x0000D000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG53_BASE\fP   (0x0000D400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG54_BASE\fP   (0x0000D800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG55_BASE\fP   (0x0000DC00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG56_BASE\fP   (0x0000E000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG57_BASE\fP   (0x0000E400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG58_BASE\fP   (0x0000E800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG59_BASE\fP   (0x0000EC00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG60_BASE\fP   (0x0000F000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG61_BASE\fP   (0x0000F400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG62_BASE\fP   (0x0000F800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG63_BASE\fP   (0x0000FC00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG64_BASE\fP   (0x00010000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG65_BASE\fP   (0x00010400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG66_BASE\fP   (0x00010800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG67_BASE\fP   (0x00010C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG68_BASE\fP   (0x00011000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG69_BASE\fP   (0x00011400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG70_BASE\fP   (0x00011800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG71_BASE\fP   (0x00011C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG72_BASE\fP   (0x00012000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG73_BASE\fP   (0x00012400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG74_BASE\fP   (0x00012800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG75_BASE\fP   (0x00012C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG76_BASE\fP   (0x00013000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG77_BASE\fP   (0x00013400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG78_BASE\fP   (0x00013800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG79_BASE\fP   (0x00013C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG80_BASE\fP   (0x00014000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG81_BASE\fP   (0x00014400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG82_BASE\fP   (0x00014800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG83_BASE\fP   (0x00014C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG84_BASE\fP   (0x00015000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG85_BASE\fP   (0x00015400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG86_BASE\fP   (0x00015800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG87_BASE\fP   (0x00015C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG88_BASE\fP   (0x00016000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG89_BASE\fP   (0x00016400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG90_BASE\fP   (0x00016800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG91_BASE\fP   (0x00016C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG92_BASE\fP   (0x00017000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG93_BASE\fP   (0x00017400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG94_BASE\fP   (0x00017800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG95_BASE\fP   (0x00017C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG96_BASE\fP   (0x00018000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG97_BASE\fP   (0x00018400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG98_BASE\fP   (0x00018800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG99_BASE\fP   (0x00018C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG100_BASE\fP   (0x00019000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG101_BASE\fP   (0x00019400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG102_BASE\fP   (0x00019800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG103_BASE\fP   (0x00019C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG104_BASE\fP   (0x0001A000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG105_BASE\fP   (0x0001A400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG106_BASE\fP   (0x0001A800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG107_BASE\fP   (0x0001AC00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG108_BASE\fP   (0x0001B000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG109_BASE\fP   (0x0001B400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG110_BASE\fP   (0x0001B800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG111_BASE\fP   (0x0001BC00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG112_BASE\fP   (0x0001C000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG113_BASE\fP   (0x0001C400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG114_BASE\fP   (0x0001C800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG115_BASE\fP   (0x0001CC00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG116_BASE\fP   (0x0001D000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG117_BASE\fP   (0x0001D400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG118_BASE\fP   (0x0001D800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG119_BASE\fP   (0x0001DC00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG120_BASE\fP   (0x0001E000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG121_BASE\fP   (0x0001E400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG122_BASE\fP   (0x0001E800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG123_BASE\fP   (0x0001EC00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG124_BASE\fP   (0x0001F000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG125_BASE\fP   (0x0001F400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG126_BASE\fP   (0x0001F800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_FLASH_SEG127_BASE\fP   (0x0001FC00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_INFO1_FLASH_BASE\fP   (0x00100000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_INFO2_FLASH_BASE\fP   (0x00100400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_INFO3_FLASH_BASE\fP   (0x00100800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_SRAM_BASE\fP   (0x20000000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_PERIPH_BASE\fP   (0x40000000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_ADC_BASE\fP   (\fBPAC55XX_PERIPH_BASE\fP + 0x00000)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_I2C_BASE\fP   (\fBPAC55XX_PERIPH_BASE\fP + 0x10000)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_USARTA_BASE\fP   (\fBPAC55XX_PERIPH_BASE\fP + 0x20000)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_USARTB_BASE\fP   (\fBPAC55XX_PERIPH_BASE\fP + 0x30000)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_USARTC_BASE\fP   (\fBPAC55XX_PERIPH_BASE\fP + 0x40000)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_USARTD_BASE\fP   (\fBPAC55XX_PERIPH_BASE\fP + 0x50000)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_TIMERA_BASE\fP   (\fBPAC55XX_PERIPH_BASE\fP + 0x60000)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_TIMERB_BASE\fP   (\fBPAC55XX_PERIPH_BASE\fP + 0x70000)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_TIMERC_BASE\fP   (\fBPAC55XX_PERIPH_BASE\fP + 0x80000)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_TIMERD_BASE\fP   (\fBPAC55XX_PERIPH_BASE\fP + 0x90000)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_CAN_BASE\fP   (\fBPAC55XX_PERIPH_BASE\fP + 0xA0000)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_GPTIMERA_BASE\fP   (\fBPAC55XX_PERIPH_BASE\fP + 0xB0000)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_GPTIMERB_BASE\fP   (\fBPAC55XX_PERIPH_BASE\fP + 0xC0000)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_SYS_PERIPH_BASE\fP   (\fBPAC55XX_PERIPH_BASE\fP + 0xD0000)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_MEMCTL_BASE\fP   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x0000)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_SCC_BASE\fP   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x0400)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_WWDT_BASE\fP   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x0800)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_RTC_BASE\fP   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x0C00)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_CRC_BASE\fP   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x1000)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_GPIOA_BASE\fP   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x1400)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_GPIOB_BASE\fP   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x1800)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_GPIOC_BASE\fP   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x1C00)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_GPIOD_BASE\fP   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x2000)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_GPIOE_BASE\fP   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x2400)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_GPIOF_BASE\fP   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x2800)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_GPIOG_BASE\fP   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x2C00)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_ADC\fP   ((\fBPAC55XX_ADC_TYPEDEF\fP *) \fBPAC55XX_ADC_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_I2C\fP   ((\fBPAC55XX_I2C_TYPEDEF\fP *) \fBPAC55XX_I2C_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_UARTA\fP   ((\fBPAC55XX_UART_TYPEDEF\fP *) \fBPAC55XX_USARTA_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_SSPA\fP   ((\fBPAC55XX_SSP_TYPEDEF\fP *) \fBPAC55XX_USARTA_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_UARTB\fP   ((\fBPAC55XX_UART_TYPEDEF\fP *) \fBPAC55XX_USARTB_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_SSPB\fP   ((\fBPAC55XX_SSP_TYPEDEF\fP *) \fBPAC55XX_USARTB_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_UARTC\fP   ((\fBPAC55XX_UART_TYPEDEF\fP *) \fBPAC55XX_USARTC_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_SSPC\fP   ((\fBPAC55XX_SSP_TYPEDEF\fP *) \fBPAC55XX_USARTC_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_UARTD\fP   ((\fBPAC55XX_UART_TYPEDEF\fP *) \fBPAC55XX_USARTD_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_SSPD\fP   ((\fBPAC55XX_SSP_TYPEDEF\fP *) \fBPAC55XX_USARTD_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_TIMERA\fP   ((\fBPAC55XX_TIMER_TYPEDEF\fP *) \fBPAC55XX_TIMERA_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_TIMERB\fP   ((\fBPAC55XX_TIMER_TYPEDEF\fP *) \fBPAC55XX_TIMERB_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_TIMERC\fP   ((\fBPAC55XX_TIMER_TYPEDEF\fP *) \fBPAC55XX_TIMERC_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_TIMERD\fP   ((\fBPAC55XX_TIMER_TYPEDEF\fP *) \fBPAC55XX_TIMERD_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_CAN\fP   ((\fBPAC55XX_CAN_TYPEDEF\fP *) \fBPAC55XX_CAN_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_GPTIMERA\fP   ((\fBPAC55XX_GPTTIMER_TYPEDEF\fP *) \fBPAC55XX_GPTIMERA_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_GPTIMERB\fP   ((\fBPAC55XX_GPTTIMER_TYPEDEF\fP *) \fBPAC55XX_GPTIMERB_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_MEMCTL\fP   ((\fBPAC55XX_MEMCTL_TYPEDEF\fP *) \fBPAC55XX_MEMCTL_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_SCC\fP   ((\fBPAC55XX_SCC_TYPEDEF\fP *) \fBPAC55XX_SCC_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_WWDT\fP   ((\fBPAC55XX_WWDT_TYPEDEF\fP *) \fBPAC55XX_WWDT_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_RTC\fP   ((\fBPAC55XX_RTC_TYPEDEF\fP *) \fBPAC55XX_RTC_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_CRC\fP   ((\fBPAC55XX_CRC_TYPEDEF\fP *) \fBPAC55XX_CRC_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_GPIOA\fP   ((\fBPAC55XX_GPIO_TYPEDEF\fP *) \fBPAC55XX_GPIOA_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_GPIOB\fP   ((\fBPAC55XX_GPIO_TYPEDEF\fP *) \fBPAC55XX_GPIOB_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_GPIOC\fP   ((\fBPAC55XX_GPIO_TYPEDEF\fP *) \fBPAC55XX_GPIOC_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_GPIOD\fP   ((\fBPAC55XX_GPIO_TYPEDEF\fP *) \fBPAC55XX_GPIOD_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_GPIOE\fP   ((\fBPAC55XX_GPIO_TYPEDEF\fP *) \fBPAC55XX_GPIOE_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_GPIOF\fP   ((\fBPAC55XX_GPIO_TYPEDEF\fP *) \fBPAC55XX_GPIOF_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_GPIOG\fP   ((\fBPAC55XX_GPIO_TYPEDEF\fP *) \fBPAC55XX_GPIOG_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_INFO1\fP   ((\fBPAC55XX_INFO1_TYPEDEF\fP *) \fBPAC55XX_INFO1_FLASH_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_INFO2\fP   ((\fBPAC55XX_INFO2_TYPEDEF\fP *) \fBPAC55XX_INFO2_FLASH_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC55XX_INFO3\fP   ((\fBPAC55XX_INFO3_TYPEDEF\fP *) \fBPAC55XX_INFO3_FLASH_BASE\fP)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBIRQn\fP \fBIRQn_Type\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBIRQn\fP { \fBReset_IRQn\fP = -15, \fBNonMaskableInt_IRQn\fP = -14, \fBHardFault_IRQn\fP = -13, \fBMemManageFault_IRQn\fP = -12, \fBBusFault_IRQn\fP = -11, \fBUsageFault_IRQn\fP = -10, \fBSVCall_IRQn\fP = -5, \fBPendSV_IRQn\fP = -2, \fBSysTick_IRQn\fP = -1, \fBMemCtl_IRQn\fP = 0, \fBWdt_IRQn\fP = 1, \fBRTC_IRQn\fP = 2, \fBADC0_IRQn\fP = 3, \fBADC1_IRQn\fP = 4, \fBADC2_IRQn\fP = 5, \fBADC3_IRQn\fP = 6, \fBTimerA_IRQn\fP = 7, \fBTimerB_IRQn\fP = 8, \fBTimerC_IRQn\fP = 9, \fBTimerD_IRQn\fP = 10, \fBTimerA_Qep_IRQn\fP = 11, \fBTimerB_Qep_IRQn\fP = 12, \fBTimerC_Qep_IRQn\fP = 13, \fBTimerD_Qep_IRQn\fP = 14, \fBGpioA_IRQn\fP = 15, \fBGpioB_IRQn\fP = 16, \fBGpioC_IRQn\fP = 17, \fBGpioD_IRQn\fP = 18, \fBGpioE_IRQn\fP = 19, \fBGpioF_IRQn\fP = 20, \fBGpioG_IRQn\fP = 21, \fBI2C_IRQn\fP = 22, \fBUSARTA_IRQn\fP = 23, \fBUSARTB_IRQn\fP = 24, \fBUSARTC_IRQn\fP = 25, \fBUSARTD_IRQn\fP = 26, \fBCAN_IRQn\fP = 27, \fBGPTimerA_IRQn\fP = 28, \fBGPTimerB_IRQn\fP = 29, \fBSCC_IRQn\fP = 30 }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CMSIS Cortex-M4 Peripheral Access Layer Header File for for the Active Semiconductor PAC55XX Device Family\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2017-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define __CM4_REV   0x0001"
+
+.PP
+Definition at line 116 of file pac5xxx\&.h\&.
+.SS "#define __FPU_PRESENT   1"
+
+.PP
+Definition at line 120 of file pac5xxx\&.h\&.
+.SS "#define __MPU_PRESENT   1"
+
+.PP
+Definition at line 119 of file pac5xxx\&.h\&.
+.SS "#define __NVIC_PRIO_BITS   3"
+
+.PP
+Definition at line 117 of file pac5xxx\&.h\&.
+.SS "#define __Vendor_SysTickConfig   0"
+
+.PP
+Definition at line 118 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_ADC   ((\fBPAC55XX_ADC_TYPEDEF\fP *) \fBPAC55XX_ADC_BASE\fP)"
+
+.PP
+Definition at line 327 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_ADC_BASE   (\fBPAC55XX_PERIPH_BASE\fP + 0x00000)"
+
+.PP
+Definition at line 296 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_ALPHA   3"
+
+.PP
+Definition at line 53 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_BETA   2"
+
+.PP
+Definition at line 52 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_CAN   ((\fBPAC55XX_CAN_TYPEDEF\fP *) \fBPAC55XX_CAN_BASE\fP)"
+
+.PP
+Definition at line 341 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_CAN_BASE   (\fBPAC55XX_PERIPH_BASE\fP + 0xA0000)"
+
+.PP
+Definition at line 306 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_CRC   ((\fBPAC55XX_CRC_TYPEDEF\fP *) \fBPAC55XX_CRC_BASE\fP)"
+
+.PP
+Definition at line 348 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_CRC_BASE   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x1000)"
+
+.PP
+Definition at line 314 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_BASE   (0x00000000UL)"
+
+.PP
+Definition at line 155 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG0_BASE   (0x00000000UL)"
+
+.PP
+Definition at line 156 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG100_BASE   (0x00019000UL)"
+
+.PP
+Definition at line 259 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG101_BASE   (0x00019400UL)"
+
+.PP
+Definition at line 260 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG102_BASE   (0x00019800UL)"
+
+.PP
+Definition at line 261 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG103_BASE   (0x00019C00UL)"
+
+.PP
+Definition at line 262 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG104_BASE   (0x0001A000UL)"
+
+.PP
+Definition at line 263 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG105_BASE   (0x0001A400UL)"
+
+.PP
+Definition at line 264 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG106_BASE   (0x0001A800UL)"
+
+.PP
+Definition at line 265 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG107_BASE   (0x0001AC00UL)"
+
+.PP
+Definition at line 266 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG108_BASE   (0x0001B000UL)"
+
+.PP
+Definition at line 267 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG109_BASE   (0x0001B400UL)"
+
+.PP
+Definition at line 268 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG10_BASE   (0x00002800UL)"
+
+.PP
+Definition at line 166 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG110_BASE   (0x0001B800UL)"
+
+.PP
+Definition at line 269 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG111_BASE   (0x0001BC00UL)"
+
+.PP
+Definition at line 270 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG112_BASE   (0x0001C000UL)"
+
+.PP
+Definition at line 271 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG113_BASE   (0x0001C400UL)"
+
+.PP
+Definition at line 272 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG114_BASE   (0x0001C800UL)"
+
+.PP
+Definition at line 273 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG115_BASE   (0x0001CC00UL)"
+
+.PP
+Definition at line 274 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG116_BASE   (0x0001D000UL)"
+
+.PP
+Definition at line 275 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG117_BASE   (0x0001D400UL)"
+
+.PP
+Definition at line 276 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG118_BASE   (0x0001D800UL)"
+
+.PP
+Definition at line 277 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG119_BASE   (0x0001DC00UL)"
+
+.PP
+Definition at line 278 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG11_BASE   (0x00002C00UL)"
+
+.PP
+Definition at line 167 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG120_BASE   (0x0001E000UL)"
+
+.PP
+Definition at line 279 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG121_BASE   (0x0001E400UL)"
+
+.PP
+Definition at line 280 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG122_BASE   (0x0001E800UL)"
+
+.PP
+Definition at line 281 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG123_BASE   (0x0001EC00UL)"
+
+.PP
+Definition at line 282 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG124_BASE   (0x0001F000UL)"
+
+.PP
+Definition at line 283 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG125_BASE   (0x0001F400UL)"
+
+.PP
+Definition at line 284 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG126_BASE   (0x0001F800UL)"
+
+.PP
+Definition at line 285 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG127_BASE   (0x0001FC00UL)"
+
+.PP
+Definition at line 286 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG12_BASE   (0x00003000UL)"
+
+.PP
+Definition at line 168 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG13_BASE   (0x00003400UL)"
+
+.PP
+Definition at line 169 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG14_BASE   (0x00003800UL)"
+
+.PP
+Definition at line 170 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG15_BASE   (0x00003C00UL)"
+
+.PP
+Definition at line 171 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG16_BASE   (0x00004000UL)"
+
+.PP
+Definition at line 172 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG17_BASE   (0x00004400UL)"
+
+.PP
+Definition at line 173 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG18_BASE   (0x00004800UL)"
+
+.PP
+Definition at line 174 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG19_BASE   (0x00004C00UL)"
+
+.PP
+Definition at line 175 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG1_BASE   (0x00000400UL)"
+
+.PP
+Definition at line 157 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG20_BASE   (0x00005000UL)"
+
+.PP
+Definition at line 176 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG21_BASE   (0x00005400UL)"
+
+.PP
+Definition at line 177 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG22_BASE   (0x00005800UL)"
+
+.PP
+Definition at line 178 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG23_BASE   (0x00005C00UL)"
+
+.PP
+Definition at line 179 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG24_BASE   (0x00006000UL)"
+
+.PP
+Definition at line 180 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG25_BASE   (0x00006400UL)"
+
+.PP
+Definition at line 181 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG26_BASE   (0x00006800UL)"
+
+.PP
+Definition at line 182 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG27_BASE   (0x00006C00UL)"
+
+.PP
+Definition at line 183 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG28_BASE   (0x00007000UL)"
+
+.PP
+Definition at line 184 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG29_BASE   (0x00007400UL)"
+
+.PP
+Definition at line 185 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG2_BASE   (0x00000800UL)"
+
+.PP
+Definition at line 158 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG30_BASE   (0x00007800UL)"
+
+.PP
+Definition at line 186 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG31_BASE   (0x00007C00UL)"
+
+.PP
+Definition at line 187 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG32_BASE   (0x00008000UL)"
+
+.PP
+Definition at line 189 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG33_BASE   (0x00008400UL)"
+
+.PP
+Definition at line 190 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG34_BASE   (0x00008800UL)"
+
+.PP
+Definition at line 191 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG35_BASE   (0x00008C00UL)"
+
+.PP
+Definition at line 192 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG36_BASE   (0x00009000UL)"
+
+.PP
+Definition at line 193 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG37_BASE   (0x00009400UL)"
+
+.PP
+Definition at line 194 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG38_BASE   (0x00009800UL)"
+
+.PP
+Definition at line 195 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG39_BASE   (0x00009C00UL)"
+
+.PP
+Definition at line 196 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG3_BASE   (0x00000C00UL)"
+
+.PP
+Definition at line 159 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG40_BASE   (0x0000A000UL)"
+
+.PP
+Definition at line 197 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG41_BASE   (0x0000A400UL)"
+
+.PP
+Definition at line 198 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG42_BASE   (0x0000A800UL)"
+
+.PP
+Definition at line 199 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG43_BASE   (0x0000AC00UL)"
+
+.PP
+Definition at line 200 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG44_BASE   (0x0000B000UL)"
+
+.PP
+Definition at line 201 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG45_BASE   (0x0000B400UL)"
+
+.PP
+Definition at line 202 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG46_BASE   (0x0000B800UL)"
+
+.PP
+Definition at line 203 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG47_BASE   (0x0000BC00UL)"
+
+.PP
+Definition at line 204 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG48_BASE   (0x0000C000UL)"
+
+.PP
+Definition at line 205 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG49_BASE   (0x0000C400UL)"
+
+.PP
+Definition at line 206 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG4_BASE   (0x00001000UL)"
+
+.PP
+Definition at line 160 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG50_BASE   (0x0000C800UL)"
+
+.PP
+Definition at line 207 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG51_BASE   (0x0000CC00UL)"
+
+.PP
+Definition at line 208 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG52_BASE   (0x0000D000UL)"
+
+.PP
+Definition at line 209 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG53_BASE   (0x0000D400UL)"
+
+.PP
+Definition at line 210 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG54_BASE   (0x0000D800UL)"
+
+.PP
+Definition at line 211 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG55_BASE   (0x0000DC00UL)"
+
+.PP
+Definition at line 212 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG56_BASE   (0x0000E000UL)"
+
+.PP
+Definition at line 213 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG57_BASE   (0x0000E400UL)"
+
+.PP
+Definition at line 214 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG58_BASE   (0x0000E800UL)"
+
+.PP
+Definition at line 215 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG59_BASE   (0x0000EC00UL)"
+
+.PP
+Definition at line 216 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG5_BASE   (0x00001400UL)"
+
+.PP
+Definition at line 161 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG60_BASE   (0x0000F000UL)"
+
+.PP
+Definition at line 217 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG61_BASE   (0x0000F400UL)"
+
+.PP
+Definition at line 218 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG62_BASE   (0x0000F800UL)"
+
+.PP
+Definition at line 219 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG63_BASE   (0x0000FC00UL)"
+
+.PP
+Definition at line 220 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG64_BASE   (0x00010000UL)"
+
+.PP
+Definition at line 222 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG65_BASE   (0x00010400UL)"
+
+.PP
+Definition at line 223 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG66_BASE   (0x00010800UL)"
+
+.PP
+Definition at line 224 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG67_BASE   (0x00010C00UL)"
+
+.PP
+Definition at line 225 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG68_BASE   (0x00011000UL)"
+
+.PP
+Definition at line 226 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG69_BASE   (0x00011400UL)"
+
+.PP
+Definition at line 227 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG6_BASE   (0x00001800UL)"
+
+.PP
+Definition at line 162 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG70_BASE   (0x00011800UL)"
+
+.PP
+Definition at line 228 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG71_BASE   (0x00011C00UL)"
+
+.PP
+Definition at line 229 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG72_BASE   (0x00012000UL)"
+
+.PP
+Definition at line 230 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG73_BASE   (0x00012400UL)"
+
+.PP
+Definition at line 231 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG74_BASE   (0x00012800UL)"
+
+.PP
+Definition at line 232 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG75_BASE   (0x00012C00UL)"
+
+.PP
+Definition at line 233 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG76_BASE   (0x00013000UL)"
+
+.PP
+Definition at line 234 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG77_BASE   (0x00013400UL)"
+
+.PP
+Definition at line 235 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG78_BASE   (0x00013800UL)"
+
+.PP
+Definition at line 236 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG79_BASE   (0x00013C00UL)"
+
+.PP
+Definition at line 237 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG7_BASE   (0x00001C00UL)"
+
+.PP
+Definition at line 163 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG80_BASE   (0x00014000UL)"
+
+.PP
+Definition at line 238 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG81_BASE   (0x00014400UL)"
+
+.PP
+Definition at line 239 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG82_BASE   (0x00014800UL)"
+
+.PP
+Definition at line 240 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG83_BASE   (0x00014C00UL)"
+
+.PP
+Definition at line 241 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG84_BASE   (0x00015000UL)"
+
+.PP
+Definition at line 242 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG85_BASE   (0x00015400UL)"
+
+.PP
+Definition at line 243 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG86_BASE   (0x00015800UL)"
+
+.PP
+Definition at line 244 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG87_BASE   (0x00015C00UL)"
+
+.PP
+Definition at line 245 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG88_BASE   (0x00016000UL)"
+
+.PP
+Definition at line 246 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG89_BASE   (0x00016400UL)"
+
+.PP
+Definition at line 247 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG8_BASE   (0x00002000UL)"
+
+.PP
+Definition at line 164 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG90_BASE   (0x00016800UL)"
+
+.PP
+Definition at line 248 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG91_BASE   (0x00016C00UL)"
+
+.PP
+Definition at line 249 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG92_BASE   (0x00017000UL)"
+
+.PP
+Definition at line 250 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG93_BASE   (0x00017400UL)"
+
+.PP
+Definition at line 251 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG94_BASE   (0x00017800UL)"
+
+.PP
+Definition at line 252 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG95_BASE   (0x00017C00UL)"
+
+.PP
+Definition at line 253 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG96_BASE   (0x00018000UL)"
+
+.PP
+Definition at line 255 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG97_BASE   (0x00018400UL)"
+
+.PP
+Definition at line 256 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG98_BASE   (0x00018800UL)"
+
+.PP
+Definition at line 257 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG99_BASE   (0x00018C00UL)"
+
+.PP
+Definition at line 258 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_FLASH_SEG9_BASE   (0x00002400UL)"
+
+.PP
+Definition at line 165 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_GPIOA   ((\fBPAC55XX_GPIO_TYPEDEF\fP *) \fBPAC55XX_GPIOA_BASE\fP)"
+
+.PP
+Definition at line 349 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_GPIOA_BASE   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x1400)"
+
+.PP
+Definition at line 315 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_GPIOB   ((\fBPAC55XX_GPIO_TYPEDEF\fP *) \fBPAC55XX_GPIOB_BASE\fP)"
+
+.PP
+Definition at line 350 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_GPIOB_BASE   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x1800)"
+
+.PP
+Definition at line 316 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_GPIOC   ((\fBPAC55XX_GPIO_TYPEDEF\fP *) \fBPAC55XX_GPIOC_BASE\fP)"
+
+.PP
+Definition at line 351 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_GPIOC_BASE   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x1C00)"
+
+.PP
+Definition at line 317 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_GPIOD   ((\fBPAC55XX_GPIO_TYPEDEF\fP *) \fBPAC55XX_GPIOD_BASE\fP)"
+
+.PP
+Definition at line 352 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_GPIOD_BASE   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x2000)"
+
+.PP
+Definition at line 318 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_GPIOE   ((\fBPAC55XX_GPIO_TYPEDEF\fP *) \fBPAC55XX_GPIOE_BASE\fP)"
+
+.PP
+Definition at line 353 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_GPIOE_BASE   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x2400)"
+
+.PP
+Definition at line 319 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_GPIOF   ((\fBPAC55XX_GPIO_TYPEDEF\fP *) \fBPAC55XX_GPIOF_BASE\fP)"
+
+.PP
+Definition at line 354 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_GPIOF_BASE   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x2800)"
+
+.PP
+Definition at line 320 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_GPIOG   ((\fBPAC55XX_GPIO_TYPEDEF\fP *) \fBPAC55XX_GPIOG_BASE\fP)"
+
+.PP
+Definition at line 355 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_GPIOG_BASE   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x2C00)"
+
+.PP
+Definition at line 321 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_GPTIMERA   ((\fBPAC55XX_GPTTIMER_TYPEDEF\fP *) \fBPAC55XX_GPTIMERA_BASE\fP)"
+
+.PP
+Definition at line 342 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_GPTIMERA_BASE   (\fBPAC55XX_PERIPH_BASE\fP + 0xB0000)"
+
+.PP
+Definition at line 307 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_GPTIMERB   ((\fBPAC55XX_GPTTIMER_TYPEDEF\fP *) \fBPAC55XX_GPTIMERB_BASE\fP)"
+
+.PP
+Definition at line 343 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_GPTIMERB_BASE   (\fBPAC55XX_PERIPH_BASE\fP + 0xC0000)"
+
+.PP
+Definition at line 308 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_I2C   ((\fBPAC55XX_I2C_TYPEDEF\fP *) \fBPAC55XX_I2C_BASE\fP)"
+
+.PP
+Definition at line 328 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_I2C_BASE   (\fBPAC55XX_PERIPH_BASE\fP + 0x10000)"
+
+.PP
+Definition at line 297 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_IN_DEVELOPMENT   4"
+
+.PP
+Definition at line 54 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_INFO1   ((\fBPAC55XX_INFO1_TYPEDEF\fP *) \fBPAC55XX_INFO1_FLASH_BASE\fP)"
+
+.PP
+Definition at line 356 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_INFO1_FLASH_BASE   (0x00100000UL)"
+
+.PP
+Definition at line 288 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_INFO2   ((\fBPAC55XX_INFO2_TYPEDEF\fP *) \fBPAC55XX_INFO2_FLASH_BASE\fP)"
+
+.PP
+Definition at line 357 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_INFO2_FLASH_BASE   (0x00100400UL)"
+
+.PP
+Definition at line 289 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_INFO3   ((\fBPAC55XX_INFO3_TYPEDEF\fP *) \fBPAC55XX_INFO3_FLASH_BASE\fP)"
+
+.PP
+Definition at line 358 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_INFO3_FLASH_BASE   (0x00100800UL)"
+
+.PP
+Definition at line 290 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_MEMCTL   ((\fBPAC55XX_MEMCTL_TYPEDEF\fP *) \fBPAC55XX_MEMCTL_BASE\fP)"
+
+.PP
+Definition at line 344 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_MEMCTL_BASE   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x0000)"
+
+.PP
+Definition at line 310 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_PERIPH_BASE   (0x40000000UL)"
+
+.PP
+Definition at line 293 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_RC   1"
+
+.PP
+Definition at line 51 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_RELEASED   0"
+
+.PP
+Definition at line 50 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_RTC   ((\fBPAC55XX_RTC_TYPEDEF\fP *) \fBPAC55XX_RTC_BASE\fP)"
+
+.PP
+Definition at line 347 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_RTC_BASE   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x0C00)"
+
+.PP
+Definition at line 313 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_SCC   ((\fBPAC55XX_SCC_TYPEDEF\fP *) \fBPAC55XX_SCC_BASE\fP)"
+
+.PP
+Definition at line 345 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_SCC_BASE   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x0400)"
+
+.PP
+Definition at line 311 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_SRAM_BASE   (0x20000000UL)"
+
+.PP
+Definition at line 292 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_SSPA   ((\fBPAC55XX_SSP_TYPEDEF\fP *) \fBPAC55XX_USARTA_BASE\fP)"
+
+.PP
+Definition at line 330 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_SSPB   ((\fBPAC55XX_SSP_TYPEDEF\fP *) \fBPAC55XX_USARTB_BASE\fP)"
+
+.PP
+Definition at line 332 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_SSPC   ((\fBPAC55XX_SSP_TYPEDEF\fP *) \fBPAC55XX_USARTC_BASE\fP)"
+
+.PP
+Definition at line 334 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_SSPD   ((\fBPAC55XX_SSP_TYPEDEF\fP *) \fBPAC55XX_USARTD_BASE\fP)"
+
+.PP
+Definition at line 336 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_SYS_PERIPH_BASE   (\fBPAC55XX_PERIPH_BASE\fP + 0xD0000)"
+
+.PP
+Definition at line 309 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_TIMERA   ((\fBPAC55XX_TIMER_TYPEDEF\fP *) \fBPAC55XX_TIMERA_BASE\fP)"
+
+.PP
+Definition at line 337 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_TIMERA_BASE   (\fBPAC55XX_PERIPH_BASE\fP + 0x60000)"
+
+.PP
+Definition at line 302 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_TIMERB   ((\fBPAC55XX_TIMER_TYPEDEF\fP *) \fBPAC55XX_TIMERB_BASE\fP)"
+
+.PP
+Definition at line 338 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_TIMERB_BASE   (\fBPAC55XX_PERIPH_BASE\fP + 0x70000)"
+
+.PP
+Definition at line 303 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_TIMERC   ((\fBPAC55XX_TIMER_TYPEDEF\fP *) \fBPAC55XX_TIMERC_BASE\fP)"
+
+.PP
+Definition at line 339 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_TIMERC_BASE   (\fBPAC55XX_PERIPH_BASE\fP + 0x80000)"
+
+.PP
+Definition at line 304 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_TIMERD   ((\fBPAC55XX_TIMER_TYPEDEF\fP *) \fBPAC55XX_TIMERD_BASE\fP)"
+
+.PP
+Definition at line 340 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_TIMERD_BASE   (\fBPAC55XX_PERIPH_BASE\fP + 0x90000)"
+
+.PP
+Definition at line 305 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_UARTA   ((\fBPAC55XX_UART_TYPEDEF\fP *) \fBPAC55XX_USARTA_BASE\fP)"
+
+.PP
+Definition at line 329 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_UARTB   ((\fBPAC55XX_UART_TYPEDEF\fP *) \fBPAC55XX_USARTB_BASE\fP)"
+
+.PP
+Definition at line 331 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_UARTC   ((\fBPAC55XX_UART_TYPEDEF\fP *) \fBPAC55XX_USARTC_BASE\fP)"
+
+.PP
+Definition at line 333 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_UARTD   ((\fBPAC55XX_UART_TYPEDEF\fP *) \fBPAC55XX_USARTD_BASE\fP)"
+
+.PP
+Definition at line 335 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_USARTA_BASE   (\fBPAC55XX_PERIPH_BASE\fP + 0x20000)"
+
+.PP
+Definition at line 298 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_USARTB_BASE   (\fBPAC55XX_PERIPH_BASE\fP + 0x30000)"
+
+.PP
+Definition at line 299 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_USARTC_BASE   (\fBPAC55XX_PERIPH_BASE\fP + 0x40000)"
+
+.PP
+Definition at line 300 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_USARTD_BASE   (\fBPAC55XX_PERIPH_BASE\fP + 0x50000)"
+
+.PP
+Definition at line 301 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_WWDT   ((\fBPAC55XX_WWDT_TYPEDEF\fP *) \fBPAC55XX_WWDT_BASE\fP)"
+
+.PP
+Definition at line 346 of file pac5xxx\&.h\&.
+.SS "#define PAC55XX_WWDT_BASE   (\fBPAC55XX_SYS_PERIPH_BASE\fP + 0x0800)"
+
+.PP
+Definition at line 312 of file pac5xxx\&.h\&.
+.SS "#define PAC5XXX_ALPHA   \fBPAC55XX_ALPHA\fP"
+
+.PP
+Definition at line 58 of file pac5xxx\&.h\&.
+.SS "#define PAC5XXX_BETA   \fBPAC55XX_BETA\fP"
+
+.PP
+Definition at line 57 of file pac5xxx\&.h\&.
+.SS "#define PAC5XXX_IN_DEVELOPMENT   \fBPAC55XX_IN_DEVELOPMENT\fP"
+
+.PP
+Definition at line 59 of file pac5xxx\&.h\&.
+.SS "#define PAC5XXX_OPTIMIZE_SPEED_OFF"
+
+.PP
+Definition at line 45 of file pac5xxx\&.h\&.
+.SS "#define PAC5XXX_OPTIMIZE_SPEED_ON"
+
+.PP
+Definition at line 44 of file pac5xxx\&.h\&.
+.SS "#define PAC5XXX_RAMFUNC"
+
+.PP
+Definition at line 43 of file pac5xxx\&.h\&.
+.SS "#define PAC5XXX_RC   \fBPAC55XX_RC\fP"
+
+.PP
+Definition at line 56 of file pac5xxx\&.h\&.
+.SS "#define PAC5XXX_RELEASED   \fBPAC55XX_RELEASED\fP"
+
+.PP
+Definition at line 55 of file pac5xxx\&.h\&.
+.SS "#define UNUSED_PARAM"
+
+.PP
+Definition at line 46 of file pac5xxx\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef enum \fBIRQn\fP \fBIRQn_Type\fP"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBIRQn\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIReset_IRQn \fP\fP
+.TP
+\fB\fINonMaskableInt_IRQn \fP\fP
+.TP
+\fB\fIHardFault_IRQn \fP\fP
+.TP
+\fB\fIMemManageFault_IRQn \fP\fP
+.TP
+\fB\fIBusFault_IRQn \fP\fP
+.TP
+\fB\fIUsageFault_IRQn \fP\fP
+.TP
+\fB\fISVCall_IRQn \fP\fP
+.TP
+\fB\fIPendSV_IRQn \fP\fP
+.TP
+\fB\fISysTick_IRQn \fP\fP
+.TP
+\fB\fIMemCtl_IRQn \fP\fP
+.TP
+\fB\fIWdt_IRQn \fP\fP
+.TP
+\fB\fIRTC_IRQn \fP\fP
+.TP
+\fB\fIADC0_IRQn \fP\fP
+.TP
+\fB\fIADC1_IRQn \fP\fP
+.TP
+\fB\fIADC2_IRQn \fP\fP
+.TP
+\fB\fIADC3_IRQn \fP\fP
+.TP
+\fB\fITimerA_IRQn \fP\fP
+.TP
+\fB\fITimerB_IRQn \fP\fP
+.TP
+\fB\fITimerC_IRQn \fP\fP
+.TP
+\fB\fITimerD_IRQn \fP\fP
+.TP
+\fB\fITimerA_Qep_IRQn \fP\fP
+.TP
+\fB\fITimerB_Qep_IRQn \fP\fP
+.TP
+\fB\fITimerC_Qep_IRQn \fP\fP
+.TP
+\fB\fITimerD_Qep_IRQn \fP\fP
+.TP
+\fB\fIGpioA_IRQn \fP\fP
+.TP
+\fB\fIGpioB_IRQn \fP\fP
+.TP
+\fB\fIGpioC_IRQn \fP\fP
+.TP
+\fB\fIGpioD_IRQn \fP\fP
+.TP
+\fB\fIGpioE_IRQn \fP\fP
+.TP
+\fB\fIGpioF_IRQn \fP\fP
+.TP
+\fB\fIGpioG_IRQn \fP\fP
+.TP
+\fB\fII2C_IRQn \fP\fP
+.TP
+\fB\fIUSARTA_IRQn \fP\fP
+.TP
+\fB\fIUSARTB_IRQn \fP\fP
+.TP
+\fB\fIUSARTC_IRQn \fP\fP
+.TP
+\fB\fIUSARTD_IRQn \fP\fP
+.TP
+\fB\fICAN_IRQn \fP\fP
+.TP
+\fB\fIGPTimerA_IRQn \fP\fP
+.TP
+\fB\fIGPTimerB_IRQn \fP\fP
+.TP
+\fB\fISCC_IRQn \fP\fP
+.PP
+Definition at line 64 of file pac5xxx\&.h\&.
+.PP
+.nf
+65 {
+66 //-------------------  Cortex-M4 Processor Exceptions Numbers  ---------------------------------
+67   Reset_IRQn                    = -15,      // Reset Vector, invoked on Power up and warm reset
+68   NonMaskableInt_IRQn           = -14,      // Non Maskable Interrupt
+69   HardFault_IRQn                = -13,      // Hard Fault Interrupt
+70   MemManageFault_IRQn           = -12,      // MemManage fault Handler
+71   BusFault_IRQn                 = -11,      // BusFault Handler
+72   UsageFault_IRQn               = -10,      // Usage Fault Handler
+73   SVCall_IRQn                   = -5,       // SV Call Interrupt
+74   PendSV_IRQn                   = -2,       // Pend SV Interrupt
+75   SysTick_IRQn                  = -1,       // System Tick Interrupt
+76 
+77 //---------------------  PAC55XX Specific Interrupt Numbers  -----------------------------------
+78   MemCtl_IRQn                   = 0,        // Memory Controller Interrupt
+79   Wdt_IRQn                      = 1,        // Watchdog Timer Interrupt
+80   RTC_IRQn                      = 2,        // Real-Time Clock Timer Interrupt
+81   ADC0_IRQn                     = 3,        // ADC 0 Interrupt
+82   ADC1_IRQn                     = 4,        // ADC 1 Interrupt
+83   ADC2_IRQn                     = 5,        // ADC 2 Interrupt
+84   ADC3_IRQn                     = 6,        // ADC 3 Interrupt
+85   TimerA_IRQn                   = 7,        // Timer A Interrupt
+86   TimerB_IRQn                   = 8,        // Timer B Interrupt
+87   TimerC_IRQn                   = 9,        // Timer C Interrupt
+88   TimerD_IRQn                   = 10,       // Timer D Interrupt
+89   TimerA_Qep_IRQn               = 11,       // Timer A QEP Interrupt
+90   TimerB_Qep_IRQn               = 12,       // Timer B QEP Interrupt
+91   TimerC_Qep_IRQn               = 13,       // Timer C QEP Interrupt
+92   TimerD_Qep_IRQn               = 14,       // Timer D QEP Interrupt
+93   GpioA_IRQn                    = 15,       // GPIO Port A Interrupt
+94   GpioB_IRQn                    = 16,       // GPIO Port B Interrupt
+95   GpioC_IRQn                    = 17,       // GPIO Port C Interrupt
+96   GpioD_IRQn                    = 18,       // GPIO Port D Interrupt
+97   GpioE_IRQn                    = 19,       // GPIO Port E Interrupt
+98   GpioF_IRQn                    = 20,       // GPIO Port F Interrupt
+99   GpioG_IRQn                    = 21,       // GPIO Port F Interrupt
+100   I2C_IRQn                      = 22,       // I2C Interrupt        
+101   USARTA_IRQn                   = 23,       // USART A Interrupt
+102   USARTB_IRQn                   = 24,       // USART B Interrupt
+103   USARTC_IRQn                   = 25,       // USART C Interrupt
+104   USARTD_IRQn                   = 26,       // USART D Interrupt
+105   CAN_IRQn                      = 27,       // CAN Interrupt
+106   GPTimerA_IRQn                 = 28,       // GP Timer A Interrupt
+107   GPTimerB_IRQn                 = 29,       // GP Timer B Interrupt
+108   SCC_IRQn                        = 30        // System Clock Control Interrupt
+109 } IRQn_Type;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

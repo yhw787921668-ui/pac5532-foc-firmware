@@ -1,0 +1,103 @@
+.TH "pac_foc/src/isr/isr_stubs.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/isr/isr_stubs.c \- Use for NMI, MemCtl, HardFault and Default ISR handlers\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'fault\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBNMI_Handler\fP (void)"
+.br
+.RI "Process interrupt for NMI_Handler\&. "
+.ti -1c
+.RI "void \fBHardFault_Handler\fP (void)"
+.br
+.RI "Process interrupt for HardFault_Handler\&. "
+.ti -1c
+.RI "void \fBMemCtl_IRQHandler\fP (void)"
+.br
+.RI "Process interrupt for MemCtl_IRQHandler\&. "
+.ti -1c
+.RI "void \fBDefault_Handler\fP (void)"
+.br
+.RI "Process interrupt for Default_Handler\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for NMI, MemCtl, HardFault and Default ISR handlers\&. 
+
+
+.PP
+Definition in file \fBisr_stubs\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void Default_Handler (void)"
+
+.PP
+Process interrupt for Default_Handler\&. 
+.PP
+Definition at line 50 of file isr_stubs\&.c\&.
+.PP
+.nf
+51 {
+52     // Go into an infinite loop\&.
+53     fault();
+54 }
+.fi
+.PP
+References fault()\&.
+.SS "void HardFault_Handler (void)"
+
+.PP
+Process interrupt for HardFault_Handler\&. 
+.PP
+Definition at line 34 of file isr_stubs\&.c\&.
+.PP
+.nf
+35 {
+36     fault();
+37 }
+.fi
+.PP
+References fault()\&.
+.SS "void MemCtl_IRQHandler (void)"
+
+.PP
+Process interrupt for MemCtl_IRQHandler\&. 
+.PP
+Definition at line 42 of file isr_stubs\&.c\&.
+.PP
+.nf
+43 {
+44     fault();
+45 }
+.fi
+.PP
+References fault()\&.
+.SS "void NMI_Handler (void)"
+
+.PP
+Process interrupt for NMI_Handler\&. 
+.PP
+Definition at line 26 of file isr_stubs\&.c\&.
+.PP
+.nf
+27 {
+28     fault();
+29 }
+.fi
+.PP
+References fault()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

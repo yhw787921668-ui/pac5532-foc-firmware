@@ -1,0 +1,252 @@
+.TH "Struct_Control" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Struct_Control \- This structure use for FOC control related variables\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <control_struct\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int32_t \fBu_duty_value\fP"
+.br
+.ti -1c
+.RI "int32_t \fBv_duty_value\fP"
+.br
+.ti -1c
+.RI "int32_t \fBw_duty_value\fP"
+.br
+.ti -1c
+.RI "\fBPID_Data_Type\fP \fBouterloop_pid\fP"
+.br
+.ti -1c
+.RI "int32_t \fBIu_measured_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBIv_measured_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBIw_measured_q14\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBouterloop_ramp\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBouterloop_ramp_scaled_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBouterloop_fdbk_scaled_q14\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBctrl_counter\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBouterloop_target\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBidrefcl_target_f16\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBiqrefcl_target_f16\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBmotor_period_ticks\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBmotor_period_ticks_1div\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBduty_max_pct_q14\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBduty_max_pct_1div_q14\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBdt_control_q26\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBdt_control_1div_q6\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBctrl_divider\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBouterloop_pi_scale_shift\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBscalefactor_speed\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBouterloop_rate\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBouterloop_rate_store\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBidiqref_rate_f16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBimax_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBimax_1div_q16\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This structure use for FOC control related variables\&. 
+.PP
+Definition at line 28 of file control_struct\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t Struct_Control::ctrl_counter"
+
+.PP
+Definition at line 41 of file control_struct\&.h\&.
+.PP
+Referenced by systemvar_init()\&.
+.SS "uint32_t Struct_Control::ctrl_divider"
+
+.PP
+Definition at line 55 of file control_struct\&.h\&.
+.PP
+Referenced by config_control_dt()\&.
+.SS "\fBfix16_t\fP Struct_Control::dt_control_1div_q6"
+
+.PP
+Definition at line 54 of file control_struct\&.h\&.
+.PP
+Referenced by aligngo_param_write(), and config_control_dt()\&.
+.SS "\fBfix16_t\fP Struct_Control::dt_control_q26"
+
+.PP
+Definition at line 53 of file control_struct\&.h\&.
+.PP
+Referenced by config_control_dt(), lbg1_calculate_coefficients(), lbg1_reset(), and lbg1_statemon()\&.
+.SS "uint16_t Struct_Control::duty_max_pct_1div_q14"
+
+.PP
+Definition at line 52 of file control_struct\&.h\&.
+.SS "uint16_t Struct_Control::duty_max_pct_q14"
+
+.PP
+Definition at line 51 of file control_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_Control::idiqref_rate_f16"
+
+.PP
+Definition at line 60 of file control_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_Control::idrefcl_target_f16"
+
+.PP
+Definition at line 45 of file control_struct\&.h\&.
+.PP
+Referenced by control_reset(), and sm_mainsub_prestart()\&.
+.SS "int32_t Struct_Control::imax_1div_q16"
+
+.PP
+Definition at line 62 of file control_struct\&.h\&.
+.SS "int32_t Struct_Control::imax_q16"
+
+.PP
+Definition at line 61 of file control_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_Control::iqrefcl_target_f16"
+
+.PP
+Definition at line 46 of file control_struct\&.h\&.
+.PP
+Referenced by control_reset(), and sm_mainsub_prestart()\&.
+.SS "int32_t Struct_Control::Iu_measured_q14"
+
+.PP
+Definition at line 35 of file control_struct\&.h\&.
+.SS "int32_t Struct_Control::Iv_measured_q14"
+
+.PP
+Definition at line 36 of file control_struct\&.h\&.
+.SS "int32_t Struct_Control::Iw_measured_q14"
+
+.PP
+Definition at line 37 of file control_struct\&.h\&.
+.SS "uint16_t Struct_Control::motor_period_ticks"
+
+.PP
+Definition at line 49 of file control_struct\&.h\&.
+.PP
+Referenced by control_reset(), foc_config(), m1_disable(), and m1_enable()\&.
+.SS "uint16_t Struct_Control::motor_period_ticks_1div"
+
+.PP
+Definition at line 50 of file control_struct\&.h\&.
+.PP
+Referenced by foc_config()\&.
+.SS "int32_t Struct_Control::outerloop_fdbk_scaled_q14"
+
+.PP
+Definition at line 40 of file control_struct\&.h\&.
+.PP
+Referenced by control_reset()\&.
+.SS "uint16_t Struct_Control::outerloop_pi_scale_shift"
+
+.PP
+Definition at line 56 of file control_struct\&.h\&.
+.SS "\fBPID_Data_Type\fP Struct_Control::outerloop_pid"
+
+.PP
+Definition at line 34 of file control_struct\&.h\&.
+.PP
+Referenced by control_reset(), and parameters_write_foc()\&.
+.SS "\fBfix16_t\fP Struct_Control::outerloop_ramp"
+
+.PP
+Definition at line 38 of file control_struct\&.h\&.
+.PP
+Referenced by control_reset()\&.
+.SS "\fBfix16_t\fP Struct_Control::outerloop_ramp_scaled_q14"
+
+.PP
+Definition at line 39 of file control_struct\&.h\&.
+.PP
+Referenced by control_reset()\&.
+.SS "\fBfix16_t\fP Struct_Control::outerloop_rate"
+
+.PP
+Definition at line 58 of file control_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_Control::outerloop_rate_store"
+
+.PP
+Definition at line 59 of file control_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_Control::outerloop_target"
+
+.PP
+Definition at line 44 of file control_struct\&.h\&.
+.SS "uint16_t Struct_Control::scalefactor_speed"
+
+.PP
+Definition at line 57 of file control_struct\&.h\&.
+.SS "int32_t Struct_Control::u_duty_value"
+
+.PP
+Definition at line 31 of file control_struct\&.h\&.
+.PP
+Referenced by control_reset()\&.
+.SS "int32_t Struct_Control::v_duty_value"
+
+.PP
+Definition at line 32 of file control_struct\&.h\&.
+.PP
+Referenced by control_reset()\&.
+.SS "int32_t Struct_Control::w_duty_value"
+
+.PP
+Definition at line 33 of file control_struct\&.h\&.
+.PP
+Referenced by control_reset()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

@@ -1,0 +1,177 @@
+\hypertarget{pac__init_8c}{}\doxysection{pac\+\_\+foc/src/app/pac\+\_\+init.c File Reference}
+\label{pac__init_8c}\index{pac\_foc/src/app/pac\_init.c@{pac\_foc/src/app/pac\_init.c}}
+
+
+Use to initialize peripheral, P\+WM, Hall, A\+FE, Q\+EP, A\+DC, F\+OC, I\+PD.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config\+\_\+app.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac\+\_\+init.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driver\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}param.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parameter\+\_\+process.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}comm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fault.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+adc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+socbridge.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+tile.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+system.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+memory.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}control\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mpos\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}app\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vbus\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}foc\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}watchdog.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stack\+\_\+check.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}control\+\_\+loop.\+h\char`\"{}}\newline
+Include dependency graph for pac\+\_\+init.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac__init_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{pac__init_8c_a51d400da26702bfd3d0cd5966b0679bf}{peripheral\+\_\+init}} (void)
+\begin{DoxyCompactList}\small\item\em This function use to initialize peripheral, P\+LL, C\+LK, Ports, U\+A\+RT, A\+FE, D\+AS, Debug, calculate misc values. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use to initialize peripheral, P\+WM, Hall, A\+FE, Q\+EP, A\+DC, F\+OC, I\+PD. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pac__init_8c_a51d400da26702bfd3d0cd5966b0679bf}\label{pac__init_8c_a51d400da26702bfd3d0cd5966b0679bf}} 
+\index{pac\_init.c@{pac\_init.c}!peripheral\_init@{peripheral\_init}}
+\index{peripheral\_init@{peripheral\_init}!pac\_init.c@{pac\_init.c}}
+\doxysubsubsection{\texorpdfstring{peripheral\_init()}{peripheral\_init()}}
+{\footnotesize\ttfamily void peripheral\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function use to initialize peripheral, P\+LL, C\+LK, Ports, U\+A\+RT, A\+FE, D\+AS, Debug, calculate misc values. 
+
+
+
+Definition at line 64 of file pac\+\_\+init.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{65 \{}
+\DoxyCodeLine{66     \mbox{\hyperlink{struct_struct___motor}{Struct\_Motor}}* motor\_ptr = \&\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}};}
+\DoxyCodeLine{67     \textcolor{keyword}{volatile} int32\_t test\_count\_var = 0;}
+\DoxyCodeLine{68     \textcolor{keyword}{volatile} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} test\_data;}
+\DoxyCodeLine{69     }
+\DoxyCodeLine{70     \_\_disable\_irq();     \textcolor{comment}{// Disable Interrupts}}
+\DoxyCodeLine{71     }
+\DoxyCodeLine{72     \textcolor{comment}{// Initialize PLL, Clocks, Flash}}
+\DoxyCodeLine{73     init\_system();}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{comment}{// Configure communication ports}}
+\DoxyCodeLine{76     config\_comm();}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{comment}{// Configure SOC Bridge for talking to CAFE}}
+\DoxyCodeLine{79     pac5xxx\_tile\_socbridge\_config(1, 0);                                                    \textcolor{comment}{// enable, int\_enable}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#if defined(FAMILY\_52XX)}}
+\DoxyCodeLine{81     \textcolor{comment}{// Configure SOC Bridge clock divider depending on clok frequency selection}}
+\DoxyCodeLine{82     initialize\_socbridge\_clk\_divider();}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{84     \textcolor{comment}{// Enable driver manager and verify active -\/ need to enable even in PAC5210 to get ENHS pin to work}}
+\DoxyCodeLine{85     pac5xxx\_tile\_register\_write(ADDR\_ENDRV, 0);}
+\DoxyCodeLine{86     \textcolor{keywordflow}{if} ((pac5xxx\_tile\_register\_read(ADDR\_ENDRV) \& 0x01) != 0)}
+\DoxyCodeLine{87     \{}
+\DoxyCodeLine{88         \mbox{\hyperlink{fault_8c_aace1292fddb0bc3023763f890a5b8474}{fault}}();}
+\DoxyCodeLine{89         \textcolor{keywordflow}{while} (1);}
+\DoxyCodeLine{90     \}}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \textcolor{comment}{// Calculate PWM timer period ticks}}
+\DoxyCodeLine{93     \mbox{\hyperlink{foc__funcs_8c_aeabbcc786cd687718fa87acf49fa00d3}{foc\_calc\_pwmtimer}}(motor\_ptr);}
+\DoxyCodeLine{94     \textcolor{comment}{// Configure control loop for FOC mode}}
+\DoxyCodeLine{95     \mbox{\hyperlink{foc__funcs_8c_aef5fe09425d67d651fbf7292e2f304c4}{foc\_config}}(motor\_ptr);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97     \mbox{\hyperlink{driver__funcs_8c_a3279abfa1b04c56c14db266ccb0fab6a}{set\_drivers\_gpio}}();}
+\DoxyCodeLine{98     \mbox{\hyperlink{driver__funcs_8c_ad98cb6be8dc3d2b416f8b2773a68c4fc}{m1\_disable}}();}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#ifdef ENABLE\_DEBUG\_IO}}
+\DoxyCodeLine{101     \textcolor{comment}{// Configure DebugIO Ports}}
+\DoxyCodeLine{102     config\_debugio();}
+\DoxyCodeLine{103 \textcolor{comment}{//    debugio1\_on();}}
+\DoxyCodeLine{104 \textcolor{comment}{//    debugio2\_on();}}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     configure\_cafe\_fault\_interrupt();}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#ifdef ENABLE\_DEBUG\_PWMDAC}}
+\DoxyCodeLine{110     \textcolor{comment}{// Configure PWMDAC timer (45kHz)}}
+\DoxyCodeLine{111     configure\_pwm\_dac();}
+\DoxyCodeLine{112     pwmdac\_disable();                                                                       \textcolor{comment}{// Set all outputs low}}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#ifdef ENABLE\_DEBUG\_DAS}}
+\DoxyCodeLine{116     \mbox{\hyperlink{debug__das_8h_aa0e3b3dbd25b1f9edc268a079ff03e97}{das\_debug\_init}}();}
+\DoxyCodeLine{117     config\_debugDASio();}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120     \textcolor{comment}{// Hall IO and Timer config}}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_HALL == ENABLED)}}
+\DoxyCodeLine{122     hall\_io\_config();}
+\DoxyCodeLine{123     hall\_timer\_config();}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#if (HALL\_METHOD\_SELECT == HALL\_METHOD\_INTERRUPT)}}
+\DoxyCodeLine{125     configure\_hall\_interrupt\_init();}
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129     \textcolor{comment}{// QEP IO and Timer config}}
+\DoxyCodeLine{130 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_QEP == ENABLED)}}
+\DoxyCodeLine{131     qep\_io\_config();}
+\DoxyCodeLine{132     qep\_timer\_config();}
+\DoxyCodeLine{133 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135     \textcolor{comment}{// Configure ADC and EMUX engine}}
+\DoxyCodeLine{136     configure\_adc\_emux\_engine();}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138     \textcolor{comment}{// Enable ADC}}
+\DoxyCodeLine{139     pac5xxx\_adc\_enable(1);                                                                  \textcolor{comment}{// Enable ADC. Automated sequences will begin after issuing ADC start in main()}}
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141     \textcolor{comment}{// Initialize systick timer}}
+\DoxyCodeLine{142     \mbox{\hyperlink{pac__init_8h_abde806d922bef5df3f73d9c9a4066211}{config\_systick\_timer}}();}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#if (ENABLE\_WATCHDOG == TRUE)}}
+\DoxyCodeLine{145     \textcolor{comment}{// Enable Watchdog}}
+\DoxyCodeLine{146     \mbox{\hyperlink{watchdog_8c_a788ade1632e3717b25b4103304e60db6}{init\_Watchdog\_time\_base}}();}
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149     \textcolor{comment}{// Initialize start and end of the stack to test stack utilization}}
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#if (ENABLE\_STACK\_CHECK == TRUE)}}
+\DoxyCodeLine{151     \mbox{\hyperlink{stack__check_8c_a70514e7c5588f52efe8c0305bd747abb}{init\_stack\_vars}}();}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#if (INTERNAL\_VMS == TRUE)}}
+\DoxyCodeLine{155     \mbox{\hyperlink{vbus__funcs_8c_ab8fb6271a554c7be7b0c74504b5fc7fb}{cal\_vm\_const}}(motor\_ptr);}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{157 \}}
+
+\end{DoxyCode}
+
+
+References motor.
+
+
+
+Referenced by main().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{pac__init_8c_a51d400da26702bfd3d0cd5966b0679bf_icgraph}
+\end{center}
+\end{figure}

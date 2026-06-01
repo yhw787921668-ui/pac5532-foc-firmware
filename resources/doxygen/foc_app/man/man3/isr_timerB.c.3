@@ -1,0 +1,91 @@
+.TH "pac_foc/src/isr/isr_timerB.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/isr/isr_timerB.c \- Use for timerB timer interrupt handler to run critical FOC functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'comm\&.h'\fP
+.br
+\fC#include 'control_loop\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBTimerB_IRQHandler\fP (void)"
+.br
+.RI "Process interrupt for TimerB_IRQHandler to run critical FOC functions\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for timerB timer interrupt handler to run critical FOC functions\&. 
+
+
+.PP
+Definition in file \fBisr_timerB\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "PAC5XXX_RAMFUNC void TimerB_IRQHandler (void)"
+
+.PP
+Process interrupt for TimerB_IRQHandler to run critical FOC functions\&. 
+.PP
+Definition at line 33 of file isr_timerB\&.c\&.
+.PP
+.nf
+34 {
+35 #if (DEVICE_SELECT != DEVICE_5556)
+36 #if (CONFIG_SHUNT == CONFIG_SHUNT_1SHUNT) && (MODE_1SHUNT_SELECT == MODE_1SHUNT_ASYMMETRIC)
+37     static Struct_Motor* motor_ptr = &motor;
+38 
+39 #ifdef ENABLE_IPD
+40     motor_ptr->funcptr1(motor_ptr);
+41 #else
+42     // Call 1-Shunt Asymmetric Mode TimerB ISR Process
+43     control_1shunt_asym_timerb_isr(motor_ptr);
+44 #endif
+45     // Clear base interrupt
+46     PAC5XXX_TIMERB->CTL\&.INT = 1;
+47 
+48     // Run motor control loop
+49 //    control_loop(motor_ptr);
+50 #ifdef ENABLE_IPD
+51     motor_ptr->funcptr2(motor_ptr);
+52 #else
+53     control_loop(motor_ptr);
+54 #endif
+55 
+56 //    // Clear base interrupt
+57 //    PAC5XXX_TIMERB->CTL\&.INT = 1;
+58 
+59     if (PAC5XXX_TIMERB->CTL\&.INT == 1)
+60     {
+61         set_warning(WARNING_FOCCTRL_OVERFLOW);
+62     }
+63 #endif
+64 #endif
+65 
+66 #if (DEVICE_SELECT != DEVICE_5556)
+67 #if (COMMSEL_PPM == TRUE) && (PPM_TIMER_SELECT == PPM_TIMER_B)
+68     ppm_process_capture_timer_events();
+69 #endif
+70 #endif
+71 
+72 #if (DEVICE_SELECT == DEVICE_5556)
+73     static Struct_Motor* motor_ptr = &motor;
+74 
+75     clear_timer_b_interrupt_flag_inc_isr_counter(&motor\&.control\&.ctrl_counter);
+76 #endif
+77 }
+.fi
+.PP
+References motor\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

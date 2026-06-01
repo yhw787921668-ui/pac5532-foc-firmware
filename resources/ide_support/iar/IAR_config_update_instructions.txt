@@ -1,0 +1,13 @@
+These instructions describe how to update IAR for PAC52xx and PAC55xx devices.
+All versions of IAR v7.50.2 or newer can be supported based on these instructions.
+
+1) Close IAR (if open)
+3) Copy the the entire "config" folder and all it's contents into the IAR installation's arm folder
+   and let it overwrite any existing files that match.
+
+Typical Default paths to the arm folder are:
+    C:\Program Files (x86)\IAR Systems\Embedded Workbench 7.0\arm
+    C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\arm
+    
+Afterwards, IAR should support all released PAC52xx and PAC55xx devices.  If a device is not listed
+then select the generic PAC52XX or PAC55XX device for the project.

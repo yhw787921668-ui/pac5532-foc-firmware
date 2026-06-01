@@ -1,0 +1,307 @@
+.TH "pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_boot_gcc/startup_pac5xxx_gcc.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_boot_gcc/startup_pac5xxx_gcc.c \- PAC5XXX startup code for IDEs using GCC\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac52XX\&.h'\fP
+.br
+\fC#include 'system_pac5xxx\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSTACK_SIZE\fP   0x000000B0"
+.br
+.ti -1c
+.RI "#define \fBWEAK\fP   \fB__attribute__\fP ((weak))"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBpac_recovery\fP (void)"
+.br
+.ti -1c
+.RI "\fB__attribute__\fP ((section('\&.co_stack')))"
+.br
+.RI "The minimal vector table for a Cortex M0\&. Note that the proper constructs must be placed on this to ensure that it ends up at physical address 0x00000000\&. 
+.br
+ "
+.ti -1c
+.RI "void \fBDefault_Reset_Handler\fP (void)"
+.br
+.RI "This is the code that gets called when the processor first starts execution following a reset event\&. Only the absolutely necessary set is performed, after which the application supplied main() routine is called\&. "
+.ti -1c
+.RI "\fB__attribute__\fP ((noinline))"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+PAC5XXX startup code for IDEs using GCC\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBstartup_pac5xxx_gcc\&.c\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define STACK_SIZE   0x000000B0"
+Stack size (in Words) 
+.br
+ 
+.PP
+Definition at line 21 of file startup_pac5xxx_gcc\&.c\&.
+.SS "#define WEAK   \fB__attribute__\fP ((weak))"
+
+.SH "Function Documentation"
+.PP 
+.SS "__attribute__ ((noinline))"
+
+.PP
+Definition at line 215 of file startup_pac5xxx_gcc\&.c\&.
+.PP
+.nf
+217 {
+218     __ASM
+219     (
+220         "       push {r1}           \n\t"
+221         "       movs r1, #1         \n\t"
+222         "delay_loop1:               \n\t"
+223         "       sub  r0,r0,r1      \n\t"   // Decrement r0=counts by r1=decrement value
+224         "       bne  delay_loop1    \n\t"   // Keep looping until counts == 0
+225         "       pop {r1}            \n\t"
+226     );
+227 }
+.fi
+.SS "__attribute__ ((section('\&.co_stack')))"
+
+.PP
+The minimal vector table for a Cortex M0\&. Note that the proper constructs must be placed on this to ensure that it ends up at physical address 0x00000000\&. 
+.br
+ < The initial stack pointer 
+.br
+.PP
+< The reset handler 
+.br
+.PP
+< The NMI handler 
+.br
+.PP
+< The hard fault handler 
+.br
+.PP
+< Reserved 
+.br
+.PP
+< SVCall handler 
+.br
+.PP
+< Reserved 
+.br
+.PP
+< The PendSV handler 
+.br
+.PP
+< The SysTick handler 
+.br
+.PP
+< Memory controller handler 
+.br
+.PP
+< unused 
+.br
+.PP
+< WDT handler 
+.br
+.PP
+< GPIOA handler 
+.br
+.PP
+< GPIOB handler 
+.br
+.PP
+< GPIOC handler 
+.br
+.PP
+< GPIOD handler 
+.br
+.PP
+< GPIOE handler 
+.br
+.PP
+< Timer A handler 
+.br
+.PP
+< Timer A Extended handler 
+.br
+.PP
+< Timer B handler 
+.br
+.PP
+< Timer C handler 
+.br
+.PP
+< Timer D handler 
+.br
+.PP
+< ADC handler 
+.br
+.PP
+< SocBridge handler 
+.br
+.PP
+< SPI-B handler 
+.br
+.PP
+< UART handler 
+.br
+.PP
+< I2C handler 
+.br
+.PP
+< ADC EMUX handler 
+.br
+.PP
+< RTC handler 
+.br
+
+.PP
+Definition at line 22 of file startup_pac5xxx_gcc\&.c\&.
+.PP
+.nf
+84 {
+85   /*----------Core Exceptions------------------------------------------------ */
+86   (void *)&pulStack[STACK_SIZE],       
+87   Reset_Handler,                       
+88   NMI_Handler,                         
+89   HardFault_Handler,                   
+90   0,0,0,0,0,0,0,                       
+91   SVC_Handler,                         
+92   0, 0,                                
+93   PendSV_Handler,                      
+94   SysTick_Handler,                     
+96   /*----------External Exceptions---------------------------------------------*/
+97   MemCtl_IRQHandler,                   
+98   SysClk_IRQHandler,                   
+99   Wdt_IRQHandler,                      
+100   GpioA_IRQHandler,                    
+101   GpioB_IRQHandler,                    
+102   GpioC_IRQHandler,                    
+103   GpioD_IRQHandler,                    
+104   GpioE_IRQHandler,                    
+105   TimerA_IRQHandler,                   
+106   TimerAExt_IRQHandler,                
+107   TimerB_IRQHandler,                   
+108   TimerC_IRQHandler,                   
+109   TimerD_IRQHandler,                   
+110   ADC_IRQHandler,                      
+111   SocBridge_IRQHandler,                
+112   SPIB_IRQHandler,                     
+113   UART_IRQHandler,                     
+114   I2C_IRQHandler,                      
+115   EMUX_IRQHandler,                     
+116   RTC_IRQHandler                       
+117 };
+.fi
+.SS "void Default_Reset_Handler (void)"
+
+.PP
+This is the code that gets called when the processor first starts execution following a reset event\&. Only the absolutely necessary set is performed, after which the application supplied main() routine is called\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fINone\fP 
+.RE
+.PP
+\fBReturn values\fP
+.RS 4
+\fINone\fP 
+.RE
+.PP
+
+.PP
+Definition at line 128 of file startup_pac5xxx_gcc\&.c\&.
+.PP
+.nf
+129 {
+130   // Call pac_recovery function to allow recovery of mis-configured device
+131   pac_recovery();
+132 
+133   /* Initialize data and bss */
+134   unsigned long *pulSrc, *pulDest;
+135 
+136   /* Copy the data segment initializers from flash to SRAM */
+137   pulSrc = &_sidata;
+138 
+139   for(pulDest = &_sdata; pulDest < &_edata; )
+140   {
+141     *(pulDest++) = *(pulSrc++);
+142   }
+143   
+144   /* Zero fill the bss segment\&. */
+145   for(pulDest = &_sbss; pulDest < &_ebss; )
+146   {
+147     *(pulDest++) = 0;
+148   }
+149     
+150   /* Call SystemInit for device initialization before letting user have control */
+151   SystemInit();
+152 
+153   /* Call the application's entry point\&.*/
+154   main();
+155 }
+.fi
+.PP
+References pac_recovery(), and SystemInit()\&.
+.SS "void pac_recovery (void)"
+
+.PP
+Definition at line 42 of file pac5xxx_driver_system_ccs_config\&.c\&.
+.PP
+.nf
+43 {
+44     volatile uint32_t i;
+45     uint32_t perform_delay = 1;
+46 
+47     // PE2 is already an input, just need to Enable Pull Up
+48     PAC5XXX_GPIOE->PU\&.P2 = 1;                         // Enable Pull Up
+49 
+50     // If PE2 is high a delay is not needed
+51     // Must check over the length of a full UART packet at 115kbps (78uS) in case UART is talking and making PE2 low for short durations
+52     for (i=0; i < 12; i++)  // Value of 12 = at least 140 uS, which is enough for 1 UART packet
+53     {
+54         // If PE2 is high at any time, then a delay is not needed
+55         if (PAC5XXX_GPIOE->IN\&.P2 == 1)
+56         {
+57             perform_delay = 0;
+58         }
+59     }
+60 
+61     // If PE2 was low, delay required, add 6 second delay
+62     if(perform_delay)
+63     {
+64         pac_delay_asm(1400000);
+65     }
+66 
+67     // Restore PE2 to reset state
+68     PAC5XXX_GPIOE->PU\&.P2 = 0;                         // Disable Pull Up
+69 }
+.fi
+.PP
+Referenced by Default_Reset_Handler()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

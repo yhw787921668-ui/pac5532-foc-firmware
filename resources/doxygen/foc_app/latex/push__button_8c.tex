@@ -1,0 +1,375 @@
+\hypertarget{push__button_8c}{}\doxysection{pac\+\_\+foc/src/comm/push\+\_\+button/push\+\_\+button.c File Reference}
+\label{push__button_8c}\index{pac\_foc/src/comm/push\_button/push\_button.c@{pac\_foc/src/comm/push\_button/push\_button.c}}
+
+
+Use to configure push button as G\+P\+IO input, button status and state initialization.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}push\+\_\+button.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config\+\_\+app.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}board.\+h\char`\"{}}\newline
+Include dependency graph for push\+\_\+button.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{push__button_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{push__button_8c_ad05fd6cc424e701af38c68eca25ebc00}{D\+E\+B\+O\+U\+N\+C\+E\+\_\+\+O\+F\+F\+\_\+\+T\+O\+\_\+\+O\+N\+\_\+\+C\+O\+U\+N\+T\+\_\+\+T\+H\+RD}}~20
+\item 
+\#define \mbox{\hyperlink{push__button_8c_a8c702c6e01c283c041f1a5e393870e58}{D\+E\+B\+O\+U\+N\+C\+E\+\_\+\+O\+N\+\_\+\+T\+O\+\_\+\+O\+F\+F\+\_\+\+C\+O\+U\+N\+T\+\_\+\+T\+H\+RD}}~20
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38}{State\+Botton\+Control}} \{ \mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a4552201f494754ed845107201475cdc0}{S\+T\+A\+T\+E\+\_\+\+P\+U\+S\+H\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+I\+N\+IT}} = 0, 
+\mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a5b1126b605c5f853a2b99606f15a14db}{S\+T\+A\+T\+E\+\_\+\+P\+U\+S\+H\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+C\+H\+E\+C\+K\+\_\+\+P\+R\+E\+S\+S\+ED}}, 
+\mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a007ab40552da68ef8626ea03d206d068}{S\+T\+A\+T\+E\+\_\+\+P\+U\+S\+H\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+C\+H\+E\+C\+K\+\_\+\+R\+E\+L\+E\+A\+S\+ED}}, 
+\mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38ae7c8e014b624a09a028641c548eff5c7}{S\+T\+A\+T\+E\+\_\+\+P\+U\+S\+H\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+E\+ND}} = S\+T\+A\+T\+E\+\_\+\+P\+U\+S\+H\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+C\+H\+E\+C\+K\+\_\+\+R\+E\+L\+E\+A\+S\+ED
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{push__button_8c_aef703552e6687a3eb549cf53d5406773}{push\+\_\+button\+\_\+config}} (void)
+\begin{DoxyCompactList}\small\item\em This function use configure push button, use G\+P\+IO as input. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{push__button_8c_a4d4efe110786b45cf689e539e700609b}{get\+\_\+push\+\_\+button\+\_\+gpio\+\_\+status}} (void)
+\begin{DoxyCompactList}\small\item\em This function use get status of push button. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{push__button_8c_a9f35fee2510edc2c5887193bf0e53d17}{get\+\_\+push\+\_\+button\+\_\+status}} (void)
+\begin{DoxyCompactList}\small\item\em This function use get status of push button. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{push__button_8c_a3614b85db44cc39798e9600a948020f7}{push\+\_\+button\+\_\+init\+\_\+state}} (void)
+\begin{DoxyCompactList}\small\item\em This function use initialize push button state machine state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{push__button_8c_aa224eb0952002dbb12071b5850d07160}{statemachine\+\_\+buttoncontrol}} (void)
+\begin{DoxyCompactList}\small\item\em This function as push button detection state machine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Struct\+\_\+\+Button \mbox{\hyperlink{push__button_8c_abcab848b322071788e272cb71de55a72}{on\+\_\+off\+\_\+button}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use to configure push button as G\+P\+IO input, button status and state initialization. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{push__button_8c_ad05fd6cc424e701af38c68eca25ebc00}\label{push__button_8c_ad05fd6cc424e701af38c68eca25ebc00}} 
+\index{push\_button.c@{push\_button.c}!DEBOUNCE\_OFF\_TO\_ON\_COUNT\_THRD@{DEBOUNCE\_OFF\_TO\_ON\_COUNT\_THRD}}
+\index{DEBOUNCE\_OFF\_TO\_ON\_COUNT\_THRD@{DEBOUNCE\_OFF\_TO\_ON\_COUNT\_THRD}!push\_button.c@{push\_button.c}}
+\doxysubsubsection{\texorpdfstring{DEBOUNCE\_OFF\_TO\_ON\_COUNT\_THRD}{DEBOUNCE\_OFF\_TO\_ON\_COUNT\_THRD}}
+{\footnotesize\ttfamily \#define D\+E\+B\+O\+U\+N\+C\+E\+\_\+\+O\+F\+F\+\_\+\+T\+O\+\_\+\+O\+N\+\_\+\+C\+O\+U\+N\+T\+\_\+\+T\+H\+RD~20}
+
+
+
+Definition at line 107 of file push\+\_\+button.\+c.
+
+\mbox{\Hypertarget{push__button_8c_a8c702c6e01c283c041f1a5e393870e58}\label{push__button_8c_a8c702c6e01c283c041f1a5e393870e58}} 
+\index{push\_button.c@{push\_button.c}!DEBOUNCE\_ON\_TO\_OFF\_COUNT\_THRD@{DEBOUNCE\_ON\_TO\_OFF\_COUNT\_THRD}}
+\index{DEBOUNCE\_ON\_TO\_OFF\_COUNT\_THRD@{DEBOUNCE\_ON\_TO\_OFF\_COUNT\_THRD}!push\_button.c@{push\_button.c}}
+\doxysubsubsection{\texorpdfstring{DEBOUNCE\_ON\_TO\_OFF\_COUNT\_THRD}{DEBOUNCE\_ON\_TO\_OFF\_COUNT\_THRD}}
+{\footnotesize\ttfamily \#define D\+E\+B\+O\+U\+N\+C\+E\+\_\+\+O\+N\+\_\+\+T\+O\+\_\+\+O\+F\+F\+\_\+\+C\+O\+U\+N\+T\+\_\+\+T\+H\+RD~20}
+
+
+
+Definition at line 108 of file push\+\_\+button.\+c.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38}\label{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38}} 
+\index{push\_button.c@{push\_button.c}!StateBottonControl@{StateBottonControl}}
+\index{StateBottonControl@{StateBottonControl}!push\_button.c@{push\_button.c}}
+\doxysubsubsection{\texorpdfstring{StateBottonControl}{StateBottonControl}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38}{State\+Botton\+Control}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE\_PUSH\_BUTTON\_INIT@{STATE\_PUSH\_BUTTON\_INIT}!push\_button.c@{push\_button.c}}\index{push\_button.c@{push\_button.c}!STATE\_PUSH\_BUTTON\_INIT@{STATE\_PUSH\_BUTTON\_INIT}}}\mbox{\Hypertarget{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a4552201f494754ed845107201475cdc0}\label{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a4552201f494754ed845107201475cdc0}} 
+S\+T\+A\+T\+E\+\_\+\+P\+U\+S\+H\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+I\+N\+IT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE\_PUSH\_BUTTON\_CHECK\_PRESSED@{STATE\_PUSH\_BUTTON\_CHECK\_PRESSED}!push\_button.c@{push\_button.c}}\index{push\_button.c@{push\_button.c}!STATE\_PUSH\_BUTTON\_CHECK\_PRESSED@{STATE\_PUSH\_BUTTON\_CHECK\_PRESSED}}}\mbox{\Hypertarget{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a5b1126b605c5f853a2b99606f15a14db}\label{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a5b1126b605c5f853a2b99606f15a14db}} 
+S\+T\+A\+T\+E\+\_\+\+P\+U\+S\+H\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+C\+H\+E\+C\+K\+\_\+\+P\+R\+E\+S\+S\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE\_PUSH\_BUTTON\_CHECK\_RELEASED@{STATE\_PUSH\_BUTTON\_CHECK\_RELEASED}!push\_button.c@{push\_button.c}}\index{push\_button.c@{push\_button.c}!STATE\_PUSH\_BUTTON\_CHECK\_RELEASED@{STATE\_PUSH\_BUTTON\_CHECK\_RELEASED}}}\mbox{\Hypertarget{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a007ab40552da68ef8626ea03d206d068}\label{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a007ab40552da68ef8626ea03d206d068}} 
+S\+T\+A\+T\+E\+\_\+\+P\+U\+S\+H\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+C\+H\+E\+C\+K\+\_\+\+R\+E\+L\+E\+A\+S\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STATE\_PUSH\_BUTTON\_END@{STATE\_PUSH\_BUTTON\_END}!push\_button.c@{push\_button.c}}\index{push\_button.c@{push\_button.c}!STATE\_PUSH\_BUTTON\_END@{STATE\_PUSH\_BUTTON\_END}}}\mbox{\Hypertarget{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38ae7c8e014b624a09a028641c548eff5c7}\label{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38ae7c8e014b624a09a028641c548eff5c7}} 
+S\+T\+A\+T\+E\+\_\+\+P\+U\+S\+H\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+E\+ND&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 72 of file push\+\_\+button.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{73 \{}
+\DoxyCodeLine{74     \mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a4552201f494754ed845107201475cdc0}{STATE\_PUSH\_BUTTON\_INIT}} = 0,                          \textcolor{comment}{// 0: Initialize}}
+\DoxyCodeLine{75     \mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a5b1126b605c5f853a2b99606f15a14db}{STATE\_PUSH\_BUTTON\_CHECK\_PRESSED}},                     \textcolor{comment}{// 1: Check for button press, active low}}
+\DoxyCodeLine{76     \mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a007ab40552da68ef8626ea03d206d068}{STATE\_PUSH\_BUTTON\_CHECK\_RELEASED}},                    \textcolor{comment}{// 2: Check for button release, active high}}
+\DoxyCodeLine{77     \mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38ae7c8e014b624a09a028641c548eff5c7}{STATE\_PUSH\_BUTTON\_END}} = \mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a007ab40552da68ef8626ea03d206d068}{STATE\_PUSH\_BUTTON\_CHECK\_RELEASED}} \textcolor{comment}{// Use to check the range of enumeration}}
+\DoxyCodeLine{78 \} \mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38}{StateBottonControl}};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{push__button_8c_a4d4efe110786b45cf689e539e700609b}\label{push__button_8c_a4d4efe110786b45cf689e539e700609b}} 
+\index{push\_button.c@{push\_button.c}!get\_push\_button\_gpio\_status@{get\_push\_button\_gpio\_status}}
+\index{get\_push\_button\_gpio\_status@{get\_push\_button\_gpio\_status}!push\_button.c@{push\_button.c}}
+\doxysubsubsection{\texorpdfstring{get\_push\_button\_gpio\_status()}{get\_push\_button\_gpio\_status()}}
+{\footnotesize\ttfamily uint32\+\_\+t get\+\_\+push\+\_\+button\+\_\+gpio\+\_\+status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function use get status of push button. 
+
+\begin{DoxyReturn}{Returns}
+1 or 0, low means button pressed 
+\end{DoxyReturn}
+
+
+Definition at line 61 of file push\+\_\+button.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62 \{}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#if defined(FAMILY\_55XX)}}
+\DoxyCodeLine{64     \textcolor{keywordflow}{return} (PAC55XX\_GPIOF-\/>IN.PUSH\_BUTTON\_PORTNUM);    \textcolor{comment}{// Return port status, if low means button pressed}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#elif defined(FAMILY\_52XX)}}
+\DoxyCodeLine{66     \textcolor{keywordflow}{return} (PAC5XXX\_GPIO\_PUSH\_BUTTON-\/>IN.PUSH\_BUTTON\_PORTNUM);    \textcolor{comment}{// Return port status, if low means button pressed}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{68     \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{70 \}}
+
+\end{DoxyCode}
+
+
+Referenced by statemachine\+\_\+buttoncontrol().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{push__button_8c_a4d4efe110786b45cf689e539e700609b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{push__button_8c_a9f35fee2510edc2c5887193bf0e53d17}\label{push__button_8c_a9f35fee2510edc2c5887193bf0e53d17}} 
+\index{push\_button.c@{push\_button.c}!get\_push\_button\_status@{get\_push\_button\_status}}
+\index{get\_push\_button\_status@{get\_push\_button\_status}!push\_button.c@{push\_button.c}}
+\doxysubsubsection{\texorpdfstring{get\_push\_button\_status()}{get\_push\_button\_status()}}
+{\footnotesize\ttfamily uint32\+\_\+t get\+\_\+push\+\_\+button\+\_\+status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function use get status of push button. 
+
+\begin{DoxyReturn}{Returns}
+status, 1 or 0 
+\end{DoxyReturn}
+
+
+Definition at line 94 of file push\+\_\+button.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{95 \{}
+\DoxyCodeLine{96     \textcolor{keywordflow}{return} (\mbox{\hyperlink{push__button_8c_abcab848b322071788e272cb71de55a72}{on\_off\_button}}.button\_status);}
+\DoxyCodeLine{97 \}}
+
+\end{DoxyCode}
+
+
+References on\+\_\+off\+\_\+button.
+
+\mbox{\Hypertarget{push__button_8c_aef703552e6687a3eb549cf53d5406773}\label{push__button_8c_aef703552e6687a3eb549cf53d5406773}} 
+\index{push\_button.c@{push\_button.c}!push\_button\_config@{push\_button\_config}}
+\index{push\_button\_config@{push\_button\_config}!push\_button.c@{push\_button.c}}
+\doxysubsubsection{\texorpdfstring{push\_button\_config()}{push\_button\_config()}}
+{\footnotesize\ttfamily void push\+\_\+button\+\_\+config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function use configure push button, use G\+P\+IO as input. 
+
+
+
+Definition at line 34 of file push\+\_\+button.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#if defined(FAMILY\_55XX)}}
+\DoxyCodeLine{37     PAC5XXX\_GPIO\_PUSH\_BUTTON-\/>MODE.P2 = 3;    \textcolor{comment}{// High-\/Impedance Digital Input}}
+\DoxyCodeLine{38     PAC55XX\_SCC-\/>PUSH\_BUTTON\_PULLUP\_PORT.PUSH\_BUTTON\_PORTNUM = 1;    \textcolor{comment}{// Enable the weak 60k pull-\/up to VCCIO}}
+\DoxyCodeLine{39     PAC55XX\_SCC-\/>PUSH\_BUTTON\_SCHMITT\_TRIG\_PORT.PUSH\_BUTTON\_SCHMITT\_ENABLE = 1;    \textcolor{comment}{// Enable Schmitt Trigger}}
+\DoxyCodeLine{40     PAC55XX\_SCC-\/>PUSH\_BUTTON\_PORT\_MUX.PUSH\_BUTTON\_PORTNUM = 0;  \textcolor{comment}{// MUX GPIO Mode}}
+\DoxyCodeLine{41     PAC5XXX\_GPIO\_PUSH\_BUTTON-\/>INTEN.PUSH\_BUTTON\_PORTNUM = 0;   \textcolor{comment}{// Disable Interrupt}}
+\DoxyCodeLine{42     PAC5XXX\_GPIO\_PUSH\_BUTTON-\/>CLKSYNC.PUSH\_BUTTON\_PORTNUM = 1; \textcolor{comment}{// Enable De-\/bounce}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#if defined(FAMILY\_52XX)}}
+\DoxyCodeLine{46     PAC5XXX\_GPIO\_PUSH\_BUTTON-\/>OUTEN.PUSH\_BUTTON\_PORTNUM = 0;    \textcolor{comment}{// Disable the output}}
+\DoxyCodeLine{47     PAC5XXX\_GPIO\_PUSH\_BUTTON-\/>DS.PUSH\_BUTTON\_PORTNUM = 0;       \textcolor{comment}{// Disable output Strength   }}
+\DoxyCodeLine{48     PAC5XXX\_GPIO\_PUSH\_BUTTON-\/>PU.PUSH\_BUTTON\_PORTNUM = 1;       \textcolor{comment}{// Enable weak pull-\/up}}
+\DoxyCodeLine{49     PAC5XXX\_GPIO\_PUSH\_BUTTON-\/>PD.PUSH\_BUTTON\_PORTNUM = 0;       \textcolor{comment}{// Diasable weak pull-\/down}}
+\DoxyCodeLine{50     PAC5XXX\_GPIO\_PUSH\_BUTTON-\/>PSEL.PUSH\_BUTTON\_PORTNUM = 0;     \textcolor{comment}{// Port GPIO Mode}}
+\DoxyCodeLine{51     PAC5XXX\_GPIO\_PUSH\_BUTTON-\/>INTE.PUSH\_BUTTON\_PORTNUM = 0;     \textcolor{comment}{// Port Pin Interrupt Disable}}
+\DoxyCodeLine{52     PAC5XXX\_GPIO\_PUSH\_BUTTON-\/>INE.PUSH\_BUTTON\_PORTNUM = 1;      \textcolor{comment}{// Port Pin Input Enable}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{54 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{push__button_8c_a3614b85db44cc39798e9600a948020f7}\label{push__button_8c_a3614b85db44cc39798e9600a948020f7}} 
+\index{push\_button.c@{push\_button.c}!push\_button\_init\_state@{push\_button\_init\_state}}
+\index{push\_button\_init\_state@{push\_button\_init\_state}!push\_button.c@{push\_button.c}}
+\doxysubsubsection{\texorpdfstring{push\_button\_init\_state()}{push\_button\_init\_state()}}
+{\footnotesize\ttfamily void push\+\_\+button\+\_\+init\+\_\+state (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function use initialize push button state machine state. 
+
+
+
+Definition at line 102 of file push\+\_\+button.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{103 \{}
+\DoxyCodeLine{104     \mbox{\hyperlink{push__button_8c_abcab848b322071788e272cb71de55a72}{on\_off\_button}}.button\_state = \mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a4552201f494754ed845107201475cdc0}{STATE\_PUSH\_BUTTON\_INIT}};}
+\DoxyCodeLine{105 \}}
+
+\end{DoxyCode}
+
+
+References on\+\_\+off\+\_\+button, and S\+T\+A\+T\+E\+\_\+\+P\+U\+S\+H\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+I\+N\+IT.
+
+\mbox{\Hypertarget{push__button_8c_aa224eb0952002dbb12071b5850d07160}\label{push__button_8c_aa224eb0952002dbb12071b5850d07160}} 
+\index{push\_button.c@{push\_button.c}!statemachine\_buttoncontrol@{statemachine\_buttoncontrol}}
+\index{statemachine\_buttoncontrol@{statemachine\_buttoncontrol}!push\_button.c@{push\_button.c}}
+\doxysubsubsection{\texorpdfstring{statemachine\_buttoncontrol()}{statemachine\_buttoncontrol()}}
+{\footnotesize\ttfamily void statemachine\+\_\+buttoncontrol (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function as push button detection state machine. 
+
+
+
+Definition at line 114 of file push\+\_\+button.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{115 \{}
+\DoxyCodeLine{116     \textcolor{keyword}{static} Struct\_Button* button\_ptr = \&\mbox{\hyperlink{push__button_8c_abcab848b322071788e272cb71de55a72}{on\_off\_button}};}
+\DoxyCodeLine{117     \textcolor{keyword}{static} \mbox{\hyperlink{struct_struct___motor}{Struct\_Motor}}* motor\_ptr = \&\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}};}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119     \textcolor{keywordflow}{switch} (button\_ptr-\/>button\_state)}
+\DoxyCodeLine{120     \{}
+\DoxyCodeLine{121         \textcolor{keywordflow}{case} \mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a4552201f494754ed845107201475cdc0}{STATE\_PUSH\_BUTTON\_INIT}}:}
+\DoxyCodeLine{122             button\_ptr-\/>de\_bounce\_counter = 0;}
+\DoxyCodeLine{123             button\_ptr-\/>button\_status = 0;}
+\DoxyCodeLine{124             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}} = 0;}
+\DoxyCodeLine{125             \textcolor{comment}{// It will stay in init state until switch released, active low}}
+\DoxyCodeLine{126             \textcolor{keywordflow}{if} (\mbox{\hyperlink{push__button_8c_a4d4efe110786b45cf689e539e700609b}{get\_push\_button\_gpio\_status}}())}
+\DoxyCodeLine{127             \{}
+\DoxyCodeLine{128                 button\_ptr-\/>button\_state = \mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a5b1126b605c5f853a2b99606f15a14db}{STATE\_PUSH\_BUTTON\_CHECK\_PRESSED}};}
+\DoxyCodeLine{129             \}}
+\DoxyCodeLine{130             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132         \textcolor{keywordflow}{case} \mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a5b1126b605c5f853a2b99606f15a14db}{STATE\_PUSH\_BUTTON\_CHECK\_PRESSED}}:}
+\DoxyCodeLine{133             \textcolor{comment}{// Switch not pressed}}
+\DoxyCodeLine{134             \textcolor{keywordflow}{if}(\mbox{\hyperlink{push__button_8c_a4d4efe110786b45cf689e539e700609b}{get\_push\_button\_gpio\_status}}())}
+\DoxyCodeLine{135             \{}
+\DoxyCodeLine{136                 \textcolor{keywordflow}{if} (button\_ptr-\/>de\_bounce\_counter > 0)}
+\DoxyCodeLine{137                     button\_ptr-\/>de\_bounce\_counter-\/-\/;}
+\DoxyCodeLine{138             \}}
+\DoxyCodeLine{139             \textcolor{comment}{// Switch pressed}}
+\DoxyCodeLine{140             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{141             \{}
+\DoxyCodeLine{142                 button\_ptr-\/>de\_bounce\_counter++;}
+\DoxyCodeLine{143             \}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145             \textcolor{keywordflow}{if} (button\_ptr-\/>de\_bounce\_counter >= \mbox{\hyperlink{push__button_8c_ad05fd6cc424e701af38c68eca25ebc00}{DEBOUNCE\_OFF\_TO\_ON\_COUNT\_THRD}})}
+\DoxyCodeLine{146             \{}
+\DoxyCodeLine{147                   button\_ptr-\/>de\_bounce\_counter = 0;}
+\DoxyCodeLine{148                   button\_ptr-\/>button\_status = 1;}
+\DoxyCodeLine{149                   \textcolor{keywordflow}{if} (!motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}})}
+\DoxyCodeLine{150                       motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}} = 1;}
+\DoxyCodeLine{151                   button\_ptr-\/>button\_state = \mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a007ab40552da68ef8626ea03d206d068}{STATE\_PUSH\_BUTTON\_CHECK\_RELEASED}};}
+\DoxyCodeLine{152             \}}
+\DoxyCodeLine{153             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155         \textcolor{keywordflow}{case} \mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a007ab40552da68ef8626ea03d206d068}{STATE\_PUSH\_BUTTON\_CHECK\_RELEASED}}:}
+\DoxyCodeLine{156             \textcolor{comment}{// Switch pressed, active low}}
+\DoxyCodeLine{157             \textcolor{keywordflow}{if}(!\mbox{\hyperlink{push__button_8c_a4d4efe110786b45cf689e539e700609b}{get\_push\_button\_gpio\_status}}())}
+\DoxyCodeLine{158             \{}
+\DoxyCodeLine{159                 \textcolor{keywordflow}{if} (button\_ptr-\/>de\_bounce\_counter > 0)}
+\DoxyCodeLine{160                     button\_ptr-\/>de\_bounce\_counter-\/-\/;}
+\DoxyCodeLine{161             \}}
+\DoxyCodeLine{162             \textcolor{comment}{// Switch released (active high)}}
+\DoxyCodeLine{163             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{164             \{}
+\DoxyCodeLine{165                 button\_ptr-\/>de\_bounce\_counter++;}
+\DoxyCodeLine{166             \}}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168             \textcolor{keywordflow}{if} (button\_ptr-\/>de\_bounce\_counter >= \mbox{\hyperlink{push__button_8c_a8c702c6e01c283c041f1a5e393870e58}{DEBOUNCE\_ON\_TO\_OFF\_COUNT\_THRD}})}
+\DoxyCodeLine{169             \{}
+\DoxyCodeLine{170                 button\_ptr-\/>de\_bounce\_counter = 0;}
+\DoxyCodeLine{171                 button\_ptr-\/>button\_status = 0;}
+\DoxyCodeLine{172                 \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}})}
+\DoxyCodeLine{173                     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}} = 0;}
+\DoxyCodeLine{174                 button\_ptr-\/>button\_state = \mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a5b1126b605c5f853a2b99606f15a14db}{STATE\_PUSH\_BUTTON\_CHECK\_PRESSED}};}
+\DoxyCodeLine{175             \}}
+\DoxyCodeLine{176             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{177 }
+\DoxyCodeLine{178         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{179             button\_ptr-\/>button\_state = \mbox{\hyperlink{push__button_8c_afe0824d06b4d6cdecd5694a64eb3ca38a4552201f494754ed845107201475cdc0}{STATE\_PUSH\_BUTTON\_INIT}};}
+\DoxyCodeLine{180             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{181     \}}
+\DoxyCodeLine{182 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::app, D\+E\+B\+O\+U\+N\+C\+E\+\_\+\+O\+F\+F\+\_\+\+T\+O\+\_\+\+O\+N\+\_\+\+C\+O\+U\+N\+T\+\_\+\+T\+H\+RD, D\+E\+B\+O\+U\+N\+C\+E\+\_\+\+O\+N\+\_\+\+T\+O\+\_\+\+O\+F\+F\+\_\+\+C\+O\+U\+N\+T\+\_\+\+T\+H\+RD, get\+\_\+push\+\_\+button\+\_\+gpio\+\_\+status(), motor, Struct\+\_\+\+App\+::motor\+\_\+enable\+\_\+cmd, on\+\_\+off\+\_\+button, S\+T\+A\+T\+E\+\_\+\+P\+U\+S\+H\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+C\+H\+E\+C\+K\+\_\+\+P\+R\+E\+S\+S\+ED, S\+T\+A\+T\+E\+\_\+\+P\+U\+S\+H\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+C\+H\+E\+C\+K\+\_\+\+R\+E\+L\+E\+A\+S\+ED, and S\+T\+A\+T\+E\+\_\+\+P\+U\+S\+H\+\_\+\+B\+U\+T\+T\+O\+N\+\_\+\+I\+N\+IT.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{push__button_8c_aa224eb0952002dbb12071b5850d07160_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{push__button_8c_abcab848b322071788e272cb71de55a72}\label{push__button_8c_abcab848b322071788e272cb71de55a72}} 
+\index{push\_button.c@{push\_button.c}!on\_off\_button@{on\_off\_button}}
+\index{on\_off\_button@{on\_off\_button}!push\_button.c@{push\_button.c}}
+\doxysubsubsection{\texorpdfstring{on\_off\_button}{on\_off\_button}}
+{\footnotesize\ttfamily Struct\+\_\+\+Button on\+\_\+off\+\_\+button}
+
+
+
+Definition at line 87 of file push\+\_\+button.\+c.
+
+
+
+Referenced by get\+\_\+push\+\_\+button\+\_\+status(), push\+\_\+button\+\_\+init\+\_\+state(), and statemachine\+\_\+buttoncontrol().
+

@@ -1,0 +1,56 @@
+.TH "pac_foc/src/isr/isr_timerD.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/isr/isr_timerD.c \- Use for timerD timer interrupt handler to run critical FOC functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'comm\&.h'\fP
+.br
+\fC#include 'hall_funcs\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBTimerD_IRQHandler\fP (void)"
+.br
+.RI "Process interrupt for TimerD_IRQHandler to run critical FOC functions\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for timerD timer interrupt handler to run critical FOC functions\&. 
+
+
+.PP
+Definition in file \fBisr_timerD\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "PAC5XXX_RAMFUNC void TimerD_IRQHandler (void)"
+
+.PP
+Process interrupt for TimerD_IRQHandler to run critical FOC functions\&. 
+.PP
+Definition at line 34 of file isr_timerD\&.c\&.
+.PP
+.nf
+35 {
+36 #if (COMMSEL_PPM == TRUE) && (PPM_TIMER_SELECT == PPM_TIMER_D)
+37     ppm_process_capture_timer_events();
+38 #endif
+39 
+40 #if (MODULE_MPOS_HALL == ENABLED)
+41 #if defined(FAMILY_52XX)
+42     hall_timer_isr();
+43 #endif
+44 #endif
+45 }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

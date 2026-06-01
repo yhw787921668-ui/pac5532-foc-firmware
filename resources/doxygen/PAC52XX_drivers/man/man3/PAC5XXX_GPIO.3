@@ -1,0 +1,1247 @@
+.TH "PAC5XXX_GPIO" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_GPIO \- PAC5XXX General-Purpose IO (GPIO)
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBPAC5XXX_GPIO_PINS_TypeDef\fP"
+.br
+.ti -1c
+.RI "union \fBPAC5XXX_GPIO_PSEL_TypeDef\fP"
+.br
+.ti -1c
+.RI "struct \fBPAC5XXX_GPIO_TypeDef\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBGPIO_DS_8MA\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIO_DS_16MA\fP   1"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::P0\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::P1\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::P2\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::P3\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::P4\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::P5\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::P6\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::P7\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::P0\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::P1\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::P2\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::P3\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::P4\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::P5\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::P6\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::P7\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::LO_P0\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::LO_P1\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::LO_P2\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::LO_P3\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::LO_P4\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::LO_P5\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::LO_P6\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::LO_P7\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::HI_P0\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::HI_P1\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::HI_P2\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::HI_P3\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::HI_P4\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::HI_P5\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::HI_P6\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::HI_P7\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::__pad1__\fP: 8"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::LO_P0\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::LO_P1\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::LO_P2\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::LO_P3\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::LO_P4\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::LO_P5\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::LO_P6\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::LO_P7\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::HI_P0\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::HI_P1\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::HI_P2\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::HI_P3\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::HI_P4\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::HI_P5\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::HI_P6\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::HI_P7\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_GPIO_PINS_TypeDef::__pad1__\fP: 8"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::P0\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::P1\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::P2\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::P3\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::P4\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::P5\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::P6\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::P7\fP: 2"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::P0\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::P1\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::P2\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::P3\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::P4\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::P5\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::P6\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::P7\fP: 2"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::LO_P0\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::LO_P1\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::LO_P2\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::LO_P3\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::LO_P4\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::LO_P5\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::LO_P6\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::LO_P7\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::HI_P0\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::HI_P1\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::HI_P2\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::HI_P3\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::HI_P4\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::HI_P5\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::HI_P6\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::HI_P7\fP: 2"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::LO_P0\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::LO_P1\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::LO_P2\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::LO_P3\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::LO_P4\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::LO_P5\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::LO_P6\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::LO_P7\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::HI_P0\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::HI_P1\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::HI_P2\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::HI_P3\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::HI_P4\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::HI_P5\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::HI_P6\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_GPIO_PSEL_TypeDef::HI_P7\fP: 2"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP \fBPAC5XXX_GPIO_TypeDef::OUT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP \fBPAC5XXX_GPIO_TypeDef::OUTEN\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP \fBPAC5XXX_GPIO_TypeDef::DS\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP \fBPAC5XXX_GPIO_TypeDef::PU\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP \fBPAC5XXX_GPIO_TypeDef::PD\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP \fBPAC5XXX_GPIO_TypeDef::IN\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP \fBPAC5XXX_GPIO_TypeDef::INE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_GPIO_PSEL_TypeDef\fP \fBPAC5XXX_GPIO_TypeDef::PSEL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP \fBPAC5XXX_GPIO_TypeDef::INTP\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP \fBPAC5XXX_GPIO_TypeDef::INTE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP \fBPAC5XXX_GPIO_TypeDef::INTF\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP \fBPAC5XXX_GPIO_TypeDef::INTM\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define GPIO_DS_16MA   1"
+GPIO Drive Strength: 16mA 
+.br
+ 
+.PP
+Definition at line 71 of file pac5xxx_GPIO\&.h\&.
+.SS "#define GPIO_DS_8MA   0"
+GPIO Drive Strength: 8mA 
+.br
+ 
+.PP
+Definition at line 70 of file pac5xxx_GPIO\&.h\&.
+.SH "Variable Documentation"
+.PP 
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 31 of file pac5xxx_GPIO\&.h\&.
+.SS "uint32_t PAC5XXX_GPIO_PINS_TypeDef::__pad0__"
+
+.PP
+Definition at line 31 of file pac5xxx_GPIO\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 35 of file pac5xxx_GPIO\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 46 of file pac5xxx_GPIO\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 57 of file pac5xxx_GPIO\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 78 of file pac5xxx_GPIO\&.h\&.
+.SS "uint32_t PAC5XXX_GPIO_PSEL_TypeDef::__pad0__"
+
+.PP
+Definition at line 78 of file pac5xxx_GPIO\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 82 of file pac5xxx_GPIO\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 93 of file pac5xxx_GPIO\&.h\&.
+.SS "uint32_t PAC5XXX_GPIO_PINS_TypeDef::__pad1__"
+
+.PP
+Definition at line 66 of file pac5xxx_GPIO\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 66 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 34 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::b"
+
+.PP
+Definition at line 34 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::b"
+
+.PP
+Definition at line 81 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 81 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP PAC5XXX_GPIO_TypeDef::DS"
+Offset: 0x0008 GPIO Output Drive Strength Register 
+.br
+ 
+.PP
+Definition at line 120 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::HI_P0"
+P6 (bit 0) for high port 
+.br
+ 
+.PP
+Definition at line 58 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HI_P0"
+P6 (bit 0) for high port 
+.br
+ 
+.PP
+Definition at line 58 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::HI_P0"
+PZ (bit 0) for high port 
+.br
+ 
+.PP
+Definition at line 104 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HI_P0"
+PZ (bit 0) for high port 
+.br
+ 
+.PP
+Definition at line 104 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::HI_P1"
+P6 (bit 1) for high port 
+.br
+ 
+.PP
+Definition at line 59 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HI_P1"
+P6 (bit 1) for high port 
+.br
+ 
+.PP
+Definition at line 59 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::HI_P1"
+PZ (bit 1) for high port 
+.br
+ 
+.PP
+Definition at line 105 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HI_P1"
+PZ (bit 1) for high port 
+.br
+ 
+.PP
+Definition at line 105 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::HI_P2"
+P6 (bit 2) for high port 
+.br
+ 
+.PP
+Definition at line 60 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HI_P2"
+P6 (bit 2) for high port 
+.br
+ 
+.PP
+Definition at line 60 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::HI_P2"
+PZ (bit 2) for high port 
+.br
+ 
+.PP
+Definition at line 106 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HI_P2"
+PZ (bit 2) for high port 
+.br
+ 
+.PP
+Definition at line 106 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HI_P3"
+P6 (bit 3) for high port 
+.br
+ 
+.PP
+Definition at line 61 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::HI_P3"
+P6 (bit 3) for high port 
+.br
+ 
+.PP
+Definition at line 61 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::HI_P3"
+PZ (bit 3) for high port 
+.br
+ 
+.PP
+Definition at line 107 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HI_P3"
+PZ (bit 3) for high port 
+.br
+ 
+.PP
+Definition at line 107 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::HI_P4"
+P6 (bit 4) for high port 
+.br
+ 
+.PP
+Definition at line 62 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HI_P4"
+P6 (bit 4) for high port 
+.br
+ 
+.PP
+Definition at line 62 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::HI_P4"
+PZ (bit 4) for high port 
+.br
+ 
+.PP
+Definition at line 108 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HI_P4"
+PZ (bit 4) for high port 
+.br
+ 
+.PP
+Definition at line 108 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HI_P5"
+P6 (bit 5) for high port 
+.br
+ 
+.PP
+Definition at line 63 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::HI_P5"
+P6 (bit 5) for high port 
+.br
+ 
+.PP
+Definition at line 63 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::HI_P5"
+PZ (bit 5) for high port 
+.br
+ 
+.PP
+Definition at line 109 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HI_P5"
+PZ (bit 5) for high port 
+.br
+ 
+.PP
+Definition at line 109 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::HI_P6"
+P6 (bit 6) for high port 
+.br
+ 
+.PP
+Definition at line 64 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HI_P6"
+P6 (bit 6) for high port 
+.br
+ 
+.PP
+Definition at line 64 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::HI_P6"
+PZ (bit 6) for high port 
+.br
+ 
+.PP
+Definition at line 110 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HI_P6"
+PZ (bit 6) for high port 
+.br
+ 
+.PP
+Definition at line 110 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HI_P7"
+P7 (bit 7) for high port [e\&.g\&., for GPIOXY, this is GPIOY7 
+.PP
+Definition at line 65 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::HI_P7"
+P7 (bit 7) for high port [e\&.g\&., for GPIOXY, this is GPIOY7 
+.PP
+Definition at line 65 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::HI_P7"
+PZ (bit 7) for high port [e\&.g\&., for GPIOYZ, this is GPIOZ7 
+.PP
+Definition at line 111 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HI_P7"
+PZ (bit 7) for high port [e\&.g\&., for GPIOYZ, this is GPIOZ7 
+.PP
+Definition at line 111 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__I\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP PAC5XXX_GPIO_TypeDef::IN"
+Offset: 0x0014 GPIO Input Register 
+.br
+ 
+.PP
+Definition at line 123 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP PAC5XXX_GPIO_TypeDef::INE"
+Offset: 0x0024 GPIO Input Enable Register 
+.br
+ 
+.PP
+Definition at line 124 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP PAC5XXX_GPIO_TypeDef::INTE"
+Offset: 0x0024 GPIO Interrupt Enable Register 
+.br
+ 
+.PP
+Definition at line 127 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP PAC5XXX_GPIO_TypeDef::INTF"
+Offset: 0x0028 GPIO Interrupt Flag Register 
+.br
+ 
+.PP
+Definition at line 128 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP PAC5XXX_GPIO_TypeDef::INTM"
+Offset: 0x002C GPIO Interrupt Mask Register 
+.br
+ 
+.PP
+Definition at line 129 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP PAC5XXX_GPIO_TypeDef::INTP"
+Offset: 0x0020 GPIO Interrupt Polarity Select Register 
+.br
+ 
+.PP
+Definition at line 126 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LO_P0"
+PY (bit 0) for low port 
+.br
+ 
+.PP
+Definition at line 49 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::LO_P0"
+PY (bit 0) for low port 
+.br
+ 
+.PP
+Definition at line 49 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::LO_P0"
+PY (bit 0) for low port 
+.br
+ 
+.PP
+Definition at line 96 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LO_P0"
+PY (bit 0) for low port 
+.br
+ 
+.PP
+Definition at line 96 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LO_P1"
+P1 (bit 1) for low port 
+.br
+ 
+.PP
+Definition at line 50 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::LO_P1"
+P1 (bit 1) for low port 
+.br
+ 
+.PP
+Definition at line 50 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LO_P1"
+PY (bit 1) for low port 
+.br
+ 
+.PP
+Definition at line 97 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::LO_P1"
+PY (bit 1) for low port 
+.br
+ 
+.PP
+Definition at line 97 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::LO_P2"
+P2 (bit 2) for low port 
+.br
+ 
+.PP
+Definition at line 51 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LO_P2"
+P2 (bit 2) for low port 
+.br
+ 
+.PP
+Definition at line 51 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::LO_P2"
+PY (bit 2) for low port 
+.br
+ 
+.PP
+Definition at line 98 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LO_P2"
+PY (bit 2) for low port 
+.br
+ 
+.PP
+Definition at line 98 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::LO_P3"
+P3 (bit 3) for low port 
+.br
+ 
+.PP
+Definition at line 52 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LO_P3"
+P3 (bit 3) for low port 
+.br
+ 
+.PP
+Definition at line 52 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LO_P3"
+PY (bit 3) for low port 
+.br
+ 
+.PP
+Definition at line 99 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::LO_P3"
+PY (bit 3) for low port 
+.br
+ 
+.PP
+Definition at line 99 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::LO_P4"
+P4 (bit 4) for low port 
+.br
+ 
+.PP
+Definition at line 53 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LO_P4"
+P4 (bit 4) for low port 
+.br
+ 
+.PP
+Definition at line 53 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::LO_P4"
+PY (bit 4) for low port 
+.br
+ 
+.PP
+Definition at line 100 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LO_P4"
+PY (bit 4) for low port 
+.br
+ 
+.PP
+Definition at line 100 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::LO_P5"
+P5 (bit 5) for low port 
+.br
+ 
+.PP
+Definition at line 54 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LO_P5"
+P5 (bit 5) for low port 
+.br
+ 
+.PP
+Definition at line 54 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LO_P5"
+PY (bit 5) for low port 
+.br
+ 
+.PP
+Definition at line 101 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::LO_P5"
+PY (bit 5) for low port 
+.br
+ 
+.PP
+Definition at line 101 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::LO_P6"
+P6 (bit 6) for low port 
+.br
+ 
+.PP
+Definition at line 55 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LO_P6"
+P6 (bit 6) for low port 
+.br
+ 
+.PP
+Definition at line 55 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LO_P6"
+PY (bit 6) for low port 
+.br
+ 
+.PP
+Definition at line 102 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::LO_P6"
+PY (bit 6) for low port 
+.br
+ 
+.PP
+Definition at line 102 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::LO_P7"
+P7 (bit 7) for low port [e\&.g\&., for GPIOXY, this is GPIOX7 
+.br
+ 
+.PP
+Definition at line 56 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LO_P7"
+P7 (bit 7) for low port [e\&.g\&., for GPIOXY, this is GPIOX7 
+.br
+ 
+.PP
+Definition at line 56 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::LO_P7"
+PY (bit 7) for low port [e\&.g\&., for GPIOYZ, this is GPIOY7 
+.br
+ 
+.PP
+Definition at line 103 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LO_P7"
+PY (bit 7) for low port [e\&.g\&., for GPIOYZ, this is GPIOY7 
+.br
+ 
+.PP
+Definition at line 103 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP PAC5XXX_GPIO_TypeDef::OUT"
+Offset: 0x0000 GPIO Output Register 
+.br
+ 
+.PP
+Definition at line 118 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP PAC5XXX_GPIO_TypeDef::OUTEN"
+Offset: 0x0004 GPIO Output Enable Register 
+.br
+ 
+.PP
+Definition at line 119 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::P0"
+P0 (bit 0) 
+.br
+ 
+.PP
+Definition at line 38 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::P0"
+P0 (bit 0) 
+.br
+ 
+.PP
+Definition at line 38 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::P0"
+P0 (bit 0) 
+.br
+ 
+.PP
+Definition at line 85 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::P0"
+P0 (bit 0) 
+.br
+ 
+.PP
+Definition at line 85 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::P1"
+P1 (bit 1) 
+.br
+ 
+.PP
+Definition at line 39 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::P1"
+P1 (bit 1) 
+.br
+ 
+.PP
+Definition at line 39 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::P1"
+P1 (bit 1) 
+.br
+ 
+.PP
+Definition at line 86 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::P1"
+P1 (bit 1) 
+.br
+ 
+.PP
+Definition at line 86 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::P2"
+P2 (bit 2) 
+.br
+ 
+.PP
+Definition at line 40 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::P2"
+P2 (bit 2) 
+.br
+ 
+.PP
+Definition at line 40 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::P2"
+P2 (bit 2) 
+.br
+ 
+.PP
+Definition at line 87 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::P2"
+P2 (bit 2) 
+.br
+ 
+.PP
+Definition at line 87 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::P3"
+P3 (bit 3) 
+.br
+ 
+.PP
+Definition at line 41 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::P3"
+P3 (bit 3) 
+.br
+ 
+.PP
+Definition at line 41 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::P3"
+P3 (bit 3) 
+.br
+ 
+.PP
+Definition at line 88 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::P3"
+P3 (bit 3) 
+.br
+ 
+.PP
+Definition at line 88 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::P4"
+P4 (bit 4) 
+.br
+ 
+.PP
+Definition at line 42 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::P4"
+P4 (bit 4) 
+.br
+ 
+.PP
+Definition at line 42 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::P4"
+P4 (bit 4) 
+.br
+ 
+.PP
+Definition at line 89 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::P4"
+P4 (bit 4) 
+.br
+ 
+.PP
+Definition at line 89 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::P5"
+P5 (bit 5) 
+.br
+ 
+.PP
+Definition at line 43 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::P5"
+P5 (bit 5) 
+.br
+ 
+.PP
+Definition at line 43 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::P5"
+P5 (bit 5) 
+.br
+ 
+.PP
+Definition at line 90 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::P5"
+P5 (bit 5) 
+.br
+ 
+.PP
+Definition at line 90 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::P6"
+P6 (bit 6) 
+.br
+ 
+.PP
+Definition at line 44 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::P6"
+P6 (bit 6) 
+.br
+ 
+.PP
+Definition at line 44 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::P6"
+P6 (bit 6) 
+.br
+ 
+.PP
+Definition at line 91 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::P6"
+P6 (bit 6) 
+.br
+ 
+.PP
+Definition at line 91 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::P7"
+P7 (bit 7) 
+.br
+ 
+.PP
+Definition at line 45 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::P7"
+P7 (bit 7) 
+.br
+ 
+.PP
+Definition at line 45 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::P7"
+P7 (bit 7) 
+.br
+ 
+.PP
+Definition at line 92 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::P7"
+P7 (bit 7) 
+.br
+ 
+.PP
+Definition at line 92 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP PAC5XXX_GPIO_TypeDef::PD"
+Offset: 0x0010 GPIO Output Weak Pull-down Register 
+.br
+ 
+.PP
+Definition at line 122 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_GPIO_PSEL_TypeDef\fP PAC5XXX_GPIO_TypeDef::PSEL"
+Offset: 0x001C GPIO Peripheral Select Register 
+.br
+ 
+.PP
+Definition at line 125 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_GPIO_PINS_TypeDef\fP PAC5XXX_GPIO_TypeDef::PU"
+Offset: 0x000C GPIO Output Weak Pull-up Register 
+.br
+ 
+.PP
+Definition at line 121 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::s"
+
+.PP
+Definition at line 30 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 30 of file pac5xxx_GPIO\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 77 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::s"
+
+.PP
+Definition at line 77 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PINS_TypeDef::w"
+
+.PP
+Definition at line 28 of file pac5xxx_GPIO\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_GPIO_PSEL_TypeDef::w"
+
+.PP
+Definition at line 75 of file pac5xxx_GPIO\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

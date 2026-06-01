@@ -1,0 +1,279 @@
+.TH "pac_foc/src/app/fault.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/app/fault.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBoc_reset\fP (void)"
+.br
+.RI "This function use to reset over current fault\&. "
+.ti -1c
+.RI "void \fBfault\fP (void)"
+.br
+.RI "This function use disable adc, motor disable and be in while loop\&. "
+.ti -1c
+.RI "void \fBset_fault\fP (uint32_t fault_mask)"
+.br
+.RI "This function use to set fault\&. "
+.ti -1c
+.RI "void \fBclear_fault\fP (uint32_t fault_mask)"
+.br
+.RI "This function use to clear fault\&. "
+.ti -1c
+.RI "void \fBset_warning\fP (uint32_t fault_mask)"
+.br
+.RI "This function use to set warning\&. "
+.ti -1c
+.RI "void \fBclear_warning\fP (uint32_t fault_mask)"
+.br
+.RI "This function use to clear warning\&. "
+.ti -1c
+.RI "int32_t \fBpac5xxx_get_over_current_status\fP (void)"
+.br
+.ti -1c
+.RI "int32_t \fBpac5xxx_get_over_temperature_status\fP (void)"
+.br
+.ti -1c
+.RI "int32_t \fBpac5xxx_get_driver_fault\fP (void)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void clear_fault (uint32_t fault_mask)"
+
+.PP
+This function use to clear fault\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIuint32_t\fP fault_mask 
+.RE
+.PP
+
+.PP
+Definition at line 153 of file fault\&.c\&.
+.PP
+.nf
+154 {
+155     motor\&.fault\&.motor &= (~fault_mask);
+156 }
+.fi
+.PP
+References Struct_Motor::fault, motor, and Struct_Fault::motor\&.
+.PP
+Referenced by motor_reset()\&.
+.SS "void clear_warning (uint32_t fault_mask)"
+
+.PP
+This function use to clear warning\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIuint32_t\fP fault_mask 
+.RE
+.PP
+
+.PP
+Definition at line 173 of file fault\&.c\&.
+.PP
+.nf
+174 {
+175     motor\&.fault\&.motor &= ~fault_mask;
+176 }
+.fi
+.PP
+References Struct_Motor::fault, motor, and Struct_Fault::motor\&.
+.PP
+Referenced by check_pwm_sat(), est_anglediff_check(), and init_over_current_limit()\&.
+.SS "void fault (void)"
+
+.PP
+This function use disable adc, motor disable and be in while loop\&. 
+.PP
+Definition at line 31 of file fault\&.c\&.
+.PP
+.nf
+32 {
+33     fix16_t delay_count;                            // Use this delay to blink LED during fault
+34 
+35     pac5xxx_adc_enable(0);
+36 
+37     // Disable motor if enter fault
+38     m1_disable();
+39 
+40     // Go into an infinite loop\&.
+41     while (1)
+42     {
+43         for (delay_count = 0; delay_count < 0x00010000; delay_count++)
+44         {
+45         }
+46     }
+47 }
+.fi
+.PP
+References m1_disable()\&.
+.PP
+Referenced by Default_Handler(), fix16_div(), HardFault_Handler(), MemCtl_IRQHandler(), and NMI_Handler()\&.
+.SS "void oc_reset (void)"
+
+.PP
+This function use to reset over current fault\&. 
+.PP
+Definition at line 54 of file fault\&.c\&.
+.PP
+.nf
+55 {
+56       uint16_t register_val;
+57 
+58     // Disable global interrupts until OC reset is complete
+59     __disable_irq();
+60 
+61     // Set drivers to GPIO mode
+62     set_drivers_gpio();
+63 
+64     // Clear int/fault flags
+65 #ifdef CAFE_ARCH2
+66     register_val = pac5xxx_tile_register_read(ADDR_SIGINTF);
+67     while (register_val&0xA0)
+68     {
+69         register_val = pac5xxx_tile_register_read(ADDR_SIGINTF);
+70     }
+71     register_val = pac5xxx_tile_register_read(ADDR_PROTSTAT);
+72     while (register_val&0x80)
+73     {
+74         register_val = pac5xxx_tile_register_read(ADDR_PROTSTAT);
+75     }
+76 
+77     register_val = pac5xxx_tile_register_read(ADDR_SIGINTF);
+78     while (register_val&0x50)
+79     {
+80         register_val = pac5xxx_tile_register_read(ADDR_SIGINTF);
+81     }
+82     register_val = pac5xxx_tile_register_read(ADDR_PROTSTAT);
+83     while (register_val&0x08)
+84     {
+85         register_val = pac5xxx_tile_register_read(ADDR_PROTSTAT);
+86     }
+87     pac5xxx_tile_register_write(ADDR_PROTSTAT, 0xFF);
+88 #endif
+89 
+90 #ifdef CAFE_ARCH3
+91     register_val = pac5xxx_tile_register_read(ADDR_PROTSTAT);
+92     while (register_val & 0x11)
+93     {
+94         pac5xxx_tile_register_write(ADDR_PROTSTAT, 0x11);    
+95         register_val = pac5xxx_tile_register_read(ADDR_PROTSTAT);
+96     }
+97     pac5xxx_tile_register_write(ADDR_PROTSTAT, 0x11); 
+98 #endif
+99 
+100     pac5xxx_tile_register_write(ADDR_PROTINTM, 0x00);
+101     while (pac5xxx_tile_register_read(ADDR_PROTSTAT));
+102     protint_enable();
+103 
+104     // Disable driver
+105     do
+106     {
+107         pac5xxx_tile_register_write(ADDR_ENDRV, 0);
+108         register_val = pac5xxx_tile_register_read(ADDR_ENDRV);
+109     } while ((register_val&0x1) != 0x0);
+110 
+111     // Enable driver
+112     do {
+113         pac5xxx_tile_register_write(ADDR_ENDRV, 1);
+114         register_val = pac5xxx_tile_register_read(ADDR_ENDRV);
+115     } while ((register_val&0x1) != 0x1);
+116 
+117     // Clear OC flag
+118     clear_fault(FAULT_CAFE_OC);
+119 
+120     // Enable global interrupts
+121     __enable_irq();
+122 }
+.fi
+.PP
+References set_drivers_gpio()\&.
+.SS "int32_t pac5xxx_get_driver_fault (void)"
+
+.PP
+Referenced by GpioB_IRQHandler()\&.
+.SS "int32_t pac5xxx_get_over_current_status (void)"
+
+.PP
+Referenced by GpioB_IRQHandler()\&.
+.SS "int32_t pac5xxx_get_over_temperature_status (void)"
+
+.PP
+Referenced by GpioB_IRQHandler()\&.
+.SS "void set_fault (uint32_t fault_mask)"
+
+.PP
+This function use to set fault\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIuint32_t\fP fault_mask 
+.RE
+.PP
+
+.PP
+Definition at line 129 of file fault\&.c\&.
+.PP
+.nf
+130 {
+131     motor\&.fault\&.motor |= fault_mask;
+132 
+133     // Decide firmware response to fault
+134     if (fault_mask & FAULT_MAIN_GRP_STOP)
+135     {
+136         motor\&.fault\&.fault_stop_flag = 1;
+137     }
+138     else if (fault_mask & FAULT_MAIN_GRP_STATE)
+139     {
+140         motor\&.fault\&.fault_state_flag = 1;
+141     }
+142     else if (fault_mask & FAULT_MAIN_GRP_TERMINAL)
+143     {
+144         motor\&.fault\&.fault_terminal_flag = 1;
+145     }
+146 }
+.fi
+.PP
+References Struct_Motor::fault, FAULT_MAIN_GRP_STATE, FAULT_MAIN_GRP_STOP, FAULT_MAIN_GRP_TERMINAL, Struct_Fault::fault_state_flag, Struct_Fault::fault_stop_flag, Struct_Fault::fault_terminal_flag, motor, and Struct_Fault::motor\&.
+.PP
+Referenced by check_param_while_run(), est_anglediff_check(), GpioA_IRQHandler(), GpioB_IRQHandler(), hall_timer_isr(), lbg1_statemon(), sm_mainsub_prestart(), and systemvar_init()\&.
+.SS "void set_warning (uint32_t fault_mask)"
+
+.PP
+This function use to set warning\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIuint32_t\fP fault_mask 
+.RE
+.PP
+
+.PP
+Definition at line 163 of file fault\&.c\&.
+.PP
+.nf
+164 {
+165     motor\&.fault\&.motor |= fault_mask;
+166 }
+.fi
+.PP
+References Struct_Motor::fault, motor, and Struct_Fault::motor\&.
+.PP
+Referenced by check_pwm_sat(), est_anglediff_check(), GpioA_IRQHandler(), GpioB_IRQHandler(), init_over_current_limit(), picon_convert_gain(), and stack_test()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

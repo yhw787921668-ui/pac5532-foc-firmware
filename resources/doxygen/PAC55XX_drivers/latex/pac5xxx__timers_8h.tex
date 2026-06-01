@@ -1,0 +1,589 @@
+\hypertarget{pac5xxx__timers_8h}{}\doxysection{pac\+\_\+foc/pac55xx/pac55xx\+\_\+sdk/peripheral/pac5xxx\+\_\+timers.h File Reference}
+\label{pac5xxx__timers_8h}\index{pac\_foc/pac55xx/pac55xx\_sdk/peripheral/pac5xxx\_timers.h@{pac\_foc/pac55xx/pac55xx\_sdk/peripheral/pac5xxx\_timers.h}}
+
+
+C\+M\+S\+IS Cortex-\/M Header File for the P\+A\+C55\+XX Timers.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__timers_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{union_t_i_m_e_r___c_t_l___t_y_p_e_d_e_f}{T\+I\+M\+E\+R\+\_\+\+C\+T\+L\+\_\+\+T\+Y\+P\+E\+D\+EF}}
+\item 
+union \mbox{\hyperlink{union_c_c_t_l___t_y_p_e_d_e_f}{C\+C\+T\+L\+\_\+\+T\+Y\+P\+E\+D\+EF}}
+\item 
+union \mbox{\hyperlink{union_c_c_t_r___t_y_p_e_d_e_f}{C\+C\+T\+R\+\_\+\+T\+Y\+P\+E\+D\+EF}}
+\item 
+union \mbox{\hyperlink{union_d_t_g_c_t_l___t_y_p_e_d_e_f}{D\+T\+G\+C\+T\+L\+\_\+\+T\+Y\+P\+E\+D\+EF}}
+\item 
+struct \mbox{\hyperlink{struct_p_a_c55_x_x___t_i_m_e_r___t_y_p_e_d_e_f}{P\+A\+C55\+X\+X\+\_\+\+T\+I\+M\+E\+R\+\_\+\+T\+Y\+P\+E\+D\+EF}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{pac5xxx__timers_8h_ad8a01a242d83603e1631d0652ab2aff3}{T\+X\+C\+T\+R\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+T\+Y\+PE}} \mbox{\hyperlink{pac5xxx__timers_8h_aa5cf3efad496e80f2d95dfc74bc68f9d}{T\+X\+C\+T\+R\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+Type}}
+\item 
+typedef enum \mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87b}{T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+T\+Y\+PE}} \mbox{\hyperlink{pac5xxx__timers_8h_ada6b1a667d9ffa80cd35719d958cf1fe}{T\+X\+C\+T\+R\+L\+\_\+\+P\+S\+\_\+\+Type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{pac5xxx__timers_8h_ad8a01a242d83603e1631d0652ab2aff3}{T\+X\+C\+T\+R\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__timers_8h_ad8a01a242d83603e1631d0652ab2aff3ac846f03b5d1c1744f668b15b965fe774}{T\+X\+C\+T\+L\+\_\+\+C\+S\+\_\+\+P\+C\+LK}} = 0, 
+\mbox{\hyperlink{pac5xxx__timers_8h_ad8a01a242d83603e1631d0652ab2aff3adaa3ff4704f1ba94f4dc8b6eb12f7705}{T\+X\+C\+T\+L\+\_\+\+C\+S\+\_\+\+A\+C\+LK}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__timers_8h_a9629c2a58f14975423ca331ac75f1fbf}{T\+X\+C\+T\+R\+L\+\_\+\+D\+T\+G\+C\+L\+K\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__timers_8h_a9629c2a58f14975423ca331ac75f1fbfaf7b619f25bcb85f150cd0d16721ad189}{T\+X\+C\+T\+L\+\_\+\+D\+T\+G\+C\+L\+K\+\_\+\+P\+RE}} = 0, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a9629c2a58f14975423ca331ac75f1fbfa17c3bc2af211bd17e5e2e5f2e52f2053}{T\+X\+C\+T\+L\+\_\+\+D\+T\+G\+C\+L\+K\+\_\+\+P\+O\+ST}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87b}{T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+T\+Y\+PE}} \{ \newline
+\mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87bafa9d7d73c85f945888845de9627ae86e}{T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V1}} = 0, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87badac0db01acefb57cb55770f0cac4ec03}{T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V2}} = 1, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87ba6c637a7ad33692449634461b7b4d62ad}{T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V4}} = 2, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87badb76bc717aad53380531fe7f25cc00e0}{T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V8}} = 3, 
+\newline
+\mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87ba980b3fc7b271cd785134b4579915b062}{T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V16}} = 4, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87bacad767c2834f0c50d29fac966db75f1d}{T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V32}} = 5, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87baceb6140f1484809c557b03ccd3926543}{T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V64}} = 6, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87bac265cd07df3e4ae324b09dd87b4fe028}{T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V128}} = 7
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__timers_8h_ab90126f783a3015b751cb4c6580fb76c}{T\+X\+C\+T\+L\+\_\+\+P\+R\+D\+L\+A\+T\+C\+H\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__timers_8h_ab90126f783a3015b751cb4c6580fb76ca39e3a046758766e3fa6ab2f5ea338537}{T\+X\+C\+T\+L\+\_\+\+P\+R\+D\+L\+A\+T\+C\+H\+\_\+\+T\+X\+C\+T\+R\+\_\+0}} = 0, 
+\mbox{\hyperlink{pac5xxx__timers_8h_ab90126f783a3015b751cb4c6580fb76ca9ec50f14e874fecb9b46cc3e96d929be}{T\+X\+C\+T\+L\+\_\+\+P\+R\+D\+L\+A\+T\+C\+H\+\_\+\+T\+X\+C\+T\+R\+\_\+\+T\+X\+P\+RD}} = 1, 
+\mbox{\hyperlink{pac5xxx__timers_8h_ab90126f783a3015b751cb4c6580fb76ca75761a0eff8070db3b4c3a9f32d6c34e}{T\+X\+C\+T\+L\+\_\+\+P\+R\+D\+L\+A\+T\+C\+H\+\_\+\+T\+X\+C\+T\+R\+\_\+\+IM}} = 2
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956}{T\+X\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956a255812548836c80928fafd053839affb}{T\+X\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+D\+I\+S\+A\+B\+L\+ED}} = 0, 
+\mbox{\hyperlink{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956abc094a90e248c9f1dbfb2cebbdf9d7b0}{T\+X\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+UP}} = 1, 
+\mbox{\hyperlink{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956a3cba1eea1dfa0474bf36a1273d5fbb5c}{T\+X\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+U\+P\+D\+O\+WN}} = 2, 
+\mbox{\hyperlink{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956a73b5697ffbe4d904f18f029857d2be65}{T\+X\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+A\+S\+Y\+M\+M\+E\+T\+R\+IC}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079}{T\+X\+C\+T\+R\+L\+\_\+\+M\+O\+D\+E\+\_\+\+Type}} \{ \mbox{\hyperlink{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079a20bcb33d5f00ae862216d1c2ba864a53}{Tx\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+D\+I\+S\+A\+B\+L\+ED}} = 0, 
+\mbox{\hyperlink{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079a4fe578cd73c51958196c8611869df1ef}{Tx\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+UP}} = 1, 
+\mbox{\hyperlink{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079a99407b6b2602f4e92948eb3ae3ece866}{Tx\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+U\+P\+D\+O\+WN}} = 2, 
+\mbox{\hyperlink{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079ab1637e0e74c3c422926677dcff7b4fb7}{Tx\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+A\+S\+Y\+M\+M\+E\+T\+R\+IC}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__timers_8h_ad74fca78c5335bac1495dcc5feacc055}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+M\+O\+D\+E\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__timers_8h_ad74fca78c5335bac1495dcc5feacc055ad55fdc88e26f73fb9c20dcd9c8b850cd}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+M\+O\+D\+E\+\_\+\+C\+O\+M\+P\+A\+RE}} = 0, 
+\mbox{\hyperlink{pac5xxx__timers_8h_ad74fca78c5335bac1495dcc5feacc055a667370502ef7f64e50fde1e30b84cb5d}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+M\+O\+D\+E\+\_\+\+C\+A\+P\+T\+U\+RE}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+\+T\+Y\+PE}} \{ \newline
+\mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a164e1ae593d9e3956cf78c366391c112}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+D\+O\+N\+T\+\_\+\+S\+K\+IP}} = 0, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a90750bfbc79b6ca6c982e271ed978e03}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+1}} = 1, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a67182169936b5f2b86eae47b02056ec8}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+2}} = 2, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4aaf5afb99c4c7bac4d50a3dc1743d2501}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+3}} = 3, 
+\newline
+\mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a325c36afc7ee91c7f4d97d6f01d4ed45}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+4}} = 4, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a59cab3414bfe5238bff0f81492ae3f2a}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+5}} = 5, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4ab04c88b584dfd9f705fcf83bc9d5a7dd}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+6}} = 6, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a655667980c1d4cd6a2dcd4cc25b23b9a}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+7}} = 7, 
+\newline
+\mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4ae68c0a563d2439c864c6c622b5cfcce5}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+8}} = 8, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a5a32fda4bb01c1d63841f5e015aee8bb}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+9}} = 9, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a9b4c0bcab3f53656641d723223f3375a}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+10}} = 10, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a639dd90d2d26dda95f50a14122b5c767}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+11}} = 11, 
+\newline
+\mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a2d02b0c61459224608ccd05fa6695e9a}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+12}} = 12, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a01e604ce135f4ec205dd1d5e3f1a4d25}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+13}} = 13, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a0ebc9a659248313320fa0bf36038073e}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+14}} = 14, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a89d46970d5d1c64a18f2ac5e5bf7a6b5}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+15}} = 15
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__timers_8h_a19bb5d9c467d11b676448a63291f58b4}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+L\+A\+T\+C\+H\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__timers_8h_a19bb5d9c467d11b676448a63291f58b4a4b36e921f14700da2e24c44741fb0990}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+L\+A\+T\+C\+H\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+R\+I\+S\+I\+N\+G\+\_\+\+E\+D\+GE}} = 0, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a19bb5d9c467d11b676448a63291f58b4ae4920c4e664c42312231550df8f9521f}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+L\+A\+T\+C\+H\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+F\+A\+L\+L\+I\+N\+G\+\_\+\+E\+D\+GE}} = 1, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a19bb5d9c467d11b676448a63291f58b4a57aadb1f0309cc473c1fcf0d32ea000f}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+L\+A\+T\+C\+H\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+B\+O\+T\+H\+\_\+\+E\+D\+G\+ES}} = 2
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__timers_8h_a4b61a7a44f7fccdf2f38c0c120d82fee}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+L\+A\+T\+C\+H\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__timers_8h_a4b61a7a44f7fccdf2f38c0c120d82feeab7716e87108ac62d9cdf67d948e152d6}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+L\+A\+T\+C\+H\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+\+T\+X\+C\+T\+R\+\_\+0}} = 0, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a4b61a7a44f7fccdf2f38c0c120d82feea559338474981d2559b010789b0efd371}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+L\+A\+T\+C\+H\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+\+T\+X\+C\+T\+R\+\_\+\+T\+X\+P\+RD}} = 1, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a4b61a7a44f7fccdf2f38c0c120d82feeac043ecc6bb13528d6d5b708cb8acbb26}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+L\+A\+T\+C\+H\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+\+T\+X\+C\+T\+R\+\_\+\+IM}} = 2
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__timers_8h_a67e74b98fae0629bd6c6f8b1bdaa80dc}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+E\+D\+G\+E\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__timers_8h_a67e74b98fae0629bd6c6f8b1bdaa80dca6df686c16ef844954acb6af994dfd95e}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+R\+I\+S\+I\+N\+G\+\_\+\+E\+D\+GE}} = 0, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a67e74b98fae0629bd6c6f8b1bdaa80dca4e88d219e558bab5f8641b923b6fdbbb}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+F\+A\+L\+L\+I\+N\+G\+\_\+\+E\+D\+GE}} = 1, 
+\mbox{\hyperlink{pac5xxx__timers_8h_a67e74b98fae0629bd6c6f8b1bdaa80dca0e505c38e81bbb5033e77426719ffb3e}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+B\+O\+T\+H\+\_\+\+E\+D\+G\+ES}} = 2
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+M\+S\+IS Cortex-\/M Header File for the P\+A\+C55\+XX Timers. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2017-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{pac5xxx__timers_8h_aa5cf3efad496e80f2d95dfc74bc68f9d}\label{pac5xxx__timers_8h_aa5cf3efad496e80f2d95dfc74bc68f9d}} 
+\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTRL\_CLKIN\_Type@{TXCTRL\_CLKIN\_Type}}
+\index{TXCTRL\_CLKIN\_Type@{TXCTRL\_CLKIN\_Type}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}
+\doxysubsubsection{\texorpdfstring{TXCTRL\_CLKIN\_Type}{TXCTRL\_CLKIN\_Type}}
+{\footnotesize\ttfamily typedef  enum \mbox{\hyperlink{pac5xxx__timers_8h_ad8a01a242d83603e1631d0652ab2aff3}{T\+X\+C\+T\+R\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+T\+Y\+PE}} \mbox{\hyperlink{pac5xxx__timers_8h_aa5cf3efad496e80f2d95dfc74bc68f9d}{T\+X\+C\+T\+R\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+Type}}}
+
+\mbox{\Hypertarget{pac5xxx__timers_8h_ada6b1a667d9ffa80cd35719d958cf1fe}\label{pac5xxx__timers_8h_ada6b1a667d9ffa80cd35719d958cf1fe}} 
+\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTRL\_PS\_Type@{TXCTRL\_PS\_Type}}
+\index{TXCTRL\_PS\_Type@{TXCTRL\_PS\_Type}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}
+\doxysubsubsection{\texorpdfstring{TXCTRL\_PS\_Type}{TXCTRL\_PS\_Type}}
+{\footnotesize\ttfamily typedef  enum \mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87b}{T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+T\+Y\+PE}} \mbox{\hyperlink{pac5xxx__timers_8h_ada6b1a667d9ffa80cd35719d958cf1fe}{T\+X\+C\+T\+R\+L\+\_\+\+P\+S\+\_\+\+Type}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{pac5xxx__timers_8h_a67e74b98fae0629bd6c6f8b1bdaa80dc}\label{pac5xxx__timers_8h_a67e74b98fae0629bd6c6f8b1bdaa80dc}} 
+\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_EDGE\_TYPE@{TXCCTL\_CCINT\_EDGE\_TYPE}}
+\index{TXCCTL\_CCINT\_EDGE\_TYPE@{TXCCTL\_CCINT\_EDGE\_TYPE}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}
+\doxysubsubsection{\texorpdfstring{TXCCTL\_CCINT\_EDGE\_TYPE}{TXCCTL\_CCINT\_EDGE\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__timers_8h_a67e74b98fae0629bd6c6f8b1bdaa80dc}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+E\+D\+G\+E\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_RISING\_EDGE@{TXCCTL\_CCINT\_RISING\_EDGE}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_RISING\_EDGE@{TXCCTL\_CCINT\_RISING\_EDGE}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a67e74b98fae0629bd6c6f8b1bdaa80dca6df686c16ef844954acb6af994dfd95e}\label{pac5xxx__timers_8h_a67e74b98fae0629bd6c6f8b1bdaa80dca6df686c16ef844954acb6af994dfd95e}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+R\+I\+S\+I\+N\+G\+\_\+\+E\+D\+GE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_FALLING\_EDGE@{TXCCTL\_CCINT\_FALLING\_EDGE}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_FALLING\_EDGE@{TXCCTL\_CCINT\_FALLING\_EDGE}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a67e74b98fae0629bd6c6f8b1bdaa80dca4e88d219e558bab5f8641b923b6fdbbb}\label{pac5xxx__timers_8h_a67e74b98fae0629bd6c6f8b1bdaa80dca4e88d219e558bab5f8641b923b6fdbbb}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+F\+A\+L\+L\+I\+N\+G\+\_\+\+E\+D\+GE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_BOTH\_EDGES@{TXCCTL\_CCINT\_BOTH\_EDGES}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_BOTH\_EDGES@{TXCCTL\_CCINT\_BOTH\_EDGES}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a67e74b98fae0629bd6c6f8b1bdaa80dca0e505c38e81bbb5033e77426719ffb3e}\label{pac5xxx__timers_8h_a67e74b98fae0629bd6c6f8b1bdaa80dca0e505c38e81bbb5033e77426719ffb3e}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+B\+O\+T\+H\+\_\+\+E\+D\+G\+ES&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 109 of file pac5xxx\+\_\+timers.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{109              \{}
+\DoxyCodeLine{110     \mbox{\hyperlink{pac5xxx__timers_8h_a67e74b98fae0629bd6c6f8b1bdaa80dca6df686c16ef844954acb6af994dfd95e}{TXCCTL\_CCINT\_RISING\_EDGE}}    = 0,                \textcolor{comment}{// Input is rising edge}}
+\DoxyCodeLine{111     \mbox{\hyperlink{pac5xxx__timers_8h_a67e74b98fae0629bd6c6f8b1bdaa80dca4e88d219e558bab5f8641b923b6fdbbb}{TXCCTL\_CCINT\_FALLING\_EDGE}}   = 1,                \textcolor{comment}{// Input is falling edge}}
+\DoxyCodeLine{112     \mbox{\hyperlink{pac5xxx__timers_8h_a67e74b98fae0629bd6c6f8b1bdaa80dca0e505c38e81bbb5033e77426719ffb3e}{TXCCTL\_CCINT\_BOTH\_EDGES}}     = 2                 \textcolor{comment}{// Input is both edges}}
+\DoxyCodeLine{113 \} \mbox{\hyperlink{pac5xxx__timers_8h_a67e74b98fae0629bd6c6f8b1bdaa80dc}{TXCCTL\_CCINT\_EDGE\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4}\label{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4}} 
+\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_SKIP\_TYPE@{TXCCTL\_CCINT\_SKIP\_TYPE}}
+\index{TXCCTL\_CCINT\_SKIP\_TYPE@{TXCCTL\_CCINT\_SKIP\_TYPE}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}
+\doxysubsubsection{\texorpdfstring{TXCCTL\_CCINT\_SKIP\_TYPE}{TXCCTL\_CCINT\_SKIP\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_DONT\_SKIP@{TXCCTL\_CCINT\_DONT\_SKIP}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_DONT\_SKIP@{TXCCTL\_CCINT\_DONT\_SKIP}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a164e1ae593d9e3956cf78c366391c112}\label{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a164e1ae593d9e3956cf78c366391c112}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+D\+O\+N\+T\+\_\+\+S\+K\+IP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_SKIP\_1@{TXCCTL\_CCINT\_SKIP\_1}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_SKIP\_1@{TXCCTL\_CCINT\_SKIP\_1}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a90750bfbc79b6ca6c982e271ed978e03}\label{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a90750bfbc79b6ca6c982e271ed978e03}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_SKIP\_2@{TXCCTL\_CCINT\_SKIP\_2}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_SKIP\_2@{TXCCTL\_CCINT\_SKIP\_2}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a67182169936b5f2b86eae47b02056ec8}\label{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a67182169936b5f2b86eae47b02056ec8}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_SKIP\_3@{TXCCTL\_CCINT\_SKIP\_3}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_SKIP\_3@{TXCCTL\_CCINT\_SKIP\_3}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4aaf5afb99c4c7bac4d50a3dc1743d2501}\label{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4aaf5afb99c4c7bac4d50a3dc1743d2501}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_SKIP\_4@{TXCCTL\_CCINT\_SKIP\_4}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_SKIP\_4@{TXCCTL\_CCINT\_SKIP\_4}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a325c36afc7ee91c7f4d97d6f01d4ed45}\label{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a325c36afc7ee91c7f4d97d6f01d4ed45}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_SKIP\_5@{TXCCTL\_CCINT\_SKIP\_5}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_SKIP\_5@{TXCCTL\_CCINT\_SKIP\_5}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a59cab3414bfe5238bff0f81492ae3f2a}\label{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a59cab3414bfe5238bff0f81492ae3f2a}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_SKIP\_6@{TXCCTL\_CCINT\_SKIP\_6}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_SKIP\_6@{TXCCTL\_CCINT\_SKIP\_6}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4ab04c88b584dfd9f705fcf83bc9d5a7dd}\label{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4ab04c88b584dfd9f705fcf83bc9d5a7dd}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_SKIP\_7@{TXCCTL\_CCINT\_SKIP\_7}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_SKIP\_7@{TXCCTL\_CCINT\_SKIP\_7}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a655667980c1d4cd6a2dcd4cc25b23b9a}\label{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a655667980c1d4cd6a2dcd4cc25b23b9a}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+7&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_SKIP\_8@{TXCCTL\_CCINT\_SKIP\_8}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_SKIP\_8@{TXCCTL\_CCINT\_SKIP\_8}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4ae68c0a563d2439c864c6c622b5cfcce5}\label{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4ae68c0a563d2439c864c6c622b5cfcce5}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_SKIP\_9@{TXCCTL\_CCINT\_SKIP\_9}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_SKIP\_9@{TXCCTL\_CCINT\_SKIP\_9}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a5a32fda4bb01c1d63841f5e015aee8bb}\label{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a5a32fda4bb01c1d63841f5e015aee8bb}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+9&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_SKIP\_10@{TXCCTL\_CCINT\_SKIP\_10}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_SKIP\_10@{TXCCTL\_CCINT\_SKIP\_10}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a9b4c0bcab3f53656641d723223f3375a}\label{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a9b4c0bcab3f53656641d723223f3375a}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+10&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_SKIP\_11@{TXCCTL\_CCINT\_SKIP\_11}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_SKIP\_11@{TXCCTL\_CCINT\_SKIP\_11}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a639dd90d2d26dda95f50a14122b5c767}\label{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a639dd90d2d26dda95f50a14122b5c767}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+11&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_SKIP\_12@{TXCCTL\_CCINT\_SKIP\_12}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_SKIP\_12@{TXCCTL\_CCINT\_SKIP\_12}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a2d02b0c61459224608ccd05fa6695e9a}\label{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a2d02b0c61459224608ccd05fa6695e9a}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+12&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_SKIP\_13@{TXCCTL\_CCINT\_SKIP\_13}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_SKIP\_13@{TXCCTL\_CCINT\_SKIP\_13}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a01e604ce135f4ec205dd1d5e3f1a4d25}\label{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a01e604ce135f4ec205dd1d5e3f1a4d25}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+13&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_SKIP\_14@{TXCCTL\_CCINT\_SKIP\_14}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_SKIP\_14@{TXCCTL\_CCINT\_SKIP\_14}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a0ebc9a659248313320fa0bf36038073e}\label{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a0ebc9a659248313320fa0bf36038073e}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+14&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCINT\_SKIP\_15@{TXCCTL\_CCINT\_SKIP\_15}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCINT\_SKIP\_15@{TXCCTL\_CCINT\_SKIP\_15}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a89d46970d5d1c64a18f2ac5e5bf7a6b5}\label{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a89d46970d5d1c64a18f2ac5e5bf7a6b5}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+I\+N\+T\+\_\+\+S\+K\+I\+P\+\_\+15&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 74 of file pac5xxx\+\_\+timers.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{74              \{}
+\DoxyCodeLine{75     \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a164e1ae593d9e3956cf78c366391c112}{TXCCTL\_CCINT\_DONT\_SKIP}}            = 0,                \textcolor{comment}{//  Dont skip CCR matches before interrupt}}
+\DoxyCodeLine{76     \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a90750bfbc79b6ca6c982e271ed978e03}{TXCCTL\_CCINT\_SKIP\_1}}               = 1,                \textcolor{comment}{//  Skip 1 CCR match before interrupt}}
+\DoxyCodeLine{77     \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a67182169936b5f2b86eae47b02056ec8}{TXCCTL\_CCINT\_SKIP\_2}}               = 2,                \textcolor{comment}{//  Skip 2 CCR match before interrupt}}
+\DoxyCodeLine{78     \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4aaf5afb99c4c7bac4d50a3dc1743d2501}{TXCCTL\_CCINT\_SKIP\_3}}               = 3,                \textcolor{comment}{//  Skip 3 CCR match before interrupt}}
+\DoxyCodeLine{79     \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a325c36afc7ee91c7f4d97d6f01d4ed45}{TXCCTL\_CCINT\_SKIP\_4}}               = 4,                \textcolor{comment}{//  Skip 4 CCR match before interrupt}}
+\DoxyCodeLine{80     \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a59cab3414bfe5238bff0f81492ae3f2a}{TXCCTL\_CCINT\_SKIP\_5}}               = 5,                \textcolor{comment}{//  Skip 5 CCR match before interrupt}}
+\DoxyCodeLine{81     \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4ab04c88b584dfd9f705fcf83bc9d5a7dd}{TXCCTL\_CCINT\_SKIP\_6}}               = 6,                \textcolor{comment}{//  Skip 6 CCR match before interrupt}}
+\DoxyCodeLine{82     \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a655667980c1d4cd6a2dcd4cc25b23b9a}{TXCCTL\_CCINT\_SKIP\_7}}               = 7,                \textcolor{comment}{//  Skip 7 CCR match before interrupt}}
+\DoxyCodeLine{83     \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4ae68c0a563d2439c864c6c622b5cfcce5}{TXCCTL\_CCINT\_SKIP\_8}}               = 8,                \textcolor{comment}{//  Skip 8 CCR match before interrupt}}
+\DoxyCodeLine{84     \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a5a32fda4bb01c1d63841f5e015aee8bb}{TXCCTL\_CCINT\_SKIP\_9}}               = 9,                \textcolor{comment}{//  Skip 9 CCR match before interrupt}}
+\DoxyCodeLine{85     \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a9b4c0bcab3f53656641d723223f3375a}{TXCCTL\_CCINT\_SKIP\_10}}              = 10,               \textcolor{comment}{//  Skip 10 CCR match before interrupt}}
+\DoxyCodeLine{86     \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a639dd90d2d26dda95f50a14122b5c767}{TXCCTL\_CCINT\_SKIP\_11}}              = 11,               \textcolor{comment}{//  Skip 11 CCR match before interrupt}}
+\DoxyCodeLine{87     \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a2d02b0c61459224608ccd05fa6695e9a}{TXCCTL\_CCINT\_SKIP\_12}}              = 12,               \textcolor{comment}{//  Skip 12 CCR match before interrupt}}
+\DoxyCodeLine{88     \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a01e604ce135f4ec205dd1d5e3f1a4d25}{TXCCTL\_CCINT\_SKIP\_13}}              = 13,               \textcolor{comment}{//  Skip 13 CCR match before interrupt}}
+\DoxyCodeLine{89     \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a0ebc9a659248313320fa0bf36038073e}{TXCCTL\_CCINT\_SKIP\_14}}              = 14,               \textcolor{comment}{//  Skip 14 CCR match before interrupt}}
+\DoxyCodeLine{90     \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4a89d46970d5d1c64a18f2ac5e5bf7a6b5}{TXCCTL\_CCINT\_SKIP\_15}}              = 15                \textcolor{comment}{//  Skip 15 CCR match before interrupt}}
+\DoxyCodeLine{91 \} \mbox{\hyperlink{pac5xxx__timers_8h_a240904babf2b409fa6211d93a68559c4}{TXCCTL\_CCINT\_SKIP\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__timers_8h_a19bb5d9c467d11b676448a63291f58b4}\label{pac5xxx__timers_8h_a19bb5d9c467d11b676448a63291f58b4}} 
+\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCLATCH\_CAPTURE\_TYPE@{TXCCTL\_CCLATCH\_CAPTURE\_TYPE}}
+\index{TXCCTL\_CCLATCH\_CAPTURE\_TYPE@{TXCCTL\_CCLATCH\_CAPTURE\_TYPE}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}
+\doxysubsubsection{\texorpdfstring{TXCCTL\_CCLATCH\_CAPTURE\_TYPE}{TXCCTL\_CCLATCH\_CAPTURE\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__timers_8h_a19bb5d9c467d11b676448a63291f58b4}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+L\+A\+T\+C\+H\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCLATCH\_CAPTURE\_RISING\_EDGE@{TXCCTL\_CCLATCH\_CAPTURE\_RISING\_EDGE}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCLATCH\_CAPTURE\_RISING\_EDGE@{TXCCTL\_CCLATCH\_CAPTURE\_RISING\_EDGE}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a19bb5d9c467d11b676448a63291f58b4a4b36e921f14700da2e24c44741fb0990}\label{pac5xxx__timers_8h_a19bb5d9c467d11b676448a63291f58b4a4b36e921f14700da2e24c44741fb0990}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+L\+A\+T\+C\+H\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+R\+I\+S\+I\+N\+G\+\_\+\+E\+D\+GE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCLATCH\_CAPTURE\_FALLING\_EDGE@{TXCCTL\_CCLATCH\_CAPTURE\_FALLING\_EDGE}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCLATCH\_CAPTURE\_FALLING\_EDGE@{TXCCTL\_CCLATCH\_CAPTURE\_FALLING\_EDGE}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a19bb5d9c467d11b676448a63291f58b4ae4920c4e664c42312231550df8f9521f}\label{pac5xxx__timers_8h_a19bb5d9c467d11b676448a63291f58b4ae4920c4e664c42312231550df8f9521f}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+L\+A\+T\+C\+H\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+F\+A\+L\+L\+I\+N\+G\+\_\+\+E\+D\+GE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCLATCH\_CAPTURE\_BOTH\_EDGES@{TXCCTL\_CCLATCH\_CAPTURE\_BOTH\_EDGES}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCLATCH\_CAPTURE\_BOTH\_EDGES@{TXCCTL\_CCLATCH\_CAPTURE\_BOTH\_EDGES}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a19bb5d9c467d11b676448a63291f58b4a57aadb1f0309cc473c1fcf0d32ea000f}\label{pac5xxx__timers_8h_a19bb5d9c467d11b676448a63291f58b4a57aadb1f0309cc473c1fcf0d32ea000f}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+L\+A\+T\+C\+H\+\_\+\+C\+A\+P\+T\+U\+R\+E\+\_\+\+B\+O\+T\+H\+\_\+\+E\+D\+G\+ES&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 94 of file pac5xxx\+\_\+timers.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{94              \{}
+\DoxyCodeLine{95     \mbox{\hyperlink{pac5xxx__timers_8h_a19bb5d9c467d11b676448a63291f58b4a4b36e921f14700da2e24c44741fb0990}{TXCCTL\_CCLATCH\_CAPTURE\_RISING\_EDGE}}  = 0,                \textcolor{comment}{// Latch TACTR into TXCCTR.CTR on rising edge}}
+\DoxyCodeLine{96     \mbox{\hyperlink{pac5xxx__timers_8h_a19bb5d9c467d11b676448a63291f58b4ae4920c4e664c42312231550df8f9521f}{TXCCTL\_CCLATCH\_CAPTURE\_FALLING\_EDGE}} = 1,                \textcolor{comment}{// Latch TACTR into TXCCTR.CTR on falling edge}}
+\DoxyCodeLine{97     \mbox{\hyperlink{pac5xxx__timers_8h_a19bb5d9c467d11b676448a63291f58b4a57aadb1f0309cc473c1fcf0d32ea000f}{TXCCTL\_CCLATCH\_CAPTURE\_BOTH\_EDGES}}   = 2                 \textcolor{comment}{// Latch TACTR into TXCCTR.CTR on both edges}}
+\DoxyCodeLine{98 \} \mbox{\hyperlink{pac5xxx__timers_8h_a19bb5d9c467d11b676448a63291f58b4}{TXCCTL\_CCLATCH\_CAPTURE\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__timers_8h_a4b61a7a44f7fccdf2f38c0c120d82fee}\label{pac5xxx__timers_8h_a4b61a7a44f7fccdf2f38c0c120d82fee}} 
+\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCLATCH\_COMPARE\_TYPE@{TXCCTL\_CCLATCH\_COMPARE\_TYPE}}
+\index{TXCCTL\_CCLATCH\_COMPARE\_TYPE@{TXCCTL\_CCLATCH\_COMPARE\_TYPE}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}
+\doxysubsubsection{\texorpdfstring{TXCCTL\_CCLATCH\_COMPARE\_TYPE}{TXCCTL\_CCLATCH\_COMPARE\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__timers_8h_a4b61a7a44f7fccdf2f38c0c120d82fee}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+L\+A\+T\+C\+H\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCLATCH\_COMPARE\_TXCTR\_0@{TXCCTL\_CCLATCH\_COMPARE\_TXCTR\_0}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCLATCH\_COMPARE\_TXCTR\_0@{TXCCTL\_CCLATCH\_COMPARE\_TXCTR\_0}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a4b61a7a44f7fccdf2f38c0c120d82feeab7716e87108ac62d9cdf67d948e152d6}\label{pac5xxx__timers_8h_a4b61a7a44f7fccdf2f38c0c120d82feeab7716e87108ac62d9cdf67d948e152d6}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+L\+A\+T\+C\+H\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+\+T\+X\+C\+T\+R\+\_\+0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCLATCH\_COMPARE\_TXCTR\_TXPRD@{TXCCTL\_CCLATCH\_COMPARE\_TXCTR\_TXPRD}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCLATCH\_COMPARE\_TXCTR\_TXPRD@{TXCCTL\_CCLATCH\_COMPARE\_TXCTR\_TXPRD}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a4b61a7a44f7fccdf2f38c0c120d82feea559338474981d2559b010789b0efd371}\label{pac5xxx__timers_8h_a4b61a7a44f7fccdf2f38c0c120d82feea559338474981d2559b010789b0efd371}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+L\+A\+T\+C\+H\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+\+T\+X\+C\+T\+R\+\_\+\+T\+X\+P\+RD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCLATCH\_COMPARE\_TXCTR\_IM@{TXCCTL\_CCLATCH\_COMPARE\_TXCTR\_IM}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCLATCH\_COMPARE\_TXCTR\_IM@{TXCCTL\_CCLATCH\_COMPARE\_TXCTR\_IM}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a4b61a7a44f7fccdf2f38c0c120d82feeac043ecc6bb13528d6d5b708cb8acbb26}\label{pac5xxx__timers_8h_a4b61a7a44f7fccdf2f38c0c120d82feeac043ecc6bb13528d6d5b708cb8acbb26}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+L\+A\+T\+C\+H\+\_\+\+C\+O\+M\+P\+A\+R\+E\+\_\+\+T\+X\+C\+T\+R\+\_\+\+IM&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 101 of file pac5xxx\+\_\+timers.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{101              \{}
+\DoxyCodeLine{102     \mbox{\hyperlink{pac5xxx__timers_8h_a4b61a7a44f7fccdf2f38c0c120d82feeab7716e87108ac62d9cdf67d948e152d6}{TXCCTL\_CCLATCH\_COMPARE\_TXCTR\_0}}      = 0,                \textcolor{comment}{// Latch TXCCTRL when TXCTR = 0}}
+\DoxyCodeLine{103     \mbox{\hyperlink{pac5xxx__timers_8h_a4b61a7a44f7fccdf2f38c0c120d82feea559338474981d2559b010789b0efd371}{TXCCTL\_CCLATCH\_COMPARE\_TXCTR\_TXPRD}}  = 1,                \textcolor{comment}{// Latch TXCCTRL when TXCTR = TXPRD}}
+\DoxyCodeLine{104     \mbox{\hyperlink{pac5xxx__timers_8h_a4b61a7a44f7fccdf2f38c0c120d82feeac043ecc6bb13528d6d5b708cb8acbb26}{TXCCTL\_CCLATCH\_COMPARE\_TXCTR\_IM}}     = 2                 \textcolor{comment}{// Latch TXCCTRL immediately upon register write}}
+\DoxyCodeLine{105 \} \mbox{\hyperlink{pac5xxx__timers_8h_a4b61a7a44f7fccdf2f38c0c120d82fee}{TXCCTL\_CCLATCH\_COMPARE\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__timers_8h_ad74fca78c5335bac1495dcc5feacc055}\label{pac5xxx__timers_8h_ad74fca78c5335bac1495dcc5feacc055}} 
+\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCMODE\_TYPE@{TXCCTL\_CCMODE\_TYPE}}
+\index{TXCCTL\_CCMODE\_TYPE@{TXCCTL\_CCMODE\_TYPE}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}
+\doxysubsubsection{\texorpdfstring{TXCCTL\_CCMODE\_TYPE}{TXCCTL\_CCMODE\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__timers_8h_ad74fca78c5335bac1495dcc5feacc055}{T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+M\+O\+D\+E\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCMODE\_COMPARE@{TXCCTL\_CCMODE\_COMPARE}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCMODE\_COMPARE@{TXCCTL\_CCMODE\_COMPARE}}}\mbox{\Hypertarget{pac5xxx__timers_8h_ad74fca78c5335bac1495dcc5feacc055ad55fdc88e26f73fb9c20dcd9c8b850cd}\label{pac5xxx__timers_8h_ad74fca78c5335bac1495dcc5feacc055ad55fdc88e26f73fb9c20dcd9c8b850cd}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+M\+O\+D\+E\+\_\+\+C\+O\+M\+P\+A\+RE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCCTL\_CCMODE\_CAPTURE@{TXCCTL\_CCMODE\_CAPTURE}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCCTL\_CCMODE\_CAPTURE@{TXCCTL\_CCMODE\_CAPTURE}}}\mbox{\Hypertarget{pac5xxx__timers_8h_ad74fca78c5335bac1495dcc5feacc055a667370502ef7f64e50fde1e30b84cb5d}\label{pac5xxx__timers_8h_ad74fca78c5335bac1495dcc5feacc055a667370502ef7f64e50fde1e30b84cb5d}} 
+T\+X\+C\+C\+T\+L\+\_\+\+C\+C\+M\+O\+D\+E\+\_\+\+C\+A\+P\+T\+U\+RE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 68 of file pac5xxx\+\_\+timers.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{68              \{}
+\DoxyCodeLine{69     \mbox{\hyperlink{pac5xxx__timers_8h_ad74fca78c5335bac1495dcc5feacc055ad55fdc88e26f73fb9c20dcd9c8b850cd}{TXCCTL\_CCMODE\_COMPARE}}                = 0,                \textcolor{comment}{// Timer CC Mode Compare}}
+\DoxyCodeLine{70     \mbox{\hyperlink{pac5xxx__timers_8h_ad74fca78c5335bac1495dcc5feacc055a667370502ef7f64e50fde1e30b84cb5d}{TXCCTL\_CCMODE\_CAPTURE}}                = 1                 \textcolor{comment}{// Timer CC Mode Capture}}
+\DoxyCodeLine{71 \} \mbox{\hyperlink{pac5xxx__timers_8h_ad74fca78c5335bac1495dcc5feacc055}{TXCCTL\_CCMODE\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956}\label{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956}} 
+\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_MODE\_TYPE@{TXCTL\_MODE\_TYPE}}
+\index{TXCTL\_MODE\_TYPE@{TXCTL\_MODE\_TYPE}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}
+\doxysubsubsection{\texorpdfstring{TXCTL\_MODE\_TYPE}{TXCTL\_MODE\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956}{T\+X\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_MODE\_DISABLED@{TXCTL\_MODE\_DISABLED}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_MODE\_DISABLED@{TXCTL\_MODE\_DISABLED}}}\mbox{\Hypertarget{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956a255812548836c80928fafd053839affb}\label{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956a255812548836c80928fafd053839affb}} 
+T\+X\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+D\+I\+S\+A\+B\+L\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_MODE\_UP@{TXCTL\_MODE\_UP}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_MODE\_UP@{TXCTL\_MODE\_UP}}}\mbox{\Hypertarget{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956abc094a90e248c9f1dbfb2cebbdf9d7b0}\label{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956abc094a90e248c9f1dbfb2cebbdf9d7b0}} 
+T\+X\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+UP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_MODE\_UPDOWN@{TXCTL\_MODE\_UPDOWN}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_MODE\_UPDOWN@{TXCTL\_MODE\_UPDOWN}}}\mbox{\Hypertarget{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956a3cba1eea1dfa0474bf36a1273d5fbb5c}\label{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956a3cba1eea1dfa0474bf36a1273d5fbb5c}} 
+T\+X\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+U\+P\+D\+O\+WN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_MODE\_ASYMMETRIC@{TXCTL\_MODE\_ASYMMETRIC}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_MODE\_ASYMMETRIC@{TXCTL\_MODE\_ASYMMETRIC}}}\mbox{\Hypertarget{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956a73b5697ffbe4d904f18f029857d2be65}\label{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956a73b5697ffbe4d904f18f029857d2be65}} 
+T\+X\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+A\+S\+Y\+M\+M\+E\+T\+R\+IC&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 53 of file pac5xxx\+\_\+timers.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53              \{}
+\DoxyCodeLine{54     \mbox{\hyperlink{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956a255812548836c80928fafd053839affb}{TXCTL\_MODE\_DISABLED}}         = 0,                \textcolor{comment}{// Timer mode: disabled}}
+\DoxyCodeLine{55     \mbox{\hyperlink{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956abc094a90e248c9f1dbfb2cebbdf9d7b0}{TXCTL\_MODE\_UP}}               = 1,                \textcolor{comment}{// Timer mode: up}}
+\DoxyCodeLine{56     \mbox{\hyperlink{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956a3cba1eea1dfa0474bf36a1273d5fbb5c}{TXCTL\_MODE\_UPDOWN}}           = 2,                \textcolor{comment}{// Timer mode: up/down}}
+\DoxyCodeLine{57     \mbox{\hyperlink{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956a73b5697ffbe4d904f18f029857d2be65}{TXCTL\_MODE\_ASYMMETRIC}}       = 3                 \textcolor{comment}{// Timer mode: asymmetric mode}}
+\DoxyCodeLine{58 \} \mbox{\hyperlink{pac5xxx__timers_8h_afc4b5287917481f12b3ceb9b81411956}{TXCTL\_MODE\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__timers_8h_ab90126f783a3015b751cb4c6580fb76c}\label{pac5xxx__timers_8h_ab90126f783a3015b751cb4c6580fb76c}} 
+\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_PRDLATCH\_TYPE@{TXCTL\_PRDLATCH\_TYPE}}
+\index{TXCTL\_PRDLATCH\_TYPE@{TXCTL\_PRDLATCH\_TYPE}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}
+\doxysubsubsection{\texorpdfstring{TXCTL\_PRDLATCH\_TYPE}{TXCTL\_PRDLATCH\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__timers_8h_ab90126f783a3015b751cb4c6580fb76c}{T\+X\+C\+T\+L\+\_\+\+P\+R\+D\+L\+A\+T\+C\+H\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_PRDLATCH\_TXCTR\_0@{TXCTL\_PRDLATCH\_TXCTR\_0}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_PRDLATCH\_TXCTR\_0@{TXCTL\_PRDLATCH\_TXCTR\_0}}}\mbox{\Hypertarget{pac5xxx__timers_8h_ab90126f783a3015b751cb4c6580fb76ca39e3a046758766e3fa6ab2f5ea338537}\label{pac5xxx__timers_8h_ab90126f783a3015b751cb4c6580fb76ca39e3a046758766e3fa6ab2f5ea338537}} 
+T\+X\+C\+T\+L\+\_\+\+P\+R\+D\+L\+A\+T\+C\+H\+\_\+\+T\+X\+C\+T\+R\+\_\+0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_PRDLATCH\_TXCTR\_TXPRD@{TXCTL\_PRDLATCH\_TXCTR\_TXPRD}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_PRDLATCH\_TXCTR\_TXPRD@{TXCTL\_PRDLATCH\_TXCTR\_TXPRD}}}\mbox{\Hypertarget{pac5xxx__timers_8h_ab90126f783a3015b751cb4c6580fb76ca9ec50f14e874fecb9b46cc3e96d929be}\label{pac5xxx__timers_8h_ab90126f783a3015b751cb4c6580fb76ca9ec50f14e874fecb9b46cc3e96d929be}} 
+T\+X\+C\+T\+L\+\_\+\+P\+R\+D\+L\+A\+T\+C\+H\+\_\+\+T\+X\+C\+T\+R\+\_\+\+T\+X\+P\+RD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_PRDLATCH\_TXCTR\_IM@{TXCTL\_PRDLATCH\_TXCTR\_IM}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_PRDLATCH\_TXCTR\_IM@{TXCTL\_PRDLATCH\_TXCTR\_IM}}}\mbox{\Hypertarget{pac5xxx__timers_8h_ab90126f783a3015b751cb4c6580fb76ca75761a0eff8070db3b4c3a9f32d6c34e}\label{pac5xxx__timers_8h_ab90126f783a3015b751cb4c6580fb76ca75761a0eff8070db3b4c3a9f32d6c34e}} 
+T\+X\+C\+T\+L\+\_\+\+P\+R\+D\+L\+A\+T\+C\+H\+\_\+\+T\+X\+C\+T\+R\+\_\+\+IM&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 46 of file pac5xxx\+\_\+timers.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46              \{}
+\DoxyCodeLine{47     \mbox{\hyperlink{pac5xxx__timers_8h_ab90126f783a3015b751cb4c6580fb76ca39e3a046758766e3fa6ab2f5ea338537}{TXCTL\_PRDLATCH\_TXCTR\_0}}      = 0,                \textcolor{comment}{// Latch TXPRD when TXCTR = 0}}
+\DoxyCodeLine{48     \mbox{\hyperlink{pac5xxx__timers_8h_ab90126f783a3015b751cb4c6580fb76ca9ec50f14e874fecb9b46cc3e96d929be}{TXCTL\_PRDLATCH\_TXCTR\_TXPRD}}  = 1,                \textcolor{comment}{// Latch TXPRD when TXCTR = TXPRD}}
+\DoxyCodeLine{49     \mbox{\hyperlink{pac5xxx__timers_8h_ab90126f783a3015b751cb4c6580fb76ca75761a0eff8070db3b4c3a9f32d6c34e}{TXCTL\_PRDLATCH\_TXCTR\_IM}}     = 2                 \textcolor{comment}{// Latch TXPRD immediately upon register write}}
+\DoxyCodeLine{50 \} \mbox{\hyperlink{pac5xxx__timers_8h_ab90126f783a3015b751cb4c6580fb76c}{TXCTL\_PRDLATCH\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87b}\label{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87b}} 
+\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_PS\_TYPE@{TXCTL\_PS\_TYPE}}
+\index{TXCTL\_PS\_TYPE@{TXCTL\_PS\_TYPE}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}
+\doxysubsubsection{\texorpdfstring{TXCTL\_PS\_TYPE}{TXCTL\_PS\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87b}{T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_PS\_DIV1@{TXCTL\_PS\_DIV1}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_PS\_DIV1@{TXCTL\_PS\_DIV1}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87bafa9d7d73c85f945888845de9627ae86e}\label{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87bafa9d7d73c85f945888845de9627ae86e}} 
+T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_PS\_DIV2@{TXCTL\_PS\_DIV2}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_PS\_DIV2@{TXCTL\_PS\_DIV2}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87badac0db01acefb57cb55770f0cac4ec03}\label{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87badac0db01acefb57cb55770f0cac4ec03}} 
+T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_PS\_DIV4@{TXCTL\_PS\_DIV4}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_PS\_DIV4@{TXCTL\_PS\_DIV4}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87ba6c637a7ad33692449634461b7b4d62ad}\label{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87ba6c637a7ad33692449634461b7b4d62ad}} 
+T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_PS\_DIV8@{TXCTL\_PS\_DIV8}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_PS\_DIV8@{TXCTL\_PS\_DIV8}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87badb76bc717aad53380531fe7f25cc00e0}\label{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87badb76bc717aad53380531fe7f25cc00e0}} 
+T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_PS\_DIV16@{TXCTL\_PS\_DIV16}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_PS\_DIV16@{TXCTL\_PS\_DIV16}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87ba980b3fc7b271cd785134b4579915b062}\label{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87ba980b3fc7b271cd785134b4579915b062}} 
+T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V16&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_PS\_DIV32@{TXCTL\_PS\_DIV32}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_PS\_DIV32@{TXCTL\_PS\_DIV32}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87bacad767c2834f0c50d29fac966db75f1d}\label{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87bacad767c2834f0c50d29fac966db75f1d}} 
+T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V32&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_PS\_DIV64@{TXCTL\_PS\_DIV64}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_PS\_DIV64@{TXCTL\_PS\_DIV64}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87baceb6140f1484809c557b03ccd3926543}\label{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87baceb6140f1484809c557b03ccd3926543}} 
+T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V64&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_PS\_DIV128@{TXCTL\_PS\_DIV128}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_PS\_DIV128@{TXCTL\_PS\_DIV128}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87bac265cd07df3e4ae324b09dd87b4fe028}\label{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87bac265cd07df3e4ae324b09dd87b4fe028}} 
+T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V128&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 34 of file pac5xxx\+\_\+timers.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34              \{}
+\DoxyCodeLine{35     \mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87bafa9d7d73c85f945888845de9627ae86e}{TXCTL\_PS\_DIV1}}               = 0,                \textcolor{comment}{// Timer pre-\/scaler: /1}}
+\DoxyCodeLine{36     \mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87badac0db01acefb57cb55770f0cac4ec03}{TXCTL\_PS\_DIV2}}               = 1,                \textcolor{comment}{// Timer pre-\/scaler: /2}}
+\DoxyCodeLine{37     \mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87ba6c637a7ad33692449634461b7b4d62ad}{TXCTL\_PS\_DIV4}}               = 2,                \textcolor{comment}{// Timer pre-\/scaler: /4}}
+\DoxyCodeLine{38     \mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87badb76bc717aad53380531fe7f25cc00e0}{TXCTL\_PS\_DIV8}}               = 3,                \textcolor{comment}{// Timer pre-\/scaler: /8}}
+\DoxyCodeLine{39     \mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87ba980b3fc7b271cd785134b4579915b062}{TXCTL\_PS\_DIV16}}              = 4,                \textcolor{comment}{// Timer pre-\/scaler: /16}}
+\DoxyCodeLine{40     \mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87bacad767c2834f0c50d29fac966db75f1d}{TXCTL\_PS\_DIV32}}              = 5,                \textcolor{comment}{// Timer pre-\/scaler: /32}}
+\DoxyCodeLine{41     \mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87baceb6140f1484809c557b03ccd3926543}{TXCTL\_PS\_DIV64}}              = 6,                \textcolor{comment}{// Timer pre-\/scaler: /64}}
+\DoxyCodeLine{42     \mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87bac265cd07df3e4ae324b09dd87b4fe028}{TXCTL\_PS\_DIV128}}             = 7                 \textcolor{comment}{// Timer pre-\/scaler: /128       }}
+\DoxyCodeLine{43 \} \mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87b}{TXCTL\_PS\_TYPE}}, \mbox{\hyperlink{pac5xxx__timers_8h_ada6b1a667d9ffa80cd35719d958cf1fe}{TXCTRL\_PS\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__timers_8h_ad8a01a242d83603e1631d0652ab2aff3}\label{pac5xxx__timers_8h_ad8a01a242d83603e1631d0652ab2aff3}} 
+\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTRL\_CLKIN\_TYPE@{TXCTRL\_CLKIN\_TYPE}}
+\index{TXCTRL\_CLKIN\_TYPE@{TXCTRL\_CLKIN\_TYPE}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}
+\doxysubsubsection{\texorpdfstring{TXCTRL\_CLKIN\_TYPE}{TXCTRL\_CLKIN\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__timers_8h_ad8a01a242d83603e1631d0652ab2aff3}{T\+X\+C\+T\+R\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_CS\_PCLK@{TXCTL\_CS\_PCLK}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_CS\_PCLK@{TXCTL\_CS\_PCLK}}}\mbox{\Hypertarget{pac5xxx__timers_8h_ad8a01a242d83603e1631d0652ab2aff3ac846f03b5d1c1744f668b15b965fe774}\label{pac5xxx__timers_8h_ad8a01a242d83603e1631d0652ab2aff3ac846f03b5d1c1744f668b15b965fe774}} 
+T\+X\+C\+T\+L\+\_\+\+C\+S\+\_\+\+P\+C\+LK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_CS\_ACLK@{TXCTL\_CS\_ACLK}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_CS\_ACLK@{TXCTL\_CS\_ACLK}}}\mbox{\Hypertarget{pac5xxx__timers_8h_ad8a01a242d83603e1631d0652ab2aff3adaa3ff4704f1ba94f4dc8b6eb12f7705}\label{pac5xxx__timers_8h_ad8a01a242d83603e1631d0652ab2aff3adaa3ff4704f1ba94f4dc8b6eb12f7705}} 
+T\+X\+C\+T\+L\+\_\+\+C\+S\+\_\+\+A\+C\+LK&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 21 of file pac5xxx\+\_\+timers.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21              \{}
+\DoxyCodeLine{22     \mbox{\hyperlink{pac5xxx__timers_8h_ad8a01a242d83603e1631d0652ab2aff3ac846f03b5d1c1744f668b15b965fe774}{TXCTL\_CS\_PCLK}}               = 0,                \textcolor{comment}{// Timer clock source: PCLK}}
+\DoxyCodeLine{23     \mbox{\hyperlink{pac5xxx__timers_8h_ad8a01a242d83603e1631d0652ab2aff3adaa3ff4704f1ba94f4dc8b6eb12f7705}{TXCTL\_CS\_ACLK}}               = 1                 \textcolor{comment}{// Timer clock source: ACLK}}
+\DoxyCodeLine{24 \} \mbox{\hyperlink{pac5xxx__timers_8h_ad8a01a242d83603e1631d0652ab2aff3}{TXCTRL\_CLKIN\_TYPE}}, \mbox{\hyperlink{pac5xxx__timers_8h_aa5cf3efad496e80f2d95dfc74bc68f9d}{TXCTRL\_CLKIN\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__timers_8h_a9629c2a58f14975423ca331ac75f1fbf}\label{pac5xxx__timers_8h_a9629c2a58f14975423ca331ac75f1fbf}} 
+\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTRL\_DTGCLK\_TYPE@{TXCTRL\_DTGCLK\_TYPE}}
+\index{TXCTRL\_DTGCLK\_TYPE@{TXCTRL\_DTGCLK\_TYPE}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}
+\doxysubsubsection{\texorpdfstring{TXCTRL\_DTGCLK\_TYPE}{TXCTRL\_DTGCLK\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__timers_8h_a9629c2a58f14975423ca331ac75f1fbf}{T\+X\+C\+T\+R\+L\+\_\+\+D\+T\+G\+C\+L\+K\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_DTGCLK\_PRE@{TXCTL\_DTGCLK\_PRE}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_DTGCLK\_PRE@{TXCTL\_DTGCLK\_PRE}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a9629c2a58f14975423ca331ac75f1fbfaf7b619f25bcb85f150cd0d16721ad189}\label{pac5xxx__timers_8h_a9629c2a58f14975423ca331ac75f1fbfaf7b619f25bcb85f150cd0d16721ad189}} 
+T\+X\+C\+T\+L\+\_\+\+D\+T\+G\+C\+L\+K\+\_\+\+P\+RE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TXCTL\_DTGCLK\_POST@{TXCTL\_DTGCLK\_POST}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTL\_DTGCLK\_POST@{TXCTL\_DTGCLK\_POST}}}\mbox{\Hypertarget{pac5xxx__timers_8h_a9629c2a58f14975423ca331ac75f1fbfa17c3bc2af211bd17e5e2e5f2e52f2053}\label{pac5xxx__timers_8h_a9629c2a58f14975423ca331ac75f1fbfa17c3bc2af211bd17e5e2e5f2e52f2053}} 
+T\+X\+C\+T\+L\+\_\+\+D\+T\+G\+C\+L\+K\+\_\+\+P\+O\+ST&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 27 of file pac5xxx\+\_\+timers.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27              \{}
+\DoxyCodeLine{28     \mbox{\hyperlink{pac5xxx__timers_8h_a9629c2a58f14975423ca331ac75f1fbfaf7b619f25bcb85f150cd0d16721ad189}{TXCTL\_DTGCLK\_PRE}}            = 0,                \textcolor{comment}{// DTG clock source: PRE-\/divider}}
+\DoxyCodeLine{29     \mbox{\hyperlink{pac5xxx__timers_8h_a9629c2a58f14975423ca331ac75f1fbfa17c3bc2af211bd17e5e2e5f2e52f2053}{TXCTL\_DTGCLK\_POST}}           = 1                 \textcolor{comment}{// DTG clock source: POST-\/divider}}
+\DoxyCodeLine{30 \} \mbox{\hyperlink{pac5xxx__timers_8h_a9629c2a58f14975423ca331ac75f1fbf}{TXCTRL\_DTGCLK\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079}\label{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079}} 
+\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TXCTRL\_MODE\_Type@{TXCTRL\_MODE\_Type}}
+\index{TXCTRL\_MODE\_Type@{TXCTRL\_MODE\_Type}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}
+\doxysubsubsection{\texorpdfstring{TXCTRL\_MODE\_Type}{TXCTRL\_MODE\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079}{T\+X\+C\+T\+R\+L\+\_\+\+M\+O\+D\+E\+\_\+\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TxCTL\_MODE\_DISABLED@{TxCTL\_MODE\_DISABLED}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TxCTL\_MODE\_DISABLED@{TxCTL\_MODE\_DISABLED}}}\mbox{\Hypertarget{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079a20bcb33d5f00ae862216d1c2ba864a53}\label{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079a20bcb33d5f00ae862216d1c2ba864a53}} 
+Tx\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+D\+I\+S\+A\+B\+L\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TxCTL\_MODE\_UP@{TxCTL\_MODE\_UP}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TxCTL\_MODE\_UP@{TxCTL\_MODE\_UP}}}\mbox{\Hypertarget{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079a4fe578cd73c51958196c8611869df1ef}\label{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079a4fe578cd73c51958196c8611869df1ef}} 
+Tx\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+UP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TxCTL\_MODE\_UPDOWN@{TxCTL\_MODE\_UPDOWN}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TxCTL\_MODE\_UPDOWN@{TxCTL\_MODE\_UPDOWN}}}\mbox{\Hypertarget{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079a99407b6b2602f4e92948eb3ae3ece866}\label{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079a99407b6b2602f4e92948eb3ae3ece866}} 
+Tx\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+U\+P\+D\+O\+WN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TxCTL\_MODE\_ASYMMETRIC@{TxCTL\_MODE\_ASYMMETRIC}!pac5xxx\_timers.h@{pac5xxx\_timers.h}}\index{pac5xxx\_timers.h@{pac5xxx\_timers.h}!TxCTL\_MODE\_ASYMMETRIC@{TxCTL\_MODE\_ASYMMETRIC}}}\mbox{\Hypertarget{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079ab1637e0e74c3c422926677dcff7b4fb7}\label{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079ab1637e0e74c3c422926677dcff7b4fb7}} 
+Tx\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+A\+S\+Y\+M\+M\+E\+T\+R\+IC&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 60 of file pac5xxx\+\_\+timers.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{60              \{}
+\DoxyCodeLine{61     \mbox{\hyperlink{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079a20bcb33d5f00ae862216d1c2ba864a53}{TxCTL\_MODE\_DISABLED}}         = 0,                \textcolor{comment}{// Timer mode: disabled}}
+\DoxyCodeLine{62     \mbox{\hyperlink{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079a4fe578cd73c51958196c8611869df1ef}{TxCTL\_MODE\_UP}}               = 1,                \textcolor{comment}{// Timer mode: up}}
+\DoxyCodeLine{63     \mbox{\hyperlink{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079a99407b6b2602f4e92948eb3ae3ece866}{TxCTL\_MODE\_UPDOWN}}           = 2,                \textcolor{comment}{// Timer mode: up/down}}
+\DoxyCodeLine{64     \mbox{\hyperlink{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079ab1637e0e74c3c422926677dcff7b4fb7}{TxCTL\_MODE\_ASYMMETRIC}}       = 3                 \textcolor{comment}{// Timer mode: asymmetric mode}}
+\DoxyCodeLine{65 \}\mbox{\hyperlink{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079}{TXCTRL\_MODE\_Type}};}
+
+\end{DoxyCode}

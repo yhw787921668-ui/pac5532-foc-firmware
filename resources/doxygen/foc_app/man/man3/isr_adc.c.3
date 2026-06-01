@@ -1,0 +1,90 @@
+.TH "pac_foc/src/isr/isr_adc.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/isr/isr_adc.c \- Use for ADC ISR\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'control_loop\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_OPTIMIZE_SPEED_ON PAC5XXX_RAMFUNC void \fBADC_IRQHandler\fP (void)"
+.br
+.RI "This function use ADC Interrupt Handler to run main FOC control loop\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for ADC ISR\&. 
+
+
+.PP
+Definition in file \fBisr_adc\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "PAC5XXX_OPTIMIZE_SPEED_ON PAC5XXX_RAMFUNC void ADC_IRQHandler (void)"
+
+.PP
+This function use ADC Interrupt Handler to run main FOC control loop\&. 
+.PP
+Definition at line 28 of file isr_adc\&.c\&.
+.PP
+.nf
+29 {
+30     //debugio1_on();
+31 #if (CONFIG_SHUNT == CONFIG_SHUNT_1SHUNT) && (MODE_1SHUNT_SELECT == MODE_1SHUNT_ASYMMETRIC)
+32 #ifdef ENABLE_IPD
+33     static Struct_Motor* motor_ptr = &motor;
+34 #endif
+35 #endif
+36     
+37 #if (CONFIG_SHUNT == CONFIG_SHUNT_3SHUNT)
+38     static Struct_Motor* motor_ptr = &motor;
+39 
+40     // Call 3-Shunt Mode ADC ISR Process
+41 #ifdef ENABLE_IPD
+42     motor_ptr->funcptr1(motor_ptr);
+43 #else
+44     control_3shunt_adc_isr(motor_ptr);
+45 #endif
+46 
+47     // Run motor control loop
+48     control_loop(motor_ptr);
+49 #elif (CONFIG_SHUNT == CONFIG_SHUNT_1SHUNT) && (MODE_1SHUNT_SELECT == MODE_1SHUNT_EXTENSION)
+50     static Struct_Motor* motor_ptr = &motor;
+51 
+52     // Call 1-Shunt Extension Mode ADC ISR Process
+53 #ifdef ENABLE_IPD
+54     motor_ptr->funcptr1(motor_ptr);
+55 #else
+56     control_1shunt_extn_adc_isr(motor_ptr);
+57 #endif
+58 
+59     // Run motor control loop
+60     control_loop(motor_ptr);
+61 #endif
+62 
+63 #if (CONFIG_SHUNT == CONFIG_SHUNT_1SHUNT) && (MODE_1SHUNT_SELECT == MODE_1SHUNT_ASYMMETRIC)
+64 #ifdef ENABLE_IPD
+65     // Run motor control loop
+66     motor_ptr->funcptr2(motor_ptr);
+67 #endif
+68 #endif
+69     //debugio1_off();
+70 
+71     // Clear interrupt flag
+72     clear_adc_int_flag();
+73 }
+.fi
+.PP
+References motor\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

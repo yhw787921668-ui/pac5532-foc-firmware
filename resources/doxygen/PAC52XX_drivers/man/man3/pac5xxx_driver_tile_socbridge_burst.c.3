@@ -1,0 +1,43 @@
+.TH "pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_tile_socbridge_burst.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_tile_socbridge_burst.c \- Firmware driver for the PAC5XXX tile SPI burst mode read/write\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx_driver_tile\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_socbridge\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_TILE\fP void \fBpac5xxx_tile_register_write_burst\fP (uint8_t start_address, int num_bytes, uint8_t *data)"
+.br
+.RI "This function writes a burst of data to the given register addresses via polling\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TILE\fP int \fBpac5xxx_tile_register_read_burst\fP (uint8_t start_address, int num_bytes, uint8_t *data)"
+.br
+.RI "This function reads a burst of data starting from the given register address via polling\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Firmware driver for the PAC5XXX tile SPI burst mode read/write\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_driver_tile_socbridge_burst\&.c\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

@@ -1,0 +1,212 @@
+.TH "pac_foc/src/control/foc_funcs.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/control/foc_funcs.h \- Use for FOC utility functions, IdIq current filter, Id & Iq PI, vqmax\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'config_app\&.h'\fP
+.br
+\fC#include 'config_features\&.h'\fP
+.br
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'satmon\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBfoc_reset\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "This function use to reset FOC related variables\&. "
+.ti -1c
+.RI "void \fBfoc_systemvar_init\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.ti -1c
+.RI "void \fBfoc_calc_pwmtimer\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.ti -1c
+.RI "void \fBfoc_config\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for FOC utility functions, IdIq current filter, Id & Iq PI, vqmax\&. 
+
+
+.PP
+Definition in file \fBfoc_funcs\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void foc_calc_pwmtimer (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Definition at line 89 of file foc_funcs\&.c\&.
+.PP
+.nf
+90 {
+91     fix16_t pwm_counts, temp2;
+92     uint32_t temp1;
+93 
+94     // Calculate TimerA (PWM) ticks in up/down mode using Timer Clk frequency, foc_dt, and ctrl_divider
+95     temp1 = (TIMERCLK_FREQ_HZ >> 10);                                                              // clk_div1024 = clk / 1024     (q0 / q0 = q0)
+96     temp2 = fix16_div(motor_ptr->foc\&.dt_control_q26, motor_ptr->foc\&.ctrl_divider_foc);    // pwm_dt_x1024 = dt_control_q26 / ctrl_divider
+97     temp2 = fix16_mul(temp2, temp1);                                                            // ticks = pwm_dt_x1024 * clk_div1024    (q16 * q0 = q16)
+98     temp2 = (temp2 >> 1);                                                                       // ticks_updn = ticks / 2
+99     pwm_counts = ((temp2 + 0x8000) >> 16);                                                      // Round and shift from q16 to q0
+100 
+101     motor_ptr->foc\&.motor_period_ticks = pwm_counts;
+102 }
+.fi
+.PP
+References Struct_FOC::ctrl_divider_foc, Struct_FOC::dt_control_q26, fix16_div(), fix16_mul(), Struct_Motor::foc, and Struct_FOC::motor_period_ticks\&.
+.PP
+Referenced by parameters_write_foc()\&.
+.SS "void foc_config (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Definition at line 126 of file foc_funcs\&.c\&.
+.PP
+.nf
+127 {
+128     // Set PWM period to FOC
+129     motor_ptr->control\&.motor_period_ticks = motor_ptr->foc\&.motor_period_ticks;
+130     motor_ptr->control\&.motor_period_ticks_1div = fix16_div(FIX16_1P0, (motor_ptr->control\&.motor_period_ticks << 16));
+131 
+132     // Configure PWM timer for FOC
+133     configure_foc_timer();
+134 
+135     // Set PWM duty cycles to 50%
+136     m1_u_set_duty(motor_ptr->control\&.motor_period_ticks >> 1);                                          // Set initial duty cycle to 50% (off)
+137     m1_v_set_duty(motor_ptr->control\&.motor_period_ticks >> 1);                                          // Set initial duty cycle to 50% (off)
+138     m1_w_set_duty(motor_ptr->control\&.motor_period_ticks >> 1);                                          // Set initial duty cycle to 50% (off)
+139 
+140     // Configure control loop for FOC mode
+141     config_control_timing_foc_inline();
+142 
+143     // Configure control divider for FOC
+144     config_control_dt(motor_ptr, motor_ptr->foc\&.dt_control_q26, motor_ptr->foc\&.ctrl_divider_foc);
+145 
+146     // Configure min/max duty
+147     foc_config_duty(motor_ptr);
+148 
+149 #ifdef CONTROL_VDVQ_VECTOR_LIMIT
+150     config_vdvq_vector_limit(motor_ptr);
+151 #endif
+152 
+153 #ifdef ENABLE_MTPA
+154     // Unit: Degree, scaled
+155     motor_ptr->mtpa\&.mtpa_gain_q16 = fix16_mul(motor_ptr->mtpa\&.mtpa_gain_degpa_q16, motor_ptr->app\&.descale_current_factor);
+156 #endif
+157 
+158 #ifdef ENABLE_BOOTPROT
+159     fix16_t temp3;
+160     temp3 = BOOTPROT_TIME_LIMIT_SEC_x1024; //- motor_ptr->foc_dt;
+161     if (temp3 < 0)
+162         temp3 = 0;
+163     motor_ptr->bootprot\&.bootprot_max_counts = (fix16_mul(temp3, motor_ptr->control\&.dt_control_1div_q6) >> 16);    // q0 = q16>>16
+164 
+165     motor_ptr->bootprot\&.bootprot_pwm_max_ticks = (fix16_mul((fix16_t)(motor_ptr->control\&.motor_period_ticks << 16), BOOTPROT_DUTY_MAX_PCT_Q16) >> 16);
+166 #endif
+167 }
+.fi
+.PP
+References Struct_Motor::control, FIX16_1P0, fix16_div(), Struct_Motor::foc, Struct_Control::motor_period_ticks, Struct_FOC::motor_period_ticks, and Struct_Control::motor_period_ticks_1div\&.
+.PP
+Referenced by parameters_write_foc(), and sm_mainsub_post()\&.
+.SS "void foc_reset (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+This function use to reset FOC related variables\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr pointer to motor structure 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file foc_funcs\&.c\&.
+.PP
+.nf
+27 {
+28     pid_reset(&motor_ptr->foc\&.Id_pid);                                // Reset PID controller data
+29     pid_reset(&motor_ptr->foc\&.Iq_pid);                                // Reset PID controller data
+30 
+31     motor_ptr->foc\&.idref_ramp_q14 = 0;
+32     motor_ptr->foc\&.idref_ramp_f16 = 0;
+33     motor_ptr->foc\&.iqref_ramp_q14 = 0;
+34     motor_ptr->foc\&.iqref_ramp_f16 = 0;
+35 
+36     motor_ptr->foc\&.id_q14 = 0;
+37     motor_ptr->foc\&.iq_q14 = 0;
+38     motor_ptr->foc\&.vd_q14 = 0;
+39     motor_ptr->foc\&.vq_q14 = 0;
+40 
+41     motor_ptr->foc\&.flag_sat_logicor = 0;                            // Drive saturation flag implemented as logic "or" of control cycles in sampling window
+42     motor_ptr->foc\&.flag_sat_logicand = 0;
+43 
+44     motor_ptr->foc\&.svm_ta_q14 = 0;
+45     motor_ptr->foc\&.svm_tb_q14 = 0;
+46     motor_ptr->foc\&.svm_tc_q14 = 0;
+47 
+48     motor_ptr->foc\&.valpha_q14 = 0;
+49     motor_ptr->foc\&.vbeta_q14 = 0;
+50     
+51 #ifdef ENABLE_DQ_DECOUPLING
+52     #if (SEL_DQ_DECOUPLING_METHOD == FEEDBACK_DECOUPLING)
+53     int32_t fc_temp_q16;
+54     fc_temp_q16 = fix16_div(motor_ptr->foc\&.Iq_pid\&.ka_q16 << 10, motor_ptr->mparam\&.lq_q26);
+55     // Convert from rad/s to Hz
+56     fc_temp_q16 = (fc_temp_q16 >> 10) * QCONST(0\&.159f, Q10);
+57     if (fc_temp_q16 > CURRENT_FILTER_CUTOFF_FREQ_Q16) fc_temp_q16 = CURRENT_FILTER_CUTOFF_FREQ_Q16;
+58     motor_ptr->foc\&.current_filter_coeff_q16 = calc_filter_alpha(fc_temp_q16, motor_ptr->control\&.dt_control_q26);
+59 
+60     motor_ptr->foc\&.id_dec_q14 = 0;
+61     motor_ptr->foc\&.iq_dec_q14 = 0;
+62     #endif
+63 #endif
+64 }
+.fi
+.PP
+References fix16_div(), Struct_FOC::flag_sat_logicand, Struct_FOC::flag_sat_logicor, Struct_Motor::foc, Struct_FOC::Id_pid, Struct_FOC::id_q14, Struct_FOC::idref_ramp_f16, Struct_FOC::idref_ramp_q14, Struct_FOC::Iq_pid, Struct_FOC::iq_q14, Struct_FOC::iqref_ramp_f16, Struct_FOC::iqref_ramp_q14, PID_Data_Type::ka_q16, Struct_MParam::lq_q26, Struct_Motor::mparam, pid_reset(), Q10, QCONST, Struct_FOC::svm_ta_q14, Struct_FOC::svm_tb_q14, Struct_FOC::svm_tc_q14, Struct_FOC::valpha_q14, Struct_FOC::vbeta_q14, Struct_FOC::vd_q14, and Struct_FOC::vq_q14\&.
+.PP
+Referenced by motor_reset()\&.
+.SS "void foc_systemvar_init (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Definition at line 66 of file foc_funcs\&.c\&.
+.PP
+.nf
+67 {
+68     // default freq: 5 kHz
+69     motor_ptr->foc\&.dt_control_q26 = QCONST(0\&.0002f, Q26);
+70     motor_ptr->foc\&.ctrl_divider_foc = 3;
+71 
+72 #if (CONFIG_SHUNT == CONFIG_SHUNT_3SHUNT)
+73 #ifdef ENABLE_IPD
+74     motor_ptr->funcptr1 = (void (*)(void *)) &control_3shunt_adc_isr;
+75 #endif
+76 #elif (CONFIG_SHUNT == CONFIG_SHUNT_1SHUNT) && (MODE_1SHUNT_SELECT == MODE_1SHUNT_EXTENSION)
+77 #ifdef ENABLE_IPD
+78     motor_ptr->funcptr1 = (void (*)(void *)) &control_1shunt_extn_adc_isr;
+79 #endif
+80 #elif (CONFIG_SHUNT == CONFIG_SHUNT_1SHUNT) && (MODE_1SHUNT_SELECT == MODE_1SHUNT_ASYMMETRIC)
+81 #ifdef ENABLE_IPD
+82     motor_ptr->funcptr1 = (void (*)(void *)) &control_1shunt_asym_timerb_isr;
+83     motor_ptr->funcptr2 = (void (*)(void *)) &control_loop;
+84 #endif
+85 #endif
+86 }
+.fi
+.PP
+References Struct_FOC::ctrl_divider_foc, Struct_FOC::dt_control_q26, Struct_Motor::foc, Q26, and QCONST\&.
+.PP
+Referenced by systemvar_init()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

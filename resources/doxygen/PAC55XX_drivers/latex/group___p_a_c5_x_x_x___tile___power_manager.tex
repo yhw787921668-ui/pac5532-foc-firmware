@@ -1,0 +1,1264 @@
+\hypertarget{group___p_a_c5_x_x_x___tile___power_manager}{}\doxysection{P\+A\+C5\+X\+XX Power Manager Tile}
+\label{group___p_a_c5_x_x_x___tile___power_manager}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{union_p_w_r_c_t_l}{P\+W\+R\+C\+TL}}
+\item 
+union \mbox{\hyperlink{union_p_w_r_s_t_a_t}{P\+W\+R\+S\+T\+AT}}
+\item 
+union \mbox{\hyperlink{union_p_s_t_a_t_s_e_t}{P\+S\+T\+A\+T\+S\+ET}}
+\item 
+union \mbox{\hyperlink{union_s_c_f_g}{S\+C\+FG}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga6a0f3821b233183489d7ec50843632f6}{Power\+\_\+\+Manager\+\_\+\+Reg\+\_\+\+Addr}} \{ \newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6a5e9714cc71e81364f0e0b357fb5c2eb2}{A\+D\+D\+R\+\_\+\+P\+W\+R\+C\+TL}} = 0x10, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6aa319c853522f2cb283c57f248597726e}{A\+D\+D\+R\+\_\+\+P\+W\+R\+S\+T\+AT}} = 0x11, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6ac71153cb789263e4691e47a38d8c15d2}{A\+D\+D\+R\+\_\+\+P\+S\+T\+A\+T\+S\+ET}} = 0x12, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6a568f1286c066921d4c2ee2df6f47607a}{A\+D\+D\+R\+\_\+\+I\+M\+OD}} = 0x13, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6af0122d22af5c39a919e9b6dd5bcc1ac6}{A\+D\+D\+R\+\_\+\+S\+C\+FG}} = 0x14, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6a93af06a6884c7df5a155c62170ddf597}{A\+D\+D\+R\+\_\+\+C\+F\+G\+P\+W\+R0}} = 0x15, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6adf5cca4d61333bb8ab28fccee9e4dcf2}{A\+D\+D\+R\+\_\+\+C\+F\+G\+P\+W\+R1}} = 0x16
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga17358aed5d7e34af1f28a3b8f38bd843}{P\+A\+C5\+X\+X\+X\+\_\+\+W\+U\+T\+I\+M\+E\+R\+\_\+\+Type}} \{ \newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843ae4b777cb5b5c224387418e1885ae914f}{W\+U\+T\+I\+M\+E\+R\+\_\+\+I\+N\+F\+I\+N\+I\+TE}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843af3006808057fae077de47216d7e66034}{W\+U\+T\+I\+M\+E\+R\+\_\+125ms}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843a02d1015d86a7c1b2290e9f2420892a3d}{W\+U\+T\+I\+M\+E\+R\+\_\+250ms}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843ad18828cfd665bdd6e8e1332254f3588d}{W\+U\+T\+I\+M\+E\+R\+\_\+500ms}} = 3, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843a3608f327bf15c08b233629f8974545c5}{W\+U\+T\+I\+M\+E\+R\+\_\+1s}} = 4, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843a75f6b94b92fd3e707e8a1d93603413fa}{W\+U\+T\+I\+M\+E\+R\+\_\+2s}} = 5, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843af1da46b16901aefdc23f85dfdd3dc85b}{W\+U\+T\+I\+M\+E\+R\+\_\+4s}} = 6, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843aa8d6c94d0bb7a2d8121f319e600e86b2}{W\+U\+T\+I\+M\+E\+R\+\_\+8s}} = 7
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga7963067418f279d6aaa571f37041f118}{P\+A\+C5\+X\+X\+X\+\_\+\+P\+W\+R\+M\+O\+N\+\_\+\+Type}} \{ \newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a35b092f9534ef83f22d53cc78c493f45}{P\+W\+R\+M\+O\+N\+\_\+\+V\+C\+O\+RE}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a9d99f59c4aa6b1f0accd1cc7c3f58aa1}{P\+W\+R\+M\+O\+N\+\_\+\+V\+D\+D\+Ax4div10}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a4c4a2af3d9a7e834bfe7fa83f311881f}{P\+W\+R\+M\+O\+N\+\_\+\+V\+D\+D\+I\+Ox4div10}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a41e8d791ad3acb012985277c62ae4a76}{P\+W\+R\+M\+O\+N\+\_\+\+V\+S\+Y\+Sx4div10}} = 3, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a5c800cbfca8dc0ffd3da7ffcaec76e29}{P\+W\+R\+M\+O\+N\+\_\+\+R\+E\+G\+Ix1div10}} = 4, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a22a401d3ef51fc5b82db350a09a6d59e}{P\+W\+R\+M\+O\+N\+\_\+\+V\+Px1div10}} = 5, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a01a893257fb2cfa154ee8c33f4d89e62}{P\+W\+R\+M\+O\+N\+\_\+\+V\+H\+Mx1div30}} = 6, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118aeea7b2a7723fb1d2c76c8d3f6d53a855}{P\+W\+R\+M\+O\+N\+\_\+\+V\+C\+O\+MP}} = 7
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gaf69d548ac43d07ee790f023873a304a4}{P\+A\+C5\+X\+X\+X\+\_\+\+T\+W\+D\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ggaf69d548ac43d07ee790f023873a304a4a31aa8e980499a7e444c045b3bacb2993}{T\+W\+D\+\_\+4s}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ggaf69d548ac43d07ee790f023873a304a4a97fb0217c6c16a43b1de4bb122231da6}{T\+W\+D\+\_\+8s}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga150ebfb33269096ce4761ddfe962f060}{P\+A\+C5\+X\+X\+X\+\_\+\+D\+M\+A\+X\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga150ebfb33269096ce4761ddfe962f060a4636e09b23faf84bb10b6c0944ac2514}{D\+M\+A\+X\+\_\+500ns\+\_\+min\+\_\+off}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga150ebfb33269096ce4761ddfe962f060a1244e77fb2edbff5adfd7cc7185e9ec9}{D\+M\+A\+X\+\_\+75pct}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga2d11fc5e7b5b83b51cc4afce7e9be91f}{P\+A\+C5\+X\+X\+X\+\_\+\+F\+S\+W\+M\+\_\+\+Type}} \{ \newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa1d5d789bd01edbfccc76d572616de23d}{F\+R\+E\+Q\+\_\+45\+\_\+k\+HZ}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa9f18e238104b68bf922297a17f6d084b}{F\+R\+E\+Q\+\_\+50\+\_\+k\+HZ}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa03d384af93f6ee11d6477d25d4d0800c}{F\+R\+E\+Q\+\_\+55\+\_\+k\+HZ}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa4f982ef18146bee58c489db9690b5dc7}{F\+R\+E\+Q\+\_\+63\+\_\+k\+HZ}} = 3, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa13354f24a51853d738e287831a5661da}{F\+R\+E\+Q\+\_\+72\+\_\+k\+HZ}} = 4, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fadc7956e82280fa31d1ec40f2a62e0b04}{F\+R\+E\+Q\+\_\+83\+\_\+k\+HZ}} = 5, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa93f36e9ad4ab2638a91bc363d1af5834}{F\+R\+E\+Q\+\_\+100\+\_\+k\+HZ}} = 6, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa3bdcbfaa5208c2d4bfcb753e192c4021}{F\+R\+E\+Q\+\_\+125\+\_\+k\+HZ}} = 7, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa0c414c6e89e419102b76a005f2a51138}{F\+R\+E\+Q\+\_\+181\+\_\+k\+HZ}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa0f0735a0930142be938b2dbb080c9313}{F\+R\+E\+Q\+\_\+200\+\_\+k\+HZ}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa64bbffa22a9f28b6b2c1436f61b638dc}{F\+R\+E\+Q\+\_\+220\+\_\+k\+HZ}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa2da55e71a9a81190c7826aef20fc6ace}{F\+R\+E\+Q\+\_\+250\+\_\+k\+HZ}} = 3, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa2c8c3ed2c3d071affbaa3d63eda45ee3}{F\+R\+E\+Q\+\_\+289\+\_\+k\+HZ}} = 4, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa6d3d3535c5114107945e7990bca725e8}{F\+R\+E\+Q\+\_\+330\+\_\+k\+HZ}} = 5, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa5191bfc9c40f5bdd37f065f3f6319fc9}{F\+R\+E\+Q\+\_\+400\+\_\+k\+HZ}} = 6, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa2358c69584814e494424e54923adc2be}{F\+R\+E\+Q\+\_\+500\+\_\+k\+HZ}} = 7
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gaf4ec46295b0a2582b7fda3260a888433}{P\+A\+C5\+X\+X\+X\+\_\+\+F\+M\+O\+D\+E\+\_\+\+Buck\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ggaf4ec46295b0a2582b7fda3260a888433af62ed9f539c15daa0b6c908fd5fbc453}{F\+M\+O\+D\+E\+\_\+45k\+Hz\+\_\+125k\+Hz}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ggaf4ec46295b0a2582b7fda3260a888433a5ededa2e295c56bf0888f6c83c0da335}{F\+M\+O\+D\+E\+\_\+181k\+Hz\+\_\+500k\+Hz}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga19daf6a838271e8d7c545a4780f2cb32}{P\+A\+C5\+X\+X\+X\+\_\+\+V\+C\+L\+A\+M\+P\+S\+E\+L\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga19daf6a838271e8d7c545a4780f2cb32ae24b798b7ec60aff28c8933ef61a89e6}{V\+C\+L\+A\+M\+P\+S\+E\+L\+\_\+20V}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga19daf6a838271e8d7c545a4780f2cb32ae5bba56b6ad87447664dc85c0e651980}{V\+C\+L\+A\+M\+P\+S\+E\+L\+\_\+69V}} = 1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gad4f21d1acc9711b67fb707488b7b147f}{P\+W\+R\+C\+T\+L\+::b}}
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga053dffe15c57629258ff7921b8ef649e}{P\+W\+R\+C\+T\+L\+::\+W\+U\+T\+I\+M\+ER}}\+: 3
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga361b2ba98f43f307988d67da73a58b8d}{P\+W\+R\+C\+T\+L\+::\+P\+W\+R\+M\+ON}}\+: 3
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga04ad657632758420aaa0c38e444a4ee6}{P\+W\+R\+C\+T\+L\+::\+M\+C\+U\+A\+L\+I\+VE}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga2e5baa88f5707755e1032384fc5b02c9}{P\+W\+R\+C\+T\+L\+::\+H\+IB}}\+: 1
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga053dffe15c57629258ff7921b8ef649e}{PWRCTL::WUTIMER}}: 3\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga361b2ba98f43f307988d67da73a58b8d}{PWRCTL::PWRMON}}: 3\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga04ad657632758420aaa0c38e444a4ee6}{PWRCTL::MCUALIVE}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga2e5baa88f5707755e1032384fc5b02c9}{PWRCTL::HIB}}: 1\\
+\}; \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga8acdd030696b7b45143b27f9c6303345}{P\+W\+R\+S\+T\+A\+T\+::b}}
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga48e41ff02c829dbef991d083ae3c1b36}{P\+W\+R\+S\+T\+A\+T\+::\+V\+C\+O\+R\+E\+F\+LT}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga79c3b44063327e0f359b639867e94ba3}{P\+W\+R\+S\+T\+A\+T\+::\+V\+D\+D\+A\+F\+LT}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gabe50ca02a6a231b05e333a4fb7b898ec}{P\+W\+R\+S\+T\+A\+T\+::\+V\+D\+D\+I\+O\+F\+LT}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gaa5aa33dc83cb60f283893a5b8aece9dd}{P\+W\+R\+S\+T\+A\+T\+::\+V\+S\+Y\+S\+F\+LT}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gaedb090d65b5be57f01bb927a682c5742}{P\+W\+R\+S\+T\+A\+T\+::\+T\+M\+P\+F\+LT}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gafa0015406eebb254549a1135df9a40b6}{P\+W\+R\+S\+T\+A\+T\+::\+D\+C\+D\+C\+F\+LT}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gaf97f484c618ecd378bbd77ce6c096562}{P\+W\+R\+S\+T\+A\+T\+::\+W\+D\+T\+R\+S\+T\+AT}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga7b23ee9686c4d295dce25287d2219923}{P\+W\+R\+S\+T\+A\+T\+::\+H\+W\+R\+S\+T\+AT}}\+: 1
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga48e41ff02c829dbef991d083ae3c1b36}{PWRSTAT::VCOREFLT}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga79c3b44063327e0f359b639867e94ba3}{PWRSTAT::VDDAFLT}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gabe50ca02a6a231b05e333a4fb7b898ec}{PWRSTAT::VDDIOFLT}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gaa5aa33dc83cb60f283893a5b8aece9dd}{PWRSTAT::VSYSFLT}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gaedb090d65b5be57f01bb927a682c5742}{PWRSTAT::TMPFLT}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gafa0015406eebb254549a1135df9a40b6}{PWRSTAT::DCDCFLT}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gaf97f484c618ecd378bbd77ce6c096562}{PWRSTAT::WDTRSTAT}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga7b23ee9686c4d295dce25287d2219923}{PWRSTAT::HWRSTAT}}: 1\\
+\}; \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga65ad095bd724f4848ce608d0beb28fd8}{P\+S\+T\+A\+T\+S\+E\+T\+::b}}
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga5dc8ac9f7752617d98ccff6ec4bfb076}{P\+S\+T\+A\+T\+S\+E\+T\+::\+P\+B\+EN}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gae439170bad7fe9872884e609616d9184}{P\+S\+T\+A\+T\+S\+E\+T\+::\+W\+D\+T\+EN}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gacce8ee906c8ac5ed118eafdc76ae16c7}{P\+S\+T\+A\+T\+S\+E\+T\+::\+T\+WD}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gad7b7f7fb297a0969be277ca895f571de}{P\+S\+T\+A\+T\+S\+E\+T\+::n\+V\+P\+I\+N\+TM}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga4e17555ad256d1af613e0c895cd63fd0}{P\+S\+T\+A\+T\+S\+E\+T\+::n\+P\+B\+I\+N\+TM}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gae2a8a8bbe91929771bd10524c4ffc949}{P\+S\+T\+A\+T\+S\+E\+T\+::\+V\+P\+L\+OW}}\+: 1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga519a885a04f0df4e9e8664786e76899c}{P\+S\+T\+A\+T\+S\+E\+T\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gac3ca13e656be8a522f2d4d590239104b}{P\+S\+T\+A\+T\+S\+E\+T\+::\+U\+N\+L\+O\+CK}}\+: 1
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga5dc8ac9f7752617d98ccff6ec4bfb076}{PSTATSET::PBEN}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gae439170bad7fe9872884e609616d9184}{PSTATSET::WDTEN}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gacce8ee906c8ac5ed118eafdc76ae16c7}{PSTATSET::TWD}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gad7b7f7fb297a0969be277ca895f571de}{PSTATSET::nVPINTM}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga4e17555ad256d1af613e0c895cd63fd0}{PSTATSET::nPBINTM}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gae2a8a8bbe91929771bd10524c4ffc949}{PSTATSET::VPLOW}}: 1\\
+\>uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga519a885a04f0df4e9e8664786e76899c}{PSTATSET::\_\_pad0\_\_}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gac3ca13e656be8a522f2d4d590239104b}{PSTATSET::UNLOCK}}: 1\\
+\}; \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga932bc068ecd072b66ce1f71b877b95dd}{S\+C\+F\+G\+::b}}
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gaedd71ff5a36ed4077283b782adfc0dbe}{S\+C\+F\+G\+::\+D\+M\+AX}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga3b84f5250abc10a257d80011bc124c49}{S\+C\+F\+G\+::\+F\+S\+WM}}\+: 3
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga7f8690d87e9cc9dcd5b86a696f23c7ee}{S\+C\+F\+G\+::\+F\+M\+O\+DE}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga6bc8d64384cdd1ac02e8894486950ba3}{S\+C\+F\+G\+::\+V\+C\+L\+A\+M\+P\+S\+EL}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga50ede6e1e2d4fe7efd77a68da172f8b2}{S\+C\+F\+G\+::\+D\+I\+G\+C\+TL}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga111c0e76a6ace6fc5e07da58d13bc42f}{S\+C\+F\+G\+::\+S\+R\+ST}}\+: 1
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gaedd71ff5a36ed4077283b782adfc0dbe}{SCFG::DMAX}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga3b84f5250abc10a257d80011bc124c49}{SCFG::FSWM}}: 3\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga7f8690d87e9cc9dcd5b86a696f23c7ee}{SCFG::FMODE}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga6bc8d64384cdd1ac02e8894486950ba3}{SCFG::VCLAMPSEL}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga50ede6e1e2d4fe7efd77a68da172f8b2}{SCFG::DIGCTL}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga111c0e76a6ace6fc5e07da58d13bc42f}{SCFG::SRST}}: 1\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga150ebfb33269096ce4761ddfe962f060}\label{group___p_a_c5_x_x_x___tile___power_manager_ga150ebfb33269096ce4761ddfe962f060}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PAC5XXX\_DMAX\_Type@{PAC5XXX\_DMAX\_Type}}
+\index{PAC5XXX\_DMAX\_Type@{PAC5XXX\_DMAX\_Type}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PAC5XXX\_DMAX\_Type}{PAC5XXX\_DMAX\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga150ebfb33269096ce4761ddfe962f060}{P\+A\+C5\+X\+X\+X\+\_\+\+D\+M\+A\+X\+\_\+\+Type}}}
+
+P\+A\+C5\+X\+XX D\+M\+AX Setting Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMAX\_500ns\_min\_off@{DMAX\_500ns\_min\_off}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!DMAX\_500ns\_min\_off@{DMAX\_500ns\_min\_off}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga150ebfb33269096ce4761ddfe962f060a4636e09b23faf84bb10b6c0944ac2514}\label{group___p_a_c5_x_x_x___tile___power_manager_gga150ebfb33269096ce4761ddfe962f060a4636e09b23faf84bb10b6c0944ac2514}} 
+D\+M\+A\+X\+\_\+500ns\+\_\+min\+\_\+off&500ns minimum off time ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DMAX\_75pct@{DMAX\_75pct}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!DMAX\_75pct@{DMAX\_75pct}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga150ebfb33269096ce4761ddfe962f060a1244e77fb2edbff5adfd7cc7185e9ec9}\label{group___p_a_c5_x_x_x___tile___power_manager_gga150ebfb33269096ce4761ddfe962f060a1244e77fb2edbff5adfd7cc7185e9ec9}} 
+D\+M\+A\+X\+\_\+75pct&75\% maximum duty ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 105 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{105              \{}
+\DoxyCodeLine{106     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga150ebfb33269096ce4761ddfe962f060a4636e09b23faf84bb10b6c0944ac2514}{DMAX\_500ns\_min\_off}} = 0,                 }
+\DoxyCodeLine{107     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga150ebfb33269096ce4761ddfe962f060a1244e77fb2edbff5adfd7cc7185e9ec9}{DMAX\_75pct}} = 1                          }
+\DoxyCodeLine{108 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga150ebfb33269096ce4761ddfe962f060}{PAC5XXX\_DMAX\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gaf4ec46295b0a2582b7fda3260a888433}\label{group___p_a_c5_x_x_x___tile___power_manager_gaf4ec46295b0a2582b7fda3260a888433}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PAC5XXX\_FMODE\_Buck\_Type@{PAC5XXX\_FMODE\_Buck\_Type}}
+\index{PAC5XXX\_FMODE\_Buck\_Type@{PAC5XXX\_FMODE\_Buck\_Type}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PAC5XXX\_FMODE\_Buck\_Type}{PAC5XXX\_FMODE\_Buck\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gaf4ec46295b0a2582b7fda3260a888433}{P\+A\+C5\+X\+X\+X\+\_\+\+F\+M\+O\+D\+E\+\_\+\+Buck\+\_\+\+Type}}}
+
+P\+A\+C5\+X\+XX F\+M\+O\+DE Buck Frequency Setting Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FMODE\_45kHz\_125kHz@{FMODE\_45kHz\_125kHz}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FMODE\_45kHz\_125kHz@{FMODE\_45kHz\_125kHz}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ggaf4ec46295b0a2582b7fda3260a888433af62ed9f539c15daa0b6c908fd5fbc453}\label{group___p_a_c5_x_x_x___tile___power_manager_ggaf4ec46295b0a2582b7fda3260a888433af62ed9f539c15daa0b6c908fd5fbc453}} 
+F\+M\+O\+D\+E\+\_\+45k\+Hz\+\_\+125k\+Hz&F\+M\+O\+DE\+: startup, ultra high buck \mbox{[}45k\+Hz -\/ 125k\+Hz\mbox{]} ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FMODE\_181kHz\_500kHz@{FMODE\_181kHz\_500kHz}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FMODE\_181kHz\_500kHz@{FMODE\_181kHz\_500kHz}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ggaf4ec46295b0a2582b7fda3260a888433a5ededa2e295c56bf0888f6c83c0da335}\label{group___p_a_c5_x_x_x___tile___power_manager_ggaf4ec46295b0a2582b7fda3260a888433a5ededa2e295c56bf0888f6c83c0da335}} 
+F\+M\+O\+D\+E\+\_\+181k\+Hz\+\_\+500k\+Hz&F\+M\+O\+DE\+: medium voltage buck \mbox{[}181k\+Hz -\/ 500k\+Hz\mbox{]} ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 134 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{134              \{}
+\DoxyCodeLine{135     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ggaf4ec46295b0a2582b7fda3260a888433af62ed9f539c15daa0b6c908fd5fbc453}{FMODE\_45kHz\_125kHz}} = 0,                 }
+\DoxyCodeLine{136     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ggaf4ec46295b0a2582b7fda3260a888433a5ededa2e295c56bf0888f6c83c0da335}{FMODE\_181kHz\_500kHz}} = 1                 }
+\DoxyCodeLine{137 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gaf4ec46295b0a2582b7fda3260a888433}{PAC5XXX\_FMODE\_Buck\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga2d11fc5e7b5b83b51cc4afce7e9be91f}\label{group___p_a_c5_x_x_x___tile___power_manager_ga2d11fc5e7b5b83b51cc4afce7e9be91f}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PAC5XXX\_FSWM\_Type@{PAC5XXX\_FSWM\_Type}}
+\index{PAC5XXX\_FSWM\_Type@{PAC5XXX\_FSWM\_Type}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PAC5XXX\_FSWM\_Type}{PAC5XXX\_FSWM\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga2d11fc5e7b5b83b51cc4afce7e9be91f}{P\+A\+C5\+X\+X\+X\+\_\+\+F\+S\+W\+M\+\_\+\+Type}}}
+
+P\+A\+C5\+X\+XX Switching Frequency Setting (F\+S\+WM) Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FREQ\_45\_kHZ@{FREQ\_45\_kHZ}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FREQ\_45\_kHZ@{FREQ\_45\_kHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa1d5d789bd01edbfccc76d572616de23d}\label{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa1d5d789bd01edbfccc76d572616de23d}} 
+F\+R\+E\+Q\+\_\+45\+\_\+k\+HZ&Switching Frequency Setting\+: 45k\+Hz (F\+M\+O\+DE = 0) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FREQ\_50\_kHZ@{FREQ\_50\_kHZ}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FREQ\_50\_kHZ@{FREQ\_50\_kHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa9f18e238104b68bf922297a17f6d084b}\label{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa9f18e238104b68bf922297a17f6d084b}} 
+F\+R\+E\+Q\+\_\+50\+\_\+k\+HZ&Switching Frequency Setting\+: 50k\+Hz (F\+M\+O\+DE = 0) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FREQ\_55\_kHZ@{FREQ\_55\_kHZ}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FREQ\_55\_kHZ@{FREQ\_55\_kHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa03d384af93f6ee11d6477d25d4d0800c}\label{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa03d384af93f6ee11d6477d25d4d0800c}} 
+F\+R\+E\+Q\+\_\+55\+\_\+k\+HZ&Switching Frequency Setting\+: 55k\+Hz (F\+M\+O\+DE = 0) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FREQ\_63\_kHZ@{FREQ\_63\_kHZ}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FREQ\_63\_kHZ@{FREQ\_63\_kHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa4f982ef18146bee58c489db9690b5dc7}\label{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa4f982ef18146bee58c489db9690b5dc7}} 
+F\+R\+E\+Q\+\_\+63\+\_\+k\+HZ&Switching Frequency Setting\+: 63k\+Hz (F\+M\+O\+DE = 0) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FREQ\_72\_kHZ@{FREQ\_72\_kHZ}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FREQ\_72\_kHZ@{FREQ\_72\_kHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa13354f24a51853d738e287831a5661da}\label{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa13354f24a51853d738e287831a5661da}} 
+F\+R\+E\+Q\+\_\+72\+\_\+k\+HZ&Switching Frequency Setting\+: 72k\+Hz (F\+M\+O\+DE = 0) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FREQ\_83\_kHZ@{FREQ\_83\_kHZ}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FREQ\_83\_kHZ@{FREQ\_83\_kHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fadc7956e82280fa31d1ec40f2a62e0b04}\label{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fadc7956e82280fa31d1ec40f2a62e0b04}} 
+F\+R\+E\+Q\+\_\+83\+\_\+k\+HZ&Switching Frequency Setting\+: 83k\+Hz (F\+M\+O\+DE = 0) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FREQ\_100\_kHZ@{FREQ\_100\_kHZ}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FREQ\_100\_kHZ@{FREQ\_100\_kHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa93f36e9ad4ab2638a91bc363d1af5834}\label{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa93f36e9ad4ab2638a91bc363d1af5834}} 
+F\+R\+E\+Q\+\_\+100\+\_\+k\+HZ&Switching Frequency Setting\+: 100k\+Hz (F\+M\+O\+DE = 0) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FREQ\_125\_kHZ@{FREQ\_125\_kHZ}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FREQ\_125\_kHZ@{FREQ\_125\_kHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa3bdcbfaa5208c2d4bfcb753e192c4021}\label{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa3bdcbfaa5208c2d4bfcb753e192c4021}} 
+F\+R\+E\+Q\+\_\+125\+\_\+k\+HZ&Switching Frequency Setting\+: 125k\+Hz (F\+M\+O\+DE = 0) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FREQ\_181\_kHZ@{FREQ\_181\_kHZ}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FREQ\_181\_kHZ@{FREQ\_181\_kHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa0c414c6e89e419102b76a005f2a51138}\label{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa0c414c6e89e419102b76a005f2a51138}} 
+F\+R\+E\+Q\+\_\+181\+\_\+k\+HZ&Switching Frequency Setting\+: 181k\+Hz (F\+M\+O\+DE = 1) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FREQ\_200\_kHZ@{FREQ\_200\_kHZ}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FREQ\_200\_kHZ@{FREQ\_200\_kHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa0f0735a0930142be938b2dbb080c9313}\label{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa0f0735a0930142be938b2dbb080c9313}} 
+F\+R\+E\+Q\+\_\+200\+\_\+k\+HZ&Switching Frequency Setting\+: 200k\+Hz (F\+M\+O\+DE = 1) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FREQ\_220\_kHZ@{FREQ\_220\_kHZ}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FREQ\_220\_kHZ@{FREQ\_220\_kHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa64bbffa22a9f28b6b2c1436f61b638dc}\label{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa64bbffa22a9f28b6b2c1436f61b638dc}} 
+F\+R\+E\+Q\+\_\+220\+\_\+k\+HZ&Switching Frequency Setting\+: 220k\+Hz (F\+M\+O\+DE = 1) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FREQ\_250\_kHZ@{FREQ\_250\_kHZ}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FREQ\_250\_kHZ@{FREQ\_250\_kHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa2da55e71a9a81190c7826aef20fc6ace}\label{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa2da55e71a9a81190c7826aef20fc6ace}} 
+F\+R\+E\+Q\+\_\+250\+\_\+k\+HZ&Switching Frequency Setting\+: 250k\+Hz (F\+M\+O\+DE = 1) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FREQ\_289\_kHZ@{FREQ\_289\_kHZ}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FREQ\_289\_kHZ@{FREQ\_289\_kHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa2c8c3ed2c3d071affbaa3d63eda45ee3}\label{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa2c8c3ed2c3d071affbaa3d63eda45ee3}} 
+F\+R\+E\+Q\+\_\+289\+\_\+k\+HZ&Switching Frequency Setting\+: 289k\+Hz (F\+M\+O\+DE = 1) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FREQ\_330\_kHZ@{FREQ\_330\_kHZ}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FREQ\_330\_kHZ@{FREQ\_330\_kHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa6d3d3535c5114107945e7990bca725e8}\label{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa6d3d3535c5114107945e7990bca725e8}} 
+F\+R\+E\+Q\+\_\+330\+\_\+k\+HZ&Switching Frequency Setting\+: 330k\+Hz (F\+M\+O\+DE = 1) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FREQ\_400\_kHZ@{FREQ\_400\_kHZ}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FREQ\_400\_kHZ@{FREQ\_400\_kHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa5191bfc9c40f5bdd37f065f3f6319fc9}\label{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa5191bfc9c40f5bdd37f065f3f6319fc9}} 
+F\+R\+E\+Q\+\_\+400\+\_\+k\+HZ&Switching Frequency Setting\+: 400k\+Hz (F\+M\+O\+DE = 1) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FREQ\_500\_kHZ@{FREQ\_500\_kHZ}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FREQ\_500\_kHZ@{FREQ\_500\_kHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa2358c69584814e494424e54923adc2be}\label{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa2358c69584814e494424e54923adc2be}} 
+F\+R\+E\+Q\+\_\+500\+\_\+k\+HZ&Switching Frequency Setting\+: 500k\+Hz (F\+M\+O\+DE = 1) ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 111 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{111              \{}
+\DoxyCodeLine{112     \textcolor{comment}{// FMODE = 0}}
+\DoxyCodeLine{113     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa1d5d789bd01edbfccc76d572616de23d}{FREQ\_45\_kHZ}} = 0,                        }
+\DoxyCodeLine{114     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa9f18e238104b68bf922297a17f6d084b}{FREQ\_50\_kHZ}} = 1,                        }
+\DoxyCodeLine{115     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa03d384af93f6ee11d6477d25d4d0800c}{FREQ\_55\_kHZ}} = 2,                        }
+\DoxyCodeLine{116     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa4f982ef18146bee58c489db9690b5dc7}{FREQ\_63\_kHZ}} = 3,                        }
+\DoxyCodeLine{117     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa13354f24a51853d738e287831a5661da}{FREQ\_72\_kHZ}} = 4,                        }
+\DoxyCodeLine{118     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fadc7956e82280fa31d1ec40f2a62e0b04}{FREQ\_83\_kHZ}} = 5,                        }
+\DoxyCodeLine{119     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa93f36e9ad4ab2638a91bc363d1af5834}{FREQ\_100\_kHZ}} = 6,                       }
+\DoxyCodeLine{120     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa3bdcbfaa5208c2d4bfcb753e192c4021}{FREQ\_125\_kHZ}} = 7,                       }
+\DoxyCodeLine{122     \textcolor{comment}{// FMODE = 1}}
+\DoxyCodeLine{123     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa0c414c6e89e419102b76a005f2a51138}{FREQ\_181\_kHZ}} = 0,                       }
+\DoxyCodeLine{124     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa0f0735a0930142be938b2dbb080c9313}{FREQ\_200\_kHZ}} = 1,                       }
+\DoxyCodeLine{125     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa64bbffa22a9f28b6b2c1436f61b638dc}{FREQ\_220\_kHZ}} = 2,                       }
+\DoxyCodeLine{126     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa2da55e71a9a81190c7826aef20fc6ace}{FREQ\_250\_kHZ}} = 3,                       }
+\DoxyCodeLine{127     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa2c8c3ed2c3d071affbaa3d63eda45ee3}{FREQ\_289\_kHZ}} = 4,                       }
+\DoxyCodeLine{128     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa6d3d3535c5114107945e7990bca725e8}{FREQ\_330\_kHZ}} = 5,                       }
+\DoxyCodeLine{129     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa5191bfc9c40f5bdd37f065f3f6319fc9}{FREQ\_400\_kHZ}} = 6,                       }
+\DoxyCodeLine{130     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa2358c69584814e494424e54923adc2be}{FREQ\_500\_kHZ}} = 7                        }
+\DoxyCodeLine{131 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga2d11fc5e7b5b83b51cc4afce7e9be91f}{PAC5XXX\_FSWM\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga7963067418f279d6aaa571f37041f118}\label{group___p_a_c5_x_x_x___tile___power_manager_ga7963067418f279d6aaa571f37041f118}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PAC5XXX\_PWRMON\_Type@{PAC5XXX\_PWRMON\_Type}}
+\index{PAC5XXX\_PWRMON\_Type@{PAC5XXX\_PWRMON\_Type}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PAC5XXX\_PWRMON\_Type}{PAC5XXX\_PWRMON\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga7963067418f279d6aaa571f37041f118}{P\+A\+C5\+X\+X\+X\+\_\+\+P\+W\+R\+M\+O\+N\+\_\+\+Type}}}
+
+P\+A\+C5\+X\+XX P\+W\+M\+M\+ON Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWRMON\_VCORE@{PWRMON\_VCORE}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PWRMON\_VCORE@{PWRMON\_VCORE}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a35b092f9534ef83f22d53cc78c493f45}\label{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a35b092f9534ef83f22d53cc78c493f45}} 
+P\+W\+R\+M\+O\+N\+\_\+\+V\+C\+O\+RE&Select signal for A\+B11 A\+DC Monitoring\+: V\+C\+O\+RE ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWRMON\_VDDAx4div10@{PWRMON\_VDDAx4div10}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PWRMON\_VDDAx4div10@{PWRMON\_VDDAx4div10}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a9d99f59c4aa6b1f0accd1cc7c3f58aa1}\label{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a9d99f59c4aa6b1f0accd1cc7c3f58aa1}} 
+P\+W\+R\+M\+O\+N\+\_\+\+V\+D\+D\+Ax4div10&Select signal for A\+B11 A\+DC Monitoring\+: V\+D\+DA $\ast$ 4 / 10 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWRMON\_VDDIOx4div10@{PWRMON\_VDDIOx4div10}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PWRMON\_VDDIOx4div10@{PWRMON\_VDDIOx4div10}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a4c4a2af3d9a7e834bfe7fa83f311881f}\label{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a4c4a2af3d9a7e834bfe7fa83f311881f}} 
+P\+W\+R\+M\+O\+N\+\_\+\+V\+D\+D\+I\+Ox4div10&Select signal for A\+B11 A\+DC Monitoring\+: V\+D\+D\+IO $\ast$ 4 / 10 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWRMON\_VSYSx4div10@{PWRMON\_VSYSx4div10}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PWRMON\_VSYSx4div10@{PWRMON\_VSYSx4div10}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a41e8d791ad3acb012985277c62ae4a76}\label{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a41e8d791ad3acb012985277c62ae4a76}} 
+P\+W\+R\+M\+O\+N\+\_\+\+V\+S\+Y\+Sx4div10&Select signal for A\+B11 A\+DC Monitoring\+: V\+S\+YS $\ast$ 4 / 10 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWRMON\_REGIx1div10@{PWRMON\_REGIx1div10}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PWRMON\_REGIx1div10@{PWRMON\_REGIx1div10}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a5c800cbfca8dc0ffd3da7ffcaec76e29}\label{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a5c800cbfca8dc0ffd3da7ffcaec76e29}} 
+P\+W\+R\+M\+O\+N\+\_\+\+R\+E\+G\+Ix1div10&Select signal for A\+B11 A\+DC Monitoring\+: R\+E\+GI $\ast$ 1 / 10 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWRMON\_VPx1div10@{PWRMON\_VPx1div10}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PWRMON\_VPx1div10@{PWRMON\_VPx1div10}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a22a401d3ef51fc5b82db350a09a6d59e}\label{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a22a401d3ef51fc5b82db350a09a6d59e}} 
+P\+W\+R\+M\+O\+N\+\_\+\+V\+Px1div10&Select signal for A\+B11 A\+DC Monitoring\+: VP $\ast$ 1 / 10 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWRMON\_VHMx1div30@{PWRMON\_VHMx1div30}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PWRMON\_VHMx1div30@{PWRMON\_VHMx1div30}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a01a893257fb2cfa154ee8c33f4d89e62}\label{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a01a893257fb2cfa154ee8c33f4d89e62}} 
+P\+W\+R\+M\+O\+N\+\_\+\+V\+H\+Mx1div30&Select signal for A\+B11 A\+DC Monitoring\+: V\+HM $\ast$ 1 / 30 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PWRMON\_VCOMP@{PWRMON\_VCOMP}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PWRMON\_VCOMP@{PWRMON\_VCOMP}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118aeea7b2a7723fb1d2c76c8d3f6d53a855}\label{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118aeea7b2a7723fb1d2c76c8d3f6d53a855}} 
+P\+W\+R\+M\+O\+N\+\_\+\+V\+C\+O\+MP&Select signal for A\+B11 A\+DC Monitoring\+: V\+C\+O\+MP ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 87 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{87              \{}
+\DoxyCodeLine{88     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a35b092f9534ef83f22d53cc78c493f45}{PWRMON\_VCORE}} = 0,                       }
+\DoxyCodeLine{89     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a9d99f59c4aa6b1f0accd1cc7c3f58aa1}{PWRMON\_VDDAx4div10}} = 1,                 }
+\DoxyCodeLine{90     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a4c4a2af3d9a7e834bfe7fa83f311881f}{PWRMON\_VDDIOx4div10}} = 2,                }
+\DoxyCodeLine{91     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a41e8d791ad3acb012985277c62ae4a76}{PWRMON\_VSYSx4div10}} = 3,                 }
+\DoxyCodeLine{92     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a5c800cbfca8dc0ffd3da7ffcaec76e29}{PWRMON\_REGIx1div10}} = 4,                 }
+\DoxyCodeLine{93     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a22a401d3ef51fc5b82db350a09a6d59e}{PWRMON\_VPx1div10}} = 5,                   }
+\DoxyCodeLine{94     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a01a893257fb2cfa154ee8c33f4d89e62}{PWRMON\_VHMx1div30}} = 6,                  }
+\DoxyCodeLine{95     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118aeea7b2a7723fb1d2c76c8d3f6d53a855}{PWRMON\_VCOMP}} = 7                        }
+\DoxyCodeLine{96 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga7963067418f279d6aaa571f37041f118}{PAC5XXX\_PWRMON\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gaf69d548ac43d07ee790f023873a304a4}\label{group___p_a_c5_x_x_x___tile___power_manager_gaf69d548ac43d07ee790f023873a304a4}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PAC5XXX\_TWD\_Type@{PAC5XXX\_TWD\_Type}}
+\index{PAC5XXX\_TWD\_Type@{PAC5XXX\_TWD\_Type}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PAC5XXX\_TWD\_Type}{PAC5XXX\_TWD\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gaf69d548ac43d07ee790f023873a304a4}{P\+A\+C5\+X\+X\+X\+\_\+\+T\+W\+D\+\_\+\+Type}}}
+
+P\+A\+C5\+X\+XX Watchdog Timer (T\+WD) Time Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TWD\_4s@{TWD\_4s}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!TWD\_4s@{TWD\_4s}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ggaf69d548ac43d07ee790f023873a304a4a31aa8e980499a7e444c045b3bacb2993}\label{group___p_a_c5_x_x_x___tile___power_manager_ggaf69d548ac43d07ee790f023873a304a4a31aa8e980499a7e444c045b3bacb2993}} 
+T\+W\+D\+\_\+4s&Watchdog time\+: 4s ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TWD\_8s@{TWD\_8s}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!TWD\_8s@{TWD\_8s}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ggaf69d548ac43d07ee790f023873a304a4a97fb0217c6c16a43b1de4bb122231da6}\label{group___p_a_c5_x_x_x___tile___power_manager_ggaf69d548ac43d07ee790f023873a304a4a97fb0217c6c16a43b1de4bb122231da6}} 
+T\+W\+D\+\_\+8s&Watchdog time\+: 8s ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 99 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{99              \{}
+\DoxyCodeLine{100     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ggaf69d548ac43d07ee790f023873a304a4a31aa8e980499a7e444c045b3bacb2993}{TWD\_4s}} = 0,                             }
+\DoxyCodeLine{101     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ggaf69d548ac43d07ee790f023873a304a4a97fb0217c6c16a43b1de4bb122231da6}{TWD\_8s}} = 1                              }
+\DoxyCodeLine{102 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gaf69d548ac43d07ee790f023873a304a4}{PAC5XXX\_TWD\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga19daf6a838271e8d7c545a4780f2cb32}\label{group___p_a_c5_x_x_x___tile___power_manager_ga19daf6a838271e8d7c545a4780f2cb32}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PAC5XXX\_VCLAMPSEL\_Type@{PAC5XXX\_VCLAMPSEL\_Type}}
+\index{PAC5XXX\_VCLAMPSEL\_Type@{PAC5XXX\_VCLAMPSEL\_Type}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PAC5XXX\_VCLAMPSEL\_Type}{PAC5XXX\_VCLAMPSEL\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga19daf6a838271e8d7c545a4780f2cb32}{P\+A\+C5\+X\+X\+X\+\_\+\+V\+C\+L\+A\+M\+P\+S\+E\+L\+\_\+\+Type}}}
+
+P\+A\+C5\+X\+XX V\+HM Clamp Selection Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VCLAMPSEL\_20V@{VCLAMPSEL\_20V}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!VCLAMPSEL\_20V@{VCLAMPSEL\_20V}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga19daf6a838271e8d7c545a4780f2cb32ae24b798b7ec60aff28c8933ef61a89e6}\label{group___p_a_c5_x_x_x___tile___power_manager_gga19daf6a838271e8d7c545a4780f2cb32ae24b798b7ec60aff28c8933ef61a89e6}} 
+V\+C\+L\+A\+M\+P\+S\+E\+L\+\_\+20V&V\+HM Clamp Selection\+: 20V ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VCLAMPSEL\_69V@{VCLAMPSEL\_69V}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!VCLAMPSEL\_69V@{VCLAMPSEL\_69V}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga19daf6a838271e8d7c545a4780f2cb32ae5bba56b6ad87447664dc85c0e651980}\label{group___p_a_c5_x_x_x___tile___power_manager_gga19daf6a838271e8d7c545a4780f2cb32ae5bba56b6ad87447664dc85c0e651980}} 
+V\+C\+L\+A\+M\+P\+S\+E\+L\+\_\+69V&V\+HM Clamp Selection\+: 69V ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 140 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{140              \{}
+\DoxyCodeLine{141     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga19daf6a838271e8d7c545a4780f2cb32ae24b798b7ec60aff28c8933ef61a89e6}{VCLAMPSEL\_20V}} = 0,                      }
+\DoxyCodeLine{142     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga19daf6a838271e8d7c545a4780f2cb32ae5bba56b6ad87447664dc85c0e651980}{VCLAMPSEL\_69V}} = 1                       }
+\DoxyCodeLine{143 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga19daf6a838271e8d7c545a4780f2cb32}{PAC5XXX\_VCLAMPSEL\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga17358aed5d7e34af1f28a3b8f38bd843}\label{group___p_a_c5_x_x_x___tile___power_manager_ga17358aed5d7e34af1f28a3b8f38bd843}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PAC5XXX\_WUTIMER\_Type@{PAC5XXX\_WUTIMER\_Type}}
+\index{PAC5XXX\_WUTIMER\_Type@{PAC5XXX\_WUTIMER\_Type}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PAC5XXX\_WUTIMER\_Type}{PAC5XXX\_WUTIMER\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga17358aed5d7e34af1f28a3b8f38bd843}{P\+A\+C5\+X\+X\+X\+\_\+\+W\+U\+T\+I\+M\+E\+R\+\_\+\+Type}}}
+
+P\+A\+C5\+X\+XX W\+U\+T\+I\+M\+ER Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WUTIMER\_INFINITE@{WUTIMER\_INFINITE}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!WUTIMER\_INFINITE@{WUTIMER\_INFINITE}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843ae4b777cb5b5c224387418e1885ae914f}\label{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843ae4b777cb5b5c224387418e1885ae914f}} 
+W\+U\+T\+I\+M\+E\+R\+\_\+\+I\+N\+F\+I\+N\+I\+TE&Wake up timer\+: infinite ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WUTIMER\_125ms@{WUTIMER\_125ms}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!WUTIMER\_125ms@{WUTIMER\_125ms}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843af3006808057fae077de47216d7e66034}\label{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843af3006808057fae077de47216d7e66034}} 
+W\+U\+T\+I\+M\+E\+R\+\_\+125ms&Wake up timer\+: 125 ms ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WUTIMER\_250ms@{WUTIMER\_250ms}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!WUTIMER\_250ms@{WUTIMER\_250ms}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843a02d1015d86a7c1b2290e9f2420892a3d}\label{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843a02d1015d86a7c1b2290e9f2420892a3d}} 
+W\+U\+T\+I\+M\+E\+R\+\_\+250ms&Wake up timer\+: 250 ms ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WUTIMER\_500ms@{WUTIMER\_500ms}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!WUTIMER\_500ms@{WUTIMER\_500ms}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843ad18828cfd665bdd6e8e1332254f3588d}\label{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843ad18828cfd665bdd6e8e1332254f3588d}} 
+W\+U\+T\+I\+M\+E\+R\+\_\+500ms&Wake up timer\+: 500 ms ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WUTIMER\_1s@{WUTIMER\_1s}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!WUTIMER\_1s@{WUTIMER\_1s}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843a3608f327bf15c08b233629f8974545c5}\label{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843a3608f327bf15c08b233629f8974545c5}} 
+W\+U\+T\+I\+M\+E\+R\+\_\+1s&Wake up timer\+: 1 s ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WUTIMER\_2s@{WUTIMER\_2s}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!WUTIMER\_2s@{WUTIMER\_2s}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843a75f6b94b92fd3e707e8a1d93603413fa}\label{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843a75f6b94b92fd3e707e8a1d93603413fa}} 
+W\+U\+T\+I\+M\+E\+R\+\_\+2s&Wake up timer\+: 2 s ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WUTIMER\_4s@{WUTIMER\_4s}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!WUTIMER\_4s@{WUTIMER\_4s}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843af1da46b16901aefdc23f85dfdd3dc85b}\label{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843af1da46b16901aefdc23f85dfdd3dc85b}} 
+W\+U\+T\+I\+M\+E\+R\+\_\+4s&Wake up timer\+: 4 s ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WUTIMER\_8s@{WUTIMER\_8s}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!WUTIMER\_8s@{WUTIMER\_8s}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843aa8d6c94d0bb7a2d8121f319e600e86b2}\label{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843aa8d6c94d0bb7a2d8121f319e600e86b2}} 
+W\+U\+T\+I\+M\+E\+R\+\_\+8s&Wake up timer\+: 8 s ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 75 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{75              \{}
+\DoxyCodeLine{76     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843ae4b777cb5b5c224387418e1885ae914f}{WUTIMER\_INFINITE}} = 0,                   }
+\DoxyCodeLine{77     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843af3006808057fae077de47216d7e66034}{WUTIMER\_125ms}} = 1,                      }
+\DoxyCodeLine{78     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843a02d1015d86a7c1b2290e9f2420892a3d}{WUTIMER\_250ms}} = 2,                      }
+\DoxyCodeLine{79     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843ad18828cfd665bdd6e8e1332254f3588d}{WUTIMER\_500ms}} = 3,                      }
+\DoxyCodeLine{80     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843a3608f327bf15c08b233629f8974545c5}{WUTIMER\_1s}} = 4,                         }
+\DoxyCodeLine{81     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843a75f6b94b92fd3e707e8a1d93603413fa}{WUTIMER\_2s}} = 5,                         }
+\DoxyCodeLine{82     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843af1da46b16901aefdc23f85dfdd3dc85b}{WUTIMER\_4s}} = 6,                         }
+\DoxyCodeLine{83     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843aa8d6c94d0bb7a2d8121f319e600e86b2}{WUTIMER\_8s}} = 7                          }
+\DoxyCodeLine{84 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga17358aed5d7e34af1f28a3b8f38bd843}{PAC5XXX\_WUTIMER\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga6a0f3821b233183489d7ec50843632f6}\label{group___p_a_c5_x_x_x___tile___power_manager_ga6a0f3821b233183489d7ec50843632f6}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!Power\_Manager\_Reg\_Addr@{Power\_Manager\_Reg\_Addr}}
+\index{Power\_Manager\_Reg\_Addr@{Power\_Manager\_Reg\_Addr}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{Power\_Manager\_Reg\_Addr}{Power\_Manager\_Reg\_Addr}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga6a0f3821b233183489d7ec50843632f6}{Power\+\_\+\+Manager\+\_\+\+Reg\+\_\+\+Addr}}}
+
+$<$ Power Manager Register Addresses \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADDR\_PWRCTL@{ADDR\_PWRCTL}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!ADDR\_PWRCTL@{ADDR\_PWRCTL}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6a5e9714cc71e81364f0e0b357fb5c2eb2}\label{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6a5e9714cc71e81364f0e0b357fb5c2eb2}} 
+A\+D\+D\+R\+\_\+\+P\+W\+R\+C\+TL&Power Manager Control Register ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADDR\_PWRSTAT@{ADDR\_PWRSTAT}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!ADDR\_PWRSTAT@{ADDR\_PWRSTAT}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6aa319c853522f2cb283c57f248597726e}\label{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6aa319c853522f2cb283c57f248597726e}} 
+A\+D\+D\+R\+\_\+\+P\+W\+R\+S\+T\+AT&Power Manager Status Register ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADDR\_PSTATSET@{ADDR\_PSTATSET}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!ADDR\_PSTATSET@{ADDR\_PSTATSET}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6ac71153cb789263e4691e47a38d8c15d2}\label{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6ac71153cb789263e4691e47a38d8c15d2}} 
+A\+D\+D\+R\+\_\+\+P\+S\+T\+A\+T\+S\+ET&Power Manager Status Settings ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADDR\_IMOD@{ADDR\_IMOD}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!ADDR\_IMOD@{ADDR\_IMOD}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6a568f1286c066921d4c2ee2df6f47607a}\label{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6a568f1286c066921d4c2ee2df6f47607a}} 
+A\+D\+D\+R\+\_\+\+I\+M\+OD&Current Modulation Register ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADDR\_SCFG@{ADDR\_SCFG}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!ADDR\_SCFG@{ADDR\_SCFG}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6af0122d22af5c39a919e9b6dd5bcc1ac6}\label{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6af0122d22af5c39a919e9b6dd5bcc1ac6}} 
+A\+D\+D\+R\+\_\+\+S\+C\+FG&Power Manager Monitor 1 Register ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADDR\_CFGPWR0@{ADDR\_CFGPWR0}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!ADDR\_CFGPWR0@{ADDR\_CFGPWR0}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6a93af06a6884c7df5a155c62170ddf597}\label{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6a93af06a6884c7df5a155c62170ddf597}} 
+A\+D\+D\+R\+\_\+\+C\+F\+G\+P\+W\+R0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADDR\_CFGPWR1@{ADDR\_CFGPWR1}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!ADDR\_CFGPWR1@{ADDR\_CFGPWR1}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6adf5cca4d61333bb8ab28fccee9e4dcf2}\label{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6adf5cca4d61333bb8ab28fccee9e4dcf2}} 
+A\+D\+D\+R\+\_\+\+C\+F\+G\+P\+W\+R1&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 59 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59              \{}
+\DoxyCodeLine{60     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6a5e9714cc71e81364f0e0b357fb5c2eb2}{ADDR\_PWRCTL}} = 0x10,                     }
+\DoxyCodeLine{61     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6aa319c853522f2cb283c57f248597726e}{ADDR\_PWRSTAT}} = 0x11,                    }
+\DoxyCodeLine{62     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6ac71153cb789263e4691e47a38d8c15d2}{ADDR\_PSTATSET}} = 0x12,                   }
+\DoxyCodeLine{63     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6a568f1286c066921d4c2ee2df6f47607a}{ADDR\_IMOD}} = 0x13,                       }
+\DoxyCodeLine{64     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6af0122d22af5c39a919e9b6dd5bcc1ac6}{ADDR\_SCFG}} = 0x14,                       }
+\DoxyCodeLine{65     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6a93af06a6884c7df5a155c62170ddf597}{ADDR\_CFGPWR0}} = 0x15,}
+\DoxyCodeLine{66     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6adf5cca4d61333bb8ab28fccee9e4dcf2}{ADDR\_CFGPWR1}} = 0x16}
+\DoxyCodeLine{67         }
+\DoxyCodeLine{68 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga6a0f3821b233183489d7ec50843632f6}{Power\_Manager\_Reg\_Addr}};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gaaf19f0e250efca023f0f6ce161c09fcf}\label{group___p_a_c5_x_x_x___tile___power_manager_gaaf19f0e250efca023f0f6ce161c09fcf}} 
+\doxysubsubsection{\texorpdfstring{"@1}{@1}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gab9aa6842ea189063b060d00f81dd65f0}\label{group___p_a_c5_x_x_x___tile___power_manager_gab9aa6842ea189063b060d00f81dd65f0}} 
+\doxysubsubsection{\texorpdfstring{"@3}{@3}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga107f73cdded3608fe7b8af1db2e216e7}\label{group___p_a_c5_x_x_x___tile___power_manager_ga107f73cdded3608fe7b8af1db2e216e7}} 
+\doxysubsubsection{\texorpdfstring{"@5}{@5}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gab0eff6a3b42d32db85021d557d464297}\label{group___p_a_c5_x_x_x___tile___power_manager_gab0eff6a3b42d32db85021d557d464297}} 
+\doxysubsubsection{\texorpdfstring{"@7}{@7}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga519a885a04f0df4e9e8664786e76899c}\label{group___p_a_c5_x_x_x___tile___power_manager_ga519a885a04f0df4e9e8664786e76899c}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t P\+S\+T\+A\+T\+S\+E\+T\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 190 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gad9f88a70636ea4ea2f64d2ee2c5eccbc}\label{group___p_a_c5_x_x_x___tile___power_manager_gad9f88a70636ea4ea2f64d2ee2c5eccbc}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint8\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 190 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gad4f21d1acc9711b67fb707488b7b147f}\label{group___p_a_c5_x_x_x___tile___power_manager_gad4f21d1acc9711b67fb707488b7b147f}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!b@{b}}
+\index{b@{b}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+W\+R\+C\+T\+L\+::b}
+
+
+
+Definition at line 154 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga8acdd030696b7b45143b27f9c6303345}\label{group___p_a_c5_x_x_x___tile___power_manager_ga8acdd030696b7b45143b27f9c6303345}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!b@{b}}
+\index{b@{b}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+W\+R\+S\+T\+A\+T\+::b}
+
+
+
+Definition at line 166 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga65ad095bd724f4848ce608d0beb28fd8}\label{group___p_a_c5_x_x_x___tile___power_manager_ga65ad095bd724f4848ce608d0beb28fd8}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!b@{b}}
+\index{b@{b}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+S\+T\+A\+T\+S\+E\+T\+::b}
+
+
+
+Definition at line 182 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga932bc068ecd072b66ce1f71b877b95dd}\label{group___p_a_c5_x_x_x___tile___power_manager_ga932bc068ecd072b66ce1f71b877b95dd}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!b@{b}}
+\index{b@{b}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t S\+C\+F\+G\+::b}
+
+
+
+Definition at line 199 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gadbb26509a2b843fc33a2890622f8a0d7}\label{group___p_a_c5_x_x_x___tile___power_manager_gadbb26509a2b843fc33a2890622f8a0d7}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!DCDCFLT@{DCDCFLT}}
+\index{DCDCFLT@{DCDCFLT}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DCDCFLT}{DCDCFLT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::D\+C\+D\+C\+F\+LT}
+
+D\+C\+DC error status (write 1 to clear) ~\newline
+ 
+
+Definition at line 173 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gafa0015406eebb254549a1135df9a40b6}\label{group___p_a_c5_x_x_x___tile___power_manager_gafa0015406eebb254549a1135df9a40b6}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!DCDCFLT@{DCDCFLT}}
+\index{DCDCFLT@{DCDCFLT}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DCDCFLT}{DCDCFLT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+W\+R\+S\+T\+A\+T\+::\+D\+C\+D\+C\+F\+LT}
+
+D\+C\+DC error status (write 1 to clear) ~\newline
+ 
+
+Definition at line 173 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga50ede6e1e2d4fe7efd77a68da172f8b2}\label{group___p_a_c5_x_x_x___tile___power_manager_ga50ede6e1e2d4fe7efd77a68da172f8b2}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!DIGCTL@{DIGCTL}}
+\index{DIGCTL@{DIGCTL}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DIGCTL}{DIGCTL}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t S\+C\+F\+G\+::\+D\+I\+G\+C\+TL}
+
+Digital Control ~\newline
+ 
+
+Definition at line 205 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga914e110baf48b9215a6f4cef923aa280}\label{group___p_a_c5_x_x_x___tile___power_manager_ga914e110baf48b9215a6f4cef923aa280}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!DIGCTL@{DIGCTL}}
+\index{DIGCTL@{DIGCTL}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DIGCTL}{DIGCTL}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::D\+I\+G\+C\+TL}
+
+Digital Control ~\newline
+ 
+
+Definition at line 205 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gaedd71ff5a36ed4077283b782adfc0dbe}\label{group___p_a_c5_x_x_x___tile___power_manager_gaedd71ff5a36ed4077283b782adfc0dbe}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!DMAX@{DMAX}}
+\index{DMAX@{DMAX}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DMAX}{DMAX}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t S\+C\+F\+G\+::\+D\+M\+AX}
+
+Maximum Duty ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+D\+M\+A\+X\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 201 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga35b9ab933ebce22900f01767e85daae1}\label{group___p_a_c5_x_x_x___tile___power_manager_ga35b9ab933ebce22900f01767e85daae1}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!DMAX@{DMAX}}
+\index{DMAX@{DMAX}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DMAX}{DMAX}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::D\+M\+AX}
+
+Maximum Duty ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+D\+M\+A\+X\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 201 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga7f8690d87e9cc9dcd5b86a696f23c7ee}\label{group___p_a_c5_x_x_x___tile___power_manager_ga7f8690d87e9cc9dcd5b86a696f23c7ee}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FMODE@{FMODE}}
+\index{FMODE@{FMODE}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{FMODE}{FMODE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t S\+C\+F\+G\+::\+F\+M\+O\+DE}
+
+Switching Frequency Mode ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+F\+M\+O\+D\+E\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 203 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gadb4b060dacac1f36b8e5c73f5dde2d18}\label{group___p_a_c5_x_x_x___tile___power_manager_gadb4b060dacac1f36b8e5c73f5dde2d18}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FMODE@{FMODE}}
+\index{FMODE@{FMODE}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{FMODE}{FMODE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::F\+M\+O\+DE}
+
+Switching Frequency Mode ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+F\+M\+O\+D\+E\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 203 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gaecd9eee04f7227c2ffbd61e1a5056d99}\label{group___p_a_c5_x_x_x___tile___power_manager_gaecd9eee04f7227c2ffbd61e1a5056d99}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FSWM@{FSWM}}
+\index{FSWM@{FSWM}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{FSWM}{FSWM}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::F\+S\+WM}
+
+Switching Frequency Setting ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+F\+S\+W\+M\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 202 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga3b84f5250abc10a257d80011bc124c49}\label{group___p_a_c5_x_x_x___tile___power_manager_ga3b84f5250abc10a257d80011bc124c49}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!FSWM@{FSWM}}
+\index{FSWM@{FSWM}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{FSWM}{FSWM}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t S\+C\+F\+G\+::\+F\+S\+WM}
+
+Switching Frequency Setting ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+F\+S\+W\+M\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 202 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gae1eedae065afd72d46e1a942c626012e}\label{group___p_a_c5_x_x_x___tile___power_manager_gae1eedae065afd72d46e1a942c626012e}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!HIB@{HIB}}
+\index{HIB@{HIB}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{HIB}{HIB}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::H\+IB}
+
+Shutdown mode (1) ~\newline
+ 
+
+Definition at line 159 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga2e5baa88f5707755e1032384fc5b02c9}\label{group___p_a_c5_x_x_x___tile___power_manager_ga2e5baa88f5707755e1032384fc5b02c9}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!HIB@{HIB}}
+\index{HIB@{HIB}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{HIB}{HIB}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+W\+R\+C\+T\+L\+::\+H\+IB}
+
+Shutdown mode (1) ~\newline
+ 
+
+Definition at line 159 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gad6159b8a567326ef37e77780dd335c64}\label{group___p_a_c5_x_x_x___tile___power_manager_gad6159b8a567326ef37e77780dd335c64}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!HWRSTAT@{HWRSTAT}}
+\index{HWRSTAT@{HWRSTAT}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{HWRSTAT}{HWRSTAT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::H\+W\+R\+S\+T\+AT}
+
+Hardware Reset Status (write 1 to clear) ~\newline
+ 
+
+Definition at line 175 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga7b23ee9686c4d295dce25287d2219923}\label{group___p_a_c5_x_x_x___tile___power_manager_ga7b23ee9686c4d295dce25287d2219923}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!HWRSTAT@{HWRSTAT}}
+\index{HWRSTAT@{HWRSTAT}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{HWRSTAT}{HWRSTAT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+W\+R\+S\+T\+A\+T\+::\+H\+W\+R\+S\+T\+AT}
+
+Hardware Reset Status (write 1 to clear) ~\newline
+ 
+
+Definition at line 175 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga04ad657632758420aaa0c38e444a4ee6}\label{group___p_a_c5_x_x_x___tile___power_manager_ga04ad657632758420aaa0c38e444a4ee6}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!MCUALIVE@{MCUALIVE}}
+\index{MCUALIVE@{MCUALIVE}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{MCUALIVE}{MCUALIVE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+W\+R\+C\+T\+L\+::\+M\+C\+U\+A\+L\+I\+VE}
+
+Indicates M\+CU alive (release all pull-\/down Rs) ~\newline
+ 
+
+Definition at line 158 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga4bdbe6a38ca0d7a89de53c80f5f6285d}\label{group___p_a_c5_x_x_x___tile___power_manager_ga4bdbe6a38ca0d7a89de53c80f5f6285d}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!MCUALIVE@{MCUALIVE}}
+\index{MCUALIVE@{MCUALIVE}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{MCUALIVE}{MCUALIVE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::M\+C\+U\+A\+L\+I\+VE}
+
+Indicates M\+CU alive (release all pull-\/down Rs) ~\newline
+ 
+
+Definition at line 158 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga4e17555ad256d1af613e0c895cd63fd0}\label{group___p_a_c5_x_x_x___tile___power_manager_ga4e17555ad256d1af613e0c895cd63fd0}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!nPBINTM@{nPBINTM}}
+\index{nPBINTM@{nPBINTM}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{nPBINTM}{nPBINTM}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+S\+T\+A\+T\+S\+E\+T\+::n\+P\+B\+I\+N\+TM}
+
+Push-\/button Interrupt Mask (0\+: mask, 1\+: not masked) ~\newline
+ 
+
+Definition at line 188 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gacf1db13a40b57680d580c3844539f9ac}\label{group___p_a_c5_x_x_x___tile___power_manager_gacf1db13a40b57680d580c3844539f9ac}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!nPBINTM@{nPBINTM}}
+\index{nPBINTM@{nPBINTM}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{nPBINTM}{nPBINTM}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::n\+P\+B\+I\+N\+TM}
+
+Push-\/button Interrupt Mask (0\+: mask, 1\+: not masked) ~\newline
+ 
+
+Definition at line 188 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga211d9256723a82c11d9261b323cdc27f}\label{group___p_a_c5_x_x_x___tile___power_manager_ga211d9256723a82c11d9261b323cdc27f}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!nVPINTM@{nVPINTM}}
+\index{nVPINTM@{nVPINTM}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{nVPINTM}{nVPINTM}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::n\+V\+P\+I\+N\+TM}
+
+V\+P\+L\+OW Interrupt Mask (0\+: mask, 1\+: not masked) ~\newline
+ 
+
+Definition at line 187 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gad7b7f7fb297a0969be277ca895f571de}\label{group___p_a_c5_x_x_x___tile___power_manager_gad7b7f7fb297a0969be277ca895f571de}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!nVPINTM@{nVPINTM}}
+\index{nVPINTM@{nVPINTM}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{nVPINTM}{nVPINTM}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+S\+T\+A\+T\+S\+E\+T\+::n\+V\+P\+I\+N\+TM}
+
+V\+P\+L\+OW Interrupt Mask (0\+: mask, 1\+: not masked) ~\newline
+ 
+
+Definition at line 187 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga5dc8ac9f7752617d98ccff6ec4bfb076}\label{group___p_a_c5_x_x_x___tile___power_manager_ga5dc8ac9f7752617d98ccff6ec4bfb076}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PBEN@{PBEN}}
+\index{PBEN@{PBEN}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PBEN}{PBEN}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+S\+T\+A\+T\+S\+E\+T\+::\+P\+B\+EN}
+
+Push Button Enable\+: 0 = disabled, 1 = enabled ~\newline
+ 
+
+Definition at line 184 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga2c719a4f3906a3fdb073c178b243dd8d}\label{group___p_a_c5_x_x_x___tile___power_manager_ga2c719a4f3906a3fdb073c178b243dd8d}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PBEN@{PBEN}}
+\index{PBEN@{PBEN}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PBEN}{PBEN}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::P\+B\+EN}
+
+Push Button Enable\+: 0 = disabled, 1 = enabled ~\newline
+ 
+
+Definition at line 184 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga361b2ba98f43f307988d67da73a58b8d}\label{group___p_a_c5_x_x_x___tile___power_manager_ga361b2ba98f43f307988d67da73a58b8d}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PWRMON@{PWRMON}}
+\index{PWRMON@{PWRMON}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PWRMON}{PWRMON}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+W\+R\+C\+T\+L\+::\+P\+W\+R\+M\+ON}
+
+Selects signal for A\+DC Monitoring ~\newline
+ 
+
+Definition at line 157 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gabf046ee261343f12714e5df37155a546}\label{group___p_a_c5_x_x_x___tile___power_manager_gabf046ee261343f12714e5df37155a546}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!PWRMON@{PWRMON}}
+\index{PWRMON@{PWRMON}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PWRMON}{PWRMON}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::P\+W\+R\+M\+ON}
+
+Selects signal for A\+DC Monitoring ~\newline
+ 
+
+Definition at line 157 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga111c0e76a6ace6fc5e07da58d13bc42f}\label{group___p_a_c5_x_x_x___tile___power_manager_ga111c0e76a6ace6fc5e07da58d13bc42f}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!SRST@{SRST}}
+\index{SRST@{SRST}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{SRST}{SRST}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t S\+C\+F\+G\+::\+S\+R\+ST}
+
+Soft Reset\+: Write 1 to assert n\+R\+ST ~\newline
+ 
+
+Definition at line 206 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga56843ffe05b945ed20b29551b65837f8}\label{group___p_a_c5_x_x_x___tile___power_manager_ga56843ffe05b945ed20b29551b65837f8}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!SRST@{SRST}}
+\index{SRST@{SRST}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{SRST}{SRST}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::S\+R\+ST}
+
+Soft Reset\+: Write 1 to assert n\+R\+ST ~\newline
+ 
+
+Definition at line 206 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gaedb090d65b5be57f01bb927a682c5742}\label{group___p_a_c5_x_x_x___tile___power_manager_gaedb090d65b5be57f01bb927a682c5742}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!TMPFLT@{TMPFLT}}
+\index{TMPFLT@{TMPFLT}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{TMPFLT}{TMPFLT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+W\+R\+S\+T\+A\+T\+::\+T\+M\+P\+F\+LT}
+
+Temperature error status (write 1 to clear) ~\newline
+ 
+
+Definition at line 172 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gab06e2d3c6ba89a138a678e19ab3c8fa2}\label{group___p_a_c5_x_x_x___tile___power_manager_gab06e2d3c6ba89a138a678e19ab3c8fa2}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!TMPFLT@{TMPFLT}}
+\index{TMPFLT@{TMPFLT}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{TMPFLT}{TMPFLT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::T\+M\+P\+F\+LT}
+
+Temperature error status (write 1 to clear) ~\newline
+ 
+
+Definition at line 172 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gacce8ee906c8ac5ed118eafdc76ae16c7}\label{group___p_a_c5_x_x_x___tile___power_manager_gacce8ee906c8ac5ed118eafdc76ae16c7}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!TWD@{TWD}}
+\index{TWD@{TWD}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{TWD}{TWD}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+S\+T\+A\+T\+S\+E\+T\+::\+T\+WD}
+
+Watchdog Timer (0 = 4s, 1 = 8s) ~\newline
+ 
+
+Definition at line 186 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga40073a40d4b142b6d3e8d31b6cf0d12b}\label{group___p_a_c5_x_x_x___tile___power_manager_ga40073a40d4b142b6d3e8d31b6cf0d12b}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!TWD@{TWD}}
+\index{TWD@{TWD}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{TWD}{TWD}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::T\+WD}
+
+Watchdog Timer (0 = 4s, 1 = 8s) ~\newline
+ 
+
+Definition at line 186 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gac3ca13e656be8a522f2d4d590239104b}\label{group___p_a_c5_x_x_x___tile___power_manager_gac3ca13e656be8a522f2d4d590239104b}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!UNLOCK@{UNLOCK}}
+\index{UNLOCK@{UNLOCK}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{UNLOCK}{UNLOCK}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+S\+T\+A\+T\+S\+E\+T\+::\+U\+N\+L\+O\+CK}
+
+Software Unlock. Write 1 to allow M\+CU to write \mbox{\hyperlink{union_s_c_f_g}{S\+C\+FG}}. ~\newline
+ 
+
+Definition at line 191 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga0d3db89e3fee0bb06606490c210e903b}\label{group___p_a_c5_x_x_x___tile___power_manager_ga0d3db89e3fee0bb06606490c210e903b}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!UNLOCK@{UNLOCK}}
+\index{UNLOCK@{UNLOCK}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{UNLOCK}{UNLOCK}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::U\+N\+L\+O\+CK}
+
+Software Unlock. Write 1 to allow M\+CU to write \mbox{\hyperlink{union_s_c_f_g}{S\+C\+FG}}. ~\newline
+ 
+
+Definition at line 191 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga848247e82dc215d37292d4ae325fe18b}\label{group___p_a_c5_x_x_x___tile___power_manager_ga848247e82dc215d37292d4ae325fe18b}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!VCLAMPSEL@{VCLAMPSEL}}
+\index{VCLAMPSEL@{VCLAMPSEL}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{VCLAMPSEL}{VCLAMPSEL}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::V\+C\+L\+A\+M\+P\+S\+EL}
+
+V\+HM Clamp Selection ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+V\+C\+L\+A\+M\+P\+S\+E\+L\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 204 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga6bc8d64384cdd1ac02e8894486950ba3}\label{group___p_a_c5_x_x_x___tile___power_manager_ga6bc8d64384cdd1ac02e8894486950ba3}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!VCLAMPSEL@{VCLAMPSEL}}
+\index{VCLAMPSEL@{VCLAMPSEL}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{VCLAMPSEL}{VCLAMPSEL}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t S\+C\+F\+G\+::\+V\+C\+L\+A\+M\+P\+S\+EL}
+
+V\+HM Clamp Selection ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+V\+C\+L\+A\+M\+P\+S\+E\+L\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 204 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga48e41ff02c829dbef991d083ae3c1b36}\label{group___p_a_c5_x_x_x___tile___power_manager_ga48e41ff02c829dbef991d083ae3c1b36}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!VCOREFLT@{VCOREFLT}}
+\index{VCOREFLT@{VCOREFLT}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{VCOREFLT}{VCOREFLT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+W\+R\+S\+T\+A\+T\+::\+V\+C\+O\+R\+E\+F\+LT}
+
+V\+C\+O\+RE error status (write 1 to clear) ~\newline
+ 
+
+Definition at line 168 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga04ef1e28bba751ddcff59df81b84b388}\label{group___p_a_c5_x_x_x___tile___power_manager_ga04ef1e28bba751ddcff59df81b84b388}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!VCOREFLT@{VCOREFLT}}
+\index{VCOREFLT@{VCOREFLT}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{VCOREFLT}{VCOREFLT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::V\+C\+O\+R\+E\+F\+LT}
+
+V\+C\+O\+RE error status (write 1 to clear) ~\newline
+ 
+
+Definition at line 168 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga79c3b44063327e0f359b639867e94ba3}\label{group___p_a_c5_x_x_x___tile___power_manager_ga79c3b44063327e0f359b639867e94ba3}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!VDDAFLT@{VDDAFLT}}
+\index{VDDAFLT@{VDDAFLT}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{VDDAFLT}{VDDAFLT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+W\+R\+S\+T\+A\+T\+::\+V\+D\+D\+A\+F\+LT}
+
+V\+D\+DA error status (write 1 to clear) ~\newline
+ 
+
+Definition at line 169 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga3af60d783b5c67b6d8a0f38c7fc02b68}\label{group___p_a_c5_x_x_x___tile___power_manager_ga3af60d783b5c67b6d8a0f38c7fc02b68}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!VDDAFLT@{VDDAFLT}}
+\index{VDDAFLT@{VDDAFLT}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{VDDAFLT}{VDDAFLT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::V\+D\+D\+A\+F\+LT}
+
+V\+D\+DA error status (write 1 to clear) ~\newline
+ 
+
+Definition at line 169 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga41a73f6995bc19f570d6dab20363db8e}\label{group___p_a_c5_x_x_x___tile___power_manager_ga41a73f6995bc19f570d6dab20363db8e}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!VDDIOFLT@{VDDIOFLT}}
+\index{VDDIOFLT@{VDDIOFLT}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{VDDIOFLT}{VDDIOFLT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::V\+D\+D\+I\+O\+F\+LT}
+
+V\+D\+D\+IO error status (write 1 to clear) ~\newline
+ 
+
+Definition at line 170 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gabe50ca02a6a231b05e333a4fb7b898ec}\label{group___p_a_c5_x_x_x___tile___power_manager_gabe50ca02a6a231b05e333a4fb7b898ec}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!VDDIOFLT@{VDDIOFLT}}
+\index{VDDIOFLT@{VDDIOFLT}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{VDDIOFLT}{VDDIOFLT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+W\+R\+S\+T\+A\+T\+::\+V\+D\+D\+I\+O\+F\+LT}
+
+V\+D\+D\+IO error status (write 1 to clear) ~\newline
+ 
+
+Definition at line 170 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga2c692a0f2dcff46227ddaad39894196b}\label{group___p_a_c5_x_x_x___tile___power_manager_ga2c692a0f2dcff46227ddaad39894196b}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!VPLOW@{VPLOW}}
+\index{VPLOW@{VPLOW}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{VPLOW}{VPLOW}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::V\+P\+L\+OW}
+
+VP Low status. Write 1 to clear when not masked. ~\newline
+ 
+
+Definition at line 189 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gae2a8a8bbe91929771bd10524c4ffc949}\label{group___p_a_c5_x_x_x___tile___power_manager_gae2a8a8bbe91929771bd10524c4ffc949}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!VPLOW@{VPLOW}}
+\index{VPLOW@{VPLOW}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{VPLOW}{VPLOW}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+S\+T\+A\+T\+S\+E\+T\+::\+V\+P\+L\+OW}
+
+VP Low status. Write 1 to clear when not masked. ~\newline
+ 
+
+Definition at line 189 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gaa5aa33dc83cb60f283893a5b8aece9dd}\label{group___p_a_c5_x_x_x___tile___power_manager_gaa5aa33dc83cb60f283893a5b8aece9dd}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!VSYSFLT@{VSYSFLT}}
+\index{VSYSFLT@{VSYSFLT}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{VSYSFLT}{VSYSFLT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+W\+R\+S\+T\+A\+T\+::\+V\+S\+Y\+S\+F\+LT}
+
+V\+S\+YS error status (write 1 to clear) ~\newline
+ 
+
+Definition at line 171 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga79d80033174ad93a19aee026c8bdcebe}\label{group___p_a_c5_x_x_x___tile___power_manager_ga79d80033174ad93a19aee026c8bdcebe}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!VSYSFLT@{VSYSFLT}}
+\index{VSYSFLT@{VSYSFLT}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{VSYSFLT}{VSYSFLT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::V\+S\+Y\+S\+F\+LT}
+
+V\+S\+YS error status (write 1 to clear) ~\newline
+ 
+
+Definition at line 171 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gae439170bad7fe9872884e609616d9184}\label{group___p_a_c5_x_x_x___tile___power_manager_gae439170bad7fe9872884e609616d9184}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!WDTEN@{WDTEN}}
+\index{WDTEN@{WDTEN}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{WDTEN}{WDTEN}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+S\+T\+A\+T\+S\+E\+T\+::\+W\+D\+T\+EN}
+
+Watchdog Timer Enable\+: 0 = disabled, 1 = enabled ~\newline
+ 
+
+Definition at line 185 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gaf242b67b5729e7d5be65ae8345cddbb7}\label{group___p_a_c5_x_x_x___tile___power_manager_gaf242b67b5729e7d5be65ae8345cddbb7}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!WDTEN@{WDTEN}}
+\index{WDTEN@{WDTEN}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{WDTEN}{WDTEN}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::W\+D\+T\+EN}
+
+Watchdog Timer Enable\+: 0 = disabled, 1 = enabled ~\newline
+ 
+
+Definition at line 185 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_gaf97f484c618ecd378bbd77ce6c096562}\label{group___p_a_c5_x_x_x___tile___power_manager_gaf97f484c618ecd378bbd77ce6c096562}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!WDTRSTAT@{WDTRSTAT}}
+\index{WDTRSTAT@{WDTRSTAT}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{WDTRSTAT}{WDTRSTAT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+W\+R\+S\+T\+A\+T\+::\+W\+D\+T\+R\+S\+T\+AT}
+
+Watchdog Timer Reset Status (write 1 to clear) ~\newline
+ 
+
+Definition at line 174 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga85d75f4ad22ede8d4370a34431bcf955}\label{group___p_a_c5_x_x_x___tile___power_manager_ga85d75f4ad22ede8d4370a34431bcf955}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!WDTRSTAT@{WDTRSTAT}}
+\index{WDTRSTAT@{WDTRSTAT}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{WDTRSTAT}{WDTRSTAT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::W\+D\+T\+R\+S\+T\+AT}
+
+Watchdog Timer Reset Status (write 1 to clear) ~\newline
+ 
+
+Definition at line 174 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga053dffe15c57629258ff7921b8ef649e}\label{group___p_a_c5_x_x_x___tile___power_manager_ga053dffe15c57629258ff7921b8ef649e}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!WUTIMER@{WUTIMER}}
+\index{WUTIMER@{WUTIMER}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{WUTIMER}{WUTIMER}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t P\+W\+R\+C\+T\+L\+::\+W\+U\+T\+I\+M\+ER}
+
+Wake-\/up timer ~\newline
+ 
+
+Definition at line 156 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___power_manager_ga449908d8d68a1a23f1a9dcec6f5d26a9}\label{group___p_a_c5_x_x_x___tile___power_manager_ga449908d8d68a1a23f1a9dcec6f5d26a9}} 
+\index{PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}!WUTIMER@{WUTIMER}}
+\index{WUTIMER@{WUTIMER}!PAC5XXX Power Manager Tile@{PAC5XXX Power Manager Tile}}
+\doxysubsubsection{\texorpdfstring{WUTIMER}{WUTIMER}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::W\+U\+T\+I\+M\+ER}
+
+Wake-\/up timer ~\newline
+ 
+
+Definition at line 156 of file pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.\+h.
+

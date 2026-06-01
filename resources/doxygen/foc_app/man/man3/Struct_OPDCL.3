@@ -1,0 +1,229 @@
+.TH "Struct_OPDCL" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Struct_OPDCL \- opd cl structure  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <opd_cl_struct\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBfix16_t\fP \fBSum_Iu_updated\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBSum_Iv_updated\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBSum_Iw_updated\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBphase_open_fault_last_sample_time_value\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBElectCycleCount_Temp\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBdiff1\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBerror_in_current_diff1\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBerror_in_current_diff2\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBSum_Iu_p\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBSum_Iv_p\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBSum_Iw_p\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBSum_Iu_m\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBSum_Iv_m\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBSum_Iw_m\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBIu_sq_q24\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBIv_sq_q24\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBIw_sq_q24\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBIu_sq_f_q24\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBIv_sq_f_q24\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBIw_sq_f_q24\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBfilter_coef_q10\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBopdcl_thd_percentage_q3\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBopd_count_threshold\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBopdcl_sampletime_systicks\fP"
+.br
+.ti -1c
+.RI "int32_t \fBopdcl_minspeed_radps_q16\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBflag_prev_spd_above_min\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBopdcl_current_thd\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBopdcl_current_thd_sq\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBopdcl_one_div_sample_time\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+opd cl structure 
+.PP
+Definition at line 27 of file opd_cl_struct\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "\fBfix16_t\fP Struct_OPDCL::diff1"
+
+.PP
+Definition at line 34 of file opd_cl_struct\&.h\&.
+.SS "uint32_t Struct_OPDCL::ElectCycleCount_Temp"
+
+.PP
+Definition at line 33 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::error_in_current_diff1"
+
+.PP
+Definition at line 35 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::error_in_current_diff2"
+
+.PP
+Definition at line 36 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::filter_coef_q10"
+
+.PP
+Definition at line 50 of file opd_cl_struct\&.h\&.
+.SS "uint32_t Struct_OPDCL::flag_prev_spd_above_min"
+
+.PP
+Definition at line 56 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::Iu_sq_f_q24"
+
+.PP
+Definition at line 47 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::Iu_sq_q24"
+
+.PP
+Definition at line 44 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::Iv_sq_f_q24"
+
+.PP
+Definition at line 48 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::Iv_sq_q24"
+
+.PP
+Definition at line 45 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::Iw_sq_f_q24"
+
+.PP
+Definition at line 49 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::Iw_sq_q24"
+
+.PP
+Definition at line 46 of file opd_cl_struct\&.h\&.
+.SS "uint32_t Struct_OPDCL::opd_count_threshold"
+
+.PP
+Definition at line 53 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::opdcl_current_thd"
+
+.PP
+Definition at line 57 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::opdcl_current_thd_sq"
+
+.PP
+Definition at line 58 of file opd_cl_struct\&.h\&.
+.SS "int32_t Struct_OPDCL::opdcl_minspeed_radps_q16"
+
+.PP
+Definition at line 55 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::opdcl_one_div_sample_time"
+
+.PP
+Definition at line 59 of file opd_cl_struct\&.h\&.
+.SS "uint32_t Struct_OPDCL::opdcl_sampletime_systicks"
+
+.PP
+Definition at line 54 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::opdcl_thd_percentage_q3"
+
+.PP
+Definition at line 52 of file opd_cl_struct\&.h\&.
+.SS "uint32_t Struct_OPDCL::phase_open_fault_last_sample_time_value"
+
+.PP
+Definition at line 32 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::Sum_Iu_m"
+
+.PP
+Definition at line 40 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::Sum_Iu_p"
+
+.PP
+Definition at line 37 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::Sum_Iu_updated"
+
+.PP
+Definition at line 29 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::Sum_Iv_m"
+
+.PP
+Definition at line 41 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::Sum_Iv_p"
+
+.PP
+Definition at line 38 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::Sum_Iv_updated"
+
+.PP
+Definition at line 30 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::Sum_Iw_m"
+
+.PP
+Definition at line 42 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::Sum_Iw_p"
+
+.PP
+Definition at line 39 of file opd_cl_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_OPDCL::Sum_Iw_updated"
+
+.PP
+Definition at line 31 of file opd_cl_struct\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

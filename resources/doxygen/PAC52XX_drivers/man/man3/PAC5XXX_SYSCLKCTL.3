@@ -1,0 +1,542 @@
+.TH "PAC5XXX_SYSCLKCTL" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_SYSCLKCTL \- PAC5XXX System and Clock Controller (SYSCLKCTL)
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPAC5XXX_SYSCLKCTL_TypeDef\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPLLCTL_INPUT_DIV\fP(x)   ((x \- 2) & 0x001F)"
+.br
+.ti -1c
+.RI "#define \fBPLLCTL_FDBK_DIV\fP(x)   ((x \- 2) & 0x01FF)"
+.br
+.ti -1c
+.RI "#define \fBPLLCTL_OUTPUT_DIV\fP(x)   ((x)     & 0x000F)"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCCSCTL_CLKIN_Type\fP { \fBCCSCTL_CLKIN_INTOSC\fP = 0, \fBCCSCTL_CLKIN_CLKREF\fP = 1, \fBCCSCTL_CLKIN_EXTCLK\fP = 2, \fBCCSCTL_CLKIN_XTAL\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBCCSCTL_HCLKDIV_Type\fP { \fBCCSCTL_HCLKDIV_DIV1\fP = 0, \fBCCSCTL_HCLKDIV_DIV2\fP = 1, \fBCCSCTL_HCLKDIV_DIV4\fP = 2, \fBCCSCTL_HCLKDIV_DIV8\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBCCSCTL_ACLKDIV_Type\fP { \fBCCSCTL_ACLKDIV_DIV1\fP = 0, \fBCCSCTL_ACLKDIV_DIV2\fP = 1, \fBCCSCTL_ACLKDIV_DIV4\fP = 2, \fBCCSCTL_ACLKDIV_DIV8\fP = 3, \fBCCSCTL_ACLKDIV_DIV16\fP = 4, \fBCCSCTL_ACLKDIV_DIV32\fP = 5, \fBCCSCTL_ACLKDIV_DIV64\fP = 6, \fBCCSCTL_ACLKDIV_DIV128\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBOSCCTL_FREQSEL_Type\fP { \fBOSCCTL_OSCP_28P17MHZ\fP = 0, \fBOSCCTL_OSCP_15P29MHZ\fP = 1, \fBOSCCTL_OSCP_10P68MHZ\fP = 2, \fBOSCCTL_OSCP_8P31MHZ\fP = 3 }"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::CLKIN\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::ACLKDIV\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::HCLKDIV\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::FCLK\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::CLKIN\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::ACLKDIV\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::HCLKDIV\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::FCLK\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_SYSCLKCTL_TypeDef::CCSCTL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::PLLEN\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::PLLINDIV\fP: 5"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::PLLFBDIV\fP: 9"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::PLLOUTDIV\fP: 4"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::__pad1__\fP: 11"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::PLLEN\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::PLLINDIV\fP: 5"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::PLLFBDIV\fP: 9"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::PLLOUTDIV\fP: 4"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::__pad1__\fP: 11"
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_SYSCLKCTL_TypeDef::PLLCTL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::OSCEN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::OSCP\fP: 2"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::__pad0__\fP: 29"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::OSCEN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::OSCP\fP: 2"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::__pad0__\fP: 29"
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_SYSCLKCTL_TypeDef::OSCCTL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::XTALEN\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::__pad0__\fP: 30"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::XTALEN\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SYSCLKCTL_TypeDef::__pad0__\fP: 30"
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_SYSCLKCTL_TypeDef::XTALCTL\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define PLLCTL_FDBK_DIV(x)   ((x \- 2) & 0x01FF)"
+PLL Feedback divider 
+.br
+ 
+.PP
+Definition at line 27 of file pac5xxx_SYS\&.h\&.
+.SS "#define PLLCTL_INPUT_DIV(x)   ((x \- 2) & 0x001F)"
+PLL Input divider 
+.br
+ 
+.PP
+Definition at line 26 of file pac5xxx_SYS\&.h\&.
+.SS "#define PLLCTL_OUTPUT_DIV(x)   ((x)     & 0x000F)"
+PLL Output divider 
+.br
+ 
+.PP
+Definition at line 28 of file pac5xxx_SYS\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBCCSCTL_ACLKDIV_Type\fP"
+CCSCTL ACLK Divider Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICCSCTL_ACLKDIV_DIV1 \fP\fP
+ACLK Divider: /1 
+.br
+ 
+.TP
+\fB\fICCSCTL_ACLKDIV_DIV2 \fP\fP
+ACLK Divider: /2 
+.br
+ 
+.TP
+\fB\fICCSCTL_ACLKDIV_DIV4 \fP\fP
+ACLK Divider: /4 
+.br
+ 
+.TP
+\fB\fICCSCTL_ACLKDIV_DIV8 \fP\fP
+ACLK Divider: /8 
+.br
+ 
+.TP
+\fB\fICCSCTL_ACLKDIV_DIV16 \fP\fP
+ACLK Divider: /16 
+.br
+ 
+.TP
+\fB\fICCSCTL_ACLKDIV_DIV32 \fP\fP
+ACLK Divider: /32 
+.br
+ 
+.TP
+\fB\fICCSCTL_ACLKDIV_DIV64 \fP\fP
+ACLK Divider: /64 
+.br
+ 
+.TP
+\fB\fICCSCTL_ACLKDIV_DIV128 \fP\fP
+ASCLK Divider: /128 
+.br
+ 
+.PP
+Definition at line 47 of file pac5xxx_SYS\&.h\&.
+.PP
+.nf
+47              {
+48   CCSCTL_ACLKDIV_DIV1 = 0,                  
+49   CCSCTL_ACLKDIV_DIV2 = 1,                  
+50   CCSCTL_ACLKDIV_DIV4 = 2,                  
+51   CCSCTL_ACLKDIV_DIV8 = 3,                  
+52   CCSCTL_ACLKDIV_DIV16 = 4,                 
+53   CCSCTL_ACLKDIV_DIV32 = 5,                 
+54   CCSCTL_ACLKDIV_DIV64 = 6,                 
+55   CCSCTL_ACLKDIV_DIV128 = 7                 
+56 } CCSCTL_ACLKDIV_Type;
+.fi
+.SS "enum \fBCCSCTL_CLKIN_Type\fP"
+CCSCTL Clock Source Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICCSCTL_CLKIN_INTOSC \fP\fP
+Input Clock Select: internal oscillator 
+.br
+ 
+.TP
+\fB\fICCSCTL_CLKIN_CLKREF \fP\fP
+Input Clock Select: CLKREF input 
+.br
+ 
+.TP
+\fB\fICCSCTL_CLKIN_EXTCLK \fP\fP
+Input Clock Select: EXTCLK input 
+.br
+ 
+.TP
+\fB\fICCSCTL_CLKIN_XTAL \fP\fP
+Input Clock Select: Crystal Driver 
+.br
+ 
+.PP
+Definition at line 31 of file pac5xxx_SYS\&.h\&.
+.PP
+.nf
+31              {
+32   CCSCTL_CLKIN_INTOSC = 0,                
+33   CCSCTL_CLKIN_CLKREF = 1,                
+34   CCSCTL_CLKIN_EXTCLK = 2,                
+35   CCSCTL_CLKIN_XTAL = 3                   
+36 } CCSCTL_CLKIN_Type;
+.fi
+.SS "enum \fBCCSCTL_HCLKDIV_Type\fP"
+CCSCTL HCLK Divider Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICCSCTL_HCLKDIV_DIV1 \fP\fP
+HCLK Input Divider (/1) 
+.br
+ 
+.TP
+\fB\fICCSCTL_HCLKDIV_DIV2 \fP\fP
+HCLK Input Divider (/2) 
+.br
+ 
+.TP
+\fB\fICCSCTL_HCLKDIV_DIV4 \fP\fP
+HCLK Input Divider (/4) 
+.br
+ 
+.TP
+\fB\fICCSCTL_HCLKDIV_DIV8 \fP\fP
+HCLK Input Divider (/8) 
+.br
+ 
+.PP
+Definition at line 39 of file pac5xxx_SYS\&.h\&.
+.PP
+.nf
+39              {
+40     CCSCTL_HCLKDIV_DIV1 = 0,                
+41     CCSCTL_HCLKDIV_DIV2 = 1,                
+42     CCSCTL_HCLKDIV_DIV4 = 2,                
+43     CCSCTL_HCLKDIV_DIV8 = 3,                
+44 } CCSCTL_HCLKDIV_Type;
+.fi
+.SS "enum \fBOSCCTL_FREQSEL_Type\fP"
+OSCCTL Frequency Select Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIOSCCTL_OSCP_28P17MHZ \fP\fP
+Oscillator Frequency: 28\&.17 MHz 
+.br
+ 
+.TP
+\fB\fIOSCCTL_OSCP_15P29MHZ \fP\fP
+Oscillator Frequency: 15\&.29 MHz 
+.br
+ 
+.TP
+\fB\fIOSCCTL_OSCP_10P68MHZ \fP\fP
+Oscillator Frequency: 10\&.68 MHz 
+.br
+ 
+.TP
+\fB\fIOSCCTL_OSCP_8P31MHZ \fP\fP
+Oscillator Frequency: 8\&.31 MHz 
+.br
+ 
+.PP
+Definition at line 59 of file pac5xxx_SYS\&.h\&.
+.PP
+.nf
+59              {
+60   OSCCTL_OSCP_28P17MHZ = 0,                
+61   OSCCTL_OSCP_15P29MHZ = 1,                
+62   OSCCTL_OSCP_10P68MHZ = 2,                
+63   OSCCTL_OSCP_8P31MHZ = 3                  
+64 } OSCCTL_FREQSEL_Type;
+.fi
+.SH "Variable Documentation"
+.PP 
+.SS "uint32_t PAC5XXX_SYSCLKCTL_TypeDef::__pad0__"
+
+.PP
+Definition at line 75 of file pac5xxx_SYS\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 75 of file pac5xxx_SYS\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 81 of file pac5xxx_SYS\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 92 of file pac5xxx_SYS\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 98 of file pac5xxx_SYS\&.h\&.
+.SS "uint32_t PAC5XXX_SYSCLKCTL_TypeDef::__pad1__"
+
+.PP
+Definition at line 85 of file pac5xxx_SYS\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 85 of file pac5xxx_SYS\&.h\&.
+.SS "__IO { \&.\&.\&. } ::ACLKDIV"
+ACLK Divider 
+.br
+ 
+.PP
+Definition at line 72 of file pac5xxx_SYS\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SYSCLKCTL_TypeDef::ACLKDIV"
+ACLK Divider 
+.br
+ 
+.PP
+Definition at line 72 of file pac5xxx_SYS\&.h\&.
+.SS "struct { \&.\&.\&. }  PAC5XXX_SYSCLKCTL_TypeDef::CCSCTL"
+< CCSCTL: Offset 0x0000: Clock Control System Configuration Register 
+.br
+ PLLCTL: Offset 0x0004: PLL Control Register 
+.br
+ 
+.SS "__IO { \&.\&.\&. } ::CLKIN"
+Input Clock Select 
+.br
+ 
+.PP
+Definition at line 71 of file pac5xxx_SYS\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SYSCLKCTL_TypeDef::CLKIN"
+Input Clock Select 
+.br
+ 
+.PP
+Definition at line 71 of file pac5xxx_SYS\&.h\&.
+.SS "__IO { \&.\&.\&. } ::FCLK"
+FCLK input select (0: FRCLK, 1: PLL) 
+.br
+ 
+.PP
+Definition at line 74 of file pac5xxx_SYS\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SYSCLKCTL_TypeDef::FCLK"
+FCLK input select (0: FRCLK, 1: PLL) 
+.br
+ 
+.PP
+Definition at line 74 of file pac5xxx_SYS\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SYSCLKCTL_TypeDef::HCLKDIV"
+HCLK Divider 
+.br
+ 
+.PP
+Definition at line 73 of file pac5xxx_SYS\&.h\&.
+.SS "__IO { \&.\&.\&. } ::HCLKDIV"
+HCLK Divider 
+.br
+ 
+.PP
+Definition at line 73 of file pac5xxx_SYS\&.h\&.
+.SS "struct { \&.\&.\&. }  PAC5XXX_SYSCLKCTL_TypeDef::OSCCTL"
+XTALCTL: Offset 0x000C: Crystal Oscillator Control Register 
+.br
+ 
+.SS "__IO { \&.\&.\&. } ::OSCEN"
+Enable Oscillator 
+.br
+ 
+.PP
+Definition at line 90 of file pac5xxx_SYS\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SYSCLKCTL_TypeDef::OSCEN"
+Enable Oscillator 
+.br
+ 
+.PP
+Definition at line 90 of file pac5xxx_SYS\&.h\&.
+.SS "__IO { \&.\&.\&. } ::OSCP"
+Oscillator Frequency Setting 
+.br
+ 
+.PP
+Definition at line 91 of file pac5xxx_SYS\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SYSCLKCTL_TypeDef::OSCP"
+Oscillator Frequency Setting 
+.br
+ 
+.PP
+Definition at line 91 of file pac5xxx_SYS\&.h\&.
+.SS "struct { \&.\&.\&. }  PAC5XXX_SYSCLKCTL_TypeDef::PLLCTL"
+OSCCTL: Offset 0x0008: Free-Running Oscillator Control Register 
+.br
+ 
+.SS "\fB__IO\fP uint32_t PAC5XXX_SYSCLKCTL_TypeDef::PLLEN"
+PLL enable 
+.br
+ 
+.PP
+Definition at line 80 of file pac5xxx_SYS\&.h\&.
+.SS "__IO { \&.\&.\&. } ::PLLEN"
+PLL enable 
+.br
+ 
+.PP
+Definition at line 80 of file pac5xxx_SYS\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SYSCLKCTL_TypeDef::PLLFBDIV"
+PLL feedback divider 
+.br
+ 
+.PP
+Definition at line 83 of file pac5xxx_SYS\&.h\&.
+.SS "__IO { \&.\&.\&. } ::PLLFBDIV"
+PLL feedback divider 
+.br
+ 
+.PP
+Definition at line 83 of file pac5xxx_SYS\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SYSCLKCTL_TypeDef::PLLINDIV"
+PLL input divider 
+.br
+ 
+.PP
+Definition at line 82 of file pac5xxx_SYS\&.h\&.
+.SS "__IO { \&.\&.\&. } ::PLLINDIV"
+PLL input divider 
+.br
+ 
+.PP
+Definition at line 82 of file pac5xxx_SYS\&.h\&.
+.SS "__IO { \&.\&.\&. } ::PLLOUTDIV"
+PLL output divider 
+.br
+ 
+.PP
+Definition at line 84 of file pac5xxx_SYS\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SYSCLKCTL_TypeDef::PLLOUTDIV"
+PLL output divider 
+.br
+ 
+.PP
+Definition at line 84 of file pac5xxx_SYS\&.h\&.
+.SS "struct { \&.\&.\&. }  PAC5XXX_SYSCLKCTL_TypeDef::XTALCTL"
+
+.SS "__IO { \&.\&.\&. } ::XTALEN"
+Enable XTAL driver 
+.br
+ 
+.PP
+Definition at line 97 of file pac5xxx_SYS\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SYSCLKCTL_TypeDef::XTALEN"
+Enable XTAL driver 
+.br
+ 
+.PP
+Definition at line 97 of file pac5xxx_SYS\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

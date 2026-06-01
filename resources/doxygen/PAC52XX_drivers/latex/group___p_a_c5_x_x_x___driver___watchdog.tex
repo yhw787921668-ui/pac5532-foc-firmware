@@ -1,0 +1,200 @@
+\hypertarget{group___p_a_c5_x_x_x___driver___watchdog}{}\doxysection{P\+A\+C5\+X\+XX Watchdog Timer Driver Functions}
+\label{group___p_a_c5_x_x_x___driver___watchdog}\index{PAC5XXX Watchdog Timer Driver Functions@{PAC5XXX Watchdog Timer Driver Functions}}
+Collaboration diagram for P\+A\+C5\+X\+XX Watchdog Timer Driver Functions\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___p_a_c5_x_x_x___driver___watchdog}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_gad9dba4faf8e3fc1c60cfff3dcc097506}{R\+A\+M\+F\+U\+N\+C\+\_\+\+W\+A\+T\+C\+H\+D\+OG}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_gad9dba4faf8e3fc1c60cfff3dcc097506}{R\+A\+M\+F\+U\+N\+C\+\_\+\+W\+A\+T\+C\+H\+D\+OG}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_ga54e4deeb313f2bef280093a108da0233}{pac5xxx\+\_\+watchdog\+\_\+config}} (int ie\+\_\+en, int por\+\_\+en, uint32\+\_\+t cdv)
+\begin{DoxyCompactList}\small\item\em This function configures watchdog timer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_gad9dba4faf8e3fc1c60cfff3dcc097506}{R\+A\+M\+F\+U\+N\+C\+\_\+\+W\+A\+T\+C\+H\+D\+OG}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_ga61384954569780e3a18e825f44b788bd}{pac5xxx\+\_\+watchdog\+\_\+config\+\_\+clock}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gad192221f140f88fed295ffada6aa9266}{W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+Type}} clock\+\_\+select, \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gaa00713baf2d47e6d0b8d85bf4acda187}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+Type}} prescale)
+\begin{DoxyCompactList}\small\item\em This function configures watchdog timer clock input and pre-\/scaler. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_gad9dba4faf8e3fc1c60cfff3dcc097506}{R\+A\+M\+F\+U\+N\+C\+\_\+\+W\+A\+T\+C\+H\+D\+OG}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_ga4b6cb4093e43bbd324fe417f9a86c645}{pac5xxx\+\_\+watchdog\+\_\+reset}} (void)
+\begin{DoxyCompactList}\small\item\em This function resets the watchdog timer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_gad9dba4faf8e3fc1c60cfff3dcc097506}{R\+A\+M\+F\+U\+N\+C\+\_\+\+W\+A\+T\+C\+H\+D\+OG}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_gaa0cd79ff1220d24efdfd430dff3a362f}{pac5xxx\+\_\+watchdog\+\_\+clear\+\_\+if}} (void)
+\begin{DoxyCompactList}\small\item\em This function clears the watchdog timer interrupt flag (for the interval timer) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___watchdog_gad9dba4faf8e3fc1c60cfff3dcc097506}\label{group___p_a_c5_x_x_x___driver___watchdog_gad9dba4faf8e3fc1c60cfff3dcc097506}} 
+\index{PAC5XXX Watchdog Timer Driver Functions@{PAC5XXX Watchdog Timer Driver Functions}!RAMFUNC\_WATCHDOG@{RAMFUNC\_WATCHDOG}}
+\index{RAMFUNC\_WATCHDOG@{RAMFUNC\_WATCHDOG}!PAC5XXX Watchdog Timer Driver Functions@{PAC5XXX Watchdog Timer Driver Functions}}
+\doxysubsubsection{\texorpdfstring{RAMFUNC\_WATCHDOG}{RAMFUNC\_WATCHDOG}}
+{\footnotesize\ttfamily \#define R\+A\+M\+F\+U\+N\+C\+\_\+\+W\+A\+T\+C\+H\+D\+OG}
+
+
+
+Definition at line 31 of file pac5xxx\+\_\+driver\+\_\+watchdog.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___watchdog_gaa0cd79ff1220d24efdfd430dff3a362f}\label{group___p_a_c5_x_x_x___driver___watchdog_gaa0cd79ff1220d24efdfd430dff3a362f}} 
+\index{PAC5XXX Watchdog Timer Driver Functions@{PAC5XXX Watchdog Timer Driver Functions}!pac5xxx\_watchdog\_clear\_if@{pac5xxx\_watchdog\_clear\_if}}
+\index{pac5xxx\_watchdog\_clear\_if@{pac5xxx\_watchdog\_clear\_if}!PAC5XXX Watchdog Timer Driver Functions@{PAC5XXX Watchdog Timer Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_watchdog\_clear\_if()}{pac5xxx\_watchdog\_clear\_if()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_gad9dba4faf8e3fc1c60cfff3dcc097506}{R\+A\+M\+F\+U\+N\+C\+\_\+\+W\+A\+T\+C\+H\+D\+OG}} void pac5xxx\+\_\+watchdog\+\_\+clear\+\_\+if (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function clears the watchdog timer interrupt flag (for the interval timer) 
+
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+watchdog\+\_\+clear\+\_\+if.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga1cf05fa2cb59fa6a4a00e56bbf3f374b}{WDT\_WAIT\_WRITE\_BLOCK}};   \textcolor{comment}{// Blocking wait for register write}}
+\DoxyCodeLine{23   }
+\DoxyCodeLine{24   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga3082175172de9fed5f1aa8dee41c37b5}{PAC5XXX\_WDT}}-\/>WDTCTL = (\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga3082175172de9fed5f1aa8dee41c37b5}{PAC5XXX\_WDT}}-\/>WDTCTL \& 0x0000FFFF) | (\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac93dee4d007d0961db514e75f6235c1a}{WDTCTL\_PASS\_WRITE}} | \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga5d7376885230bd7b685788dc49491db1}{WDTCTL\_IF\_MASK}} | \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga31fcf4b246934e1fd4763456a3d75188}{WDTCTL\_RST\_VAL}});}
+\DoxyCodeLine{25 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+W\+DT, W\+D\+T\+\_\+\+W\+A\+I\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+B\+L\+O\+CK, W\+D\+T\+C\+T\+L\+\_\+\+I\+F\+\_\+\+M\+A\+SK, W\+D\+T\+C\+T\+L\+\_\+\+P\+A\+S\+S\+\_\+\+W\+R\+I\+TE, and W\+D\+T\+C\+T\+L\+\_\+\+R\+S\+T\+\_\+\+V\+AL.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___watchdog_ga54e4deeb313f2bef280093a108da0233}\label{group___p_a_c5_x_x_x___driver___watchdog_ga54e4deeb313f2bef280093a108da0233}} 
+\index{PAC5XXX Watchdog Timer Driver Functions@{PAC5XXX Watchdog Timer Driver Functions}!pac5xxx\_watchdog\_config@{pac5xxx\_watchdog\_config}}
+\index{pac5xxx\_watchdog\_config@{pac5xxx\_watchdog\_config}!PAC5XXX Watchdog Timer Driver Functions@{PAC5XXX Watchdog Timer Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_watchdog\_config()}{pac5xxx\_watchdog\_config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_gad9dba4faf8e3fc1c60cfff3dcc097506}{R\+A\+M\+F\+U\+N\+C\+\_\+\+W\+A\+T\+C\+H\+D\+OG}} void pac5xxx\+\_\+watchdog\+\_\+config (\begin{DoxyParamCaption}\item[{int}]{ie\+\_\+en,  }\item[{int}]{por\+\_\+en,  }\item[{uint32\+\_\+t}]{cdv }\end{DoxyParamCaption})}
+
+
+
+This function configures watchdog timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ie\+\_\+en} & Set to non-\/zero to enable Watchdog Timer interval interrupt \\
+\hline
+{\em por\+\_\+en} & Set to non-\/zero to enable Watchdog Timer Power-\/on Reset \\
+\hline
+{\em cdv} & The Watchdog timer count-\/down value in clock ticks \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+watchdog\+\_\+config.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22   \textcolor{comment}{// Read CTL word, clear IE, IF and POREN bits, set write password and correct reset value}}
+\DoxyCodeLine{23   uint32\_t word = (\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga3082175172de9fed5f1aa8dee41c37b5}{PAC5XXX\_WDT}}-\/>WDTCTL \& 0x00FFFFC0) | \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac93dee4d007d0961db514e75f6235c1a}{WDTCTL\_PASS\_WRITE}} | \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga31fcf4b246934e1fd4763456a3d75188}{WDTCTL\_RST\_VAL}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga1cf05fa2cb59fa6a4a00e56bbf3f374b}{WDT\_WAIT\_WRITE\_BLOCK}};   \textcolor{comment}{// Blocking wait for register write}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga3082175172de9fed5f1aa8dee41c37b5}{PAC5XXX\_WDT}}-\/>WDTCDV = (\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac93dee4d007d0961db514e75f6235c1a}{WDTCTL\_PASS\_WRITE}} | (cdv \& 0x00FFFFFF));}
+\DoxyCodeLine{28   }
+\DoxyCodeLine{29   \textcolor{keywordflow}{if} (ie\_en)}
+\DoxyCodeLine{30     word |= \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga7b0bfe4b5ce68759589c03668ff532aa}{WDTCTL\_IE\_MASK}};}
+\DoxyCodeLine{31   }
+\DoxyCodeLine{32   \textcolor{keywordflow}{if} (por\_en)}
+\DoxyCodeLine{33     word |= \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac835dd80b8b187fc6ee9abe110bcfec2}{WDTCTL\_POREN\_MASK}};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga1cf05fa2cb59fa6a4a00e56bbf3f374b}{WDT\_WAIT\_WRITE\_BLOCK}};   \textcolor{comment}{// Blocking wait for register write}}
+\DoxyCodeLine{36   }
+\DoxyCodeLine{37   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga3082175172de9fed5f1aa8dee41c37b5}{PAC5XXX\_WDT}}-\/>WDTCTL = word;}
+\DoxyCodeLine{38   }
+\DoxyCodeLine{39 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+W\+DT, W\+D\+T\+\_\+\+W\+A\+I\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+B\+L\+O\+CK, W\+D\+T\+C\+T\+L\+\_\+\+I\+E\+\_\+\+M\+A\+SK, W\+D\+T\+C\+T\+L\+\_\+\+P\+A\+S\+S\+\_\+\+W\+R\+I\+TE, W\+D\+T\+C\+T\+L\+\_\+\+P\+O\+R\+E\+N\+\_\+\+M\+A\+SK, and W\+D\+T\+C\+T\+L\+\_\+\+R\+S\+T\+\_\+\+V\+AL.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___watchdog_ga61384954569780e3a18e825f44b788bd}\label{group___p_a_c5_x_x_x___driver___watchdog_ga61384954569780e3a18e825f44b788bd}} 
+\index{PAC5XXX Watchdog Timer Driver Functions@{PAC5XXX Watchdog Timer Driver Functions}!pac5xxx\_watchdog\_config\_clock@{pac5xxx\_watchdog\_config\_clock}}
+\index{pac5xxx\_watchdog\_config\_clock@{pac5xxx\_watchdog\_config\_clock}!PAC5XXX Watchdog Timer Driver Functions@{PAC5XXX Watchdog Timer Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_watchdog\_config\_clock()}{pac5xxx\_watchdog\_config\_clock()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_gad9dba4faf8e3fc1c60cfff3dcc097506}{R\+A\+M\+F\+U\+N\+C\+\_\+\+W\+A\+T\+C\+H\+D\+OG}} void pac5xxx\+\_\+watchdog\+\_\+config\+\_\+clock (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gad192221f140f88fed295ffada6aa9266}{W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+Type}}}]{clock\+\_\+select,  }\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gaa00713baf2d47e6d0b8d85bf4acda187}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+Type}}}]{prescale }\end{DoxyParamCaption})}
+
+
+
+This function configures watchdog timer clock input and pre-\/scaler. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clock\+\_\+select} & Clock input selection from P\+A\+C5\+X\+X\+X\+\_\+\+W\+DT peripheral file \\
+\hline
+{\em prescale} & Input clock pre-\/scaler from P\+A\+C5\+X\+X\+X\+\_\+\+W\+DT peripheral file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+watchdog\+\_\+config\+\_\+clock.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22   \textcolor{comment}{// Read CTL word, clear CLKSEL and PS bits, set write password and correct reset value}}
+\DoxyCodeLine{23   uint32\_t word = (\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga3082175172de9fed5f1aa8dee41c37b5}{PAC5XXX\_WDT}}-\/>WDTCTL \& 0x00FFF838) | \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac93dee4d007d0961db514e75f6235c1a}{WDTCTL\_PASS\_WRITE}} | \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga31fcf4b246934e1fd4763456a3d75188}{WDTCTL\_RST\_VAL}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25   word |= ((clock\_select << \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga6eb8fc00debe5bb6b92b444703356037}{WDTCTL\_CLKSEL\_SHIFT}}) | (prescale << \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gaf2e5f09e84b6fe2acbb408655ed701ac}{WDTCTL\_PS\_SHIFT}})); \textcolor{comment}{// Add clock select and pre-\/scale bits}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gaddd3bf6bfb23992ffec34c573aee7c06}{RTC\_WAIT\_WRITE\_BLOCK}};   \textcolor{comment}{// Blocking wait for register write}}
+\DoxyCodeLine{28   }
+\DoxyCodeLine{29   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga3082175172de9fed5f1aa8dee41c37b5}{PAC5XXX\_WDT}}-\/>WDTCTL = word;}
+\DoxyCodeLine{30 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+W\+DT, R\+T\+C\+\_\+\+W\+A\+I\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+B\+L\+O\+CK, W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+S\+H\+I\+FT, W\+D\+T\+C\+T\+L\+\_\+\+P\+A\+S\+S\+\_\+\+W\+R\+I\+TE, W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+S\+H\+I\+FT, and W\+D\+T\+C\+T\+L\+\_\+\+R\+S\+T\+\_\+\+V\+AL.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___watchdog_ga4b6cb4093e43bbd324fe417f9a86c645}\label{group___p_a_c5_x_x_x___driver___watchdog_ga4b6cb4093e43bbd324fe417f9a86c645}} 
+\index{PAC5XXX Watchdog Timer Driver Functions@{PAC5XXX Watchdog Timer Driver Functions}!pac5xxx\_watchdog\_reset@{pac5xxx\_watchdog\_reset}}
+\index{pac5xxx\_watchdog\_reset@{pac5xxx\_watchdog\_reset}!PAC5XXX Watchdog Timer Driver Functions@{PAC5XXX Watchdog Timer Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_watchdog\_reset()}{pac5xxx\_watchdog\_reset()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_gad9dba4faf8e3fc1c60cfff3dcc097506}{R\+A\+M\+F\+U\+N\+C\+\_\+\+W\+A\+T\+C\+H\+D\+OG}} void pac5xxx\+\_\+watchdog\+\_\+reset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function resets the watchdog timer. 
+
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+watchdog\+\_\+reset.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga1cf05fa2cb59fa6a4a00e56bbf3f374b}{WDT\_WAIT\_WRITE\_BLOCK}};   \textcolor{comment}{// Blocking wait for register write}}
+\DoxyCodeLine{23   }
+\DoxyCodeLine{24   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga3082175172de9fed5f1aa8dee41c37b5}{PAC5XXX\_WDT}}-\/>WDTCTL = (\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga3082175172de9fed5f1aa8dee41c37b5}{PAC5XXX\_WDT}}-\/>WDTCTL \& 0x00FFFFF8) | (\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac93dee4d007d0961db514e75f6235c1a}{WDTCTL\_PASS\_WRITE}} | \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga31fcf4b246934e1fd4763456a3d75188}{WDTCTL\_RST\_VAL}});}
+\DoxyCodeLine{25 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+W\+DT, W\+D\+T\+\_\+\+W\+A\+I\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+B\+L\+O\+CK, W\+D\+T\+C\+T\+L\+\_\+\+P\+A\+S\+S\+\_\+\+W\+R\+I\+TE, and W\+D\+T\+C\+T\+L\+\_\+\+R\+S\+T\+\_\+\+V\+AL.
+

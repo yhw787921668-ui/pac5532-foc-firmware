@@ -1,0 +1,596 @@
+\hypertarget{group___p_a_c5_x_x_x___driver___a_d_c}{}\doxysection{P\+A\+C5\+X\+XX A\+DC Driver Functions}
+\label{group___p_a_c5_x_x_x___driver___a_d_c}\index{PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}}
+Collaboration diagram for P\+A\+C5\+X\+XX A\+DC Driver Functions\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{group___p_a_c5_x_x_x___driver___a_d_c}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_gaacf7582c951e3c5b24274d13a4b7b812}{pac5xxx\+\_\+adc\+\_\+emux\+\_\+config}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga361f337aa9786cd9efbf788110413374}{A\+D\+C\+\_\+\+E\+M\+U\+X\+\_\+\+C\+T\+L\+\_\+\+Type}} control\+\_\+type, \mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gac642368fda8bebd30f08f35f30a2cfe1}{A\+D\+C\+\_\+\+E\+M\+U\+X\+\_\+\+D\+I\+V\+\_\+\+Type}} divider)
+\begin{DoxyCompactList}\small\item\em This function configures the A\+DC\textquotesingle{}s external M\+UX. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga6998202f397f1b77b36a76eca8a3d792}{pac5xxx\+\_\+adc\+\_\+config}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gac24a2a08c6600f7b70f65179cdbb0b02}{A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+O\+D\+E\+\_\+\+Type}} adc\+\_\+mode, \mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga07bf14acd828bf9466746c15c6379d55}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+Type}} clock\+\_\+divider, int repeat)
+\begin{DoxyCompactList}\small\item\em This function configures the A\+DC. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga07d2e742c295e9310a6a43ef109e272c}{pac5xxx\+\_\+adc\+\_\+config\+\_\+io}} (uint8\+\_\+t channel\+\_\+mask)
+\begin{DoxyCompactList}\small\item\em This function configures the IO ports on the device for the given A\+DC channels. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga75617cb8e17879fcb4414d2164359757}{pac5xxx\+\_\+adc\+\_\+config\+\_\+emux\+\_\+io}} (void)
+\begin{DoxyCompactList}\small\item\em This function configures the E\+M\+UX IO ports on the device for E\+M\+UX output. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga683ab4b39e023c7ace9f6d736367604a}{pac5xxx\+\_\+adc\+\_\+as0\+\_\+config\+\_\+timer}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gabf70cf9a03b60f085f85b4b042187bba}{A\+D\+C\+C\+T\+L\+X\+\_\+\+S\+D\+E\+P\+T\+H\+\_\+\+Type}} sample\+\_\+depth, \mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga61f6c6f71544d6968f2332dcc5da1605}{A\+D\+C\+C\+T\+L\+X\+\_\+\+T\+R\+I\+G\+T\+I\+M\+E\+R\+\_\+\+Type}} trig\+\_\+timer\+\_\+source)
+\begin{DoxyCompactList}\small\item\em This function configures the A\+S\+C0 unit for use with a timer trigger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga924db554f22ac0adbc260fa661852ecc}{pac5xxx\+\_\+adc\+\_\+as0\+\_\+config\+\_\+pwm}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gabf70cf9a03b60f085f85b4b042187bba}{A\+D\+C\+C\+T\+L\+X\+\_\+\+S\+D\+E\+P\+T\+H\+\_\+\+Type}} sample\+\_\+depth, \mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga9b4bb73c1c964c99c7f9a84181b67d3d}{A\+D\+C\+C\+T\+L\+X\+\_\+\+T\+R\+I\+G\+E\+D\+G\+E\+\_\+\+Type}} trig\+\_\+edge, \mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gac2f5b2936deaed748df0c527523288c1}{A\+D\+C\+C\+T\+L\+X\+\_\+\+T\+R\+I\+G\+P\+W\+M\+\_\+\+Type}} trig\+\_\+pwm\+\_\+source)
+\begin{DoxyCompactList}\small\item\em This function configures the A\+S\+C0 unit for use with a P\+WM trigger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga4e5d4a3b49c8b1468217ef8ee0dca1d3}{pac5xxx\+\_\+adc\+\_\+as1\+\_\+config\+\_\+timer}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gabf70cf9a03b60f085f85b4b042187bba}{A\+D\+C\+C\+T\+L\+X\+\_\+\+S\+D\+E\+P\+T\+H\+\_\+\+Type}} sample\+\_\+depth, \mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga61f6c6f71544d6968f2332dcc5da1605}{A\+D\+C\+C\+T\+L\+X\+\_\+\+T\+R\+I\+G\+T\+I\+M\+E\+R\+\_\+\+Type}} trig\+\_\+timer\+\_\+source)
+\begin{DoxyCompactList}\small\item\em This function configures the A\+S\+C1 unit for use with a timer trigger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga5c7a6f5e8de49fafa00ac009f204db3b}{pac5xxx\+\_\+adc\+\_\+as1\+\_\+config\+\_\+pwm}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gabf70cf9a03b60f085f85b4b042187bba}{A\+D\+C\+C\+T\+L\+X\+\_\+\+S\+D\+E\+P\+T\+H\+\_\+\+Type}} sample\+\_\+depth, \mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga9b4bb73c1c964c99c7f9a84181b67d3d}{A\+D\+C\+C\+T\+L\+X\+\_\+\+T\+R\+I\+G\+E\+D\+G\+E\+\_\+\+Type}} trig\+\_\+edge, \mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gac2f5b2936deaed748df0c527523288c1}{A\+D\+C\+C\+T\+L\+X\+\_\+\+T\+R\+I\+G\+P\+W\+M\+\_\+\+Type}} trig\+\_\+pwm\+\_\+source)
+\begin{DoxyCompactList}\small\item\em This function configures the A\+S\+C1 unit for use with a P\+WM trigger. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga7ede851e816eeb5bb2d86844611a0745}{pac5xxx\+\_\+adc\+\_\+as0\+\_\+sequence\+\_\+config}} (int seq\+\_\+num, \mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga6c01eb9893be5195d924a9f1fab10245}{A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+Type}} mux\+\_\+select, \mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gab511d73c7e98967dc3aa23de027fd144}{A\+S\+S\+E\+Q\+\_\+\+M\+S\+P\+I\+\_\+\+Type}} emux\+\_\+control, uint8\+\_\+t emux\+\_\+data, \mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga974e52f42a6cee6bc4ea755d9780ff2e}{A\+S\+S\+E\+Q\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+Type}} seq\+\_\+delay)
+\begin{DoxyCompactList}\small\item\em This function configures the given sequence number for the A\+S\+C0 unit. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_gaae20cb4ec9d13e95560d1a360056aa82}{pac5xxx\+\_\+adc\+\_\+as1\+\_\+sequence\+\_\+config}} (int seq\+\_\+num, \mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga6c01eb9893be5195d924a9f1fab10245}{A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+Type}} mux\+\_\+select, \mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gab511d73c7e98967dc3aa23de027fd144}{A\+S\+S\+E\+Q\+\_\+\+M\+S\+P\+I\+\_\+\+Type}} emux\+\_\+control, uint8\+\_\+t emux\+\_\+data, \mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga974e52f42a6cee6bc4ea755d9780ff2e}{A\+S\+S\+E\+Q\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+Type}} seq\+\_\+delay)
+\begin{DoxyCompactList}\small\item\em This function configures the given sequence number for the A\+S\+C1 unit. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} uint16\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga59f2dbfcc64f8e83f6115ac6b53fadac}{pac5xxx\+\_\+adc\+\_\+as0\+\_\+seq\+\_\+get\+\_\+result}} (int seq\+\_\+num)
+\begin{DoxyCompactList}\small\item\em This function returns the A\+DC result for the given sequence number for the A\+S\+C0 unit. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} uint16\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_gabbc48e31a454fc5e144464973f0233c3}{pac5xxx\+\_\+adc\+\_\+as1\+\_\+seq\+\_\+get\+\_\+result}} (int seq\+\_\+num)
+\begin{DoxyCompactList}\small\item\em This function returns the A\+DC result for the given sequence number for the A\+S\+C1 unit. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}\label{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}} 
+\index{PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}!RAMFUNC\_ADC@{RAMFUNC\_ADC}}
+\index{RAMFUNC\_ADC@{RAMFUNC\_ADC}!PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}}
+\doxysubsubsection{\texorpdfstring{RAMFUNC\_ADC}{RAMFUNC\_ADC}}
+{\footnotesize\ttfamily \#define R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}
+
+
+
+Definition at line 31 of file pac5xxx\+\_\+driver\+\_\+adc.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_ga924db554f22ac0adbc260fa661852ecc}\label{group___p_a_c5_x_x_x___driver___a_d_c_ga924db554f22ac0adbc260fa661852ecc}} 
+\index{PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}!pac5xxx\_adc\_as0\_config\_pwm@{pac5xxx\_adc\_as0\_config\_pwm}}
+\index{pac5xxx\_adc\_as0\_config\_pwm@{pac5xxx\_adc\_as0\_config\_pwm}!PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_adc\_as0\_config\_pwm()}{pac5xxx\_adc\_as0\_config\_pwm()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void pac5xxx\+\_\+adc\+\_\+as0\+\_\+config\+\_\+pwm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gabf70cf9a03b60f085f85b4b042187bba}{A\+D\+C\+C\+T\+L\+X\+\_\+\+S\+D\+E\+P\+T\+H\+\_\+\+Type}}}]{sample\+\_\+depth,  }\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga9b4bb73c1c964c99c7f9a84181b67d3d}{A\+D\+C\+C\+T\+L\+X\+\_\+\+T\+R\+I\+G\+E\+D\+G\+E\+\_\+\+Type}}}]{trig\+\_\+edge,  }\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gac2f5b2936deaed748df0c527523288c1}{A\+D\+C\+C\+T\+L\+X\+\_\+\+T\+R\+I\+G\+P\+W\+M\+\_\+\+Type}}}]{trig\+\_\+pwm\+\_\+source }\end{DoxyParamCaption})}
+
+
+
+This function configures the A\+S\+C0 unit for use with a P\+WM trigger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample\+\_\+depth} & The sample depth from {\itshape A\+D\+C\+C\+T\+L\+X\+\_\+\+S\+D\+E\+P\+T\+H\+\_\+\+Type} \\
+\hline
+{\em trig\+\_\+edge} & The trigger edge for the sequence from {\itshape A\+D\+C\+C\+T\+L\+X\+\_\+\+T\+R\+I\+G\+E\+D\+G\+E\+\_\+\+Type} \\
+\hline
+{\em trig\+\_\+pwm\+\_\+source} & The trigger source for the sequence when configured for P\+WM, from {\itshape A\+D\+C\+C\+T\+L\+X\+\_\+\+T\+R\+I\+G\+P\+W\+M\+\_\+\+Type} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 29 of file pac5xxx\+\_\+driver\+\_\+adc\+\_\+seq.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32 \{}
+\DoxyCodeLine{33     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ASCTL0.AS0TR = \mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gga0bdd1439175cabe932df965d7cf5f9b1aec8c86fba7c65c8cf30c65ff83cac74b}{ADCCTLX\_ASTR\_PWM}};}
+\DoxyCodeLine{34     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ASCTL0.AS0D = sample\_depth;}
+\DoxyCodeLine{35     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ASCTL0.AS0TRE = trig\_edge;}
+\DoxyCodeLine{36     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ASCTL0.AS0TRPWM = trig\_pwm\_source;}
+\DoxyCodeLine{37     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ASCTL0.AS0SEQEN = 1;}
+\DoxyCodeLine{38 \}}
+
+\end{DoxyCode}
+
+
+References A\+D\+C\+C\+T\+L\+X\+\_\+\+A\+S\+T\+R\+\_\+\+P\+WM, and P\+A\+C5\+X\+X\+X\+\_\+\+A\+DC.
+
+
+
+Referenced by config\+\_\+seq\+\_\+foc().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{group___p_a_c5_x_x_x___driver___a_d_c_ga924db554f22ac0adbc260fa661852ecc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_ga683ab4b39e023c7ace9f6d736367604a}\label{group___p_a_c5_x_x_x___driver___a_d_c_ga683ab4b39e023c7ace9f6d736367604a}} 
+\index{PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}!pac5xxx\_adc\_as0\_config\_timer@{pac5xxx\_adc\_as0\_config\_timer}}
+\index{pac5xxx\_adc\_as0\_config\_timer@{pac5xxx\_adc\_as0\_config\_timer}!PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_adc\_as0\_config\_timer()}{pac5xxx\_adc\_as0\_config\_timer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void pac5xxx\+\_\+adc\+\_\+as0\+\_\+config\+\_\+timer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gabf70cf9a03b60f085f85b4b042187bba}{A\+D\+C\+C\+T\+L\+X\+\_\+\+S\+D\+E\+P\+T\+H\+\_\+\+Type}}}]{sample\+\_\+depth,  }\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga61f6c6f71544d6968f2332dcc5da1605}{A\+D\+C\+C\+T\+L\+X\+\_\+\+T\+R\+I\+G\+T\+I\+M\+E\+R\+\_\+\+Type}}}]{trig\+\_\+timer\+\_\+source }\end{DoxyParamCaption})}
+
+
+
+This function configures the A\+S\+C0 unit for use with a timer trigger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample\+\_\+depth} & The sample depth from {\itshape A\+D\+C\+C\+T\+L\+X\+\_\+\+S\+D\+E\+P\+T\+H\+\_\+\+Type} \\
+\hline
+{\em trig\+\_\+timer\+\_\+source} & The trigger source for the sequence when configure for Timer, from {\itshape A\+D\+C\+C\+T\+L\+X\+\_\+\+T\+R\+I\+G\+T\+I\+M\+E\+R\+\_\+\+Type} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+adc\+\_\+seq.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ASCTL0.AS0TR = \mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gga0bdd1439175cabe932df965d7cf5f9b1a3d975ef10207dd02e18d1b444bdbcce9}{ADCCTLX\_ASTR\_TIMER}};}
+\DoxyCodeLine{24     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ASCTL0.AS0D = sample\_depth;}
+\DoxyCodeLine{25     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ASCTL0.AS0TRTMR = trig\_timer\_source;}
+\DoxyCodeLine{26     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ASCTL0.AS0SEQEN = 1;}
+\DoxyCodeLine{27 \}}
+
+\end{DoxyCode}
+
+
+References A\+D\+C\+C\+T\+L\+X\+\_\+\+A\+S\+T\+R\+\_\+\+T\+I\+M\+ER, and P\+A\+C5\+X\+X\+X\+\_\+\+A\+DC.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_ga59f2dbfcc64f8e83f6115ac6b53fadac}\label{group___p_a_c5_x_x_x___driver___a_d_c_ga59f2dbfcc64f8e83f6115ac6b53fadac}} 
+\index{PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}!pac5xxx\_adc\_as0\_seq\_get\_result@{pac5xxx\_adc\_as0\_seq\_get\_result}}
+\index{pac5xxx\_adc\_as0\_seq\_get\_result@{pac5xxx\_adc\_as0\_seq\_get\_result}!PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_adc\_as0\_seq\_get\_result()}{pac5xxx\_adc\_as0\_seq\_get\_result()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} uint16\+\_\+t pac5xxx\+\_\+adc\+\_\+as0\+\_\+seq\+\_\+get\+\_\+result (\begin{DoxyParamCaption}\item[{int}]{seq\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+This function returns the A\+DC result for the given sequence number for the A\+S\+C0 unit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq\+\_\+num} & sequence number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A\+DC conversion result for {\itshape seq\+\_\+num} 
+\end{DoxyReturn}
+
+
+Definition at line 124 of file pac5xxx\+\_\+driver\+\_\+adc\+\_\+seq.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{125 \{}
+\DoxyCodeLine{126     \textcolor{keyword}{volatile} \mbox{\hyperlink{union_p_a_c5_x_x_x___a_d_c_r_e_s_u_l_t___type}{PAC5XXX\_ADCRESULT\_Type}}* pSeq;}
+\DoxyCodeLine{127     }
+\DoxyCodeLine{128     \textcolor{keywordflow}{if} (seq\_num == 0)}
+\DoxyCodeLine{129         pSeq = \&\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>AS0R0;}
+\DoxyCodeLine{130     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (seq\_num == 1)}
+\DoxyCodeLine{131         pSeq = \&\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>AS0R1;}
+\DoxyCodeLine{132     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (seq\_num == 2)}
+\DoxyCodeLine{133         pSeq = \&\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>AS0R2;}
+\DoxyCodeLine{134     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (seq\_num == 3)}
+\DoxyCodeLine{135         pSeq = \&\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>AS0R3;}
+\DoxyCodeLine{136     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (seq\_num == 4)}
+\DoxyCodeLine{137         pSeq = \&\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>AS0R4;}
+\DoxyCodeLine{138     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (seq\_num == 5)}
+\DoxyCodeLine{139         pSeq = \&\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>AS0R5;}
+\DoxyCodeLine{140     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (seq\_num == 6)}
+\DoxyCodeLine{141         pSeq = \&\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>AS0R6;}
+\DoxyCodeLine{142     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (seq\_num == 7)}
+\DoxyCodeLine{143         pSeq = \&\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>AS0R7;}
+\DoxyCodeLine{144     }
+\DoxyCodeLine{145     \textcolor{keywordflow}{return} pSeq-\/>\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gaef4d90c84a3ff6a40df2177e72fdbb89}{VAL}};}
+\DoxyCodeLine{146 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+A\+DC, and P\+A\+C5\+X\+X\+X\+\_\+\+A\+D\+C\+R\+E\+S\+U\+L\+T\+\_\+\+Type\+::\+V\+AL.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_ga7ede851e816eeb5bb2d86844611a0745}\label{group___p_a_c5_x_x_x___driver___a_d_c_ga7ede851e816eeb5bb2d86844611a0745}} 
+\index{PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}!pac5xxx\_adc\_as0\_sequence\_config@{pac5xxx\_adc\_as0\_sequence\_config}}
+\index{pac5xxx\_adc\_as0\_sequence\_config@{pac5xxx\_adc\_as0\_sequence\_config}!PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_adc\_as0\_sequence\_config()}{pac5xxx\_adc\_as0\_sequence\_config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void pac5xxx\+\_\+adc\+\_\+as0\+\_\+sequence\+\_\+config (\begin{DoxyParamCaption}\item[{int}]{seq\+\_\+num,  }\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga6c01eb9893be5195d924a9f1fab10245}{A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+Type}}}]{mux\+\_\+select,  }\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gab511d73c7e98967dc3aa23de027fd144}{A\+S\+S\+E\+Q\+\_\+\+M\+S\+P\+I\+\_\+\+Type}}}]{emux\+\_\+control,  }\item[{uint8\+\_\+t}]{emux\+\_\+data,  }\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga974e52f42a6cee6bc4ea755d9780ff2e}{A\+S\+S\+E\+Q\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+Type}}}]{seq\+\_\+delay }\end{DoxyParamCaption})}
+
+
+
+This function configures the given sequence number for the A\+S\+C0 unit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq\+\_\+num} & The sequence number to configure \\
+\hline
+{\em mux\+\_\+select} & The A\+DC M\+UX selection for the sequence from {\itshape A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+Type} \\
+\hline
+{\em emux\+\_\+control} & When to change the E\+M\+UX from the {\itshape A\+S\+S\+E\+Q\+\_\+\+M\+S\+P\+I\+\_\+\+Type} \\
+\hline
+{\em emux\+\_\+data} & The E\+M\+UX data to send for the given sequence \\
+\hline
+{\em seq\+\_\+delay} & The delay to apply for the given sequence from {\itshape A\+D\+C\+C\+T\+L\+X\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+Type} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero if sequence complete 
+\end{DoxyReturn}
+
+
+Referenced by config\+\_\+seq\+\_\+foc().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{group___p_a_c5_x_x_x___driver___a_d_c_ga7ede851e816eeb5bb2d86844611a0745_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_ga5c7a6f5e8de49fafa00ac009f204db3b}\label{group___p_a_c5_x_x_x___driver___a_d_c_ga5c7a6f5e8de49fafa00ac009f204db3b}} 
+\index{PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}!pac5xxx\_adc\_as1\_config\_pwm@{pac5xxx\_adc\_as1\_config\_pwm}}
+\index{pac5xxx\_adc\_as1\_config\_pwm@{pac5xxx\_adc\_as1\_config\_pwm}!PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_adc\_as1\_config\_pwm()}{pac5xxx\_adc\_as1\_config\_pwm()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void pac5xxx\+\_\+adc\+\_\+as1\+\_\+config\+\_\+pwm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gabf70cf9a03b60f085f85b4b042187bba}{A\+D\+C\+C\+T\+L\+X\+\_\+\+S\+D\+E\+P\+T\+H\+\_\+\+Type}}}]{sample\+\_\+depth,  }\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga9b4bb73c1c964c99c7f9a84181b67d3d}{A\+D\+C\+C\+T\+L\+X\+\_\+\+T\+R\+I\+G\+E\+D\+G\+E\+\_\+\+Type}}}]{trig\+\_\+edge,  }\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gac2f5b2936deaed748df0c527523288c1}{A\+D\+C\+C\+T\+L\+X\+\_\+\+T\+R\+I\+G\+P\+W\+M\+\_\+\+Type}}}]{trig\+\_\+pwm\+\_\+source }\end{DoxyParamCaption})}
+
+
+
+This function configures the A\+S\+C1 unit for use with a P\+WM trigger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample\+\_\+depth} & The sample depth from {\itshape A\+D\+C\+C\+T\+L\+X\+\_\+\+S\+D\+E\+P\+T\+H\+\_\+\+Type} \\
+\hline
+{\em trig\+\_\+edge} & The trigger edge for the sequence from {\itshape A\+D\+C\+C\+T\+L\+X\+\_\+\+T\+R\+I\+G\+E\+D\+G\+E\+\_\+\+Type} \\
+\hline
+{\em trig\+\_\+pwm\+\_\+source} & The trigger source for the sequence when configured for P\+WM, from {\itshape A\+D\+C\+C\+T\+L\+X\+\_\+\+T\+R\+I\+G\+P\+W\+M\+\_\+\+Type} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file pac5xxx\+\_\+driver\+\_\+adc\+\_\+seq.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53 \{}
+\DoxyCodeLine{54     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ASCTL1.AS1TR = \mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gga0bdd1439175cabe932df965d7cf5f9b1aec8c86fba7c65c8cf30c65ff83cac74b}{ADCCTLX\_ASTR\_PWM}};}
+\DoxyCodeLine{55     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ASCTL1.AS1D = sample\_depth;}
+\DoxyCodeLine{56     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ASCTL1.AS1TRE = trig\_edge;}
+\DoxyCodeLine{57     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ASCTL1.AS1TRPWM = trig\_pwm\_source;}
+\DoxyCodeLine{58     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ASCTL1.AS1SEQEN = 1;}
+\DoxyCodeLine{59 \}}
+
+\end{DoxyCode}
+
+
+References A\+D\+C\+C\+T\+L\+X\+\_\+\+A\+S\+T\+R\+\_\+\+P\+WM, and P\+A\+C5\+X\+X\+X\+\_\+\+A\+DC.
+
+
+
+Referenced by config\+\_\+seq\+\_\+foc().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{group___p_a_c5_x_x_x___driver___a_d_c_ga5c7a6f5e8de49fafa00ac009f204db3b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_ga4e5d4a3b49c8b1468217ef8ee0dca1d3}\label{group___p_a_c5_x_x_x___driver___a_d_c_ga4e5d4a3b49c8b1468217ef8ee0dca1d3}} 
+\index{PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}!pac5xxx\_adc\_as1\_config\_timer@{pac5xxx\_adc\_as1\_config\_timer}}
+\index{pac5xxx\_adc\_as1\_config\_timer@{pac5xxx\_adc\_as1\_config\_timer}!PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_adc\_as1\_config\_timer()}{pac5xxx\_adc\_as1\_config\_timer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void pac5xxx\+\_\+adc\+\_\+as1\+\_\+config\+\_\+timer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gabf70cf9a03b60f085f85b4b042187bba}{A\+D\+C\+C\+T\+L\+X\+\_\+\+S\+D\+E\+P\+T\+H\+\_\+\+Type}}}]{sample\+\_\+depth,  }\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga61f6c6f71544d6968f2332dcc5da1605}{A\+D\+C\+C\+T\+L\+X\+\_\+\+T\+R\+I\+G\+T\+I\+M\+E\+R\+\_\+\+Type}}}]{trig\+\_\+timer\+\_\+source }\end{DoxyParamCaption})}
+
+
+
+This function configures the A\+S\+C1 unit for use with a timer trigger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample\+\_\+depth} & The sample depth from {\itshape A\+D\+C\+C\+T\+L\+X\+\_\+\+S\+D\+E\+P\+T\+H\+\_\+\+Type} \\
+\hline
+{\em trig\+\_\+timer\+\_\+source} & The trigger source for the sequence when configure for Timer, from {\itshape A\+D\+C\+C\+T\+L\+X\+\_\+\+T\+R\+I\+G\+T\+I\+M\+E\+R\+\_\+\+Type} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 41 of file pac5xxx\+\_\+driver\+\_\+adc\+\_\+seq.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43 \{}
+\DoxyCodeLine{44     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ASCTL1.AS1TR = \mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gga0bdd1439175cabe932df965d7cf5f9b1a3d975ef10207dd02e18d1b444bdbcce9}{ADCCTLX\_ASTR\_TIMER}};}
+\DoxyCodeLine{45     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ASCTL1.AS1D = sample\_depth;}
+\DoxyCodeLine{46     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ASCTL1.AS1TRTMR = trig\_timer\_source;}
+\DoxyCodeLine{47     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ASCTL1.AS1SEQEN = 1;}
+\DoxyCodeLine{48 \}}
+
+\end{DoxyCode}
+
+
+References A\+D\+C\+C\+T\+L\+X\+\_\+\+A\+S\+T\+R\+\_\+\+T\+I\+M\+ER, and P\+A\+C5\+X\+X\+X\+\_\+\+A\+DC.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_gabbc48e31a454fc5e144464973f0233c3}\label{group___p_a_c5_x_x_x___driver___a_d_c_gabbc48e31a454fc5e144464973f0233c3}} 
+\index{PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}!pac5xxx\_adc\_as1\_seq\_get\_result@{pac5xxx\_adc\_as1\_seq\_get\_result}}
+\index{pac5xxx\_adc\_as1\_seq\_get\_result@{pac5xxx\_adc\_as1\_seq\_get\_result}!PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_adc\_as1\_seq\_get\_result()}{pac5xxx\_adc\_as1\_seq\_get\_result()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} uint16\+\_\+t pac5xxx\+\_\+adc\+\_\+as1\+\_\+seq\+\_\+get\+\_\+result (\begin{DoxyParamCaption}\item[{int}]{seq\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+This function returns the A\+DC result for the given sequence number for the A\+S\+C1 unit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq\+\_\+num} & sequence number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A\+DC conversion result for {\itshape seq\+\_\+num} 
+\end{DoxyReturn}
+
+
+Definition at line 148 of file pac5xxx\+\_\+driver\+\_\+adc\+\_\+seq.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{149 \{}
+\DoxyCodeLine{150     \textcolor{keyword}{volatile} \mbox{\hyperlink{union_p_a_c5_x_x_x___a_d_c_r_e_s_u_l_t___type}{PAC5XXX\_ADCRESULT\_Type}}* pSeq;}
+\DoxyCodeLine{151     }
+\DoxyCodeLine{152     \textcolor{keywordflow}{if} (seq\_num == 0)}
+\DoxyCodeLine{153         pSeq = \&\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>AS1R0;}
+\DoxyCodeLine{154     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (seq\_num == 1)}
+\DoxyCodeLine{155         pSeq = \&\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>AS1R1;}
+\DoxyCodeLine{156     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (seq\_num == 2)}
+\DoxyCodeLine{157         pSeq = \&\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>AS1R2;}
+\DoxyCodeLine{158     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (seq\_num == 3)}
+\DoxyCodeLine{159         pSeq = \&\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>AS1R3;}
+\DoxyCodeLine{160     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (seq\_num == 4)}
+\DoxyCodeLine{161         pSeq = \&\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>AS1R4;}
+\DoxyCodeLine{162     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (seq\_num == 5)}
+\DoxyCodeLine{163         pSeq = \&\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>AS1R5;}
+\DoxyCodeLine{164     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (seq\_num == 6)}
+\DoxyCodeLine{165         pSeq = \&\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>AS1R6;}
+\DoxyCodeLine{166     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (seq\_num == 7)}
+\DoxyCodeLine{167         pSeq = \&\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>AS1R7;}
+\DoxyCodeLine{168     }
+\DoxyCodeLine{169     \textcolor{keywordflow}{return} pSeq-\/>\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gaef4d90c84a3ff6a40df2177e72fdbb89}{VAL}};}
+\DoxyCodeLine{170 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+A\+DC, and P\+A\+C5\+X\+X\+X\+\_\+\+A\+D\+C\+R\+E\+S\+U\+L\+T\+\_\+\+Type\+::\+V\+AL.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_gaae20cb4ec9d13e95560d1a360056aa82}\label{group___p_a_c5_x_x_x___driver___a_d_c_gaae20cb4ec9d13e95560d1a360056aa82}} 
+\index{PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}!pac5xxx\_adc\_as1\_sequence\_config@{pac5xxx\_adc\_as1\_sequence\_config}}
+\index{pac5xxx\_adc\_as1\_sequence\_config@{pac5xxx\_adc\_as1\_sequence\_config}!PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_adc\_as1\_sequence\_config()}{pac5xxx\_adc\_as1\_sequence\_config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void pac5xxx\+\_\+adc\+\_\+as1\+\_\+sequence\+\_\+config (\begin{DoxyParamCaption}\item[{int}]{seq\+\_\+num,  }\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga6c01eb9893be5195d924a9f1fab10245}{A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+U\+X\+\_\+\+Type}}}]{mux\+\_\+select,  }\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gab511d73c7e98967dc3aa23de027fd144}{A\+S\+S\+E\+Q\+\_\+\+M\+S\+P\+I\+\_\+\+Type}}}]{emux\+\_\+control,  }\item[{uint8\+\_\+t}]{emux\+\_\+data,  }\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga974e52f42a6cee6bc4ea755d9780ff2e}{A\+S\+S\+E\+Q\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+Type}}}]{seq\+\_\+delay }\end{DoxyParamCaption})}
+
+
+
+This function configures the given sequence number for the A\+S\+C1 unit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seq\+\_\+num} & The sequence number to configure \\
+\hline
+{\em mux\+\_\+select} & When to change the E\+M\+UX from the {\itshape A\+S\+S\+E\+Q\+\_\+\+M\+S\+P\+I\+\_\+\+Type} \\
+\hline
+{\em emux\+\_\+control} & The E\+M\+UX control to use for the given sequence from {\itshape A\+D\+C\+\_\+\+E\+M\+U\+X\+\_\+\+C\+T\+L\+\_\+\+Type} \\
+\hline
+{\em emux\+\_\+data} & The E\+M\+UX data to send for the given sequence \\
+\hline
+{\em seq\+\_\+delay} & The delay to apply for the given sequence from {\itshape A\+D\+C\+C\+T\+L\+X\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+Type} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero if sequence complete 
+\end{DoxyReturn}
+
+
+Referenced by config\+\_\+seq\+\_\+foc().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{group___p_a_c5_x_x_x___driver___a_d_c_gaae20cb4ec9d13e95560d1a360056aa82_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_ga6998202f397f1b77b36a76eca8a3d792}\label{group___p_a_c5_x_x_x___driver___a_d_c_ga6998202f397f1b77b36a76eca8a3d792}} 
+\index{PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}!pac5xxx\_adc\_config@{pac5xxx\_adc\_config}}
+\index{pac5xxx\_adc\_config@{pac5xxx\_adc\_config}!PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_adc\_config()}{pac5xxx\_adc\_config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void pac5xxx\+\_\+adc\+\_\+config (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gac24a2a08c6600f7b70f65179cdbb0b02}{A\+D\+C\+C\+T\+L\+\_\+\+A\+D\+M\+O\+D\+E\+\_\+\+Type}}}]{adc\+\_\+mode,  }\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga07bf14acd828bf9466746c15c6379d55}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+Type}}}]{clock\+\_\+divider,  }\item[{int}]{repeat }\end{DoxyParamCaption})}
+
+
+
+This function configures the A\+DC. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adc\+\_\+mode} & The A\+DC mode from {\itshape A\+D\+C\+C\+T\+L\+\_\+\+M\+O\+DE} \\
+\hline
+{\em clock\+\_\+divider} & Clock divider for the A\+DC clock \\
+\hline
+{\em repeat} & Set to 1 to perform repeated conversions of the selected channel \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+This function does not enable the A\+DC 
+\end{DoxyNote}
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+adc\+\_\+config.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ADCCTL.ADCMODE = adc\_mode;}
+\DoxyCodeLine{23     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ADCCTL.ADCDIV = clock\_divider;}
+\DoxyCodeLine{24     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>ADCCTL.ADCREPEAT = repeat;}
+\DoxyCodeLine{25 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+A\+DC.
+
+
+
+Referenced by config\+\_\+seq\+\_\+foc().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=302pt]{group___p_a_c5_x_x_x___driver___a_d_c_ga6998202f397f1b77b36a76eca8a3d792_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_ga75617cb8e17879fcb4414d2164359757}\label{group___p_a_c5_x_x_x___driver___a_d_c_ga75617cb8e17879fcb4414d2164359757}} 
+\index{PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}!pac5xxx\_adc\_config\_emux\_io@{pac5xxx\_adc\_config\_emux\_io}}
+\index{pac5xxx\_adc\_config\_emux\_io@{pac5xxx\_adc\_config\_emux\_io}!PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_adc\_config\_emux\_io()}{pac5xxx\_adc\_config\_emux\_io()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void pac5xxx\+\_\+adc\+\_\+config\+\_\+emux\+\_\+io (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function configures the E\+M\+UX IO ports on the device for E\+M\+UX output. 
+
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 26 of file pac5xxx\+\_\+driver\+\_\+adc\+\_\+emux.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga5bdf948fa52c1fc16f2f52c3d211fa1c}{PAC5XXX\_GPIOB}}-\/>PSEL.P5 = 1;}
+\DoxyCodeLine{29   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga5bdf948fa52c1fc16f2f52c3d211fa1c}{PAC5XXX\_GPIOB}}-\/>PSEL.P6 = 1;}
+\DoxyCodeLine{30 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+G\+P\+I\+OB.
+
+
+
+Referenced by configure\+\_\+adc\+\_\+emux\+\_\+engine().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{group___p_a_c5_x_x_x___driver___a_d_c_ga75617cb8e17879fcb4414d2164359757_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_ga07d2e742c295e9310a6a43ef109e272c}\label{group___p_a_c5_x_x_x___driver___a_d_c_ga07d2e742c295e9310a6a43ef109e272c}} 
+\index{PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}!pac5xxx\_adc\_config\_io@{pac5xxx\_adc\_config\_io}}
+\index{pac5xxx\_adc\_config\_io@{pac5xxx\_adc\_config\_io}!PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_adc\_config\_io()}{pac5xxx\_adc\_config\_io()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void pac5xxx\+\_\+adc\+\_\+config\+\_\+io (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel\+\_\+mask }\end{DoxyParamCaption})}
+
+
+
+This function configures the IO ports on the device for the given A\+DC channels. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel\+\_\+mask} & Bit-\/mask of the A\+DC channels to enable or disable I\+Os for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Referenced by configure\+\_\+adc\+\_\+emux\+\_\+engine().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{group___p_a_c5_x_x_x___driver___a_d_c_ga07d2e742c295e9310a6a43ef109e272c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_gaacf7582c951e3c5b24274d13a4b7b812}\label{group___p_a_c5_x_x_x___driver___a_d_c_gaacf7582c951e3c5b24274d13a4b7b812}} 
+\index{PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}!pac5xxx\_adc\_emux\_config@{pac5xxx\_adc\_emux\_config}}
+\index{pac5xxx\_adc\_emux\_config@{pac5xxx\_adc\_emux\_config}!PAC5XXX ADC Driver Functions@{PAC5XXX ADC Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_adc\_emux\_config()}{pac5xxx\_adc\_emux\_config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void pac5xxx\+\_\+adc\+\_\+emux\+\_\+config (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_ga361f337aa9786cd9efbf788110413374}{A\+D\+C\+\_\+\+E\+M\+U\+X\+\_\+\+C\+T\+L\+\_\+\+Type}}}]{control\+\_\+type,  }\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___a_d_c_gac642368fda8bebd30f08f35f30a2cfe1}{A\+D\+C\+\_\+\+E\+M\+U\+X\+\_\+\+D\+I\+V\+\_\+\+Type}}}]{divider }\end{DoxyParamCaption})}
+
+
+
+This function configures the A\+DC\textquotesingle{}s external M\+UX. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em control\+\_\+type} & Type of external mux control \\
+\hline
+{\em divider} & External M\+UX clock divider \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+adc\+\_\+emux.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>EMUXCTL.EMUXC = control\_type;}
+\DoxyCodeLine{23     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga231370c152ddbb19a8e5ad304b0bd758}{PAC5XXX\_ADC}}-\/>EMUXCTL.EMUXDIV = divider;}
+\DoxyCodeLine{24 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+A\+DC.
+
+
+
+Referenced by configure\+\_\+adc\+\_\+emux\+\_\+engine().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___p_a_c5_x_x_x___driver___a_d_c_gaacf7582c951e3c5b24274d13a4b7b812_icgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,159 @@
+\hypertarget{pid_8c}{}\doxysection{pac\+\_\+foc/src/math/pid.c File Reference}
+\label{pid_8c}\index{pac\_foc/src/math/pid.c@{pac\_foc/src/math/pid.c}}
+
+
+P\+ID functions.  
+
+
+{\ttfamily \#include \char`\"{}pid.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fault.\+h\char`\"{}}\newline
+Include dependency graph for pid.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pid_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{pid_8c_a3eaab9d1b25fcdaaca6ea50861dbe446}{pid\+\_\+reset}} (\mbox{\hyperlink{struct_p_i_d___data___type}{P\+I\+D\+\_\+\+Data\+\_\+\+Type}} $\ast$pid\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Initializes the P\+ID controller data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{pid_8c_a176d8fc72495c984e363ee961d699607}{picon\+\_\+convert\+\_\+gain}} (\mbox{\hyperlink{struct_p_i_d___data___type}{P\+I\+D\+\_\+\+Data\+\_\+\+Type}} $\ast$pid\+\_\+data, uint32\+\_\+t scale\+\_\+in\+\_\+q16, int32\+\_\+t scale\+\_\+out\+\_\+q16)
+\begin{DoxyCompactList}\small\item\em Convert gain to P\+ID data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+P\+ID functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pid_8c_a176d8fc72495c984e363ee961d699607}\label{pid_8c_a176d8fc72495c984e363ee961d699607}} 
+\index{pid.c@{pid.c}!picon\_convert\_gain@{picon\_convert\_gain}}
+\index{picon\_convert\_gain@{picon\_convert\_gain}!pid.c@{pid.c}}
+\doxysubsubsection{\texorpdfstring{picon\_convert\_gain()}{picon\_convert\_gain()}}
+{\footnotesize\ttfamily void picon\+\_\+convert\+\_\+gain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_i_d___data___type}{P\+I\+D\+\_\+\+Data\+\_\+\+Type}} $\ast$}]{pid\+\_\+data,  }\item[{uint32\+\_\+t}]{scale\+\_\+in\+\_\+q16,  }\item[{int32\+\_\+t}]{scale\+\_\+out\+\_\+q16 }\end{DoxyParamCaption})}
+
+
+
+Convert gain to P\+ID data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pid\+\_\+data} & pointer to P\+ID data structure \\
+\hline
+{\em scale\+\_\+in\+\_\+q16} & input scale \\
+\hline
+{\em scale\+\_\+out\+\_\+q16} & output scale \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 41 of file pid.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42 \{}
+\DoxyCodeLine{43     int32\_t temp1\_q16, temp2\_q16;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{46     \textcolor{comment}{// Calculate Kp}}
+\DoxyCodeLine{48 \textcolor{comment}{}}
+\DoxyCodeLine{49     \textcolor{comment}{// Calculate Kp = ka * (scale\_in/scale\_out)}}
+\DoxyCodeLine{50     \textcolor{comment}{// q16/q16 = q16, calculate 1/scale\_out\_q16}}
+\DoxyCodeLine{51     temp1\_q16 = \mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}(\mbox{\hyperlink{maths_8h_a317ae35aa5c1f21e8d52b831dcde83ca}{FIX16\_1P0}}, scale\_out\_q16);}
+\DoxyCodeLine{52     \textcolor{comment}{// q16 = q16 * q16, (fix16\_1/scale\_out\_q16) * scale\_in\_q16}}
+\DoxyCodeLine{53     temp1\_q16 = \mbox{\hyperlink{fix16_8c_a1721ce85d21b48108703980965689208}{fix16\_mul\_uint}}(temp1\_q16, scale\_in\_q16);}
+\DoxyCodeLine{54     \textcolor{comment}{// q16 = q16 * q16}}
+\DoxyCodeLine{55     temp1\_q16 = \mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\_mul}}(pid\_data-\/>\mbox{\hyperlink{struct_p_i_d___data___type_a69d70e8a34bdede3030fd6bc8f590259}{ka\_q16}}, temp1\_q16);}
+\DoxyCodeLine{56     pid\_data-\/>\mbox{\hyperlink{struct_p_i_d___data___type_a478052d48045671e4f6d4d4a81719745}{kp\_q11}} = temp1\_q16 >> 5;}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{59     \textcolor{comment}{// Calculate Ki}}
+\DoxyCodeLine{61 \textcolor{comment}{}}
+\DoxyCodeLine{62     \textcolor{comment}{// Ki = Kb * Kp * Ts}}
+\DoxyCodeLine{63     \textcolor{comment}{// q6 = q6 * q16}}
+\DoxyCodeLine{64     temp2\_q16 = \mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\_mul}}(pid\_data-\/>\mbox{\hyperlink{struct_p_i_d___data___type_aa85c08bf211e5e9ef5f34fdb43b29382}{kb\_q16}}, temp1\_q16);}
+\DoxyCodeLine{65     \textcolor{comment}{// q16 = q6 * q26}}
+\DoxyCodeLine{66     pid\_data-\/>\mbox{\hyperlink{struct_p_i_d___data___type_a5dd43dfcdbb8293b08db8fe70a6cc8f9}{kidt\_q16}} = (\mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\_mul}}(temp2\_q16, pid\_data-\/>\mbox{\hyperlink{struct_p_i_d___data___type_a3106312c52393ef367054cbc514749ea}{dt\_q26}}) >> 10);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{69     \textcolor{comment}{// Check PI Gain Range}}
+\DoxyCodeLine{71 \textcolor{comment}{}}
+\DoxyCodeLine{72     \textcolor{keywordflow}{if} (pid\_data-\/>\mbox{\hyperlink{struct_p_i_d___data___type_a478052d48045671e4f6d4d4a81719745}{kp\_q11}} > \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(63, \mbox{\hyperlink{maths_8h_a2667934cffb93b5b656fbb9b11495d52}{Q11}}))      \textcolor{comment}{// Kp max = 2\string^6=64 to overflow during q-\/math multiplication}}
+\DoxyCodeLine{73     \{}
+\DoxyCodeLine{74         pid\_data-\/>\mbox{\hyperlink{struct_p_i_d___data___type_a478052d48045671e4f6d4d4a81719745}{kp\_q11}} = \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(63, \mbox{\hyperlink{maths_8h_a2667934cffb93b5b656fbb9b11495d52}{Q11}});}
+\DoxyCodeLine{75         \mbox{\hyperlink{fault_8c_a8ea8474835dbcb70ebc28b77e48207fc}{set\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a86b525d82733a2997eccbb0af80eddf3}{WARNING\_PIGAIN\_RANGE}});}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keywordflow}{if} (pid\_data-\/>\mbox{\hyperlink{struct_p_i_d___data___type_a5dd43dfcdbb8293b08db8fe70a6cc8f9}{kidt\_q16}} > \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(1, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))     \textcolor{comment}{// kitd max = 1 to overflow during q-\/math multiplication}}
+\DoxyCodeLine{79     \{}
+\DoxyCodeLine{80         pid\_data-\/>\mbox{\hyperlink{struct_p_i_d___data___type_a5dd43dfcdbb8293b08db8fe70a6cc8f9}{kidt\_q16}} = \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(1, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}});}
+\DoxyCodeLine{81         \mbox{\hyperlink{fault_8c_a8ea8474835dbcb70ebc28b77e48207fc}{set\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a86b525d82733a2997eccbb0af80eddf3}{WARNING\_PIGAIN\_RANGE}});}
+\DoxyCodeLine{82     \}}
+\DoxyCodeLine{83 \}}
+
+\end{DoxyCode}
+
+
+References P\+I\+D\+\_\+\+Data\+\_\+\+Type\+::dt\+\_\+q26, F\+I\+X16\+\_\+1\+P0, fix16\+\_\+div(), fix16\+\_\+mul(), fix16\+\_\+mul\+\_\+uint(), P\+I\+D\+\_\+\+Data\+\_\+\+Type\+::ka\+\_\+q16, P\+I\+D\+\_\+\+Data\+\_\+\+Type\+::kb\+\_\+q16, P\+I\+D\+\_\+\+Data\+\_\+\+Type\+::kidt\+\_\+q16, P\+I\+D\+\_\+\+Data\+\_\+\+Type\+::kp\+\_\+q11, Q11, Q16, Q\+C\+O\+N\+ST, set\+\_\+warning(), and W\+A\+R\+N\+I\+N\+G\+\_\+\+P\+I\+G\+A\+I\+N\+\_\+\+R\+A\+N\+GE.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pid_8c_a176d8fc72495c984e363ee961d699607_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pid_8c_a3eaab9d1b25fcdaaca6ea50861dbe446}\label{pid_8c_a3eaab9d1b25fcdaaca6ea50861dbe446}} 
+\index{pid.c@{pid.c}!pid\_reset@{pid\_reset}}
+\index{pid\_reset@{pid\_reset}!pid.c@{pid.c}}
+\doxysubsubsection{\texorpdfstring{pid\_reset()}{pid\_reset()}}
+{\footnotesize\ttfamily void pid\+\_\+reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_p_i_d___data___type}{P\+I\+D\+\_\+\+Data\+\_\+\+Type}} $\ast$}]{pid\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Initializes the P\+ID controller data. 
+
+Reset P\+ID controller.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pid\+\_\+data} & Pointer to the P\+ID controller data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Note that the user must make sure that the pointer is valid and that the user-\/defined fields in the data structure are initialized properly (see the definition for the {\itshape \mbox{\hyperlink{struct_p_i_d___data___type}{P\+I\+D\+\_\+\+Data\+\_\+\+Type}}} data structure). 
+\end{DoxyNote}
+
+
+Definition at line 33 of file pid.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34 \{}
+\DoxyCodeLine{35     pid\_data-\/>\mbox{\hyperlink{struct_p_i_d___data___type_aa24627e9eef1fab2f77ad3a11036d9cd}{I\_prev}} = 0;}
+\DoxyCodeLine{36     pid\_data-\/>\mbox{\hyperlink{struct_p_i_d___data___type_a9422558fcf6ea9c03a255695aeb5d7fa}{PI}} = 0;}
+\DoxyCodeLine{37     pid\_data-\/>\mbox{\hyperlink{struct_p_i_d___data___type_a84ebcffe97b329116f0024bb59ef3ec5}{PI\_sat}} = 0;}
+\DoxyCodeLine{38 \}}
+
+\end{DoxyCode}
+
+
+References P\+I\+D\+\_\+\+Data\+\_\+\+Type\+::\+I\+\_\+prev, P\+I\+D\+\_\+\+Data\+\_\+\+Type\+::\+PI, and P\+I\+D\+\_\+\+Data\+\_\+\+Type\+::\+P\+I\+\_\+sat.
+
+
+
+Referenced by control\+\_\+reset(), and foc\+\_\+reset().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pid_8c_a3eaab9d1b25fcdaaca6ea50861dbe446_icgraph}
+\end{center}
+\end{figure}

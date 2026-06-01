@@ -1,0 +1,78 @@
+.TH "CMSIS_Core_SysTickFunctions" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CMSIS_Core_SysTickFunctions \- SysTick Functions
+.PP
+ \- Functions that configure the System\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBITM Functions\fP"
+.br
+.RI "Functions that access the ITM debug interface\&. "
+.in -1c
+.in +1c
+.ti -1c
+.RI "__STATIC_INLINE uint32_t \fBSysTick_Config\fP (uint32_t ticks)"
+.br
+.RI "System Tick Configuration\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Functions that configure the System\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "__STATIC_INLINE uint32_t SysTick_Config (uint32_t ticks)"
+
+.PP
+System Tick Configuration\&. The function initializes the System Timer and its interrupt, and starts the System Tick Timer\&. Counter is in free running mode to generate periodic interrupts\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIticks\fP Number of ticks between two interrupts\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0 Function succeeded\&. 
+.PP
+1 Function failed\&.
+.RE
+.PP
+\fBNote\fP
+.RS 4
+When the variable \fB__Vendor_SysTickConfig\fP is set to 1, then the function \fBSysTick_Config\fP is not included\&. In this case, the file \fB\fIdevice\fP\&.h\fP must contain a vendor-specific implementation of this function\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1662 of file core_cm4\&.h\&.
+.PP
+.nf
+1663 {
+1664   if (ticks > SysTick_LOAD_RELOAD_Msk)  return (1);            /* Reload value impossible */
+1665 
+1666   SysTick->LOAD  = (ticks & SysTick_LOAD_RELOAD_Msk) - 1;      /* set reload register */
+1667   NVIC_SetPriority (SysTick_IRQn, (1<<__NVIC_PRIO_BITS) - 1);  /* set Priority for Systick Interrupt */
+1668   SysTick->VAL   = 0;                                          /* Load the SysTick Counter Value */
+1669   SysTick->CTRL  = SysTick_CTRL_CLKSOURCE_Msk |
+1670                    SysTick_CTRL_TICKINT_Msk   |
+1671                    SysTick_CTRL_ENABLE_Msk;                    /* Enable SysTick IRQ and SysTick Timer */
+1672   return (0);                                                  /* Function successful */
+1673 }
+.fi
+.PP
+References __NVIC_PRIO_BITS, NVIC_SetPriority(), SysTick, SysTick_CTRL_CLKSOURCE_Msk, SysTick_CTRL_ENABLE_Msk, SysTick_CTRL_TICKINT_Msk, SysTick_IRQn, and SysTick_LOAD_RELOAD_Msk\&.
+.PP
+Referenced by config_systick_timer()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

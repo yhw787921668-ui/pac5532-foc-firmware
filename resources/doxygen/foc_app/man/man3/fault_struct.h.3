@@ -1,0 +1,260 @@
+.TH "pac_foc/src/app/fault_struct.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/app/fault_struct.h \- Use to define fault type, status, warning, bits\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBStruct_Fault\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBFAULT_MAIN_GRP_CLEARSTART\fP"
+.br
+.ti -1c
+.RI "#define \fBFAULT_MAIN_GRP_CLEARCMD\fP"
+.br
+.ti -1c
+.RI "#define \fBFAULT_MOTOR_GRP_CLEARREAD\fP"
+.br
+.ti -1c
+.RI "#define \fBFAULT_MAIN_GRP_STOP\fP"
+.br
+.ti -1c
+.RI "#define \fBFAULT_MAIN_GRP_STATE\fP"
+.br
+.ti -1c
+.RI "#define \fBFAULT_MAIN_GRP_TERMINAL\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBeFaultMotor\fP { \fBWARNING_MAIN_OC_VALUE\fP = BIT_00, \fBWARNING_CBC_OC\fP = BIT_01, \fBWARNING_PWM_SATURATED\fP = BIT_02, \fBWARNING_STACK_OOR\fP = BIT_03, \fBWARNING_OLSPEED_MIN\fP = BIT_04, \fBWARNING_ANGLDIF\fP = BIT_05, \fBWARNING_FOCCTRL_OVERFLOW\fP = BIT_06, \fBWARNING_OU_VOLTAGE\fP = BIT_07, \fBWARNING_PIGAIN_RANGE\fP = BIT_08, \fBWARNING_STALLFILTGAIN\fP = BIT_09, \fBWARNING_SPDDIF\fP = BIT_10, \fBWARNING_ATUNE_CHECK_STATUS\fP = BIT_11, \fBWARNING_ESTBW_HIGH\fP = BIT_12, \fBWARN_HALL_TIM_PERD_INVALID\fP = BIT_13, \fBFAULT_COAST_TIMEOUT\fP = BIT_14, \fBFAULT_SPDANGLDIF_TIMEOUT\fP = BIT_15, \fBFAULT_CAFE_OC\fP = BIT_16, \fBFAULT_OU_VOLTAGE\fP = BIT_17, \fBFAULT_MIN_MAX_SPEED\fP = BIT_18, \fBFAULT_OPD\fP = BIT_19, \fBFAULT_FLASH_CRC_TEST\fP = BIT_20, \fBFAULT_PARAM_WHILE_RUN\fP = BIT_21, \fBFAULT_MAIN_AFEINIT\fP = BIT_22, \fBFAULT_MOTOR_STALLED\fP = BIT_23, \fBFAULT_PPM_PULSE_TIMEOUT\fP = BIT_24, \fBFAULT_ADCCAL\fP = BIT_25, \fBFAULT_MOTOR_HALL_INVSTATE\fP = BIT_26, \fBFAULT_EST_INVALID_INPUT\fP = BIT_27, \fBFAULT_HALL_TIMEOUT\fP = BIT_28, \fBFAULT_UNUSED_29\fP = BIT_29, \fBWARNING_FAILURE_DETECTION\fP = BIT_30 }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use to define fault type, status, warning, bits\&. 
+
+
+.PP
+Definition in file \fBfault_struct\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define FAULT_MAIN_GRP_CLEARCMD"
+\fBValue:\fP
+.PP
+.nf
+        (\
+        FAULT_PARAM_WHILE_RUN \
+        | WARNING_STACK_OOR \
+        | FAULT_MAIN_GRP_CLEARSTART\
+        | WARNING_PIGAIN_RANGE \
+        | WARNING_STALLFILTGAIN \
+        | FAULT_MOTOR_HALL_INVSTATE \
+        | FAULT_EST_INVALID_INPUT \
+        | FAULT_HALL_TIMEOUT \
+        | WARN_HALL_TIM_PERD_INVALID \
+        )
+.fi
+.PP
+Definition at line 100 of file fault_struct\&.h\&.
+.SS "#define FAULT_MAIN_GRP_CLEARSTART"
+\fBValue:\fP
+.PP
+.nf
+        (\
+        FAULT_SPDANGLDIF_TIMEOUT \
+        | FAULT_MIN_MAX_SPEED \
+        | FAULT_OPD \
+        | FAULT_MOTOR_STALLED \
+        | FAULT_COAST_TIMEOUT \
+        | WARNING_ANGLDIF \
+        | WARNING_SPDDIF \
+        | WARNING_FOCCTRL_OVERFLOW \
+        | WARNING_PWM_SATURATED \
+        | WARNING_CBC_OC \
+        | FAULT_OU_VOLTAGE \
+        | FAULT_PPM_PULSE_TIMEOUT \
+        | FAULT_MOTOR_HALL_INVSTATE \
+        | FAULT_EST_INVALID_INPUT \
+        | FAULT_HALL_TIMEOUT \
+        )
+.fi
+.PP
+Definition at line 79 of file fault_struct\&.h\&.
+.SS "#define FAULT_MAIN_GRP_STATE"
+\fBValue:\fP
+.PP
+.nf
+        (\
+        FAULT_CAFE_OC \
+        )
+.fi
+.PP
+Definition at line 146 of file fault_struct\&.h\&.
+.SS "#define FAULT_MAIN_GRP_STOP"
+\fBValue:\fP
+.PP
+.nf
+        (\
+        FAULT_SPDANGLDIF_TIMEOUT \
+        | FAULT_OPD \
+        | FAULT_OU_VOLTAGE \
+        | FAULT_MOTOR_STALLED \
+        | FAULT_COAST_TIMEOUT \
+        | FAULT_MIN_MAX_SPEED \
+        | FAULT_PPM_PULSE_TIMEOUT\
+        | FAULT_MOTOR_HALL_INVSTATE\
+        | FAULT_EST_INVALID_INPUT \
+        | FAULT_HALL_TIMEOUT \
+        )
+.fi
+.PP
+Definition at line 130 of file fault_struct\&.h\&.
+.SS "#define FAULT_MAIN_GRP_TERMINAL"
+\fBValue:\fP
+.PP
+.nf
+        (\
+        FAULT_ADCCAL \
+        | FAULT_MAIN_AFEINIT \
+        | FAULT_FLASH_CRC_TEST \
+        )
+.fi
+.PP
+Definition at line 153 of file fault_struct\&.h\&.
+.SS "#define FAULT_MOTOR_GRP_CLEARREAD"
+\fBValue:\fP
+.PP
+.nf
+        (\
+        WARNING_FOCCTRL_OVERFLOW \
+        | WARNING_CBC_OC \
+        | WARNING_PWM_SATURATED \
+        )
+.fi
+.PP
+Definition at line 115 of file fault_struct\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBeFaultMotor\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIWARNING_MAIN_OC_VALUE \fP\fP
+.TP
+\fB\fIWARNING_CBC_OC \fP\fP
+.TP
+\fB\fIWARNING_PWM_SATURATED \fP\fP
+.TP
+\fB\fIWARNING_STACK_OOR \fP\fP
+.TP
+\fB\fIWARNING_OLSPEED_MIN \fP\fP
+.TP
+\fB\fIWARNING_ANGLDIF \fP\fP
+.TP
+\fB\fIWARNING_FOCCTRL_OVERFLOW \fP\fP
+.TP
+\fB\fIWARNING_OU_VOLTAGE \fP\fP
+.TP
+\fB\fIWARNING_PIGAIN_RANGE \fP\fP
+.TP
+\fB\fIWARNING_STALLFILTGAIN \fP\fP
+.TP
+\fB\fIWARNING_SPDDIF \fP\fP
+.TP
+\fB\fIWARNING_ATUNE_CHECK_STATUS \fP\fP
+.TP
+\fB\fIWARNING_ESTBW_HIGH \fP\fP
+.TP
+\fB\fIWARN_HALL_TIM_PERD_INVALID \fP\fP
+.TP
+\fB\fIFAULT_COAST_TIMEOUT \fP\fP
+.TP
+\fB\fIFAULT_SPDANGLDIF_TIMEOUT \fP\fP
+.TP
+\fB\fIFAULT_CAFE_OC \fP\fP
+.TP
+\fB\fIFAULT_OU_VOLTAGE \fP\fP
+.TP
+\fB\fIFAULT_MIN_MAX_SPEED \fP\fP
+.TP
+\fB\fIFAULT_OPD \fP\fP
+.TP
+\fB\fIFAULT_FLASH_CRC_TEST \fP\fP
+.TP
+\fB\fIFAULT_PARAM_WHILE_RUN \fP\fP
+.TP
+\fB\fIFAULT_MAIN_AFEINIT \fP\fP
+.TP
+\fB\fIFAULT_MOTOR_STALLED \fP\fP
+.TP
+\fB\fIFAULT_PPM_PULSE_TIMEOUT \fP\fP
+.TP
+\fB\fIFAULT_ADCCAL \fP\fP
+.TP
+\fB\fIFAULT_MOTOR_HALL_INVSTATE \fP\fP
+.TP
+\fB\fIFAULT_EST_INVALID_INPUT \fP\fP
+.TP
+\fB\fIFAULT_HALL_TIMEOUT \fP\fP
+.TP
+\fB\fIFAULT_UNUSED_29 \fP\fP
+.TP
+\fB\fIWARNING_FAILURE_DETECTION \fP\fP
+.PP
+Definition at line 24 of file fault_struct\&.h\&.
+.PP
+.nf
+25 {
+26     WARNING_MAIN_OC_VALUE       = BIT_00,           // 00 : OC limit higher than measurable current
+27     WARNING_CBC_OC              = BIT_01,           // 01 : CBC OC LPDAC
+28     WARNING_PWM_SATURATED       = BIT_02,           // 02 : PWM duty cycle is saturated
+29     WARNING_STACK_OOR           = BIT_03,           // 03 : Stack overflow or underflow
+30     WARNING_OLSPEED_MIN         = BIT_04,           // 04 : Open loop speed is lower than closed loop minimum speed limit
+31     WARNING_ANGLDIF             = BIT_05,           // 05 : Estimator AngleDiff out of range
+32     WARNING_FOCCTRL_OVERFLOW    = BIT_06,           // 06 : FOC control time has been exceeded
+33     WARNING_OU_VOLTAGE          = BIT_07,           // 07 : Bus Voltage Min/Max limit exceeded
+34     WARNING_PIGAIN_RANGE        = BIT_08,           // 08 : PI controller gain out of range
+35     WARNING_STALLFILTGAIN       = BIT_09,           // 09 : Stall filter value floored at minimum(1)
+36     WARNING_SPDDIF              = BIT_10,           // 10 : Estimator SpeedDiff out of range
+37     WARNING_ATUNE_CHECK_STATUS  = BIT_11,           // 11 : ATPI Warning -> Check ATPI Status
+38     WARNING_ESTBW_HIGH          = BIT_12,           // 12 : Ratio of control frequency to estimator bandwidth is higher than 10:1
+39     WARN_HALL_TIM_PERD_INVALID  = BIT_13,           // 13 : Hall Timer Period Invalid
+40 
+41     FAULT_COAST_TIMEOUT         = BIT_14,           // 14 : Motor Coast timeout
+42     FAULT_SPDANGLDIF_TIMEOUT    = BIT_15,           // 15 : EstSpeed/AngleDiff timeout
+43     FAULT_CAFE_OC               = BIT_16,           // 16 : Motor over-current
+44     FAULT_OU_VOLTAGE            = BIT_17,           // 17 : Motor disabled due to bus voltage min/max fault
+45     FAULT_MIN_MAX_SPEED         = BIT_18,           // 18 : Motor Min/Max Speed
+46     FAULT_OPD                   = BIT_19,           // 19 : Motor Open Phase Detection
+47     FAULT_FLASH_CRC_TEST        = BIT_20,           // 20 : Flash CRC Test Status Failed = 1
+48     FAULT_PARAM_WHILE_RUN       = BIT_21,           // 21 : Attempt to change critical parameters while motor is running
+49     FAULT_MAIN_AFEINIT          = BIT_22,           // 22 : AFE not initialized properly
+50     FAULT_MOTOR_STALLED         = BIT_23,           // 23 : Motor Stall Detection
+51     FAULT_PPM_PULSE_TIMEOUT     = BIT_24,           // 24 : PPM pulse timeout, no received valid PPM pulse
+52     FAULT_ADCCAL                = BIT_25,           // 25 : ADC Calibration Failed
+53     FAULT_MOTOR_HALL_INVSTATE   = BIT_26,           // 26 : Hall Angle Sequence or State is Invalid
+54     FAULT_EST_INVALID_INPUT     = BIT_27,           // 27 : Estimator inputs are invalid
+55     FAULT_HALL_TIMEOUT          = BIT_28,           // 28 : Hall timer expired without detecting a hall transition
+56     FAULT_UNUSED_29             = BIT_29,           // 29 :
+57     WARNING_FAILURE_DETECTION   = BIT_30,           // 30 : Motor failure detection: Eccentricity, Unbalance or demagnetization
+58 } eFaultMotor;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

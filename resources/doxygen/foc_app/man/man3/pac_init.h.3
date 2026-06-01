@@ -1,0 +1,154 @@
+.TH "pac_foc/src/app/pac_init.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/app/pac_init.h \- Use to initialize peripheral, PWM, Hall, AFE, QEP, ADC, FOC, IPD, enable protection\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_tile\&.h'\fP
+.br
+\fC#include 'config_features\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBperipheral_init\fP (void)"
+.br
+.RI "This function use to initialize peripheral, PLL, CLK, Ports, UART, AFE, DAS, Debug, calculate misc values\&. "
+.ti -1c
+.RI "void \fBcafe_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBconfig_systick_timer\fP (void)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use to initialize peripheral, PWM, Hall, AFE, QEP, ADC, FOC, IPD, enable protection\&. 
+
+
+.PP
+Definition in file \fBpac_init\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void cafe_init (void)"
+
+.PP
+Referenced by main()\&.
+.SS "void config_systick_timer (void)"
+
+.SS "void peripheral_init (void)"
+
+.PP
+This function use to initialize peripheral, PLL, CLK, Ports, UART, AFE, DAS, Debug, calculate misc values\&. 
+.PP
+Definition at line 64 of file pac_init\&.c\&.
+.PP
+.nf
+65 {
+66     Struct_Motor* motor_ptr = &motor;
+67     volatile int32_t test_count_var = 0;
+68     volatile unsigned char test_data;
+69     
+70     __disable_irq();     // Disable Interrupts
+71     
+72     // Initialize PLL, Clocks, Flash
+73     init_system();
+74 
+75     // Configure communication ports
+76     config_comm();
+77 
+78     // Configure SOC Bridge for talking to CAFE
+79     pac5xxx_tile_socbridge_config(1, 0);                                                    // enable, int_enable
+80 #if defined(FAMILY_52XX)
+81     // Configure SOC Bridge clock divider depending on clok frequency selection
+82     initialize_socbridge_clk_divider();
+83 #endif
+84     // Enable driver manager and verify active - need to enable even in PAC5210 to get ENHS pin to work
+85     pac5xxx_tile_register_write(ADDR_ENDRV, 0);
+86     if ((pac5xxx_tile_register_read(ADDR_ENDRV) & 0x01) != 0)
+87     {
+88         fault();
+89         while (1);
+90     }
+91 
+92     // Calculate PWM timer period ticks
+93     foc_calc_pwmtimer(motor_ptr);
+94     // Configure control loop for FOC mode
+95     foc_config(motor_ptr);
+96 
+97     set_drivers_gpio();
+98     m1_disable();
+99 
+100 #ifdef ENABLE_DEBUG_IO
+101     // Configure DebugIO Ports
+102     config_debugio();
+103 //    debugio1_on();
+104 //    debugio2_on();
+105 #endif
+106 
+107     configure_cafe_fault_interrupt();
+108 
+109 #ifdef ENABLE_DEBUG_PWMDAC
+110     // Configure PWMDAC timer (45kHz)
+111     configure_pwm_dac();
+112     pwmdac_disable();                                                                       // Set all outputs low
+113 #endif
+114 
+115 #ifdef ENABLE_DEBUG_DAS
+116     das_debug_init();
+117     config_debugDASio();
+118 #endif
+119 
+120     // Hall IO and Timer config
+121 #if (MODULE_MPOS_HALL == ENABLED)
+122     hall_io_config();
+123     hall_timer_config();
+124 #if (HALL_METHOD_SELECT == HALL_METHOD_INTERRUPT)
+125     configure_hall_interrupt_init();
+126 #endif
+127 #endif
+128 
+129     // QEP IO and Timer config
+130 #if (MODULE_MPOS_QEP == ENABLED)
+131     qep_io_config();
+132     qep_timer_config();
+133 #endif
+134 
+135     // Configure ADC and EMUX engine
+136     configure_adc_emux_engine();
+137 
+138     // Enable ADC
+139     pac5xxx_adc_enable(1);                                                                  // Enable ADC\&. Automated sequences will begin after issuing ADC start in main()
+140 
+141     // Initialize systick timer
+142     config_systick_timer();
+143 
+144 #if (ENABLE_WATCHDOG == TRUE)
+145     // Enable Watchdog
+146     init_Watchdog_time_base();
+147 #endif
+148 
+149     // Initialize start and end of the stack to test stack utilization
+150 #if (ENABLE_STACK_CHECK == TRUE)
+151     init_stack_vars();
+152 #endif
+153 
+154 #if (INTERNAL_VMS == TRUE)
+155     cal_vm_const(motor_ptr);
+156 #endif
+157 }
+.fi
+.PP
+References motor\&.
+.PP
+Referenced by main()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

@@ -1,0 +1,182 @@
+\hypertarget{stalldet__funcs_8h}{}\doxysection{pac\+\_\+foc/src/features/stalldet/stalldet\+\_\+funcs.h File Reference}
+\label{stalldet__funcs_8h}\index{pac\_foc/src/features/stalldet/stalldet\_funcs.h@{pac\_foc/src/features/stalldet/stalldet\_funcs.h}}
+
+
+Use for stall detect utility functions.  
+
+
+{\ttfamily \#include \char`\"{}stalldet.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parameter\+\_\+process.\+h\char`\"{}}\newline
+Include dependency graph for stalldet\+\_\+funcs.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stalldet__funcs_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{stalldet__funcs_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{stalldet__funcs_8h_a179fea104398b328d6b0f07b95789d17}{stall\+\_\+detect\+\_\+filter}} (\mbox{\hyperlink{struct_struct___stall_det}{Struct\+\_\+\+Stall\+Det}} $\ast$stall\+\_\+ptr, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} outerloop\+\_\+ramp, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} outerloop\+\_\+fdbk)
+\begin{DoxyCompactList}\small\item\em Use for stall detector filter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stalldet__funcs_8h_ac3c5e4a282cd5dc14c307e6796d93906}{stall\+\_\+detect\+\_\+process}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Use for stall detection processing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stalldet__funcs_8h_ac4cfb5b111535637cf5f94b8435b8d0f}{stall\+\_\+detect\+\_\+calculate\+\_\+stall\+\_\+sample\+\_\+time}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr, int32\+\_\+t sample\+\_\+window\+\_\+freq\+\_\+radps\+\_\+q16)
+\begin{DoxyCompactList}\small\item\em Use to calculate stall detection sample time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stalldet__funcs_8h_a2cf93adf7a41196f8858a7ea7ccf28b0}{stalldet\+\_\+reset}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Use to reset stall detect variables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stalldet__funcs_8h_adbe96d22f86b99adf2be56fa3736aeb0}{stalldet\+\_\+calc\+\_\+filter\+\_\+alpha}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Use to stall detect filter parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stalldet__funcs_8h_a4bb96472b6ae336efd06c8f4a7e6a876}{stalldet\+\_\+param\+\_\+write}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr, \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28}{Parameter\+Code}} param\+\_\+code, int32\+\_\+t rx\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Use to write stall detect parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stalldet__funcs_8h_a8bebd8f7bc8d99398f22882c4f516b50}{stalldet\+\_\+param\+\_\+process}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr, \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28}{Parameter\+Code}} param\+\_\+code, int32\+\_\+t rx\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Use to process stall detect parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for stall detect utility functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{stalldet__funcs_8h_ac4cfb5b111535637cf5f94b8435b8d0f}\label{stalldet__funcs_8h_ac4cfb5b111535637cf5f94b8435b8d0f}} 
+\index{stalldet\_funcs.h@{stalldet\_funcs.h}!stall\_detect\_calculate\_stall\_sample\_time@{stall\_detect\_calculate\_stall\_sample\_time}}
+\index{stall\_detect\_calculate\_stall\_sample\_time@{stall\_detect\_calculate\_stall\_sample\_time}!stalldet\_funcs.h@{stalldet\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{stall\_detect\_calculate\_stall\_sample\_time()}{stall\_detect\_calculate\_stall\_sample\_time()}}
+{\footnotesize\ttfamily void stall\+\_\+detect\+\_\+calculate\+\_\+stall\+\_\+sample\+\_\+time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr,  }\item[{int32\+\_\+t}]{sample\+\_\+window\+\_\+freq\+\_\+radps\+\_\+q16 }\end{DoxyParamCaption})}
+
+
+
+Use to calculate stall detection sample time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+{\em int32\+\_\+t} & sample\+\_\+window\+\_\+freq\+\_\+radps\+\_\+q16 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{stalldet__funcs_8h_a179fea104398b328d6b0f07b95789d17}\label{stalldet__funcs_8h_a179fea104398b328d6b0f07b95789d17}} 
+\index{stalldet\_funcs.h@{stalldet\_funcs.h}!stall\_detect\_filter@{stall\_detect\_filter}}
+\index{stall\_detect\_filter@{stall\_detect\_filter}!stalldet\_funcs.h@{stalldet\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{stall\_detect\_filter()}{stall\_detect\_filter()}}
+{\footnotesize\ttfamily void stall\+\_\+detect\+\_\+filter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___stall_det}{Struct\+\_\+\+Stall\+Det}} $\ast$}]{stall\+\_\+ptr,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{outerloop\+\_\+ramp,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{outerloop\+\_\+fdbk }\end{DoxyParamCaption})}
+
+
+
+Use for stall detector filter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+{\em fix16\+\_\+t} & outerloop\+\_\+ramp \\
+\hline
+{\em fix16\+\_\+t} & outerloop\+\_\+fdbk \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{stalldet__funcs_8h_ac3c5e4a282cd5dc14c307e6796d93906}\label{stalldet__funcs_8h_ac3c5e4a282cd5dc14c307e6796d93906}} 
+\index{stalldet\_funcs.h@{stalldet\_funcs.h}!stall\_detect\_process@{stall\_detect\_process}}
+\index{stall\_detect\_process@{stall\_detect\_process}!stalldet\_funcs.h@{stalldet\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{stall\_detect\_process()}{stall\_detect\_process()}}
+{\footnotesize\ttfamily void stall\+\_\+detect\+\_\+process (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Use for stall detection processing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{stalldet__funcs_8h_adbe96d22f86b99adf2be56fa3736aeb0}\label{stalldet__funcs_8h_adbe96d22f86b99adf2be56fa3736aeb0}} 
+\index{stalldet\_funcs.h@{stalldet\_funcs.h}!stalldet\_calc\_filter\_alpha@{stalldet\_calc\_filter\_alpha}}
+\index{stalldet\_calc\_filter\_alpha@{stalldet\_calc\_filter\_alpha}!stalldet\_funcs.h@{stalldet\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{stalldet\_calc\_filter\_alpha()}{stalldet\_calc\_filter\_alpha()}}
+{\footnotesize\ttfamily void stalldet\+\_\+calc\+\_\+filter\+\_\+alpha (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Use to stall detect filter parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{stalldet__funcs_8h_a8bebd8f7bc8d99398f22882c4f516b50}\label{stalldet__funcs_8h_a8bebd8f7bc8d99398f22882c4f516b50}} 
+\index{stalldet\_funcs.h@{stalldet\_funcs.h}!stalldet\_param\_process@{stalldet\_param\_process}}
+\index{stalldet\_param\_process@{stalldet\_param\_process}!stalldet\_funcs.h@{stalldet\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{stalldet\_param\_process()}{stalldet\_param\_process()}}
+{\footnotesize\ttfamily void stalldet\+\_\+param\+\_\+process (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr,  }\item[{\mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28}{Parameter\+Code}}}]{param\+\_\+code,  }\item[{int32\+\_\+t}]{rx\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Use to process stall detect parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+{\em Parameter\+Code} & param\+\_\+code \\
+\hline
+{\em int32\+\_\+t} & rx\+\_\+data \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{stalldet__funcs_8h_a4bb96472b6ae336efd06c8f4a7e6a876}\label{stalldet__funcs_8h_a4bb96472b6ae336efd06c8f4a7e6a876}} 
+\index{stalldet\_funcs.h@{stalldet\_funcs.h}!stalldet\_param\_write@{stalldet\_param\_write}}
+\index{stalldet\_param\_write@{stalldet\_param\_write}!stalldet\_funcs.h@{stalldet\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{stalldet\_param\_write()}{stalldet\_param\_write()}}
+{\footnotesize\ttfamily void stalldet\+\_\+param\+\_\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr,  }\item[{\mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28}{Parameter\+Code}}}]{param\+\_\+code,  }\item[{int32\+\_\+t}]{rx\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Use to write stall detect parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+{\em Parameter\+Code} & param\+\_\+code \\
+\hline
+{\em int32\+\_\+t} & rx\+\_\+data \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{stalldet__funcs_8h_a2cf93adf7a41196f8858a7ea7ccf28b0}\label{stalldet__funcs_8h_a2cf93adf7a41196f8858a7ea7ccf28b0}} 
+\index{stalldet\_funcs.h@{stalldet\_funcs.h}!stalldet\_reset@{stalldet\_reset}}
+\index{stalldet\_reset@{stalldet\_reset}!stalldet\_funcs.h@{stalldet\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{stalldet\_reset()}{stalldet\_reset()}}
+{\footnotesize\ttfamily void stalldet\+\_\+reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Use to reset stall detect variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+
+
+Referenced by motor\+\_\+reset().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stalldet__funcs_8h_a2cf93adf7a41196f8858a7ea7ccf28b0_icgraph}
+\end{center}
+\end{figure}

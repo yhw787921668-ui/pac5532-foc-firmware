@@ -1,0 +1,105 @@
+.TH "CMSIS_CM0_core_definitions" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CMSIS_CM0_core_definitions \- CM0 Core Definitions
+.SH SYNOPSIS
+.br
+.PP
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBCMSIS CM0 Core Register\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB__CM0_CMSIS_VERSION_MAIN\fP   (0x01)"
+.br
+.ti -1c
+.RI "#define \fB__CM0_CMSIS_VERSION_SUB\fP   (0x30)"
+.br
+.ti -1c
+.RI "#define \fB__CM0_CMSIS_VERSION\fP   ((\fB__CM0_CMSIS_VERSION_MAIN\fP << 16) | \fB__CM0_CMSIS_VERSION_SUB\fP)"
+.br
+.ti -1c
+.RI "#define \fB__CORTEX_M\fP   (0x00)"
+.br
+.ti -1c
+.RI "#define \fB__NVIC_PRIO_BITS\fP   2"
+.br
+.ti -1c
+.RI "#define \fB__I\fP   volatile const"
+.br
+.ti -1c
+.RI "#define \fB__O\fP   volatile"
+.br
+.ti -1c
+.RI "#define \fB__IO\fP   volatile"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This file defines all structures and symbols for CMSIS core:
+.IP "\(bu" 2
+CMSIS version number
+.IP "\(bu" 2
+Cortex-M core registers and bitfields
+.IP "\(bu" 2
+Cortex-M core peripheral base address 
+.PP
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define __CM0_CMSIS_VERSION   ((\fB__CM0_CMSIS_VERSION_MAIN\fP << 16) | \fB__CM0_CMSIS_VERSION_SUB\fP)"
+CMSIS HAL version number 
+.br
+ 
+.PP
+Definition at line 41 of file core_cm0\&.h\&.
+.SS "#define __CM0_CMSIS_VERSION_MAIN   (0x01)"
+[31:16] CMSIS HAL main version 
+.PP
+Definition at line 39 of file core_cm0\&.h\&.
+.SS "#define __CM0_CMSIS_VERSION_SUB   (0x30)"
+[15:0] CMSIS HAL sub version 
+.br
+ 
+.PP
+Definition at line 40 of file core_cm0\&.h\&.
+.SS "#define __CORTEX_M   (0x00)"
+Cortex core 
+.br
+ 
+.PP
+Definition at line 43 of file core_cm0\&.h\&.
+.SS "#define __I   volatile const"
+IO definitions
+.PP
+define access restrictions to peripheral registers defines 'read only' permissions 
+.br
+ 
+.PP
+Definition at line 68 of file core_cm0\&.h\&.
+.SS "#define __IO   volatile"
+defines 'read / write' permissions 
+.br
+ 
+.PP
+Definition at line 71 of file core_cm0\&.h\&.
+.SS "#define __NVIC_PRIO_BITS   2"
+standard definition for NVIC Priority Bits 
+.PP
+Definition at line 53 of file core_cm0\&.h\&.
+.SS "#define __O   volatile"
+defines 'write only' permissions 
+.br
+ 
+.PP
+Definition at line 70 of file core_cm0\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

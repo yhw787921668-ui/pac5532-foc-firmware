@@ -1,0 +1,231 @@
+.TH "pac_foc/src/app/app_mainsub_sm.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/app/app_mainsub_sm.c \- App main sub state machine, use to control ADC Calibration, pre PRESTART_RESET, SIM, IPD states\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'parameter_process\&.h'\fP
+.br
+\fC#include 'app_funcs\&.h'\fP
+.br
+\fC#include 'driver_funcs\&.h'\fP
+.br
+\fC#include 'fault\&.h'\fP
+.br
+\fC#include 'control_funcs\&.h'\fP
+.br
+\fC#include 'mpos_funcs\&.h'\fP
+.br
+\fC#include 'foc_funcs\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_OPTIMIZE_SPEED_ON void \fBsm_mainsub_prestart\fP (void)"
+.br
+.RI "This function use to FOC motor control state flow, FAULT, RUN, START, STOP, RESET, COAST, DISABLE\&. "
+.ti -1c
+.RI "PAC5XXX_OPTIMIZE_SPEED_OFF void \fBsm_mainsub_post\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "This function use to initialize FOC timing, ADC calibration\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+App main sub state machine, use to control ADC Calibration, pre PRESTART_RESET, SIM, IPD states\&. 
+
+
+.PP
+Definition in file \fBapp_mainsub_sm\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "PAC5XXX_OPTIMIZE_SPEED_OFF void sm_mainsub_post (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+This function use to initialize FOC timing, ADC calibration\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr motor pointer 
+.RE
+.PP
+
+.PP
+Definition at line 173 of file app_mainsub_sm\&.c\&.
+.PP
+.nf
+174 {
+175     switch (motor_ptr->state\&.post)
+176     {
+177         case STATE_POST_RESET:
+178             // Configure control loop for FOC mode
+179             foc_config(motor_ptr);
+180             motor_ptr->state\&.post = STATE_POST_ADCCAL_START;
+181             break;
+182 
+183         case STATE_POST_ADCCAL_START:
+184 #ifdef ENABLE_ADCCAL
+185             __disable_irq();
+186             motor_ptr->state\&.post = STATE_POST_ADCCAL_RUN;
+187             motor_ptr->state\&.adccal = STATE_ADCCAL_RESET;
+188             motor_ptr->state\&.appcontrol = STATE_APPCONTROL_ADCCAL;
+189             __enable_irq();
+190 #else
+191             set_default_adc_offset(motor_ptr);
+192             read_adc_offsets(motor_ptr);
+193             motor_ptr->state\&.post = STATE_POST_COMPLETE;
+194 #endif
+195             break;
+196 
+197 #ifdef ENABLE_ADCCAL
+198         case STATE_POST_ADCCAL_RUN:
+199            // Check status of ADC Offset Calibration, is completed yet
+200            if (motor_ptr->state\&.adccal == STATE_ADCCAL_COMPLETE)
+201            {
+202                read_adc_offsets(motor_ptr);
+203                __disable_irq();
+204                motor_ptr->state\&.post = STATE_POST_COMPLETE;
+205                __enable_irq();
+206            }
+207            break;
+208 #endif
+209 
+210         case STATE_POST_COMPLETE:
+211            break;
+212 
+213         default:
+214            break;
+215     }
+216 }
+.fi
+.PP
+References Struct_State::adccal, Struct_State::appcontrol, foc_config(), Struct_State::post, Struct_Motor::state, STATE_ADCCAL_RESET, STATE_APPCONTROL_ADCCAL, STATE_POST_ADCCAL_RUN, STATE_POST_ADCCAL_START, and STATE_POST_RESET\&.
+.SS "PAC5XXX_OPTIMIZE_SPEED_ON void sm_mainsub_prestart (void)"
+
+.PP
+This function use to FOC motor control state flow, FAULT, RUN, START, STOP, RESET, COAST, DISABLE\&. 
+.PP
+Definition at line 55 of file app_mainsub_sm\&.c\&.
+.PP
+.nf
+56 {
+57     static Struct_Motor* motor_ptr = &motor;
+58 
+59     switch(motor_ptr->state\&.prestart)
+60     {
+61         case STATE_PRESTART_RESET:
+62             __disable_irq();
+63             motor_reset(motor_ptr);
+64             motor_ptr->status\&.prestart = STATUS_PRESTART_RUNNING;
+65 #ifdef ENABLE_SIM
+66             sim_smstate_reset(motor_ptr);
+67             config_control_timing_sim();
+68             config_control_dt(motor_ptr, motor_ptr->sim\&.dt_control_q26, SIM_CONTROL_DIVIDER);
+69             motor_ptr->state\&.appcontrol = STATE_APPCONTROL_SIM_RUN;
+70             motor_ptr->state\&.prestart = STATE_PRESTART_SIM_RUN;
+71 #else
+72             motor_ptr->state\&.prestart = STATE_PRESTART_IPD_INIT;
+73 #endif
+74             __enable_irq();
+75             break;
+76 
+77         case STATE_PRESTART_SIM_RUN:
+78         {
+79 #ifdef ENABLE_SIM
+80             if ((motor_ptr->sim\&.status_sim & STATUS_SIM_COMPLETE) && (!(motor_ptr->sim\&.status_sim & STATUS_SIM_SWITCH2CL)))
+81             {
+82                 // SIM exit procedure
+83                 sim_exit_main(motor_ptr);
+84                 // Next state
+85                 __disable_irq();
+86                 motor_ptr->state\&.prestart = STATE_PRESTART_IPD_INIT;
+87                 motor_ptr->state\&.appcontrol = STATE_APPCONTROL_IDLE;
+88                 __enable_irq();
+89             }
+90             else if ((motor_ptr->sim\&.status_sim & STATUS_SIM_COMPLETE) && (motor_ptr->sim\&.status_sim & STATUS_SIM_SWITCH2CL))
+91             {
+92                 sim_sim2cl_transition_main(motor_ptr);
+93 
+94                 // Next state if transitions are complete
+95                 if (motor_ptr->sim\&.transition_complete)
+96                 {
+97                     if (!motor_ptr->app\&.speed_mode_flag)
+98                         motor_ptr->control\&.iqrefcl_target_f16 = motor_ptr->app\&.iqrefcl_cmd_f16;
+99                     motor_ptr->control\&.idrefcl_target_f16 = motor_ptr->app\&.idrefcl_cmd_f16;
+100 
+101                     __disable_irq();
+102                     motor_ptr->state\&.main = STATE_MAIN_RUN;
+103                     motor_ptr->state\&.control = STATE_CONTROL_TORQUE;
+104                     sim_sim2cl_transition_exit_main(motor_ptr);
+105                     __enable_irq();
+106                 }
+107             }
+108 #endif  // ENABLE_SIM
+109         }
+110             break;
+111 
+112         case STATE_PRESTART_IPD_INIT:
+113         {
+114             __disable_irq();
+115 #ifdef ENABLE_IPD
+116             motor_ptr->state\&.prestart = STATE_PRESTART_IPD_RUN;
+117             motor_ptr->state\&.appcontrol = STATE_APPCONTROL_IPD;
+118             motor_ptr->ipd\&.ipd_state = IPD_START;
+119             motor_ptr->funcptr1 = (void (*)(void *)) &ipd_empty_function;
+120 #else
+121             motor_ptr->state\&.prestart = STATE_PRESTART_COMPLETE;
+122             motor_ptr->status\&.prestart = STATUS_PRESTART_COMPLETED;
+123 #endif
+124             __enable_irq();
+125         }
+126                     break;
+127 
+128         case STATE_PRESTART_IPD_RUN:
+129         {
+130 #ifdef ENABLE_IPD
+131             // If IPD Is done, then Start FOC with Angle from IPD
+132             if (motor_ptr->ipd\&.ipd_state == IPD_DONE)
+133             {
+134                 __disable_irq();
+135 #ifdef ENABLE_IPD_OPD
+136                 // If IPD detected phase lost
+137                 if (motor_ptr->ipd\&.status & IPD_PHASE_LOST_DETECTED)
+138                 {
+139                     set_fault(FAULT_OPD);
+140                     motor_ptr->status\&.prestart = STATUS_PRESTART_FAILED;
+141                     motor_ptr->state\&.prestart = STATE_PRESTART_COMPLETE;
+142                 }
+143                 else
+144 #endif
+145                 {
+146                     // Set the angle for FOC to start from; angle value must be a fix16 number between -pi*1024 and +pi*1024
+147                     motor_ptr->startup\&.aligngo\&.forced_angle_q26 = motor_ptr->ipd\&.ipd_starting_angle;
+148 
+149                     motor_ptr->status\&.prestart = STATUS_PRESTART_COMPLETED;
+150                     motor_ptr->state\&.prestart = STATE_PRESTART_COMPLETE;
+151                 }
+152                 __enable_irq();
+153             }
+154 #endif
+155         }
+156             break;
+157 
+158         case STATE_PRESTART_COMPLETE:
+159             break;
+160 
+161         default:
+162             break;
+163     }
+164 }
+.fi
+.PP
+References Struct_StartupAlignGo::aligngo, Struct_Motor::app, Struct_State::appcontrol, config_control_dt(), Struct_Motor::control, Struct_State::control, FAULT_OPD, Struct_AlignGo::forced_angle_q26, Struct_App::idrefcl_cmd_f16, Struct_Control::idrefcl_target_f16, IPD_DONE, ipd_empty_function(), IPD_PHASE_LOST_DETECTED, IPD_START, Struct_App::iqrefcl_cmd_f16, Struct_Control::iqrefcl_target_f16, Struct_State::main, motor, motor_reset(), Struct_State::prestart, Struct_Status::prestart, set_fault(), Struct_App::speed_mode_flag, Struct_Motor::startup, Struct_Motor::state, STATE_APPCONTROL_IDLE, STATE_APPCONTROL_IPD, STATE_APPCONTROL_SIM_RUN, STATE_CONTROL_TORQUE, STATE_MAIN_RUN, STATE_PRESTART_COMPLETE, STATE_PRESTART_IPD_INIT, STATE_PRESTART_IPD_RUN, STATE_PRESTART_RESET, STATE_PRESTART_SIM_RUN, Struct_Motor::status, STATUS_PRESTART_COMPLETED, STATUS_PRESTART_FAILED, STATUS_PRESTART_RUNNING, STATUS_SIM_COMPLETE, and STATUS_SIM_SWITCH2CL\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

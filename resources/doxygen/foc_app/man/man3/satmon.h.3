@@ -1,0 +1,80 @@
+.TH "pac_foc/src/features/satmon.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/features/satmon.h \- Use for PWM_SATURATED check\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcheck_pwm_sat\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Use to check is PWM saturated\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for PWM_SATURATED check\&. 
+
+
+.PP
+Definition in file \fBsatmon\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void check_pwm_sat (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Use to check is PWM saturated\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.RE
+.PP
+
+.PP
+Definition at line 22 of file satmon\&.c\&.
+.PP
+.nf
+23 {
+25     // Handle Logic AND case
+27 #if 0
+28     // If saturated
+29     if (motor_ptr->foc\&.flag_sat_logicand == 1)
+30     {
+31         set_warning(WARNING_PWM_SATURATED);
+32     }
+33     // If not saturated
+34     else
+35     {
+36         clear_warning(WARNING_PWM_SATURATED);
+37         motor_ptr->foc\&.flag_sat_logicand = 1;
+38     }
+39 #endif
+40 
+42     // Handle Logic OR case
+44     // If saturated
+45     if (motor_ptr->foc\&.flag_sat_logicor == 1)
+46     {
+47         set_warning(WARNING_PWM_SATURATED);
+48         motor_ptr->foc\&.flag_sat_logicor = 0;
+49     }
+50     // If not saturated
+51     else
+52     {
+53         clear_warning(WARNING_PWM_SATURATED);
+54     }
+55 
+56 }
+.fi
+.PP
+References clear_warning(), Struct_FOC::flag_sat_logicand, Struct_FOC::flag_sat_logicor, Struct_Motor::foc, set_warning(), and WARNING_PWM_SATURATED\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

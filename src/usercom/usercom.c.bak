@@ -1,0 +1,313 @@
+#include "usercom.h"
+#include "motor_struct.h"
+#include "stall.h"
+#include "fault.h"
+#include "hall_io_config.h"
+#include "SmartHALL.h"
+#include "temperature.h"
+#include "general_headers.h"
+
+extern volatile uint8_t motordir;
+extern uint8_t user_vsm_start_mode;
+
+MotorUser motoruser; 
+LIMIT_CURRENT limit_current;
+
+//fix16_t ;
+
+
+//#define  uart_torque_cmd_enable
+
+
+//uint8_t uart_send_buff[8]={0,0,0,0,0,0,0,0};
+
+void user_call()
+{
+	  Struct_Motor* motor_ptr = &motor;
+	
+//调试用
+	//  motoruser.hall_damage=1; //无感运行调试 因为突然故障导致变量未复位 出于安全考虑 则必须掉电重启才切换运行模式 
+	
+	 // motor_ptr->app.direction_reverse_cmd =0;
+	
+	
+    //需要使用eeprom操作与否限制
+	
+	
+	    motor_ptr->app.speed_mode_flag  =run_command.run_mode;
+	
+	   motor_ptr->app.motor_enable_cmd =run_command.inv_enable; //控制器使能外部控制
+
+	   motordir=motor_ptr->app.direction_reverse_cmd;
+	
+		 
+		 if( motor_ptr->state.main == STATE_MAIN_STOPPED) //电机处于停机状态
+		 {
+			  motoruser.motor_sm_run=0;
+		 }
+		 else
+		 {
+				motoruser.motor_sm_run=1;  
+		 }
+		 
+		 
+	
+	 if( motor_ptr->app.speed_mode_flag==0)//扭矩模式
+		{
+			//通过滑行变量控制扭矩指令作用域 又被重新赋值
+			if(motoruser.coasting_flag==0)
+			{
+				//	motoruser.cmd_torque=(PAC5XXX_ADC->AS1R3.VAL<<10)>>2; //将油门输入 缩放64倍（<<16 >>6）	
+				
+				  
+				
+		  	motoruser.cmd_torque = fix16_div((run_command.torq_cmd<<16),3355443); //
+				
+				
+				//accel_torque_debug=motoruser.cmd_torque;
+				
+				
+				
+				if(motoruser.cmd_torque>=motoruser.cmd_torque_max_limit) //扭矩限幅
+				{
+					
+					motoruser.cmd_torque=motoruser.cmd_torque_max_limit;
+					
+				}
+				
+				
+				
+				//当电机接近最大速度时，开始限制最大扭矩
+				
+				if(motoruser.fback_speed_rpm>(500<<16)) //500-540范围扭矩从20N降到0
+				{
+					
+				//	motoruser.cmd_torque_max_limit=(fix16_mul(motoruser.fback_speed_rpm,-26214)+(220<<16));//y=-0.4x+220
+					
+//					motoruser.cmd_torque_max_limit=((520<<16)-motoruser.fback_speed_rpm);
+//					
+//					if(motoruser.cmd_torque_max_limit<0)
+//					{
+//						motoruser.cmd_torque_max_limit=0;
+//					}
+					
+				  motoruser.cmd_torque_max_limit=((-motoruser.fback_speed_rpm+(520<<16)));//y=-x+520
+					
+					if(motoruser.cmd_torque_max_limit<0)
+					{
+						motoruser.cmd_torque_max_limit=0;
+					}
+				  
+					
+//				  
+					
+				}
+				
+				else //<=500
+				{
+					motoruser.cmd_torque_max_limit=(20<<16);
+				}
+				
+			//	motoruser.cmd_torque_max_limit=
+				
+				
+			
+				if(PAC5XXX_ADC->AS1R3.VAL<10) //当旋钮油门小于10时，则强制切换到旋钮控制 
+				{
+			 	//  motoruser.cmd_torque=fix16_div((PAC5XXX_ADC->AS1R3.VAL<<16),1677721); //1024 - 20N  //3276800  //1677721
+				}
+				
+				
+				
+				if(motoruser.cmd_torque<10)
+				{
+					
+				//	motor_ptr->app.motor_enable_cmd=0; //如果油门低于一个门限值 则关机
+				}
+				
+			}
+			else
+			{
+				motoruser.cmd_torque=0;
+			}
+		
+		}
+		
+		
+		
+		if(motoruser.run_mode==run_hall2est)
+		{
+			
+			
+			
+		}
+		
+				//正常模式 hall启动 est运行
+		if( motoruser.hall_damage==0) 
+		{
+			
+			motoruser.run_mode=run_hall2est;
+			
+		}
+		
+		else //如果检测到hall损坏
+		{
+			
+			motoruser.run_mode=run_est;//切换到无传感器模式
+			
+			clear_fault(FAULT_MAIN_GRP_CLEARSTART);
+			
+		}
+		
+		
+		if(user_vsm_start_mode==1) //硬启动
+		{
+		//	motor_ptr->foc.Iq_pid.ka_q16=13107;
+		
+		//	motor_ptr->control.idiqref_rate_f16=(200<<16);
+			
+			                
+			
+		}
+		else  //软启动
+		{
+
+		//	motor_ptr->foc.Iq_pid.ka_q16=1310;
+		//	motor_ptr->control.idiqref_rate_f16=(20<<16);
+			
+		}
+		
+		
+		
+		//user_mileage_km_x10  //公里数更新
+		
+			
+		
+	//	motor_ptr->control.outerloop_pid.
+
+			
+
+//电机使能开关
+//		if(PAC5XXX_GPIOE->IN.P3==0)
+		{
+			// PAC5XXX_UART->RXTX.VAL=1;
+			
+			//油门输入
+		// PAC5XXX_UART->RXTX.VAL=(PAC5XXX_ADC->AS1R2.VAL>>2);
+
+			
+		}
+//			else
+		{
+	//		PAC5XXX_UART->RXTX.VAL=0;
+		}
+				
+
+//以下赋值需要一直运行 		
+		
+		
+		//动态电流环PI 
+		
+   //  motor_ptr->foc.Iq_pid.ka_q16=motor_ptr->foc.Id_pid.ka_q16=fix16_mul(motoruser.fback_speed_rpm,4)+655;//y=0.00003x+0.01;
+		
+		
+		//温度上传及SmartHALL
+	  	motoruser.temp_hall= (mostemp.tempval<<24)+(smarthall.hallid<<16)+(motoruser.hall_damage<<8)+0;
+	   
+		 
+			motor_ptr->control.outerloop_pid.max_value=(20<<16); //扭矩最大值
+			motor_ptr->control.outerloop_pid.min_value=(-((0)<<16));
+		
+		
+	  //	motor_ptr->control.outerloop_rate = ((1000<<16) * SPEED_PI_LOOP_DIVIDER) ;
+		
+		
+//		 motor_ptr->control.outerloop_pid.ka_q16 = 52428;
+//     picon_convert_gain(&motor_ptr->control.outerloop_pid, (motor_ptr->app.outerloop_scale_q0 << 16), motor_ptr->app.descale_current_factor);
+//		
+//		
+//		 motor_ptr->control.outerloop_pid.kb_q16 = 13107;
+//     picon_convert_gain(&motor_ptr->control.outerloop_pid, (motor_ptr->app.outerloop_scale_q0 << 16), motor_ptr->app.descale_current_factor);
+						 
+		
+   // motor_ptr->app.speed_mode_flag=0;
+		
+		//m1_enable();
+		
+		
+
+	
+}
+
+void user_param_set() //需要初始化的用户参数
+{
+	  Struct_Motor* motor_ptr = &motor;
+	
+	  smarthall.Direct_FOC=1; //HallFOC启动
+	
+	  motor_ptr->app.speed_mode_flag=0;
+	
+		motor_ptr->app.direction_reverse_cmd=0;
+	
+	  motoruser.cmd_torque_max_limit=20;
+	
+		//motoruser.hall_damage=1;
+	
+	
+	
+	
+	//用户直接初始化以下无感参数
+        
+	
+   //对齐时间
+	  motor_ptr->startup.aligngo.aligntime_cmd = 6553;
+	//开环目标速度 HZ
+		motor_ptr->startup.aligngo.speedrefol_target = ((20<<16)); //要小于切换速度
+	//开环目标速度 rad/s
+		motor_ptr->startup.aligngo.speedrefol_target_radps = (((20<<16) >> 9) * (motor_ptr->control.dt_control_1div_q6 >> 7));
+	//开环升速斜率
+	  motor_ptr->startup.aligngo.speedrefol_rate=40; //此参数对无感启动来说很重要
+	 
+
+	
+//	 flash_handle.eeprm_state  =0;
+//	 flash_handle.eesave_cmd_f =0;
+//	 flash_handle.next_sector  =0;
+//	 flash_handle.pre_page     =0;
+//	 flash_handle.sub_sector   =0;
+	
+	
+	
+	
+//两种启动模式下EST参数重新配置
+//        motor_ptr->mpos.est.w0_q06 = 82352537 >> 10; //1256.6
+//        motor_ptr->mpos.est.w0_target_q06 = motor_ptr->mpos.est.w0_q06;
+//        motor_ptr->mpos.est.dampfactor_q16 = 43064; //0.6571
+//        motor_ptr->mpos.est.filter_fc_speed_q16 = 1966080; //30
+//        motor_ptr->mpos.est.angcorr_offset = 0;
+//      
+//        // Value sent by GUI in Q20 format
+//        motor_ptr->mpos.est.angcorr_gain_q20 = 0;
+//	
+	
+}
+
+
+void user_self_check()
+{
+//	uint8_t user_hall_value;
+//	
+//	user_hall_value=GET_HALL_VALUE;
+//	
+//	//霍尔发生故障
+//	if((user_hall_value==0)||(user_hall_value==7))
+//	{
+//		
+//		motoruser.hall_damage=1;
+//	}
+//	else
+//	{
+//		motoruser.hall_damage=0;
+//	}
+	
+}

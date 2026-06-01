@@ -1,0 +1,102 @@
+.TH "PAC5XXX_Driver_UART" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_UART \- PAC5XXX UART
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_UART\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_UART\fP void \fBpac5xxx_uart_config_LCR2\fP (\fBPAC55XX_UART_TYPEDEF\fP *uart_ptr, \fBUARTLCR_WL_TYPE\fP bpc, \fBUART_STOPBITS_TYPE\fP stop_bits, \fBUART_PEN_TYPE\fP parity_enabled, \fBUART_PARITY_TYPE\fP parity, \fBUART_BREAKCONTROL_TYPE\fP break_control)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_UART\fP void \fBpac5xxx_uart_config_divisor_latch2\fP (\fBPAC55XX_UART_TYPEDEF\fP *uart_ptr, uint32_t latch_value)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_UART\fP void \fBpac5xxx_uart_io_config2\fP (void)"
+.br
+.RI "This function configures IO for use with the UART peripheral\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_UART"
+
+.PP
+Definition at line 31 of file pac5xxx_driver_uart\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_UART\fP void pac5xxx_uart_config_divisor_latch2 (\fBPAC55XX_UART_TYPEDEF\fP * uart_ptr, uint32_t latch_value)"
+
+.PP
+Definition at line 34 of file pac5xxx_driver_uart\&.c\&.
+.PP
+.nf
+35 {
+36     uart_ptr->DLR\&.w = latch_value;
+37 }
+.fi
+.PP
+References PAC55XX_UART_TYPEDEF::DLR\&.
+.PP
+Referenced by config_uart()\&.
+.SS "\fBRAMFUNC_UART\fP void pac5xxx_uart_config_LCR2 (\fBPAC55XX_UART_TYPEDEF\fP * uart_ptr, \fBUARTLCR_WL_TYPE\fP bpc, \fBUART_STOPBITS_TYPE\fP stop_bits, \fBUART_PEN_TYPE\fP parity_enabled, \fBUART_PARITY_TYPE\fP parity, \fBUART_BREAKCONTROL_TYPE\fP break_control)"
+
+.PP
+Definition at line 20 of file pac5xxx_driver_uart\&.c\&.
+.PP
+.nf
+26 {
+27     uart_ptr->LCR\&.WLS = bpc;
+28     uart_ptr->LCR\&.SBS = stop_bits;
+29     uart_ptr->LCR\&.PEN = parity_enabled;
+30     uart_ptr->LCR\&.PSEL = parity;
+31     uart_ptr->LCR\&.BCON = break_control;
+32 }
+.fi
+.PP
+References PAC55XX_UART_TYPEDEF::BCON, PAC55XX_UART_TYPEDEF::LCR, PAC55XX_UART_TYPEDEF::PEN, PAC55XX_UART_TYPEDEF::PSEL, PAC55XX_UART_TYPEDEF::SBS, and PAC55XX_UART_TYPEDEF::WLS\&.
+.PP
+Referenced by config_uart()\&.
+.SS "\fBRAMFUNC_UART\fP void pac5xxx_uart_io_config2 (void)"
+
+.PP
+This function configures IO for use with the UART peripheral\&. 
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 39 of file pac5xxx_driver_uart\&.c\&.
+.PP
+.nf
+40 {
+41     // Select UART C peripheral on PE2 and PE3
+42     PAC55XX_GPIOE->MODE\&.P2 = 1;                     // TX
+43     PAC55XX_GPIOE->MODE\&.P3 = 3;                     // RX
+44     PAC55XX_SCC->PEMUXSEL\&.w &= 0xFFFFF0FF;          // Clear Port E Pin 2 selection
+45     PAC55XX_SCC->PEMUXSEL\&.w |= 0x00000500;          // Set Port E Pin 2 UART C MOSI  
+46     PAC55XX_SCC->PEMUXSEL\&.w &= 0xFFFF0FFF;          // Clear Port F Pin 3 selection
+47     PAC55XX_SCC->PEMUXSEL\&.w |= 0x00005000;          // Set Port E Pin 3 UART C MOSI  
+48 }
+.fi
+.PP
+References PAC55XX_GPIOE, and PAC55XX_SCC\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

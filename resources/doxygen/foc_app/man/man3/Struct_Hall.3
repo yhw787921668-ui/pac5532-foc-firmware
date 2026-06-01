@@ -1,0 +1,424 @@
+.TH "Struct_Hall" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Struct_Hall \- hall structure  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hall_struct\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBtransition_flag\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBdo_speed_cal\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBflag_speed_calc_enabled\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBhall_check_error_code\fP: 2"
+.br
+.ti -1c
+.RI "uint32_t \fBhall_check_error_state_prev\fP: 3"
+.br
+.ti -1c
+.RI "uint32_t \fBhall_check_error_state_new\fP: 3"
+.br
+.ti -1c
+.RI "uint32_t \fBflag_inithallspdfilt\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBmotor_direction\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBtransition_ext_flag\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBflag_halledge_comp\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBtemp\fP: 17"
+.br
+.ti -1c
+.RI "uint32_t \fBflag_hall_int\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBSensorStateNew\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBSensorStateLast\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBaccumulate_degree_value\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBaccumulate_degree_per_dt\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBbase_speed\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhall_spd_prefilt_radps_q16\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBangle_fix16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhall2est_angleblend_cnt\fP"
+.br
+.ti -1c
+.RI "int32_t \fBtransition_counter\fP"
+.br
+.ti -1c
+.RI "int32_t \fBsector_time_sec_q26\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhall_spd_radps\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhall_spd_scaled_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhall_spd_scaled_q28\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhall_spd_prefilt_scaled_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhall_angle\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhall_interpolated_angle\fP"
+.br
+.ti -1c
+.RI "int32_t \fBhall_est_angle_corr\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBspeed_scale_shift\fP"
+.br
+.ti -1c
+.RI "int32_t \fBangcorr_gain_fwd_q20\fP"
+.br
+.ti -1c
+.RI "int32_t \fBangcorr_offset_fwd\fP"
+.br
+.ti -1c
+.RI "int32_t \fBangcorr_gain_rev_q20\fP"
+.br
+.ti -1c
+.RI "int32_t \fBangcorr_offset_rev\fP"
+.br
+.ti -1c
+.RI "int32_t \fBswitchover_spd_lo2hi_radps\fP"
+.br
+.ti -1c
+.RI "int32_t \fBswitchover_spd_hi2lo_radps\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBhall_to_snapangle_forward\fP [8]"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBhall_to_snapangle_reverse\fP [8]"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP * \fBhall_ptr_snapangle\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP * \fBptr_angcorr_gain\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP * \fBptr_angcorr_offset\fP"
+.br
+.ti -1c
+.RI "char * \fBhall_ptr_next_state\fP"
+.br
+.ti -1c
+.RI "char * \fBhall_ptr_prev_state\fP"
+.br
+.ti -1c
+.RI "char \fBhall_forward_next_state\fP [8]"
+.br
+.ti -1c
+.RI "char \fBhall_forward_prev_state\fP [8]"
+.br
+.ti -1c
+.RI "char \fBhall_reverse_next_state\fP [8]"
+.br
+.ti -1c
+.RI "char \fBhall_reverse_prev_state\fP [8]"
+.br
+.ti -1c
+.RI "int32_t \fBhalledge_polskew_time_q26\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+hall structure 
+.PP
+Definition at line 29 of file hall_struct\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "\fBfix16_t\fP Struct_Hall::accumulate_degree_per_dt"
+
+.PP
+Definition at line 49 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_reset(), and hall_timer_isr()\&.
+.SS "\fBfix16_t\fP Struct_Hall::accumulate_degree_value"
+
+.PP
+Definition at line 48 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_reset()\&.
+.SS "int32_t Struct_Hall::angcorr_gain_fwd_q20"
+
+.PP
+Definition at line 68 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_param_write(), and hall_reset()\&.
+.SS "int32_t Struct_Hall::angcorr_gain_rev_q20"
+
+.PP
+Definition at line 70 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_param_write(), and hall_reset()\&.
+.SS "int32_t Struct_Hall::angcorr_offset_fwd"
+
+.PP
+Definition at line 69 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_param_write(), and hall_reset()\&.
+.SS "int32_t Struct_Hall::angcorr_offset_rev"
+
+.PP
+Definition at line 71 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_param_write(), and hall_reset()\&.
+.SS "\fBfix16_t\fP Struct_Hall::angle_fix16"
+
+.PP
+Definition at line 52 of file hall_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_Hall::base_speed"
+
+.PP
+Definition at line 50 of file hall_struct\&.h\&.
+.SS "uint32_t Struct_Hall::do_speed_cal"
+
+.PP
+Definition at line 33 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_reset()\&.
+.SS "uint32_t Struct_Hall::flag_hall_int"
+
+.PP
+Definition at line 43 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_process(), and hall_reset()\&.
+.SS "uint32_t Struct_Hall::flag_halledge_comp"
+
+.PP
+Definition at line 41 of file hall_struct\&.h\&.
+.SS "uint32_t Struct_Hall::flag_inithallspdfilt"
+
+.PP
+Definition at line 38 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_reset()\&.
+.SS "uint32_t Struct_Hall::flag_speed_calc_enabled"
+
+.PP
+Definition at line 34 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_reset()\&.
+.SS "int32_t Struct_Hall::hall2est_angleblend_cnt"
+
+.PP
+Definition at line 53 of file hall_struct\&.h\&.
+.SS "int32_t Struct_Hall::hall_angle"
+
+.PP
+Definition at line 62 of file hall_struct\&.h\&.
+.SS "uint32_t Struct_Hall::hall_check_error_code"
+
+.PP
+Definition at line 35 of file hall_struct\&.h\&.
+.SS "uint32_t Struct_Hall::hall_check_error_state_new"
+
+.PP
+Definition at line 37 of file hall_struct\&.h\&.
+.SS "uint32_t Struct_Hall::hall_check_error_state_prev"
+
+.PP
+Definition at line 36 of file hall_struct\&.h\&.
+.SS "int32_t Struct_Hall::hall_est_angle_corr"
+
+.PP
+Definition at line 64 of file hall_struct\&.h\&.
+.SS "char Struct_Hall::hall_forward_next_state[8]"
+
+.PP
+Definition at line 81 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_create_sequence_array(), and hall_reset()\&.
+.SS "char Struct_Hall::hall_forward_prev_state[8]"
+
+.PP
+Definition at line 82 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_create_sequence_array(), and hall_reset()\&.
+.SS "int32_t Struct_Hall::hall_interpolated_angle"
+
+.PP
+Definition at line 63 of file hall_struct\&.h\&.
+.SS "char* Struct_Hall::hall_ptr_next_state"
+
+.PP
+Definition at line 79 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_reset()\&.
+.SS "char* Struct_Hall::hall_ptr_prev_state"
+
+.PP
+Definition at line 80 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_reset()\&.
+.SS "\fBfix16_t\fP* Struct_Hall::hall_ptr_snapangle"
+
+.PP
+Definition at line 76 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_reset()\&.
+.SS "char Struct_Hall::hall_reverse_next_state[8]"
+
+.PP
+Definition at line 83 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_create_sequence_array(), and hall_reset()\&.
+.SS "char Struct_Hall::hall_reverse_prev_state[8]"
+
+.PP
+Definition at line 84 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_create_sequence_array(), and hall_reset()\&.
+.SS "int32_t Struct_Hall::hall_spd_prefilt_radps_q16"
+
+.PP
+Definition at line 51 of file hall_struct\&.h\&.
+.SS "int32_t Struct_Hall::hall_spd_prefilt_scaled_q14"
+
+.PP
+Definition at line 61 of file hall_struct\&.h\&.
+.SS "int32_t Struct_Hall::hall_spd_radps"
+
+.PP
+Definition at line 58 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_reset(), and hall_timer_isr()\&.
+.SS "int32_t Struct_Hall::hall_spd_scaled_q14"
+
+.PP
+Definition at line 59 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_reset(), and hall_timer_isr()\&.
+.SS "int32_t Struct_Hall::hall_spd_scaled_q28"
+
+.PP
+Definition at line 60 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_reset(), and hall_timer_isr()\&.
+.SS "\fBfix16_t\fP Struct_Hall::hall_to_snapangle_forward[8]"
+
+.PP
+Definition at line 74 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_create_sequence_array(), hall_param_write(), and hall_reset()\&.
+.SS "\fBfix16_t\fP Struct_Hall::hall_to_snapangle_reverse[8]"
+
+.PP
+Definition at line 75 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_create_sequence_array(), hall_param_write(), and hall_reset()\&.
+.SS "int32_t Struct_Hall::halledge_polskew_time_q26"
+
+.PP
+Definition at line 85 of file hall_struct\&.h\&.
+.SS "uint32_t Struct_Hall::motor_direction"
+
+.PP
+Definition at line 39 of file hall_struct\&.h\&.
+.SS "\fBfix16_t\fP* Struct_Hall::ptr_angcorr_gain"
+
+.PP
+Definition at line 77 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_reset()\&.
+.SS "\fBfix16_t\fP* Struct_Hall::ptr_angcorr_offset"
+
+.PP
+Definition at line 78 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_reset()\&.
+.SS "int32_t Struct_Hall::sector_time_sec_q26"
+
+.PP
+Definition at line 55 of file hall_struct\&.h\&.
+.SS "uint8_t Struct_Hall::SensorStateLast"
+
+.PP
+Definition at line 47 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_reset()\&.
+.SS "uint8_t Struct_Hall::SensorStateNew"
+
+.PP
+Definition at line 46 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_reset()\&.
+.SS "uint32_t Struct_Hall::speed_scale_shift"
+
+.PP
+Definition at line 67 of file hall_struct\&.h\&.
+.SS "int32_t Struct_Hall::switchover_spd_hi2lo_radps"
+
+.PP
+Definition at line 73 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_param_write()\&.
+.SS "int32_t Struct_Hall::switchover_spd_lo2hi_radps"
+
+.PP
+Definition at line 72 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_param_write()\&.
+.SS "uint32_t Struct_Hall::temp"
+
+.PP
+Definition at line 42 of file hall_struct\&.h\&.
+.SS "int32_t Struct_Hall::transition_counter"
+
+.PP
+Definition at line 54 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_reset(), and hall_timer_isr()\&.
+.SS "uint32_t Struct_Hall::transition_ext_flag"
+
+.PP
+Definition at line 40 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_reset()\&.
+.SS "uint32_t Struct_Hall::transition_flag"
+
+.PP
+Definition at line 32 of file hall_struct\&.h\&.
+.PP
+Referenced by hall_process(), and hall_reset()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

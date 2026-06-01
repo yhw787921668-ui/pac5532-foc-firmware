@@ -1,0 +1,66 @@
+.TH "Struct_Fault" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Struct_Fault
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <fault_struct\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBeFaultMotor\fP \fBmotor\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBfault_stop_flag\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBfault_state_flag\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBfault_terminal_flag\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBtemp\fP: 5"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 60 of file fault_struct\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint8_t Struct_Fault::fault_state_flag"
+
+.PP
+Definition at line 64 of file fault_struct\&.h\&.
+.PP
+Referenced by set_fault(), and statemachine_appmain()\&.
+.SS "uint8_t Struct_Fault::fault_stop_flag"
+
+.PP
+Definition at line 63 of file fault_struct\&.h\&.
+.PP
+Referenced by set_fault(), statemachine_appmain(), and systemvar_init()\&.
+.SS "uint8_t Struct_Fault::fault_terminal_flag"
+
+.PP
+Definition at line 65 of file fault_struct\&.h\&.
+.PP
+Referenced by set_fault(), and statemachine_appmain()\&.
+.SS "\fBeFaultMotor\fP Struct_Fault::motor"
+
+.PP
+Definition at line 62 of file fault_struct\&.h\&.
+.PP
+Referenced by clear_fault(), clear_warning(), set_fault(), set_warning(), and statemachine_appmain()\&.
+.SS "uint8_t Struct_Fault::temp"
+
+.PP
+Definition at line 66 of file fault_struct\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

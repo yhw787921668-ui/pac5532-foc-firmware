@@ -1,0 +1,133 @@
+.TH "Struct_Power" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Struct_Power \- This structure use for power control\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <control_power1_struct\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int32_t \fBpower_iphase_offset_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBpower_iphase_factor_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBpower_out_1divva_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBfilter_alpha\fP"
+.br
+.ti -1c
+.RI "int32_t \fBpower_out_1divva_filter_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBpower_out_1divva_filter_q30\fP"
+.br
+.ti -1c
+.RI "int32_t \fBibus_avg_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBpower_preresult\fP"
+.br
+.ti -1c
+.RI "int32_t \fBpower_result\fP"
+.br
+.ti -1c
+.RI "int32_t \fBcurrent_descale_factor_q16\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBadc_offset_ibusavg_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBpower_vbus_result_delta\fP"
+.br
+.ti -1c
+.RI "int32_t \fBpower_temperature_result_delta\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBlcorr_power_m\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBlcorr_power_b\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This structure use for power control\&. 
+
+This structure use for power control ibus\&. 
+.PP
+Definition at line 28 of file control_power1_struct\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t Struct_Power::adc_offset_ibusavg_q14"
+
+.PP
+Definition at line 39 of file control_power2_struct\&.h\&.
+.SS "int32_t Struct_Power::current_descale_factor_q16"
+
+.PP
+Definition at line 43 of file control_power1_struct\&.h\&.
+.SS "int32_t Struct_Power::filter_alpha"
+
+.PP
+Definition at line 37 of file control_power1_struct\&.h\&.
+.SS "int32_t Struct_Power::ibus_avg_q16"
+
+.PP
+Definition at line 40 of file control_power1_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_Power::lcorr_power_b"
+
+.PP
+Definition at line 43 of file control_power2_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_Power::lcorr_power_m"
+
+.PP
+Definition at line 42 of file control_power2_struct\&.h\&.
+.SS "int32_t Struct_Power::power_iphase_factor_q14"
+
+.PP
+Definition at line 31 of file control_power1_struct\&.h\&.
+.SS "int32_t Struct_Power::power_iphase_offset_q14"
+
+.PP
+Definition at line 30 of file control_power1_struct\&.h\&.
+.SS "int32_t Struct_Power::power_out_1divva_filter_q14"
+
+.PP
+Definition at line 38 of file control_power1_struct\&.h\&.
+.SS "int32_t Struct_Power::power_out_1divva_filter_q30"
+
+.PP
+Definition at line 39 of file control_power1_struct\&.h\&.
+.SS "int32_t Struct_Power::power_out_1divva_q14"
+
+.PP
+Definition at line 36 of file control_power1_struct\&.h\&.
+.SS "int32_t Struct_Power::power_preresult"
+
+.PP
+Definition at line 41 of file control_power1_struct\&.h\&.
+.SS "int32_t Struct_Power::power_result"
+
+.PP
+Definition at line 42 of file control_power1_struct\&.h\&.
+.SS "int32_t Struct_Power::power_temperature_result_delta"
+
+.PP
+Definition at line 41 of file control_power2_struct\&.h\&.
+.SS "int32_t Struct_Power::power_vbus_result_delta"
+
+.PP
+Definition at line 40 of file control_power2_struct\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

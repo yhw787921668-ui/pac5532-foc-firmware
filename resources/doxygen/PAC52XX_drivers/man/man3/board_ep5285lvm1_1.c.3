@@ -1,0 +1,100 @@
+.TH "pac_foc/pac52xx/board/board_ep5285lvm1_1.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/board/board_ep5285lvm1_1.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_tile\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_adc\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinit_diff_amp_gain\fP (void)"
+.br
+.ti -1c
+.RI "void \fBconfig_seq_foc\fP (void)"
+.br
+.ti -1c
+.RI "void \fBinit_emux\fP (void)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void config_seq_foc (void)"
+
+.PP
+Definition at line 33 of file board_ep5285lvm1_1\&.c\&.
+.PP
+.nf
+34 {
+35     // Configure sequencers and ADC
+36     pac5xxx_adc_config(ADCCTL_ADSTART_AUTO_01_IND_TRIG, ADCCTL_ADCDIV_DIV4, 1);           // Configure sequencers for AS0 chained triggers, /4 divider, repeat mode
+37     
+38     // AS0 configuration
+39     pac5xxx_adc_as0_config_pwm(ADCCTLX_AS1D_DEPTH1, ADCCTLX_TRIGEDGE_HITOLOW, ADCCTLX_TRIGPWM_PWMA0);
+40     pac5xxx_adc_as0_sequence_config(0, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_MSPI(SIGMGR_AIO10), ASSEQ_DELAY_0);     // Convert Vout, then change CAFE MUX to M1-Vu
+41 
+42 #if (POWER_MEASURE_SELECT == POWER_MEASURE_METHOD_1) || !defined(ENABLE_POWERMEASURE)
+43 
+44     #ifndef SELECT_I2SAMPLE_MIDDLEPWM
+45     // AS1 configuration
+46     pac5xxx_adc_as1_config_pwm(ADCCTLX_AS1D_DEPTH4, ADCCTLX_TRIGEDGE_HITOLOW, ADCCTLX_TRIGPWM_PWMA1);
+47     pac5xxx_adc_as1_sequence_config(0, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_MSPI(SIGMGR_AIO10), ASSEQ_DELAY_0);   // Convert I2, then change CAFE MUX to Vbus
+48     pac5xxx_adc_as1_sequence_config(1, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_MSPI(SIGMGR_AB13), ASSEQ_DELAY_0);    // Convert Vbus, then change CAFE MUX to M1-Iu
+49     pac5xxx_adc_as1_sequence_config(2, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_MSPI(SIGMGR_AB10), ASSEQ_DELAY_0);    // Convert temperature, CAFE MUX to M1-Iu
+50     pac5xxx_adc_as1_sequence_config(3, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_MSPI(SIGMGR_AIO10), ASSEQ_DELAY_0);   // Convert I2, then change CAFE MUX to M1-Iu
+51 
+52     #else   //#ifndef SELECT_I2SAMPLE_MIDDLEPWM
+53     // AS1 configuration
+54     pac5xxx_adc_as1_config_pwm(ADCCTLX_AS1D_DEPTH4, ADCCTLX_TRIGEDGE_LOWTOHI, ADCCTLX_TRIGPWM_PWMA1);
+55     pac5xxx_adc_as1_sequence_config(0, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_MSPI(SIGMGR_AIO10), ASSEQ_DELAY_0);   // Convert I2, then change CAFE MUX to Vbus
+56     pac5xxx_adc_as1_sequence_config(1, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_MSPI(SIGMGR_AB13), ASSEQ_DELAY_0);    // Convert Vbus, then change CAFE MUX to M1-Iu
+57     pac5xxx_adc_as1_sequence_config(2, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_MSPI(SIGMGR_AB10), ASSEQ_DELAY_0);    // Convert temperature, CAFE MUX to M1-Iu
+58     pac5xxx_adc_as1_sequence_config(3, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_MSPI(SIGMGR_AIO10), ASSEQ_DELAY_0);   // Convert I2, then change CAFE MUX to M1-Iu
+59    #endif  //#ifndef SELECT_I2SAMPLE_MIDDLEPWM
+60 
+61 #elif (POWER_MEASURE_SELECT == POWER_MEASURE_METHOD_2)
+62 #error: POWER_MEASURE_METHOD_2 not supported BOARD_EP5285LVM1_1_1
+63 #endif
+64 }
+.fi
+.PP
+References ADCCTL_ADCDIV_DIV4, ADCCTL_ADMUX_AD0, ADCCTL_ADSTART_AUTO_01_IND_TRIG, ADCCTLX_AS1D_DEPTH1, ADCCTLX_AS1D_DEPTH4, ADCCTLX_TRIGEDGE_HITOLOW, ADCCTLX_TRIGEDGE_LOWTOHI, ADCCTLX_TRIGPWM_PWMA0, ADCCTLX_TRIGPWM_PWMA1, ASSEQ_DELAY_0, ASSEQ_MSPI_AFTER_SH, pac5xxx_adc_as0_config_pwm(), pac5xxx_adc_as0_sequence_config(), pac5xxx_adc_as1_config_pwm(), pac5xxx_adc_as1_sequence_config(), and pac5xxx_adc_config()\&.
+.SS "void init_diff_amp_gain (void)"
+
+.PP
+Definition at line 24 of file board_ep5285lvm1_1\&.c\&.
+.PP
+.nf
+25 {
+26     pac5xxx_tile_register_write(ADDR_CFGAIO10, 0);
+27     // Enable Vref/2 offset, 1\&.5 usec HPCOMP blanking time 
+28     pac5xxx_tile_register_write(ADDR_CFGAIO10,  ((AIO50_OFFSET_ENABLED << 3) | 0x03));
+29     // Configure AIO6
+30     pac5xxx_tile_register_write(ADDR_CFGAIO6, ((AIO6789_MODE_IO << 6) | (AIO6789_OPT_INPUT << 4) | (AIO6789_POL_AH << 3) | AIO6789_MUX_DEFAULT));    // IO Mode
+31 }
+.fi
+.PP
+References AIO50_OFFSET_ENABLED, AIO6789_MODE_IO, AIO6789_MUX_DEFAULT, AIO6789_OPT_INPUT, AIO6789_POL_AH, and pac5xxx_tile_register_write()\&.
+.SS "void init_emux (void)"
+
+.PP
+Definition at line 136 of file board_ep5285lvm1_1\&.c\&.
+.PP
+.nf
+137 {
+138     // Manually set ADC EMUX so that first sequencer conversion is correct
+139 //    pac5xxx_tile_register_write(ADDR_ADCIN1, 0);        // Set to EMUX to AIO10
+140 }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

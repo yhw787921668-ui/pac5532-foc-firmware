@@ -1,0 +1,755 @@
+.TH "pac_foc/src/math/fix16.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/math/fix16.h \- Fixed math library declarations (fix16_t)  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBFIXMATH_FUNC_ATTRS\fP"
+.br
+.ti -1c
+.RI "#define \fBFIX16_RAMFUNC\fP"
+.br
+.ti -1c
+.RI "#define \fBFIXMATH_NO_OVERFLOW\fP"
+.br
+.ti -1c
+.RI "#define \fBFIXMATH_NO_ROUNDING\fP"
+.br
+.ti -1c
+.RI "#define \fBFOUR_DIV_PI\fP   0x145F3"
+.br
+.ti -1c
+.RI "#define \fB_FOUR_DIV_PI2\fP   0xFFFF9840"
+.br
+.ti -1c
+.RI "#define \fBX4_CORRECTION_COMPONENT\fP   0x399A"
+.br
+.ti -1c
+.RI "#define \fBPI_DIV_4\fP   0x0000C90F"
+.br
+.ti -1c
+.RI "#define \fBTHREE_PI_DIV_4\fP   0x00025B2F"
+.br
+.ti -1c
+.RI "#define \fBfix16_max\fP   0x7FFFFFFF"
+.br
+.ti -1c
+.RI "#define \fBfix16_min\fP   0x80000000"
+.br
+.ti -1c
+.RI "#define \fBfix16_overflow\fP   0x80000000"
+.br
+.ti -1c
+.RI "#define \fBfix16_pi\fP   205887"
+.br
+.ti -1c
+.RI "#define \fBfix16_e\fP   78145"
+.br
+.ti -1c
+.RI "#define \fBFIX16_ONE\fP   0x00010000"
+.br
+.ti -1c
+.RI "#define \fBfix16_neg_one\fP   0xFFFF0000"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef int32_t \fBfix16_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP \fBfix16_div\fP (\fBfix16_t\fP inArg0, \fBfix16_t\fP inArg1) \fBFIXMATH_FUNC_ATTRS\fP"
+.br
+.RI "Divides two fix16_t numbers (a / b) "
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP \fBfix16_lerp8\fP (\fBfix16_t\fP inArg0, \fBfix16_t\fP inArg1, uint8_t inFract) \fBFIXMATH_FUNC_ATTRS\fP"
+.br
+.RI "Returns the linear interpolation: (inArg0 * (1 - inFract)) + (inArg1 * inFract) "
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP \fBfix16_lerp16\fP (\fBfix16_t\fP inArg0, \fBfix16_t\fP inArg1, uint16_t inFract) \fBFIXMATH_FUNC_ATTRS\fP"
+.br
+.RI "Returns the linear interpolation: (inArg0 * (1 - inFract)) + (inArg1 * inFract) "
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP \fBfix16_lerp32\fP (\fBfix16_t\fP inArg0, \fBfix16_t\fP inArg1, uint32_t inFract) \fBFIXMATH_FUNC_ATTRS\fP"
+.br
+.RI "Returns the linear interpolation: (inArg0 * (1 - inFract)) + (inArg1 * inFract) "
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP \fBfix16_sin_parabola\fP (\fBfix16_t\fP inAngle) \fBFIXMATH_FUNC_ATTRS\fP"
+.br
+.RI "Returns the sine parabola of the given value\&. "
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP \fBfix16_sin\fP (\fBfix16_t\fP inAngle) \fBFIXMATH_FUNC_ATTRS\fP"
+.br
+.RI "Returns the sine of the given value\&. "
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP \fBfix16_cos\fP (\fBfix16_t\fP inAngle) \fBFIXMATH_FUNC_ATTRS\fP"
+.br
+.RI "Returns the cosine of the given value\&. "
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP \fBfix16_tan\fP (\fBfix16_t\fP inAngle) \fBFIXMATH_FUNC_ATTRS\fP"
+.br
+.RI "Returns the tangent of the given value\&. "
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP \fBfix16_asin\fP (\fBfix16_t\fP inValue) \fBFIXMATH_FUNC_ATTRS\fP"
+.br
+.RI "Returns the arc sine of the given value\&. "
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP \fBfix16_acos\fP (\fBfix16_t\fP inValue) \fBFIXMATH_FUNC_ATTRS\fP"
+.br
+.RI "Returns the arc cosine of the given value\&. "
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP \fBfix16_atan\fP (\fBfix16_t\fP inValue) \fBFIXMATH_FUNC_ATTRS\fP"
+.br
+.RI "Returns the arc tangent of the given value\&. "
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP \fBfix16_atan2\fP (\fBfix16_t\fP inY, \fBfix16_t\fP inX) \fBFIXMATH_FUNC_ATTRS\fP"
+.br
+.RI "Returns the arc tangent 2 of the given value\&. "
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP \fBfix16_sqrt\fP (\fBfix16_t\fP inValue) \fBFIXMATH_FUNC_ATTRS\fP"
+.br
+.RI "Returns the square root of the given value\&. "
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP \fBfix16_exp\fP (\fBfix16_t\fP inValue) \fBFIXMATH_FUNC_ATTRS\fP"
+.br
+.RI "Returns the exponent (e^) of the given value\&. "
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP \fBfix16_mul\fP (\fBfix16_t\fP inArg0, \fBfix16_t\fP inArg1) \fBFIXMATH_FUNC_ATTRS\fP"
+.br
+.RI "Multiplies two fix16_t values\&. "
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP uint32_t \fBfix16_mul_uint\fP (uint32_t inArg0, uint32_t inArg1) \fBFIXMATH_FUNC_ATTRS\fP"
+.br
+.RI "Multiplies two integers and returns a fix16_t\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Fixed math library declarations (fix16_t) 
+
+
+.PP
+Definition in file \fBfix16\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define _FOUR_DIV_PI2   0xFFFF9840"
+Fix16 value of -4/PI² 
+.PP
+Definition at line 68 of file fix16\&.h\&.
+.SS "#define fix16_e   78145"
+fix16_t value of e 
+.PP
+Definition at line 78 of file fix16\&.h\&.
+.SS "#define fix16_max   0x7FFFFFFF"
+the maximum value of fix16_t 
+.PP
+Definition at line 73 of file fix16\&.h\&.
+.SS "#define fix16_min   0x80000000"
+the minimum value of fix16_t 
+.PP
+Definition at line 74 of file fix16\&.h\&.
+.SS "#define fix16_neg_one   0xFFFF0000"
+fix16_t value of -1 
+.PP
+Definition at line 80 of file fix16\&.h\&.
+.SS "#define FIX16_ONE   0x00010000"
+fix16_t value of 1 
+.PP
+Definition at line 79 of file fix16\&.h\&.
+.SS "#define fix16_overflow   0x80000000"
+the value used to indicate overflows when FIXMATH_NO_OVERFLOW is not specified 
+.PP
+Definition at line 75 of file fix16\&.h\&.
+.SS "#define fix16_pi   205887"
+fix16_t value of pi 
+.PP
+Definition at line 77 of file fix16\&.h\&.
+.SS "#define FIX16_RAMFUNC"
+
+.PP
+Definition at line 57 of file fix16\&.h\&.
+.SS "#define FIXMATH_FUNC_ATTRS"
+
+.PP
+Definition at line 48 of file fix16\&.h\&.
+.SS "#define FIXMATH_NO_OVERFLOW"
+
+.PP
+Definition at line 62 of file fix16\&.h\&.
+.SS "#define FIXMATH_NO_ROUNDING"
+
+.PP
+Definition at line 63 of file fix16\&.h\&.
+.SS "#define FOUR_DIV_PI   0x145F3"
+Fix16 value of 4/PI 
+.PP
+Definition at line 67 of file fix16\&.h\&.
+.SS "#define PI_DIV_4   0x0000C90F"
+Fix16 value of PI/4 
+.PP
+Definition at line 70 of file fix16\&.h\&.
+.SS "#define THREE_PI_DIV_4   0x00025B2F"
+Fix16 value of 3PI/4 
+.PP
+Definition at line 71 of file fix16\&.h\&.
+.SS "#define X4_CORRECTION_COMPONENT   0x399A"
+Fix16 value of 0\&.225 
+.PP
+Definition at line 69 of file fix16\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef int32_t \fBfix16_t\fP"
+
+.PP
+Definition at line 65 of file fix16\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP fix16_acos (\fBfix16_t\fP inValue)"
+
+.PP
+Returns the arc cosine of the given value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinAngle\fP input angle 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+arccos(inAngle) 
+.RE
+.PP
+
+.SS "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP fix16_asin (\fBfix16_t\fP inValue)"
+
+.PP
+Returns the arc sine of the given value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinAngle\fP input angle 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+arcsin(inAngle) 
+.RE
+.PP
+
+.SS "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP fix16_atan (\fBfix16_t\fP inValue)"
+
+.PP
+Returns the arc tangent of the given value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinAngle\fP input angle 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+arctan(inAngle) 
+.RE
+.PP
+
+.SS "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP fix16_atan2 (\fBfix16_t\fP inY, \fBfix16_t\fP inX)"
+
+.PP
+Returns the arc tangent 2 of the given value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinAngle\fP input angle 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+arctan2(inAngle) 
+.RE
+.PP
+
+.SS "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP fix16_cos (\fBfix16_t\fP inAngle)"
+
+.PP
+Returns the cosine of the given value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinAngle\fP input angle 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Cos(inAngle) 
+.RE
+.PP
+
+.SS "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP fix16_div (\fBfix16_t\fP inArg0, \fBfix16_t\fP inArg1)"
+
+.PP
+Divides two fix16_t numbers (a / b) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP Value a 
+.br
+\fIb\fP Value b 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Result (a / b) 
+.RE
+.PP
+
+.PP
+Definition at line 653 of file fix16\&.c\&.
+.PP
+.nf
+654 {
+655   // This uses the basic binary restoring division algorithm\&.
+656   // It appears to be faster to do the whole division manually than
+657   // trying to compose a 64-bit divide out of 32-bit divisions on
+658   // platforms without hardware divide\&.
+659   
+660   if (b == 0)
+661   {
+662 #ifdef FIX16_OVERFLOW_DETECT
+663     fault_mask |= FAULT_FIX16_OVERFLOW;
+664     fault(0);
+665     return fix16_overflow;
+666 #else
+667     if ((a >= 0) == (b >= 0))
+668         return fix16_max;
+669     else
+670         return fix16_min;
+671 #endif
+672   }
+673   
+674   uint32_t remainder = (a >= 0) ? a : (-a);
+675   uint32_t divider = (b >= 0) ? b : (-b);
+676 
+677   uint32_t quotient = 0;
+678   uint32_t bit = 0x10000;
+679   
+680   // The algorithm requires D >= R
+681   while (divider < remainder)
+682   {
+683     divider <<= 1;
+684     bit <<= 1;
+685   }
+686   
+687   #ifndef FIXMATH_NO_OVERFLOW
+688   if (!bit)
+689   {
+690 #ifdef FIX16_OVERFLOW_DETECT
+691     fault_mask |= FAULT_FIX16_OVERFLOW;
+692     fault(0);
+693     return fix16_overflow;
+694 #else
+695     if ((a >= 0) == (b >= 0))
+696         return fix16_max;
+697     else
+698         return fix16_min;
+699 #endif
+700   }
+701   #endif
+702   
+703   if (divider & 0x80000000)
+704   {
+705     // Perform one step manually to avoid overflows later\&.
+706     // We know that divider's bottom bit is 0 here\&.
+707     if (remainder >= divider)
+708     {
+709         quotient |= bit;
+710         remainder -= divider;
+711     }
+712     divider >>= 1;
+713     bit >>= 1;
+714   }
+715   
+716   // Main division loop
+717   while (bit && remainder)
+718   {
+719     if (remainder >= divider)
+720     {
+721         quotient |= bit;
+722         remainder -= divider;
+723     }
+724     
+725     remainder <<= 1;
+726     bit >>= 1;
+727   }   
+728       
+729   #ifndef FIXMATH_NO_ROUNDING
+730   if (remainder >= divider)
+731   {
+732     quotient++;
+733   }
+734   #endif
+735   
+736   fix16_t result = quotient;
+737   
+738   // Figure out the sign of result
+739   if ((a ^ b) & 0x80000000)
+740   {
+741     #ifndef FIXMATH_NO_OVERFLOW
+742     if (result == fix16_min)
+743     {
+744 #ifdef FIX16_OVERFLOW_DETECT
+745     fault_mask |= FAULT_FIX16_OVERFLOW;
+746     fault(0);
+747     return fix16_overflow;
+748 #else
+749     if ((a >= 0) == (b >= 0))
+750         return fix16_max;
+751     else
+752         return fix16_min;
+753 #endif
+754     }
+755     #endif
+756     
+757     result = -result;
+758   }
+759   
+760   return result;
+761 }
+.fi
+.PP
+References fault(), fix16_max, fix16_min, and fix16_overflow\&.
+.PP
+Referenced by cal_vm_const(), calc_vbus_internal(), config_control_dt(), foc_calc_pwmtimer(), foc_config(), foc_reset(), init_over_current_limit(), picon_convert_gain(), trig_arctan_90deg_q16(), and write_itotstart_target()\&.
+.SS "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP fix16_exp (\fBfix16_t\fP inValue)"
+
+.PP
+Returns the exponent (e^) of the given value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinValue\fP input value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+e^inValue 
+.RE
+.PP
+
+.SS "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP fix16_lerp16 (\fBfix16_t\fP inArg0, \fBfix16_t\fP inArg1, uint16_t inFract)"
+
+.PP
+Returns the linear interpolation: (inArg0 * (1 - inFract)) + (inArg1 * inFract) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinArg0\fP Value a 
+.br
+\fIinArg1\fP Value b 
+.br
+\fIinFract\fP Fraction 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Result 
+.RE
+.PP
+
+.SS "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP fix16_lerp32 (\fBfix16_t\fP inArg0, \fBfix16_t\fP inArg1, uint32_t inFract)"
+
+.PP
+Returns the linear interpolation: (inArg0 * (1 - inFract)) + (inArg1 * inFract) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinArg0\fP Value a 
+.br
+\fIinArg1\fP Value b 
+.br
+\fIinFract\fP Fraction 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Result 
+.RE
+.PP
+
+.SS "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP fix16_lerp8 (\fBfix16_t\fP inArg0, \fBfix16_t\fP inArg1, uint8_t inFract)"
+
+.PP
+Returns the linear interpolation: (inArg0 * (1 - inFract)) + (inArg1 * inFract) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinArg0\fP Value a 
+.br
+\fIinArg1\fP Value b 
+.br
+\fIinFract\fP Fraction 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Result 
+.RE
+.PP
+
+.SS "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP fix16_mul (\fBfix16_t\fP inArg0, \fBfix16_t\fP inArg1)"
+
+.PP
+Multiplies two fix16_t values\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinArg0\fP Value a 
+.br
+\fIinArg1\fP Value b 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Result (a * b) 
+.RE
+.PP
+
+.PP
+Definition at line 227 of file fix16\&.c\&.
+.PP
+.nf
+228 {
+229   // Each argument is divided to 16-bit parts\&.
+230   // AB
+231   // * CD
+232   // -----------
+233   // BD 16 * 16 -> 32 bit products
+234   // CB
+235   // AD
+236   // AC
+237   // |----| 64 bit product
+238   int32_t A = (inArg0 >> 16), C = (inArg1 >> 16);
+239   uint32_t B = (inArg0 & 0xFFFF), D = (inArg1 & 0xFFFF);
+240 
+241   int32_t AC = A*C;
+242   int32_t AD_CB = A*D + C*B;
+243   uint32_t BD = B*D;
+244 
+245   int32_t product_hi = AC + (AD_CB >> 16);
+246 
+247   // Handle carry from lower 32 bits to upper part of result\&.
+248   uint32_t ad_cb_temp = AD_CB << 16;
+249   uint32_t product_lo = BD + ad_cb_temp;
+250   if (product_lo < BD)
+251     product_hi++;
+252 
+253 #ifndef FIXMATH_NO_OVERFLOW
+254   // The upper 17 bits should all be the same (the sign)\&.
+255   if (product_hi >> 31 != product_hi >> 15)
+256     return fix16_overflow;
+257 #endif
+258 
+259 #ifdef FIXMATH_NO_ROUNDING
+260   return (product_hi << 16) | (product_lo >> 16);
+261 #else
+262   // Subtracting 0x8000 (= 0\&.5) and then using signed right shift
+263   // achieves proper rounding to result-1, except in the corner
+264   // case of negative numbers and lowest word = 0x8000\&.
+265   // To handle that, we also have to subtract 1 for negative numbers\&.
+266   uint32_t product_lo_tmp = product_lo;
+267   product_lo -= 0x8000;
+268   product_lo -= (uint32_t)product_hi >> 31;
+269   if (product_lo > product_lo_tmp)
+270     product_hi--;
+271 
+272   // Discard the lowest 16 bits\&. Note that this is not exactly the same
+273   // as dividing by 0x10000\&. For example if product = -1, result will
+274   // also be -1 and not 0\&. This is compensated by adding +1 to the result
+275   // and compensating this in turn in the rounding above\&.
+276   fix16_t result = (product_hi << 16) | (product_lo >> 16);
+277   result += 1;
+278   return result;
+279 #endif
+280 }
+.fi
+.PP
+References fix16_overflow\&.
+.PP
+Referenced by calc_vbus_internal(), est_anglediff_check(), foc_calc_pwmtimer(), hall_param_write(), init_over_current_limit(), parameters_write_foc(), and picon_convert_gain()\&.
+.SS "\fBFIX16_RAMFUNC\fP uint32_t fix16_mul_uint (uint32_t inArg0, uint32_t inArg1)"
+
+.PP
+Multiplies two integers and returns a fix16_t\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinArg0\fP Value a 
+.br
+\fIinArg1\fP Value b 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Result (a * b) in fix16_t format 
+.RE
+.PP
+
+.PP
+Definition at line 282 of file fix16\&.c\&.
+.PP
+.nf
+283 {
+284   // Each argument is divided to 16-bit parts\&.
+285   // AB
+286   // * CD
+287   // -----------
+288   // BD 16 * 16 -> 32 bit products
+289   // CB
+290   // AD
+291   // AC
+292   // |----| 64 bit product
+293   uint32_t A = (inArg0 >> 16), C = (inArg1 >> 16);
+294   uint32_t B = (inArg0 & 0xFFFF), D = (inArg1 & 0xFFFF);
+295 
+296   uint32_t AC = A*C;
+297   uint32_t AD_CB = A*D + C*B;
+298   uint32_t BD = B*D;
+299 
+300   uint32_t product_hi = AC + (AD_CB >> 16);
+301 
+302   // Handle carry from lower 32 bits to upper part of result\&.
+303   uint32_t ad_cb_temp = AD_CB << 16;
+304   uint32_t product_lo = BD + ad_cb_temp;
+305   if (product_lo < BD)
+306     product_hi++;
+307 
+308   return (product_hi << 16) | (product_lo >> 16);
+309 }
+.fi
+.PP
+Referenced by picon_convert_gain()\&.
+.SS "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP fix16_sin (\fBfix16_t\fP inAngle)"
+
+.PP
+Returns the sine of the given value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinAngle\fP input angle 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Sin(inAngle) 
+.RE
+.PP
+
+.SS "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP fix16_sin_parabola (\fBfix16_t\fP inAngle)"
+
+.PP
+Returns the sine parabola of the given value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinAngle\fP input angle 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Sin(inAngle) 
+.RE
+.PP
+
+.SS "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP fix16_sqrt (\fBfix16_t\fP inValue)"
+
+.PP
+Returns the square root of the given value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinValue\fP input value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+sqrt(inValue) 
+.RE
+.PP
+
+.PP
+Definition at line 42 of file fix16_sqrt\&.c\&.
+.PP
+.nf
+42                                     {
+43         int neg = (inValue < 0);
+44         if(neg)
+45                 inValue = -inValue;
+46 
+47         #ifndef FIXMATH_NO_CACHE
+48         fix16_t tempIndex = (((inValue >> 16) ^ (inValue >> 4)) & 0x00000FFF);
+49         if(_fix16_sqrt_cache_index[tempIndex] == inValue)
+50                 return (neg ? -_fix16_sqrt_cache_value[tempIndex] : _fix16_sqrt_cache_value[tempIndex]);
+51         #endif
+52 
+53         lfm_int64 tempOp  = int64_const((inValue >> 16), (inValue << 16));
+54         lfm_int64 tempOut = int64_const(0, 0);
+55         lfm_int64 tempOne = int64_const(0x40000000UL, 0x00000000UL);
+56 
+57         while(int64_cmp_gt(tempOne, tempOp))
+58                 tempOne = int64_shift(tempOne, -2);
+59 
+60         while(int64_cmp_ne(tempOne, int64_const(0, 0))) {
+61                 if(int64_cmp_ge(tempOp, int64_add(tempOut, tempOne))) {
+62 
+63 
+64                         tempOp  = int64_sub(tempOp, int64_add(tempOut, tempOne));
+65 
+66 
+67                         tempOut = int64_add(tempOut, int64_shift(tempOne, 1));
+68                 }
+69                 tempOut = int64_shift(tempOut, -1);
+70                 tempOne = int64_shift(tempOne, -2);
+71         }
+72 
+73         #ifndef FIXMATH_NO_CACHE
+74         _fix16_sqrt_cache_index[tempIndex] = inValue;
+75         _fix16_sqrt_cache_value[tempIndex] = int64_lo(tempOut);
+76         #endif
+77 
+78         return (neg ? -int64_lo(tempOut) : int64_lo(tempOut));
+79 }
+.fi
+.SS "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP fix16_tan (\fBfix16_t\fP inAngle)"
+
+.PP
+Returns the tangent of the given value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinAngle\fP input angle 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Tan(inAngle) 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

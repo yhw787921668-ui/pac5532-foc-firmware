@@ -1,0 +1,244 @@
+\hypertarget{group___p_a_c5_x_x_x___driver___a_d_c}{}\doxysection{P\+A\+C5\+X\+XX A\+DC}
+\label{group___p_a_c5_x_x_x___driver___a_d_c}\index{PAC5XXX ADC@{PAC5XXX ADC}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga75617cb8e17879fcb4414d2164359757}{pac5xxx\+\_\+adc\+\_\+config\+\_\+emux\+\_\+io}} (void)
+\begin{DoxyCompactList}\small\item\em This function configures the E\+M\+UX IO ports on the device for E\+M\+UX output. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga07d2e742c295e9310a6a43ef109e272c}{pac5xxx\+\_\+adc\+\_\+config\+\_\+io}} (uint8\+\_\+t channel\+\_\+mask)
+\begin{DoxyCompactList}\small\item\em This function configures the IO ports on the device for the given A\+DC channels. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga1a7c8875ca56a19653d333362e9de2f4}{pac5xxx\+\_\+adc\+\_\+emux\+\_\+config}} (\mbox{\hyperlink{pac5xxx__adc_8h_a80b075752bc961a8ec9991cc6a25a620}{A\+D\+C\+\_\+\+E\+M\+U\+X\+\_\+\+C\+T\+L\+\_\+\+T\+Y\+PE}} control\+\_\+type, \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abd}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+D\+I\+V\+\_\+\+T\+Y\+PE}} divider)
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_gab25d0ce3bf393a9043ee4d177f5c5829}{pac5xxx\+\_\+adc\+\_\+config}} (\mbox{\hyperlink{pac5xxx__adc_8h_a94d68ef0e76c1f35f59801a9cf63e2da}{A\+D\+C\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+T\+Y\+PE}} adc\+\_\+mode, \mbox{\hyperlink{pac5xxx__adc_8h_a8ba97287d48b6dbf5a8550b44e9557fc}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+Type}} clock\+\_\+divider, int repeat)
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\+\_\+dtse\+\_\+seq\+\_\+config}} (uint32\+\_\+t entry\+\_\+num, uint32\+\_\+t adc\+\_\+chan, uint32\+\_\+t emux\+\_\+data, uint32\+\_\+t irq\+\_\+num\+\_\+en, uint32\+\_\+t seq\+\_\+done)
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga853dffd2b92a02595013c7d91d046cf1}{pac5xxx\+\_\+dtse\+\_\+seq\+\_\+config\+\_\+table}} (\mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f}{D\+T\+S\+E\+\_\+\+S\+E\+Q\+\_\+\+C\+F\+G\+\_\+\+T\+Y\+P\+E\+D\+EF}} $\ast$ptr\+\_\+seq\+\_\+config\+\_\+table, uint32\+\_\+t emuxc, uint32\+\_\+t channel, uint32\+\_\+t reserved1, uint32\+\_\+t seq\+\_\+done, uint32\+\_\+t emux\+\_\+data, uint32\+\_\+t irq\+\_\+number, uint32\+\_\+t irq\+\_\+enable, uint32\+\_\+t reserved2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}\label{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}} 
+\index{PAC5XXX ADC@{PAC5XXX ADC}!RAMFUNC\_ADC@{RAMFUNC\_ADC}}
+\index{RAMFUNC\_ADC@{RAMFUNC\_ADC}!PAC5XXX ADC@{PAC5XXX ADC}}
+\doxysubsubsection{\texorpdfstring{RAMFUNC\_ADC}{RAMFUNC\_ADC}}
+{\footnotesize\ttfamily \#define R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}
+
+
+
+Definition at line 31 of file pac5xxx\+\_\+driver\+\_\+adc.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_gab25d0ce3bf393a9043ee4d177f5c5829}\label{group___p_a_c5_x_x_x___driver___a_d_c_gab25d0ce3bf393a9043ee4d177f5c5829}} 
+\index{PAC5XXX ADC@{PAC5XXX ADC}!pac5xxx\_adc\_config@{pac5xxx\_adc\_config}}
+\index{pac5xxx\_adc\_config@{pac5xxx\_adc\_config}!PAC5XXX ADC@{PAC5XXX ADC}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_adc\_config()}{pac5xxx\_adc\_config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void pac5xxx\+\_\+adc\+\_\+config (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pac5xxx__adc_8h_a94d68ef0e76c1f35f59801a9cf63e2da}{A\+D\+C\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+T\+Y\+PE}}}]{adc\+\_\+mode,  }\item[{\mbox{\hyperlink{pac5xxx__adc_8h_a8ba97287d48b6dbf5a8550b44e9557fc}{A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+Type}}}]{clock\+\_\+divider,  }\item[{int}]{repeat }\end{DoxyParamCaption})}
+
+
+
+Definition at line 94 of file pac5xxx\+\_\+driver\+\_\+adc.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{95 \{}
+\DoxyCodeLine{96     \mbox{\hyperlink{pac5xxx_8h_ade737a8e3d256f55f3fc72038c2b80c4}{PAC55XX\_ADC}}-\/>ADCCTL.MODE = adc\_mode;}
+\DoxyCodeLine{97     \mbox{\hyperlink{pac5xxx_8h_ade737a8e3d256f55f3fc72038c2b80c4}{PAC55XX\_ADC}}-\/>ADCCTL.ADCDIV = clock\_divider;}
+\DoxyCodeLine{98     \mbox{\hyperlink{pac5xxx_8h_ade737a8e3d256f55f3fc72038c2b80c4}{PAC55XX\_ADC}}-\/>ADCCTL.REPEAT = repeat;}
+\DoxyCodeLine{99 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C55\+X\+X\+\_\+\+A\+DC.
+
+
+
+Referenced by configure\+\_\+adc\+\_\+emux\+\_\+engine().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{group___p_a_c5_x_x_x___driver___a_d_c_gab25d0ce3bf393a9043ee4d177f5c5829_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_ga75617cb8e17879fcb4414d2164359757}\label{group___p_a_c5_x_x_x___driver___a_d_c_ga75617cb8e17879fcb4414d2164359757}} 
+\index{PAC5XXX ADC@{PAC5XXX ADC}!pac5xxx\_adc\_config\_emux\_io@{pac5xxx\_adc\_config\_emux\_io}}
+\index{pac5xxx\_adc\_config\_emux\_io@{pac5xxx\_adc\_config\_emux\_io}!PAC5XXX ADC@{PAC5XXX ADC}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_adc\_config\_emux\_io()}{pac5xxx\_adc\_config\_emux\_io()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void pac5xxx\+\_\+adc\+\_\+config\+\_\+emux\+\_\+io (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function configures the E\+M\+UX IO ports on the device for E\+M\+UX output. 
+
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+adc.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>PAMUXSEL.P1 = 1;       \textcolor{comment}{// EMUX Data   EMUXD}}
+\DoxyCodeLine{23     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>PAMUXSEL.P2 = 1;       \textcolor{comment}{// EMUX Clock  EMUXC}}
+\DoxyCodeLine{24     \mbox{\hyperlink{pac5xxx_8h_aecf1334ed01bcde25e1e48157f4b4dc0}{PAC55XX\_GPIOA}}-\/>MODE.P1 = 1;         \textcolor{comment}{// GPIOA1 Push and Pull output}}
+\DoxyCodeLine{25     \mbox{\hyperlink{pac5xxx_8h_aecf1334ed01bcde25e1e48157f4b4dc0}{PAC55XX\_GPIOA}}-\/>MODE.P2 = 1;         \textcolor{comment}{// GPIOA2 Push and Pull output  }}
+\DoxyCodeLine{26 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C55\+X\+X\+\_\+\+G\+P\+I\+OA, and P\+A\+C55\+X\+X\+\_\+\+S\+CC.
+
+
+
+Referenced by configure\+\_\+adc\+\_\+emux\+\_\+engine().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{group___p_a_c5_x_x_x___driver___a_d_c_ga75617cb8e17879fcb4414d2164359757_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_ga07d2e742c295e9310a6a43ef109e272c}\label{group___p_a_c5_x_x_x___driver___a_d_c_ga07d2e742c295e9310a6a43ef109e272c}} 
+\index{PAC5XXX ADC@{PAC5XXX ADC}!pac5xxx\_adc\_config\_io@{pac5xxx\_adc\_config\_io}}
+\index{pac5xxx\_adc\_config\_io@{pac5xxx\_adc\_config\_io}!PAC5XXX ADC@{PAC5XXX ADC}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_adc\_config\_io()}{pac5xxx\_adc\_config\_io()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void pac5xxx\+\_\+adc\+\_\+config\+\_\+io (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel\+\_\+mask }\end{DoxyParamCaption})}
+
+
+
+This function configures the IO ports on the device for the given A\+DC channels. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel\+\_\+mask} & Bit-\/mask of the A\+DC channels to enable or disable I\+Os for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_ga1a7c8875ca56a19653d333362e9de2f4}\label{group___p_a_c5_x_x_x___driver___a_d_c_ga1a7c8875ca56a19653d333362e9de2f4}} 
+\index{PAC5XXX ADC@{PAC5XXX ADC}!pac5xxx\_adc\_emux\_config@{pac5xxx\_adc\_emux\_config}}
+\index{pac5xxx\_adc\_emux\_config@{pac5xxx\_adc\_emux\_config}!PAC5XXX ADC@{PAC5XXX ADC}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_adc\_emux\_config()}{pac5xxx\_adc\_emux\_config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void pac5xxx\+\_\+adc\+\_\+emux\+\_\+config (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{pac5xxx__adc_8h_a80b075752bc961a8ec9991cc6a25a620}{A\+D\+C\+\_\+\+E\+M\+U\+X\+\_\+\+C\+T\+L\+\_\+\+T\+Y\+PE}}}]{control\+\_\+type,  }\item[{\mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abd}{A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+D\+I\+V\+\_\+\+T\+Y\+PE}}}]{divider }\end{DoxyParamCaption})}
+
+
+
+Definition at line 88 of file pac5xxx\+\_\+driver\+\_\+adc.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{89 \{}
+\DoxyCodeLine{90     \mbox{\hyperlink{pac5xxx_8h_ade737a8e3d256f55f3fc72038c2b80c4}{PAC55XX\_ADC}}-\/>EMUXCTL.EMUXMODE = control\_type;}
+\DoxyCodeLine{91     \mbox{\hyperlink{pac5xxx_8h_ade737a8e3d256f55f3fc72038c2b80c4}{PAC55XX\_ADC}}-\/>EMUXCTL.EMUXDIV = divider;}
+\DoxyCodeLine{92 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C55\+X\+X\+\_\+\+A\+DC.
+
+
+
+Referenced by configure\+\_\+adc\+\_\+emux\+\_\+engine().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___p_a_c5_x_x_x___driver___a_d_c_ga1a7c8875ca56a19653d333362e9de2f4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}\label{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}} 
+\index{PAC5XXX ADC@{PAC5XXX ADC}!pac5xxx\_dtse\_seq\_config@{pac5xxx\_dtse\_seq\_config}}
+\index{pac5xxx\_dtse\_seq\_config@{pac5xxx\_dtse\_seq\_config}!PAC5XXX ADC@{PAC5XXX ADC}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_dtse\_seq\_config()}{pac5xxx\_dtse\_seq\_config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void pac5xxx\+\_\+dtse\+\_\+seq\+\_\+config (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{entry\+\_\+num,  }\item[{uint32\+\_\+t}]{adc\+\_\+chan,  }\item[{uint32\+\_\+t}]{emux\+\_\+data,  }\item[{uint32\+\_\+t}]{irq\+\_\+num\+\_\+en,  }\item[{uint32\+\_\+t}]{seq\+\_\+done }\end{DoxyParamCaption})}
+
+
+
+Definition at line 102 of file pac5xxx\+\_\+driver\+\_\+adc.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{103 \{}
+\DoxyCodeLine{104     \mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f}{DTSE\_SEQ\_CFG\_TYPEDEF}} *p\_seq\_entry;}
+\DoxyCodeLine{105     uint32\_t irq\_num=0;}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     \textcolor{comment}{//p\_seq\_entry = \&PAC55XX\_ADC-\/>DTSESEQCFG0 + (entry\_num * sizeof(DTSE\_SEQ\_CFG\_TYPEDEF));}}
+\DoxyCodeLine{108     p\_seq\_entry = \&\mbox{\hyperlink{pac5xxx_8h_ade737a8e3d256f55f3fc72038c2b80c4}{PAC55XX\_ADC}}-\/>DTSESEQCFG0 + entry\_num;}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110     p\_seq\_entry-\/>\mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f_a9a90368d7b5abb564f5ea56c7a5046d5}{w}} = 0;                         \textcolor{comment}{// Initialize whole entry to 0 before assigning other values}}
+\DoxyCodeLine{111     p\_seq\_entry-\/>\mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f_a885ca74f2eb2b610115ddeb93db17ced}{CHANNEL}} = adc\_chan;}
+\DoxyCodeLine{112     p\_seq\_entry-\/>\mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f_a1c56e0ecd73bef61198478618c9ff14b}{EMUXC}} = 1;                     \textcolor{comment}{// Always write to 1}}
+\DoxyCodeLine{113     p\_seq\_entry-\/>\mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f_ad511736720a84d1952e32e28492d606c}{EMUXD}} = emux\_data;}
+\DoxyCodeLine{114     \textcolor{keywordflow}{if}(irq\_num\_en \& \mbox{\hyperlink{pac5xxx__adc_8h_a81e98f87df8e040d884da2469b8d8291}{ADC\_IRQ\_EN}})                 \textcolor{comment}{// If irq\_num\_en contains ADC\_IRQ\_EN bit, then set the IRQEN and the IRQ Num}}
+\DoxyCodeLine{115     \{}
+\DoxyCodeLine{116         p\_seq\_entry-\/>\mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f_a91bdd3a168592819cb8c88f9689a82a2}{IRQEN}} = 1;}
+\DoxyCodeLine{117         irq\_num = irq\_num\_en -\/ \mbox{\hyperlink{pac5xxx__adc_8h_a81e98f87df8e040d884da2469b8d8291}{ADC\_IRQ\_EN}};      \textcolor{comment}{// Remove ADC\_IRQ\_EN bit before setting the IRQ Num}}
+\DoxyCodeLine{118     \}}
+\DoxyCodeLine{119     p\_seq\_entry-\/>\mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f_a078a6f41d5296efb80c51265ce6485cb}{IRQNUM}} = irq\_num;}
+\DoxyCodeLine{120     p\_seq\_entry-\/>\mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f_a983e3bde639219aaf0810e63df3c89e5}{SEQDONE}} = seq\_done;}
+\DoxyCodeLine{121 \}}
+
+\end{DoxyCode}
+
+
+References A\+D\+C\+\_\+\+I\+R\+Q\+\_\+\+EN, D\+T\+S\+E\+\_\+\+S\+E\+Q\+\_\+\+C\+F\+G\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+C\+H\+A\+N\+N\+EL, D\+T\+S\+E\+\_\+\+S\+E\+Q\+\_\+\+C\+F\+G\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+E\+M\+U\+XC, D\+T\+S\+E\+\_\+\+S\+E\+Q\+\_\+\+C\+F\+G\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+E\+M\+U\+XD, D\+T\+S\+E\+\_\+\+S\+E\+Q\+\_\+\+C\+F\+G\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+I\+R\+Q\+EN, D\+T\+S\+E\+\_\+\+S\+E\+Q\+\_\+\+C\+F\+G\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+I\+R\+Q\+N\+UM, P\+A\+C55\+X\+X\+\_\+\+A\+DC, D\+T\+S\+E\+\_\+\+S\+E\+Q\+\_\+\+C\+F\+G\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+S\+E\+Q\+D\+O\+NE, and D\+T\+S\+E\+\_\+\+S\+E\+Q\+\_\+\+C\+F\+G\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::w.
+
+
+
+Referenced by config\+\_\+seq\+\_\+foc(), and config\+\_\+seq\+\_\+foc\+\_\+vref().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___a_d_c_ga853dffd2b92a02595013c7d91d046cf1}\label{group___p_a_c5_x_x_x___driver___a_d_c_ga853dffd2b92a02595013c7d91d046cf1}} 
+\index{PAC5XXX ADC@{PAC5XXX ADC}!pac5xxx\_dtse\_seq\_config\_table@{pac5xxx\_dtse\_seq\_config\_table}}
+\index{pac5xxx\_dtse\_seq\_config\_table@{pac5xxx\_dtse\_seq\_config\_table}!PAC5XXX ADC@{PAC5XXX ADC}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_dtse\_seq\_config\_table()}{pac5xxx\_dtse\_seq\_config\_table()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga0907e577cdd9e54690251d4e0fe4f1fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+DC}} void pac5xxx\+\_\+dtse\+\_\+seq\+\_\+config\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f}{D\+T\+S\+E\+\_\+\+S\+E\+Q\+\_\+\+C\+F\+G\+\_\+\+T\+Y\+P\+E\+D\+EF}} $\ast$}]{ptr\+\_\+seq\+\_\+config\+\_\+table,  }\item[{uint32\+\_\+t}]{emuxc,  }\item[{uint32\+\_\+t}]{channel,  }\item[{uint32\+\_\+t}]{reserved1,  }\item[{uint32\+\_\+t}]{seq\+\_\+done,  }\item[{uint32\+\_\+t}]{emux\+\_\+data,  }\item[{uint32\+\_\+t}]{irq\+\_\+number,  }\item[{uint32\+\_\+t}]{irq\+\_\+enable,  }\item[{uint32\+\_\+t}]{reserved2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 124 of file pac5xxx\+\_\+driver\+\_\+adc.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{127 \{}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129     ptr\_seq\_config\_table-\/>\mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f_a9a90368d7b5abb564f5ea56c7a5046d5}{w}} = 0;                \textcolor{comment}{//Initialize whole entry to 0 before assigning other values}}
+\DoxyCodeLine{130     ptr\_seq\_config\_table-\/>\mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f_a1c56e0ecd73bef61198478618c9ff14b}{EMUXC}} = emuxc;}
+\DoxyCodeLine{131     ptr\_seq\_config\_table-\/>\mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f_a885ca74f2eb2b610115ddeb93db17ced}{CHANNEL}} = channel;}
+\DoxyCodeLine{132     ptr\_seq\_config\_table-\/>\mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f_a983e3bde639219aaf0810e63df3c89e5}{SEQDONE}} = seq\_done;}
+\DoxyCodeLine{133     ptr\_seq\_config\_table-\/>\mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f_ad511736720a84d1952e32e28492d606c}{EMUXD}} = emux\_data;}
+\DoxyCodeLine{134     ptr\_seq\_config\_table-\/>\mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f_a078a6f41d5296efb80c51265ce6485cb}{IRQNUM}} = irq\_number;}
+\DoxyCodeLine{135     ptr\_seq\_config\_table-\/>\mbox{\hyperlink{union_d_t_s_e___s_e_q___c_f_g___t_y_p_e_d_e_f_a91bdd3a168592819cb8c88f9689a82a2}{IRQEN}} = irq\_enable;}
+\DoxyCodeLine{136 \}}
+
+\end{DoxyCode}
+
+
+References D\+T\+S\+E\+\_\+\+S\+E\+Q\+\_\+\+C\+F\+G\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+C\+H\+A\+N\+N\+EL, D\+T\+S\+E\+\_\+\+S\+E\+Q\+\_\+\+C\+F\+G\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+E\+M\+U\+XC, D\+T\+S\+E\+\_\+\+S\+E\+Q\+\_\+\+C\+F\+G\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+E\+M\+U\+XD, D\+T\+S\+E\+\_\+\+S\+E\+Q\+\_\+\+C\+F\+G\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+I\+R\+Q\+EN, D\+T\+S\+E\+\_\+\+S\+E\+Q\+\_\+\+C\+F\+G\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+I\+R\+Q\+N\+UM, D\+T\+S\+E\+\_\+\+S\+E\+Q\+\_\+\+C\+F\+G\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+S\+E\+Q\+D\+O\+NE, and D\+T\+S\+E\+\_\+\+S\+E\+Q\+\_\+\+C\+F\+G\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::w.
+

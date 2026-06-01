@@ -1,0 +1,3 @@
+用foc_v4.4.2版本软件配置MCU_INV10_R02版本硬件（小十字形板）
+1、src/config_board.h
+#define BOARD_SELECT                BOARD_PAC5532EVK1

@@ -1,0 +1,104 @@
+.TH "pac_foc/src/app Directory Reference" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/app Directory Reference
+.SH SYNOPSIS
+.br
+.PP
+.SS "Files"
+
+.in +1c
+.ti -1c
+.RI "file \fBadccal\&.h\fP"
+.br
+.RI "ADC channel calibration state machine\&. "
+.ti -1c
+.RI "file \fBapp_control_sm\&.h\fP"
+.br
+.RI "Application control state machine, use for ADC channel calibration, IPD, SIM, Motor Run\&. "
+.ti -1c
+.RI "file \fBapp_funcs\&.c\fP"
+.br
+.RI "Use to reset variables associated to FOC, Control, Faults, Stall, OPD, PPM\&. "
+.ti -1c
+.RI "file \fBapp_funcs\&.h\fP"
+.br
+.RI "Use to reset variables associated to FOC, Control, Faults, Stall, OPD, PPM\&. "
+.ti -1c
+.RI "file \fBapp_main_sm\&.c\fP"
+.br
+.RI "Application main state machine, use to control various motor control state flow\&. "
+.ti -1c
+.RI "file \fBapp_mainsub_sm\&.c\fP"
+.br
+.RI "App main sub state machine, use to control ADC Calibration, pre PRESTART_RESET, SIM, IPD states\&. "
+.ti -1c
+.RI "file \fBapp_struct\&.h\fP"
+.br
+.RI "App structure use to hold various application variables\&. "
+.ti -1c
+.RI "file \fBcafe_arch1\&.c\fP"
+.br
+.RI "Use to initialize AFE low level blocks(SOC Bridge) and registers(CAFE) "
+.ti -1c
+.RI "file \fBcafe_arch2\&.c\fP"
+.br
+.RI "Use to initialize AFE low level blocks(SOC Bridge) and registers(CAFE) "
+.ti -1c
+.RI "file \fBcafe_arch3\&.c\fP"
+.br
+.RI "Use to initialize AFE low level blocks(SOC Bridge) and registers(CAFE) "
+.ti -1c
+.RI "file \fBdriver_funcs\&.c\fP"
+.br
+.RI "Use to initialize PWM duty, port mode and enable disable motor, low side PWM\&. "
+.ti -1c
+.RI "file \fBdriver_funcs\&.h\fP"
+.br
+.RI "Use to initialize PWM duty, port mode and enable disable motor, low side PWM\&. "
+.ti -1c
+.RI "file \fBfault\&.c\fP"
+.br
+.RI "Use to define fault, set fault, clear fault, set warning, clear warning and over current functions\&. "
+.ti -1c
+.RI "file \fBfault\&.h\fP"
+.br
+.ti -1c
+.RI "file \fBfault_struct\&.h\fP"
+.br
+.RI "Use to define fault type, status, warning, bits\&. "
+.ti -1c
+.RI "file \fBmotor_struct\&.h\fP"
+.br
+.RI "Main motor structure use to hold complete motor object\&. "
+.ti -1c
+.RI "file \fBmparam_struct\&.h\fP"
+.br
+.ti -1c
+.RI "file \fBpac_init\&.c\fP"
+.br
+.RI "Use to initialize peripheral, PWM, Hall, AFE, QEP, ADC, FOC, IPD\&. "
+.ti -1c
+.RI "file \fBpac_init\&.h\fP"
+.br
+.RI "Use to initialize peripheral, PWM, Hall, AFE, QEP, ADC, FOC, IPD, enable protection\&. "
+.ti -1c
+.RI "file \fBpost_struct\&.h\fP"
+.br
+.ti -1c
+.RI "file \fBstate_struct\&.h\fP"
+.br
+.RI "Use to define structure and states for AppMain, Post, ADCCal, PreStart, AppControl, Control, \fBStruct_State\fP\&. "
+.ti -1c
+.RI "file \fBstatus_struct\&.h\fP"
+.br
+.ti -1c
+.RI "file \fBvbus_funcs\&.c\fP"
+.br
+.RI "Use to calculate internal and external vbus and slope factor from flash\&. "
+.ti -1c
+.RI "file \fBvbus_funcs\&.h\fP"
+.br
+.RI "Use to calculate internal and external vbus and slope factor from flash and duty cycle execlusion\&. "
+.in -1c

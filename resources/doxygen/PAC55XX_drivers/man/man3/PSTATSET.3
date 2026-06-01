@@ -1,0 +1,54 @@
+.TH "PSTATSET" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PSTATSET
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pac5xxx_tile_power_manager\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBb\fP"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPSTATSET::PBEN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPSTATSET::WDTEN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPSTATSET::TWD\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPSTATSET::nVPINTM\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPSTATSET::nPBINTM\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPSTATSET::VPLOW\fP: 1"
+.br
+.ti -1c
+.RI "   uint8_t \fBPSTATSET::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint8_t \fBPSTATSET::UNLOCK\fP: 1"
+.br
+.ti -1c
+.RI "}; "
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 180 of file pac5xxx_tile_power_manager\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

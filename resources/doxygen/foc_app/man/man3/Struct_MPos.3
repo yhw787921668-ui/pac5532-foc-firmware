@@ -1,0 +1,97 @@
+.TH "Struct_MPos" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Struct_MPos \- mpos struct  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mpos_struct\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBeStateMPOS\fP \fBstate\fP"
+.br
+.ti -1c
+.RI "\fBeStateMPOSMode\fP \fBmposmode\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmpos_spd_radps\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmpos_spd_scaled_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmpos_spd_scaled_q28\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmpos_angle\fP"
+.br
+.ti -1c
+.RI "\fBStruct_Est\fP \fBest\fP"
+.br
+.ti -1c
+.RI "\fBStruct_Hall\fP \fBhall\fP"
+.br
+.ti -1c
+.RI "\fBStruct_QEP\fP \fBqep\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+mpos struct 
+.PP
+Definition at line 85 of file mpos_struct\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "\fBStruct_Est\fP Struct_MPos::est"
+
+.PP
+Definition at line 99 of file mpos_struct\&.h\&.
+.PP
+Referenced by est_anglediff_check(), lbg1_calculate_coefficients(), lbg1_param_write(), lbg1_process_voltage_scale(), lbg1_reset(), and lbg1_statemon()\&.
+.SS "\fBStruct_Hall\fP Struct_MPos::hall"
+
+.PP
+Definition at line 103 of file mpos_struct\&.h\&.
+.PP
+Referenced by hall_create_sequence_array(), hall_param_write(), hall_process(), hall_reset(), and hall_timer_isr()\&.
+.SS "int32_t Struct_MPos::mpos_angle"
+
+.PP
+Definition at line 96 of file mpos_struct\&.h\&.
+.SS "int32_t Struct_MPos::mpos_spd_radps"
+
+.PP
+Definition at line 93 of file mpos_struct\&.h\&.
+.SS "int32_t Struct_MPos::mpos_spd_scaled_q14"
+
+.PP
+Definition at line 94 of file mpos_struct\&.h\&.
+.SS "int32_t Struct_MPos::mpos_spd_scaled_q28"
+
+.PP
+Definition at line 95 of file mpos_struct\&.h\&.
+.SS "\fBeStateMPOSMode\fP Struct_MPos::mposmode"
+
+.PP
+Definition at line 89 of file mpos_struct\&.h\&.
+.PP
+Referenced by lbg1_statemon()\&.
+.SS "\fBStruct_QEP\fP Struct_MPos::qep"
+
+.PP
+Definition at line 107 of file mpos_struct\&.h\&.
+.PP
+Referenced by qep_isr(), qep_param_calc(), qep_param_write(), and qep_reset()\&.
+.SS "\fBeStateMPOS\fP Struct_MPos::state"
+
+.PP
+Definition at line 87 of file mpos_struct\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

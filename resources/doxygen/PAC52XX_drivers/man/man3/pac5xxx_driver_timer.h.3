@@ -1,0 +1,116 @@
+.TH "pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_timer.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_timer.h \- Firmware driver for the PAC5XXX timer and DTG units\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac52XX\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_config\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_TIMER\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBTimerInstance\fP { \fBTimerA\fP, \fBTimerB\fP, \fBTimerC\fP, \fBTimerD\fP }"
+.br
+.ti -1c
+.RI "enum \fBDtgInstance\fP { \fBDTGA0\fP, \fBDTGA1\fP, \fBDTGA2\fP, \fBDTGA3\fP, \fBDTGB\fP, \fBDTGC\fP, \fBDTGD\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_base_config\fP (\fBTimerInstance\fP timer, uint16_t period, int single_shot, \fBTXCTRL_MODE_Type\fP mode, int sync)"
+.br
+.RI "This function configures the base timer period, mode and single-use mode for the given timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_clock_config\fP (\fBTimerInstance\fP timer, \fBTXCTRL_CLKIN_Type\fP source, \fBTXCTRL_PS_Type\fP prescale)"
+.br
+.RI "This function configures the clock source and pre-scaler for the given timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_clear\fP (\fBTimerInstance\fP timer, int asserted)"
+.br
+.RI "This function clears (resets) the given timer, or releases the given timer from reset\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_set_period\fP (\fBTimerInstance\fP timer, uint16_t period)"
+.br
+.RI "This function sets the timer period for the given period\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_base_enable\fP (\fBTimerInstance\fP timer, int enable)"
+.br
+.RI "This function enables the base timer interrupt for the given timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP int \fBpac5xxx_timer_base_int\fP (\fBTimerInstance\fP timer)"
+.br
+.RI "This function indicates if the base timer interrupt flag is set\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_base_int_enable\fP (\fBTimerInstance\fP timer, int enable)"
+.br
+.RI "This function enables the base interrupt for the given timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_base_int_clear\fP (\fBTimerInstance\fP timer)"
+.br
+.RI "This function clears the base timer interrupt flag for the given timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_capture_latch_config\fP (\fBTimerInstance\fP timer, \fBTXCCTRL_LATCH_Type\fP latch_config)"
+.br
+.RI "This function configures the compare latch time for the given timer\&. User may set this value to latch either when the timer counts from the period value to 0 in up mode or from 1 to 0 in up/down mode\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_cctrl_config\fP (\fBTimerInstance\fP timer, int cc_num, uint16_t compare_value, int int_en)"
+.br
+.RI "This function configures the given capture and compare unit for the given timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_cctrl_capture_config\fP (\fBTimerInstance\fP timer, int enabled, int cc_num, int int_en, \fBTXCCTRL_CAPEDGE_Type\fP cap_edge_det)"
+.br
+.RI "This function configures the given capture/compare unit into capture mode\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_cctrl_int_enable\fP (\fBTimerInstance\fP timer, int ccr_num, int enable)"
+.br
+.RI "This function configures sets the interrupt enable state for the given timer and CCR unit\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP int \fBpac5xxx_timer_cctrl_int\fP (\fBTimerInstance\fP timer, int ccr_num)"
+.br
+.RI "This function indicates if there is a pending interrupt on the given timer and CCR unit\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_cctrl_int_clear\fP (\fBTimerInstance\fP timer, int ccr_num)"
+.br
+.RI "This function clears the interrupt flag for the given timer and CCR unit\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_dtg_config\fP (\fBDtgInstance\fP dtg, uint16_t led, uint16_t ted, int inv_a, int inv_b, int pass, int otp)"
+.br
+.RI "This function configures the given Dead-Time Generator (DTG) "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_dtg_clock_prescale\fP (\fBTimerInstance\fP timer, int enabled)"
+.br
+.RI "This function enables the clock pre-scaling (divider) for the dead-time generator\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Firmware driver for the PAC5XXX timer and DTG units\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_driver_timer\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

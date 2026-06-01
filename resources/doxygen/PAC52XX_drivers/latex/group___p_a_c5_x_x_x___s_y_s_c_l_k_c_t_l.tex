@@ -1,0 +1,709 @@
+\hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l}{}\doxysection{P\+A\+C5\+X\+XX System and Clock Controller (S\+Y\+S\+C\+L\+K\+C\+TL)}
+\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+Collaboration diagram for P\+A\+C5\+X\+XX System and Clock Controller (S\+Y\+S\+C\+L\+K\+C\+TL)\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l___type_def}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga2eb045e8a15ed2f6efde20a45db951d1}{P\+L\+L\+C\+T\+L\+\_\+\+I\+N\+P\+U\+T\+\_\+\+D\+IV}}(x)~((x -\/ 2) \& 0x001F)
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga49fe7a2ff4c0c35a8b806708086d4aff}{P\+L\+L\+C\+T\+L\+\_\+\+F\+D\+B\+K\+\_\+\+D\+IV}}(x)~((x -\/ 2) \& 0x01\+FF)
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gabd97cf16a57c2daf43b364b52d7d0cd2}{P\+L\+L\+C\+T\+L\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+IV}}(x)~((x)     \& 0x000F)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad4356a48f371bd793260c230c00239dd}{C\+C\+S\+C\+T\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad4356a48f371bd793260c230c00239ddad0833dc97b25825a6378bd5713a8ff42}{C\+C\+S\+C\+T\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+I\+N\+T\+O\+SC}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad4356a48f371bd793260c230c00239dda7e2f9b8c56ed02668cdc497296739ce4}{C\+C\+S\+C\+T\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+C\+L\+K\+R\+EF}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad4356a48f371bd793260c230c00239dda8f7595867702943d28c485fb17272abe}{C\+C\+S\+C\+T\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+E\+X\+T\+C\+LK}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad4356a48f371bd793260c230c00239dda8dcaed7e16fcc727426f3e48ff653b87}{C\+C\+S\+C\+T\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+X\+T\+AL}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga8e53f4690b4d791dbdf907c7f1898d1c}{C\+C\+S\+C\+T\+L\+\_\+\+H\+C\+L\+K\+D\+I\+V\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gga8e53f4690b4d791dbdf907c7f1898d1ca31e459cefb3f92aadbd4725fd59198cc}{C\+C\+S\+C\+T\+L\+\_\+\+H\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V1}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gga8e53f4690b4d791dbdf907c7f1898d1ca3874669c405364a6d9af0673aecc77f5}{C\+C\+S\+C\+T\+L\+\_\+\+H\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V2}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gga8e53f4690b4d791dbdf907c7f1898d1cabce4fb221ace5db4a27f011f971191e5}{C\+C\+S\+C\+T\+L\+\_\+\+H\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V4}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gga8e53f4690b4d791dbdf907c7f1898d1cac694a8a05a0388cf965babee75b5f56d}{C\+C\+S\+C\+T\+L\+\_\+\+H\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V8}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad36893f80229418c4d84ff116a9a9f5d}{C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+Type}} \{ \newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5daaf087612392bbf0b4d6fb92144910ac0}{C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V1}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5dabd5f83858069f3a7194130da1f65cc92}{C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V2}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da5113932b5a9981e9b90a3a13958d293f}{C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V4}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da627791ef0741c1e5767485812d52dd5c}{C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V8}} = 3, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da47e01fac6648509ba2300c14a3167596}{C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V16}} = 4, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da93ab9b4fa43a95b5c494acc75a324cf9}{C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V32}} = 5, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da8ca42a6a690955baaf143b08f14ad85f}{C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V64}} = 6, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5dae79bd0ebe641290365e6cbada34d4b11}{C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V128}} = 7
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gafc1022645f58688642d69aab2f7a5e8e}{O\+S\+C\+C\+T\+L\+\_\+\+F\+R\+E\+Q\+S\+E\+L\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggafc1022645f58688642d69aab2f7a5e8ea7e7af9b5fd30cba5912215152d12cece}{O\+S\+C\+C\+T\+L\+\_\+\+O\+S\+C\+P\+\_\+28\+P17\+M\+HZ}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggafc1022645f58688642d69aab2f7a5e8ea4e0fe61acfe45fcb25dceedb7a1d3f68}{O\+S\+C\+C\+T\+L\+\_\+\+O\+S\+C\+P\+\_\+15\+P29\+M\+HZ}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggafc1022645f58688642d69aab2f7a5e8eaecf7df1be7b7da0c7cb6b8c8bc1887bd}{O\+S\+C\+C\+T\+L\+\_\+\+O\+S\+C\+P\+\_\+10\+P68\+M\+HZ}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggafc1022645f58688642d69aab2f7a5e8ea68d6c7f3b5c2f14afa7ef5ac133d932e}{O\+S\+C\+C\+T\+L\+\_\+\+O\+S\+C\+P\+\_\+8\+P31\+M\+HZ}} = 3
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gaf51e058bf69626b4c2e490b9bccf0337}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+C\+L\+K\+IN}}\+: 2
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gaea12dc8338ec9fc1c14196795f7bf905}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+A\+C\+L\+K\+D\+IV}}\+: 3
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad7fdf6f210b8788da2caf642a62a898f}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+H\+C\+L\+K\+D\+IV}}\+: 2
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga483a216eb664a7639a4c8b47a40da760}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+F\+C\+LK}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gabaf6db4b423b898b2edd2942dd0d16b1}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 24
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gaf51e058bf69626b4c2e490b9bccf0337}{PAC5XXX\_SYSCLKCTL\_TypeDef::CLKIN}}: 2\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gaea12dc8338ec9fc1c14196795f7bf905}{PAC5XXX\_SYSCLKCTL\_TypeDef::ACLKDIV}}: 3\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad7fdf6f210b8788da2caf642a62a898f}{PAC5XXX\_SYSCLKCTL\_TypeDef::HCLKDIV}}: 2\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga483a216eb664a7639a4c8b47a40da760}{PAC5XXX\_SYSCLKCTL\_TypeDef::FCLK}}: 1\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gabaf6db4b423b898b2edd2942dd0d16b1}{PAC5XXX\_SYSCLKCTL\_TypeDef::\_\_pad0\_\_}}: 24\\
+\} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga4503175fd0233ea01d9ea001e53c3ece}{PAC5XXX\_SYSCLKCTL\_TypeDef::CCSCTL}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga3a9d2d0feae11dfee56a7f47aa06c66f}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+P\+L\+L\+EN}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gabaf6db4b423b898b2edd2942dd0d16b1}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gab66fa26b6a45109396069741a135e493}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+P\+L\+L\+I\+N\+D\+IV}}\+: 5
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga6fd1c4e6c5806024d4b82a4590df010c}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+P\+L\+L\+F\+B\+D\+IV}}\+: 9
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga2633f87605a93f6f5eb5056557895cdf}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+P\+L\+L\+O\+U\+T\+D\+IV}}\+: 4
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga7ea3dc062dc2a9a07391ac13c17758da}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad1\+\_\+\+\_\+}}\+: 11
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga3a9d2d0feae11dfee56a7f47aa06c66f}{PAC5XXX\_SYSCLKCTL\_TypeDef::PLLEN}}: 1\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gabaf6db4b423b898b2edd2942dd0d16b1}{PAC5XXX\_SYSCLKCTL\_TypeDef::\_\_pad0\_\_}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gab66fa26b6a45109396069741a135e493}{PAC5XXX\_SYSCLKCTL\_TypeDef::PLLINDIV}}: 5\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga6fd1c4e6c5806024d4b82a4590df010c}{PAC5XXX\_SYSCLKCTL\_TypeDef::PLLFBDIV}}: 9\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga2633f87605a93f6f5eb5056557895cdf}{PAC5XXX\_SYSCLKCTL\_TypeDef::PLLOUTDIV}}: 4\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga7ea3dc062dc2a9a07391ac13c17758da}{PAC5XXX\_SYSCLKCTL\_TypeDef::\_\_pad1\_\_}}: 11\\
+\} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga82ea54b2f56c794e7228104d2fb297e1}{PAC5XXX\_SYSCLKCTL\_TypeDef::PLLCTL}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga444772e51dc60ef65dfe671f637c787d}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+O\+S\+C\+EN}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gae7458c62dc8b6d4185ea8634e3973826}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+O\+S\+CP}}\+: 2
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gabaf6db4b423b898b2edd2942dd0d16b1}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 29
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga444772e51dc60ef65dfe671f637c787d}{PAC5XXX\_SYSCLKCTL\_TypeDef::OSCEN}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gae7458c62dc8b6d4185ea8634e3973826}{PAC5XXX\_SYSCLKCTL\_TypeDef::OSCP}}: 2\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gabaf6db4b423b898b2edd2942dd0d16b1}{PAC5XXX\_SYSCLKCTL\_TypeDef::\_\_pad0\_\_}}: 29\\
+\} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gaf33ac4d2f2431cfbba37cf28aaf929eb}{PAC5XXX\_SYSCLKCTL\_TypeDef::OSCCTL}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga7cbce6a901f1b95acd81a09005a9687f}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+X\+T\+A\+L\+EN}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gabaf6db4b423b898b2edd2942dd0d16b1}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 30
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga7cbce6a901f1b95acd81a09005a9687f}{PAC5XXX\_SYSCLKCTL\_TypeDef::XTALEN}}: 1\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gabaf6db4b423b898b2edd2942dd0d16b1}{PAC5XXX\_SYSCLKCTL\_TypeDef::\_\_pad0\_\_}}: 30\\
+\} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga66314dc96d8098d71116c55b72e9e95c}{PAC5XXX\_SYSCLKCTL\_TypeDef::XTALCTL}}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga49fe7a2ff4c0c35a8b806708086d4aff}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga49fe7a2ff4c0c35a8b806708086d4aff}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!PLLCTL\_FDBK\_DIV@{PLLCTL\_FDBK\_DIV}}
+\index{PLLCTL\_FDBK\_DIV@{PLLCTL\_FDBK\_DIV}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{PLLCTL\_FDBK\_DIV}{PLLCTL\_FDBK\_DIV}}
+{\footnotesize\ttfamily \#define P\+L\+L\+C\+T\+L\+\_\+\+F\+D\+B\+K\+\_\+\+D\+IV(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~((x -\/ 2) \& 0x01\+FF)}
+
+P\+LL Feedback divider ~\newline
+ 
+
+Definition at line 27 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga2eb045e8a15ed2f6efde20a45db951d1}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga2eb045e8a15ed2f6efde20a45db951d1}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!PLLCTL\_INPUT\_DIV@{PLLCTL\_INPUT\_DIV}}
+\index{PLLCTL\_INPUT\_DIV@{PLLCTL\_INPUT\_DIV}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{PLLCTL\_INPUT\_DIV}{PLLCTL\_INPUT\_DIV}}
+{\footnotesize\ttfamily \#define P\+L\+L\+C\+T\+L\+\_\+\+I\+N\+P\+U\+T\+\_\+\+D\+IV(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~((x -\/ 2) \& 0x001F)}
+
+P\+LL Input divider ~\newline
+ 
+
+Definition at line 26 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gabd97cf16a57c2daf43b364b52d7d0cd2}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gabd97cf16a57c2daf43b364b52d7d0cd2}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!PLLCTL\_OUTPUT\_DIV@{PLLCTL\_OUTPUT\_DIV}}
+\index{PLLCTL\_OUTPUT\_DIV@{PLLCTL\_OUTPUT\_DIV}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{PLLCTL\_OUTPUT\_DIV}{PLLCTL\_OUTPUT\_DIV}}
+{\footnotesize\ttfamily \#define P\+L\+L\+C\+T\+L\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+IV(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~((x)     \& 0x000F)}
+
+P\+LL Output divider ~\newline
+ 
+
+Definition at line 28 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad36893f80229418c4d84ff116a9a9f5d}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad36893f80229418c4d84ff116a9a9f5d}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_ACLKDIV\_Type@{CCSCTL\_ACLKDIV\_Type}}
+\index{CCSCTL\_ACLKDIV\_Type@{CCSCTL\_ACLKDIV\_Type}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{CCSCTL\_ACLKDIV\_Type}{CCSCTL\_ACLKDIV\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad36893f80229418c4d84ff116a9a9f5d}{C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+Type}}}
+
+C\+C\+S\+C\+TL A\+C\+LK Divider Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CCSCTL\_ACLKDIV\_DIV1@{CCSCTL\_ACLKDIV\_DIV1}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_ACLKDIV\_DIV1@{CCSCTL\_ACLKDIV\_DIV1}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5daaf087612392bbf0b4d6fb92144910ac0}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5daaf087612392bbf0b4d6fb92144910ac0}} 
+C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V1&A\+C\+LK Divider\+: /1 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CCSCTL\_ACLKDIV\_DIV2@{CCSCTL\_ACLKDIV\_DIV2}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_ACLKDIV\_DIV2@{CCSCTL\_ACLKDIV\_DIV2}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5dabd5f83858069f3a7194130da1f65cc92}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5dabd5f83858069f3a7194130da1f65cc92}} 
+C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V2&A\+C\+LK Divider\+: /2 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CCSCTL\_ACLKDIV\_DIV4@{CCSCTL\_ACLKDIV\_DIV4}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_ACLKDIV\_DIV4@{CCSCTL\_ACLKDIV\_DIV4}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da5113932b5a9981e9b90a3a13958d293f}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da5113932b5a9981e9b90a3a13958d293f}} 
+C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V4&A\+C\+LK Divider\+: /4 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CCSCTL\_ACLKDIV\_DIV8@{CCSCTL\_ACLKDIV\_DIV8}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_ACLKDIV\_DIV8@{CCSCTL\_ACLKDIV\_DIV8}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da627791ef0741c1e5767485812d52dd5c}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da627791ef0741c1e5767485812d52dd5c}} 
+C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V8&A\+C\+LK Divider\+: /8 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CCSCTL\_ACLKDIV\_DIV16@{CCSCTL\_ACLKDIV\_DIV16}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_ACLKDIV\_DIV16@{CCSCTL\_ACLKDIV\_DIV16}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da47e01fac6648509ba2300c14a3167596}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da47e01fac6648509ba2300c14a3167596}} 
+C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V16&A\+C\+LK Divider\+: /16 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CCSCTL\_ACLKDIV\_DIV32@{CCSCTL\_ACLKDIV\_DIV32}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_ACLKDIV\_DIV32@{CCSCTL\_ACLKDIV\_DIV32}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da93ab9b4fa43a95b5c494acc75a324cf9}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da93ab9b4fa43a95b5c494acc75a324cf9}} 
+C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V32&A\+C\+LK Divider\+: /32 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CCSCTL\_ACLKDIV\_DIV64@{CCSCTL\_ACLKDIV\_DIV64}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_ACLKDIV\_DIV64@{CCSCTL\_ACLKDIV\_DIV64}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da8ca42a6a690955baaf143b08f14ad85f}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da8ca42a6a690955baaf143b08f14ad85f}} 
+C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V64&A\+C\+LK Divider\+: /64 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CCSCTL\_ACLKDIV\_DIV128@{CCSCTL\_ACLKDIV\_DIV128}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_ACLKDIV\_DIV128@{CCSCTL\_ACLKDIV\_DIV128}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5dae79bd0ebe641290365e6cbada34d4b11}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5dae79bd0ebe641290365e6cbada34d4b11}} 
+C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V128&A\+S\+C\+LK Divider\+: /128 ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 47 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47              \{}
+\DoxyCodeLine{48   \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5daaf087612392bbf0b4d6fb92144910ac0}{CCSCTL\_ACLKDIV\_DIV1}} = 0,                   }
+\DoxyCodeLine{49   \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5dabd5f83858069f3a7194130da1f65cc92}{CCSCTL\_ACLKDIV\_DIV2}} = 1,                   }
+\DoxyCodeLine{50   \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da5113932b5a9981e9b90a3a13958d293f}{CCSCTL\_ACLKDIV\_DIV4}} = 2,                   }
+\DoxyCodeLine{51   \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da627791ef0741c1e5767485812d52dd5c}{CCSCTL\_ACLKDIV\_DIV8}} = 3,                   }
+\DoxyCodeLine{52   \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da47e01fac6648509ba2300c14a3167596}{CCSCTL\_ACLKDIV\_DIV16}} = 4,                 }
+\DoxyCodeLine{53   \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da93ab9b4fa43a95b5c494acc75a324cf9}{CCSCTL\_ACLKDIV\_DIV32}} = 5,                 }
+\DoxyCodeLine{54   \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5da8ca42a6a690955baaf143b08f14ad85f}{CCSCTL\_ACLKDIV\_DIV64}} = 6,                 }
+\DoxyCodeLine{55   \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad36893f80229418c4d84ff116a9a9f5dae79bd0ebe641290365e6cbada34d4b11}{CCSCTL\_ACLKDIV\_DIV128}} = 7                }
+\DoxyCodeLine{56 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad36893f80229418c4d84ff116a9a9f5d}{CCSCTL\_ACLKDIV\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad4356a48f371bd793260c230c00239dd}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad4356a48f371bd793260c230c00239dd}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_CLKIN\_Type@{CCSCTL\_CLKIN\_Type}}
+\index{CCSCTL\_CLKIN\_Type@{CCSCTL\_CLKIN\_Type}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{CCSCTL\_CLKIN\_Type}{CCSCTL\_CLKIN\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad4356a48f371bd793260c230c00239dd}{C\+C\+S\+C\+T\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+Type}}}
+
+C\+C\+S\+C\+TL Clock Source Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CCSCTL\_CLKIN\_INTOSC@{CCSCTL\_CLKIN\_INTOSC}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_CLKIN\_INTOSC@{CCSCTL\_CLKIN\_INTOSC}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad4356a48f371bd793260c230c00239ddad0833dc97b25825a6378bd5713a8ff42}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad4356a48f371bd793260c230c00239ddad0833dc97b25825a6378bd5713a8ff42}} 
+C\+C\+S\+C\+T\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+I\+N\+T\+O\+SC&Input Clock Select\+: internal oscillator ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CCSCTL\_CLKIN\_CLKREF@{CCSCTL\_CLKIN\_CLKREF}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_CLKIN\_CLKREF@{CCSCTL\_CLKIN\_CLKREF}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad4356a48f371bd793260c230c00239dda7e2f9b8c56ed02668cdc497296739ce4}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad4356a48f371bd793260c230c00239dda7e2f9b8c56ed02668cdc497296739ce4}} 
+C\+C\+S\+C\+T\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+C\+L\+K\+R\+EF&Input Clock Select\+: C\+L\+K\+R\+EF input ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CCSCTL\_CLKIN\_EXTCLK@{CCSCTL\_CLKIN\_EXTCLK}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_CLKIN\_EXTCLK@{CCSCTL\_CLKIN\_EXTCLK}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad4356a48f371bd793260c230c00239dda8f7595867702943d28c485fb17272abe}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad4356a48f371bd793260c230c00239dda8f7595867702943d28c485fb17272abe}} 
+C\+C\+S\+C\+T\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+E\+X\+T\+C\+LK&Input Clock Select\+: E\+X\+T\+C\+LK input ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CCSCTL\_CLKIN\_XTAL@{CCSCTL\_CLKIN\_XTAL}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_CLKIN\_XTAL@{CCSCTL\_CLKIN\_XTAL}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad4356a48f371bd793260c230c00239dda8dcaed7e16fcc727426f3e48ff653b87}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad4356a48f371bd793260c230c00239dda8dcaed7e16fcc727426f3e48ff653b87}} 
+C\+C\+S\+C\+T\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+X\+T\+AL&Input Clock Select\+: Crystal Driver ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 31 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31              \{}
+\DoxyCodeLine{32   \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad4356a48f371bd793260c230c00239ddad0833dc97b25825a6378bd5713a8ff42}{CCSCTL\_CLKIN\_INTOSC}} = 0,                }
+\DoxyCodeLine{33   \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad4356a48f371bd793260c230c00239dda7e2f9b8c56ed02668cdc497296739ce4}{CCSCTL\_CLKIN\_CLKREF}} = 1,                }
+\DoxyCodeLine{34   \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad4356a48f371bd793260c230c00239dda8f7595867702943d28c485fb17272abe}{CCSCTL\_CLKIN\_EXTCLK}} = 2,                }
+\DoxyCodeLine{35   \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggad4356a48f371bd793260c230c00239dda8dcaed7e16fcc727426f3e48ff653b87}{CCSCTL\_CLKIN\_XTAL}} = 3                   }
+\DoxyCodeLine{36 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad4356a48f371bd793260c230c00239dd}{CCSCTL\_CLKIN\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga8e53f4690b4d791dbdf907c7f1898d1c}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga8e53f4690b4d791dbdf907c7f1898d1c}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_HCLKDIV\_Type@{CCSCTL\_HCLKDIV\_Type}}
+\index{CCSCTL\_HCLKDIV\_Type@{CCSCTL\_HCLKDIV\_Type}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{CCSCTL\_HCLKDIV\_Type}{CCSCTL\_HCLKDIV\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga8e53f4690b4d791dbdf907c7f1898d1c}{C\+C\+S\+C\+T\+L\+\_\+\+H\+C\+L\+K\+D\+I\+V\+\_\+\+Type}}}
+
+C\+C\+S\+C\+TL H\+C\+LK Divider Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CCSCTL\_HCLKDIV\_DIV1@{CCSCTL\_HCLKDIV\_DIV1}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_HCLKDIV\_DIV1@{CCSCTL\_HCLKDIV\_DIV1}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gga8e53f4690b4d791dbdf907c7f1898d1ca31e459cefb3f92aadbd4725fd59198cc}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gga8e53f4690b4d791dbdf907c7f1898d1ca31e459cefb3f92aadbd4725fd59198cc}} 
+C\+C\+S\+C\+T\+L\+\_\+\+H\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V1&H\+C\+LK Input Divider (/1) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CCSCTL\_HCLKDIV\_DIV2@{CCSCTL\_HCLKDIV\_DIV2}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_HCLKDIV\_DIV2@{CCSCTL\_HCLKDIV\_DIV2}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gga8e53f4690b4d791dbdf907c7f1898d1ca3874669c405364a6d9af0673aecc77f5}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gga8e53f4690b4d791dbdf907c7f1898d1ca3874669c405364a6d9af0673aecc77f5}} 
+C\+C\+S\+C\+T\+L\+\_\+\+H\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V2&H\+C\+LK Input Divider (/2) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CCSCTL\_HCLKDIV\_DIV4@{CCSCTL\_HCLKDIV\_DIV4}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_HCLKDIV\_DIV4@{CCSCTL\_HCLKDIV\_DIV4}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gga8e53f4690b4d791dbdf907c7f1898d1cabce4fb221ace5db4a27f011f971191e5}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gga8e53f4690b4d791dbdf907c7f1898d1cabce4fb221ace5db4a27f011f971191e5}} 
+C\+C\+S\+C\+T\+L\+\_\+\+H\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V4&H\+C\+LK Input Divider (/4) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CCSCTL\_HCLKDIV\_DIV8@{CCSCTL\_HCLKDIV\_DIV8}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL\_HCLKDIV\_DIV8@{CCSCTL\_HCLKDIV\_DIV8}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gga8e53f4690b4d791dbdf907c7f1898d1cac694a8a05a0388cf965babee75b5f56d}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gga8e53f4690b4d791dbdf907c7f1898d1cac694a8a05a0388cf965babee75b5f56d}} 
+C\+C\+S\+C\+T\+L\+\_\+\+H\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V8&H\+C\+LK Input Divider (/8) ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 39 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39              \{}
+\DoxyCodeLine{40     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gga8e53f4690b4d791dbdf907c7f1898d1ca31e459cefb3f92aadbd4725fd59198cc}{CCSCTL\_HCLKDIV\_DIV1}} = 0,                }
+\DoxyCodeLine{41     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gga8e53f4690b4d791dbdf907c7f1898d1ca3874669c405364a6d9af0673aecc77f5}{CCSCTL\_HCLKDIV\_DIV2}} = 1,                }
+\DoxyCodeLine{42     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gga8e53f4690b4d791dbdf907c7f1898d1cabce4fb221ace5db4a27f011f971191e5}{CCSCTL\_HCLKDIV\_DIV4}} = 2,                }
+\DoxyCodeLine{43     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gga8e53f4690b4d791dbdf907c7f1898d1cac694a8a05a0388cf965babee75b5f56d}{CCSCTL\_HCLKDIV\_DIV8}} = 3,                }
+\DoxyCodeLine{44 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga8e53f4690b4d791dbdf907c7f1898d1c}{CCSCTL\_HCLKDIV\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gafc1022645f58688642d69aab2f7a5e8e}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gafc1022645f58688642d69aab2f7a5e8e}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!OSCCTL\_FREQSEL\_Type@{OSCCTL\_FREQSEL\_Type}}
+\index{OSCCTL\_FREQSEL\_Type@{OSCCTL\_FREQSEL\_Type}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{OSCCTL\_FREQSEL\_Type}{OSCCTL\_FREQSEL\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gafc1022645f58688642d69aab2f7a5e8e}{O\+S\+C\+C\+T\+L\+\_\+\+F\+R\+E\+Q\+S\+E\+L\+\_\+\+Type}}}
+
+O\+S\+C\+C\+TL Frequency Select Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OSCCTL\_OSCP\_28P17MHZ@{OSCCTL\_OSCP\_28P17MHZ}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!OSCCTL\_OSCP\_28P17MHZ@{OSCCTL\_OSCP\_28P17MHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggafc1022645f58688642d69aab2f7a5e8ea7e7af9b5fd30cba5912215152d12cece}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggafc1022645f58688642d69aab2f7a5e8ea7e7af9b5fd30cba5912215152d12cece}} 
+O\+S\+C\+C\+T\+L\+\_\+\+O\+S\+C\+P\+\_\+28\+P17\+M\+HZ&Oscillator Frequency\+: 28.\+17 M\+Hz ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OSCCTL\_OSCP\_15P29MHZ@{OSCCTL\_OSCP\_15P29MHZ}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!OSCCTL\_OSCP\_15P29MHZ@{OSCCTL\_OSCP\_15P29MHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggafc1022645f58688642d69aab2f7a5e8ea4e0fe61acfe45fcb25dceedb7a1d3f68}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggafc1022645f58688642d69aab2f7a5e8ea4e0fe61acfe45fcb25dceedb7a1d3f68}} 
+O\+S\+C\+C\+T\+L\+\_\+\+O\+S\+C\+P\+\_\+15\+P29\+M\+HZ&Oscillator Frequency\+: 15.\+29 M\+Hz ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OSCCTL\_OSCP\_10P68MHZ@{OSCCTL\_OSCP\_10P68MHZ}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!OSCCTL\_OSCP\_10P68MHZ@{OSCCTL\_OSCP\_10P68MHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggafc1022645f58688642d69aab2f7a5e8eaecf7df1be7b7da0c7cb6b8c8bc1887bd}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggafc1022645f58688642d69aab2f7a5e8eaecf7df1be7b7da0c7cb6b8c8bc1887bd}} 
+O\+S\+C\+C\+T\+L\+\_\+\+O\+S\+C\+P\+\_\+10\+P68\+M\+HZ&Oscillator Frequency\+: 10.\+68 M\+Hz ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OSCCTL\_OSCP\_8P31MHZ@{OSCCTL\_OSCP\_8P31MHZ}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!OSCCTL\_OSCP\_8P31MHZ@{OSCCTL\_OSCP\_8P31MHZ}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggafc1022645f58688642d69aab2f7a5e8ea68d6c7f3b5c2f14afa7ef5ac133d932e}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggafc1022645f58688642d69aab2f7a5e8ea68d6c7f3b5c2f14afa7ef5ac133d932e}} 
+O\+S\+C\+C\+T\+L\+\_\+\+O\+S\+C\+P\+\_\+8\+P31\+M\+HZ&Oscillator Frequency\+: 8.\+31 M\+Hz ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 59 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{59              \{}
+\DoxyCodeLine{60   \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggafc1022645f58688642d69aab2f7a5e8ea7e7af9b5fd30cba5912215152d12cece}{OSCCTL\_OSCP\_28P17MHZ}} = 0,                }
+\DoxyCodeLine{61   \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggafc1022645f58688642d69aab2f7a5e8ea4e0fe61acfe45fcb25dceedb7a1d3f68}{OSCCTL\_OSCP\_15P29MHZ}} = 1,                }
+\DoxyCodeLine{62   \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggafc1022645f58688642d69aab2f7a5e8eaecf7df1be7b7da0c7cb6b8c8bc1887bd}{OSCCTL\_OSCP\_10P68MHZ}} = 2,                }
+\DoxyCodeLine{63   \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ggafc1022645f58688642d69aab2f7a5e8ea68d6c7f3b5c2f14afa7ef5ac133d932e}{OSCCTL\_OSCP\_8P31MHZ}} = 3                  }
+\DoxyCodeLine{64 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gafc1022645f58688642d69aab2f7a5e8e}{OSCCTL\_FREQSEL\_Type}};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gabaf6db4b423b898b2edd2942dd0d16b1}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gabaf6db4b423b898b2edd2942dd0d16b1}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 75 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gac8448d44c288aae62857a0078b4c2e37}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gac8448d44c288aae62857a0078b4c2e37}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 75 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gab7883e1adebf0898587604ed082aaf4b}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gab7883e1adebf0898587604ed082aaf4b}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 81 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga14b70296b8b36776594d6c20e2fde12b}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga14b70296b8b36776594d6c20e2fde12b}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 92 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gacede857ca36fc109e42b335824a970cc}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gacede857ca36fc109e42b335824a970cc}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 98 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga7ea3dc062dc2a9a07391ac13c17758da}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga7ea3dc062dc2a9a07391ac13c17758da}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!\_\_pad1\_\_@{\_\_pad1\_\_}}
+\index{\_\_pad1\_\_@{\_\_pad1\_\_}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad1\_\_}{\_\_pad1\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad1\+\_\+\+\_\+}
+
+
+
+Definition at line 85 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gabfdeb2d6a27eff5c6746f6791fc0ea8a}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gabfdeb2d6a27eff5c6746f6791fc0ea8a}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!\_\_pad1\_\_@{\_\_pad1\_\_}}
+\index{\_\_pad1\_\_@{\_\_pad1\_\_}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad1\_\_}{\_\_pad1\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad1\+\_\+\+\_\+}
+
+
+
+Definition at line 85 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga13424935252bb1326bbb1fe209385bc0}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga13424935252bb1326bbb1fe209385bc0}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!ACLKDIV@{ACLKDIV}}
+\index{ACLKDIV@{ACLKDIV}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{ACLKDIV}{ACLKDIV}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::A\+C\+L\+K\+D\+IV}
+
+A\+C\+LK Divider ~\newline
+ 
+
+Definition at line 72 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gaea12dc8338ec9fc1c14196795f7bf905}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gaea12dc8338ec9fc1c14196795f7bf905}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!ACLKDIV@{ACLKDIV}}
+\index{ACLKDIV@{ACLKDIV}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{ACLKDIV}{ACLKDIV}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+A\+C\+L\+K\+D\+IV}
+
+A\+C\+LK Divider ~\newline
+ 
+
+Definition at line 72 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga4503175fd0233ea01d9ea001e53c3ece}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga4503175fd0233ea01d9ea001e53c3ece}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CCSCTL@{CCSCTL}}
+\index{CCSCTL@{CCSCTL}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{CCSCTL}{CCSCTL}}
+{\footnotesize\ttfamily struct \{ ... \}  P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+C\+C\+S\+C\+TL}
+
+$<$ C\+C\+S\+C\+TL\+: Offset 0x0000\+: Clock Control System Configuration Register ~\newline
+ P\+L\+L\+C\+TL\+: Offset 0x0004\+: P\+LL Control Register ~\newline
+ \mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gab4e20a6f220062997389bfc9ac0200ca}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gab4e20a6f220062997389bfc9ac0200ca}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CLKIN@{CLKIN}}
+\index{CLKIN@{CLKIN}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{CLKIN}{CLKIN}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::C\+L\+K\+IN}
+
+Input Clock Select ~\newline
+ 
+
+Definition at line 71 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gaf51e058bf69626b4c2e490b9bccf0337}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gaf51e058bf69626b4c2e490b9bccf0337}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!CLKIN@{CLKIN}}
+\index{CLKIN@{CLKIN}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{CLKIN}{CLKIN}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+C\+L\+K\+IN}
+
+Input Clock Select ~\newline
+ 
+
+Definition at line 71 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga7814ac50c2f36505f6de8aa7cf1e935c}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga7814ac50c2f36505f6de8aa7cf1e935c}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!FCLK@{FCLK}}
+\index{FCLK@{FCLK}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{FCLK}{FCLK}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::F\+C\+LK}
+
+F\+C\+LK input select (0\+: F\+R\+C\+LK, 1\+: P\+LL) ~\newline
+ 
+
+Definition at line 74 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga483a216eb664a7639a4c8b47a40da760}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga483a216eb664a7639a4c8b47a40da760}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!FCLK@{FCLK}}
+\index{FCLK@{FCLK}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{FCLK}{FCLK}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+F\+C\+LK}
+
+F\+C\+LK input select (0\+: F\+R\+C\+LK, 1\+: P\+LL) ~\newline
+ 
+
+Definition at line 74 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad7fdf6f210b8788da2caf642a62a898f}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad7fdf6f210b8788da2caf642a62a898f}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!HCLKDIV@{HCLKDIV}}
+\index{HCLKDIV@{HCLKDIV}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{HCLKDIV}{HCLKDIV}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+H\+C\+L\+K\+D\+IV}
+
+H\+C\+LK Divider ~\newline
+ 
+
+Definition at line 73 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gae1d156f4cb5f6d33ed75d39b6c316e07}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gae1d156f4cb5f6d33ed75d39b6c316e07}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!HCLKDIV@{HCLKDIV}}
+\index{HCLKDIV@{HCLKDIV}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{HCLKDIV}{HCLKDIV}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::H\+C\+L\+K\+D\+IV}
+
+H\+C\+LK Divider ~\newline
+ 
+
+Definition at line 73 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gaf33ac4d2f2431cfbba37cf28aaf929eb}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gaf33ac4d2f2431cfbba37cf28aaf929eb}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!OSCCTL@{OSCCTL}}
+\index{OSCCTL@{OSCCTL}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{OSCCTL}{OSCCTL}}
+{\footnotesize\ttfamily struct \{ ... \}  P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+O\+S\+C\+C\+TL}
+
+X\+T\+A\+L\+C\+TL\+: Offset 0x000C\+: Crystal Oscillator Control Register ~\newline
+ \mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga8204663357cbac19cb77c20d1ac07c36}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga8204663357cbac19cb77c20d1ac07c36}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!OSCEN@{OSCEN}}
+\index{OSCEN@{OSCEN}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{OSCEN}{OSCEN}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::O\+S\+C\+EN}
+
+Enable Oscillator ~\newline
+ 
+
+Definition at line 90 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga444772e51dc60ef65dfe671f637c787d}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga444772e51dc60ef65dfe671f637c787d}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!OSCEN@{OSCEN}}
+\index{OSCEN@{OSCEN}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{OSCEN}{OSCEN}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+O\+S\+C\+EN}
+
+Enable Oscillator ~\newline
+ 
+
+Definition at line 90 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad57654bb4b3ebf8ce7d04c5bf90d5e65}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad57654bb4b3ebf8ce7d04c5bf90d5e65}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!OSCP@{OSCP}}
+\index{OSCP@{OSCP}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{OSCP}{OSCP}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::O\+S\+CP}
+
+Oscillator Frequency Setting ~\newline
+ 
+
+Definition at line 91 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gae7458c62dc8b6d4185ea8634e3973826}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gae7458c62dc8b6d4185ea8634e3973826}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!OSCP@{OSCP}}
+\index{OSCP@{OSCP}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{OSCP}{OSCP}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+O\+S\+CP}
+
+Oscillator Frequency Setting ~\newline
+ 
+
+Definition at line 91 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga82ea54b2f56c794e7228104d2fb297e1}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga82ea54b2f56c794e7228104d2fb297e1}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!PLLCTL@{PLLCTL}}
+\index{PLLCTL@{PLLCTL}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{PLLCTL}{PLLCTL}}
+{\footnotesize\ttfamily struct \{ ... \}  P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+P\+L\+L\+C\+TL}
+
+O\+S\+C\+C\+TL\+: Offset 0x0008\+: Free-\/\+Running Oscillator Control Register ~\newline
+ \mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga3a9d2d0feae11dfee56a7f47aa06c66f}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga3a9d2d0feae11dfee56a7f47aa06c66f}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!PLLEN@{PLLEN}}
+\index{PLLEN@{PLLEN}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{PLLEN}{PLLEN}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+P\+L\+L\+EN}
+
+P\+LL enable ~\newline
+ 
+
+Definition at line 80 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga229489746580aad634dec78bfbfb9b6b}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga229489746580aad634dec78bfbfb9b6b}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!PLLEN@{PLLEN}}
+\index{PLLEN@{PLLEN}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{PLLEN}{PLLEN}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::P\+L\+L\+EN}
+
+P\+LL enable ~\newline
+ 
+
+Definition at line 80 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga6fd1c4e6c5806024d4b82a4590df010c}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga6fd1c4e6c5806024d4b82a4590df010c}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!PLLFBDIV@{PLLFBDIV}}
+\index{PLLFBDIV@{PLLFBDIV}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{PLLFBDIV}{PLLFBDIV}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+P\+L\+L\+F\+B\+D\+IV}
+
+P\+LL feedback divider ~\newline
+ 
+
+Definition at line 83 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga759056270c58f8bdc16d20debd5e218a}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga759056270c58f8bdc16d20debd5e218a}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!PLLFBDIV@{PLLFBDIV}}
+\index{PLLFBDIV@{PLLFBDIV}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{PLLFBDIV}{PLLFBDIV}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::P\+L\+L\+F\+B\+D\+IV}
+
+P\+LL feedback divider ~\newline
+ 
+
+Definition at line 83 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gab66fa26b6a45109396069741a135e493}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gab66fa26b6a45109396069741a135e493}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!PLLINDIV@{PLLINDIV}}
+\index{PLLINDIV@{PLLINDIV}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{PLLINDIV}{PLLINDIV}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+P\+L\+L\+I\+N\+D\+IV}
+
+P\+LL input divider ~\newline
+ 
+
+Definition at line 82 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga09d0e9f4f22048978ca76b9c6575f7f5}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga09d0e9f4f22048978ca76b9c6575f7f5}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!PLLINDIV@{PLLINDIV}}
+\index{PLLINDIV@{PLLINDIV}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{PLLINDIV}{PLLINDIV}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::P\+L\+L\+I\+N\+D\+IV}
+
+P\+LL input divider ~\newline
+ 
+
+Definition at line 82 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad5360492d49c807fd58bb7b59c42813a}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_gad5360492d49c807fd58bb7b59c42813a}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!PLLOUTDIV@{PLLOUTDIV}}
+\index{PLLOUTDIV@{PLLOUTDIV}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{PLLOUTDIV}{PLLOUTDIV}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::P\+L\+L\+O\+U\+T\+D\+IV}
+
+P\+LL output divider ~\newline
+ 
+
+Definition at line 84 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga2633f87605a93f6f5eb5056557895cdf}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga2633f87605a93f6f5eb5056557895cdf}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!PLLOUTDIV@{PLLOUTDIV}}
+\index{PLLOUTDIV@{PLLOUTDIV}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{PLLOUTDIV}{PLLOUTDIV}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+P\+L\+L\+O\+U\+T\+D\+IV}
+
+P\+LL output divider ~\newline
+ 
+
+Definition at line 84 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga66314dc96d8098d71116c55b72e9e95c}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga66314dc96d8098d71116c55b72e9e95c}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!XTALCTL@{XTALCTL}}
+\index{XTALCTL@{XTALCTL}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{XTALCTL}{XTALCTL}}
+{\footnotesize\ttfamily struct \{ ... \}  P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+X\+T\+A\+L\+C\+TL}
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga37e8e87750249b22a6e54d7230ea3323}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga37e8e87750249b22a6e54d7230ea3323}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!XTALEN@{XTALEN}}
+\index{XTALEN@{XTALEN}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{XTALEN}{XTALEN}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::X\+T\+A\+L\+EN}
+
+Enable X\+T\+AL driver ~\newline
+ 
+
+Definition at line 97 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga7cbce6a901f1b95acd81a09005a9687f}\label{group___p_a_c5_x_x_x___s_y_s_c_l_k_c_t_l_ga7cbce6a901f1b95acd81a09005a9687f}} 
+\index{PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}!XTALEN@{XTALEN}}
+\index{XTALEN@{XTALEN}!PAC5XXX System and Clock Controller (SYSCLKCTL)@{PAC5XXX System and Clock Controller (SYSCLKCTL)}}
+\doxysubsubsection{\texorpdfstring{XTALEN}{XTALEN}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+Y\+S\+C\+L\+K\+C\+T\+L\+\_\+\+Type\+Def\+::\+X\+T\+A\+L\+EN}
+
+Enable X\+T\+AL driver ~\newline
+ 
+
+Definition at line 97 of file pac5xxx\+\_\+\+S\+Y\+S.\+h.
+

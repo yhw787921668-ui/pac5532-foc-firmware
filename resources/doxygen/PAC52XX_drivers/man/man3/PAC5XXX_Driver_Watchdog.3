@@ -1,0 +1,176 @@
+.TH "PAC5XXX_Driver_Watchdog" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_Watchdog \- PAC5XXX Watchdog Timer Driver Functions
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_WATCHDOG\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_WATCHDOG\fP void \fBpac5xxx_watchdog_config\fP (int ie_en, int por_en, uint32_t cdv)"
+.br
+.RI "This function configures watchdog timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_WATCHDOG\fP void \fBpac5xxx_watchdog_config_clock\fP (\fBWDTCTL_CLKSEL_Type\fP clock_select, \fBWDTCTL_PS_Type\fP prescale)"
+.br
+.RI "This function configures watchdog timer clock input and pre-scaler\&. "
+.ti -1c
+.RI "\fBRAMFUNC_WATCHDOG\fP void \fBpac5xxx_watchdog_reset\fP (void)"
+.br
+.RI "This function resets the watchdog timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_WATCHDOG\fP void \fBpac5xxx_watchdog_clear_if\fP (void)"
+.br
+.RI "This function clears the watchdog timer interrupt flag (for the interval timer) "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_WATCHDOG"
+
+.PP
+Definition at line 31 of file pac5xxx_driver_watchdog\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_WATCHDOG\fP void pac5xxx_watchdog_clear_if (void)"
+
+.PP
+This function clears the watchdog timer interrupt flag (for the interval timer) 
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_watchdog_clear_if\&.c\&.
+.PP
+.nf
+21 {
+22   WDT_WAIT_WRITE_BLOCK;   // Blocking wait for register write
+23   
+24   PAC5XXX_WDT->WDTCTL = (PAC5XXX_WDT->WDTCTL & 0x0000FFFF) | (WDTCTL_PASS_WRITE | WDTCTL_IF_MASK | WDTCTL_RST_VAL);
+25 }
+.fi
+.PP
+References PAC5XXX_WDT, WDT_WAIT_WRITE_BLOCK, WDTCTL_IF_MASK, WDTCTL_PASS_WRITE, and WDTCTL_RST_VAL\&.
+.SS "\fBRAMFUNC_WATCHDOG\fP void pac5xxx_watchdog_config (int ie_en, int por_en, uint32_t cdv)"
+
+.PP
+This function configures watchdog timer\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIie_en\fP Set to non-zero to enable Watchdog Timer interval interrupt 
+.br
+\fIpor_en\fP Set to non-zero to enable Watchdog Timer Power-on Reset 
+.br
+\fIcdv\fP The Watchdog timer count-down value in clock ticks 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_watchdog_config\&.c\&.
+.PP
+.nf
+21 {
+22   // Read CTL word, clear IE, IF and POREN bits, set write password and correct reset value
+23   uint32_t word = (PAC5XXX_WDT->WDTCTL & 0x00FFFFC0) | WDTCTL_PASS_WRITE | WDTCTL_RST_VAL;
+24 
+25   WDT_WAIT_WRITE_BLOCK;   // Blocking wait for register write
+26 
+27   PAC5XXX_WDT->WDTCDV = (WDTCTL_PASS_WRITE | (cdv & 0x00FFFFFF));
+28   
+29   if (ie_en)
+30     word |= WDTCTL_IE_MASK;
+31   
+32   if (por_en)
+33     word |= WDTCTL_POREN_MASK;
+34 
+35   WDT_WAIT_WRITE_BLOCK;   // Blocking wait for register write
+36   
+37   PAC5XXX_WDT->WDTCTL = word;
+38   
+39 }
+.fi
+.PP
+References PAC5XXX_WDT, WDT_WAIT_WRITE_BLOCK, WDTCTL_IE_MASK, WDTCTL_PASS_WRITE, WDTCTL_POREN_MASK, and WDTCTL_RST_VAL\&.
+.SS "\fBRAMFUNC_WATCHDOG\fP void pac5xxx_watchdog_config_clock (\fBWDTCTL_CLKSEL_Type\fP clock_select, \fBWDTCTL_PS_Type\fP prescale)"
+
+.PP
+This function configures watchdog timer clock input and pre-scaler\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIclock_select\fP Clock input selection from PAC5XXX_WDT peripheral file 
+.br
+\fIprescale\fP Input clock pre-scaler from PAC5XXX_WDT peripheral file 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_watchdog_config_clock\&.c\&.
+.PP
+.nf
+21 {
+22   // Read CTL word, clear CLKSEL and PS bits, set write password and correct reset value
+23   uint32_t word = (PAC5XXX_WDT->WDTCTL & 0x00FFF838) | WDTCTL_PASS_WRITE | WDTCTL_RST_VAL;
+24 
+25   word |= ((clock_select << WDTCTL_CLKSEL_SHIFT) | (prescale << WDTCTL_PS_SHIFT)); // Add clock select and pre-scale bits
+26 
+27   RTC_WAIT_WRITE_BLOCK;   // Blocking wait for register write
+28   
+29   PAC5XXX_WDT->WDTCTL = word;
+30 }
+.fi
+.PP
+References PAC5XXX_WDT, RTC_WAIT_WRITE_BLOCK, WDTCTL_CLKSEL_SHIFT, WDTCTL_PASS_WRITE, WDTCTL_PS_SHIFT, and WDTCTL_RST_VAL\&.
+.SS "\fBRAMFUNC_WATCHDOG\fP void pac5xxx_watchdog_reset (void)"
+
+.PP
+This function resets the watchdog timer\&. 
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_watchdog_reset\&.c\&.
+.PP
+.nf
+21 {
+22   WDT_WAIT_WRITE_BLOCK;   // Blocking wait for register write
+23   
+24   PAC5XXX_WDT->WDTCTL = (PAC5XXX_WDT->WDTCTL & 0x00FFFFF8) | (WDTCTL_PASS_WRITE | WDTCTL_RST_VAL);
+25 }
+.fi
+.PP
+References PAC5XXX_WDT, WDT_WAIT_WRITE_BLOCK, WDTCTL_PASS_WRITE, and WDTCTL_RST_VAL\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

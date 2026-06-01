@@ -1,0 +1,52 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/driver/pac5xxx_driver_uart.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/driver/pac5xxx_driver_uart.h \- Firmware driver for the PAC5XXX UART\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_config\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_UART\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_UART\fP void \fBpac5xxx_uart_config_LCR2\fP (\fBPAC55XX_UART_TYPEDEF\fP *uart_ptr, \fBUARTLCR_WL_TYPE\fP bpc, \fBUART_STOPBITS_TYPE\fP stop_bits, \fBUART_PEN_TYPE\fP parity_enabled, \fBUART_PARITY_TYPE\fP parity, \fBUART_BREAKCONTROL_TYPE\fP break_control)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_UART\fP void \fBpac5xxx_uart_config_divisor_latch2\fP (\fBPAC55XX_UART_TYPEDEF\fP *uart_ptr, uint32_t latch_value)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_UART\fP void \fBpac5xxx_uart_io_config2\fP (void)"
+.br
+.RI "This function configures IO for use with the UART peripheral\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Firmware driver for the PAC5XXX UART\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_driver_uart\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

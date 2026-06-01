@@ -1,0 +1,278 @@
+.TH "Struct_IPD" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Struct_IPD \- IPD structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <ipd_struct\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBipd_state\fP"
+.br
+.ti -1c
+.RI "int32_t \fBipd_angle_forward_offset\fP"
+.br
+.ti -1c
+.RI "int32_t \fBipd_angle_reverse_offset\fP"
+.br
+.ti -1c
+.RI "int32_t \fBangle_decision_threshold\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBnum_periods_per_pulse\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBpwm_charge_ticks\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBpwm_discharge_percent\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBnum_shunts\fP"
+.br
+.ti -1c
+.RI "int32_t \fBphase_lost_detect_min_current_count\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBstatus\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBmotor_direction_reverse\fP"
+.br
+.ti -1c
+.RI "int32_t \fBadc_offset_u_current\fP"
+.br
+.ti -1c
+.RI "int32_t \fBadc_offset_v_current\fP"
+.br
+.ti -1c
+.RI "int32_t \fBadc_offset_w_current\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBipd_current_measurement_state\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBtimer_period\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBpwm_discharge_ticks\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBcalculated_charge_ticks\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBcalculated_periods_per_pulse\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBperiod_count\fP"
+.br
+.ti -1c
+.RI "int32_t \fBu_pos_current\fP"
+.br
+.ti -1c
+.RI "int32_t \fBu_neg_current\fP"
+.br
+.ti -1c
+.RI "int32_t \fBv_pos_current\fP"
+.br
+.ti -1c
+.RI "int32_t \fBv_neg_current\fP"
+.br
+.ti -1c
+.RI "int32_t \fBw_pos_current\fP"
+.br
+.ti -1c
+.RI "int32_t \fBw_neg_current\fP"
+.br
+.ti -1c
+.RI "int32_t \fBipd_angle\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBipd_starting_angle\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBangle_sector\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmax_current\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmax_to_min_current_delta\fP"
+.br
+.ti -1c
+.RI "int32_t \fBsame_polarity_current_delta\fP"
+.br
+.ti -1c
+.RI "int32_t \fBopposite_polarity_current_delta\fP"
+.br
+.ti -1c
+.RI "int32_t \fBIu_ADC\fP"
+.br
+.ti -1c
+.RI "int32_t \fBIv_ADC\fP"
+.br
+.ti -1c
+.RI "int32_t \fBIw_ADC\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+IPD structure\&. 
+.PP
+Definition at line 28 of file ipd_struct\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "int32_t Struct_IPD::adc_offset_u_current"
+
+.PP
+Definition at line 44 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::adc_offset_v_current"
+
+.PP
+Definition at line 45 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::adc_offset_w_current"
+
+.PP
+Definition at line 46 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::angle_decision_threshold"
+
+.PP
+Definition at line 34 of file ipd_struct\&.h\&.
+.SS "uint32_t Struct_IPD::angle_sector"
+
+.PP
+Definition at line 64 of file ipd_struct\&.h\&.
+.SS "uint32_t Struct_IPD::calculated_charge_ticks"
+
+.PP
+Definition at line 51 of file ipd_struct\&.h\&.
+.SS "uint32_t Struct_IPD::calculated_periods_per_pulse"
+
+.PP
+Definition at line 52 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::ipd_angle"
+
+.PP
+Definition at line 61 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::ipd_angle_forward_offset"
+
+.PP
+Definition at line 32 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::ipd_angle_reverse_offset"
+
+.PP
+Definition at line 33 of file ipd_struct\&.h\&.
+.SS "uint32_t Struct_IPD::ipd_current_measurement_state"
+
+.PP
+Definition at line 48 of file ipd_struct\&.h\&.
+.SS "\fBfix16_t\fP Struct_IPD::ipd_starting_angle"
+
+.PP
+Definition at line 62 of file ipd_struct\&.h\&.
+.SS "uint32_t Struct_IPD::ipd_state"
+
+.PP
+Definition at line 30 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::Iu_ADC"
+
+.PP
+Definition at line 69 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::Iv_ADC"
+
+.PP
+Definition at line 70 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::Iw_ADC"
+
+.PP
+Definition at line 71 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::max_current"
+
+.PP
+Definition at line 65 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::max_to_min_current_delta"
+
+.PP
+Definition at line 66 of file ipd_struct\&.h\&.
+.SS "uint32_t Struct_IPD::motor_direction_reverse"
+
+.PP
+Definition at line 43 of file ipd_struct\&.h\&.
+.SS "uint32_t Struct_IPD::num_periods_per_pulse"
+
+.PP
+Definition at line 35 of file ipd_struct\&.h\&.
+.SS "uint32_t Struct_IPD::num_shunts"
+
+.PP
+Definition at line 38 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::opposite_polarity_current_delta"
+
+.PP
+Definition at line 68 of file ipd_struct\&.h\&.
+.SS "uint32_t Struct_IPD::period_count"
+
+.PP
+Definition at line 53 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::phase_lost_detect_min_current_count"
+
+.PP
+Definition at line 39 of file ipd_struct\&.h\&.
+.SS "uint32_t Struct_IPD::pwm_charge_ticks"
+
+.PP
+Definition at line 36 of file ipd_struct\&.h\&.
+.SS "uint32_t Struct_IPD::pwm_discharge_percent"
+
+.PP
+Definition at line 37 of file ipd_struct\&.h\&.
+.SS "uint32_t Struct_IPD::pwm_discharge_ticks"
+
+.PP
+Definition at line 50 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::same_polarity_current_delta"
+
+.PP
+Definition at line 67 of file ipd_struct\&.h\&.
+.SS "uint32_t Struct_IPD::status"
+
+.PP
+Definition at line 42 of file ipd_struct\&.h\&.
+.SS "uint32_t Struct_IPD::timer_period"
+
+.PP
+Definition at line 49 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::u_neg_current"
+
+.PP
+Definition at line 55 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::u_pos_current"
+
+.PP
+Definition at line 54 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::v_neg_current"
+
+.PP
+Definition at line 57 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::v_pos_current"
+
+.PP
+Definition at line 56 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::w_neg_current"
+
+.PP
+Definition at line 59 of file ipd_struct\&.h\&.
+.SS "int32_t Struct_IPD::w_pos_current"
+
+.PP
+Definition at line 58 of file ipd_struct\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

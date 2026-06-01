@@ -1,0 +1,50 @@
+\hypertarget{pac5xxx__driver__memory_8h}{}\doxysection{pac\+\_\+foc/pac52xx/pac5xxx\+\_\+sdk/pac5xxx\+\_\+drivers/pac5xxx\+\_\+driver\+\_\+memory.h File Reference}
+\label{pac5xxx__driver__memory_8h}\index{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_drivers/pac5xxx\_driver\_memory.h@{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_drivers/pac5xxx\_driver\_memory.h}}
+
+
+Firmware driver for the P\+A\+C5\+X\+XX memory controller.  
+
+
+{\ttfamily \#include \char`\"{}pac52\+X\+X.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+config.\+h\char`\"{}}\newline
+Include dependency graph for pac5xxx\+\_\+driver\+\_\+memory.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__driver__memory_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__driver__memory_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga35e200b6bca4860ae72c8a4fedf153fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+M\+E\+M\+O\+RY}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga35e200b6bca4860ae72c8a4fedf153fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+M\+E\+M\+O\+RY}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga9d64bcb54f2170f1d83582b3eaec6eec}{pac5xxx\+\_\+memctl\+\_\+flash\+\_\+page\+\_\+erase}} (int page)
+\begin{DoxyCompactList}\small\item\em This function performs an erase of the given F\+L\+A\+SH page. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga35e200b6bca4860ae72c8a4fedf153fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+M\+E\+M\+O\+RY}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_gacf07122c0b914a797e8d44ff1362540b}{pac5xxx\+\_\+memctl\+\_\+flash\+\_\+swr\+\_\+enable\+\_\+por}} (int enabled)
+\begin{DoxyCompactList}\small\item\em This function configures S\+WR access during a power-\/on reset. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga35e200b6bca4860ae72c8a4fedf153fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+M\+E\+M\+O\+RY}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga16ee5690c503874efdabefd3626788fa}{pac5xxx\+\_\+memctl\+\_\+wait\+\_\+state}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaeae65fb32265e471df7aefe824d0a2a9}{M\+E\+M\+C\+T\+L\+\_\+\+Wait\+State}} wait\+\_\+states)
+\begin{DoxyCompactList}\small\item\em This function configures the number of F\+L\+A\+SH controller wait states. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga35e200b6bca4860ae72c8a4fedf153fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+M\+E\+M\+O\+RY}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga1947a037e6fa59b92a0bb6e00b9c4823}{pac5xxx\+\_\+memctl\+\_\+buffered\+\_\+write}} (int segment, int address\+\_\+offset, uint16\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em This function starts a buffered write operation with the given data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Firmware driver for the P\+A\+C5\+X\+XX memory controller. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2015-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 

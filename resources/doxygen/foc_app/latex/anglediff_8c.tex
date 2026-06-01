@@ -1,0 +1,164 @@
+\hypertarget{anglediff_8c}{}\doxysection{pac\+\_\+foc/src/mpos/estimator/anglediff.c File Reference}
+\label{anglediff_8c}\index{pac\_foc/src/mpos/estimator/anglediff.c@{pac\_foc/src/mpos/estimator/anglediff.c}}
+
+
+Use to check for angle difference between open loop and est angle and est speed.  
+
+
+{\ttfamily \#include \char`\"{}anglediff.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fault.\+h\char`\"{}}\newline
+Include dependency graph for anglediff.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{anglediff_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{anglediff_8c_ab09b1b2ae4f83f0e52e7229ba5aa5b40}{est\+\_\+anglediff\+\_\+check}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr, int32\+\_\+t ref\+\_\+angle, int32\+\_\+t check\+\_\+angle, int32\+\_\+t ref\+\_\+speed\+\_\+radps, int32\+\_\+t check\+\_\+speed\+\_\+radps)
+\begin{DoxyCompactList}\small\item\em Use to do angle and speed difference check of est and open loop angle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use to check for angle difference between open loop and est angle and est speed. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{anglediff_8c_ab09b1b2ae4f83f0e52e7229ba5aa5b40}\label{anglediff_8c_ab09b1b2ae4f83f0e52e7229ba5aa5b40}} 
+\index{anglediff.c@{anglediff.c}!est\_anglediff\_check@{est\_anglediff\_check}}
+\index{est\_anglediff\_check@{est\_anglediff\_check}!anglediff.c@{anglediff.c}}
+\doxysubsubsection{\texorpdfstring{est\_anglediff\_check()}{est\_anglediff\_check()}}
+{\footnotesize\ttfamily void est\+\_\+anglediff\+\_\+check (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr,  }\item[{int32\+\_\+t}]{ref\+\_\+angle,  }\item[{int32\+\_\+t}]{check\+\_\+angle,  }\item[{int32\+\_\+t}]{ref\+\_\+speed\+\_\+radps,  }\item[{int32\+\_\+t}]{check\+\_\+speed\+\_\+radps }\end{DoxyParamCaption})}
+
+
+
+Use to do angle and speed difference check of est and open loop angle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+{\em int32\+\_\+t} & ref\+\_\+angle \\
+\hline
+{\em int32\+\_\+t} & check\+\_\+angle \\
+\hline
+{\em int32\+\_\+t} & ref\+\_\+speed\+\_\+radps \\
+\hline
+{\em int32\+\_\+t} & check\+\_\+speed\+\_\+radps \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 35 of file anglediff.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36 \{}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#ifdef ENABLE\_ANGLEDIFF\_SPEED\_CHECK}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}} ol\_cl\_speed\_difference;}
+\DoxyCodeLine{40     \textcolor{keyword}{static} \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} angle\_speed\_error\_last\_sample\_time\_value = 0;}
+\DoxyCodeLine{41     int32\_t angle\_diff\_abs\_q12;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{comment}{// Check for overflow}}
+\DoxyCodeLine{44     \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a7a238eb6e649df9d0e5ef3e883c4fc3a}{systick\_div\_counter}} < angle\_speed\_error\_last\_sample\_time\_value)}
+\DoxyCodeLine{45         angle\_speed\_error\_last\_sample\_time\_value = motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a7a238eb6e649df9d0e5ef3e883c4fc3a}{systick\_div\_counter}};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keywordflow}{if} ((motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a7a238eb6e649df9d0e5ef3e883c4fc3a}{systick\_div\_counter}} -\/ angle\_speed\_error\_last\_sample\_time\_value) >= 1)}
+\DoxyCodeLine{48     \{}
+\DoxyCodeLine{49         angle\_speed\_error\_last\_sample\_time\_value = motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a7a238eb6e649df9d0e5ef3e883c4fc3a}{systick\_div\_counter}};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51         \textcolor{comment}{// Check speed difference between open loop speed and close loop feedback speed}}
+\DoxyCodeLine{52         ol\_cl\_speed\_difference = ref\_speed\_radps -\/ check\_speed\_radps;}
+\DoxyCodeLine{53         \textcolor{comment}{// If difference is negative convert it to positive}}
+\DoxyCodeLine{54         \textcolor{keywordflow}{if} (ol\_cl\_speed\_difference < 0)}
+\DoxyCodeLine{55             ol\_cl\_speed\_difference = -\/ol\_cl\_speed\_difference;}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         \textcolor{comment}{// Open loop frequency ramp finish}}
+\DoxyCodeLine{58         \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}} temp\_angle\_diff\_stall\_q12 = (ref\_angle -\/ check\_angle) >> 4;}
+\DoxyCodeLine{59         \textcolor{comment}{// Convert difference between ideal and estimated angle to q12 format}}
+\DoxyCodeLine{60         \textcolor{keywordflow}{if} (temp\_angle\_diff\_stall\_q12 > (\mbox{\hyperlink{maths_8h_a6a9d423450b18ddbdb3b6a2208ffcaf9}{FIX16\_PI}} >> 4))}
+\DoxyCodeLine{61             temp\_angle\_diff\_stall\_q12 -\/= (\mbox{\hyperlink{maths_8h_a553eebbef4914d437475e1d36f6e281f}{FIX16\_2PI}} >> 4);}
+\DoxyCodeLine{62         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (temp\_angle\_diff\_stall\_q12 < ((-\/\mbox{\hyperlink{maths_8h_a6a9d423450b18ddbdb3b6a2208ffcaf9}{FIX16\_PI}}) >> 4))}
+\DoxyCodeLine{63             temp\_angle\_diff\_stall\_q12 += (\mbox{\hyperlink{maths_8h_a553eebbef4914d437475e1d36f6e281f}{FIX16\_2PI}} >> 4);}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#ifdef ENABLE\_OLSPEED\_ANGLEDIFF\_TIMEOUT}}
+\DoxyCodeLine{66        \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_ab892ca750c8b4560e4147c0fcc0cde69}{auto\_close\_loop\_cmd}})}
+\DoxyCodeLine{67        \{}
+\DoxyCodeLine{68             \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a463e0b12e5303472babcc9affc0ee14d}{angle\_diff\_timeout\_counter}}++ >= \mbox{\hyperlink{config__features_8h_a83ac9addcf29bae2895d0406d5a05ae4}{ANGLEDIFF\_TIMEOUT\_COUNT}})}
+\DoxyCodeLine{69             \{}
+\DoxyCodeLine{70                 \mbox{\hyperlink{fault_8c_a27e9497981905b8f49967f8b4bffb194}{set\_fault}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a4e35e049e639d8952c40a70aaac66222}{FAULT\_SPDANGLDIF\_TIMEOUT}});            \textcolor{comment}{// Set motor stall status}}
+\DoxyCodeLine{71                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a463e0b12e5303472babcc9affc0ee14d}{angle\_diff\_timeout\_counter}} = 0;}
+\DoxyCodeLine{72             \}}
+\DoxyCodeLine{73         \}}
+\DoxyCodeLine{74         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{75             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a463e0b12e5303472babcc9affc0ee14d}{angle\_diff\_timeout\_counter}} = 0;}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{77         \textcolor{comment}{//  If speed error between open loop speed and feedback speed is less then or equal 12.5 \%}}
+\DoxyCodeLine{78        \textcolor{keywordflow}{if} (ol\_cl\_speed\_difference >= \mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\_mul}}(\mbox{\hyperlink{config__app_8h_a74164dab40559c9fb57f87b0cded751f}{ANGLEDIFF\_SPEED\_ERROR\_PCT\_Q16}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a5e3562e64dea445ae286b80b54b7cdf7}{speedrefcl\_max}}))       \textcolor{comment}{// q16}}
+\DoxyCodeLine{79         \{}
+\DoxyCodeLine{80             \textcolor{comment}{// This flag tells that it's a right time to switch from open loop to close loop by check angle difference and speed}}
+\DoxyCodeLine{81             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_ad9c717a29d51a526183615e188547e40}{switchover\_check\_pass}} = 0;}
+\DoxyCodeLine{82             \mbox{\hyperlink{fault_8c_a8ea8474835dbcb70ebc28b77e48207fc}{set\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a7efb5b258be0ce683b37edd082848343}{WARNING\_SPDDIF}});                    \textcolor{comment}{// Set motor stall status}}
+\DoxyCodeLine{83         \}}
+\DoxyCodeLine{84         \textcolor{keywordflow}{else}    \textcolor{comment}{// Come here when open loop and estimated speed is in within error band}}
+\DoxyCodeLine{85         \{}
+\DoxyCodeLine{86             \mbox{\hyperlink{fault_8c_a39db699740c3dffa0b3f76f14cb26e33}{clear\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a7efb5b258be0ce683b37edd082848343}{WARNING\_SPDDIF}});                    \textcolor{comment}{// Set motor stall status}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88             angle\_diff\_abs\_q12 = temp\_angle\_diff\_stall\_q12;}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90             \textcolor{comment}{// Convert into positive number if it's a negative for compare purpose}}
+\DoxyCodeLine{91             \textcolor{keywordflow}{if} (angle\_diff\_abs\_q12 < 0)}
+\DoxyCodeLine{92                 angle\_diff\_abs\_q12 = -\/angle\_diff\_abs\_q12;}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94             \textcolor{comment}{// If error difference between ideal and estimated angle is more then 22.5 degrees}}
+\DoxyCodeLine{95             \textcolor{comment}{// Check angle error between ideal and estimated in q12 format, check is angle difference is +ve, Pi in rad converted into Q12 before compare}}
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#ifdef ENABLE\_ANGLEDIFF\_AUTORANGE}}
+\DoxyCodeLine{97             \textcolor{keywordflow}{if} ((angle\_diff\_abs\_q12 <= \mbox{\hyperlink{config__app_8h_ac7c68020f5cd48d82cf9c861764551f6}{ANGLEDIFF\_ANGLE\_ERROR\_DEG\_Q12}}) \&\& (temp\_angle\_diff\_stall\_q12 < 0))     \textcolor{comment}{// 22.5 degrees}}
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{99             \textcolor{keywordflow}{if} (angle\_diff\_abs\_q12 <= \mbox{\hyperlink{config__app_8h_ac7c68020f5cd48d82cf9c861764551f6}{ANGLEDIFF\_ANGLE\_ERROR\_DEG\_Q12}})     \textcolor{comment}{// 22.5 degrees}}
+\DoxyCodeLine{100 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{101             \{}
+\DoxyCodeLine{102                 \mbox{\hyperlink{fault_8c_a39db699740c3dffa0b3f76f14cb26e33}{clear\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8aef78e1a3f46b8069ba8c29e78308a86a}{WARNING\_ANGLDIF}});              \textcolor{comment}{// Clear Set motor stall status}}
+\DoxyCodeLine{103                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_ad9c717a29d51a526183615e188547e40}{switchover\_check\_pass}} = 1;}
+\DoxyCodeLine{104             \}}
+\DoxyCodeLine{105             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{106             \{}
+\DoxyCodeLine{107                 \mbox{\hyperlink{fault_8c_a8ea8474835dbcb70ebc28b77e48207fc}{set\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8aef78e1a3f46b8069ba8c29e78308a86a}{WARNING\_ANGLDIF}});                \textcolor{comment}{// Set motor stall status}}
+\DoxyCodeLine{108                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_ad9c717a29d51a526183615e188547e40}{switchover\_check\_pass}} = 0;}
+\DoxyCodeLine{109                 \textcolor{comment}{// Run auto angle difference calculation to calculate required Iq form given I\_total current */}}
+\DoxyCodeLine{110 \textcolor{preprocessor}{\#ifdef ENABLE\_ANGLEDIFF\_AUTORANGE}}
+\DoxyCodeLine{111                 \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_ab892ca750c8b4560e4147c0fcc0cde69}{auto\_close\_loop\_cmd}})}
+\DoxyCodeLine{112                 \{}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_ALIGNGO == ENABLED)}}
+\DoxyCodeLine{114                     \mbox{\hyperlink{anglediff__lib_8h_ada121ed49b3d1f2617abcb71a9672ade}{minimize\_anglediff}}((temp\_angle\_diff\_stall\_q12 << 4), \&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}{startup}}.\mbox{\hyperlink{struct_struct___startup_align_go_ab8bafb11c8cd7169afca6bef8a499b64}{aligngo}}.\mbox{\hyperlink{struct_struct___align_go_a485612c70c78e10ff76c4436a358f89e}{idrefol\_target\_q16}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}{startup}}.\mbox{\hyperlink{struct_struct___startup_align_go_ab8bafb11c8cd7169afca6bef8a499b64}{aligngo}}.\mbox{\hyperlink{struct_struct___align_go_a5895a0da80200c5cdb5bea059d7696f6}{itotrefol\_target\_q16}},}
+\DoxyCodeLine{115                     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}{startup}}.\mbox{\hyperlink{struct_struct___startup_align_go_ab8bafb11c8cd7169afca6bef8a499b64}{aligngo}}.\mbox{\hyperlink{struct_struct___align_go_a5895a0da80200c5cdb5bea059d7696f6}{itotrefol\_target\_q16}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a2202f1efe444ee1192f32489f17c840e}{idref\_ramp\_f16}}, \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(\mbox{\hyperlink{config__app_8h_afefa2244a772338a2314d8328ce34efe}{ANGLEDIFF\_AUTORANGE\_INC\_METHOD1\_PCT}}, \mbox{\hyperlink{maths_8h_a693e3a9063a1e7582e682ffd4fe06f46}{Q10}}));}
+\DoxyCodeLine{116 \textcolor{preprocessor}{\#elif (MODULE\_MPOS\_HALL == ENABLED)}}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{118                 \}}
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{120             \}}
+\DoxyCodeLine{121         \}}
+\DoxyCodeLine{122     \}}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#else   //\#ifdef ENABLE\_ANGLEDIFF\_SPEED\_CHECK}}
+\DoxyCodeLine{124     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_ad9c717a29d51a526183615e188547e40}{switchover\_check\_pass}} = 1;}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#endif  //\#ifdef ENABLE\_ANGLEDIFF\_SPEED\_CHECK}}
+\DoxyCodeLine{126 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Startup\+Align\+Go\+::aligngo, Struct\+\_\+\+Est\+::angle\+\_\+diff\+\_\+timeout\+\_\+counter, A\+N\+G\+L\+E\+D\+I\+F\+F\+\_\+\+A\+N\+G\+L\+E\+\_\+\+E\+R\+R\+O\+R\+\_\+\+D\+E\+G\+\_\+\+Q12, A\+N\+G\+L\+E\+D\+I\+F\+F\+\_\+\+A\+U\+T\+O\+R\+A\+N\+G\+E\+\_\+\+I\+N\+C\+\_\+\+M\+E\+T\+H\+O\+D1\+\_\+\+P\+CT, A\+N\+G\+L\+E\+D\+I\+F\+F\+\_\+\+S\+P\+E\+E\+D\+\_\+\+E\+R\+R\+O\+R\+\_\+\+P\+C\+T\+\_\+\+Q16, A\+N\+G\+L\+E\+D\+I\+F\+F\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+C\+O\+U\+NT, Struct\+\_\+\+Motor\+::app, Struct\+\_\+\+App\+::auto\+\_\+close\+\_\+loop\+\_\+cmd, clear\+\_\+warning(), Struct\+\_\+\+M\+Pos\+::est, F\+A\+U\+L\+T\+\_\+\+S\+P\+D\+A\+N\+G\+L\+D\+I\+F\+\_\+\+T\+I\+M\+E\+O\+UT, F\+I\+X16\+\_\+2\+PI, fix16\+\_\+mul(), F\+I\+X16\+\_\+\+PI, Struct\+\_\+\+Motor\+::foc, Struct\+\_\+\+F\+O\+C\+::idref\+\_\+ramp\+\_\+f16, Struct\+\_\+\+Align\+Go\+::idrefol\+\_\+target\+\_\+q16, Struct\+\_\+\+Align\+Go\+::itotrefol\+\_\+target\+\_\+q16, minimize\+\_\+anglediff(), Struct\+\_\+\+Motor\+::mpos, Q10, Q\+C\+O\+N\+ST, set\+\_\+fault(), set\+\_\+warning(), Struct\+\_\+\+App\+::speedrefcl\+\_\+max, Struct\+\_\+\+Motor\+::startup, Struct\+\_\+\+Est\+::switchover\+\_\+check\+\_\+pass, Struct\+\_\+\+App\+::systick\+\_\+div\+\_\+counter, W\+A\+R\+N\+I\+N\+G\+\_\+\+A\+N\+G\+L\+D\+IF, and W\+A\+R\+N\+I\+N\+G\+\_\+\+S\+P\+D\+D\+IF.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{anglediff_8c_ab09b1b2ae4f83f0e52e7229ba5aa5b40_cgraph}
+\end{center}
+\end{figure}

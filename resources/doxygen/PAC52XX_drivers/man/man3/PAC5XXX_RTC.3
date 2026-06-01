@@ -1,0 +1,438 @@
+.TH "PAC5XXX_RTC" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_RTC \- PAC5XXX Real-Time Clock (RTC)
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPAC5XXX_RTC_TypeDef\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRTCCTL_PASS_WRITE\fP   0x4A000000"
+.br
+.ti -1c
+.RI "#define \fBRTCCTL_PASS_READ\fP   0x63000000"
+.br
+.ti -1c
+.RI "#define \fBRTCCTL_IF_SHIFT\fP   4"
+.br
+.ti -1c
+.RI "#define \fBRTCCTL_IF_MASK\fP   0x00000010"
+.br
+.ti -1c
+.RI "#define \fBRTCCTL_RST_SHIFT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBRTCCTL_RST_VAL\fP   0x00000005"
+.br
+.ti -1c
+.RI "#define \fBRTCCTL_IE_SHIFT\fP   3"
+.br
+.ti -1c
+.RI "#define \fBRTCCTL_IE_MASK\fP   0x00000008"
+.br
+.ti -1c
+.RI "#define \fBRTCCTL_WRBUSY_SHIFT\fP   11"
+.br
+.ti -1c
+.RI "#define \fBRTCCTL_WRBUSY_MASK\fP   0x00000800"
+.br
+.ti -1c
+.RI "#define \fBRTC_WAIT_WRITE_BLOCK\fP   while ((\fBPAC5XXX_RTC\fP\->RTCCTL & \fBRTCCTL_WRBUSY_MASK\fP) != 0);"
+.br
+.ti -1c
+.RI "#define \fBRTCCTL_PS_SHIFT\fP   6"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBRTCCTL_PS_Type\fP { \fBRTCCTL_PS_DIV2\fP = 0, \fBRTCCTL_PS_DIV4\fP = 1, \fBRTCCTL_PS_DIV8\fP = 2, \fBRTCCTL_PS_DIV16\fP = 3, \fBRTCCTL_PS_DIV32\fP = 4, \fBRTCCTL_PS_DIV64\fP = 5, \fBRTCCTL_PS_DIV128\fP = 6, \fBRTCCTL_PS_DIV256\fP = 7, \fBRTCCTL_PS_DIV512\fP = 8, \fBRTCCTL_PS_DIV1024\fP = 9, \fBRTCCTL_PS_DIV2048\fP = 10, \fBRTCCTL_PS_DIV4096\fP = 11, \fBRTCCTL_PS_DIV8192\fP = 12, \fBRTCCTL_PS_DIV16384\fP = 13, \fBRTCCTL_PS_DIV32767\fP = 14, \fBRTCCTL_PS_DIV65536\fP = 15 }"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_RTC_TypeDef::RTCCTL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_RTC_TypeDef::RTCCDV\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_RTC_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_RTC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_RTC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_RTC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_RTC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_RTC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_RTC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_RTC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_RTC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_RTC_TypeDef::VAL\fP: 24"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_RTC_TypeDef::__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_RTC_TypeDef::VAL\fP: 24"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_RTC_TypeDef::__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_RTC_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_RTC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_RTC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_RTC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_RTC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_RTC_TypeDef::VAL\fP: 24"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_RTC_TypeDef::__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_RTC_TypeDef::RTCCTR\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RTC_WAIT_WRITE_BLOCK   while ((\fBPAC5XXX_RTC\fP\->RTCCTL & \fBRTCCTL_WRBUSY_MASK\fP) != 0);"
+
+.PP
+Definition at line 41 of file pac5xxx_RTC\&.h\&.
+.SS "#define RTCCTL_IE_MASK   0x00000008"
+RTC interrupt enable mask 
+.br
+ 
+.PP
+Definition at line 36 of file pac5xxx_RTC\&.h\&.
+.SS "#define RTCCTL_IE_SHIFT   3"
+RTC interrupt enable bit-shift 
+.br
+ 
+.PP
+Definition at line 35 of file pac5xxx_RTC\&.h\&.
+.SS "#define RTCCTL_IF_MASK   0x00000010"
+RTC interrupt flag mask 
+.br
+ 
+.PP
+Definition at line 30 of file pac5xxx_RTC\&.h\&.
+.SS "#define RTCCTL_IF_SHIFT   4"
+RTC interrupt flag bit-shift 
+.br
+ 
+.PP
+Definition at line 29 of file pac5xxx_RTC\&.h\&.
+.SS "#define RTCCTL_PASS_READ   0x63000000"
+RTC Read Register Password 
+.br
+ 
+.PP
+Definition at line 27 of file pac5xxx_RTC\&.h\&.
+.SS "#define RTCCTL_PASS_WRITE   0x4A000000"
+RTC Write Register Password 
+.br
+ 
+.PP
+Definition at line 26 of file pac5xxx_RTC\&.h\&.
+.SS "#define RTCCTL_PS_SHIFT   6"
+RTC Pre-scaler bit-shift 
+.br
+ 
+.PP
+Definition at line 63 of file pac5xxx_RTC\&.h\&.
+.SS "#define RTCCTL_RST_SHIFT   0"
+RTC reset key bit-shift 
+.br
+ 
+.PP
+Definition at line 32 of file pac5xxx_RTC\&.h\&.
+.SS "#define RTCCTL_RST_VAL   0x00000005"
+RTC reset key value 
+.br
+ 
+.PP
+Definition at line 33 of file pac5xxx_RTC\&.h\&.
+.SS "#define RTCCTL_WRBUSY_MASK   0x00000800"
+RTC Write Busy mask 
+.br
+ 
+.PP
+Definition at line 39 of file pac5xxx_RTC\&.h\&.
+.SS "#define RTCCTL_WRBUSY_SHIFT   11"
+RTC Write Busy bit-shift 
+.br
+ 
+.PP
+Definition at line 38 of file pac5xxx_RTC\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBRTCCTL_PS_Type\fP"
+RTCCTL Pre-scaler Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIRTCCTL_PS_DIV2 \fP\fP
+RTC Pre-Scaler (/2) 
+.br
+ 
+.TP
+\fB\fIRTCCTL_PS_DIV4 \fP\fP
+RTC Pre-Scaler (/4) 
+.br
+ 
+.TP
+\fB\fIRTCCTL_PS_DIV8 \fP\fP
+RTC Pre-Scaler (/8) 
+.br
+ 
+.TP
+\fB\fIRTCCTL_PS_DIV16 \fP\fP
+RTC Pre-Scaler (/16) 
+.br
+ 
+.TP
+\fB\fIRTCCTL_PS_DIV32 \fP\fP
+RTC Pre-Scaler (/32) 
+.br
+ 
+.TP
+\fB\fIRTCCTL_PS_DIV64 \fP\fP
+RTC Pre-Scaler (/64) 
+.br
+ 
+.TP
+\fB\fIRTCCTL_PS_DIV128 \fP\fP
+RTC Pre-Scaler (/128) 
+.br
+ 
+.TP
+\fB\fIRTCCTL_PS_DIV256 \fP\fP
+RTC Pre-Scaler (/128) 
+.br
+ 
+.TP
+\fB\fIRTCCTL_PS_DIV512 \fP\fP
+RTC Pre-Scaler (/512) 
+.br
+ 
+.TP
+\fB\fIRTCCTL_PS_DIV1024 \fP\fP
+RTC Pre-Scaler (/1024) 
+.br
+ 
+.TP
+\fB\fIRTCCTL_PS_DIV2048 \fP\fP
+RTC Pre-Scaler (/2048) 
+.br
+ 
+.TP
+\fB\fIRTCCTL_PS_DIV4096 \fP\fP
+RTC Pre-Scaler (/4096) 
+.br
+ 
+.TP
+\fB\fIRTCCTL_PS_DIV8192 \fP\fP
+RTC Pre-Scaler (/8192) 
+.br
+ 
+.TP
+\fB\fIRTCCTL_PS_DIV16384 \fP\fP
+RTC Pre-Scaler (/16384) 
+.br
+ 
+.TP
+\fB\fIRTCCTL_PS_DIV32767 \fP\fP
+RTC Pre-Scaler (/32767) 
+.br
+ 
+.TP
+\fB\fIRTCCTL_PS_DIV65536 \fP\fP
+RTC Pre-Scaler (/65536) 
+.br
+ 
+.PP
+Definition at line 44 of file pac5xxx_RTC\&.h\&.
+.PP
+.nf
+44              {
+45   RTCCTL_PS_DIV2 = 0,                            
+46   RTCCTL_PS_DIV4 = 1,                            
+47   RTCCTL_PS_DIV8 = 2,                            
+48   RTCCTL_PS_DIV16 = 3,                           
+49   RTCCTL_PS_DIV32 = 4,                           
+50   RTCCTL_PS_DIV64 = 5,                           
+51   RTCCTL_PS_DIV128 = 6,                          
+52   RTCCTL_PS_DIV256 = 7,                          
+53   RTCCTL_PS_DIV512 = 8,                          
+54   RTCCTL_PS_DIV1024 = 9,                         
+55   RTCCTL_PS_DIV2048 = 10,                        
+56   RTCCTL_PS_DIV4096 = 11,                        
+57   RTCCTL_PS_DIV8192 = 12,                        
+58   RTCCTL_PS_DIV16384 = 13,                       
+59   RTCCTL_PS_DIV32767 = 14,                       
+60   RTCCTL_PS_DIV65536 = 15                        
+61 } RTCCTL_PS_Type;
+.fi
+.SH "Variable Documentation"
+.PP 
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "uint32_t PAC5XXX_RTC_TypeDef::__pad0__"
+
+.PP
+Definition at line 78 of file pac5xxx_RTC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 78 of file pac5xxx_RTC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 82 of file pac5xxx_RTC\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 86 of file pac5xxx_RTC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_RTC_TypeDef::b"
+
+.PP
+Definition at line 81 of file pac5xxx_RTC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 81 of file pac5xxx_RTC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_RTC_TypeDef::RTCCDV"
+RTCCDR: Offset: 0x0008 Watchdog Timer Countdown Register 
+.br
+ 
+.PP
+Definition at line 71 of file pac5xxx_RTC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_RTC_TypeDef::RTCCTL"
+< RTCCTL: Offset: 0x0000 Watchdog Timer Control Register 
+.br
+ RTCCDV: Offset: 0x0004 Watchdog Timer Countdown Value Reg 
+.br
+ 
+.PP
+Definition at line 68 of file pac5xxx_RTC\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_RTC_TypeDef::RTCCTR"
+
+.SS "\fB__IO\fP uint32_t PAC5XXX_RTC_TypeDef::s"
+
+.PP
+Definition at line 77 of file pac5xxx_RTC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 77 of file pac5xxx_RTC\&.h\&.
+.SS "__I { \&.\&.\&. } ::VAL"
+Countdown Register Value 
+.br
+ 
+.PP
+Definition at line 85 of file pac5xxx_RTC\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_RTC_TypeDef::VAL"
+Countdown Register Value 
+.br
+ 
+.PP
+Definition at line 85 of file pac5xxx_RTC\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_RTC_TypeDef::w"
+
+.PP
+Definition at line 75 of file pac5xxx_RTC\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 75 of file pac5xxx_RTC\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

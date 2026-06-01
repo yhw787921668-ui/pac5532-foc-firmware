@@ -1,0 +1,249 @@
+.TH "pac_foc/src/features/sim/sim_h_defs.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/features/sim/sim_h_defs.h \- Use for SIM Hall States, SIM2CL States and Status definitions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSTATE_SIM_RESET\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSTATE_SIM_MDETECT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSTATE_SIM_DETECT2\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSTATE_SIM_SIM2CL\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSTATE_SIM_WAITSTOP_INIT\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSTATE_SIM_WAITSTOP_RUN\fP   5"
+.br
+.ti -1c
+.RI "#define \fBSTATE_SIM_BRAKE_INIT\fP   6"
+.br
+.ti -1c
+.RI "#define \fBSTATE_SIM_BRAKE_RUN\fP   7"
+.br
+.ti -1c
+.RI "#define \fBSTATE_SIM_BRAKE_ENLS\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSTATE_SIM_EXIT\fP   9"
+.br
+.ti -1c
+.RI "#define \fBSTATE_SIM_COMPLETE\fP   10"
+.br
+.ti -1c
+.RI "#define \fBSTATE_SIM2CL_CYCLE_1\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSTATE_SIM2CL_CYCLE_2\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSTATE_SIM2CL_CYCLE_3\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSTATE_SIM2CL_CYCLE_4\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSTATE_SIM2CL_CYCLE_5\fP   5"
+.br
+.ti -1c
+.RI "#define \fBSTATE_SIM2CL_CYCLE_6\fP   6"
+.br
+.ti -1c
+.RI "#define \fBSTATE_SIM2CL_CYCLE_7\fP   7"
+.br
+.ti -1c
+.RI "#define \fBSTATE_SIM2CL_COMPLETE\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_SIM_MONITORING\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_SIM_MOTIONNOTDETECTED\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_SIM_MOTIONDETECTED\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_SIM_WRONGDIRECTION\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_SIM_SWITCH2CL\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_SIM_SLOWSPEED\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_SIM_WAITSTOP\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_SIM_WAITSTOPCOMPLETE\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_SIM_BRAKING\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_SIM_BRAKECOMPLETE\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_SIM_ABOVESIM2CL\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_SIM_TIMEOUT\fP   (1 << 11)"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_SIM_COMPLETE\fP   (1 << 12)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for SIM Hall States, SIM2CL States and Status definitions\&. 
+
+
+.PP
+Definition in file \fBsim_h_defs\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define STATE_SIM2CL_COMPLETE   8"
+
+.PP
+Definition at line 45 of file sim_h_defs\&.h\&.
+.SS "#define STATE_SIM2CL_CYCLE_1   1"
+
+.PP
+Definition at line 38 of file sim_h_defs\&.h\&.
+.SS "#define STATE_SIM2CL_CYCLE_2   2"
+
+.PP
+Definition at line 39 of file sim_h_defs\&.h\&.
+.SS "#define STATE_SIM2CL_CYCLE_3   3"
+
+.PP
+Definition at line 40 of file sim_h_defs\&.h\&.
+.SS "#define STATE_SIM2CL_CYCLE_4   4"
+
+.PP
+Definition at line 41 of file sim_h_defs\&.h\&.
+.SS "#define STATE_SIM2CL_CYCLE_5   5"
+
+.PP
+Definition at line 42 of file sim_h_defs\&.h\&.
+.SS "#define STATE_SIM2CL_CYCLE_6   6"
+
+.PP
+Definition at line 43 of file sim_h_defs\&.h\&.
+.SS "#define STATE_SIM2CL_CYCLE_7   7"
+
+.PP
+Definition at line 44 of file sim_h_defs\&.h\&.
+.SS "#define STATE_SIM_BRAKE_ENLS   8"
+
+.PP
+Definition at line 32 of file sim_h_defs\&.h\&.
+.SS "#define STATE_SIM_BRAKE_INIT   6"
+
+.PP
+Definition at line 30 of file sim_h_defs\&.h\&.
+.SS "#define STATE_SIM_BRAKE_RUN   7"
+
+.PP
+Definition at line 31 of file sim_h_defs\&.h\&.
+.SS "#define STATE_SIM_COMPLETE   10"
+
+.PP
+Definition at line 34 of file sim_h_defs\&.h\&.
+.SS "#define STATE_SIM_DETECT2   2"
+
+.PP
+Definition at line 26 of file sim_h_defs\&.h\&.
+.SS "#define STATE_SIM_EXIT   9"
+
+.PP
+Definition at line 33 of file sim_h_defs\&.h\&.
+.SS "#define STATE_SIM_MDETECT   1"
+
+.PP
+Definition at line 25 of file sim_h_defs\&.h\&.
+.SS "#define STATE_SIM_RESET   0"
+
+.PP
+Definition at line 24 of file sim_h_defs\&.h\&.
+.SS "#define STATE_SIM_SIM2CL   3"
+
+.PP
+Definition at line 27 of file sim_h_defs\&.h\&.
+.SS "#define STATE_SIM_WAITSTOP_INIT   4"
+
+.PP
+Definition at line 28 of file sim_h_defs\&.h\&.
+.SS "#define STATE_SIM_WAITSTOP_RUN   5"
+
+.PP
+Definition at line 29 of file sim_h_defs\&.h\&.
+.SS "#define STATUS_SIM_ABOVESIM2CL   (1 << 10)"
+
+.PP
+Definition at line 61 of file sim_h_defs\&.h\&.
+.SS "#define STATUS_SIM_BRAKECOMPLETE   (1 << 9)"
+
+.PP
+Definition at line 60 of file sim_h_defs\&.h\&.
+.SS "#define STATUS_SIM_BRAKING   (1 << 8)"
+
+.PP
+Definition at line 59 of file sim_h_defs\&.h\&.
+.SS "#define STATUS_SIM_COMPLETE   (1 << 12)"
+
+.PP
+Definition at line 64 of file sim_h_defs\&.h\&.
+.SS "#define STATUS_SIM_MONITORING   (1 << 0)"
+
+.PP
+Definition at line 49 of file sim_h_defs\&.h\&.
+.SS "#define STATUS_SIM_MOTIONDETECTED   (1 << 2)"
+
+.PP
+Definition at line 51 of file sim_h_defs\&.h\&.
+.SS "#define STATUS_SIM_MOTIONNOTDETECTED   (1 << 1)"
+
+.PP
+Definition at line 50 of file sim_h_defs\&.h\&.
+.SS "#define STATUS_SIM_SLOWSPEED   (1 << 5)"
+
+.PP
+Definition at line 55 of file sim_h_defs\&.h\&.
+.SS "#define STATUS_SIM_SWITCH2CL   (1 << 4)"
+
+.PP
+Definition at line 54 of file sim_h_defs\&.h\&.
+.SS "#define STATUS_SIM_TIMEOUT   (1 << 11)"
+
+.PP
+Definition at line 62 of file sim_h_defs\&.h\&.
+.SS "#define STATUS_SIM_WAITSTOP   (1 << 6)"
+
+.PP
+Definition at line 56 of file sim_h_defs\&.h\&.
+.SS "#define STATUS_SIM_WAITSTOPCOMPLETE   (1 << 7)"
+
+.PP
+Definition at line 57 of file sim_h_defs\&.h\&.
+.SS "#define STATUS_SIM_WRONGDIRECTION   (1 << 3)"
+
+.PP
+Definition at line 52 of file sim_h_defs\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

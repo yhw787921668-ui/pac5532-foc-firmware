@@ -1,0 +1,110 @@
+.TH "pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_i2c.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_i2c.h \- Firmware driver for the PAC5XXX I2C Peripheral\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac52XX\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_config\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_I2C\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_master_config\fP (\fBI2C_AddrMode_Type\fP addr_type, int disable_pulse_filter)"
+.br
+.RI "This function configures I2C peripheral for master mode\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_io_config\fP (int master)"
+.br
+.RI "This function configures the IO for use with the I2C peripheral\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_set_baud\fP (int scl_low_clocks, int scl_high_clocks)"
+.br
+.RI "This function sets the I2C baud rate when configured for master mode\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP int \fBpac5xxx_i2c_master_write\fP (uint8_t address, uint8_t *write_data, int bytes_to_write)"
+.br
+.RI "This function writes multiple bytes of data to the I2C slave\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP int \fBpac5xxx_i2c_master_write_byte\fP (uint8_t data)"
+.br
+.RI "This function writes one byte to the I2C slave\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP int \fBact02_i2c_master_read\fP (uint8_t *write_data, int bytes_to_write, uint8_t *read_data, int bytes_to_read)"
+.br
+.RI "This function performs and I2C read to the slave by writing a set of bytes, then reading the given number of bytes back from the slave\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_slave_config\fP (\fBI2C_AddrMode_Type\fP addr_type, int disable_pulse_filter)"
+.br
+.RI "This function configures the I2C bus for slave mode\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_disable\fP (void)"
+.br
+.RI "This function disables the I2C bus controller\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_int_enable_MST_TX_EMPTIED\fP (int enable)"
+.br
+.RI "This function enables or disables the MST_TX_EMPTIED interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_int_enable_MST_ACC_CTL_EMP\fP (int enable)"
+.br
+.RI "This function enables or disables the MST_ACC_CTL_EMP interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_int_enable_MST_RX_FILLED\fP (int enable)"
+.br
+.RI "This function enables or disables the MST_RX_FILLED interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_int_enable_MST_XFER_DONE\fP (int enable)"
+.br
+.RI "This function enables or disables the MST_XFER_DONE interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_int_enable_MST_LOST_ARB\fP (int enable)"
+.br
+.RI "This function enables or disables the MST_LOST_ARB interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_int_enable_SLV_ADDR_MATCH\fP (int enable)"
+.br
+.RI "This function enables or disables the SLV_ADDR_MATCH interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_int_enable_SLV_TX_EMPTIED\fP (int enable)"
+.br
+.RI "This function enables or disables the SLV_TX_EMPTIED interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_int_enable_SLV_RX_FILLED\fP (int enable)"
+.br
+.RI "This function enables or disables the SLV_RX_FILLED interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP void \fBpac5xxx_i2c_int_enable_SLV_XFER_DONE\fP (int enable)"
+.br
+.RI "This function enables or disables the SLV_XFER_DONE interrupt\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Firmware driver for the PAC5XXX I2C Peripheral\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_driver_i2c\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

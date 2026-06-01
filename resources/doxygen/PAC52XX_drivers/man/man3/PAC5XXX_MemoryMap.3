@@ -1,0 +1,482 @@
+.TH "PAC5XXX_MemoryMap" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_MemoryMap \- PAC5XXX Memory Mapping
+.SH SYNOPSIS
+.br
+.PP
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBPAC5XXX Peripheral Declaration\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_BASE\fP   (0x00000000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG0_BASE\fP   (0x00000000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG1_BASE\fP   (0x00000400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG2_BASE\fP   (0x00000800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG3_BASE\fP   (0x00000C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG4_BASE\fP   (0x00001000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG5_BASE\fP   (0x00001400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG6_BASE\fP   (0x00001800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG7_BASE\fP   (0x00001C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG8_BASE\fP   (0x00002000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG9_BASE\fP   (0x00002400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG10_BASE\fP   (0x00002800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG11_BASE\fP   (0x00002C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG12_BASE\fP   (0x00003000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG13_BASE\fP   (0x00003400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG14_BASE\fP   (0x00003800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG15_BASE\fP   (0x00003C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG16_BASE\fP   (0x00004000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG17_BASE\fP   (0x00004400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG18_BASE\fP   (0x00004800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG19_BASE\fP   (0x00004C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG20_BASE\fP   (0x00005000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG21_BASE\fP   (0x00005400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG22_BASE\fP   (0x00005800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG23_BASE\fP   (0x00005C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG24_BASE\fP   (0x00006000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG25_BASE\fP   (0x00006400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG26_BASE\fP   (0x00006800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG27_BASE\fP   (0x00006C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG28_BASE\fP   (0x00007000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG29_BASE\fP   (0x00007400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG30_BASE\fP   (0x00007800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG31_BASE\fP   (0x00007C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_SRAM_BASE\fP   (0x20000000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_PERIPH_BASE\fP   (0x40000000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_SYSCTL_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_MEMCTL_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x20000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_WDT_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x30000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_RTC_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x40000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOA_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x70000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOB_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x70040)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOAB_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x70080)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOC_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x80000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOD_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x80040)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOCD_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x80080)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOE_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x90000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_TIMERA_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0xD0000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_TIMERB_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0xE0000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_TIMERC_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0xF0000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_TIMERD_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x100000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_ADC_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x150000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_I2C_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x1B0000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_UART_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x1D0000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_SOCBRIDGE_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x200000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_SPI_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x210000)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define PAC5XXX_ADC_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0x150000)"
+ADC Base Address 
+.PP
+Definition at line 2857 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_BASE   (0x00000000UL)"
+FLASH Base Address 
+.br
+ 
+.PP
+Definition at line 2804 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG0_BASE   (0x00000000UL)"
+FLASH segment 0 Base Address 
+.br
+ 
+.PP
+Definition at line 2805 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG10_BASE   (0x00002800UL)"
+FLASH segment 10 Base Address 
+.br
+ 
+.PP
+Definition at line 2815 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG11_BASE   (0x00002C00UL)"
+FLASH segment 11 Base Address 
+.br
+ 
+.PP
+Definition at line 2816 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG12_BASE   (0x00003000UL)"
+FLASH segment 12 Base Address 
+.br
+ 
+.PP
+Definition at line 2817 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG13_BASE   (0x00003400UL)"
+FLASH segment 13 Base Address 
+.br
+ 
+.PP
+Definition at line 2818 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG14_BASE   (0x00003800UL)"
+FLASH segment 14 Base Address 
+.br
+ 
+.PP
+Definition at line 2819 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG15_BASE   (0x00003C00UL)"
+FLASH segment 15 Base Address 
+.br
+ 
+.PP
+Definition at line 2820 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG16_BASE   (0x00004000UL)"
+FLASH segment 0 Base Address 
+.br
+ 
+.PP
+Definition at line 2821 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG17_BASE   (0x00004400UL)"
+FLASH segment 1 Base Address 
+.br
+ 
+.PP
+Definition at line 2822 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG18_BASE   (0x00004800UL)"
+FLASH segment 2 Base Address 
+.br
+ 
+.PP
+Definition at line 2823 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG19_BASE   (0x00004C00UL)"
+FLASH segment 3 Base Address 
+.br
+ 
+.PP
+Definition at line 2824 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG1_BASE   (0x00000400UL)"
+FLASH segment 1 Base Address 
+.br
+ 
+.PP
+Definition at line 2806 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG20_BASE   (0x00005000UL)"
+FLASH segment 4 Base Address 
+.br
+ 
+.PP
+Definition at line 2825 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG21_BASE   (0x00005400UL)"
+FLASH segment 5 Base Address 
+.br
+ 
+.PP
+Definition at line 2826 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG22_BASE   (0x00005800UL)"
+FLASH segment 6 Base Address 
+.br
+ 
+.PP
+Definition at line 2827 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG23_BASE   (0x00005C00UL)"
+FLASH segment 7 Base Address 
+.br
+ 
+.PP
+Definition at line 2828 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG24_BASE   (0x00006000UL)"
+FLASH segment 8 Base Address 
+.br
+ 
+.PP
+Definition at line 2829 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG25_BASE   (0x00006400UL)"
+FLASH segment 9 Base Address 
+.br
+ 
+.PP
+Definition at line 2830 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG26_BASE   (0x00006800UL)"
+FLASH segment 10 Base Address 
+.br
+ 
+.PP
+Definition at line 2831 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG27_BASE   (0x00006C00UL)"
+FLASH segment 11 Base Address 
+.br
+ 
+.PP
+Definition at line 2832 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG28_BASE   (0x00007000UL)"
+FLASH segment 12 Base Address 
+.br
+ 
+.PP
+Definition at line 2833 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG29_BASE   (0x00007400UL)"
+FLASH segment 13 Base Address 
+.br
+ 
+.PP
+Definition at line 2834 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG2_BASE   (0x00000800UL)"
+FLASH segment 2 Base Address 
+.br
+ 
+.PP
+Definition at line 2807 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG30_BASE   (0x00007800UL)"
+FLASH segment 14 Base Address 
+.br
+ 
+.PP
+Definition at line 2835 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG31_BASE   (0x00007C00UL)"
+FLASH segment 15 Base Address 
+.br
+ 
+.PP
+Definition at line 2836 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG3_BASE   (0x00000C00UL)"
+FLASH segment 3 Base Address 
+.br
+ 
+.PP
+Definition at line 2808 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG4_BASE   (0x00001000UL)"
+FLASH segment 4 Base Address 
+.br
+ 
+.PP
+Definition at line 2809 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG5_BASE   (0x00001400UL)"
+FLASH segment 5 Base Address 
+.br
+ 
+.PP
+Definition at line 2810 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG6_BASE   (0x00001800UL)"
+FLASH segment 6 Base Address 
+.br
+ 
+.PP
+Definition at line 2811 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG7_BASE   (0x00001C00UL)"
+FLASH segment 7 Base Address 
+.br
+ 
+.PP
+Definition at line 2812 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG8_BASE   (0x00002000UL)"
+FLASH segment 8 Base Address 
+.br
+ 
+.PP
+Definition at line 2813 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_FLASH_SEG9_BASE   (0x00002400UL)"
+FLASH segment 9 Base Address 
+.br
+ 
+.PP
+Definition at line 2814 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_GPIOA_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0x70000)"
+GPIO A Base Address 
+.PP
+Definition at line 2846 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_GPIOAB_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0x70080)"
+GPIO A/B Base Address 
+.PP
+Definition at line 2848 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_GPIOB_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0x70040)"
+GPIO B Base Address 
+.PP
+Definition at line 2847 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_GPIOC_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0x80000)"
+GPIO C Base Address 
+.PP
+Definition at line 2849 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_GPIOCD_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0x80080)"
+GPIO C/D Base Address 
+.PP
+Definition at line 2851 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_GPIOD_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0x80040)"
+GPIO D Base Address 
+.PP
+Definition at line 2850 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_GPIOE_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0x90000)"
+GPIO E Base Address 
+.PP
+Definition at line 2852 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_I2C_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0x1B0000)"
+I2C Base Address 
+.PP
+Definition at line 2858 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_MEMCTL_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0x20000)"
+FLASH Memory Controller Base Address 
+.PP
+Definition at line 2843 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_PERIPH_BASE   (0x40000000UL)"
+Peripheral Base Address 
+.br
+ 
+.PP
+Definition at line 2839 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_RTC_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0x40000)"
+RTC Base Address 
+.PP
+Definition at line 2845 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_SOCBRIDGE_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0x200000)"
+SOC Bridge Base Address 
+.PP
+Definition at line 2860 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_SPI_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0x210000)"
+SPI Base Address 
+.PP
+Definition at line 2861 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_SRAM_BASE   (0x20000000UL)"
+SRAM Base Address 
+.br
+ 
+.PP
+Definition at line 2838 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_SYSCTL_BASE   (\fBPAC5XXX_PERIPH_BASE\fP)"
+System/Clock Control Base Address 
+.PP
+Definition at line 2842 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_TIMERA_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0xD0000)"
+Timer A/DTGA[0:3] Base Address 
+.PP
+Definition at line 2853 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_TIMERB_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0xE0000)"
+Timer B/DTGB Base Address 
+.PP
+Definition at line 2854 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_TIMERC_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0xF0000)"
+Timer C/DTGC Base Address 
+.PP
+Definition at line 2855 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_TIMERD_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0x100000)"
+Timer D/DTGD Base Address 
+.PP
+Definition at line 2856 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_UART_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0x1D0000)"
+UART Base Address 
+.PP
+Definition at line 2859 of file pac52XX\&.h\&.
+.SS "#define PAC5XXX_WDT_BASE   (\fBPAC5XXX_PERIPH_BASE\fP + 0x30000)"
+Watchdog Timer Base Address 
+.PP
+Definition at line 2844 of file pac52XX\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

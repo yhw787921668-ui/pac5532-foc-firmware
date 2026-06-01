@@ -1,0 +1,115 @@
+.TH "DTSE_SEQ_CFG_TYPEDEF" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DTSE_SEQ_CFG_TYPEDEF
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pac5xxx_adc\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBEMUXC\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBCHANNEL\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBRESERVED1\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBSEQDONE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBEMUXD\fP: 8"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBIRQNUM\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBIRQEN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBRESERVED2\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fB__pad0__\fP: 12"
+.br
+.ti -1c
+.RI "}; "
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 163 of file pac5xxx_adc\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "struct { \&.\&.\&. } "
+
+.SS "uint32_t DTSE_SEQ_CFG_TYPEDEF::__pad0__"
+
+.PP
+Definition at line 175 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t DTSE_SEQ_CFG_TYPEDEF::CHANNEL"
+
+.PP
+Definition at line 168 of file pac5xxx_adc\&.h\&.
+.PP
+Referenced by pac5xxx_dtse_seq_config(), and pac5xxx_dtse_seq_config_table()\&.
+.SS "\fB__IO\fP uint32_t DTSE_SEQ_CFG_TYPEDEF::EMUXC"
+
+.PP
+Definition at line 167 of file pac5xxx_adc\&.h\&.
+.PP
+Referenced by pac5xxx_dtse_seq_config(), and pac5xxx_dtse_seq_config_table()\&.
+.SS "\fB__IO\fP uint32_t DTSE_SEQ_CFG_TYPEDEF::EMUXD"
+
+.PP
+Definition at line 171 of file pac5xxx_adc\&.h\&.
+.PP
+Referenced by pac5xxx_dtse_seq_config(), and pac5xxx_dtse_seq_config_table()\&.
+.SS "\fB__IO\fP uint32_t DTSE_SEQ_CFG_TYPEDEF::IRQEN"
+
+.PP
+Definition at line 173 of file pac5xxx_adc\&.h\&.
+.PP
+Referenced by pac5xxx_dtse_seq_config(), and pac5xxx_dtse_seq_config_table()\&.
+.SS "\fB__IO\fP uint32_t DTSE_SEQ_CFG_TYPEDEF::IRQNUM"
+
+.PP
+Definition at line 172 of file pac5xxx_adc\&.h\&.
+.PP
+Referenced by pac5xxx_dtse_seq_config(), and pac5xxx_dtse_seq_config_table()\&.
+.SS "\fB__IO\fP uint32_t DTSE_SEQ_CFG_TYPEDEF::RESERVED1"
+
+.PP
+Definition at line 169 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t DTSE_SEQ_CFG_TYPEDEF::RESERVED2"
+
+.PP
+Definition at line 174 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t DTSE_SEQ_CFG_TYPEDEF::SEQDONE"
+
+.PP
+Definition at line 170 of file pac5xxx_adc\&.h\&.
+.PP
+Referenced by pac5xxx_dtse_seq_config(), and pac5xxx_dtse_seq_config_table()\&.
+.SS "\fB__IO\fP uint32_t DTSE_SEQ_CFG_TYPEDEF::w"
+
+.PP
+Definition at line 165 of file pac5xxx_adc\&.h\&.
+.PP
+Referenced by pac5xxx_dtse_seq_config(), and pac5xxx_dtse_seq_config_table()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

@@ -1,0 +1,32 @@
+.TH "pac_foc/src/mpos/estimator/anglediff_lib.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/mpos/estimator/anglediff_lib.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'maths\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBminimize_anglediff\fP (\fBfix16_t\fP angle_diff_f16, \fBfix16_t\fP *idrefol_target_f16, \fBfix16_t\fP iqrefol_target_f16, \fBfix16_t\fP i_total_ol_target_f16, \fBfix16_t\fP idref_ramp_f16, int32_t autotune_inc_pct_q10)"
+.br
+.ti -1c
+.RI "void \fBminimize_anglediff_2\fP (\fBfix16_t\fP anglediff_f16, \fBfix16_t\fP *idrefol_target_f16, \fBfix16_t\fP *i_total_ol_target_f16, \fBfix16_t\fP idref_ramp_f16, int32_t autotune_inc_pct_q10, int32_t itot_max_q16, int32_t filter_alpha_anglediff)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void minimize_anglediff (\fBfix16_t\fP angle_diff_f16, \fBfix16_t\fP * idrefol_target_f16, \fBfix16_t\fP iqrefol_target_f16, \fBfix16_t\fP i_total_ol_target_f16, \fBfix16_t\fP idref_ramp_f16, int32_t autotune_inc_pct_q10)"
+
+.PP
+Referenced by est_anglediff_check()\&.
+.SS "void minimize_anglediff_2 (\fBfix16_t\fP anglediff_f16, \fBfix16_t\fP * idrefol_target_f16, \fBfix16_t\fP * i_total_ol_target_f16, \fBfix16_t\fP idref_ramp_f16, int32_t autotune_inc_pct_q10, int32_t itot_max_q16, int32_t filter_alpha_anglediff)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

@@ -1,0 +1,391 @@
+\hypertarget{lbg1__funcs_8c}{}\doxysection{pac\+\_\+foc/src/mpos/estimator/lbg1\+\_\+funcs.c File Reference}
+\label{lbg1__funcs_8c}\index{pac\_foc/src/mpos/estimator/lbg1\_funcs.c@{pac\_foc/src/mpos/estimator/lbg1\_funcs.c}}
+
+
+Estimator utility functions.  
+
+
+{\ttfamily \#include \char`\"{}config\+\_\+app.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lbg1\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fault.\+h\char`\"{}}\newline
+Include dependency graph for lbg1\+\_\+funcs.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lbg1__funcs_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{lbg1__funcs_8c_a3692c7eed1b878d4d9f052532429b3ac}{lbg1\+\_\+process\+\_\+voltage\+\_\+scale}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Use for scaling estimator gs and kpe variables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lbg1__funcs_8c_aa9a0324e7d0063c1ede72b0b9003fa3e}{lbg1\+\_\+calculate\+\_\+coefficients}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Use for scaling estimator gs and kpe variables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lbg1__funcs_8c_a105294518a5f5204063940f2cd22e587}{lbg1\+\_\+reset}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Use to initialize and reset estimator variables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lbg1__funcs_8c_aa6a5e3e8d5e1879b15d0028f4d38e67f}{lbg1\+\_\+statemon}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Use for estimator variable ramps and ialpha, valpha calculation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lbg1__funcs_8c_a61a2a6afa652dc03bc498a53fdaa4e9f}{lbg1\+\_\+param\+\_\+write}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr, \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28}{Parameter\+Code}} param\+\_\+code, int32\+\_\+t rx\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Use for writing estimator parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lbg1__funcs_8c_acf0eab32000596e0ce4bae079b0a0450}{lbg1\+\_\+param\+\_\+process}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr, \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28}{Parameter\+Code}} param\+\_\+code, int32\+\_\+t rx\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Use for calculating estimator coefficients. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Estimator utility functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{lbg1__funcs_8c_aa9a0324e7d0063c1ede72b0b9003fa3e}\label{lbg1__funcs_8c_aa9a0324e7d0063c1ede72b0b9003fa3e}} 
+\index{lbg1\_funcs.c@{lbg1\_funcs.c}!lbg1\_calculate\_coefficients@{lbg1\_calculate\_coefficients}}
+\index{lbg1\_calculate\_coefficients@{lbg1\_calculate\_coefficients}!lbg1\_funcs.c@{lbg1\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{lbg1\_calculate\_coefficients()}{lbg1\_calculate\_coefficients()}}
+{\footnotesize\ttfamily void lbg1\+\_\+calculate\+\_\+coefficients (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Use for scaling estimator gs and kpe variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 41 of file lbg1\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42 \{}
+\DoxyCodeLine{43     \mbox{\hyperlink{lbg1_8h_a2e097391b30c1feb8c9dccc0697fd9fa}{lbg1\_calculate\_coefficients\_lib}}(\&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a26545bb8d0166b9c61068c21c1d49369}{dt\_control\_q26}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_afc7224469e53f1be293f573436f699fe}{descale\_current\_factor}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}.\mbox{\hyperlink{struct_struct___m_param_ab1a6809c410c813be204dfabf9f8725f}{rs\_q16}},}
+\DoxyCodeLine{44             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}.\mbox{\hyperlink{struct_struct___m_param_a41005a0df1e48dce8a42bbabf26369e3}{lq\_q26}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a9d5bb2491a0253c5706583aeb3218226}{speed\_scale\_shift}}, \mbox{\hyperlink{lbg1_8h_ac82dcaef30611c95cf3422986928902b}{LBG\_GAIN\_SCALER\_Q06}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}.\mbox{\hyperlink{struct_struct___m_param_aaee06f5ea5b176b17ce37d156bb5bc7c}{nom\_spd\_q16}});}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{comment}{// Set flag to indicate calculation is complete so that GUI can read it automatically}}
+\DoxyCodeLine{47     set\_status(\mbox{\hyperlink{status__struct_8h_a6407485be68fd07aff7ecdae720e1528a52019056480f5cb1067371b38b8e4e47}{FLAG\_MPOS\_UPDATE\_CALC}});}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{comment}{// Set or clear warning for high estimator bandwidth}}
+\DoxyCodeLine{50     \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_aa004ac74ab046ddaf878223547cdc6af}{flag\_estbw\_high}})}
+\DoxyCodeLine{51         \mbox{\hyperlink{fault_8c_a8ea8474835dbcb70ebc28b77e48207fc}{set\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af68bbd763ed01480e1f4024cf50ac3b5}{WARNING\_ESTBW\_HIGH}});}
+\DoxyCodeLine{52     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{53         \mbox{\hyperlink{fault_8c_a39db699740c3dffa0b3f76f14cb26e33}{clear\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af68bbd763ed01480e1f4024cf50ac3b5}{WARNING\_ESTBW\_HIGH}});}
+\DoxyCodeLine{54 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::app, Struct\+\_\+\+Motor\+::control, Struct\+\_\+\+App\+::descale\+\_\+current\+\_\+factor, Struct\+\_\+\+Control\+::dt\+\_\+control\+\_\+q26, Struct\+\_\+\+M\+Pos\+::est, lbg1\+\_\+calculate\+\_\+coefficients\+\_\+lib(), L\+B\+G\+\_\+\+G\+A\+I\+N\+\_\+\+S\+C\+A\+L\+E\+R\+\_\+\+Q06, Struct\+\_\+\+M\+Param\+::lq\+\_\+q26, Struct\+\_\+\+Motor\+::mparam, Struct\+\_\+\+Motor\+::mpos, Struct\+\_\+\+M\+Param\+::nom\+\_\+spd\+\_\+q16, Struct\+\_\+\+M\+Param\+::rs\+\_\+q16, and Struct\+\_\+\+App\+::speed\+\_\+scale\+\_\+shift.
+
+
+
+Referenced by lbg1\+\_\+param\+\_\+process().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lbg1__funcs_8c_aa9a0324e7d0063c1ede72b0b9003fa3e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lbg1__funcs_8c_aa9a0324e7d0063c1ede72b0b9003fa3e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lbg1__funcs_8c_acf0eab32000596e0ce4bae079b0a0450}\label{lbg1__funcs_8c_acf0eab32000596e0ce4bae079b0a0450}} 
+\index{lbg1\_funcs.c@{lbg1\_funcs.c}!lbg1\_param\_process@{lbg1\_param\_process}}
+\index{lbg1\_param\_process@{lbg1\_param\_process}!lbg1\_funcs.c@{lbg1\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{lbg1\_param\_process()}{lbg1\_param\_process()}}
+{\footnotesize\ttfamily void lbg1\+\_\+param\+\_\+process (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr,  }\item[{\mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28}{Parameter\+Code}}}]{param\+\_\+code,  }\item[{int32\+\_\+t}]{rx\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Use for calculating estimator coefficients. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+{\em Parameter\+Code} & param\+\_\+code \\
+\hline
+{\em int32\+\_\+t} & rx\+\_\+data \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 168 of file lbg1\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{169 \{}
+\DoxyCodeLine{170     \textcolor{comment}{// Parameter cases that require recalculation of estimator coefficients}}
+\DoxyCodeLine{171     \textcolor{keywordflow}{switch}(param\_code)}
+\DoxyCodeLine{172     \{}
+\DoxyCodeLine{173     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28ace72dfc61c6b4eec681c484e0afa7474}{dt}}:}
+\DoxyCodeLine{174     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a2aa94469e452a04de6e5a3007e975f69}{diff\_amp\_gain}}:}
+\DoxyCodeLine{175     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a1b3667b38cf2b9fafccdc7ef9ba4549c}{Lq}}:}
+\DoxyCodeLine{176     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a0c6befdcc666a5f0842b20a715a93387}{Ralpha}}:}
+\DoxyCodeLine{177     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28afd2d6aa14cf9c1bc29c4646cbf52fed6}{NominalSpeed}}:}
+\DoxyCodeLine{178     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a915fe4608d00300b54f9237dbf85640f}{LBG1\_BandWidth}}:}
+\DoxyCodeLine{179     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28af9df9b773df6f42c8f649c75ae8fd02e}{LBG1\_DampingFactor}}:}
+\DoxyCodeLine{180     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28aaf650b5a9340eff2b92f7c58988900a3}{LBG1\_fc\_speed}}:}
+\DoxyCodeLine{181         \mbox{\hyperlink{lbg1__funcs_8c_aa9a0324e7d0063c1ede72b0b9003fa3e}{lbg1\_calculate\_coefficients}}(motor\_ptr);}
+\DoxyCodeLine{182         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{183     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{184         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{185     \}}
+\DoxyCodeLine{186 \}}
+
+\end{DoxyCode}
+
+
+References diff\+\_\+amp\+\_\+gain, dt, L\+B\+G1\+\_\+\+Band\+Width, lbg1\+\_\+calculate\+\_\+coefficients(), L\+B\+G1\+\_\+\+Damping\+Factor, L\+B\+G1\+\_\+fc\+\_\+speed, Lq, Nominal\+Speed, and Ralpha.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lbg1__funcs_8c_acf0eab32000596e0ce4bae079b0a0450_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lbg1__funcs_8c_a61a2a6afa652dc03bc498a53fdaa4e9f}\label{lbg1__funcs_8c_a61a2a6afa652dc03bc498a53fdaa4e9f}} 
+\index{lbg1\_funcs.c@{lbg1\_funcs.c}!lbg1\_param\_write@{lbg1\_param\_write}}
+\index{lbg1\_param\_write@{lbg1\_param\_write}!lbg1\_funcs.c@{lbg1\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{lbg1\_param\_write()}{lbg1\_param\_write()}}
+{\footnotesize\ttfamily void lbg1\+\_\+param\+\_\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr,  }\item[{\mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28}{Parameter\+Code}}}]{param\+\_\+code,  }\item[{int32\+\_\+t}]{rx\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Use for writing estimator parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+{\em Parameter\+Code} & param\+\_\+code \\
+\hline
+{\em int32\+\_\+t} & rx\+\_\+data \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 134 of file lbg1\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{135 \{}
+\DoxyCodeLine{136     \textcolor{comment}{// Parameter process handler}}
+\DoxyCodeLine{137     \textcolor{keywordflow}{switch}(param\_code)}
+\DoxyCodeLine{138     \{}
+\DoxyCodeLine{139     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a915fe4608d00300b54f9237dbf85640f}{LBG1\_BandWidth}}:}
+\DoxyCodeLine{140         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a538288ab49358777f2e20a2464e26b9c}{w0\_q06}} = rx\_data >> 10;}
+\DoxyCodeLine{141         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a38b5392258caca55a4d6fc4d4a864228}{w0\_target\_q06}} = motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a538288ab49358777f2e20a2464e26b9c}{w0\_q06}};}
+\DoxyCodeLine{142         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{143     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28af9df9b773df6f42c8f649c75ae8fd02e}{LBG1\_DampingFactor}}:}
+\DoxyCodeLine{144         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a3818aa90e5b24b296c23216fab390d8c}{dampfactor\_q16}} = rx\_data;}
+\DoxyCodeLine{145         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{146     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28aaf650b5a9340eff2b92f7c58988900a3}{LBG1\_fc\_speed}}:}
+\DoxyCodeLine{147         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a74d5c6eaa3e48932d98213bd655462e1}{filter\_fc\_speed\_q16}} = rx\_data;}
+\DoxyCodeLine{148         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{149     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a8b1b7dcada704e229fafa7defb3c77aa}{angle\_correction\_offset}}:}
+\DoxyCodeLine{150         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a42606b18a8726b5762d40c157743b487}{angcorr\_offset}} = rx\_data;}
+\DoxyCodeLine{151         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{152     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a76f711fb05a37663c0de131871186a03}{angle\_correction\_factor}}:}
+\DoxyCodeLine{153         \textcolor{comment}{// Value sent by GUI in Q20 format}}
+\DoxyCodeLine{154         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a9ca6d568766db3ccc69948b95ae32d2d}{angcorr\_gain\_q20}} = rx\_data;}
+\DoxyCodeLine{155         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{156     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{157         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{158     \}}
+\DoxyCodeLine{159 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Est\+::angcorr\+\_\+gain\+\_\+q20, Struct\+\_\+\+Est\+::angcorr\+\_\+offset, angle\+\_\+correction\+\_\+factor, angle\+\_\+correction\+\_\+offset, Struct\+\_\+\+Est\+::dampfactor\+\_\+q16, Struct\+\_\+\+M\+Pos\+::est, Struct\+\_\+\+Est\+::filter\+\_\+fc\+\_\+speed\+\_\+q16, L\+B\+G1\+\_\+\+Band\+Width, L\+B\+G1\+\_\+\+Damping\+Factor, L\+B\+G1\+\_\+fc\+\_\+speed, Struct\+\_\+\+Motor\+::mpos, Struct\+\_\+\+Est\+::w0\+\_\+q06, and Struct\+\_\+\+Est\+::w0\+\_\+target\+\_\+q06.
+
+\mbox{\Hypertarget{lbg1__funcs_8c_a3692c7eed1b878d4d9f052532429b3ac}\label{lbg1__funcs_8c_a3692c7eed1b878d4d9f052532429b3ac}} 
+\index{lbg1\_funcs.c@{lbg1\_funcs.c}!lbg1\_process\_voltage\_scale@{lbg1\_process\_voltage\_scale}}
+\index{lbg1\_process\_voltage\_scale@{lbg1\_process\_voltage\_scale}!lbg1\_funcs.c@{lbg1\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{lbg1\_process\_voltage\_scale()}{lbg1\_process\_voltage\_scale()}}
+{\footnotesize\ttfamily void lbg1\+\_\+process\+\_\+voltage\+\_\+scale (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Use for scaling estimator gs and kpe variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 31 of file lbg1\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32 \{}
+\DoxyCodeLine{33     \mbox{\hyperlink{lbg1_8h_a320b83de743c2e3890011fec7b5020f0}{lbg1\_process\_voltage\_scale\_lib}}(\&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a2ff0896fedf71f91f2e5d4aec26082ad}{descale\_voltage\_factor}});}
+\DoxyCodeLine{34 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::app, Struct\+\_\+\+App\+::descale\+\_\+voltage\+\_\+factor, Struct\+\_\+\+M\+Pos\+::est, lbg1\+\_\+process\+\_\+voltage\+\_\+scale\+\_\+lib(), and Struct\+\_\+\+Motor\+::mpos.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{lbg1__funcs_8c_a3692c7eed1b878d4d9f052532429b3ac_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lbg1__funcs_8c_a105294518a5f5204063940f2cd22e587}\label{lbg1__funcs_8c_a105294518a5f5204063940f2cd22e587}} 
+\index{lbg1\_funcs.c@{lbg1\_funcs.c}!lbg1\_reset@{lbg1\_reset}}
+\index{lbg1\_reset@{lbg1\_reset}!lbg1\_funcs.c@{lbg1\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{lbg1\_reset()}{lbg1\_reset()}}
+{\footnotesize\ttfamily void lbg1\+\_\+reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Use to initialize and reset estimator variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 61 of file lbg1\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62 \{}
+\DoxyCodeLine{63     \mbox{\hyperlink{lbg1_8h_ae7f7d3106155bf4e3757a44473cff110}{lbg1\_init}}(\&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}.\mbox{\hyperlink{struct_struct___m_param_a41005a0df1e48dce8a42bbabf26369e3}{lq\_q26}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}.\mbox{\hyperlink{struct_struct___m_param_ab1a6809c410c813be204dfabf9f8725f}{rs\_q16}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a26545bb8d0166b9c61068c21c1d49369}{dt\_control\_q26}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_afc7224469e53f1be293f573436f699fe}{descale\_current\_factor}});}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_ad9c717a29d51a526183615e188547e40}{switchover\_check\_pass}} = 0;                                \textcolor{comment}{// flag set when we are ready to switch to close loop}}
+\DoxyCodeLine{66     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a463e0b12e5303472babcc9affc0ee14d}{angle\_diff\_timeout\_counter}} = 0;}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a03f47ed0935305f1c174631bdbccdd4f}{lbg\_valid\_fault\_flag}} = 0;}
+\DoxyCodeLine{69     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a420d886ef36580d7afd166c4374f8fd3}{lbg\_valid\_check\_counter}} = 0;}
+\DoxyCodeLine{70 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Est\+::angle\+\_\+diff\+\_\+timeout\+\_\+counter, Struct\+\_\+\+Motor\+::app, Struct\+\_\+\+Motor\+::control, Struct\+\_\+\+App\+::descale\+\_\+current\+\_\+factor, Struct\+\_\+\+Control\+::dt\+\_\+control\+\_\+q26, Struct\+\_\+\+M\+Pos\+::est, lbg1\+\_\+init(), Struct\+\_\+\+Est\+::lbg\+\_\+valid\+\_\+check\+\_\+counter, Struct\+\_\+\+Est\+::lbg\+\_\+valid\+\_\+fault\+\_\+flag, Struct\+\_\+\+M\+Param\+::lq\+\_\+q26, Struct\+\_\+\+Motor\+::mparam, Struct\+\_\+\+Motor\+::mpos, Struct\+\_\+\+M\+Param\+::rs\+\_\+q16, and Struct\+\_\+\+Est\+::switchover\+\_\+check\+\_\+pass.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{lbg1__funcs_8c_a105294518a5f5204063940f2cd22e587_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{lbg1__funcs_8c_aa6a5e3e8d5e1879b15d0028f4d38e67f}\label{lbg1__funcs_8c_aa6a5e3e8d5e1879b15d0028f4d38e67f}} 
+\index{lbg1\_funcs.c@{lbg1\_funcs.c}!lbg1\_statemon@{lbg1\_statemon}}
+\index{lbg1\_statemon@{lbg1\_statemon}!lbg1\_funcs.c@{lbg1\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{lbg1\_statemon()}{lbg1\_statemon()}}
+{\footnotesize\ttfamily void lbg1\+\_\+statemon (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Use for estimator variable ramps and ialpha, valpha calculation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 77 of file lbg1\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{78 \{}
+\DoxyCodeLine{79     int32\_t ialpha\_sq\_q28;}
+\DoxyCodeLine{80     int32\_t valpha\_sq\_q28;}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \mbox{\hyperlink{lbg1_8h_a891d949942ebb42a1b2112ce54e8c177}{lbg1\_statemon\_lib}}(\&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}.\mbox{\hyperlink{struct_struct___m_param_a41005a0df1e48dce8a42bbabf26369e3}{lq\_q26}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}.\mbox{\hyperlink{struct_struct___m_param_ab1a6809c410c813be204dfabf9f8725f}{rs\_q16}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a26545bb8d0166b9c61068c21c1d49369}{dt\_control\_q26}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_afc7224469e53f1be293f573436f699fe}{descale\_current\_factor}});}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \textcolor{comment}{//    debug\_dac\_1a = (motor\_ptr-\/>mpos.est.w0\_target\_q06 >> 6);}}
+\DoxyCodeLine{85 \textcolor{comment}{//    debug\_dac\_1b = (motor\_ptr-\/>mpos.est.w0\_ramp\_q06 >> 6);}}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{comment}{//    debug\_dac\_2a = motor\_ptr-\/>mpos.est.kpe\_const\_q14;}}
+\DoxyCodeLine{88 \textcolor{comment}{//    debug\_dac\_2b = motor\_ptr-\/>mpos.est.kpi\_const\_q14;}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#if (MPOS\_SELECT == MPOS\_LBG1\_START\_ALIGNGO)}}
+\DoxyCodeLine{91     \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} == \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa55b6f6765a4d33f64ebd0ffcdd54462c}{STATE\_MAIN\_RUN}})}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#elif (MPOS\_SELECT == MPOS\_LBG1\_START\_HALL)}}
+\DoxyCodeLine{93     \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a328fb9244e610b5104c74ef044b01f8f}{mposmode}} == \mbox{\hyperlink{mpos__struct_8h_a35a9df0f80b2b3106d1f14a925138d9fa670e29244802d9672c00dfd4350c2885}{STATE\_MPOSMODE\_EST}})}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{95     \{}
+\DoxyCodeLine{96         \textcolor{comment}{// Check that estimator inputs are valid}}
+\DoxyCodeLine{97         ialpha\_sq\_q28 = ((motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a1d3049b13ad9e3b9e421a402139d3521}{ialpha1\_q14}} * motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a1d3049b13ad9e3b9e421a402139d3521}{ialpha1\_q14}}) + (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a296f2957557405b8082c62cafbfeb4c1}{ibeta1\_q14}} * motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a296f2957557405b8082c62cafbfeb4c1}{ibeta1\_q14}}));}
+\DoxyCodeLine{98         valpha\_sq\_q28 = ((motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_ac4f6311bf3a66086f30b0e7279027446}{valpha1\_q14}} * motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_ac4f6311bf3a66086f30b0e7279027446}{valpha1\_q14}}) + (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_afed04f5bfa1a940838013416348e9c97}{vbeta1\_q14}} * motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_afed04f5bfa1a940838013416348e9c97}{vbeta1\_q14}}));}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100         \textcolor{keywordflow}{if} ((ialpha\_sq\_q28 < \mbox{\hyperlink{lbg1__funcs_8h_af58ca2bd6e9016613489efba602c0c16}{LBG\_CHK\_THRESHOLD\_CURRENT\_SQ\_Q28}}) \&\& (valpha\_sq\_q28 < \mbox{\hyperlink{lbg1__funcs_8h_acff8ce4355cf3fafd95dcc9ce7b510f8}{LBG\_CHK\_THRESHOLD\_VOLTAGE\_SQ\_Q28}}))}
+\DoxyCodeLine{101         \{}
+\DoxyCodeLine{102             \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a420d886ef36580d7afd166c4374f8fd3}{lbg\_valid\_check\_counter}}++ > \mbox{\hyperlink{lbg1__funcs_8h_a50681ff6a40abe241344f6da3d07ca2b}{LBG\_VALID\_CHECK\_COUNT\_MAX}})}
+\DoxyCodeLine{103             \{}
+\DoxyCodeLine{104                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a03f47ed0935305f1c174631bdbccdd4f}{lbg\_valid\_fault\_flag}} = 1;}
+\DoxyCodeLine{105                 \mbox{\hyperlink{fault_8c_a27e9497981905b8f49967f8b4bffb194}{set\_fault}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a4292aba280163ae086ce03cd70eefdd9}{FAULT\_EST\_INVALID\_INPUT}});}
+\DoxyCodeLine{106             \}}
+\DoxyCodeLine{107         \}}
+\DoxyCodeLine{108         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{109         \{}
+\DoxyCodeLine{110             \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a420d886ef36580d7afd166c4374f8fd3}{lbg\_valid\_check\_counter}}-\/-\/ < 0)}
+\DoxyCodeLine{111             \{}
+\DoxyCodeLine{112                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a420d886ef36580d7afd166c4374f8fd3}{lbg\_valid\_check\_counter}} = 0;}
+\DoxyCodeLine{113                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a502ec26fb3bf05ba20f6a99f0f9b37f1}{est}}.\mbox{\hyperlink{struct_struct___est_a03f47ed0935305f1c174631bdbccdd4f}{lbg\_valid\_fault\_flag}} = 0;}
+\DoxyCodeLine{114             \}}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116         \}}
+\DoxyCodeLine{117     \}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{comment}{//    debug\_var\_1 = motor\_ptr-\/>mpos.est.lbg\_valid\_fault\_flag << 16;}}
+\DoxyCodeLine{120 \textcolor{comment}{//}}
+\DoxyCodeLine{121 \textcolor{comment}{//    debug\_dac\_1a = LBG\_CHK\_THRESHOLD\_CURRENT\_SQ\_Q28 >> 14;}}
+\DoxyCodeLine{122 \textcolor{comment}{//    debug\_dac\_1b = ialpha\_sq\_q28 >> 14;}}
+\DoxyCodeLine{123 \textcolor{comment}{//    debug\_dac\_2a = LBG\_CHK\_THRESHOLD\_VOLTAGE\_SQ\_Q28 >> 14;}}
+\DoxyCodeLine{124 \textcolor{comment}{//    debug\_dac\_2b = valpha\_sq\_q28 >> 14;}}
+\DoxyCodeLine{125 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::app, Struct\+\_\+\+Motor\+::control, Struct\+\_\+\+App\+::descale\+\_\+current\+\_\+factor, Struct\+\_\+\+Control\+::dt\+\_\+control\+\_\+q26, Struct\+\_\+\+M\+Pos\+::est, F\+A\+U\+L\+T\+\_\+\+E\+S\+T\+\_\+\+I\+N\+V\+A\+L\+I\+D\+\_\+\+I\+N\+P\+UT, Struct\+\_\+\+Est\+::ialpha1\+\_\+q14, Struct\+\_\+\+Est\+::ibeta1\+\_\+q14, lbg1\+\_\+statemon\+\_\+lib(), L\+B\+G\+\_\+\+C\+H\+K\+\_\+\+T\+H\+R\+E\+S\+H\+O\+L\+D\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+S\+Q\+\_\+\+Q28, L\+B\+G\+\_\+\+C\+H\+K\+\_\+\+T\+H\+R\+E\+S\+H\+O\+L\+D\+\_\+\+V\+O\+L\+T\+A\+G\+E\+\_\+\+S\+Q\+\_\+\+Q28, L\+B\+G\+\_\+\+V\+A\+L\+I\+D\+\_\+\+C\+H\+E\+C\+K\+\_\+\+C\+O\+U\+N\+T\+\_\+\+M\+AX, Struct\+\_\+\+Est\+::lbg\+\_\+valid\+\_\+check\+\_\+counter, Struct\+\_\+\+Est\+::lbg\+\_\+valid\+\_\+fault\+\_\+flag, Struct\+\_\+\+M\+Param\+::lq\+\_\+q26, Struct\+\_\+\+State\+::main, Struct\+\_\+\+Motor\+::mparam, Struct\+\_\+\+Motor\+::mpos, Struct\+\_\+\+M\+Pos\+::mposmode, Struct\+\_\+\+M\+Param\+::rs\+\_\+q16, set\+\_\+fault(), Struct\+\_\+\+Motor\+::state, S\+T\+A\+T\+E\+\_\+\+M\+A\+I\+N\+\_\+\+R\+UN, S\+T\+A\+T\+E\+\_\+\+M\+P\+O\+S\+M\+O\+D\+E\+\_\+\+E\+ST, Struct\+\_\+\+Est\+::valpha1\+\_\+q14, and Struct\+\_\+\+Est\+::vbeta1\+\_\+q14.
+
+
+
+Referenced by Sys\+Tick\+\_\+\+Handler().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=291pt]{lbg1__funcs_8c_aa6a5e3e8d5e1879b15d0028f4d38e67f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=286pt]{lbg1__funcs_8c_aa6a5e3e8d5e1879b15d0028f4d38e67f_icgraph}
+\end{center}
+\end{figure}

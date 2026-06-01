@@ -1,0 +1,173 @@
+.TH "Struct_StallDet" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Struct_StallDet \- \fBStruct_StallDet\fP structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <stalldet\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint16_t \fBbemf_constant\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBtimeout_systicks\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBsampletime_systicks\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBsystick_stamp\fP"
+.br
+.ti -1c
+.RI "\fBq1p14_t\fP \fBve_sqr_q14\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBctr_stamp\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBflag_event1\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBflag_event2\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBflag_event3\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBflag_event4\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBflag_process\fP: 1"
+.br
+.ti -1c
+.RI "uint8_t \fBtemp2\fP: 3"
+.br
+.ti -1c
+.RI "uint32_t \fBctr_event_1\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBctr_event_2\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBctr_event_3\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBctr_event_4\fP: 8"
+.br
+.ti -1c
+.RI "uint8_t \fBctr_event\fP"
+.br
+.ti -1c
+.RI "int32_t \fBspeed_est\fP"
+.br
+.ti -1c
+.RI "int32_t \fBspeed_cmd\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBfilter_alpha\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBflag_cbc_triggered\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBStruct_StallDet\fP structure\&. 
+.PP
+Definition at line 30 of file stalldet\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint16_t Struct_StallDet::bemf_constant"
+motor bemf constant measured during open loop and no load 
+.PP
+Definition at line 32 of file stalldet\&.h\&.
+.SS "uint8_t Struct_StallDet::ctr_event"
+
+.PP
+Definition at line 48 of file stalldet\&.h\&.
+.SS "uint32_t Struct_StallDet::ctr_event_1"
+
+.PP
+Definition at line 44 of file stalldet\&.h\&.
+.SS "uint32_t Struct_StallDet::ctr_event_2"
+
+.PP
+Definition at line 45 of file stalldet\&.h\&.
+.SS "uint32_t Struct_StallDet::ctr_event_3"
+
+.PP
+Definition at line 46 of file stalldet\&.h\&.
+.SS "uint32_t Struct_StallDet::ctr_event_4"
+
+.PP
+Definition at line 47 of file stalldet\&.h\&.
+.SS "unsigned int Struct_StallDet::ctr_stamp"
+
+.PP
+Definition at line 37 of file stalldet\&.h\&.
+.SS "\fBfix16_t\fP Struct_StallDet::filter_alpha"
+
+.PP
+Definition at line 51 of file stalldet\&.h\&.
+.SS "\fBfix16_t\fP Struct_StallDet::flag_cbc_triggered"
+
+.PP
+Definition at line 52 of file stalldet\&.h\&.
+.SS "uint8_t Struct_StallDet::flag_event1"
+Bit set means system detect 1 stall condition 
+.PP
+Definition at line 38 of file stalldet\&.h\&.
+.SS "uint8_t Struct_StallDet::flag_event2"
+Bit set means system detect 1 stall condition 
+.PP
+Definition at line 39 of file stalldet\&.h\&.
+.SS "uint8_t Struct_StallDet::flag_event3"
+Bit set means system detect 1 stall condition 
+.PP
+Definition at line 40 of file stalldet\&.h\&.
+.SS "uint8_t Struct_StallDet::flag_event4"
+Bit set means system detect 1 stall condition 
+.PP
+Definition at line 41 of file stalldet\&.h\&.
+.SS "uint8_t Struct_StallDet::flag_process"
+
+.PP
+Definition at line 42 of file stalldet\&.h\&.
+.SS "unsigned int Struct_StallDet::sampletime_systicks"
+Check for stall condition for multiple of dt ticks then set stall detect variable 
+.PP
+Definition at line 34 of file stalldet\&.h\&.
+.SS "int32_t Struct_StallDet::speed_cmd"
+
+.PP
+Definition at line 50 of file stalldet\&.h\&.
+.SS "int32_t Struct_StallDet::speed_est"
+
+.PP
+Definition at line 49 of file stalldet\&.h\&.
+.SS "unsigned long Struct_StallDet::systick_stamp"
+Bit set when motor need to switch from close loop FOC to open loop mode to speed down the motor 
+.PP
+Definition at line 35 of file stalldet\&.h\&.
+.SS "uint8_t Struct_StallDet::temp2"
+Unused 28 bits out of 32 bits 
+.PP
+Definition at line 43 of file stalldet\&.h\&.
+.SS "unsigned int Struct_StallDet::timeout_systicks"
+Check for stall condition for multiple of dt ticks then set stall detect variable 
+.PP
+Definition at line 33 of file stalldet\&.h\&.
+.SS "\fBq1p14_t\fP Struct_StallDet::ve_sqr_q14"
+
+.PP
+Definition at line 36 of file stalldet\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

@@ -1,0 +1,72 @@
+\hypertarget{pac5xxx___s_p_i_8h}{}\doxysection{pac\+\_\+foc/pac52xx/pac5xxx\+\_\+sdk/pac5xxx\+\_\+peripheral/pac5xxx\+\_\+\+S\+PI.h File Reference}
+\label{pac5xxx___s_p_i_8h}\index{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_peripheral/pac5xxx\_SPI.h@{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_peripheral/pac5xxx\_SPI.h}}
+
+
+C\+M\+S\+IS Cortex-\/M Header File for the P\+A\+C5\+X\+XX S\+PI Controller.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx___s_p_i_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_p_a_c5_x_x_x___s_p_i___type_def}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga71f17122e10eda169accfe94c5292ca0}{S\+P\+I\+C\+F\+G\+\_\+\+Early\+Xmit\+Data\+Phase\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga71f17122e10eda169accfe94c5292ca0a6612335b3fe2d19c3b3f1e62695f51ec}{S\+P\+I\+S\+C\+F\+G\+\_\+\+T\+D\+A\+T\+\_\+\+P\+H\+\_\+\+N\+O\+R\+M\+AL}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga71f17122e10eda169accfe94c5292ca0a575c43863c8d9a7216acf8b00d1af62b}{S\+P\+I\+S\+C\+F\+G\+\_\+\+T\+D\+A\+T\+\_\+\+P\+H\+\_\+\+H\+A\+LF}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaa157d616835a814c9931f478964942c2}{S\+P\+I\+S\+C\+F\+G\+\_\+\+Clock\+Polarity\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ggaa157d616835a814c9931f478964942c2a7c630c5987b68fe93eaaabe7218f13fa}{S\+P\+I\+S\+C\+F\+G\+\_\+\+S\+C\+L\+K\+\_\+\+A\+C\+T\+H\+I\+GH}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ggaa157d616835a814c9931f478964942c2a321cc7f9ec0e98d5331746f7965708f6}{S\+P\+I\+S\+C\+F\+G\+\_\+\+S\+C\+L\+K\+\_\+\+A\+C\+T\+L\+OW}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gab26093b18d3d0d74df9db02c3e54dc26}{S\+P\+I\+S\+C\+F\+G\+\_\+\+Clock\+Phase\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ggab26093b18d3d0d74df9db02c3e54dc26ab700c3c4299df437226273a97cbcbf7c}{S\+P\+I\+S\+C\+F\+G\+\_\+\+S\+M\+P\+\_\+\+S\+E\+T\+UP}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ggab26093b18d3d0d74df9db02c3e54dc26a632695d532b68fdf2059a2a0adbbd2b6}{S\+P\+I\+S\+C\+F\+G\+\_\+\+S\+E\+T\+U\+P\+\_\+\+S\+MP}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga6e027e955a3a2597c5b8d789658fe424}{S\+P\+I\+S\+C\+F\+G\+\_\+\+Word\+Length\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424ae242e202724d17a5590a2f7b8946ee3d}{S\+P\+I\+S\+C\+F\+G\+\_\+\+W\+L\+\_\+8B}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424a50f37ffe28bbd4ff2f80fa16359149b2}{S\+P\+I\+S\+C\+F\+G\+\_\+\+W\+L\+\_\+16B}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424a4328e88b17a7dd4401b8fa0f22747285}{S\+P\+I\+S\+C\+F\+G\+\_\+\+W\+L\+\_\+24B}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424a7d5b9d420386974685fce2d7f5bbe23b}{S\+P\+I\+S\+C\+F\+G\+\_\+\+W\+L\+\_\+32B}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3981b50eb04637b274dcdb068c355f41}{S\+P\+I\+S\+T\+A\+T\+\_\+\+State\+\_\+\+Type}} \{ \newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a9a7409a37da8e079ac5e49a520073df5}{S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+I\+D\+LE}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41ac81f5f689df3c6f5255d8f2a0684681c}{S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+C\+S\+S\+E\+T\+UP}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41abcc5ede8a606a7ba2d91ba3679b7a5a9}{S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+T\+R\+A\+N\+S\+F\+ER}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a00b3b07e8857a6d63bef7ce0f36a5c53}{S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+C\+S\+H\+O\+LD}} = 3, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a1681385e7ac99cd3e98f03e248f6ee3c}{S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+C\+S\+W\+A\+IT}} = 4, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a1e39125ed66bc2a9e9fc9f87c2db5cef}{S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+C\+K\+W\+A\+IT}} = 5, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a37f56aab430d2cba1138e45f03a40b16}{S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+M\+T\+R\+A\+NS}} = 6, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a714eb49ffc4e8771df1e9d705e587a7f}{S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+C\+S\+B\+E\+G\+IN}} = 7
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gadc46d977ea4f7dd55362acff8c53f9fe}{S\+P\+I\+C\+S\+\_\+\+Chip\+Select\+Polarity\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ggadc46d977ea4f7dd55362acff8c53f9fea0bead47b212fcce3394317ca4cdbd905}{S\+P\+I\+C\+S\+\_\+\+C\+S\+\_\+\+A\+C\+T\+L\+OW}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ggadc46d977ea4f7dd55362acff8c53f9fea8891916820a1cbdf03527b318cdbc8e6}{S\+P\+I\+C\+S\+\_\+\+C\+S\+\_\+\+A\+C\+T\+H\+I\+GH}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga7068d89b464ce13596bee04cccdfc627}{S\+P\+I\+C\+S\+\_\+\+Chip\+Select\+Number\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a90d34adfeb374184d1f0fc5ffe28f4c0}{S\+P\+I\+C\+S\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+S0}}, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a499ba5323984730d8ea57fe2729291ca}{S\+P\+I\+C\+S\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+S1}}, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a986a6be59adbbeae9d42baa1117e280c}{S\+P\+I\+C\+S\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+S2}}, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a98f6da8f674f216e6d6a90784e460c9e}{S\+P\+I\+C\+S\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+S3}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+M\+S\+IS Cortex-\/M Header File for the P\+A\+C5\+X\+XX S\+PI Controller. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2015-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 

@@ -1,0 +1,292 @@
+\hypertarget{driver__funcs_8h}{}\doxysection{pac\+\_\+foc/src/app/driver\+\_\+funcs.h File Reference}
+\label{driver__funcs_8h}\index{pac\_foc/src/app/driver\_funcs.h@{pac\_foc/src/app/driver\_funcs.h}}
+
+
+Use to initialize P\+WM duty, port mode and enable disable motor, low side P\+WM.  
+
+
+{\ttfamily \#include \char`\"{}pac5xxx.\+h\char`\"{}}\newline
+Include dependency graph for driver\+\_\+funcs.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=191pt]{driver__funcs_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__funcs_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{driver__funcs_8h_a268c7d2d5e882d61e026a9da79749c16}{m1\+\_\+enable}} (void)
+\begin{DoxyCompactList}\small\item\em This function use to enable motor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{driver__funcs_8h_a0354c4f666ea691bd3677ddaac69ad6a}{m1\+\_\+enable\+\_\+with\+\_\+duty}} (uint32\+\_\+t duty\+\_\+cycle)
+\begin{DoxyCompactList}\small\item\em This function use to set all three phases P\+WM duty cycle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{driver__funcs_8h_ad4d8ac83b7511685249957f8d1f8fe74}{m1\+\_\+enable\+\_\+no\+\_\+duty}} (void)
+\begin{DoxyCompactList}\small\item\em This function use to enable P\+WM, G\+P\+IO and Out\+Put Enable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{driver__funcs_8h_a3279abfa1b04c56c14db266ccb0fab6a}{set\+\_\+drivers\+\_\+gpio}} (void)
+\begin{DoxyCompactList}\small\item\em This function use to set port to G\+P\+IO mode and set output to low. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{driver__funcs_8h_ad98cb6be8dc3d2b416f8b2773a68c4fc}{m1\+\_\+disable}} (void)
+\begin{DoxyCompactList}\small\item\em This function use to disable motor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{driver__funcs_8h_aba841cb58252dafd2e15c24bef3bcf48}{m1\+\_\+\+L\+S\+\_\+pwm\+\_\+only\+\_\+config}} (void)
+\begin{DoxyCompactList}\small\item\em This function use to configure low side P\+WM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use to initialize P\+WM duty, port mode and enable disable motor, low side P\+WM. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{driver__funcs_8h_ad98cb6be8dc3d2b416f8b2773a68c4fc}\label{driver__funcs_8h_ad98cb6be8dc3d2b416f8b2773a68c4fc}} 
+\index{driver\_funcs.h@{driver\_funcs.h}!m1\_disable@{m1\_disable}}
+\index{m1\_disable@{m1\_disable}!driver\_funcs.h@{driver\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{m1\_disable()}{m1\_disable()}}
+{\footnotesize\ttfamily void m1\+\_\+disable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function use to disable motor. 
+
+
+
+Definition at line 107 of file driver\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{108 \{}
+\DoxyCodeLine{109     \textcolor{comment}{// Disable driver manager and verify active -\/ need to enable even in PAC5210 to get ENHS pin to work}}
+\DoxyCodeLine{110     pac5xxx\_tile\_register\_write(ADDR\_ENDRV, 0);}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112     \textcolor{comment}{// Set drivers to GPIO mode}}
+\DoxyCodeLine{113     \mbox{\hyperlink{driver__funcs_8c_a3279abfa1b04c56c14db266ccb0fab6a}{set\_drivers\_gpio}}();}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     \textcolor{comment}{// Set duty cycles to 50\%}}
+\DoxyCodeLine{116     m1\_u\_set\_duty(\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}}.\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);}
+\DoxyCodeLine{117     m1\_v\_set\_duty(\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}}.\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);}
+\DoxyCodeLine{118     m1\_w\_set\_duty(\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}}.\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);}
+\DoxyCodeLine{119 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::control, motor, Struct\+\_\+\+Control\+::motor\+\_\+period\+\_\+ticks, and set\+\_\+drivers\+\_\+gpio().
+
+
+
+Referenced by fault(), and statemachine\+\_\+appmain().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{driver__funcs_8h_ad98cb6be8dc3d2b416f8b2773a68c4fc_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__funcs_8h_ad98cb6be8dc3d2b416f8b2773a68c4fc_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{driver__funcs_8h_a268c7d2d5e882d61e026a9da79749c16}\label{driver__funcs_8h_a268c7d2d5e882d61e026a9da79749c16}} 
+\index{driver\_funcs.h@{driver\_funcs.h}!m1\_enable@{m1\_enable}}
+\index{m1\_enable@{m1\_enable}!driver\_funcs.h@{driver\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{m1\_enable()}{m1\_enable()}}
+{\footnotesize\ttfamily void m1\+\_\+enable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function use to enable motor. 
+
+
+
+Definition at line 30 of file driver\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32     \mbox{\hyperlink{driver__funcs_8c_a0354c4f666ea691bd3677ddaac69ad6a}{m1\_enable\_with\_duty}}(\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}}.\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);}
+\DoxyCodeLine{33 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::control, m1\+\_\+enable\+\_\+with\+\_\+duty(), motor, and Struct\+\_\+\+Control\+::motor\+\_\+period\+\_\+ticks.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{driver__funcs_8h_a268c7d2d5e882d61e026a9da79749c16_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{driver__funcs_8h_ad4d8ac83b7511685249957f8d1f8fe74}\label{driver__funcs_8h_ad4d8ac83b7511685249957f8d1f8fe74}} 
+\index{driver\_funcs.h@{driver\_funcs.h}!m1\_enable\_no\_duty@{m1\_enable\_no\_duty}}
+\index{m1\_enable\_no\_duty@{m1\_enable\_no\_duty}!driver\_funcs.h@{driver\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{m1\_enable\_no\_duty()}{m1\_enable\_no\_duty()}}
+{\footnotesize\ttfamily void m1\+\_\+enable\+\_\+no\+\_\+duty (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function use to enable P\+WM, G\+P\+IO and Out\+Put Enable. 
+
+
+
+Definition at line 68 of file driver\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{69 \{}
+\DoxyCodeLine{70     \textcolor{comment}{// Select PWM peripheral for Driver Port}}
+\DoxyCodeLine{71     motor\_psel\_pwm();}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73    \textcolor{comment}{// Select GPIO mode for Driver Port}}
+\DoxyCodeLine{74     motor\_modesel\_gpio();}
+\DoxyCodeLine{75     }
+\DoxyCodeLine{76     \textcolor{comment}{// Turn on output enables}}
+\DoxyCodeLine{77     motor\_outen\_enable();}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{comment}{// Enable driver manager and verify active -\/ need to enable even in PAC5210 to get ENHS pin to work}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#ifdef CAFE\_ARCH3}}
+\DoxyCodeLine{81     pac5xxx\_tile\_register\_write(ADDR\_ENDRV, 1 | (1 << 1));}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{83     pac5xxx\_tile\_register\_write(ADDR\_ENDRV, 1);}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{85 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{driver__funcs_8h_a0354c4f666ea691bd3677ddaac69ad6a}\label{driver__funcs_8h_a0354c4f666ea691bd3677ddaac69ad6a}} 
+\index{driver\_funcs.h@{driver\_funcs.h}!m1\_enable\_with\_duty@{m1\_enable\_with\_duty}}
+\index{m1\_enable\_with\_duty@{m1\_enable\_with\_duty}!driver\_funcs.h@{driver\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{m1\_enable\_with\_duty()}{m1\_enable\_with\_duty()}}
+{\footnotesize\ttfamily void m1\+\_\+enable\+\_\+with\+\_\+duty (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{duty\+\_\+cycle }\end{DoxyParamCaption})}
+
+
+
+This function use to set all three phases P\+WM duty cycle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duty\+\_\+cycle} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 40 of file driver\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41 \{}
+\DoxyCodeLine{42     \textcolor{comment}{// Set duty cycles to 50\%}}
+\DoxyCodeLine{43     m1\_u\_set\_duty(duty\_cycle);}
+\DoxyCodeLine{44     m1\_v\_set\_duty(duty\_cycle);}
+\DoxyCodeLine{45     m1\_w\_set\_duty(duty\_cycle);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{comment}{// Select PWM peripheral for Driver Port}}
+\DoxyCodeLine{48     motor\_psel\_pwm();}
+\DoxyCodeLine{49     }
+\DoxyCodeLine{50    \textcolor{comment}{// Select GPIO mode for Driver Port}}
+\DoxyCodeLine{51     motor\_modesel\_gpio();}
+\DoxyCodeLine{52     }
+\DoxyCodeLine{53     \textcolor{comment}{// Turn on output enables}}
+\DoxyCodeLine{54     motor\_outen\_enable();}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{comment}{// Enable driver manager and verify active -\/ need to enable even in PAC5210 to get ENHS pin to work}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#ifdef CAFE\_ARCH3}}
+\DoxyCodeLine{58     pac5xxx\_tile\_register\_write(ADDR\_ENDRV, 1 | (1 << 1));}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{60       pac5xxx\_tile\_register\_write(ADDR\_ENDRV, 1);   }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{62 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{driver__funcs_8h_aba841cb58252dafd2e15c24bef3bcf48}\label{driver__funcs_8h_aba841cb58252dafd2e15c24bef3bcf48}} 
+\index{driver\_funcs.h@{driver\_funcs.h}!m1\_LS\_pwm\_only\_config@{m1\_LS\_pwm\_only\_config}}
+\index{m1\_LS\_pwm\_only\_config@{m1\_LS\_pwm\_only\_config}!driver\_funcs.h@{driver\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{m1\_LS\_pwm\_only\_config()}{m1\_LS\_pwm\_only\_config()}}
+{\footnotesize\ttfamily void m1\+\_\+\+L\+S\+\_\+pwm\+\_\+only\+\_\+config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function use to configure low side P\+WM. 
+
+
+
+Definition at line 125 of file driver\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{126 \{}
+\DoxyCodeLine{127     \textcolor{comment}{// Set IO state of all pins to 0}}
+\DoxyCodeLine{128     motor\_out\_clear();}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130     \textcolor{comment}{// Select GPIO peripheral for Port A}}
+\DoxyCodeLine{131     motor\_psel\_gpio();}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133     \textcolor{comment}{// Select PWM peripheral for Port A only low side}}
+\DoxyCodeLine{134     motor\_psel\_pwm\_LS();}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136     \textcolor{comment}{// Turn on output enables}}
+\DoxyCodeLine{137     motor\_outen\_enable();}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139     \textcolor{comment}{// Enable driver manager}}
+\DoxyCodeLine{140 \textcolor{preprocessor}{\#ifdef CAFE\_ARCH3}}
+\DoxyCodeLine{141     pac5xxx\_tile\_register\_write(ADDR\_ENDRV, 1 | (1 << 1));}
+\DoxyCodeLine{142 \textcolor{preprocessor}{\#else   }}
+\DoxyCodeLine{143     pac5xxx\_tile\_register\_write(ADDR\_ENDRV, 1);}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{145 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{driver__funcs_8h_a3279abfa1b04c56c14db266ccb0fab6a}\label{driver__funcs_8h_a3279abfa1b04c56c14db266ccb0fab6a}} 
+\index{driver\_funcs.h@{driver\_funcs.h}!set\_drivers\_gpio@{set\_drivers\_gpio}}
+\index{set\_drivers\_gpio@{set\_drivers\_gpio}!driver\_funcs.h@{driver\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{set\_drivers\_gpio()}{set\_drivers\_gpio()}}
+{\footnotesize\ttfamily void set\+\_\+drivers\+\_\+gpio (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function use to set port to G\+P\+IO mode and set output to low. 
+
+
+
+Definition at line 91 of file driver\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92 \{}
+\DoxyCodeLine{93     \textcolor{comment}{// Set IO state of all pins to 0}}
+\DoxyCodeLine{94     motor\_out\_clear();}
+\DoxyCodeLine{95     \textcolor{comment}{// Select GPIO peripheral for Driver Port}}
+\DoxyCodeLine{96     motor\_psel\_gpio();}
+\DoxyCodeLine{97     \textcolor{comment}{// Select GPIO mode for Driver Port}}
+\DoxyCodeLine{98     motor\_modesel\_gpio(); }
+\DoxyCodeLine{99     \textcolor{comment}{// Turn on output enables}}
+\DoxyCodeLine{100     motor\_outen\_enable();}
+\DoxyCodeLine{101 \}}
+
+\end{DoxyCode}
+
+
+Referenced by m1\+\_\+disable(), oc\+\_\+reset(), and statemachine\+\_\+appmain().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{driver__funcs_8h_a3279abfa1b04c56c14db266ccb0fab6a_icgraph}
+\end{center}
+\end{figure}

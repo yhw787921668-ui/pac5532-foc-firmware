@@ -1,0 +1,66 @@
+.TH "xPSR_Type" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+xPSR_Type \- Union type to access the Special-Purpose Program Status Registers (xPSR)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <core_cm4\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::ISR\fP:9"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::_reserved0\fP:7"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::GE\fP:4"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::_reserved1\fP:4"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::T\fP:1"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::IT\fP:2"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::Q\fP:1"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::V\fP:1"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::C\fP:1"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::Z\fP:1"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::N\fP:1"
+.br
+.ti -1c
+.RI "} \fBb\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBw\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Union type to access the Special-Purpose Program Status Registers (xPSR)\&. 
+.PP
+Definition at line 272 of file core_cm4\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

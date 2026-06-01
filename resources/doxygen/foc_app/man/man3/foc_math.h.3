@@ -1,0 +1,67 @@
+.TH "pac_foc/src/control/foc_math.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/control/foc_math.h \- Use for basic FOC math functions, like park, clarke, inverse park, SVM\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBSVSector\fP { \fBSVM_SECTOR_NOT_VALID\fP = -1, \fBSVM_SECTOR_1\fP = 1, \fBSVM_SECTOR_2\fP = 2, \fBSVM_SECTOR_3\fP = 3, \fBSVM_SECTOR_4\fP = 4, \fBSVM_SECTOR_5\fP = 5, \fBSVM_SECTOR_6\fP = 6 }"
+.br
+.RI "SVM Enum\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for basic FOC math functions, like park, clarke, inverse park, SVM\&. 
+
+
+.PP
+Definition in file \fBfoc_math\&.h\fP\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBSVSector\fP"
+
+.PP
+SVM Enum\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISVM_SECTOR_NOT_VALID \fP\fP
+.TP
+\fB\fISVM_SECTOR_1 \fP\fP
+.TP
+\fB\fISVM_SECTOR_2 \fP\fP
+.TP
+\fB\fISVM_SECTOR_3 \fP\fP
+.TP
+\fB\fISVM_SECTOR_4 \fP\fP
+.TP
+\fB\fISVM_SECTOR_5 \fP\fP
+.TP
+\fB\fISVM_SECTOR_6 \fP\fP
+.PP
+Definition at line 28 of file foc_math\&.h\&.
+.PP
+.nf
+29 {
+30     SVM_SECTOR_NOT_VALID = -1,
+31     SVM_SECTOR_1 = 1,
+32     SVM_SECTOR_2 = 2,
+33     SVM_SECTOR_3 = 3,
+34     SVM_SECTOR_4 = 4,
+35     SVM_SECTOR_5 = 5,
+36     SVM_SECTOR_6 = 6,
+37 }SVSector;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

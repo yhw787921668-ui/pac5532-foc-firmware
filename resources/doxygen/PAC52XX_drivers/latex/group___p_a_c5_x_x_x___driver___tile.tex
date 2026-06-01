@@ -1,0 +1,372 @@
+\hypertarget{group___p_a_c5_x_x_x___driver___tile}{}\doxysection{P\+A\+C5\+X\+XX Tile Driver Functions}
+\label{group___p_a_c5_x_x_x___driver___tile}\index{PAC5XXX Tile Driver Functions@{PAC5XXX Tile Driver Functions}}
+Collaboration diagram for P\+A\+C5\+X\+XX Tile Driver Functions\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{group___p_a_c5_x_x_x___driver___tile}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_gab5a6724517773ac079f1aa2ea688f0c5}{pac5xxx\+\_\+tile\+\_\+socbridge\+\_\+config}} (int enable, int int\+\_\+enable)
+\begin{DoxyCompactList}\small\item\em This function configures the device for configuration with the Analog tiles via S\+OC Bridge. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a}{pac5xxx\+\_\+tile\+\_\+register\+\_\+write}} (uint8\+\_\+t address, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em This function writes a tile register. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga0e9f4d8741a4f9aae2da2257fe9a8968}{pac5xxx\+\_\+tile\+\_\+register\+\_\+read}} (uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em This function reads a tile register via polling. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}} int \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_gaae7af5613157ff3a5a46c96da427d138}{pac5xxx\+\_\+tile\+\_\+register\+\_\+write\+\_\+validate}} (uint8\+\_\+t address, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em This function writes the given data to the given tile address register, and then reads back the value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga411627a28fa3c326c4b7d25996a419dd}{pac5xxx\+\_\+tile\+\_\+register\+\_\+write\+\_\+burst}} (uint8\+\_\+t start\+\_\+address, int num\+\_\+bytes, uint8\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em This function writes a burst of data to the given register addresses via polling. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}} int \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga4e44db65e648192c307d9dc813878d03}{pac5xxx\+\_\+tile\+\_\+register\+\_\+read\+\_\+burst}} (uint8\+\_\+t start\+\_\+address, int num\+\_\+bytes, uint8\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em This function reads a burst of data starting from the given register address via polling. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}\label{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}} 
+\index{PAC5XXX Tile Driver Functions@{PAC5XXX Tile Driver Functions}!RAMFUNC\_TILE@{RAMFUNC\_TILE}}
+\index{RAMFUNC\_TILE@{RAMFUNC\_TILE}!PAC5XXX Tile Driver Functions@{PAC5XXX Tile Driver Functions}}
+\doxysubsubsection{\texorpdfstring{RAMFUNC\_TILE}{RAMFUNC\_TILE}}
+{\footnotesize\ttfamily \#define R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}
+
+
+
+Definition at line 31 of file pac5xxx\+\_\+driver\+\_\+tile.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___tile_ga0e9f4d8741a4f9aae2da2257fe9a8968}\label{group___p_a_c5_x_x_x___driver___tile_ga0e9f4d8741a4f9aae2da2257fe9a8968}} 
+\index{PAC5XXX Tile Driver Functions@{PAC5XXX Tile Driver Functions}!pac5xxx\_tile\_register\_read@{pac5xxx\_tile\_register\_read}}
+\index{pac5xxx\_tile\_register\_read@{pac5xxx\_tile\_register\_read}!PAC5XXX Tile Driver Functions@{PAC5XXX Tile Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_tile\_register\_read()}{pac5xxx\_tile\_register\_read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}} uint8\+\_\+t pac5xxx\+\_\+tile\+\_\+register\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address }\end{DoxyParamCaption})}
+
+
+
+This function reads a tile register via polling. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & Register address to read from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Data read from register 
+\end{DoxyReturn}
+
+
+Definition at line 35 of file pac5xxx\+\_\+driver\+\_\+tile\+\_\+socbridge.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36 \{}
+\DoxyCodeLine{37     uint8\_t data;}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{comment}{// Write the Address to be read; R/W =0 and data is don't care}}
+\DoxyCodeLine{40     \textcolor{comment}{// Format: Addr(15:9) | R/W(8) | Data(7:0)}}
+\DoxyCodeLine{41     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga0afdef7cd0234839d442a9a9c9338e02}{PAC5XXX\_SOCBRIDGE}}-\/>SOCBD.w = address << 9;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{comment}{// Wait for transmission to be complete}}
+\DoxyCodeLine{44     \textcolor{keywordflow}{while} (!\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga0afdef7cd0234839d442a9a9c9338e02}{PAC5XXX\_SOCBRIDGE}}-\/>SOCBSTAT.CYC\_DONE);}
+\DoxyCodeLine{45     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga0afdef7cd0234839d442a9a9c9338e02}{PAC5XXX\_SOCBRIDGE}}-\/>SOCBSTAT.CYC\_DONE = 0x1;}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{comment}{// Read the data}}
+\DoxyCodeLine{48     data = \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga0afdef7cd0234839d442a9a9c9338e02}{PAC5XXX\_SOCBRIDGE}}-\/>SOCBD.w;}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{comment}{// Return read data}}
+\DoxyCodeLine{51     \textcolor{keywordflow}{return} data;}
+\DoxyCodeLine{52 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+S\+O\+C\+B\+R\+I\+D\+GE.
+
+
+
+Referenced by config\+\_\+seq\+\_\+foc(), and pac5xxx\+\_\+tile\+\_\+register\+\_\+write\+\_\+validate().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___p_a_c5_x_x_x___driver___tile_ga0e9f4d8741a4f9aae2da2257fe9a8968_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___tile_ga4e44db65e648192c307d9dc813878d03}\label{group___p_a_c5_x_x_x___driver___tile_ga4e44db65e648192c307d9dc813878d03}} 
+\index{PAC5XXX Tile Driver Functions@{PAC5XXX Tile Driver Functions}!pac5xxx\_tile\_register\_read\_burst@{pac5xxx\_tile\_register\_read\_burst}}
+\index{pac5xxx\_tile\_register\_read\_burst@{pac5xxx\_tile\_register\_read\_burst}!PAC5XXX Tile Driver Functions@{PAC5XXX Tile Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_tile\_register\_read\_burst()}{pac5xxx\_tile\_register\_read\_burst()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}} int pac5xxx\+\_\+tile\+\_\+register\+\_\+read\+\_\+burst (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{start\+\_\+address,  }\item[{int}]{num\+\_\+bytes,  }\item[{uint8\+\_\+t $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+This function reads a burst of data starting from the given register address via polling. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+address} & Starting address to read from \\
+\hline
+{\em num\+\_\+bytes} & Number of register reads to perform \\
+\hline
+{\em data} & Pointer to returned read data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: success; non-\/zero\+: failure 
+\end{DoxyReturn}
+
+
+Definition at line 40 of file pac5xxx\+\_\+driver\+\_\+tile\+\_\+socbridge\+\_\+burst.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41 \{}
+\DoxyCodeLine{42     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{43     \textcolor{keywordtype}{int} addr = start\_address;}
+\DoxyCodeLine{44     uint8\_t *pData = data;}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keywordflow}{for} (i = 0; i < num\_bytes; i++, addr++, pData++)}
+\DoxyCodeLine{47     \{}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49         \textcolor{comment}{// Write the Address to be read; R/W =0 and data is don't care}}
+\DoxyCodeLine{50         \textcolor{comment}{// Format: Addr(15:9) | R/W(8) | Data(7:0)}}
+\DoxyCodeLine{51         \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga0afdef7cd0234839d442a9a9c9338e02}{PAC5XXX\_SOCBRIDGE}}-\/>SOCBD.w = addr << 9;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53         \textcolor{comment}{// Wait for transmission to be complete}}
+\DoxyCodeLine{54         \textcolor{keywordflow}{while} (!\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga0afdef7cd0234839d442a9a9c9338e02}{PAC5XXX\_SOCBRIDGE}}-\/>SOCBSTAT.CYC\_DONE);}
+\DoxyCodeLine{55         \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga0afdef7cd0234839d442a9a9c9338e02}{PAC5XXX\_SOCBRIDGE}}-\/>SOCBSTAT.CYC\_DONE = 0x1;}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         \textcolor{comment}{// Read the data}}
+\DoxyCodeLine{58         *pData = \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga0afdef7cd0234839d442a9a9c9338e02}{PAC5XXX\_SOCBRIDGE}}-\/>SOCBD.w;}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{comment}{// Return read data}}
+\DoxyCodeLine{62     \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{63 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+S\+O\+C\+B\+R\+I\+D\+GE.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a}\label{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a}} 
+\index{PAC5XXX Tile Driver Functions@{PAC5XXX Tile Driver Functions}!pac5xxx\_tile\_register\_write@{pac5xxx\_tile\_register\_write}}
+\index{pac5xxx\_tile\_register\_write@{pac5xxx\_tile\_register\_write}!PAC5XXX Tile Driver Functions@{PAC5XXX Tile Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_tile\_register\_write()}{pac5xxx\_tile\_register\_write()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}} void pac5xxx\+\_\+tile\+\_\+register\+\_\+write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address,  }\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+This function writes a tile register. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & Register address to write \\
+\hline
+{\em data} & Data to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: success, non-\/zero\+: failure
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The user must configure interrupts for the S\+OC Bridge interface after calling this function and is responsible for registering the Cortex interrupts and providing the interrupt handlers. 
+\end{DoxyNote}
+
+
+Definition at line 22 of file pac5xxx\+\_\+driver\+\_\+tile\+\_\+socbridge.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{comment}{// Write 16-\/bits containing Addr, R/W=1, Data}}
+\DoxyCodeLine{26     \textcolor{comment}{// Format: Addr(15:9) | R/W(8) | Data(7:0)}}
+\DoxyCodeLine{27     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga0afdef7cd0234839d442a9a9c9338e02}{PAC5XXX\_SOCBRIDGE}}-\/>SOCBD.w = (address << 9) | (1 << 8) | data;}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{comment}{// Wait for transmission to be complete}}
+\DoxyCodeLine{30     \textcolor{keywordflow}{while} (!\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga0afdef7cd0234839d442a9a9c9338e02}{PAC5XXX\_SOCBRIDGE}}-\/>SOCBSTAT.CYC\_DONE);}
+\DoxyCodeLine{31     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga0afdef7cd0234839d442a9a9c9338e02}{PAC5XXX\_SOCBRIDGE}}-\/>SOCBSTAT.CYC\_DONE = 0x1;}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+S\+O\+C\+B\+R\+I\+D\+GE.
+
+
+
+Referenced by config\+\_\+seq\+\_\+foc(), init\+\_\+diff\+\_\+amp\+\_\+gain(), init\+\_\+emux(), and pac5xxx\+\_\+tile\+\_\+register\+\_\+write\+\_\+validate().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=334pt]{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___tile_ga411627a28fa3c326c4b7d25996a419dd}\label{group___p_a_c5_x_x_x___driver___tile_ga411627a28fa3c326c4b7d25996a419dd}} 
+\index{PAC5XXX Tile Driver Functions@{PAC5XXX Tile Driver Functions}!pac5xxx\_tile\_register\_write\_burst@{pac5xxx\_tile\_register\_write\_burst}}
+\index{pac5xxx\_tile\_register\_write\_burst@{pac5xxx\_tile\_register\_write\_burst}!PAC5XXX Tile Driver Functions@{PAC5XXX Tile Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_tile\_register\_write\_burst()}{pac5xxx\_tile\_register\_write\_burst()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}} void pac5xxx\+\_\+tile\+\_\+register\+\_\+write\+\_\+burst (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{start\+\_\+address,  }\item[{int}]{num\+\_\+bytes,  }\item[{uint8\+\_\+t $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+This function writes a burst of data to the given register addresses via polling. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+\_\+address} & Address to start writing from \\
+\hline
+{\em num\+\_\+bytes} & Number of register writes to perform \\
+\hline
+{\em data} & Pointer to array of data to write to each register \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: success; non-\/zero\+: failure 
+\end{DoxyReturn}
+
+
+Definition at line 21 of file pac5xxx\+\_\+driver\+\_\+tile\+\_\+socbridge\+\_\+burst.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} addr = start\_address;}
+\DoxyCodeLine{25     uint8\_t *pData = data;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordflow}{for} (i = 0; i < num\_bytes; i++, addr++, pData++)}
+\DoxyCodeLine{28     \{}
+\DoxyCodeLine{29         \textcolor{comment}{// Write 16-\/bits containing Addr, R/W=1, Data}}
+\DoxyCodeLine{30         \textcolor{comment}{// Format: Addr(15:9) | R/W(8) | Data(7:0)}}
+\DoxyCodeLine{31         \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga0afdef7cd0234839d442a9a9c9338e02}{PAC5XXX\_SOCBRIDGE}}-\/>SOCBD.w = (addr << 9) | (1 << 8) | *pData;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33         \textcolor{comment}{// Wait for transmission to be complete}}
+\DoxyCodeLine{34         \textcolor{keywordflow}{while} (!\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga0afdef7cd0234839d442a9a9c9338e02}{PAC5XXX\_SOCBRIDGE}}-\/>SOCBSTAT.CYC\_DONE);}
+\DoxyCodeLine{35         \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga0afdef7cd0234839d442a9a9c9338e02}{PAC5XXX\_SOCBRIDGE}}-\/>SOCBSTAT.CYC\_DONE = 0x1;}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+S\+O\+C\+B\+R\+I\+D\+GE.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___tile_gaae7af5613157ff3a5a46c96da427d138}\label{group___p_a_c5_x_x_x___driver___tile_gaae7af5613157ff3a5a46c96da427d138}} 
+\index{PAC5XXX Tile Driver Functions@{PAC5XXX Tile Driver Functions}!pac5xxx\_tile\_register\_write\_validate@{pac5xxx\_tile\_register\_write\_validate}}
+\index{pac5xxx\_tile\_register\_write\_validate@{pac5xxx\_tile\_register\_write\_validate}!PAC5XXX Tile Driver Functions@{PAC5XXX Tile Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_tile\_register\_write\_validate()}{pac5xxx\_tile\_register\_write\_validate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}} int pac5xxx\+\_\+tile\+\_\+register\+\_\+write\+\_\+validate (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address,  }\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+This function writes the given data to the given tile address register, and then reads back the value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & Register address to write to \\
+\hline
+{\em data} & 8b register data to write\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns zero if read-\/back matches write data, non-\/zero if mis-\/match 
+\end{DoxyReturn}
+
+
+Definition at line 21 of file pac5xxx\+\_\+driver\+\_\+tile\+\_\+socbridge\+\_\+validate.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a}{pac5xxx\_tile\_register\_write}}(address, data);}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordflow}{if} (\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga0e9f4d8741a4f9aae2da2257fe9a8968}{pac5xxx\_tile\_register\_read}}(address) != data)}
+\DoxyCodeLine{26         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{29 \}}
+
+\end{DoxyCode}
+
+
+References pac5xxx\+\_\+tile\+\_\+register\+\_\+read(), and pac5xxx\+\_\+tile\+\_\+register\+\_\+write().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___p_a_c5_x_x_x___driver___tile_gaae7af5613157ff3a5a46c96da427d138_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___tile_gab5a6724517773ac079f1aa2ea688f0c5}\label{group___p_a_c5_x_x_x___driver___tile_gab5a6724517773ac079f1aa2ea688f0c5}} 
+\index{PAC5XXX Tile Driver Functions@{PAC5XXX Tile Driver Functions}!pac5xxx\_tile\_socbridge\_config@{pac5xxx\_tile\_socbridge\_config}}
+\index{pac5xxx\_tile\_socbridge\_config@{pac5xxx\_tile\_socbridge\_config}!PAC5XXX Tile Driver Functions@{PAC5XXX Tile Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_tile\_socbridge\_config()}{pac5xxx\_tile\_socbridge\_config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}} void pac5xxx\+\_\+tile\+\_\+socbridge\+\_\+config (\begin{DoxyParamCaption}\item[{int}]{enable,  }\item[{int}]{int\+\_\+enable }\end{DoxyParamCaption})}
+
+
+
+This function configures the device for configuration with the Analog tiles via S\+OC Bridge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enable} & Set to 1 to enable S\+OC Bridge \\
+\hline
+{\em int\+\_\+enable} & Set to 1 to enable interrupts for S\+OC bridge \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 21 of file pac5xxx\+\_\+driver\+\_\+tile\+\_\+socbridge\+\_\+config.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23       \textcolor{comment}{// Configure SOC Bridge}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25       \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___soc_bridge_ga55d8fc5ab23539492663f36c7bedbfc4}{pac5xxx\_socbridge\_config}}(enable, int\_enable);         \textcolor{comment}{// Enabled}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27       \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___soc_bridge_ga6dfe2865b1640e50781c3381f66d1cae}{pac5xxx\_socbridge\_config\_chip\_select}}(1,               \textcolor{comment}{// CS setup time (clock cycles from assertion of chip select to first assertion of clock)}}
+\DoxyCodeLine{28                                            1,               \textcolor{comment}{// CS hold time (clock cycles from last assertion of clock to de-\/assertion of chip select)}}
+\DoxyCodeLine{29                                            5);              \textcolor{comment}{// CS wait time (clock cycles between back to back transfers of data)}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31       \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___soc_bridge_ga2a252b04d45691538bd36ab6cf3cf494}{pac5xxx\_socbridge\_config\_io}}();                     \textcolor{comment}{// Enable SPI IOs}}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+
+
+References pac5xxx\+\_\+socbridge\+\_\+config(), pac5xxx\+\_\+socbridge\+\_\+config\+\_\+chip\+\_\+select(), and pac5xxx\+\_\+socbridge\+\_\+config\+\_\+io().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___p_a_c5_x_x_x___driver___tile_gab5a6724517773ac079f1aa2ea688f0c5_cgraph}
+\end{center}
+\end{figure}

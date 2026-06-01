@@ -1,0 +1,110 @@
+\hypertarget{pac5xxx__tile__power__manager_8h}{}\doxysection{pac\+\_\+foc/pac55xx/pac55xx\+\_\+sdk/peripheral/pac5xxx\+\_\+tile\+\_\+power\+\_\+manager.h File Reference}
+\label{pac5xxx__tile__power__manager_8h}\index{pac\_foc/pac55xx/pac55xx\_sdk/peripheral/pac5xxx\_tile\_power\_manager.h@{pac\_foc/pac55xx/pac55xx\_sdk/peripheral/pac5xxx\_tile\_power\_manager.h}}
+
+
+C\+M\+S\+IS Header File for the P\+A\+C5\+X\+XX Power Manager Tile.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__tile__power__manager_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{union_p_w_r_c_t_l}{P\+W\+R\+C\+TL}}
+\item 
+union \mbox{\hyperlink{union_p_w_r_s_t_a_t}{P\+W\+R\+S\+T\+AT}}
+\item 
+union \mbox{\hyperlink{union_p_s_t_a_t_s_e_t}{P\+S\+T\+A\+T\+S\+ET}}
+\item 
+union \mbox{\hyperlink{union_s_c_f_g}{S\+C\+FG}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga6a0f3821b233183489d7ec50843632f6}{Power\+\_\+\+Manager\+\_\+\+Reg\+\_\+\+Addr}} \{ \newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6a5e9714cc71e81364f0e0b357fb5c2eb2}{A\+D\+D\+R\+\_\+\+P\+W\+R\+C\+TL}} = 0x10, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6aa319c853522f2cb283c57f248597726e}{A\+D\+D\+R\+\_\+\+P\+W\+R\+S\+T\+AT}} = 0x11, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6ac71153cb789263e4691e47a38d8c15d2}{A\+D\+D\+R\+\_\+\+P\+S\+T\+A\+T\+S\+ET}} = 0x12, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6a568f1286c066921d4c2ee2df6f47607a}{A\+D\+D\+R\+\_\+\+I\+M\+OD}} = 0x13, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6af0122d22af5c39a919e9b6dd5bcc1ac6}{A\+D\+D\+R\+\_\+\+S\+C\+FG}} = 0x14, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6a93af06a6884c7df5a155c62170ddf597}{A\+D\+D\+R\+\_\+\+C\+F\+G\+P\+W\+R0}} = 0x15, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga6a0f3821b233183489d7ec50843632f6adf5cca4d61333bb8ab28fccee9e4dcf2}{A\+D\+D\+R\+\_\+\+C\+F\+G\+P\+W\+R1}} = 0x16
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga17358aed5d7e34af1f28a3b8f38bd843}{P\+A\+C5\+X\+X\+X\+\_\+\+W\+U\+T\+I\+M\+E\+R\+\_\+\+Type}} \{ \newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843ae4b777cb5b5c224387418e1885ae914f}{W\+U\+T\+I\+M\+E\+R\+\_\+\+I\+N\+F\+I\+N\+I\+TE}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843af3006808057fae077de47216d7e66034}{W\+U\+T\+I\+M\+E\+R\+\_\+125ms}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843a02d1015d86a7c1b2290e9f2420892a3d}{W\+U\+T\+I\+M\+E\+R\+\_\+250ms}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843ad18828cfd665bdd6e8e1332254f3588d}{W\+U\+T\+I\+M\+E\+R\+\_\+500ms}} = 3, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843a3608f327bf15c08b233629f8974545c5}{W\+U\+T\+I\+M\+E\+R\+\_\+1s}} = 4, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843a75f6b94b92fd3e707e8a1d93603413fa}{W\+U\+T\+I\+M\+E\+R\+\_\+2s}} = 5, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843af1da46b16901aefdc23f85dfdd3dc85b}{W\+U\+T\+I\+M\+E\+R\+\_\+4s}} = 6, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga17358aed5d7e34af1f28a3b8f38bd843aa8d6c94d0bb7a2d8121f319e600e86b2}{W\+U\+T\+I\+M\+E\+R\+\_\+8s}} = 7
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga7963067418f279d6aaa571f37041f118}{P\+A\+C5\+X\+X\+X\+\_\+\+P\+W\+R\+M\+O\+N\+\_\+\+Type}} \{ \newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a35b092f9534ef83f22d53cc78c493f45}{P\+W\+R\+M\+O\+N\+\_\+\+V\+C\+O\+RE}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a9d99f59c4aa6b1f0accd1cc7c3f58aa1}{P\+W\+R\+M\+O\+N\+\_\+\+V\+D\+D\+Ax4div10}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a4c4a2af3d9a7e834bfe7fa83f311881f}{P\+W\+R\+M\+O\+N\+\_\+\+V\+D\+D\+I\+Ox4div10}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a41e8d791ad3acb012985277c62ae4a76}{P\+W\+R\+M\+O\+N\+\_\+\+V\+S\+Y\+Sx4div10}} = 3, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a5c800cbfca8dc0ffd3da7ffcaec76e29}{P\+W\+R\+M\+O\+N\+\_\+\+R\+E\+G\+Ix1div10}} = 4, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a22a401d3ef51fc5b82db350a09a6d59e}{P\+W\+R\+M\+O\+N\+\_\+\+V\+Px1div10}} = 5, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118a01a893257fb2cfa154ee8c33f4d89e62}{P\+W\+R\+M\+O\+N\+\_\+\+V\+H\+Mx1div30}} = 6, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga7963067418f279d6aaa571f37041f118aeea7b2a7723fb1d2c76c8d3f6d53a855}{P\+W\+R\+M\+O\+N\+\_\+\+V\+C\+O\+MP}} = 7
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gaf69d548ac43d07ee790f023873a304a4}{P\+A\+C5\+X\+X\+X\+\_\+\+T\+W\+D\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ggaf69d548ac43d07ee790f023873a304a4a31aa8e980499a7e444c045b3bacb2993}{T\+W\+D\+\_\+4s}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ggaf69d548ac43d07ee790f023873a304a4a97fb0217c6c16a43b1de4bb122231da6}{T\+W\+D\+\_\+8s}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga150ebfb33269096ce4761ddfe962f060}{P\+A\+C5\+X\+X\+X\+\_\+\+D\+M\+A\+X\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga150ebfb33269096ce4761ddfe962f060a4636e09b23faf84bb10b6c0944ac2514}{D\+M\+A\+X\+\_\+500ns\+\_\+min\+\_\+off}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga150ebfb33269096ce4761ddfe962f060a1244e77fb2edbff5adfd7cc7185e9ec9}{D\+M\+A\+X\+\_\+75pct}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga2d11fc5e7b5b83b51cc4afce7e9be91f}{P\+A\+C5\+X\+X\+X\+\_\+\+F\+S\+W\+M\+\_\+\+Type}} \{ \newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa1d5d789bd01edbfccc76d572616de23d}{F\+R\+E\+Q\+\_\+45\+\_\+k\+HZ}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa9f18e238104b68bf922297a17f6d084b}{F\+R\+E\+Q\+\_\+50\+\_\+k\+HZ}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa03d384af93f6ee11d6477d25d4d0800c}{F\+R\+E\+Q\+\_\+55\+\_\+k\+HZ}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa4f982ef18146bee58c489db9690b5dc7}{F\+R\+E\+Q\+\_\+63\+\_\+k\+HZ}} = 3, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa13354f24a51853d738e287831a5661da}{F\+R\+E\+Q\+\_\+72\+\_\+k\+HZ}} = 4, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fadc7956e82280fa31d1ec40f2a62e0b04}{F\+R\+E\+Q\+\_\+83\+\_\+k\+HZ}} = 5, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa93f36e9ad4ab2638a91bc363d1af5834}{F\+R\+E\+Q\+\_\+100\+\_\+k\+HZ}} = 6, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa3bdcbfaa5208c2d4bfcb753e192c4021}{F\+R\+E\+Q\+\_\+125\+\_\+k\+HZ}} = 7, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa0c414c6e89e419102b76a005f2a51138}{F\+R\+E\+Q\+\_\+181\+\_\+k\+HZ}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa0f0735a0930142be938b2dbb080c9313}{F\+R\+E\+Q\+\_\+200\+\_\+k\+HZ}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa64bbffa22a9f28b6b2c1436f61b638dc}{F\+R\+E\+Q\+\_\+220\+\_\+k\+HZ}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa2da55e71a9a81190c7826aef20fc6ace}{F\+R\+E\+Q\+\_\+250\+\_\+k\+HZ}} = 3, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa2c8c3ed2c3d071affbaa3d63eda45ee3}{F\+R\+E\+Q\+\_\+289\+\_\+k\+HZ}} = 4, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa6d3d3535c5114107945e7990bca725e8}{F\+R\+E\+Q\+\_\+330\+\_\+k\+HZ}} = 5, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa5191bfc9c40f5bdd37f065f3f6319fc9}{F\+R\+E\+Q\+\_\+400\+\_\+k\+HZ}} = 6, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga2d11fc5e7b5b83b51cc4afce7e9be91fa2358c69584814e494424e54923adc2be}{F\+R\+E\+Q\+\_\+500\+\_\+k\+HZ}} = 7
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gaf4ec46295b0a2582b7fda3260a888433}{P\+A\+C5\+X\+X\+X\+\_\+\+F\+M\+O\+D\+E\+\_\+\+Buck\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ggaf4ec46295b0a2582b7fda3260a888433af62ed9f539c15daa0b6c908fd5fbc453}{F\+M\+O\+D\+E\+\_\+45k\+Hz\+\_\+125k\+Hz}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ggaf4ec46295b0a2582b7fda3260a888433a5ededa2e295c56bf0888f6c83c0da335}{F\+M\+O\+D\+E\+\_\+181k\+Hz\+\_\+500k\+Hz}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_ga19daf6a838271e8d7c545a4780f2cb32}{P\+A\+C5\+X\+X\+X\+\_\+\+V\+C\+L\+A\+M\+P\+S\+E\+L\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga19daf6a838271e8d7c545a4780f2cb32ae24b798b7ec60aff28c8933ef61a89e6}{V\+C\+L\+A\+M\+P\+S\+E\+L\+\_\+20V}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___power_manager_gga19daf6a838271e8d7c545a4780f2cb32ae5bba56b6ad87447664dc85c0e651980}{V\+C\+L\+A\+M\+P\+S\+E\+L\+\_\+69V}} = 1
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+M\+S\+IS Header File for the P\+A\+C5\+X\+XX Power Manager Tile. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2017-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 

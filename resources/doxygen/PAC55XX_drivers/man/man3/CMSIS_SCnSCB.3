@@ -1,0 +1,123 @@
+.TH "CMSIS_SCnSCB" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CMSIS_SCnSCB \- System Controls not in SCB (SCnSCB)
+.PP
+ \- Type definitions for the System Control and ID Register not in the SCB\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBSystem Tick Timer (SysTick)\fP"
+.br
+.RI "Type definitions for the System Timer Registers\&. "
+.in -1c
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBSCnSCB_Type\fP"
+.br
+.RI "Structure type to access the System Control and ID Register not in the SCB\&. "
+.in -1c
+.in +1c
+.ti -1c
+.RI "#define \fBSCnSCB_ICTR_INTLINESNUM_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCnSCB_ICTR_INTLINESNUM_Msk\fP   (0xFUL << \fBSCnSCB_ICTR_INTLINESNUM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSCnSCB_ACTLR_DISOOFP_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBSCnSCB_ACTLR_DISOOFP_Msk\fP   (1UL << \fBSCnSCB_ACTLR_DISOOFP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSCnSCB_ACTLR_DISFPCA_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSCnSCB_ACTLR_DISFPCA_Msk\fP   (1UL << \fBSCnSCB_ACTLR_DISFPCA_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSCnSCB_ACTLR_DISFOLD_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSCnSCB_ACTLR_DISFOLD_Msk\fP   (1UL << \fBSCnSCB_ACTLR_DISFOLD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSCnSCB_ACTLR_DISDEFWBUF_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSCnSCB_ACTLR_DISDEFWBUF_Msk\fP   (1UL << \fBSCnSCB_ACTLR_DISDEFWBUF_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSCnSCB_ACTLR_DISMCYCINT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSCnSCB_ACTLR_DISMCYCINT_Msk\fP   (1UL << \fBSCnSCB_ACTLR_DISMCYCINT_Pos\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Type definitions for the System Control and ID Register not in the SCB\&. 
+
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define SCnSCB_ACTLR_DISDEFWBUF_Msk   (1UL << \fBSCnSCB_ACTLR_DISDEFWBUF_Pos\fP)"
+ACTLR: DISDEFWBUF Mask 
+.PP
+Definition at line 592 of file core_cm4\&.h\&.
+.SS "#define SCnSCB_ACTLR_DISDEFWBUF_Pos   1"
+ACTLR: DISDEFWBUF Position 
+.PP
+Definition at line 591 of file core_cm4\&.h\&.
+.SS "#define SCnSCB_ACTLR_DISFOLD_Msk   (1UL << \fBSCnSCB_ACTLR_DISFOLD_Pos\fP)"
+ACTLR: DISFOLD Mask 
+.PP
+Definition at line 589 of file core_cm4\&.h\&.
+.SS "#define SCnSCB_ACTLR_DISFOLD_Pos   2"
+ACTLR: DISFOLD Position 
+.PP
+Definition at line 588 of file core_cm4\&.h\&.
+.SS "#define SCnSCB_ACTLR_DISFPCA_Msk   (1UL << \fBSCnSCB_ACTLR_DISFPCA_Pos\fP)"
+ACTLR: DISFPCA Mask 
+.PP
+Definition at line 586 of file core_cm4\&.h\&.
+.SS "#define SCnSCB_ACTLR_DISFPCA_Pos   8"
+ACTLR: DISFPCA Position 
+.PP
+Definition at line 585 of file core_cm4\&.h\&.
+.SS "#define SCnSCB_ACTLR_DISMCYCINT_Msk   (1UL << \fBSCnSCB_ACTLR_DISMCYCINT_Pos\fP)"
+ACTLR: DISMCYCINT Mask 
+.PP
+Definition at line 595 of file core_cm4\&.h\&.
+.SS "#define SCnSCB_ACTLR_DISMCYCINT_Pos   0"
+ACTLR: DISMCYCINT Position 
+.PP
+Definition at line 594 of file core_cm4\&.h\&.
+.SS "#define SCnSCB_ACTLR_DISOOFP_Msk   (1UL << \fBSCnSCB_ACTLR_DISOOFP_Pos\fP)"
+ACTLR: DISOOFP Mask 
+.PP
+Definition at line 583 of file core_cm4\&.h\&.
+.SS "#define SCnSCB_ACTLR_DISOOFP_Pos   9"
+ACTLR: DISOOFP Position 
+.PP
+Definition at line 582 of file core_cm4\&.h\&.
+.SS "#define SCnSCB_ICTR_INTLINESNUM_Msk   (0xFUL << \fBSCnSCB_ICTR_INTLINESNUM_Pos\fP)"
+ICTR: INTLINESNUM Mask 
+.PP
+Definition at line 579 of file core_cm4\&.h\&.
+.SS "#define SCnSCB_ICTR_INTLINESNUM_Pos   0"
+ICTR: INTLINESNUM Position 
+.PP
+Definition at line 578 of file core_cm4\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

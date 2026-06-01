@@ -1,0 +1,222 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_tile_system_manager.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_tile_system_manager.h \- CMSIS Header File for the PAC5XXX System Manager Tile\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBSYSSTAT\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBSystem_Manager_Reg_Addr\fP { \fBADDR_SYSSTAT\fP = 0x00, \fBADDR_DEVID\fP = 0x08, \fBADDR_VERID\fP = 0x09 }"
+.br
+.ti -1c
+.RI "enum \fBSystem_Manager_VERID_Type\fP { \fBPAC5XXX_VERID_AZREVA\fP = 0x01, \fBPAC5XXX_VERID_AYREVA\fP = 0x02, \fBPAC5XXX_VERID_AXREVA\fP = 0x03, \fBPAC5XXX_VERID_AWREVA\fP = 0x04, \fBPAC5XXX_VERID_AZREVB\fP = 0x11, \fBPAC5XXX_VERID_AYREVB\fP = 0x12, \fBPAC5XXX_VERID_AXREVB\fP = 0x13, \fBPAC5XXX_VERID_AWREVB\fP = 0x14, \fBPAC5XXX_VERID_AZREVC\fP = 0x21, \fBPAC5XXX_VERID_AYREVC\fP = 0x22, \fBPAC5XXX_VERID_AXREVC\fP = 0x23, \fBPAC5XXX_VERID_AWREVC\fP = 0x24, \fBPAC5XXX_VERID_AZREVD\fP = 0x31, \fBPAC5XXX_VERID_AYREVD\fP = 0x32, \fBPAC5XXX_VERID_AXREVD\fP = 0x33, \fBPAC5XXX_VERID_AWREVD\fP = 0x34 }"
+.br
+.ti -1c
+.RI "enum \fBPAC5XXX_Vthresh_Comp_Type\fP { \fBPAC5XXX_VTHRESH_0p1V\fP = 0, \fBPAC5XXX_VTHRESH_0p2V\fP = 1, \fBPAC5XXX_VTHRESH_0p5V\fP = 2, \fBPAC5XXX_VTHRESH_1p25V\fP = 3 }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CMSIS Header File for the PAC5XXX System Manager Tile\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2017-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_tile_system_manager\&.h\fP\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBPAC5XXX_Vthresh_Comp_Type\fP"
+PAC5XXX Threshold Voltage for Comparator AIO9-6 Type Enumeration 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIPAC5XXX_VTHRESH_0p1V \fP\fP
+Threshold voltage for comparator for AIO9-6: 0\&.1V 
+.br
+ 
+.TP
+\fB\fIPAC5XXX_VTHRESH_0p2V \fP\fP
+Threshold voltage for comparator for AIO9-6: 0\&.2V 
+.br
+ 
+.TP
+\fB\fIPAC5XXX_VTHRESH_0p5V \fP\fP
+Threshold voltage for comparator for AIO9-6: 0\&.5V 
+.br
+ 
+.TP
+\fB\fIPAC5XXX_VTHRESH_1p25V \fP\fP
+Threshold voltage for comparator for AIO9-6: 1\&.25V 
+.br
+ 
+.PP
+Definition at line 79 of file pac5xxx_tile_system_manager\&.h\&.
+.PP
+.nf
+80 {
+81     PAC5XXX_VTHRESH_0p1V = 0,               
+82     PAC5XXX_VTHRESH_0p2V = 1,               
+83     PAC5XXX_VTHRESH_0p5V = 2,               
+84     PAC5XXX_VTHRESH_1p25V = 3,              
+85 } PAC5XXX_Vthresh_Comp_Type;
+.fi
+.SS "enum \fBSystem_Manager_Reg_Addr\fP"
+< Signal Manager Tile Register Addresses 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADDR_SYSSTAT \fP\fP
+System Manager Status Register 
+.br
+ 
+.TP
+\fB\fIADDR_DEVID \fP\fP
+Device Identification Register 
+.br
+ 
+.TP
+\fB\fIADDR_VERID \fP\fP
+Version Identification Register 
+.br
+ 
+.PP
+Definition at line 45 of file pac5xxx_tile_system_manager\&.h\&.
+.PP
+.nf
+45              {
+46     ADDR_SYSSTAT = 0x00,                    
+47     ADDR_DEVID = 0x08,                      
+48     ADDR_VERID = 0x09,                      
+49 } System_Manager_Reg_Addr;
+.fi
+.SS "enum \fBSystem_Manager_VERID_Type\fP"
+PAC5XXX VERID type codes 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIPAC5XXX_VERID_AZREVA \fP\fP
+Driver manager version AZ, revision A 
+.br
+ 
+.TP
+\fB\fIPAC5XXX_VERID_AYREVA \fP\fP
+Driver manager version AY, revision A 
+.br
+ 
+.TP
+\fB\fIPAC5XXX_VERID_AXREVA \fP\fP
+Driver manager version AX, revision A 
+.br
+ 
+.TP
+\fB\fIPAC5XXX_VERID_AWREVA \fP\fP
+Driver manager version AW, revision A 
+.br
+ 
+.TP
+\fB\fIPAC5XXX_VERID_AZREVB \fP\fP
+Driver manager version AZ, revision B 
+.br
+ 
+.TP
+\fB\fIPAC5XXX_VERID_AYREVB \fP\fP
+Driver manager version AY, revision B 
+.br
+ 
+.TP
+\fB\fIPAC5XXX_VERID_AXREVB \fP\fP
+Driver manager version AX, revision B 
+.br
+ 
+.TP
+\fB\fIPAC5XXX_VERID_AWREVB \fP\fP
+Driver manager version AW, revision B 
+.br
+ 
+.TP
+\fB\fIPAC5XXX_VERID_AZREVC \fP\fP
+Driver manager version AZ, revision C 
+.br
+ 
+.TP
+\fB\fIPAC5XXX_VERID_AYREVC \fP\fP
+Driver manager version AY, revision C 
+.br
+ 
+.TP
+\fB\fIPAC5XXX_VERID_AXREVC \fP\fP
+Driver manager version AX, revision C 
+.br
+ 
+.TP
+\fB\fIPAC5XXX_VERID_AWREVC \fP\fP
+Driver manager version AW, revision C 
+.br
+ 
+.TP
+\fB\fIPAC5XXX_VERID_AZREVD \fP\fP
+Driver manager version AZ, revision D 
+.br
+ 
+.TP
+\fB\fIPAC5XXX_VERID_AYREVD \fP\fP
+Driver manager version AY, revision D 
+.br
+ 
+.TP
+\fB\fIPAC5XXX_VERID_AXREVD \fP\fP
+Driver manager version AX, revision D 
+.br
+ 
+.TP
+\fB\fIPAC5XXX_VERID_AWREVD \fP\fP
+Driver manager version AW, revision D 
+.br
+ 
+.PP
+Definition at line 52 of file pac5xxx_tile_system_manager\&.h\&.
+.PP
+.nf
+53 {
+54     PAC5XXX_VERID_AZREVA = 0x01,            
+55     PAC5XXX_VERID_AYREVA = 0x02,            
+56     PAC5XXX_VERID_AXREVA = 0x03,            
+57     PAC5XXX_VERID_AWREVA = 0x04,            
+58     PAC5XXX_VERID_AZREVB = 0x11,            
+59     PAC5XXX_VERID_AYREVB = 0x12,            
+60     PAC5XXX_VERID_AXREVB = 0x13,            
+61     PAC5XXX_VERID_AWREVB = 0x14,            
+62     PAC5XXX_VERID_AZREVC = 0x21,            
+63     PAC5XXX_VERID_AYREVC = 0x22,            
+64     PAC5XXX_VERID_AXREVC = 0x23,            
+65     PAC5XXX_VERID_AWREVC = 0x24,            
+66     PAC5XXX_VERID_AZREVD = 0x31,            
+67     PAC5XXX_VERID_AYREVD = 0x32,            
+68     PAC5XXX_VERID_AXREVD = 0x33,            
+69     PAC5XXX_VERID_AWREVD = 0x34             
+71 } System_Manager_VERID_Type;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

@@ -1,0 +1,81 @@
+.TH "pac_foc/src/features/flash_crc_test/checksum.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/features/flash_crc_test/checksum.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'config_features\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "unsigned short \fBcrc16_table_256\fP (unsigned short sum, unsigned char *p, unsigned int len, unsigned short *p_crc16_table)"
+.br
+.ti -1c
+.RI "unsigned short \fBcrc16\fP (unsigned short sum, unsigned char *p, unsigned int len)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const unsigned short \fBcrc16_table\fP [256]"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "unsigned short crc16 (unsigned short sum, unsigned char * p, unsigned int len)"
+
+.PP
+Definition at line 85 of file checksum\&.c\&.
+.PP
+.nf
+86 {
+87     while (len--)
+88       {
+89         int i;
+90         unsigned char byte = *p++;
+91 
+92         for (i = 0; i < 8; ++i)
+93           {
+94             unsigned long osum = sum;
+95             sum <<= 1;
+96             if (byte & 0x80)
+97               sum |= 1 ;
+98             if (osum & 0x8000)
+99               sum ^= 0x1021;
+100             byte <<= 1;
+101           }
+102       }
+103     return sum;
+104 }
+.fi
+.PP
+Referenced by pac5xxx_flash_crc_test()\&.
+.SS "unsigned short crc16_table_256 (unsigned short sum, unsigned char * p, unsigned int len, unsigned short * p_crc16_table)"
+
+.PP
+Definition at line 77 of file checksum\&.c\&.
+.PP
+.nf
+78 {
+79     while (len--)
+80       sum = p_crc16_table[(sum >> 8) ^ *p++] ^ (sum << 8);
+81     return sum;
+82 }
+.fi
+.PP
+Referenced by pac5xxx_fast_flash_crc_test()\&.
+.SH "Variable Documentation"
+.PP 
+.SS "const unsigned short crc16_table[256]"
+
+.PP
+Definition at line 44 of file checksum\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

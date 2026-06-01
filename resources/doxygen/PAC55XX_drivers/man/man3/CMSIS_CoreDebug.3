@@ -1,0 +1,417 @@
+.TH "CMSIS_CoreDebug" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CMSIS_CoreDebug \- Core Debug Registers (CoreDebug)
+.PP
+ \- Type definitions for the Core Debug Registers\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBCore Definitions\fP"
+.br
+.RI "Definitions for base addresses, unions, and structures\&. "
+.in -1c
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBCoreDebug_Type\fP"
+.br
+.RI "Structure type to access the Core Debug Register (CoreDebug)\&. "
+.in -1c
+.in +1c
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_DBGKEY_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_DBGKEY_Msk\fP   (0xFFFFUL << \fBCoreDebug_DHCSR_DBGKEY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_RESET_ST_Pos\fP   25"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_RESET_ST_Msk\fP   (1UL << \fBCoreDebug_DHCSR_S_RESET_ST_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_RETIRE_ST_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_RETIRE_ST_Msk\fP   (1UL << \fBCoreDebug_DHCSR_S_RETIRE_ST_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_LOCKUP_Pos\fP   19"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_LOCKUP_Msk\fP   (1UL << \fBCoreDebug_DHCSR_S_LOCKUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_SLEEP_Pos\fP   18"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_SLEEP_Msk\fP   (1UL << \fBCoreDebug_DHCSR_S_SLEEP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_HALT_Pos\fP   17"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_HALT_Msk\fP   (1UL << \fBCoreDebug_DHCSR_S_HALT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_REGRDY_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_S_REGRDY_Msk\fP   (1UL << \fBCoreDebug_DHCSR_S_REGRDY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_C_SNAPSTALL_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_C_SNAPSTALL_Msk\fP   (1UL << \fBCoreDebug_DHCSR_C_SNAPSTALL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_C_MASKINTS_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_C_MASKINTS_Msk\fP   (1UL << \fBCoreDebug_DHCSR_C_MASKINTS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_C_STEP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_C_STEP_Msk\fP   (1UL << \fBCoreDebug_DHCSR_C_STEP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_C_HALT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_C_HALT_Msk\fP   (1UL << \fBCoreDebug_DHCSR_C_HALT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_C_DEBUGEN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DHCSR_C_DEBUGEN_Msk\fP   (1UL << \fBCoreDebug_DHCSR_C_DEBUGEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DCRSR_REGWnR_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DCRSR_REGWnR_Msk\fP   (1UL << \fBCoreDebug_DCRSR_REGWnR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DCRSR_REGSEL_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DCRSR_REGSEL_Msk\fP   (0x1FUL << \fBCoreDebug_DCRSR_REGSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_TRCENA_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_TRCENA_Msk\fP   (1UL << \fBCoreDebug_DEMCR_TRCENA_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_MON_REQ_Pos\fP   19"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_MON_REQ_Msk\fP   (1UL << \fBCoreDebug_DEMCR_MON_REQ_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_MON_STEP_Pos\fP   18"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_MON_STEP_Msk\fP   (1UL << \fBCoreDebug_DEMCR_MON_STEP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_MON_PEND_Pos\fP   17"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_MON_PEND_Msk\fP   (1UL << \fBCoreDebug_DEMCR_MON_PEND_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_MON_EN_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_MON_EN_Msk\fP   (1UL << \fBCoreDebug_DEMCR_MON_EN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_HARDERR_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_HARDERR_Msk\fP   (1UL << \fBCoreDebug_DEMCR_VC_HARDERR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_INTERR_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_INTERR_Msk\fP   (1UL << \fBCoreDebug_DEMCR_VC_INTERR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_BUSERR_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_BUSERR_Msk\fP   (1UL << \fBCoreDebug_DEMCR_VC_BUSERR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_STATERR_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_STATERR_Msk\fP   (1UL << \fBCoreDebug_DEMCR_VC_STATERR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_CHKERR_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_CHKERR_Msk\fP   (1UL << \fBCoreDebug_DEMCR_VC_CHKERR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_NOCPERR_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_NOCPERR_Msk\fP   (1UL << \fBCoreDebug_DEMCR_VC_NOCPERR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_MMERR_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_MMERR_Msk\fP   (1UL << \fBCoreDebug_DEMCR_VC_MMERR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_CORERESET_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_DEMCR_VC_CORERESET_Msk\fP   (1UL << \fBCoreDebug_DEMCR_VC_CORERESET_Pos\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Type definitions for the Core Debug Registers\&. 
+
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define CoreDebug_DCRSR_REGSEL_Msk   (0x1FUL << \fBCoreDebug_DCRSR_REGSEL_Pos\fP)"
+CoreDebug DCRSR: REGSEL Mask 
+.PP
+Definition at line 1306 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DCRSR_REGSEL_Pos   0"
+CoreDebug DCRSR: REGSEL Position 
+.PP
+Definition at line 1305 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DCRSR_REGWnR_Msk   (1UL << \fBCoreDebug_DCRSR_REGWnR_Pos\fP)"
+CoreDebug DCRSR: REGWnR Mask 
+.PP
+Definition at line 1303 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DCRSR_REGWnR_Pos   16"
+CoreDebug DCRSR: REGWnR Position 
+.PP
+Definition at line 1302 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_MON_EN_Msk   (1UL << \fBCoreDebug_DEMCR_MON_EN_Pos\fP)"
+CoreDebug DEMCR: MON_EN Mask 
+.PP
+Definition at line 1322 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_MON_EN_Pos   16"
+CoreDebug DEMCR: MON_EN Position 
+.PP
+Definition at line 1321 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_MON_PEND_Msk   (1UL << \fBCoreDebug_DEMCR_MON_PEND_Pos\fP)"
+CoreDebug DEMCR: MON_PEND Mask 
+.PP
+Definition at line 1319 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_MON_PEND_Pos   17"
+CoreDebug DEMCR: MON_PEND Position 
+.PP
+Definition at line 1318 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_MON_REQ_Msk   (1UL << \fBCoreDebug_DEMCR_MON_REQ_Pos\fP)"
+CoreDebug DEMCR: MON_REQ Mask 
+.PP
+Definition at line 1313 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_MON_REQ_Pos   19"
+CoreDebug DEMCR: MON_REQ Position 
+.PP
+Definition at line 1312 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_MON_STEP_Msk   (1UL << \fBCoreDebug_DEMCR_MON_STEP_Pos\fP)"
+CoreDebug DEMCR: MON_STEP Mask 
+.PP
+Definition at line 1316 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_MON_STEP_Pos   18"
+CoreDebug DEMCR: MON_STEP Position 
+.PP
+Definition at line 1315 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_TRCENA_Msk   (1UL << \fBCoreDebug_DEMCR_TRCENA_Pos\fP)"
+CoreDebug DEMCR: TRCENA Mask 
+.PP
+Definition at line 1310 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_TRCENA_Pos   24"
+CoreDebug DEMCR: TRCENA Position 
+.PP
+Definition at line 1309 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_BUSERR_Msk   (1UL << \fBCoreDebug_DEMCR_VC_BUSERR_Pos\fP)"
+CoreDebug DEMCR: VC_BUSERR Mask 
+.PP
+Definition at line 1331 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_BUSERR_Pos   8"
+CoreDebug DEMCR: VC_BUSERR Position 
+.PP
+Definition at line 1330 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_CHKERR_Msk   (1UL << \fBCoreDebug_DEMCR_VC_CHKERR_Pos\fP)"
+CoreDebug DEMCR: VC_CHKERR Mask 
+.PP
+Definition at line 1337 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_CHKERR_Pos   6"
+CoreDebug DEMCR: VC_CHKERR Position 
+.PP
+Definition at line 1336 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_CORERESET_Msk   (1UL << \fBCoreDebug_DEMCR_VC_CORERESET_Pos\fP)"
+CoreDebug DEMCR: VC_CORERESET Mask 
+.PP
+Definition at line 1346 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_CORERESET_Pos   0"
+CoreDebug DEMCR: VC_CORERESET Position 
+.PP
+Definition at line 1345 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_HARDERR_Msk   (1UL << \fBCoreDebug_DEMCR_VC_HARDERR_Pos\fP)"
+CoreDebug DEMCR: VC_HARDERR Mask 
+.PP
+Definition at line 1325 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_HARDERR_Pos   10"
+CoreDebug DEMCR: VC_HARDERR Position 
+.PP
+Definition at line 1324 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_INTERR_Msk   (1UL << \fBCoreDebug_DEMCR_VC_INTERR_Pos\fP)"
+CoreDebug DEMCR: VC_INTERR Mask 
+.PP
+Definition at line 1328 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_INTERR_Pos   9"
+CoreDebug DEMCR: VC_INTERR Position 
+.PP
+Definition at line 1327 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_MMERR_Msk   (1UL << \fBCoreDebug_DEMCR_VC_MMERR_Pos\fP)"
+CoreDebug DEMCR: VC_MMERR Mask 
+.PP
+Definition at line 1343 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_MMERR_Pos   4"
+CoreDebug DEMCR: VC_MMERR Position 
+.PP
+Definition at line 1342 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_NOCPERR_Msk   (1UL << \fBCoreDebug_DEMCR_VC_NOCPERR_Pos\fP)"
+CoreDebug DEMCR: VC_NOCPERR Mask 
+.PP
+Definition at line 1340 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_NOCPERR_Pos   5"
+CoreDebug DEMCR: VC_NOCPERR Position 
+.PP
+Definition at line 1339 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_STATERR_Msk   (1UL << \fBCoreDebug_DEMCR_VC_STATERR_Pos\fP)"
+CoreDebug DEMCR: VC_STATERR Mask 
+.PP
+Definition at line 1334 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DEMCR_VC_STATERR_Pos   7"
+CoreDebug DEMCR: VC_STATERR Position 
+.PP
+Definition at line 1333 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_C_DEBUGEN_Msk   (1UL << \fBCoreDebug_DHCSR_C_DEBUGEN_Pos\fP)"
+CoreDebug DHCSR: C_DEBUGEN Mask 
+.PP
+Definition at line 1299 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_C_DEBUGEN_Pos   0"
+CoreDebug DHCSR: C_DEBUGEN Position 
+.PP
+Definition at line 1298 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_C_HALT_Msk   (1UL << \fBCoreDebug_DHCSR_C_HALT_Pos\fP)"
+CoreDebug DHCSR: C_HALT Mask 
+.PP
+Definition at line 1296 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_C_HALT_Pos   1"
+CoreDebug DHCSR: C_HALT Position 
+.PP
+Definition at line 1295 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_C_MASKINTS_Msk   (1UL << \fBCoreDebug_DHCSR_C_MASKINTS_Pos\fP)"
+CoreDebug DHCSR: C_MASKINTS Mask 
+.PP
+Definition at line 1290 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_C_MASKINTS_Pos   3"
+CoreDebug DHCSR: C_MASKINTS Position 
+.PP
+Definition at line 1289 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_C_SNAPSTALL_Msk   (1UL << \fBCoreDebug_DHCSR_C_SNAPSTALL_Pos\fP)"
+CoreDebug DHCSR: C_SNAPSTALL Mask 
+.PP
+Definition at line 1287 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_C_SNAPSTALL_Pos   5"
+CoreDebug DHCSR: C_SNAPSTALL Position 
+.PP
+Definition at line 1286 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_C_STEP_Msk   (1UL << \fBCoreDebug_DHCSR_C_STEP_Pos\fP)"
+CoreDebug DHCSR: C_STEP Mask 
+.PP
+Definition at line 1293 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_C_STEP_Pos   2"
+CoreDebug DHCSR: C_STEP Position 
+.PP
+Definition at line 1292 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_DBGKEY_Msk   (0xFFFFUL << \fBCoreDebug_DHCSR_DBGKEY_Pos\fP)"
+CoreDebug DHCSR: DBGKEY Mask 
+.PP
+Definition at line 1266 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_DBGKEY_Pos   16"
+CoreDebug DHCSR: DBGKEY Position 
+.PP
+Definition at line 1265 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_HALT_Msk   (1UL << \fBCoreDebug_DHCSR_S_HALT_Pos\fP)"
+CoreDebug DHCSR: S_HALT Mask 
+.PP
+Definition at line 1281 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_HALT_Pos   17"
+CoreDebug DHCSR: S_HALT Position 
+.PP
+Definition at line 1280 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_LOCKUP_Msk   (1UL << \fBCoreDebug_DHCSR_S_LOCKUP_Pos\fP)"
+CoreDebug DHCSR: S_LOCKUP Mask 
+.PP
+Definition at line 1275 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_LOCKUP_Pos   19"
+CoreDebug DHCSR: S_LOCKUP Position 
+.PP
+Definition at line 1274 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_REGRDY_Msk   (1UL << \fBCoreDebug_DHCSR_S_REGRDY_Pos\fP)"
+CoreDebug DHCSR: S_REGRDY Mask 
+.PP
+Definition at line 1284 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_REGRDY_Pos   16"
+CoreDebug DHCSR: S_REGRDY Position 
+.PP
+Definition at line 1283 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_RESET_ST_Msk   (1UL << \fBCoreDebug_DHCSR_S_RESET_ST_Pos\fP)"
+CoreDebug DHCSR: S_RESET_ST Mask 
+.PP
+Definition at line 1269 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_RESET_ST_Pos   25"
+CoreDebug DHCSR: S_RESET_ST Position 
+.PP
+Definition at line 1268 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_RETIRE_ST_Msk   (1UL << \fBCoreDebug_DHCSR_S_RETIRE_ST_Pos\fP)"
+CoreDebug DHCSR: S_RETIRE_ST Mask 
+.PP
+Definition at line 1272 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_RETIRE_ST_Pos   24"
+CoreDebug DHCSR: S_RETIRE_ST Position 
+.PP
+Definition at line 1271 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_SLEEP_Msk   (1UL << \fBCoreDebug_DHCSR_S_SLEEP_Pos\fP)"
+CoreDebug DHCSR: S_SLEEP Mask 
+.PP
+Definition at line 1278 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_DHCSR_S_SLEEP_Pos   18"
+CoreDebug DHCSR: S_SLEEP Position 
+.PP
+Definition at line 1277 of file core_cm4\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

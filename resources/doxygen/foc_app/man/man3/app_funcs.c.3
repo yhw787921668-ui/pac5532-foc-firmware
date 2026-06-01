@@ -1,0 +1,262 @@
+.TH "pac_foc/src/app/app_funcs.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/app/app_funcs.c \- Use to reset variables associated to FOC, Control, Faults, Stall, OPD, PPM\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'app_funcs\&.h'\fP
+.br
+\fC#include 'foc\&.h'\fP
+.br
+\fC#include 'mpos_funcs\&.h'\fP
+.br
+\fC#include 'param\&.h'\fP
+.br
+\fC#include 'fault\&.h'\fP
+.br
+\fC#include 'control_funcs\&.h'\fP
+.br
+\fC#include 'foc_funcs\&.h'\fP
+.br
+\fC#include 'comm\&.h'\fP
+.br
+\fC#include 'harmonic_inj_funcs\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBmotor_reset\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "This function use to reset variables associated to FOC, Control, Faults, Stall, OPD, PPM\&. "
+.ti -1c
+.RI "void \fBsystemvar_init\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "This function use to initialize debug, application, hall and other system variables\&. "
+.ti -1c
+.RI "void \fBapp_param_process\fP (\fBStruct_Motor\fP *motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+.br
+.RI "This function use for copying peak value of vdrive and speed for app level processing\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBStruct_Motor\fP \fBmotor\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use to reset variables associated to FOC, Control, Faults, Stall, OPD, PPM\&. 
+
+
+.PP
+Definition in file \fBapp_funcs\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void app_param_process (\fBStruct_Motor\fP * motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+
+.PP
+This function use for copying peak value of vdrive and speed for app level processing\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr pointer to motor structure
+.RE
+.PP
+This function use for copying OL target speed and CL max speed ref to app level variable 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr pointer to motor structure 
+.RE
+.PP
+
+.PP
+Definition at line 217 of file app_funcs\&.c\&.
+.PP
+.nf
+218 {
+219     switch(param_code)
+220     {
+221 #if (MPOS_SELECT == MPOS_LBG1_START_ALIGNGO)
+222     case open_loop_speed_setpoint:
+223         motor_ptr->app\&.speedrefcl_min = motor_ptr->startup\&.aligngo\&.speedrefol_target_radps >> 1;
+224 #elif (MPOS_SELECT == MPOS_HALL_ONLY) || (MPOS_SELECT == MPOS_LBG1_START_HALL)
+225     case max_cl_speed_limit:
+226         motor_ptr->app\&.speedrefcl_min = 0;
+227 #elif (MPOS_SELECT == MPOS_QEP_START_ALIGNGO)
+228     case max_cl_speed_limit:
+229         // Set speed fault minimum to -max/4
+230         motor_ptr->app\&.speedrefcl_min = -motor_ptr->app\&.speedrefcl_max >> 2;
+231 #endif
+232         break;
+233     default:
+234         break;
+235     }
+236 }
+.fi
+.PP
+References Struct_StartupAlignGo::aligngo, Struct_Motor::app, max_cl_speed_limit, open_loop_speed_setpoint, Struct_App::speedrefcl_max, Struct_App::speedrefcl_min, Struct_AlignGo::speedrefol_target_radps, and Struct_Motor::startup\&.
+.SS "void motor_reset (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+This function use to reset variables associated to FOC, Control, Faults, Stall, OPD, PPM\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr pointer to motor structure 
+.RE
+.PP
+
+.PP
+Definition at line 74 of file app_funcs\&.c\&.
+.PP
+.nf
+75 {
+76     foc_reset(motor_ptr);
+77     control_reset(motor_ptr);
+78     clear_fault(FAULT_MAIN_GRP_CLEARSTART);
+79 
+80     motor_ptr->app\&.direction_reverse_flag = motor_ptr->app\&.direction_reverse_cmd;
+81     if (motor_ptr->app\&.direction_reverse_flag)
+82         motor_ptr->status\&.motor |= STATUS_MOTOR_REVERSE;
+83     else
+84         motor_ptr->status\&.motor &= ~STATUS_MOTOR_REVERSE;
+85 
+86 #if defined(ENABLE_STALL_DETECT)
+87     motor_ptr->app\&.vdrvsq_q14_peak_stored = 0;
+88     motor_ptr->app\&.vdrvsq_q14_peak = 0;
+89 #endif
+90 
+91 #ifdef ENABLE_STALL_DETECT
+92     stalldet_reset(motor_ptr);
+93 #endif
+94 
+95 #ifdef ENABLE_OPDOL
+96     init_opdol(motor_ptr);
+97 #endif
+98 
+99 #if (COMMSEL_PPM == TRUE)
+100     ppm_init(motor_ptr);
+101 #endif
+102 
+103 #ifdef ENABLE_IPD
+104     motor_ptr->ipd\&.ipd_state = IPD_DONE;
+105 #endif
+106 
+107 #if defined(ENABLE_POWERMEASURE)
+108     power_reset(motor_ptr);
+109 #endif
+110 
+111 #if defined(ENABLE_AUTOTUNE_PI)
+112     at_reset_state(motor_ptr);
+113 #endif
+114 
+115 #if defined(ENABLE_OPD_CL)
+116     opdcl_reset(motor_ptr);
+117 #endif
+118 
+119 #ifdef ENABLE_MTPA
+120     mtpa_reset(motor_ptr);
+121 #endif
+122 }
+.fi
+.PP
+References Struct_Motor::app, clear_fault(), control_reset(), Struct_App::direction_reverse_cmd, Struct_App::direction_reverse_flag, FAULT_MAIN_GRP_CLEARSTART, foc_reset(), init_opdol(), IPD_DONE, Struct_Status::motor, mtpa_reset(), ppm_init(), stalldet_reset(), Struct_Motor::status, STATUS_MOTOR_REVERSE, Struct_App::vdrvsq_q14_peak, and Struct_App::vdrvsq_q14_peak_stored\&.
+.PP
+Referenced by sm_mainsub_prestart()\&.
+.SS "void systemvar_init (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+This function use to initialize debug, application, hall and other system variables\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr pointer to motor structure 
+.RE
+.PP
+
+.PP
+Definition at line 129 of file app_funcs\&.c\&.
+.PP
+.nf
+130 {
+131 #ifdef ENABLE_DEBUG_DISPLAY
+132     test_ptr1 = (My_GUI_Debug_Q14*) &GUI_Debug_Var_Q14[0]\&.ptr_gui_debug_value_q14;    // make sure pointer is pointing to array index 0 at power up
+133     test_ptr2 = (My_GUI_Debug_Q14*) &GUI_Debug_Var_Q14[0]\&.ptr_gui_debug_value_q14;    // make sure pointer is pointing to array index 0 at power up
+134     test_ptr3 = (My_GUI_Debug_Q14*) &GUI_Debug_Var_Q14[0]\&.ptr_gui_debug_value_q14;    // make sure pointer is pointing to array index 0 at power up
+135 #endif
+136 
+137 #if defined (ENABLE_DEBUG_PWMDAC) || defined (ENABLE_DEBUG_DAS)
+138     motor_ptr->debug\&.debug_buffer_command1 = 0;                         // make sure index never exceed array length
+139     motor_ptr->debug\&.debug_buffer_command2 = 0;                         // make sure index never exceed array length
+140     motor_ptr->debug\&.debug_buffer_command3 = 0;                         // make sure index never exceed array length
+141     motor_ptr->debug\&.debug_buffer_command4 = 0;                         // make sure index never exceed array length
+142     dac_ptr1 = (int32_t*) &DAC_ARRAY_Q14[0];                            // make sure pointer points to something
+143     dac_ptr2 = (int32_t*) &DAC_ARRAY_Q14[0];                            // make sure pointer points to something
+144     dac_ptr3 = (int32_t*) &DAC_ARRAY_Q14[0];                            // make sure pointer points to something
+145     dac_ptr4 = (int32_t*) &DAC_ARRAY_Q14[0];                            // make sure pointer points to something
+146 #endif
+147 
+148     motor_ptr->state\&.main = STATE_MAIN_RESET;
+149     motor_ptr->state\&.appcontrol = STATE_APPCONTROL_IDLE;
+150     motor_ptr->app\&.current_limit = MOTOR_CURRENT_LIMIT_DEFAULT_VALUE;
+151 #if defined(CAFE_ARCH3) && (DEVICE_SELECT == DEVICE_5285)
+152     motor_ptr->app\&.iphase_amp_gain = UVW_PHASE_RSENSE_GAIN_DEFAULT_VALUE_5285;
+153 #else
+154     motor_ptr->app\&.iphase_amp_gain = UVW_PHASE_RSENSE_GAIN_DEFAULT_VALUE;
+155 #endif
+156     motor_ptr->app\&.systick_counter = 0;                                 // this is the timer that starts as soon ADC ISR called
+157     motor_ptr->app\&.systick_div_counter = 0;                             // this is the timer that starts as soon ADC ISR called
+158     motor_ptr->app\&.systick_divider_cnt = 0;                             // this is the timer that starts as soon ADC ISR called
+159     motor_ptr->app\&.motor_led_ticks = MOTOR1_LED_TICKS;                  // Timer ticks in LED for this motor (for SVM)
+160     motor_ptr->app\&.motor_ted_ticks = MOTOR1_TED_TICKS;                  // Timer ticks in TED for this motor (for SVM)
+161     motor_ptr->app\&.motor_enable_cmd = 0;
+162     motor_ptr->status\&.motor = (eStatusMotor) 0;
+163     motor_ptr->fault\&.fault_stop_flag = FALSE;
+164     motor_ptr->control\&.ctrl_counter = 0;
+165 
+166     foc_systemvar_init(motor_ptr);
+167 
+168 #ifdef ENABLE_CLSPEED_LIMIT_CHANGE_CHECK
+169     motor_ptr->debug\&.cl_speed_test_enable = FALSE;
+170     motor_ptr->debug\&.cl_speed_test_limit1 = FOC_CLOSE_LOOP_SPEED_SETPOINT_DEFAULT_VALUE;
+171     motor_ptr->debug\&.cl_speed_test_limit2 = FOC_CLOSE_LOOP_SPEED_SETPOINT_DEFAULT_VALUE;
+172 #endif
+173 
+174 #if (COMMSEL_PPM == TRUE)
+175     // Set power up flag, so we know system just power up, motor will not start until throttle will move back to minimum position
+176     motor_ptr->ppm\&.motor_powerup_flag = 1;
+177 #endif
+178 
+179 #ifdef ENABLE_FLASH_CRC_TEST
+180     // Get the results of the Reset Handler CRC Test; Passed = 0, Failed = 1
+181     // !!!!! Actions taken due to a Flash CRC Test failure are application specific; please modify accordingly !!!!!
+182     // In this case, the status is set so the FOC GUI can display the CRC failure
+183     if (uart_scratch_read() != 0)
+184         set_fault(FAULT_FLASH_CRC_TEST);
+185 #endif
+186 }
+.fi
+.PP
+References Struct_Motor::app, Struct_State::appcontrol, Struct_Motor::control, Struct_Control::ctrl_counter, Struct_App::current_limit, FALSE, Struct_Motor::fault, FAULT_FLASH_CRC_TEST, Struct_Fault::fault_stop_flag, FOC_CLOSE_LOOP_SPEED_SETPOINT_DEFAULT_VALUE, foc_systemvar_init(), GUI_Debug_Var_Q14, Struct_App::iphase_amp_gain, Struct_State::main, Struct_Status::motor, MOTOR1_LED_TICKS, MOTOR1_TED_TICKS, MOTOR_CURRENT_LIMIT_DEFAULT_VALUE, Struct_App::motor_enable_cmd, Struct_App::motor_led_ticks, Struct_PPM::motor_powerup_flag, Struct_App::motor_ted_ticks, Struct_Motor::ppm, set_fault(), Struct_Motor::state, STATE_APPCONTROL_IDLE, STATE_MAIN_RESET, Struct_Motor::status, Struct_App::systick_counter, Struct_App::systick_div_counter, Struct_App::systick_divider_cnt, test_ptr1, test_ptr2, test_ptr3, and UVW_PHASE_RSENSE_GAIN_DEFAULT_VALUE\&.
+.PP
+Referenced by main()\&.
+.SH "Variable Documentation"
+.PP 
+.SS "\fBStruct_Motor\fP motor"
+
+.PP
+Definition at line 72 of file app_funcs\&.c\&.
+.PP
+Referenced by ADC_IRQHandler(), clear_fault(), clear_warning(), GpioA_IRQHandler(), GpioB_IRQHandler(), hall_timer_isr(), init_over_current_limit(), m1_disable(), m1_enable(), main(), peripheral_init(), qep_isr(), set_fault(), set_warning(), sm_mainsub_prestart(), statemachine_appmain(), statemachine_buttoncontrol(), SysTick_Handler(), TimerA_IRQHandler(), TimerB_IRQHandler(), and uart_message_process()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

@@ -1,0 +1,290 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_can.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_can.h \- CMSIS Cortex-M Header File for the PAC55XX CAN\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPAC55XX_CAN_TYPEDEF\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMR_AFM\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBMR_LOM\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBMR_RM\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBCMR_AT\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBCMR_TR\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBSR_BS\fP   (1 << 16)"
+.br
+.ti -1c
+.RI "#define \fBSR_ES\fP   (1 << 17)"
+.br
+.ti -1c
+.RI "#define \fBSR_TS\fP   (1 << 18)"
+.br
+.ti -1c
+.RI "#define \fBSR_RS\fP   (1 << 19)"
+.br
+.ti -1c
+.RI "#define \fBSR_TBS\fP   (1 << 21)"
+.br
+.ti -1c
+.RI "#define \fBSR_RBS\fP   (1 << 23)"
+.br
+.ti -1c
+.RI "#define \fBSR_DSO\fP   (1 << 22)"
+.br
+.ti -1c
+.RI "#define \fBISR_DOI\fP   (1 << 24)"
+.br
+.ti -1c
+.RI "#define \fBISR_BEI\fP   (1 << 25)"
+.br
+.ti -1c
+.RI "#define \fBISR_TI\fP   (1 << 26)"
+.br
+.ti -1c
+.RI "#define \fBISR_RI\fP   (1 << 27)"
+.br
+.ti -1c
+.RI "#define \fBISR_EPI\fP   (1 << 28)"
+.br
+.ti -1c
+.RI "#define \fBISR_EWI\fP   (1 << 29)"
+.br
+.ti -1c
+.RI "#define \fBISR_ALI\fP   (1 << 30)"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCAN_ALC_TYPE\fP { \fBARBITRATION_LOST_IN_ID28_P_10\fP = 0, \fBARBITRATION_LOST_IN_ID28_P_9\fP = 1, \fBARBITRATION_LOST_IN_ID28_P_8\fP = 2, \fBARBITRATION_LOST_IN_ID28_P_7\fP = 3, \fBARBITRATION_LOST_IN_ID28_P_6\fP = 4, \fBARBITRATION_LOST_IN_ID28_P_5\fP = 5, \fBARBITRATION_LOST_IN_ID28_P_4\fP = 6, \fBARBITRATION_LOST_IN_ID28_P_3\fP = 7, \fBARBITRATION_LOST_IN_ID28_P_2\fP = 8, \fBARBITRATION_LOST_IN_ID28_P_1\fP = 9, \fBARBITRATION_LOST_IN_ID28_P_0\fP = 10, \fBARBITRATION_LOST_IN_SRTR_P_RTR\fP = 11, \fBARBITRATION_LOST_IN_IDE_BIT\fP = 12, \fBARBITRATION_LOST_IN_ID17\fP = 13, \fBARBITRATION_LOST_IN_ID16\fP = 14, \fBARBITRATION_LOST_IN_ID15\fP = 15, \fBARBITRATION_LOST_IN_ID14\fP = 16, \fBARBITRATION_LOST_IN_ID13\fP = 17, \fBARBITRATION_LOST_IN_ID12\fP = 18, \fBARBITRATION_LOST_IN_ID11\fP = 19, \fBARBITRATION_LOST_IN_ID10\fP = 20, \fBARBITRATION_LOST_IN_ID9\fP = 21, \fBARBITRATION_LOST_IN_ID8\fP = 22, \fBARBITRATION_LOST_IN_ID7\fP = 23, \fBARBITRATION_LOST_IN_ID6\fP = 24, \fBARBITRATION_LOST_IN_ID5\fP = 25, \fBARBITRATION_LOST_IN_ID4\fP = 26, \fBARBITRATION_LOST_IN_ID3\fP = 27, \fBARBITRATION_LOST_IN_ID2\fP = 28, \fBARBITRATION_LOST_IN_ID1\fP = 29, \fBARBITRATION_LOST_IN_ID0\fP = 30, \fBARBITRATION_LOST_IN_RTR\fP = 31 }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CMSIS Cortex-M Header File for the PAC55XX CAN\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2017-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_can\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define CMR_AT   (1 << 9)"
+
+.PP
+Definition at line 65 of file pac5xxx_can\&.h\&.
+.SS "#define CMR_TR   (1 << 10)"
+
+.PP
+Definition at line 66 of file pac5xxx_can\&.h\&.
+.SS "#define ISR_ALI   (1 << 30)"
+
+.PP
+Definition at line 82 of file pac5xxx_can\&.h\&.
+.SS "#define ISR_BEI   (1 << 25)"
+
+.PP
+Definition at line 77 of file pac5xxx_can\&.h\&.
+.SS "#define ISR_DOI   (1 << 24)"
+
+.PP
+Definition at line 76 of file pac5xxx_can\&.h\&.
+.SS "#define ISR_EPI   (1 << 28)"
+
+.PP
+Definition at line 80 of file pac5xxx_can\&.h\&.
+.SS "#define ISR_EWI   (1 << 29)"
+
+.PP
+Definition at line 81 of file pac5xxx_can\&.h\&.
+.SS "#define ISR_RI   (1 << 27)"
+
+.PP
+Definition at line 79 of file pac5xxx_can\&.h\&.
+.SS "#define ISR_TI   (1 << 26)"
+
+.PP
+Definition at line 78 of file pac5xxx_can\&.h\&.
+.SS "#define MR_AFM   (1 << 0)"
+
+.PP
+Definition at line 61 of file pac5xxx_can\&.h\&.
+.SS "#define MR_LOM   (1 << 1)"
+
+.PP
+Definition at line 62 of file pac5xxx_can\&.h\&.
+.SS "#define MR_RM   (1 << 2)"
+
+.PP
+Definition at line 63 of file pac5xxx_can\&.h\&.
+.SS "#define SR_BS   (1 << 16)"
+
+.PP
+Definition at line 68 of file pac5xxx_can\&.h\&.
+.SS "#define SR_DSO   (1 << 22)"
+
+.PP
+Definition at line 74 of file pac5xxx_can\&.h\&.
+.SS "#define SR_ES   (1 << 17)"
+
+.PP
+Definition at line 69 of file pac5xxx_can\&.h\&.
+.SS "#define SR_RBS   (1 << 23)"
+
+.PP
+Definition at line 73 of file pac5xxx_can\&.h\&.
+.SS "#define SR_RS   (1 << 19)"
+
+.PP
+Definition at line 71 of file pac5xxx_can\&.h\&.
+.SS "#define SR_TBS   (1 << 21)"
+
+.PP
+Definition at line 72 of file pac5xxx_can\&.h\&.
+.SS "#define SR_TS   (1 << 18)"
+
+.PP
+Definition at line 70 of file pac5xxx_can\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBCAN_ALC_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIARBITRATION_LOST_IN_ID28_P_10 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID28_P_9 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID28_P_8 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID28_P_7 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID28_P_6 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID28_P_5 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID28_P_4 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID28_P_3 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID28_P_2 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID28_P_1 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID28_P_0 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_SRTR_P_RTR \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_IDE_BIT \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID17 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID16 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID15 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID14 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID13 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID12 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID11 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID10 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID9 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID8 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID7 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID6 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID5 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID4 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID3 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID2 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID1 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_ID0 \fP\fP
+.TP
+\fB\fIARBITRATION_LOST_IN_RTR \fP\fP
+.PP
+Definition at line 22 of file pac5xxx_can\&.h\&.
+.PP
+.nf
+22              {
+23 
+24   ARBITRATION_LOST_IN_ID28_P_10  = 0,
+25   ARBITRATION_LOST_IN_ID28_P_9   = 1,
+26   ARBITRATION_LOST_IN_ID28_P_8   = 2,
+27   ARBITRATION_LOST_IN_ID28_P_7   = 3, 
+28   ARBITRATION_LOST_IN_ID28_P_6   = 4,
+29   ARBITRATION_LOST_IN_ID28_P_5   = 5,
+30   ARBITRATION_LOST_IN_ID28_P_4   = 6,
+31   ARBITRATION_LOST_IN_ID28_P_3   = 7, 
+32   ARBITRATION_LOST_IN_ID28_P_2   = 8,
+33   ARBITRATION_LOST_IN_ID28_P_1   = 9,
+34   ARBITRATION_LOST_IN_ID28_P_0   = 10, 
+35   ARBITRATION_LOST_IN_SRTR_P_RTR = 11,   
+36   ARBITRATION_LOST_IN_IDE_BIT    = 12,   
+37   ARBITRATION_LOST_IN_ID17       = 13,   
+38   ARBITRATION_LOST_IN_ID16       = 14,   
+39   ARBITRATION_LOST_IN_ID15       = 15,   
+40   ARBITRATION_LOST_IN_ID14       = 16,   
+41   ARBITRATION_LOST_IN_ID13       = 17,   
+42   ARBITRATION_LOST_IN_ID12       = 18,   
+43   ARBITRATION_LOST_IN_ID11       = 19,   
+44   ARBITRATION_LOST_IN_ID10       = 20,   
+45   ARBITRATION_LOST_IN_ID9        = 21,   
+46   ARBITRATION_LOST_IN_ID8        = 22,   
+47   ARBITRATION_LOST_IN_ID7        = 23,   
+48   ARBITRATION_LOST_IN_ID6        = 24,   
+49   ARBITRATION_LOST_IN_ID5        = 25,   
+50   ARBITRATION_LOST_IN_ID4        = 26,   
+51   ARBITRATION_LOST_IN_ID3        = 27,   
+52   ARBITRATION_LOST_IN_ID2        = 28,   
+53   ARBITRATION_LOST_IN_ID1        = 29,   
+54   ARBITRATION_LOST_IN_ID0        = 30,   
+55   ARBITRATION_LOST_IN_RTR        = 31   
+56 } CAN_ALC_TYPE;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

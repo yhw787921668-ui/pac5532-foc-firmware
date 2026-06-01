@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<flash_device>
+  <exe>$TOOLKIT_DIR$\config\flashloader\ActiveSemi\PAC55XXFlashLoader.out</exe>
+  <flash_base>0x00000000</flash_base>
+  <page>1024</page>
+  <block>1 0x20000</block>
+  <aggregate>0</aggregate>
+</flash_device>

@@ -1,0 +1,551 @@
+\hypertarget{group___p_a_c5_x_x_x___r_t_c}{}\doxysection{P\+A\+C5\+X\+XX Real-\/\+Time Clock (R\+TC)}
+\label{group___p_a_c5_x_x_x___r_t_c}\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+Collaboration diagram for P\+A\+C5\+X\+XX Real-\/\+Time Clock (R\+TC)\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___p_a_c5_x_x_x___r_t_c}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_p_a_c5_x_x_x___r_t_c___type_def}{P\+A\+C5\+X\+X\+X\+\_\+\+R\+T\+C\+\_\+\+Type\+Def}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga376bdf10032ee115b3989424cee8e110}{R\+T\+C\+C\+T\+L\+\_\+\+P\+A\+S\+S\+\_\+\+W\+R\+I\+TE}}~0x4\+A000000
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga5080c7fbbcd522a1978bd217458e8af2}{R\+T\+C\+C\+T\+L\+\_\+\+P\+A\+S\+S\+\_\+\+R\+E\+AD}}~0x63000000
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga997ba3d4b749ad9f448bbc3e712e3868}{R\+T\+C\+C\+T\+L\+\_\+\+I\+F\+\_\+\+S\+H\+I\+FT}}~4
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga55696b47ced16cadc64863b3c5de235a}{R\+T\+C\+C\+T\+L\+\_\+\+I\+F\+\_\+\+M\+A\+SK}}~0x00000010
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga145074c10facda77a2eef11c3626ef05}{R\+T\+C\+C\+T\+L\+\_\+\+R\+S\+T\+\_\+\+S\+H\+I\+FT}}~0
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gad4f814d5d36943eea3c8358c3cad34fa}{R\+T\+C\+C\+T\+L\+\_\+\+R\+S\+T\+\_\+\+V\+AL}}~0x00000005
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga8685c64245247f0a9aa561f0eb8aa22e}{R\+T\+C\+C\+T\+L\+\_\+\+I\+E\+\_\+\+S\+H\+I\+FT}}~3
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga5fefe3de7e3e7f6074692008e8ad1e32}{R\+T\+C\+C\+T\+L\+\_\+\+I\+E\+\_\+\+M\+A\+SK}}~0x00000008
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gadd8e7cbe63cb510a4ce6bf98a01c6ed1}{R\+T\+C\+C\+T\+L\+\_\+\+W\+R\+B\+U\+S\+Y\+\_\+\+S\+H\+I\+FT}}~11
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga551b8f600ab11cf2a173091066c06ccf}{R\+T\+C\+C\+T\+L\+\_\+\+W\+R\+B\+U\+S\+Y\+\_\+\+M\+A\+SK}}~0x00000800
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gaddd3bf6bfb23992ffec34c573aee7c06}{R\+T\+C\+\_\+\+W\+A\+I\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+B\+L\+O\+CK}}~while ((\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga322622d9a0013be5efdcc3149fddfb03}{P\+A\+C5\+X\+X\+X\+\_\+\+R\+TC}}-\/$>$R\+T\+C\+C\+TL \& \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga551b8f600ab11cf2a173091066c06ccf}{R\+T\+C\+C\+T\+L\+\_\+\+W\+R\+B\+U\+S\+Y\+\_\+\+M\+A\+SK}}) != 0);
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga5fe0ebd1cbd77cd2f23643e6a30d0685}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+S\+H\+I\+FT}}~6
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga09880c28c1af54c70f44b4a9ec3fda16}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+Type}} \{ \newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16aa2b7727b1d48152c565d73c2e2d0f779}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V2}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a053e65ef2b8d7e31752c0a191ac7762c}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V4}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a68e722668ebf46807a0979bfd3e67b01}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V8}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16ae806dfb05b8df29e33cda9233187a14b}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V16}} = 3, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a19dbfa83048982435ee9b16469fff2a7}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V32}} = 4, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a070c9520a20ef77b11242b0f1e15152b}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V64}} = 5, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a73873d38b0c0b32d431936f7c7085954}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V128}} = 6, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16afcb414d66745f8d4829125578aba09ba}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V256}} = 7, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a55bed54493fb60b85eafd480cb56d54c}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V512}} = 8, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a477a2e53168c8b6526369b5be8ffdc76}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V1024}} = 9, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a0fafff0eae884197bea334995002b2ca}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V2048}} = 10, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a724114fa266fb796653d87c176008ca7}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V4096}} = 11, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16af63add6e9313fe6204b8fef7b36994ed}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V8192}} = 12, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a0365009ffb989aff72833371f8e61f2e}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V16384}} = 13, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16ae69d6d38a103a9540c3db99e30302398}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V32767}} = 14, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a32369ce56954c64bcf8c426161ee7901}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V65536}} = 15
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga0e44d9ad75428384ad5ec1a6e9b8b627}{P\+A\+C5\+X\+X\+X\+\_\+\+R\+T\+C\+\_\+\+Type\+Def\+::\+R\+T\+C\+C\+TL}}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga4e50c45239b0526dfc0acbfaf912ca92}{P\+A\+C5\+X\+X\+X\+\_\+\+R\+T\+C\+\_\+\+Type\+Def\+::\+R\+T\+C\+C\+DV}}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga42dc997733c36a877d27d38b35243bfc}{P\+A\+C5\+X\+X\+X\+\_\+\+R\+T\+C\+\_\+\+Type\+Def\+::w}}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gac0d0e4d79148131f9aecc3402c0e8d48}{P\+A\+C5\+X\+X\+X\+\_\+\+R\+T\+C\+\_\+\+Type\+Def\+::s}}\+: 16
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gad487cd23f414da2a0fcef2544b3490b6}{P\+A\+C5\+X\+X\+X\+\_\+\+R\+T\+C\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 16
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gac0d0e4d79148131f9aecc3402c0e8d48}{PAC5XXX\_RTC\_TypeDef::s}}: 16\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gad487cd23f414da2a0fcef2544b3490b6}{PAC5XXX\_RTC\_TypeDef::\_\_pad0\_\_}}: 16\\
+\} \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gadc4e0acadf834163adc2f983e28ae295}{P\+A\+C5\+X\+X\+X\+\_\+\+R\+T\+C\+\_\+\+Type\+Def\+::b}}\+: 8
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gad487cd23f414da2a0fcef2544b3490b6}{P\+A\+C5\+X\+X\+X\+\_\+\+R\+T\+C\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 24
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gadc4e0acadf834163adc2f983e28ae295}{PAC5XXX\_RTC\_TypeDef::b}}: 8\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gad487cd23f414da2a0fcef2544b3490b6}{PAC5XXX\_RTC\_TypeDef::\_\_pad0\_\_}}: 24\\
+\} \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga61bb1b9c031801bb6330085a5a09d304}{P\+A\+C5\+X\+X\+X\+\_\+\+R\+T\+C\+\_\+\+Type\+Def\+::\+V\+AL}}\+: 24
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gad487cd23f414da2a0fcef2544b3490b6}{P\+A\+C5\+X\+X\+X\+\_\+\+R\+T\+C\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 8
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\_\_I}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga61bb1b9c031801bb6330085a5a09d304}{PAC5XXX\_RTC\_TypeDef::VAL}}: 24\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gad487cd23f414da2a0fcef2544b3490b6}{PAC5XXX\_RTC\_TypeDef::\_\_pad0\_\_}}: 8\\
+\} \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga42dc997733c36a877d27d38b35243bfc}{PAC5XXX\_RTC\_TypeDef::w}}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gac0d0e4d79148131f9aecc3402c0e8d48}{PAC5XXX\_RTC\_TypeDef::s}}: 16\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gad487cd23f414da2a0fcef2544b3490b6}{PAC5XXX\_RTC\_TypeDef::\_\_pad0\_\_}}: 16\\
+\>\} \\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gadc4e0acadf834163adc2f983e28ae295}{PAC5XXX\_RTC\_TypeDef::b}}: 8\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gad487cd23f414da2a0fcef2544b3490b6}{PAC5XXX\_RTC\_TypeDef::\_\_pad0\_\_}}: 24\\
+\>\} \\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\_\_I}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga61bb1b9c031801bb6330085a5a09d304}{PAC5XXX\_RTC\_TypeDef::VAL}}: 24\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gad487cd23f414da2a0fcef2544b3490b6}{PAC5XXX\_RTC\_TypeDef::\_\_pad0\_\_}}: 8\\
+\>\} \\
+\} \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga729f6bed35ad01e63f2a9137dee5fc79}{PAC5XXX\_RTC\_TypeDef::RTCCTR}}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gaddd3bf6bfb23992ffec34c573aee7c06}\label{group___p_a_c5_x_x_x___r_t_c_gaddd3bf6bfb23992ffec34c573aee7c06}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTC\_WAIT\_WRITE\_BLOCK@{RTC\_WAIT\_WRITE\_BLOCK}}
+\index{RTC\_WAIT\_WRITE\_BLOCK@{RTC\_WAIT\_WRITE\_BLOCK}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{RTC\_WAIT\_WRITE\_BLOCK}{RTC\_WAIT\_WRITE\_BLOCK}}
+{\footnotesize\ttfamily \#define R\+T\+C\+\_\+\+W\+A\+I\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+B\+L\+O\+CK~while ((\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga322622d9a0013be5efdcc3149fddfb03}{P\+A\+C5\+X\+X\+X\+\_\+\+R\+TC}}-\/$>$R\+T\+C\+C\+TL \& \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga551b8f600ab11cf2a173091066c06ccf}{R\+T\+C\+C\+T\+L\+\_\+\+W\+R\+B\+U\+S\+Y\+\_\+\+M\+A\+SK}}) != 0);}
+
+
+
+Definition at line 41 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga5fefe3de7e3e7f6074692008e8ad1e32}\label{group___p_a_c5_x_x_x___r_t_c_ga5fefe3de7e3e7f6074692008e8ad1e32}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_IE\_MASK@{RTCCTL\_IE\_MASK}}
+\index{RTCCTL\_IE\_MASK@{RTCCTL\_IE\_MASK}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{RTCCTL\_IE\_MASK}{RTCCTL\_IE\_MASK}}
+{\footnotesize\ttfamily \#define R\+T\+C\+C\+T\+L\+\_\+\+I\+E\+\_\+\+M\+A\+SK~0x00000008}
+
+R\+TC interrupt enable mask ~\newline
+ 
+
+Definition at line 36 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga8685c64245247f0a9aa561f0eb8aa22e}\label{group___p_a_c5_x_x_x___r_t_c_ga8685c64245247f0a9aa561f0eb8aa22e}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_IE\_SHIFT@{RTCCTL\_IE\_SHIFT}}
+\index{RTCCTL\_IE\_SHIFT@{RTCCTL\_IE\_SHIFT}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{RTCCTL\_IE\_SHIFT}{RTCCTL\_IE\_SHIFT}}
+{\footnotesize\ttfamily \#define R\+T\+C\+C\+T\+L\+\_\+\+I\+E\+\_\+\+S\+H\+I\+FT~3}
+
+R\+TC interrupt enable bit-\/shift ~\newline
+ 
+
+Definition at line 35 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga55696b47ced16cadc64863b3c5de235a}\label{group___p_a_c5_x_x_x___r_t_c_ga55696b47ced16cadc64863b3c5de235a}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_IF\_MASK@{RTCCTL\_IF\_MASK}}
+\index{RTCCTL\_IF\_MASK@{RTCCTL\_IF\_MASK}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{RTCCTL\_IF\_MASK}{RTCCTL\_IF\_MASK}}
+{\footnotesize\ttfamily \#define R\+T\+C\+C\+T\+L\+\_\+\+I\+F\+\_\+\+M\+A\+SK~0x00000010}
+
+R\+TC interrupt flag mask ~\newline
+ 
+
+Definition at line 30 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga997ba3d4b749ad9f448bbc3e712e3868}\label{group___p_a_c5_x_x_x___r_t_c_ga997ba3d4b749ad9f448bbc3e712e3868}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_IF\_SHIFT@{RTCCTL\_IF\_SHIFT}}
+\index{RTCCTL\_IF\_SHIFT@{RTCCTL\_IF\_SHIFT}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{RTCCTL\_IF\_SHIFT}{RTCCTL\_IF\_SHIFT}}
+{\footnotesize\ttfamily \#define R\+T\+C\+C\+T\+L\+\_\+\+I\+F\+\_\+\+S\+H\+I\+FT~4}
+
+R\+TC interrupt flag bit-\/shift ~\newline
+ 
+
+Definition at line 29 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga5080c7fbbcd522a1978bd217458e8af2}\label{group___p_a_c5_x_x_x___r_t_c_ga5080c7fbbcd522a1978bd217458e8af2}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PASS\_READ@{RTCCTL\_PASS\_READ}}
+\index{RTCCTL\_PASS\_READ@{RTCCTL\_PASS\_READ}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{RTCCTL\_PASS\_READ}{RTCCTL\_PASS\_READ}}
+{\footnotesize\ttfamily \#define R\+T\+C\+C\+T\+L\+\_\+\+P\+A\+S\+S\+\_\+\+R\+E\+AD~0x63000000}
+
+R\+TC Read Register Password ~\newline
+ 
+
+Definition at line 27 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga376bdf10032ee115b3989424cee8e110}\label{group___p_a_c5_x_x_x___r_t_c_ga376bdf10032ee115b3989424cee8e110}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PASS\_WRITE@{RTCCTL\_PASS\_WRITE}}
+\index{RTCCTL\_PASS\_WRITE@{RTCCTL\_PASS\_WRITE}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{RTCCTL\_PASS\_WRITE}{RTCCTL\_PASS\_WRITE}}
+{\footnotesize\ttfamily \#define R\+T\+C\+C\+T\+L\+\_\+\+P\+A\+S\+S\+\_\+\+W\+R\+I\+TE~0x4\+A000000}
+
+R\+TC Write Register Password ~\newline
+ 
+
+Definition at line 26 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga5fe0ebd1cbd77cd2f23643e6a30d0685}\label{group___p_a_c5_x_x_x___r_t_c_ga5fe0ebd1cbd77cd2f23643e6a30d0685}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PS\_SHIFT@{RTCCTL\_PS\_SHIFT}}
+\index{RTCCTL\_PS\_SHIFT@{RTCCTL\_PS\_SHIFT}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{RTCCTL\_PS\_SHIFT}{RTCCTL\_PS\_SHIFT}}
+{\footnotesize\ttfamily \#define R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+S\+H\+I\+FT~6}
+
+R\+TC Pre-\/scaler bit-\/shift ~\newline
+ 
+
+Definition at line 63 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga145074c10facda77a2eef11c3626ef05}\label{group___p_a_c5_x_x_x___r_t_c_ga145074c10facda77a2eef11c3626ef05}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_RST\_SHIFT@{RTCCTL\_RST\_SHIFT}}
+\index{RTCCTL\_RST\_SHIFT@{RTCCTL\_RST\_SHIFT}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{RTCCTL\_RST\_SHIFT}{RTCCTL\_RST\_SHIFT}}
+{\footnotesize\ttfamily \#define R\+T\+C\+C\+T\+L\+\_\+\+R\+S\+T\+\_\+\+S\+H\+I\+FT~0}
+
+R\+TC reset key bit-\/shift ~\newline
+ 
+
+Definition at line 32 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gad4f814d5d36943eea3c8358c3cad34fa}\label{group___p_a_c5_x_x_x___r_t_c_gad4f814d5d36943eea3c8358c3cad34fa}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_RST\_VAL@{RTCCTL\_RST\_VAL}}
+\index{RTCCTL\_RST\_VAL@{RTCCTL\_RST\_VAL}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{RTCCTL\_RST\_VAL}{RTCCTL\_RST\_VAL}}
+{\footnotesize\ttfamily \#define R\+T\+C\+C\+T\+L\+\_\+\+R\+S\+T\+\_\+\+V\+AL~0x00000005}
+
+R\+TC reset key value ~\newline
+ 
+
+Definition at line 33 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga551b8f600ab11cf2a173091066c06ccf}\label{group___p_a_c5_x_x_x___r_t_c_ga551b8f600ab11cf2a173091066c06ccf}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_WRBUSY\_MASK@{RTCCTL\_WRBUSY\_MASK}}
+\index{RTCCTL\_WRBUSY\_MASK@{RTCCTL\_WRBUSY\_MASK}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{RTCCTL\_WRBUSY\_MASK}{RTCCTL\_WRBUSY\_MASK}}
+{\footnotesize\ttfamily \#define R\+T\+C\+C\+T\+L\+\_\+\+W\+R\+B\+U\+S\+Y\+\_\+\+M\+A\+SK~0x00000800}
+
+R\+TC Write Busy mask ~\newline
+ 
+
+Definition at line 39 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gadd8e7cbe63cb510a4ce6bf98a01c6ed1}\label{group___p_a_c5_x_x_x___r_t_c_gadd8e7cbe63cb510a4ce6bf98a01c6ed1}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_WRBUSY\_SHIFT@{RTCCTL\_WRBUSY\_SHIFT}}
+\index{RTCCTL\_WRBUSY\_SHIFT@{RTCCTL\_WRBUSY\_SHIFT}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{RTCCTL\_WRBUSY\_SHIFT}{RTCCTL\_WRBUSY\_SHIFT}}
+{\footnotesize\ttfamily \#define R\+T\+C\+C\+T\+L\+\_\+\+W\+R\+B\+U\+S\+Y\+\_\+\+S\+H\+I\+FT~11}
+
+R\+TC Write Busy bit-\/shift ~\newline
+ 
+
+Definition at line 38 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga09880c28c1af54c70f44b4a9ec3fda16}\label{group___p_a_c5_x_x_x___r_t_c_ga09880c28c1af54c70f44b4a9ec3fda16}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PS\_Type@{RTCCTL\_PS\_Type}}
+\index{RTCCTL\_PS\_Type@{RTCCTL\_PS\_Type}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{RTCCTL\_PS\_Type}{RTCCTL\_PS\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga09880c28c1af54c70f44b4a9ec3fda16}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+Type}}}
+
+R\+T\+C\+C\+TL Pre-\/scaler Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RTCCTL\_PS\_DIV2@{RTCCTL\_PS\_DIV2}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PS\_DIV2@{RTCCTL\_PS\_DIV2}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16aa2b7727b1d48152c565d73c2e2d0f779}\label{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16aa2b7727b1d48152c565d73c2e2d0f779}} 
+R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V2&R\+TC Pre-\/\+Scaler (/2) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RTCCTL\_PS\_DIV4@{RTCCTL\_PS\_DIV4}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PS\_DIV4@{RTCCTL\_PS\_DIV4}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a053e65ef2b8d7e31752c0a191ac7762c}\label{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a053e65ef2b8d7e31752c0a191ac7762c}} 
+R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V4&R\+TC Pre-\/\+Scaler (/4) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RTCCTL\_PS\_DIV8@{RTCCTL\_PS\_DIV8}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PS\_DIV8@{RTCCTL\_PS\_DIV8}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a68e722668ebf46807a0979bfd3e67b01}\label{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a68e722668ebf46807a0979bfd3e67b01}} 
+R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V8&R\+TC Pre-\/\+Scaler (/8) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RTCCTL\_PS\_DIV16@{RTCCTL\_PS\_DIV16}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PS\_DIV16@{RTCCTL\_PS\_DIV16}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16ae806dfb05b8df29e33cda9233187a14b}\label{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16ae806dfb05b8df29e33cda9233187a14b}} 
+R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V16&R\+TC Pre-\/\+Scaler (/16) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RTCCTL\_PS\_DIV32@{RTCCTL\_PS\_DIV32}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PS\_DIV32@{RTCCTL\_PS\_DIV32}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a19dbfa83048982435ee9b16469fff2a7}\label{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a19dbfa83048982435ee9b16469fff2a7}} 
+R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V32&R\+TC Pre-\/\+Scaler (/32) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RTCCTL\_PS\_DIV64@{RTCCTL\_PS\_DIV64}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PS\_DIV64@{RTCCTL\_PS\_DIV64}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a070c9520a20ef77b11242b0f1e15152b}\label{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a070c9520a20ef77b11242b0f1e15152b}} 
+R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V64&R\+TC Pre-\/\+Scaler (/64) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RTCCTL\_PS\_DIV128@{RTCCTL\_PS\_DIV128}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PS\_DIV128@{RTCCTL\_PS\_DIV128}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a73873d38b0c0b32d431936f7c7085954}\label{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a73873d38b0c0b32d431936f7c7085954}} 
+R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V128&R\+TC Pre-\/\+Scaler (/128) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RTCCTL\_PS\_DIV256@{RTCCTL\_PS\_DIV256}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PS\_DIV256@{RTCCTL\_PS\_DIV256}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16afcb414d66745f8d4829125578aba09ba}\label{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16afcb414d66745f8d4829125578aba09ba}} 
+R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V256&R\+TC Pre-\/\+Scaler (/128) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RTCCTL\_PS\_DIV512@{RTCCTL\_PS\_DIV512}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PS\_DIV512@{RTCCTL\_PS\_DIV512}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a55bed54493fb60b85eafd480cb56d54c}\label{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a55bed54493fb60b85eafd480cb56d54c}} 
+R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V512&R\+TC Pre-\/\+Scaler (/512) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RTCCTL\_PS\_DIV1024@{RTCCTL\_PS\_DIV1024}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PS\_DIV1024@{RTCCTL\_PS\_DIV1024}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a477a2e53168c8b6526369b5be8ffdc76}\label{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a477a2e53168c8b6526369b5be8ffdc76}} 
+R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V1024&R\+TC Pre-\/\+Scaler (/1024) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RTCCTL\_PS\_DIV2048@{RTCCTL\_PS\_DIV2048}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PS\_DIV2048@{RTCCTL\_PS\_DIV2048}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a0fafff0eae884197bea334995002b2ca}\label{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a0fafff0eae884197bea334995002b2ca}} 
+R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V2048&R\+TC Pre-\/\+Scaler (/2048) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RTCCTL\_PS\_DIV4096@{RTCCTL\_PS\_DIV4096}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PS\_DIV4096@{RTCCTL\_PS\_DIV4096}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a724114fa266fb796653d87c176008ca7}\label{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a724114fa266fb796653d87c176008ca7}} 
+R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V4096&R\+TC Pre-\/\+Scaler (/4096) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RTCCTL\_PS\_DIV8192@{RTCCTL\_PS\_DIV8192}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PS\_DIV8192@{RTCCTL\_PS\_DIV8192}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16af63add6e9313fe6204b8fef7b36994ed}\label{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16af63add6e9313fe6204b8fef7b36994ed}} 
+R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V8192&R\+TC Pre-\/\+Scaler (/8192) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RTCCTL\_PS\_DIV16384@{RTCCTL\_PS\_DIV16384}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PS\_DIV16384@{RTCCTL\_PS\_DIV16384}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a0365009ffb989aff72833371f8e61f2e}\label{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a0365009ffb989aff72833371f8e61f2e}} 
+R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V16384&R\+TC Pre-\/\+Scaler (/16384) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RTCCTL\_PS\_DIV32767@{RTCCTL\_PS\_DIV32767}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PS\_DIV32767@{RTCCTL\_PS\_DIV32767}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16ae69d6d38a103a9540c3db99e30302398}\label{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16ae69d6d38a103a9540c3db99e30302398}} 
+R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V32767&R\+TC Pre-\/\+Scaler (/32767) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RTCCTL\_PS\_DIV65536@{RTCCTL\_PS\_DIV65536}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL\_PS\_DIV65536@{RTCCTL\_PS\_DIV65536}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a32369ce56954c64bcf8c426161ee7901}\label{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a32369ce56954c64bcf8c426161ee7901}} 
+R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V65536&R\+TC Pre-\/\+Scaler (/65536) ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 44 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44              \{}
+\DoxyCodeLine{45   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16aa2b7727b1d48152c565d73c2e2d0f779}{RTCCTL\_PS\_DIV2}} = 0,                            }
+\DoxyCodeLine{46   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a053e65ef2b8d7e31752c0a191ac7762c}{RTCCTL\_PS\_DIV4}} = 1,                            }
+\DoxyCodeLine{47   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a68e722668ebf46807a0979bfd3e67b01}{RTCCTL\_PS\_DIV8}} = 2,                            }
+\DoxyCodeLine{48   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16ae806dfb05b8df29e33cda9233187a14b}{RTCCTL\_PS\_DIV16}} = 3,                           }
+\DoxyCodeLine{49   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a19dbfa83048982435ee9b16469fff2a7}{RTCCTL\_PS\_DIV32}} = 4,                           }
+\DoxyCodeLine{50   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a070c9520a20ef77b11242b0f1e15152b}{RTCCTL\_PS\_DIV64}} = 5,                           }
+\DoxyCodeLine{51   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a73873d38b0c0b32d431936f7c7085954}{RTCCTL\_PS\_DIV128}} = 6,                          }
+\DoxyCodeLine{52   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16afcb414d66745f8d4829125578aba09ba}{RTCCTL\_PS\_DIV256}} = 7,                          }
+\DoxyCodeLine{53   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a55bed54493fb60b85eafd480cb56d54c}{RTCCTL\_PS\_DIV512}} = 8,                          }
+\DoxyCodeLine{54   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a477a2e53168c8b6526369b5be8ffdc76}{RTCCTL\_PS\_DIV1024}} = 9,                         }
+\DoxyCodeLine{55   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a0fafff0eae884197bea334995002b2ca}{RTCCTL\_PS\_DIV2048}} = 10,                        }
+\DoxyCodeLine{56   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a724114fa266fb796653d87c176008ca7}{RTCCTL\_PS\_DIV4096}} = 11,                        }
+\DoxyCodeLine{57   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16af63add6e9313fe6204b8fef7b36994ed}{RTCCTL\_PS\_DIV8192}} = 12,                        }
+\DoxyCodeLine{58   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a0365009ffb989aff72833371f8e61f2e}{RTCCTL\_PS\_DIV16384}} = 13,                       }
+\DoxyCodeLine{59   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16ae69d6d38a103a9540c3db99e30302398}{RTCCTL\_PS\_DIV32767}} = 14,                       }
+\DoxyCodeLine{60   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gga09880c28c1af54c70f44b4a9ec3fda16a32369ce56954c64bcf8c426161ee7901}{RTCCTL\_PS\_DIV65536}} = 15                        }
+\DoxyCodeLine{61 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga09880c28c1af54c70f44b4a9ec3fda16}{RTCCTL\_PS\_Type}};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gafc881f16dc0af3400378d91393c44f2d}\label{group___p_a_c5_x_x_x___r_t_c_gafc881f16dc0af3400378d91393c44f2d}} 
+\doxysubsubsection{\texorpdfstring{"@2}{@2}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga408caa22cdee212d6e8c76c36fc2b58c}\label{group___p_a_c5_x_x_x___r_t_c_ga408caa22cdee212d6e8c76c36fc2b58c}} 
+\doxysubsubsection{\texorpdfstring{"@4}{@4}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga981f4e6d611fe527663843435e05ae06}\label{group___p_a_c5_x_x_x___r_t_c_ga981f4e6d611fe527663843435e05ae06}} 
+\doxysubsubsection{\texorpdfstring{"@6}{@6}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gad487cd23f414da2a0fcef2544b3490b6}\label{group___p_a_c5_x_x_x___r_t_c_gad487cd23f414da2a0fcef2544b3490b6}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+R\+T\+C\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 78 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga1882b1559aa8436077f36963b75be5a6}\label{group___p_a_c5_x_x_x___r_t_c_ga1882b1559aa8436077f36963b75be5a6}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 78 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gaebe4ea1bb3375a6fec2078b423397392}\label{group___p_a_c5_x_x_x___r_t_c_gaebe4ea1bb3375a6fec2078b423397392}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 82 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga06ca0f9df7b34aeb04785aeb7b4a77a0}\label{group___p_a_c5_x_x_x___r_t_c_ga06ca0f9df7b34aeb04785aeb7b4a77a0}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 86 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gadc4e0acadf834163adc2f983e28ae295}\label{group___p_a_c5_x_x_x___r_t_c_gadc4e0acadf834163adc2f983e28ae295}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!b@{b}}
+\index{b@{b}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+R\+T\+C\+\_\+\+Type\+Def\+::b}
+
+
+
+Definition at line 81 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga7c94de6adb929639070d2f7deece23ca}\label{group___p_a_c5_x_x_x___r_t_c_ga7c94de6adb929639070d2f7deece23ca}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!b@{b}}
+\index{b@{b}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::b}
+
+
+
+Definition at line 81 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga4e50c45239b0526dfc0acbfaf912ca92}\label{group___p_a_c5_x_x_x___r_t_c_ga4e50c45239b0526dfc0acbfaf912ca92}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCDV@{RTCCDV}}
+\index{RTCCDV@{RTCCDV}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{RTCCDV}{RTCCDV}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+R\+T\+C\+\_\+\+Type\+Def\+::\+R\+T\+C\+C\+DV}
+
+R\+T\+C\+C\+DR\+: Offset\+: 0x0008 Watchdog Timer Countdown Register ~\newline
+ 
+
+Definition at line 71 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga0e44d9ad75428384ad5ec1a6e9b8b627}\label{group___p_a_c5_x_x_x___r_t_c_ga0e44d9ad75428384ad5ec1a6e9b8b627}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTL@{RTCCTL}}
+\index{RTCCTL@{RTCCTL}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{RTCCTL}{RTCCTL}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+R\+T\+C\+\_\+\+Type\+Def\+::\+R\+T\+C\+C\+TL}
+
+$<$ R\+T\+C\+C\+TL\+: Offset\+: 0x0000 Watchdog Timer Control Register ~\newline
+ R\+T\+C\+C\+DV\+: Offset\+: 0x0004 Watchdog Timer Countdown Value Reg ~\newline
+ 
+
+Definition at line 68 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga729f6bed35ad01e63f2a9137dee5fc79}\label{group___p_a_c5_x_x_x___r_t_c_ga729f6bed35ad01e63f2a9137dee5fc79}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!RTCCTR@{RTCCTR}}
+\index{RTCCTR@{RTCCTR}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{RTCCTR}{RTCCTR}}
+{\footnotesize\ttfamily union \{ ... \}  P\+A\+C5\+X\+X\+X\+\_\+\+R\+T\+C\+\_\+\+Type\+Def\+::\+R\+T\+C\+C\+TR}
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_gac0d0e4d79148131f9aecc3402c0e8d48}\label{group___p_a_c5_x_x_x___r_t_c_gac0d0e4d79148131f9aecc3402c0e8d48}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!s@{s}}
+\index{s@{s}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{s}{s}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+R\+T\+C\+\_\+\+Type\+Def\+::s}
+
+
+
+Definition at line 77 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga108c8bccfabe41bbbcd731878974da1b}\label{group___p_a_c5_x_x_x___r_t_c_ga108c8bccfabe41bbbcd731878974da1b}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!s@{s}}
+\index{s@{s}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{s}{s}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::s}
+
+
+
+Definition at line 77 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga72377939b79334720daf0d61f239f923}\label{group___p_a_c5_x_x_x___r_t_c_ga72377939b79334720daf0d61f239f923}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!VAL@{VAL}}
+\index{VAL@{VAL}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{VAL}{VAL}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+I \{ ... \} \+::V\+AL}
+
+Countdown Register Value ~\newline
+ 
+
+Definition at line 85 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga61bb1b9c031801bb6330085a5a09d304}\label{group___p_a_c5_x_x_x___r_t_c_ga61bb1b9c031801bb6330085a5a09d304}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!VAL@{VAL}}
+\index{VAL@{VAL}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{VAL}{VAL}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+R\+T\+C\+\_\+\+Type\+Def\+::\+V\+AL}
+
+Countdown Register Value ~\newline
+ 
+
+Definition at line 85 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga42dc997733c36a877d27d38b35243bfc}\label{group___p_a_c5_x_x_x___r_t_c_ga42dc997733c36a877d27d38b35243bfc}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!w@{w}}
+\index{w@{w}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{w}{w}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+R\+T\+C\+\_\+\+Type\+Def\+::w}
+
+
+
+Definition at line 75 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___r_t_c_ga4050d1ae1de0986156a623344dcb03a9}\label{group___p_a_c5_x_x_x___r_t_c_ga4050d1ae1de0986156a623344dcb03a9}} 
+\index{PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}!w@{w}}
+\index{w@{w}!PAC5XXX Real-\/Time Clock (RTC)@{PAC5XXX Real-\/Time Clock (RTC)}}
+\doxysubsubsection{\texorpdfstring{w}{w}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::w}
+
+
+
+Definition at line 75 of file pac5xxx\+\_\+\+R\+T\+C.\+h.
+

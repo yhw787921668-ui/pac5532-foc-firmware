@@ -1,0 +1,66 @@
+.TH "pac_foc/src/features/watchdog.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/features/watchdog.h \- Use to initialize watchdog timer\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBWATCHDOG_FREQ_HZ\fP   2"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinit_Watchdog_time_base\fP (void)"
+.br
+.RI "Use to initialize watchdog timer\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use to initialize watchdog timer\&. 
+
+
+.PP
+Definition in file \fBwatchdog\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define WATCHDOG_FREQ_HZ   2"
+
+.PP
+Definition at line 25 of file watchdog\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void init_Watchdog_time_base (void)"
+
+.PP
+Use to initialize watchdog timer\&. 
+.PP
+Definition at line 32 of file watchdog\&.c\&.
+.PP
+.nf
+33 {
+34    // FRCLK, 4MHz, clock divider of 2
+35     pac5xxx_watchdog_config_clock(WDTCTL_CLKSEL_FRCLK, WDTCTL_PS_DIV2);
+36     // Enable WDT - When the WDT Interrupt is not enabled, a single count down to 0 will trigger a reset
+37     pac5xxx_watchdog_config(WATCHDOG_INTERRUPT_DISABLED,        // No Interrupt
+38                             WATCHDOG_POWER_ON_RESET_ENABLE,     // POR Enable
+39                            // WDT Counter = FRCLK Freq / WDT Clock Divisor / Test Freq * 1\&.5 for 50% margin
+40                            ( (uint32_t)(WATCHDOG_CLK_FREQ_SELECTED / WATCHDOG_DEFAULT_FREQ_DIVIDER / WATCHDOG_FREQ_HZ) ) );
+41 
+42 }
+.fi
+.PP
+References WATCHDOG_CLK_FREQ_SELECTED, WATCHDOG_DEFAULT_FREQ_DIVIDER, WATCHDOG_FREQ_HZ, WATCHDOG_INTERRUPT_DISABLED, and WATCHDOG_POWER_ON_RESET_ENABLE\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

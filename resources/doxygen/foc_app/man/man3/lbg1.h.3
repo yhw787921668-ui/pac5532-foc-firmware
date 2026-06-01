@@ -1,0 +1,107 @@
+.TH "pac_foc/src/mpos/estimator/lbg1.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/mpos/estimator/lbg1.h \- Estimator main functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'maths\&.h'\fP
+.br
+\fC#include 'lbg1_struct\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLBG_GAIN_SCALER_Q06\fP   \fBQCONST\fP(20000\&.0f, \fBQ06\fP)"
+.br
+.ti -1c
+.RI "#define \fBLBG_KGAIN_START_PCT_F16\fP   \fBQCONST\fP(0\&.2, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBLBG_KGAIN_INC_PCT_F16\fP   \fBQCONST\fP(0\&.10, \fBQ16\fP)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBlbg1_process_voltage_scale_lib\fP (\fBStruct_Est\fP *est_ptr, \fBfix16_t\fP descale_voltage_factor)"
+.br
+.ti -1c
+.RI "void \fBlbg1_update_state_lib\fP (\fBStruct_Est\fP *est_ptr, \fBfix16_t\fP update_angle_q16, \fBfix16_t\fP update_speed_radps_q16, uint16_t speed_scale_shift, int32_t dt_control_q26)"
+.br
+.ti -1c
+.RI "void \fBlbg1_check_transition_ready\fP (\fBStruct_Est\fP *est_ptr)"
+.br
+.ti -1c
+.RI "void \fBlbg1_calculate_coefficients_lib\fP (\fBStruct_Est\fP *est_ptr, \fBfix16_t\fP dt_control_q26, \fBfix16_t\fP factor_current_descale, \fBfix16_t\fP motorparam_r, int32_t motorparam_l_x1024, uint16_t speed_scale_shift, int32_t gain_scaler_q06, int32_t nom_spd_q16)"
+.br
+.ti -1c
+.RI "void \fBlbg1_switch2cl\fP (\fBStruct_Est\fP *est_ptr)"
+.br
+.ti -1c
+.RI "void \fBlbg1_statemon_lib\fP (\fBStruct_Est\fP *est_ptr, int32_t lq_q26, int32_t rs_q16, int32_t dt_control_q26, int32_t \fBdescale_current_factor\fP)"
+.br
+.ti -1c
+.RI "void \fBlbg1_init\fP (\fBStruct_Est\fP *est_ptr, int32_t lq_q26, int32_t rs_q16, int32_t dt_control_q26, int32_t \fBdescale_current_factor\fP)"
+.br
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBlbg1_estimator_lib\fP (\fBStruct_Est\fP *est_ptr)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Estimator main functions\&. 
+
+
+.PP
+Definition in file \fBlbg1\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define LBG_GAIN_SCALER_Q06   \fBQCONST\fP(20000\&.0f, \fBQ06\fP)"
+
+.PP
+Definition at line 28 of file lbg1\&.h\&.
+.SS "#define LBG_KGAIN_INC_PCT_F16   \fBQCONST\fP(0\&.10, \fBQ16\fP)"
+
+.PP
+Definition at line 32 of file lbg1\&.h\&.
+.SS "#define LBG_KGAIN_START_PCT_F16   \fBQCONST\fP(0\&.2, \fBQ16\fP)"
+
+.PP
+Definition at line 31 of file lbg1\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void lbg1_calculate_coefficients_lib (\fBStruct_Est\fP * est_ptr, \fBfix16_t\fP dt_control_q26, \fBfix16_t\fP factor_current_descale, \fBfix16_t\fP motorparam_r, int32_t motorparam_l_x1024, uint16_t speed_scale_shift, int32_t gain_scaler_q06, int32_t nom_spd_q16)"
+
+.PP
+Referenced by lbg1_calculate_coefficients()\&.
+.SS "void lbg1_check_transition_ready (\fBStruct_Est\fP * est_ptr)"
+
+.SS "PAC5XXX_RAMFUNC void lbg1_estimator_lib (\fBStruct_Est\fP * est_ptr)"
+
+.SS "void lbg1_init (\fBStruct_Est\fP * est_ptr, int32_t lq_q26, int32_t rs_q16, int32_t dt_control_q26, int32_t descale_current_factor)"
+
+.PP
+Referenced by lbg1_reset()\&.
+.SS "void lbg1_process_voltage_scale_lib (\fBStruct_Est\fP * est_ptr, \fBfix16_t\fP descale_voltage_factor)"
+
+.PP
+Referenced by lbg1_process_voltage_scale()\&.
+.SS "void lbg1_statemon_lib (\fBStruct_Est\fP * est_ptr, int32_t lq_q26, int32_t rs_q16, int32_t dt_control_q26, int32_t descale_current_factor)"
+
+.PP
+Referenced by lbg1_statemon()\&.
+.SS "void lbg1_switch2cl (\fBStruct_Est\fP * est_ptr)"
+
+.SS "void lbg1_update_state_lib (\fBStruct_Est\fP * est_ptr, \fBfix16_t\fP update_angle_q16, \fBfix16_t\fP update_speed_radps_q16, uint16_t speed_scale_shift, int32_t dt_control_q26)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

@@ -1,0 +1,73 @@
+\hypertarget{opd__cl_8h}{}\doxysection{pac\+\_\+foc/src/features/opd/opd\+\_\+cl.h File Reference}
+\label{opd__cl_8h}\index{pac\_foc/src/features/opd/opd\_cl.h@{pac\_foc/src/features/opd/opd\_cl.h}}
+
+
+Use to process control functions in O\+PD.  
+
+
+{\ttfamily \#include \char`\"{}opd\+\_\+cl\+\_\+struct.\+h\char`\"{}}\newline
+Include dependency graph for opd\+\_\+cl.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{opd__cl_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{opd__cl_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{opd__cl_8h_aca5eb48fda6c029ad443885643e62958}{process\+\_\+opdcl}} (\mbox{\hyperlink{struct_struct___o_p_d_c_l}{Struct\+\_\+\+O\+P\+D\+CL}} $\ast$opdcl\+\_\+ptr, int32\+\_\+t dutysat\+\_\+flag)
+\begin{DoxyCompactList}\small\item\em Use to process the regular O\+PD function calls. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{opd__cl_8h_a587122c1cb5578e8631ce914be2b8df4}{process\+\_\+opdcl\+\_\+fast}} (\mbox{\hyperlink{struct_struct___o_p_d_c_l}{Struct\+\_\+\+O\+P\+D\+CL}} $\ast$opdcl\+\_\+ptr, uint8\+\_\+t bit\+\_\+shift)
+\begin{DoxyCompactList}\small\item\em Use to process the fast O\+PD algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use to process control functions in O\+PD. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{opd__cl_8h_aca5eb48fda6c029ad443885643e62958}\label{opd__cl_8h_aca5eb48fda6c029ad443885643e62958}} 
+\index{opd\_cl.h@{opd\_cl.h}!process\_opdcl@{process\_opdcl}}
+\index{process\_opdcl@{process\_opdcl}!opd\_cl.h@{opd\_cl.h}}
+\doxysubsubsection{\texorpdfstring{process\_opdcl()}{process\_opdcl()}}
+{\footnotesize\ttfamily uint8\+\_\+t process\+\_\+opdcl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___o_p_d_c_l}{Struct\+\_\+\+O\+P\+D\+CL}} $\ast$}]{opdcl\+\_\+ptr,  }\item[{int32\+\_\+t}]{dutysat\+\_\+flag }\end{DoxyParamCaption})}
+
+
+
+Use to process the regular O\+PD function calls. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+O\+P\+D\+C\+L$\ast$} & opdcl\+\_\+ptr \\
+\hline
+{\em int32\+\_\+t} & dutysat\+\_\+flag \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{opd__cl_8h_a587122c1cb5578e8631ce914be2b8df4}\label{opd__cl_8h_a587122c1cb5578e8631ce914be2b8df4}} 
+\index{opd\_cl.h@{opd\_cl.h}!process\_opdcl\_fast@{process\_opdcl\_fast}}
+\index{process\_opdcl\_fast@{process\_opdcl\_fast}!opd\_cl.h@{opd\_cl.h}}
+\doxysubsubsection{\texorpdfstring{process\_opdcl\_fast()}{process\_opdcl\_fast()}}
+{\footnotesize\ttfamily uint8\+\_\+t process\+\_\+opdcl\+\_\+fast (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___o_p_d_c_l}{Struct\+\_\+\+O\+P\+D\+CL}} $\ast$}]{opdcl\+\_\+ptr,  }\item[{uint8\+\_\+t}]{bit\+\_\+shift }\end{DoxyParamCaption})}
+
+
+
+Use to process the fast O\+PD algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+O\+P\+D\+C\+L$\ast$} & opdcl\+\_\+ptr \\
+\hline
+{\em uint8\+\_\+t} & bit\+\_\+shift \\
+\hline
+\end{DoxyParams}

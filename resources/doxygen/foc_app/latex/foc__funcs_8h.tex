@@ -1,0 +1,311 @@
+\hypertarget{foc__funcs_8h}{}\doxysection{pac\+\_\+foc/src/control/foc\+\_\+funcs.h File Reference}
+\label{foc__funcs_8h}\index{pac\_foc/src/control/foc\_funcs.h@{pac\_foc/src/control/foc\_funcs.h}}
+
+
+Use for F\+OC utility functions, Id\+Iq current filter, Id \& Iq PI, vqmax.  
+
+
+{\ttfamily \#include \char`\"{}config\+\_\+app.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config\+\_\+features.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}satmon.\+h\char`\"{}}\newline
+Include dependency graph for foc\+\_\+funcs.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{foc__funcs_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{foc__funcs_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{foc__funcs_8h_a069f0a934297643ec1a9143c06342bc4}{foc\+\_\+reset}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em This function use to reset F\+OC related variables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{foc__funcs_8h_a68ac936da8e293880bdfe4a6a1092075}{foc\+\_\+systemvar\+\_\+init}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\item 
+void \mbox{\hyperlink{foc__funcs_8h_aeabbcc786cd687718fa87acf49fa00d3}{foc\+\_\+calc\+\_\+pwmtimer}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\item 
+void \mbox{\hyperlink{foc__funcs_8h_aef5fe09425d67d651fbf7292e2f304c4}{foc\+\_\+config}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for F\+OC utility functions, Id\+Iq current filter, Id \& Iq PI, vqmax. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{foc__funcs_8h_aeabbcc786cd687718fa87acf49fa00d3}\label{foc__funcs_8h_aeabbcc786cd687718fa87acf49fa00d3}} 
+\index{foc\_funcs.h@{foc\_funcs.h}!foc\_calc\_pwmtimer@{foc\_calc\_pwmtimer}}
+\index{foc\_calc\_pwmtimer@{foc\_calc\_pwmtimer}!foc\_funcs.h@{foc\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{foc\_calc\_pwmtimer()}{foc\_calc\_pwmtimer()}}
+{\footnotesize\ttfamily void foc\+\_\+calc\+\_\+pwmtimer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 89 of file foc\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{90 \{}
+\DoxyCodeLine{91     \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}} pwm\_counts, temp2;}
+\DoxyCodeLine{92     uint32\_t temp1;}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{comment}{// Calculate TimerA (PWM) ticks in up/down mode using Timer Clk frequency, foc\_dt, and ctrl\_divider}}
+\DoxyCodeLine{95     temp1 = (TIMERCLK\_FREQ\_HZ >> 10);                                                              \textcolor{comment}{// clk\_div1024 = clk / 1024     (q0 / q0 = q0)}}
+\DoxyCodeLine{96     temp2 = \mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}(motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a53d396a9cd99df24ea0cecf75cae7d3e}{dt\_control\_q26}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_aaddf83287ef2ff6dacff87057bfa8ab7}{ctrl\_divider\_foc}});    \textcolor{comment}{// pwm\_dt\_x1024 = dt\_control\_q26 / ctrl\_divider}}
+\DoxyCodeLine{97     temp2 = \mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\_mul}}(temp2, temp1);                                                            \textcolor{comment}{// ticks = pwm\_dt\_x1024 * clk\_div1024    (q16 * q0 = q16)}}
+\DoxyCodeLine{98     temp2 = (temp2 >> 1);                                                                       \textcolor{comment}{// ticks\_updn = ticks / 2}}
+\DoxyCodeLine{99     pwm\_counts = ((temp2 + 0x8000) >> 16);                                                      \textcolor{comment}{// Round and shift from q16 to q0}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a07f7a7e0147861069c4befa8af935128}{motor\_period\_ticks}} = pwm\_counts;}
+\DoxyCodeLine{102 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+F\+O\+C\+::ctrl\+\_\+divider\+\_\+foc, Struct\+\_\+\+F\+O\+C\+::dt\+\_\+control\+\_\+q26, fix16\+\_\+div(), fix16\+\_\+mul(), Struct\+\_\+\+Motor\+::foc, and Struct\+\_\+\+F\+O\+C\+::motor\+\_\+period\+\_\+ticks.
+
+
+
+Referenced by parameters\+\_\+write\+\_\+foc().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{foc__funcs_8h_aeabbcc786cd687718fa87acf49fa00d3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{foc__funcs_8h_aeabbcc786cd687718fa87acf49fa00d3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{foc__funcs_8h_aef5fe09425d67d651fbf7292e2f304c4}\label{foc__funcs_8h_aef5fe09425d67d651fbf7292e2f304c4}} 
+\index{foc\_funcs.h@{foc\_funcs.h}!foc\_config@{foc\_config}}
+\index{foc\_config@{foc\_config}!foc\_funcs.h@{foc\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{foc\_config()}{foc\_config()}}
+{\footnotesize\ttfamily void foc\+\_\+config (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 126 of file foc\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{127 \{}
+\DoxyCodeLine{128     \textcolor{comment}{// Set PWM period to FOC}}
+\DoxyCodeLine{129     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} = motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a07f7a7e0147861069c4befa8af935128}{motor\_period\_ticks}};}
+\DoxyCodeLine{130     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a409a52fd9fb77b1c81a7665d21f468f7}{motor\_period\_ticks\_1div}} = \mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}(\mbox{\hyperlink{maths_8h_a317ae35aa5c1f21e8d52b831dcde83ca}{FIX16\_1P0}}, (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} << 16));}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132     \textcolor{comment}{// Configure PWM timer for FOC}}
+\DoxyCodeLine{133     configure\_foc\_timer();}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135     \textcolor{comment}{// Set PWM duty cycles to 50\%}}
+\DoxyCodeLine{136     m1\_u\_set\_duty(motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);                                          \textcolor{comment}{// Set initial duty cycle to 50\% (off)}}
+\DoxyCodeLine{137     m1\_v\_set\_duty(motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);                                          \textcolor{comment}{// Set initial duty cycle to 50\% (off)}}
+\DoxyCodeLine{138     m1\_w\_set\_duty(motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} >> 1);                                          \textcolor{comment}{// Set initial duty cycle to 50\% (off)}}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140     \textcolor{comment}{// Configure control loop for FOC mode}}
+\DoxyCodeLine{141     config\_control\_timing\_foc\_inline();}
+\DoxyCodeLine{142 }
+\DoxyCodeLine{143     \textcolor{comment}{// Configure control divider for FOC}}
+\DoxyCodeLine{144     \mbox{\hyperlink{control__funcs_8c_add72aac22842126f7c88023b569ad717}{config\_control\_dt}}(motor\_ptr, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a53d396a9cd99df24ea0cecf75cae7d3e}{dt\_control\_q26}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_aaddf83287ef2ff6dacff87057bfa8ab7}{ctrl\_divider\_foc}});}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146     \textcolor{comment}{// Configure min/max duty}}
+\DoxyCodeLine{147     foc\_config\_duty(motor\_ptr);}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#ifdef CONTROL\_VDVQ\_VECTOR\_LIMIT}}
+\DoxyCodeLine{150     config\_vdvq\_vector\_limit(motor\_ptr);}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#ifdef ENABLE\_MTPA}}
+\DoxyCodeLine{154     \textcolor{comment}{// Unit: Degree, scaled}}
+\DoxyCodeLine{155     motor\_ptr-\/>mtpa.mtpa\_gain\_q16 = \mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\_mul}}(motor\_ptr-\/>mtpa.mtpa\_gain\_degpa\_q16, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_afc7224469e53f1be293f573436f699fe}{descale\_current\_factor}});}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#ifdef ENABLE\_BOOTPROT}}
+\DoxyCodeLine{159     \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}} temp3;}
+\DoxyCodeLine{160     temp3 = BOOTPROT\_TIME\_LIMIT\_SEC\_x1024; \textcolor{comment}{//-\/ motor\_ptr-\/>foc\_dt;}}
+\DoxyCodeLine{161     \textcolor{keywordflow}{if} (temp3 < 0)}
+\DoxyCodeLine{162         temp3 = 0;}
+\DoxyCodeLine{163     motor\_ptr-\/>bootprot.bootprot\_max\_counts = (\mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\_mul}}(temp3, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a40d4c5e3068f482417417f6b77de3fe2}{dt\_control\_1div\_q6}}) >> 16);    \textcolor{comment}{// q0 = q16>>16}}
+\DoxyCodeLine{164 }
+\DoxyCodeLine{165     motor\_ptr-\/>bootprot.bootprot\_pwm\_max\_ticks = (\mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\_mul}}((\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}})(motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\_period\_ticks}} << 16), BOOTPROT\_DUTY\_MAX\_PCT\_Q16) >> 16);}
+\DoxyCodeLine{166 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{167 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::control, F\+I\+X16\+\_\+1\+P0, fix16\+\_\+div(), Struct\+\_\+\+Motor\+::foc, Struct\+\_\+\+Control\+::motor\+\_\+period\+\_\+ticks, Struct\+\_\+\+F\+O\+C\+::motor\+\_\+period\+\_\+ticks, and Struct\+\_\+\+Control\+::motor\+\_\+period\+\_\+ticks\+\_\+1div.
+
+
+
+Referenced by parameters\+\_\+write\+\_\+foc(), and sm\+\_\+mainsub\+\_\+post().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{foc__funcs_8h_aef5fe09425d67d651fbf7292e2f304c4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{foc__funcs_8h_aef5fe09425d67d651fbf7292e2f304c4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{foc__funcs_8h_a069f0a934297643ec1a9143c06342bc4}\label{foc__funcs_8h_a069f0a934297643ec1a9143c06342bc4}} 
+\index{foc\_funcs.h@{foc\_funcs.h}!foc\_reset@{foc\_reset}}
+\index{foc\_reset@{foc\_reset}!foc\_funcs.h@{foc\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{foc\_reset()}{foc\_reset()}}
+{\footnotesize\ttfamily void foc\+\_\+reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+This function use to reset F\+OC related variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr pointer to motor structure \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 26 of file foc\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28     \mbox{\hyperlink{pid_8c_a3eaab9d1b25fcdaaca6ea50861dbe446}{pid\_reset}}(\&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_ad17bb837caae66cbb412809f6ba20ff5}{Id\_pid}});                                \textcolor{comment}{// Reset PID controller data}}
+\DoxyCodeLine{29     \mbox{\hyperlink{pid_8c_a3eaab9d1b25fcdaaca6ea50861dbe446}{pid\_reset}}(\&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a61517e1b8a9490a4fb3dfd60e891eb41}{Iq\_pid}});                                \textcolor{comment}{// Reset PID controller data}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_aca15eb3fc40674d1517486016630ab69}{idref\_ramp\_q14}} = 0;}
+\DoxyCodeLine{32     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a2202f1efe444ee1192f32489f17c840e}{idref\_ramp\_f16}} = 0;}
+\DoxyCodeLine{33     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a2c409428c9a6acab71ab6c2eaed47235}{iqref\_ramp\_q14}} = 0;}
+\DoxyCodeLine{34     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a7888534281a1a5ae7e8813ffad8774db}{iqref\_ramp\_f16}} = 0;}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a981039336223f7e8d9e4defbbd473648}{id\_q14}} = 0;}
+\DoxyCodeLine{37     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_aac13dc1df85d1fa7446946462ed4182f}{iq\_q14}} = 0;}
+\DoxyCodeLine{38     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a1c59f2ee014cb20655877f2b9984dee2}{vd\_q14}} = 0;}
+\DoxyCodeLine{39     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_ac0c499bd43c92bcbbbe2d8a4c09939af}{vq\_q14}} = 0;}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a6fc42bfc16c122a7effc29133919cf61}{flag\_sat\_logicor}} = 0;                            \textcolor{comment}{// Drive saturation flag implemented as logic "{}or"{} of control cycles in sampling window}}
+\DoxyCodeLine{42     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a1711c16abe7e41ccf1fbe8958efe2e2d}{flag\_sat\_logicand}} = 0;}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a3e3a71366865592fafb283064eac6cfc}{svm\_ta\_q14}} = 0;}
+\DoxyCodeLine{45     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a0c9695e4f4bf8b197fa25afd45432abd}{svm\_tb\_q14}} = 0;}
+\DoxyCodeLine{46     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a4c86d8b1432e4c25bcf6a05676466cc0}{svm\_tc\_q14}} = 0;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a6f157db219c8b937a88c3f639b33b18d}{valpha\_q14}} = 0;}
+\DoxyCodeLine{49     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a523f77719d12d11e9dd8d7b48f388005}{vbeta\_q14}} = 0;}
+\DoxyCodeLine{50     }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#ifdef ENABLE\_DQ\_DECOUPLING}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{    \#if (SEL\_DQ\_DECOUPLING\_METHOD == FEEDBACK\_DECOUPLING)}}
+\DoxyCodeLine{53     int32\_t fc\_temp\_q16;}
+\DoxyCodeLine{54     fc\_temp\_q16 = \mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}(motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a61517e1b8a9490a4fb3dfd60e891eb41}{Iq\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_a69d70e8a34bdede3030fd6bc8f590259}{ka\_q16}} << 10, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}.\mbox{\hyperlink{struct_struct___m_param_a41005a0df1e48dce8a42bbabf26369e3}{lq\_q26}});}
+\DoxyCodeLine{55     \textcolor{comment}{// Convert from rad/s to Hz}}
+\DoxyCodeLine{56     fc\_temp\_q16 = (fc\_temp\_q16 >> 10) * \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(0.159f, \mbox{\hyperlink{maths_8h_a693e3a9063a1e7582e682ffd4fe06f46}{Q10}});}
+\DoxyCodeLine{57     \textcolor{keywordflow}{if} (fc\_temp\_q16 > CURRENT\_FILTER\_CUTOFF\_FREQ\_Q16) fc\_temp\_q16 = CURRENT\_FILTER\_CUTOFF\_FREQ\_Q16;}
+\DoxyCodeLine{58     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.current\_filter\_coeff\_q16 = calc\_filter\_alpha(fc\_temp\_q16, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a26545bb8d0166b9c61068c21c1d49369}{dt\_control\_q26}});}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.id\_dec\_q14 = 0;}
+\DoxyCodeLine{61     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.iq\_dec\_q14 = 0;}
+\DoxyCodeLine{62 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{64 \}}
+
+\end{DoxyCode}
+
+
+References fix16\+\_\+div(), Struct\+\_\+\+F\+O\+C\+::flag\+\_\+sat\+\_\+logicand, Struct\+\_\+\+F\+O\+C\+::flag\+\_\+sat\+\_\+logicor, Struct\+\_\+\+Motor\+::foc, Struct\+\_\+\+F\+O\+C\+::\+Id\+\_\+pid, Struct\+\_\+\+F\+O\+C\+::id\+\_\+q14, Struct\+\_\+\+F\+O\+C\+::idref\+\_\+ramp\+\_\+f16, Struct\+\_\+\+F\+O\+C\+::idref\+\_\+ramp\+\_\+q14, Struct\+\_\+\+F\+O\+C\+::\+Iq\+\_\+pid, Struct\+\_\+\+F\+O\+C\+::iq\+\_\+q14, Struct\+\_\+\+F\+O\+C\+::iqref\+\_\+ramp\+\_\+f16, Struct\+\_\+\+F\+O\+C\+::iqref\+\_\+ramp\+\_\+q14, P\+I\+D\+\_\+\+Data\+\_\+\+Type\+::ka\+\_\+q16, Struct\+\_\+\+M\+Param\+::lq\+\_\+q26, Struct\+\_\+\+Motor\+::mparam, pid\+\_\+reset(), Q10, Q\+C\+O\+N\+ST, Struct\+\_\+\+F\+O\+C\+::svm\+\_\+ta\+\_\+q14, Struct\+\_\+\+F\+O\+C\+::svm\+\_\+tb\+\_\+q14, Struct\+\_\+\+F\+O\+C\+::svm\+\_\+tc\+\_\+q14, Struct\+\_\+\+F\+O\+C\+::valpha\+\_\+q14, Struct\+\_\+\+F\+O\+C\+::vbeta\+\_\+q14, Struct\+\_\+\+F\+O\+C\+::vd\+\_\+q14, and Struct\+\_\+\+F\+O\+C\+::vq\+\_\+q14.
+
+
+
+Referenced by motor\+\_\+reset().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{foc__funcs_8h_a069f0a934297643ec1a9143c06342bc4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{foc__funcs_8h_a069f0a934297643ec1a9143c06342bc4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{foc__funcs_8h_a68ac936da8e293880bdfe4a6a1092075}\label{foc__funcs_8h_a68ac936da8e293880bdfe4a6a1092075}} 
+\index{foc\_funcs.h@{foc\_funcs.h}!foc\_systemvar\_init@{foc\_systemvar\_init}}
+\index{foc\_systemvar\_init@{foc\_systemvar\_init}!foc\_funcs.h@{foc\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{foc\_systemvar\_init()}{foc\_systemvar\_init()}}
+{\footnotesize\ttfamily void foc\+\_\+systemvar\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 66 of file foc\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{67 \{}
+\DoxyCodeLine{68     \textcolor{comment}{// default freq: 5 kHz}}
+\DoxyCodeLine{69     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a53d396a9cd99df24ea0cecf75cae7d3e}{dt\_control\_q26}} = \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{QCONST}}(0.0002f, \mbox{\hyperlink{maths_8h_a6b6408dd9fe19d0d285d4617ae200b40}{Q26}});}
+\DoxyCodeLine{70     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_aaddf83287ef2ff6dacff87057bfa8ab7}{ctrl\_divider\_foc}} = 3;}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#if (CONFIG\_SHUNT == CONFIG\_SHUNT\_3SHUNT)}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#ifdef ENABLE\_IPD}}
+\DoxyCodeLine{74     motor\_ptr-\/>funcptr1 = (void (*)(\textcolor{keywordtype}{void} *)) \&control\_3shunt\_adc\_isr;}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#elif (CONFIG\_SHUNT == CONFIG\_SHUNT\_1SHUNT) \&\& (MODE\_1SHUNT\_SELECT == MODE\_1SHUNT\_EXTENSION)}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#ifdef ENABLE\_IPD}}
+\DoxyCodeLine{78     motor\_ptr-\/>funcptr1 = (void (*)(\textcolor{keywordtype}{void} *)) \&control\_1shunt\_extn\_adc\_isr;}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#elif (CONFIG\_SHUNT == CONFIG\_SHUNT\_1SHUNT) \&\& (MODE\_1SHUNT\_SELECT == MODE\_1SHUNT\_ASYMMETRIC)}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#ifdef ENABLE\_IPD}}
+\DoxyCodeLine{82     motor\_ptr-\/>funcptr1 = (void (*)(\textcolor{keywordtype}{void} *)) \&control\_1shunt\_asym\_timerb\_isr;}
+\DoxyCodeLine{83     motor\_ptr-\/>funcptr2 = (void (*)(\textcolor{keywordtype}{void} *)) \&control\_loop;}
+\DoxyCodeLine{84 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{86 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+F\+O\+C\+::ctrl\+\_\+divider\+\_\+foc, Struct\+\_\+\+F\+O\+C\+::dt\+\_\+control\+\_\+q26, Struct\+\_\+\+Motor\+::foc, Q26, and Q\+C\+O\+N\+ST.
+
+
+
+Referenced by systemvar\+\_\+init().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{foc__funcs_8h_a68ac936da8e293880bdfe4a6a1092075_icgraph}
+\end{center}
+\end{figure}

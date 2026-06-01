@@ -1,0 +1,117 @@
+.TH "ITM_Type" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ITM_Type \- Structure type to access the Instrumentation Trace Macrocell Register (ITM)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <core_cm4\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint8_t \fBITM_Type::u8\fP"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint16_t \fBITM_Type::u16\fP"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint32_t \fBITM_Type::u32\fP"
+.br
+.ti -1c
+.RI "} \fBPORT\fP [32]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED0\fP [864]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTER\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED1\fP [15]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTPR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED2\fP [15]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTCR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED3\fP [29]"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBIWR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBIRR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBIMCR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED4\fP [43]"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBLAR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBLSR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED5\fP [6]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPID4\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPID5\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPID6\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPID7\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPID0\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPID1\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPID2\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPID3\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCID0\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCID1\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCID2\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCID3\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Structure type to access the Instrumentation Trace Macrocell Register (ITM)\&. 
+.PP
+Definition at line 658 of file core_cm4\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

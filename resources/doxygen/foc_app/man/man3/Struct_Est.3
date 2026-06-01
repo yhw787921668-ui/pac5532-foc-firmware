@@ -1,0 +1,369 @@
+.TH "Struct_Est" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Struct_Est \- Estimator structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <lbg1_struct\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBstate\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBest_transition_complete\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBswitchover_check_pass\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBlbg_valid_fault_flag\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBflag_estbw_high\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBtemp\fP: 28"
+.br
+.ti -1c
+.RI "int32_t \fBangle_diff_timeout_counter\fP"
+.br
+.ti -1c
+.RI "int32_t \fBlbg_valid_check_counter\fP"
+.br
+.ti -1c
+.RI "int32_t \fBialpha1_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBibeta1_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBvalpha1_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBvbeta1_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBest_spd_radps\fP"
+.br
+.ti -1c
+.RI "int32_t \fBest_spd_scaled_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBest_spd_scaled_q28\fP"
+.br
+.ti -1c
+.RI "int32_t \fBest_spd_prefilt_scaled_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBestimated_angle\fP"
+.br
+.ti -1c
+.RI "int32_t \fBcalculated_angle\fP"
+.br
+.ti -1c
+.RI "int32_t \fBest_ialpha_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBest_ibeta_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBest_ealpha_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBest_ebeta_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBangle_previous\fP"
+.br
+.ti -1c
+.RI "int32_t \fBvalpha_sreg0_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBvbeta_sreg0_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBfs_q15\fP"
+.br
+.ti -1c
+.RI "int32_t \fBgs_const_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBgs_q15\fP"
+.br
+.ti -1c
+.RI "int32_t \fBkpe_store_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBkpe_const_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBkpe_vrble_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBkpi_store_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBkpi_const_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBfilter_fc_speed_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBfilter_alpha_speed_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBkspd_radps_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBkspd_scaled_q14\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBspeed_scale_shift\fP"
+.br
+.ti -1c
+.RI "int32_t \fBangcorr_gain_q20\fP"
+.br
+.ti -1c
+.RI "int32_t \fBangcorr_offset\fP"
+.br
+.ti -1c
+.RI "int32_t \fBw0_q06\fP"
+.br
+.ti -1c
+.RI "int32_t \fBw0_target_q06\fP"
+.br
+.ti -1c
+.RI "int32_t \fBw0_ramp_q06\fP"
+.br
+.ti -1c
+.RI "int32_t \fBdampfactor_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBphscomp_multp_q20\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Estimator structure\&. 
+.PP
+Definition at line 26 of file lbg1_struct\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "int32_t Struct_Est::angcorr_gain_q20"
+
+.PP
+Definition at line 77 of file lbg1_struct\&.h\&.
+.PP
+Referenced by lbg1_param_write()\&.
+.SS "int32_t Struct_Est::angcorr_offset"
+
+.PP
+Definition at line 78 of file lbg1_struct\&.h\&.
+.PP
+Referenced by lbg1_param_write()\&.
+.SS "int32_t Struct_Est::angle_diff_timeout_counter"
+
+.PP
+Definition at line 37 of file lbg1_struct\&.h\&.
+.PP
+Referenced by est_anglediff_check(), and lbg1_reset()\&.
+.SS "int32_t Struct_Est::angle_previous"
+
+.PP
+Definition at line 59 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::calculated_angle"
+
+.PP
+Definition at line 52 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::dampfactor_q16"
+
+.PP
+Definition at line 82 of file lbg1_struct\&.h\&.
+.PP
+Referenced by lbg1_param_write()\&.
+.SS "int32_t Struct_Est::est_ealpha_q14"
+
+.PP
+Definition at line 57 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::est_ebeta_q14"
+
+.PP
+Definition at line 58 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::est_ialpha_q14"
+
+.PP
+Definition at line 55 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::est_ibeta_q14"
+
+.PP
+Definition at line 56 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::est_spd_prefilt_scaled_q14"
+
+.PP
+Definition at line 50 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::est_spd_radps"
+
+.PP
+Definition at line 47 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::est_spd_scaled_q14"
+
+.PP
+Definition at line 48 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::est_spd_scaled_q28"
+
+.PP
+Definition at line 49 of file lbg1_struct\&.h\&.
+.SS "uint32_t Struct_Est::est_transition_complete"
+
+.PP
+Definition at line 30 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::estimated_angle"
+
+.PP
+Definition at line 51 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::filter_alpha_speed_q16"
+
+.PP
+Definition at line 73 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::filter_fc_speed_q16"
+
+.PP
+Definition at line 72 of file lbg1_struct\&.h\&.
+.PP
+Referenced by lbg1_param_write()\&.
+.SS "uint32_t Struct_Est::flag_estbw_high"
+
+.PP
+Definition at line 33 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::fs_q15"
+
+.PP
+Definition at line 64 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::gs_const_q16"
+
+.PP
+Definition at line 65 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::gs_q15"
+
+.PP
+Definition at line 66 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::ialpha1_q14"
+
+.PP
+Definition at line 41 of file lbg1_struct\&.h\&.
+.PP
+Referenced by lbg1_statemon()\&.
+.SS "int32_t Struct_Est::ibeta1_q14"
+
+.PP
+Definition at line 42 of file lbg1_struct\&.h\&.
+.PP
+Referenced by lbg1_statemon()\&.
+.SS "int32_t Struct_Est::kpe_const_q14"
+
+.PP
+Definition at line 68 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::kpe_store_q16"
+
+.PP
+Definition at line 67 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::kpe_vrble_q14"
+
+.PP
+Definition at line 69 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::kpi_const_q14"
+
+.PP
+Definition at line 71 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::kpi_store_q16"
+
+.PP
+Definition at line 70 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::kspd_radps_q16"
+
+.PP
+Definition at line 74 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::kspd_scaled_q14"
+
+.PP
+Definition at line 75 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::lbg_valid_check_counter"
+
+.PP
+Definition at line 38 of file lbg1_struct\&.h\&.
+.PP
+Referenced by lbg1_reset(), and lbg1_statemon()\&.
+.SS "uint32_t Struct_Est::lbg_valid_fault_flag"
+
+.PP
+Definition at line 32 of file lbg1_struct\&.h\&.
+.PP
+Referenced by lbg1_reset(), and lbg1_statemon()\&.
+.SS "int32_t Struct_Est::phscomp_multp_q20"
+
+.PP
+Definition at line 83 of file lbg1_struct\&.h\&.
+.SS "uint32_t Struct_Est::speed_scale_shift"
+
+.PP
+Definition at line 76 of file lbg1_struct\&.h\&.
+.SS "uint32_t Struct_Est::state"
+
+.PP
+Definition at line 29 of file lbg1_struct\&.h\&.
+.SS "uint32_t Struct_Est::switchover_check_pass"
+
+.PP
+Definition at line 31 of file lbg1_struct\&.h\&.
+.PP
+Referenced by est_anglediff_check(), and lbg1_reset()\&.
+.SS "uint32_t Struct_Est::temp"
+
+.PP
+Definition at line 34 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::valpha1_q14"
+
+.PP
+Definition at line 43 of file lbg1_struct\&.h\&.
+.PP
+Referenced by lbg1_statemon()\&.
+.SS "int32_t Struct_Est::valpha_sreg0_q14"
+
+.PP
+Definition at line 60 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::vbeta1_q14"
+
+.PP
+Definition at line 44 of file lbg1_struct\&.h\&.
+.PP
+Referenced by lbg1_statemon()\&.
+.SS "int32_t Struct_Est::vbeta_sreg0_q14"
+
+.PP
+Definition at line 61 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::w0_q06"
+
+.PP
+Definition at line 79 of file lbg1_struct\&.h\&.
+.PP
+Referenced by lbg1_param_write()\&.
+.SS "int32_t Struct_Est::w0_ramp_q06"
+
+.PP
+Definition at line 81 of file lbg1_struct\&.h\&.
+.SS "int32_t Struct_Est::w0_target_q06"
+
+.PP
+Definition at line 80 of file lbg1_struct\&.h\&.
+.PP
+Referenced by lbg1_param_write()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

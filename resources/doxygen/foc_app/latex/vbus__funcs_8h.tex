@@ -1,0 +1,142 @@
+\hypertarget{vbus__funcs_8h}{}\doxysection{pac\+\_\+foc/src/app/vbus\+\_\+funcs.h File Reference}
+\label{vbus__funcs_8h}\index{pac\_foc/src/app/vbus\_funcs.h@{pac\_foc/src/app/vbus\_funcs.h}}
+
+
+Use to calculate internal and external vbus and slope factor from flash and duty cycle execlusion.  
+
+
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fault.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}control\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parameter\+\_\+process.\+h\char`\"{}}\newline
+Include dependency graph for vbus\+\_\+funcs.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vbus__funcs_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vbus__funcs_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{vbus__funcs_8h_ae6124558347e63e47b823ddffe430e1d}{sample\+\_\+dcbus}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em This function use to calculate average value of dc bus voltage. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{vbus__funcs_8h_aaed164b985c7f2fad08916303348f5cc}{calc\+\_\+vm}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr, unsigned int adc\+\_\+counts)
+\item 
+void \mbox{\hyperlink{vbus__funcs_8h_ab8fb6271a554c7be7b0c74504b5fc7fb}{cal\+\_\+vm\+\_\+const}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em This function use to calculate vms constant. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use to calculate internal and external vbus and slope factor from flash and duty cycle execlusion. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{vbus__funcs_8h_ab8fb6271a554c7be7b0c74504b5fc7fb}\label{vbus__funcs_8h_ab8fb6271a554c7be7b0c74504b5fc7fb}} 
+\index{vbus\_funcs.h@{vbus\_funcs.h}!cal\_vm\_const@{cal\_vm\_const}}
+\index{cal\_vm\_const@{cal\_vm\_const}!vbus\_funcs.h@{vbus\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{cal\_vm\_const()}{cal\_vm\_const()}}
+{\footnotesize\ttfamily void cal\+\_\+vm\+\_\+const (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+This function use to calculate vms constant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr pointer to motor structure \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 149 of file vbus\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{150 \{}
+\DoxyCodeLine{151     \textcolor{comment}{// Convert VMS100 and VMS200 in mV to q16}}
+\DoxyCodeLine{152     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad12f772cdb19c1432c7b9c6ca291f0fd}{vms\_v100}} = \mbox{\hyperlink{config__options_8h_a7074242cc2fbe0f5fd708a57342d25b8}{READ\_UINT16}}(VMS100\_ADDRESS) << 16;}
+\DoxyCodeLine{153     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ae7758fd0839b3411ab73a8e08499a7e6}{vms\_v200}} = \mbox{\hyperlink{config__options_8h_a7074242cc2fbe0f5fd708a57342d25b8}{READ\_UINT16}}(VMS200\_ADDRESS) << 16;}
+\DoxyCodeLine{154     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ac77f08291cce78289af18d88227076f7}{one\_div\_vms200\_minus\_vms100}} = \mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}(\mbox{\hyperlink{fix16_8h_ab8732af29723661b66f6570881cebc6c}{FIX16\_ONE}}, fix16\_sub(motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ae7758fd0839b3411ab73a8e08499a7e6}{vms\_v200}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad12f772cdb19c1432c7b9c6ca291f0fd}{vms\_v100}}));}
+\DoxyCodeLine{155 \}}
+
+\end{DoxyCode}
+
+
+References fix16\+\_\+div(), F\+I\+X16\+\_\+\+O\+NE, Struct\+\_\+\+Motor\+::one\+\_\+div\+\_\+vms200\+\_\+minus\+\_\+vms100, R\+E\+A\+D\+\_\+\+U\+I\+N\+T16, Struct\+\_\+\+Motor\+::vms\+\_\+v100, and Struct\+\_\+\+Motor\+::vms\+\_\+v200.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vbus__funcs_8h_ab8fb6271a554c7be7b0c74504b5fc7fb_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{vbus__funcs_8h_aaed164b985c7f2fad08916303348f5cc}\label{vbus__funcs_8h_aaed164b985c7f2fad08916303348f5cc}} 
+\index{vbus\_funcs.h@{vbus\_funcs.h}!calc\_vm@{calc\_vm}}
+\index{calc\_vm@{calc\_vm}!vbus\_funcs.h@{vbus\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{calc\_vm()}{calc\_vm()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} calc\+\_\+vm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr,  }\item[{unsigned int}]{adc\+\_\+counts }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{vbus__funcs_8h_ae6124558347e63e47b823ddffe430e1d}\label{vbus__funcs_8h_ae6124558347e63e47b823ddffe430e1d}} 
+\index{vbus\_funcs.h@{vbus\_funcs.h}!sample\_dcbus@{sample\_dcbus}}
+\index{sample\_dcbus@{sample\_dcbus}!vbus\_funcs.h@{vbus\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{sample\_dcbus()}{sample\_dcbus()}}
+{\footnotesize\ttfamily void sample\+\_\+dcbus (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+This function use to calculate average value of dc bus voltage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr pointer to motor structure \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 164 of file vbus\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{165 \{}
+\DoxyCodeLine{166     \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} vbus\_vms;}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#if (INTERNAL\_VMS == TRUE)}}
+\DoxyCodeLine{169     vbus\_vms = \mbox{\hyperlink{vbus__funcs_8c_a4811e5828e91ab7dfc854c5f67e5f355}{calc\_vbus\_internal}}(motor\_ptr, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4fe0be004a91be8830a86266e2939d7b}{vms\_adc\_vlaue}});}
+\DoxyCodeLine{170 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{171     vbus\_vms = \mbox{\hyperlink{vbus__funcs_8c_a73f901776af2781519785c1654b406c4}{calc\_vbus\_external}}(motor\_ptr, readseq\_vbus());}
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174     \textcolor{comment}{// Filter bus voltage}}
+\DoxyCodeLine{175     filter\_shift2(vbus\_vms, \&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a24717758fcd5f480bb165d0b1d0631e5}{dcbus\_voltage}}, 2);}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177     \textcolor{comment}{// Calculate voltage factors}}
+\DoxyCodeLine{178     vbus\_calc\_vfactors(motor\_ptr);}
+\DoxyCodeLine{179 \}}
+
+\end{DoxyCode}
+
+
+References calc\+\_\+vbus\+\_\+external(), calc\+\_\+vbus\+\_\+internal(), and Struct\+\_\+\+Motor\+::vms\+\_\+adc\+\_\+vlaue.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vbus__funcs_8h_ae6124558347e63e47b823ddffe430e1d_cgraph}
+\end{center}
+\end{figure}

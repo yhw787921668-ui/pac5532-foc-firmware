@@ -1,0 +1,1062 @@
+.TH "PAC5XXX_Driver_Timer" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_Timer \- PAC5XXX Analog Timer and DTG Driver Functions
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_TIMER\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBTimerInstance\fP { \fBTimerA\fP, \fBTimerB\fP, \fBTimerC\fP, \fBTimerD\fP }"
+.br
+.ti -1c
+.RI "enum \fBDtgInstance\fP { \fBDTGA0\fP, \fBDTGA1\fP, \fBDTGA2\fP, \fBDTGA3\fP, \fBDTGB\fP, \fBDTGC\fP, \fBDTGD\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_base_config\fP (\fBTimerInstance\fP timer, uint16_t period, int single_shot, \fBTXCTRL_MODE_Type\fP mode, int sync)"
+.br
+.RI "This function configures the base timer period, mode and single-use mode for the given timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_clock_config\fP (\fBTimerInstance\fP timer, \fBTXCTRL_CLKIN_Type\fP source, \fBTXCTRL_PS_Type\fP prescale)"
+.br
+.RI "This function configures the clock source and pre-scaler for the given timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_clear\fP (\fBTimerInstance\fP timer, int asserted)"
+.br
+.RI "This function clears (resets) the given timer, or releases the given timer from reset\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_set_period\fP (\fBTimerInstance\fP timer, uint16_t period)"
+.br
+.RI "This function sets the timer period for the given period\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_base_enable\fP (\fBTimerInstance\fP timer, int enable)"
+.br
+.RI "This function enables the base timer interrupt for the given timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP int \fBpac5xxx_timer_base_int\fP (\fBTimerInstance\fP timer)"
+.br
+.RI "This function indicates if the base timer interrupt flag is set\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_base_int_enable\fP (\fBTimerInstance\fP timer, int enable)"
+.br
+.RI "This function enables the base interrupt for the given timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_base_int_clear\fP (\fBTimerInstance\fP timer)"
+.br
+.RI "This function clears the base timer interrupt flag for the given timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_capture_latch_config\fP (\fBTimerInstance\fP timer, \fBTXCCTRL_LATCH_Type\fP latch_config)"
+.br
+.RI "This function configures the compare latch time for the given timer\&. User may set this value to latch either when the timer counts from the period value to 0 in up mode or from 1 to 0 in up/down mode\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_cctrl_config\fP (\fBTimerInstance\fP timer, int cc_num, uint16_t compare_value, int int_en)"
+.br
+.RI "This function configures the given capture and compare unit for the given timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_cctrl_capture_config\fP (\fBTimerInstance\fP timer, int enabled, int cc_num, int int_en, \fBTXCCTRL_CAPEDGE_Type\fP cap_edge_det)"
+.br
+.RI "This function configures the given capture/compare unit into capture mode\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_cctrl_int_enable\fP (\fBTimerInstance\fP timer, int ccr_num, int enable)"
+.br
+.RI "This function configures sets the interrupt enable state for the given timer and CCR unit\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP int \fBpac5xxx_timer_cctrl_int\fP (\fBTimerInstance\fP timer, int ccr_num)"
+.br
+.RI "This function indicates if there is a pending interrupt on the given timer and CCR unit\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_cctrl_int_clear\fP (\fBTimerInstance\fP timer, int ccr_num)"
+.br
+.RI "This function clears the interrupt flag for the given timer and CCR unit\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_dtg_config\fP (\fBDtgInstance\fP dtg, uint16_t led, uint16_t ted, int inv_a, int inv_b, int pass, int otp)"
+.br
+.RI "This function configures the given Dead-Time Generator (DTG) "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_dtg_clock_prescale\fP (\fBTimerInstance\fP timer, int enabled)"
+.br
+.RI "This function enables the clock pre-scaling (divider) for the dead-time generator\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_TIMER"
+
+.PP
+Definition at line 32 of file pac5xxx_driver_timer\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBDtgInstance\fP"
+Dead-Time Generator Instance for DTG Driver Configuration 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIDTGA0 \fP\fP
+.TP
+\fB\fIDTGA1 \fP\fP
+.TP
+\fB\fIDTGA2 \fP\fP
+.TP
+\fB\fIDTGA3 \fP\fP
+.TP
+\fB\fIDTGB \fP\fP
+.TP
+\fB\fIDTGC \fP\fP
+.TP
+\fB\fIDTGD \fP\fP
+.PP
+Definition at line 44 of file pac5xxx_driver_timer\&.h\&.
+.PP
+.nf
+44              { 
+45   DTGA0,
+46   DTGA1,
+47   DTGA2,
+48   DTGA3,
+49   DTGB,
+50   DTGC,
+51   DTGD
+52 } DtgInstance; 
+.fi
+.SS "enum \fBTimerInstance\fP"
+Timer Instance for Timer Driver Configuration 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fITimerA \fP\fP
+.TP
+\fB\fITimerB \fP\fP
+.TP
+\fB\fITimerC \fP\fP
+.TP
+\fB\fITimerD \fP\fP
+.PP
+Definition at line 36 of file pac5xxx_driver_timer\&.h\&.
+.PP
+.nf
+36              { 
+37   TimerA,
+38   TimerB,
+39   TimerC,
+40   TimerD
+41 } TimerInstance; 
+.fi
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_TIMER\fP void pac5xxx_dtg_clock_prescale (\fBTimerInstance\fP timer, int enabled)"
+
+.PP
+This function enables the clock pre-scaling (divider) for the dead-time generator\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimer\fP Timer instance for the DTG clock configuration 
+.br
+\fIenabled\fP 0: Disable clock pre-scaling (DTG clock is timer input clock before pre-scaling); 1: Enable clock pre-scaling (DTG clock is timer input clock after pre-scaling)\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 69 of file pac5xxx_driver_timer_dtg_config\&.c\&.
+.PP
+.nf
+70 {
+71   switch (timer)
+72   {
+73   case TimerA:
+74     PAC5XXX_TIMERA->CTL\&.DTGCLKDIVEN = enabled;
+75     break;
+76   case TimerB:
+77     PAC5XXX_TIMERB->CTL\&.DTGCLKDIVEN = enabled;
+78     break;
+79   case TimerC:
+80     PAC5XXX_TIMERC->CTL\&.DTGCLKDIVEN = enabled;
+81     break;
+82   case TimerD:
+83     PAC5XXX_TIMERD->CTL\&.DTGCLKDIVEN = enabled;
+84     break;
+85   }
+86 }
+.fi
+.PP
+References PAC5XXX_TIMERA, PAC5XXX_TIMERB, PAC5XXX_TIMERC, PAC5XXX_TIMERD, TimerA, TimerB, TimerC, and TimerD\&.
+.SS "\fBRAMFUNC_TIMER\fP void pac5xxx_dtg_config (\fBDtgInstance\fP dtg, uint16_t led, uint16_t ted, int inv_a, int inv_b, int pass, int otp)"
+
+.PP
+This function configures the given Dead-Time Generator (DTG) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdtg\fP DTG Instance 
+.br
+\fIled\fP Leading Edge Delay 
+.br
+\fIted\fP Trailing Edge Delay 
+.br
+\fIinv_a\fP Set to 1 to invert OUT[n] output, 0 to not invert 
+.br
+\fIinv_b\fP Set to 1 to invert OUT[n+1] output, 0 to not invert 
+.br
+\fIpass\fP Set to 1 to configure pass-through mode, 0 for normal operation 
+.br
+\fIotp\fP Set to 1 to configure on-time preservation PWM mode, 0 for normal operation 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_timer_dtg_config\&.c\&.
+.PP
+.nf
+21 {
+22   volatile PAC5XXX_DTGCTL_TypeDef* pD;
+23   
+24   switch (dtg)
+25   {
+26   case DTGA0:
+27     pD = &PAC5XXX_TIMERA->DTGCTL0;
+28     PAC5XXX_TIMERA->DTGLED0 = led;
+29     PAC5XXX_TIMERA->DTGTED0 = ted;
+30     break;
+31   case DTGA1:
+32     pD = &PAC5XXX_TIMERA->DTGCTL1;
+33     PAC5XXX_TIMERA->DTGLED1 = led;
+34     PAC5XXX_TIMERA->DTGTED1 = ted;
+35     break;
+36   case DTGA2:
+37     pD = &PAC5XXX_TIMERA->DTGCTL2;
+38     PAC5XXX_TIMERA->DTGLED2 = led;
+39     PAC5XXX_TIMERA->DTGTED2 = ted;
+40     break;
+41   case DTGA3:
+42     pD = &PAC5XXX_TIMERA->DTGCTL3;
+43     PAC5XXX_TIMERA->DTGLED3 = led;
+44     PAC5XXX_TIMERA->DTGTED3 = ted;
+45     break;
+46   case DTGB:
+47     pD = &PAC5XXX_TIMERB->DTGCTL0;
+48     PAC5XXX_TIMERB->DTGLED0 = led;
+49     PAC5XXX_TIMERB->DTGTED0 = ted;
+50     break;
+51   case DTGC:
+52     pD = &PAC5XXX_TIMERC->DTGCTL0;
+53     PAC5XXX_TIMERC->DTGLED0 = led;
+54     PAC5XXX_TIMERC->DTGTED0 = ted;
+55     break;
+56   case DTGD:
+57     pD = &PAC5XXX_TIMERD->DTGCTL0;
+58     PAC5XXX_TIMERD->DTGLED0 = led;
+59     PAC5XXX_TIMERD->DTGTED0 = ted;
+60     break;
+61   }
+62   
+63   pD->INV_A = inv_a;
+64   pD->INV_B = inv_b;
+65   pD->OTP = otp;
+66   pD->BYPASS = pass;
+67 }
+.fi
+.PP
+References PAC5XXX_DTGCTL_TypeDef::BYPASS, DTGA0, DTGA1, DTGA2, DTGA3, DTGB, DTGC, DTGD, PAC5XXX_DTGCTL_TypeDef::INV_A, PAC5XXX_DTGCTL_TypeDef::INV_B, PAC5XXX_DTGCTL_TypeDef::OTP, PAC5XXX_TIMERA, PAC5XXX_TIMERB, PAC5XXX_TIMERC, and PAC5XXX_TIMERD\&.
+.SS "\fBRAMFUNC_TIMER\fP void pac5xxx_timer_base_config (\fBTimerInstance\fP timer, uint16_t period, int single_shot, \fBTXCTRL_MODE_Type\fP mode, int sync)"
+
+.PP
+This function configures the base timer period, mode and single-use mode for the given timer\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimer\fP Timer Instance 
+.br
+\fIperiod\fP Timer Period in clock ticks 
+.br
+\fIsingle_shot\fP Set to 1 for single-use timer mode, 0 for auto-reload 
+.br
+\fImode\fP Timer Mode (up, up/down, etc\&.) 
+.br
+\fIsync\fP Timer slave synchronize (set for slave sync) if set to 1 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_timer_base_config\&.c\&.
+.PP
+.nf
+21 {
+22   switch (timer)
+23   {
+24   case TimerA:
+25     PAC5XXX_TIMERA->CTL\&.SYNC = slave_sync; // Be sure to set sync bit first
+26     PAC5XXX_TIMERA->PRD = period;
+27     PAC5XXX_TIMERA->CTL\&.MODE = mode;
+28     
+29     if (single_shot)
+30       PAC5XXX_TIMERA->CTL\&.SS = 1;
+31     
+32     break;
+33 
+34   case TimerB:
+35     PAC5XXX_TIMERB->CTL\&.SYNC = slave_sync; // Be sure to set sync bit first
+36     PAC5XXX_TIMERB->PRD = period;
+37     PAC5XXX_TIMERB->CTL\&.MODE = mode;
+38     
+39     if (single_shot)
+40       PAC5XXX_TIMERB->CTL\&.SS = 1;
+41     
+42     break;
+43 
+44   case TimerC:
+45     PAC5XXX_TIMERC->CTL\&.SYNC = slave_sync; // Be sure to set sync bit first
+46     PAC5XXX_TIMERC->PRD = period;
+47     PAC5XXX_TIMERC->CTL\&.MODE = mode;
+48     
+49     if (single_shot)
+50       PAC5XXX_TIMERC->CTL\&.SS = 1;
+51     
+52     break;
+53 
+54   case TimerD:
+55     PAC5XXX_TIMERD->CTL\&.SYNC = slave_sync; // Be sure to set sync bit first
+56     PAC5XXX_TIMERD->PRD = period;
+57     PAC5XXX_TIMERD->CTL\&.MODE = mode;
+58     
+59     if (single_shot)
+60       PAC5XXX_TIMERD->CTL\&.SS = 1;
+61     
+62     break;
+63   }
+64 }
+.fi
+.PP
+References PAC5XXX_TIMERA, PAC5XXX_TIMERB, PAC5XXX_TIMERC, PAC5XXX_TIMERD, TimerA, TimerB, TimerC, and TimerD\&.
+.PP
+Referenced by configure_pwm_dac()\&.
+.SS "\fBRAMFUNC_TIMER\fP void pac5xxx_timer_base_enable (\fBTimerInstance\fP timer, int enable)"
+
+.PP
+This function enables the base timer interrupt for the given timer\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimer\fP Timer Instance 
+.br
+\fIenable\fP Set to non-zero to enable this interrupt, set to 0 to disable 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function clears the base timer interrupt flag (if set) before it sets the timer interrupt state 
+.RE
+.PP
+
+.SS "\fBRAMFUNC_TIMER\fP int pac5xxx_timer_base_int (\fBTimerInstance\fP timer)"
+
+.PP
+This function indicates if the base timer interrupt flag is set\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimer\fP Timer Instance 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if flag is set, 0 if not set 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_timer_base_int\&.c\&.
+.PP
+.nf
+21 {
+22   switch (timer)
+23   {
+24   case TimerA:
+25     return (PAC5XXX_TIMERA->CTL\&.INT && PAC5XXX_TIMERA->CTL\&.INTEN);
+26   case TimerB:
+27     return (PAC5XXX_TIMERB->CTL\&.INT && PAC5XXX_TIMERB->CTL\&.INTEN);
+28   case TimerC:
+29     return (PAC5XXX_TIMERC->CTL\&.INT && PAC5XXX_TIMERC->CTL\&.INTEN);
+30   case TimerD:
+31     return (PAC5XXX_TIMERD->CTL\&.INT && PAC5XXX_TIMERD->CTL\&.INTEN);
+32   default:
+33     return 0;
+34   }  
+35 }
+.fi
+.PP
+References PAC5XXX_TIMERA, PAC5XXX_TIMERB, PAC5XXX_TIMERC, PAC5XXX_TIMERD, TimerA, TimerB, TimerC, and TimerD\&.
+.SS "\fBRAMFUNC_TIMER\fP void pac5xxx_timer_base_int_clear (\fBTimerInstance\fP timer)"
+
+.PP
+This function clears the base timer interrupt flag for the given timer\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimer\fP Timer Instance 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_timer_base_int_clear\&.c\&.
+.PP
+.nf
+21 {
+22   switch (timer)
+23   {
+24   case TimerA:
+25     PAC5XXX_TIMERA->CTL\&.INT = 1; // WTC
+26     break;
+27   case TimerB:
+28     PAC5XXX_TIMERB->CTL\&.INT = 1; // WTC
+29     break;
+30   case TimerC:
+31     PAC5XXX_TIMERC->CTL\&.INT = 1; // WTC
+32     break;
+33   case TimerD:
+34     PAC5XXX_TIMERD->CTL\&.INT = 1; // WTC
+35     break;
+36   }  
+37 }
+.fi
+.PP
+References PAC5XXX_TIMERA, PAC5XXX_TIMERB, PAC5XXX_TIMERC, PAC5XXX_TIMERD, TimerA, TimerB, TimerC, and TimerD\&.
+.SS "\fBRAMFUNC_TIMER\fP void pac5xxx_timer_base_int_enable (\fBTimerInstance\fP timer, int enable)"
+
+.PP
+This function enables the base interrupt for the given timer\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimer\fP Timer Instance 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_timer_base_int_enable\&.c\&.
+.PP
+.nf
+21 {
+22   switch (timer)
+23   {
+24   case TimerA:
+25     PAC5XXX_TIMERA->CTL\&.INT = 1; // WTC
+26     PAC5XXX_TIMERA->CTL\&.INTEN = enable;
+27     break;
+28   case TimerB:
+29     PAC5XXX_TIMERB->CTL\&.INT = 1; // WTC
+30     PAC5XXX_TIMERB->CTL\&.INTEN = enable;
+31     break;
+32   case TimerC:
+33     PAC5XXX_TIMERC->CTL\&.INT = 1; // WTC
+34     PAC5XXX_TIMERC->CTL\&.INTEN = enable;
+35     break;
+36   case TimerD:
+37     PAC5XXX_TIMERD->CTL\&.INT = 1; // WTC
+38     PAC5XXX_TIMERD->CTL\&.INTEN = enable;
+39     break;
+40   }  
+41 }
+.fi
+.PP
+References PAC5XXX_TIMERA, PAC5XXX_TIMERB, PAC5XXX_TIMERC, PAC5XXX_TIMERD, TimerA, TimerB, TimerC, and TimerD\&.
+.SS "\fBRAMFUNC_TIMER\fP void pac5xxx_timer_capture_latch_config (\fBTimerInstance\fP timer, \fBTXCCTRL_LATCH_Type\fP latch_config)"
+
+.PP
+This function configures the compare latch time for the given timer\&. User may set this value to latch either when the timer counts from the period value to 0 in up mode or from 1 to 0 in up/down mode\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimer\fP Timer Instance 
+.br
+\fIlatch_config\fP The period latch configuration mode 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_timer_capture_latch_config\&.c\&.
+.PP
+.nf
+21 {
+22   switch (timer)
+23   {
+24   case TimerA:
+25     PAC5XXX_TIMERA->CTL\&.PRDL = latch_config;
+26     break;
+27   case TimerB:
+28     PAC5XXX_TIMERB->CTL\&.PRDL = latch_config;
+29     break;
+30   case TimerC:
+31     PAC5XXX_TIMERC->CTL\&.PRDL = latch_config;
+32     break;
+33   case TimerD:
+34     PAC5XXX_TIMERD->CTL\&.PRDL = latch_config;
+35     break;
+36   }
+37 }
+.fi
+.PP
+References PAC5XXX_TIMERA, PAC5XXX_TIMERB, PAC5XXX_TIMERC, PAC5XXX_TIMERD, TimerA, TimerB, TimerC, and TimerD\&.
+.SS "\fBRAMFUNC_TIMER\fP void pac5xxx_timer_cctrl_capture_config (\fBTimerInstance\fP timer, int enabled, int cc_num, int int_en, \fBTXCCTRL_CAPEDGE_Type\fP cap_edge_det)"
+
+.PP
+This function configures the given capture/compare unit into capture mode\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimer\fP Timer Instance 
+.br
+\fIenabled\fP Set to 1 to enable capture on the given Capture/Compare Unit, 0 to disable 
+.br
+\fIcc_num\fP Capture/Compare unit number (0 to n) 
+.br
+\fIint_en\fP Set to 1 in order to enable interrupts for the given capture/compare unit, 0 to disable 
+.br
+\fIcap_edge_det\fP The capture edge to detect (rising, falling, both) when capture is enabled 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+Note that this function also configures the GPIO pins for input capture that are selected for the given timer and capture unit 
+.RE
+.PP
+
+.PP
+Definition at line 42 of file pac5xxx_driver_timer_cctrl_capture_config\&.c\&.
+.PP
+.nf
+43 {
+44   volatile PAC5XXX_TIMERCC_TypeDef* pCC;
+45   
+46   switch (timer)
+47   {
+48   case TimerA:
+49     switch (cc_num)
+50     {
+51     case 0:
+52       pCC = &PAC5XXX_TIMERA->CCTRL0;
+53       break;
+54     case 1:
+55       pCC = &PAC5XXX_TIMERA->CCTRL1;
+56       break;
+57     case 2:
+58       pCC = &PAC5XXX_TIMERA->CCTRL2;
+59       break;
+60     case 3:
+61       pCC = &PAC5XXX_TIMERA->CCTRL3;
+62       break;
+63     case 4:
+64       pCC = &PAC5XXX_TIMERA->CCTRL4;
+65       break;
+66     case 5:
+67       pCC = &PAC5XXX_TIMERA->CCTRL5;
+68       break;
+69     case 6:
+70       pCC = &PAC5XXX_TIMERA->CCTRL6;
+71       break;
+72     case 7:
+73       pCC = &PAC5XXX_TIMERA->CCTRL7;
+74       break;
+75     }
+76     break;
+77     
+78   case TimerB:
+79     switch (cc_num)
+80     {
+81     case 0:
+82       pCC = &PAC5XXX_TIMERB->CCTRL0;
+83       break;
+84     case 1:
+85       pCC = &PAC5XXX_TIMERB->CCTRL1;
+86       break;
+87     case 2:
+88       pCC = &PAC5XXX_TIMERB->CCTRL2;
+89       break;
+90     case 3:
+91       pCC = &PAC5XXX_TIMERB->CCTRL3;
+92       break;
+93     }
+94     break;
+95     
+96   case TimerC:
+97     switch (cc_num)
+98     {
+99     case 0:
+100       pCC = &PAC5XXX_TIMERC->CCTRL0;
+101       break;
+102     case 1:
+103       pCC = &PAC5XXX_TIMERC->CCTRL1;
+104       break;
+105     }
+106     break;
+107 
+108   case TimerD:
+109     switch (cc_num)
+110     {
+111     case 0:
+112       pCC = &PAC5XXX_TIMERD->CCTRL0;
+113       break;
+114     case 1:
+115       pCC = &PAC5XXX_TIMERD->CCTRL1;
+116       break;
+117     }
+118     break;
+119   } 
+120   
+121   // Configure CCTRL register
+122   
+123   pCC->CCINT = 1; // Write to clear
+124   pCC->CCINTEN = int_en;
+125   pCC->CCEDGE = cap_edge_det;
+126   pCC->CCMODE = enabled;
+127   
+128 }
+.fi
+.PP
+References PAC5XXX_TIMERCC_TypeDef::CCEDGE, PAC5XXX_TIMERCC_TypeDef::CCINT, PAC5XXX_TIMERCC_TypeDef::CCINTEN, PAC5XXX_TIMERCC_TypeDef::CCMODE, PAC5XXX_TIMERA, PAC5XXX_TIMERB, PAC5XXX_TIMERC, PAC5XXX_TIMERD, TimerA, TimerB, TimerC, and TimerD\&.
+.SS "\fBRAMFUNC_TIMER\fP void pac5xxx_timer_cctrl_config (\fBTimerInstance\fP timer, int cc_num, uint16_t compare_value, int int_en)"
+
+.PP
+This function configures the given capture and compare unit for the given timer\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimer\fP Timer Instance 
+.br
+\fIcc_num\fP Capture/Compare unit number (0 to n) 
+.br
+\fIcompare_value\fP The compare value for the given compare unit 
+.br
+\fIint_en\fP Set to 1 in order to enable interrupts for the given capture/compare unit, 0 to disable 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function does not enable or disable the NVIC IRQn interrupt\&. This must be done outside of this function by calling the /a NVIC_EnableIRQ() and /a NVIC_DisableIRQ() functions\&. 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_timer_cctrl_config\&.c\&.
+.PP
+.nf
+21 {
+22   volatile PAC5XXX_TIMERCC_TypeDef* pCC;
+23   
+24   switch (timer)
+25   {
+26   case TimerA:
+27     switch (cc_num)
+28     {
+29     case 0:
+30       pCC = &PAC5XXX_TIMERA->CCTRL0;
+31       PAC5XXX_TIMERA->CTR0 = compare_value;
+32       break;
+33     case 1:
+34       pCC = &PAC5XXX_TIMERA->CCTRL1;
+35       PAC5XXX_TIMERA->CTR1 = compare_value;
+36       break;
+37     case 2:
+38       pCC = &PAC5XXX_TIMERA->CCTRL2;
+39       PAC5XXX_TIMERA->CTR2 = compare_value;
+40       break;
+41     case 3:
+42       pCC = &PAC5XXX_TIMERA->CCTRL3;
+43       PAC5XXX_TIMERA->CTR3 = compare_value;
+44       break;
+45     case 4:
+46       pCC = &PAC5XXX_TIMERA->CCTRL4;
+47       PAC5XXX_TIMERA->CTR4 = compare_value;
+48       break;
+49     case 5:
+50       pCC = &PAC5XXX_TIMERA->CCTRL5;
+51       PAC5XXX_TIMERA->CTR5 = compare_value;
+52       break;
+53     case 6:
+54       pCC = &PAC5XXX_TIMERA->CCTRL6;
+55       PAC5XXX_TIMERA->CTR6 = compare_value;
+56       break;
+57     case 7:
+58       pCC = &PAC5XXX_TIMERA->CCTRL7;
+59       PAC5XXX_TIMERA->CTR7 = compare_value;
+60       break;
+61     }
+62     break;
+63     
+64   case TimerB:
+65     switch (cc_num)
+66     {
+67     case 0:
+68       pCC = &PAC5XXX_TIMERB->CCTRL0;
+69       PAC5XXX_TIMERB->CTR0 = compare_value;
+70       break;
+71     case 1:
+72       pCC = &PAC5XXX_TIMERB->CCTRL1;
+73       PAC5XXX_TIMERB->CTR1 = compare_value;
+74       break;
+75     case 2:
+76       pCC = &PAC5XXX_TIMERB->CCTRL2;
+77       PAC5XXX_TIMERB->CTR2 = compare_value;
+78       break;
+79     case 3:
+80       pCC = &PAC5XXX_TIMERB->CCTRL3;
+81       PAC5XXX_TIMERB->CTR3 = compare_value;
+82       break;
+83     }
+84     break;
+85     
+86   case TimerC:
+87     switch (cc_num)
+88     {
+89     case 0:
+90       pCC = &PAC5XXX_TIMERC->CCTRL0;
+91       PAC5XXX_TIMERC->CTR0 = compare_value;
+92       break;
+93     case 1:
+94       pCC = &PAC5XXX_TIMERC->CCTRL1;
+95       PAC5XXX_TIMERC->CTR1 = compare_value;
+96       break;
+97     }
+98     break;
+99 
+100   case TimerD:
+101     switch (cc_num)
+102     {
+103     case 0:
+104       pCC = &PAC5XXX_TIMERD->CCTRL0;
+105       PAC5XXX_TIMERD->CTR0 = compare_value;
+106       break;
+107     case 1:
+108       pCC = &PAC5XXX_TIMERD->CCTRL1;
+109       PAC5XXX_TIMERD->CTR1 = compare_value;
+110       break;
+111     }
+112     break;
+113   } 
+114 
+115   pCC->CCINT = 1; // write to clear
+116   pCC->CCINTEN = int_en;
+117 }
+.fi
+.PP
+References PAC5XXX_TIMERCC_TypeDef::CCINT, PAC5XXX_TIMERCC_TypeDef::CCINTEN, PAC5XXX_TIMERA, PAC5XXX_TIMERB, PAC5XXX_TIMERC, PAC5XXX_TIMERD, TimerA, TimerB, TimerC, and TimerD\&.
+.SS "\fBRAMFUNC_TIMER\fP int pac5xxx_timer_cctrl_int (\fBTimerInstance\fP timer, int ccr_num)"
+
+.PP
+This function indicates if there is a pending interrupt on the given timer and CCR unit\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimer\fP Timer Instance 
+.br
+\fIccr_num\fP Capture/Compare unit number (0 to n) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 if interrupt pending, 0 if not
+.RE
+.PP
+\fBNote\fP
+.RS 4
+If the ccr_num argument is invalid, this function does nothing\&. 
+.RE
+.PP
+
+.PP
+Definition at line 113 of file pac5xxx_driver_timer_cctrl_int\&.c\&.
+.PP
+.nf
+114 {
+115   volatile PAC5XXX_TIMERCC_TypeDef* pCC = timer_ccr_to_handle(timer, ccr_num);
+116     
+117     if (!pCC)
+118         return 0;
+119         
+120   return (pCC->CCINT && pCC->CCINTEN);
+121 }
+.fi
+.SS "\fBRAMFUNC_TIMER\fP void pac5xxx_timer_cctrl_int_clear (\fBTimerInstance\fP timer, int ccr_num)"
+
+.PP
+This function clears the interrupt flag for the given timer and CCR unit\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimer\fP Timer Instance 
+.br
+\fIccr_num\fP Capture/Compare unit number (0 to n) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+If the ccr_num argument is invalid, this function will return 0\&. 
+.RE
+.PP
+
+.PP
+Definition at line 123 of file pac5xxx_driver_timer_cctrl_int\&.c\&.
+.PP
+.nf
+124 {
+125   volatile PAC5XXX_TIMERCC_TypeDef* pCC = timer_ccr_to_handle(timer, ccr_num);
+126     
+127     if (!pCC)
+128         return;
+129         
+130   pCC->CCINT = 1;
+131 }
+.fi
+.SS "\fBRAMFUNC_TIMER\fP void pac5xxx_timer_cctrl_int_enable (\fBTimerInstance\fP timer, int ccr_num, int enable)"
+
+.PP
+This function configures sets the interrupt enable state for the given timer and CCR unit\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimer\fP Timer Instance 
+.br
+\fIccr_num\fP Capture/Compare unit number (0 to n) 
+.br
+\fIenable\fP Set to 1 to enable interrupts on the given Capture/Compare Unit, 0 to disable 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function does not enable or disable the NVIC IRQn interrupt\&. This must be done outside of this function by calling the /a NVIC_EnableIRQ() and /a NVIC_DisableIRQ() functions\&. 
+.RE
+.PP
+
+.PP
+Definition at line 102 of file pac5xxx_driver_timer_cctrl_int\&.c\&.
+.PP
+.nf
+103 {
+104     volatile PAC5XXX_TIMERCC_TypeDef* pCC = timer_ccr_to_handle(timer, ccr_num);
+105     
+106     if (!pCC)
+107         return;
+108         
+109     pCC->CCINT = 1; // write to clear
+110     pCC->CCINTEN = enable;
+111 }
+.fi
+.SS "\fBRAMFUNC_TIMER\fP void pac5xxx_timer_clear (\fBTimerInstance\fP timer, int asserted)"
+
+.PP
+This function clears (resets) the given timer, or releases the given timer from reset\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimer\fP Timer Instance 
+.br
+\fIasserted\fP Timer clear signal asserted if set to 1, deassert if set to 0 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function clears and then resets the clear of the timer, to manually reload a single-shot timer 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file pac5xxx_driver_timer_clear\&.c\&.
+.PP
+.nf
+22 {
+23   switch (timer)
+24   {
+25   case TimerA:
+26     PAC5XXX_TIMERA->CTL\&.CLR = assert;
+27     break;
+28   case TimerB:
+29     PAC5XXX_TIMERB->CTL\&.CLR = assert;
+30     break;
+31   case TimerC:
+32     PAC5XXX_TIMERC->CTL\&.CLR = assert;
+33     break;
+34   case TimerD:
+35     PAC5XXX_TIMERD->CTL\&.CLR = assert;
+36     break;
+37   }
+38 }
+.fi
+.PP
+References PAC5XXX_TIMERA, PAC5XXX_TIMERB, PAC5XXX_TIMERC, PAC5XXX_TIMERD, TimerA, TimerB, TimerC, and TimerD\&.
+.SS "\fBRAMFUNC_TIMER\fP void pac5xxx_timer_clock_config (\fBTimerInstance\fP timer, \fBTXCTRL_CLKIN_Type\fP source, \fBTXCTRL_PS_Type\fP prescale)"
+
+.PP
+This function configures the clock source and pre-scaler for the given timer\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimer\fP Timer Instance 
+.br
+\fIsource\fP Timer clock input source 
+.br
+\fIprescale\fP Timer pre-scaler 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_timer_clock_config\&.c\&.
+.PP
+.nf
+21 {
+22   switch (timer)
+23   {
+24   case TimerA:
+25     PAC5XXX_TIMERA->CTL\&.CLK = source;
+26     PAC5XXX_TIMERA->CTL\&.CLKDIV = prescale;
+27     break;
+28   case TimerB:
+29     PAC5XXX_TIMERB->CTL\&.CLK = source;
+30     PAC5XXX_TIMERB->CTL\&.CLKDIV = prescale;
+31     break;
+32   case TimerC:
+33     PAC5XXX_TIMERC->CTL\&.CLK = source;
+34     PAC5XXX_TIMERC->CTL\&.CLKDIV = prescale;
+35     break;
+36   case TimerD:
+37     PAC5XXX_TIMERD->CTL\&.CLK = source;
+38     PAC5XXX_TIMERD->CTL\&.CLKDIV = prescale;
+39     break;
+40   }  
+41 }
+.fi
+.PP
+References PAC5XXX_TIMERA, PAC5XXX_TIMERB, PAC5XXX_TIMERC, PAC5XXX_TIMERD, TimerA, TimerB, TimerC, and TimerD\&.
+.PP
+Referenced by configure_pwm_dac()\&.
+.SS "\fBRAMFUNC_TIMER\fP void pac5xxx_timer_set_period (\fBTimerInstance\fP timer, uint16_t period)"
+
+.PP
+This function sets the timer period for the given period\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItimer\fP Timer Instance 
+.br
+\fIperiod\fP Timer period in timer clocks 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+The user must make sure that this function is called at a time when the timer will not be in danger of latching the timer counter value\&. 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file pac5xxx_driver_timer_set_period\&.c\&.
+.PP
+.nf
+22 {
+23   switch (timer)
+24   {
+25   case TimerA:
+26     PAC5XXX_TIMERA->PRD = period;
+27     break;
+28   case TimerB:
+29     PAC5XXX_TIMERB->PRD = period;
+30     break;
+31   case TimerC:
+32     PAC5XXX_TIMERC->PRD = period;
+33     break;
+34   case TimerD:
+35     PAC5XXX_TIMERD->PRD = period;
+36     break;
+37   }
+38 }
+.fi
+.PP
+References PAC5XXX_TIMERA, PAC5XXX_TIMERB, PAC5XXX_TIMERC, PAC5XXX_TIMERD, TimerA, TimerB, TimerC, and TimerD\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

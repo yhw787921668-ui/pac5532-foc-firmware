@@ -1,0 +1,158 @@
+.TH "PAC5XXX_Driver_CAN" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_CAN \- PAC5XXX CAN
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_CAN\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCAN_Filter_Type\fP { \fBCAN_FILTER_DUAL\fP = 0, \fBCAN_FILTER_SINGLE\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBCAN_BusSample_Type\fP { \fBCAN_SAMPLE_1\fP = 0, \fBCAN_SAMPLE_3\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBCAN_FrameFormat_Type\fP { \fBCAN_FRAME_STANDARD\fP = 0, \fBCAN_FRAME_EXTENDED\fP = 1 }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_CAN\fP void \fBpac5xxx_can_bus_timing_configure\fP (uint8_t brp, uint8_t sjw, uint8_t tseg1, uint8_t tseg2, \fBCAN_BusSample_Type\fP sample)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_CAN\fP void \fBpac5xxx_can_io_config\fP (void)"
+.br
+.RI "This function configures IO for use with the CAN peripheral\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_CAN"
+
+.PP
+Definition at line 32 of file pac5xxx_driver_can\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBCAN_BusSample_Type\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICAN_SAMPLE_1 \fP\fP
+.TP
+\fB\fICAN_SAMPLE_3 \fP\fP
+.PP
+Definition at line 42 of file pac5xxx_driver_can\&.h\&.
+.PP
+.nf
+42              {
+43     CAN_SAMPLE_1 = 0,
+44     CAN_SAMPLE_3 = 1,
+45 } CAN_BusSample_Type; 
+.fi
+.SS "enum \fBCAN_Filter_Type\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICAN_FILTER_DUAL \fP\fP
+.TP
+\fB\fICAN_FILTER_SINGLE \fP\fP
+.PP
+Definition at line 37 of file pac5xxx_driver_can\&.h\&.
+.PP
+.nf
+37              {
+38     CAN_FILTER_DUAL = 0,
+39     CAN_FILTER_SINGLE = 1,
+40 } CAN_Filter_Type; 
+.fi
+.SS "enum \fBCAN_FrameFormat_Type\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICAN_FRAME_STANDARD \fP\fP
+.TP
+\fB\fICAN_FRAME_EXTENDED \fP\fP
+.PP
+Definition at line 47 of file pac5xxx_driver_can\&.h\&.
+.PP
+.nf
+47              {
+48     CAN_FRAME_STANDARD = 0,
+49     CAN_FRAME_EXTENDED = 1,
+50 } CAN_FrameFormat_Type; 
+.fi
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_CAN\fP void pac5xxx_can_bus_timing_configure (uint8_t brp, uint8_t sjw, uint8_t tseg1, uint8_t tseg2, \fBCAN_BusSample_Type\fP sample)"
+
+.PP
+\fBParameters\fP
+.RS 4
+\fIbrp\fP 
+.br
+\fIsjw\fP 
+.br
+\fItseg1\fP 
+.br
+\fItseg2\fP 
+.br
+\fIsample\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.SS "\fBRAMFUNC_CAN\fP void pac5xxx_can_io_config (void)"
+
+.PP
+This function configures IO for use with the CAN peripheral\&. 
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file pac5xxx_driver_can\&.c\&.
+.PP
+.nf
+22 {
+23     // Select CAN peripheral on PE2 and PE3
+24     PAC55XX_GPIOE->MODE\&.P2 = 3;
+25     PAC55XX_GPIOE->MODE\&.P3 = 1;  
+26     PAC55XX_SCC->PEMUXSEL\&.w &= 0xFFFFF0FF;          // Clear Port E Pin 2 selection
+27     PAC55XX_SCC->PEMUXSEL\&.w |= 0x00000600;          // Set Port E Pin 2 CANRXD   
+28     PAC55XX_SCC->PEMUXSEL\&.w &= 0xFFFF0FFF;          // Clear Port F Pin 3 selection
+29     PAC55XX_SCC->PEMUXSEL\&.w |= 0x00006000;          // Set Port E Pin 3 CANTXD   
+30 }
+.fi
+.PP
+References PAC55XX_GPIOE, and PAC55XX_SCC\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

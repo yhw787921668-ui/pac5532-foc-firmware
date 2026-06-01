@@ -1,0 +1,297 @@
+\hypertarget{pac5xxx__flash__test_8c}{}\doxysection{pac\+\_\+foc/src/features/flash\+\_\+crc\+\_\+test/pac5xxx\+\_\+flash\+\_\+test.c File Reference}
+\label{pac5xxx__flash__test_8c}\index{pac\_foc/src/features/flash\_crc\_test/pac5xxx\_flash\_test.c@{pac\_foc/src/features/flash\_crc\_test/pac5xxx\_flash\_test.c}}
+{\ttfamily \#include \char`\"{}config\+\_\+app.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}pac5xxx.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+system.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+memory.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+flash\+\_\+test.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}checksum.\+h\char`\"{}}\newline
+Include dependency graph for pac5xxx\+\_\+flash\+\_\+test.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__flash__test_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{pac5xxx__flash__test_8c_a776b115504b4ca97b6f96cc6b60a2d34}{test\+\_\+flash\+\_\+crc}} (void)
+\item 
+int32\+\_\+t \mbox{\hyperlink{pac5xxx__flash__test_8c_ab724271a4b0080043439b20bc562d8c4}{pac5xxx\+\_\+flash\+\_\+crc\+\_\+test}} (uint8\+\_\+t $\ast$p\+\_\+start\+\_\+addr, uint32\+\_\+t size\+\_\+bytes, uint16\+\_\+t checksum)
+\begin{DoxyCompactList}\small\item\em This function performs a test of the flash using a 16-\/bit C\+RC. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{pac5xxx__flash__test_8c_a2fbcbd49822b1ac36c5cbe8028c6c39e}{pac5xxx\+\_\+fast\+\_\+flash\+\_\+crc\+\_\+test}} (uint16\+\_\+t $\ast$p\+\_\+table, uint8\+\_\+t $\ast$p\+\_\+start\+\_\+addr, uint32\+\_\+t size\+\_\+bytes, uint16\+\_\+t checksum)
+\begin{DoxyCompactList}\small\item\em This function performs a fast flash test using a C\+RC Table. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{pac5xxx__flash__test_8c_a2b7a40ce360b11d6553f1dced1b67730}{make\+\_\+crc16\+\_\+table}} (uint16\+\_\+t $\ast$p\+\_\+crctable)
+\begin{DoxyCompactList}\small\item\em This function makes a 256 entry 16-\/bit C\+RC table on the fly in R\+AM. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{pac5xxx__flash__test_8c_a352827fe0c779e8e50342380e6b0b6ca}{get\+\_\+initial\+\_\+sp\+\_\+addr}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pac5xxx__flash__test_8c_a352827fe0c779e8e50342380e6b0b6ca}\label{pac5xxx__flash__test_8c_a352827fe0c779e8e50342380e6b0b6ca}} 
+\index{pac5xxx\_flash\_test.c@{pac5xxx\_flash\_test.c}!get\_initial\_sp\_addr@{get\_initial\_sp\_addr}}
+\index{get\_initial\_sp\_addr@{get\_initial\_sp\_addr}!pac5xxx\_flash\_test.c@{pac5xxx\_flash\_test.c}}
+\doxysubsubsection{\texorpdfstring{get\_initial\_sp\_addr()}{get\_initial\_sp\_addr()}}
+{\footnotesize\ttfamily int32\+\_\+t get\+\_\+initial\+\_\+sp\+\_\+addr (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 237 of file pac5xxx\+\_\+flash\+\_\+test.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{238 \{}
+\DoxyCodeLine{239     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{240 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__flash__test_8c_a2b7a40ce360b11d6553f1dced1b67730}\label{pac5xxx__flash__test_8c_a2b7a40ce360b11d6553f1dced1b67730}} 
+\index{pac5xxx\_flash\_test.c@{pac5xxx\_flash\_test.c}!make\_crc16\_table@{make\_crc16\_table}}
+\index{make\_crc16\_table@{make\_crc16\_table}!pac5xxx\_flash\_test.c@{pac5xxx\_flash\_test.c}}
+\doxysubsubsection{\texorpdfstring{make\_crc16\_table()}{make\_crc16\_table()}}
+{\footnotesize\ttfamily void make\+\_\+crc16\+\_\+table (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{p\+\_\+crctable }\end{DoxyParamCaption})}
+
+
+
+This function makes a 256 entry 16-\/bit C\+RC table on the fly in R\+AM. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+crctable} & -\/ pointer to the C\+RC table\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 215 of file pac5xxx\+\_\+flash\+\_\+test.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{216 \{}
+\DoxyCodeLine{217     int32\_t value;}
+\DoxyCodeLine{218     int32\_t i;}
+\DoxyCodeLine{219     int32\_t j;}
+\DoxyCodeLine{220 }
+\DoxyCodeLine{221     \textcolor{keywordflow}{for}(i=0; i < 256; i++)}
+\DoxyCodeLine{222     \{}
+\DoxyCodeLine{223         value = i << 8;}
+\DoxyCodeLine{224 }
+\DoxyCodeLine{225         \textcolor{keywordflow}{for}(j=0; j < 8; j++)}
+\DoxyCodeLine{226         \{}
+\DoxyCodeLine{227            \textcolor{keywordflow}{if}(value \& (1 << 15))}
+\DoxyCodeLine{228                value = (value << 1)\string^0x1021;}
+\DoxyCodeLine{229            \textcolor{keywordflow}{else}}
+\DoxyCodeLine{230                value = value << 1;}
+\DoxyCodeLine{231         \}}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233         p\_crctable[i]= value;}
+\DoxyCodeLine{234     \}}
+\DoxyCodeLine{235 \}}
+
+\end{DoxyCode}
+
+
+Referenced by test\+\_\+flash\+\_\+crc().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=289pt]{pac5xxx__flash__test_8c_a2b7a40ce360b11d6553f1dced1b67730_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pac5xxx__flash__test_8c_a2fbcbd49822b1ac36c5cbe8028c6c39e}\label{pac5xxx__flash__test_8c_a2fbcbd49822b1ac36c5cbe8028c6c39e}} 
+\index{pac5xxx\_flash\_test.c@{pac5xxx\_flash\_test.c}!pac5xxx\_fast\_flash\_crc\_test@{pac5xxx\_fast\_flash\_crc\_test}}
+\index{pac5xxx\_fast\_flash\_crc\_test@{pac5xxx\_fast\_flash\_crc\_test}!pac5xxx\_flash\_test.c@{pac5xxx\_flash\_test.c}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_fast\_flash\_crc\_test()}{pac5xxx\_fast\_flash\_crc\_test()}}
+{\footnotesize\ttfamily int32\+\_\+t pac5xxx\+\_\+fast\+\_\+flash\+\_\+crc\+\_\+test (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{p\+\_\+table,  }\item[{uint8\+\_\+t $\ast$}]{p\+\_\+start\+\_\+addr,  }\item[{uint32\+\_\+t}]{size\+\_\+bytes,  }\item[{uint16\+\_\+t}]{checksum }\end{DoxyParamCaption})}
+
+
+
+This function performs a fast flash test using a C\+RC Table. 
+
+\begin{DoxyVerb}    The test computes a 16-bit CRC checksum over the contents of the
+    flash used by the application.  The CRC calculation makes use of
+    a 256 entry CRC table to speed up the calculation.  If the results
+    don't match the checksum parameter passed in, then a 1 is returned.
+\end{DoxyVerb}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+table} & -\/ pointer to the C\+RC table \\
+\hline
+{\em p\+\_\+start\+\_\+addr} & -\/ starting address for the C\+RC calculation \\
+\hline
+{\em size\+\_\+bytes} & -\/ size in bytes of the flash to be tested \\
+\hline
+{\em checksum} & -\/ C\+RC checksum to compare the test results against\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int32\+\_\+t 0= pass; 1=fail 
+\end{DoxyReturn}
+
+
+Definition at line 101 of file pac5xxx\+\_\+flash\+\_\+test.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{102 \{}
+\DoxyCodeLine{103     uint16\_t sum = 0;}
+\DoxyCodeLine{104     }
+\DoxyCodeLine{105     sum = \mbox{\hyperlink{checksum_8c_ac4ad3e38652e0fcc2b43d536c035d0ef}{crc16\_table\_256}}(sum, p\_start\_addr, size\_bytes, p\_table);}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     \textcolor{keywordflow}{if} (sum != checksum)}
+\DoxyCodeLine{108         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{109     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{110         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112 \}}
+
+\end{DoxyCode}
+
+
+References crc16\+\_\+table\+\_\+256().
+
+
+
+Referenced by test\+\_\+flash\+\_\+crc().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{pac5xxx__flash__test_8c_a2fbcbd49822b1ac36c5cbe8028c6c39e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=293pt]{pac5xxx__flash__test_8c_a2fbcbd49822b1ac36c5cbe8028c6c39e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pac5xxx__flash__test_8c_ab724271a4b0080043439b20bc562d8c4}\label{pac5xxx__flash__test_8c_ab724271a4b0080043439b20bc562d8c4}} 
+\index{pac5xxx\_flash\_test.c@{pac5xxx\_flash\_test.c}!pac5xxx\_flash\_crc\_test@{pac5xxx\_flash\_crc\_test}}
+\index{pac5xxx\_flash\_crc\_test@{pac5xxx\_flash\_crc\_test}!pac5xxx\_flash\_test.c@{pac5xxx\_flash\_test.c}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_flash\_crc\_test()}{pac5xxx\_flash\_crc\_test()}}
+{\footnotesize\ttfamily int32\+\_\+t pac5xxx\+\_\+flash\+\_\+crc\+\_\+test (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{p\+\_\+start\+\_\+addr,  }\item[{uint32\+\_\+t}]{size\+\_\+bytes,  }\item[{uint16\+\_\+t}]{checksum }\end{DoxyParamCaption})}
+
+
+
+This function performs a test of the flash using a 16-\/bit C\+RC. 
+
+\begin{DoxyVerb}    The test computes a 16-bit CRC checksum over the contents of the
+    specified memory.  If the results don't match the
+    checksum parameter passed in, then a 1 is returned.
+\end{DoxyVerb}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+start\+\_\+addr} & -\/ starting address for the C\+RC calculation \\
+\hline
+{\em size\+\_\+bytes} & -\/ size in bytes of the flash to be tested \\
+\hline
+{\em checksum} & -\/ C\+RC checksum to compare the test results against\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int32\+\_\+t 0= pass; 1=fail 
+\end{DoxyReturn}
+
+
+Definition at line 64 of file pac5xxx\+\_\+flash\+\_\+test.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{65 \{}
+\DoxyCodeLine{66     uint16\_t sum=0;}
+\DoxyCodeLine{67     \textcolor{keyword}{const} uint32\_t zero=0;}
+\DoxyCodeLine{68     }
+\DoxyCodeLine{69     \textcolor{comment}{//===== Calculate the CRC using the previous sum and the remainder of the bytes =====}}
+\DoxyCodeLine{70     sum = \mbox{\hyperlink{checksum_8c_a30765ae3977a4551ff3700ffef5cba3c}{crc16}}(sum, p\_start\_addr, size\_bytes);    }
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{comment}{//===== Push 16 more bits through to get the final sum =====}}
+\DoxyCodeLine{73     sum = \mbox{\hyperlink{checksum_8c_a30765ae3977a4551ff3700ffef5cba3c}{crc16}}(sum, (uint8\_t *)\&zero, 2);}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{comment}{//===== Verify the final CRC against the stored CRC =====}}
+\DoxyCodeLine{76     \textcolor{keywordflow}{if} (sum != checksum)}
+\DoxyCodeLine{77         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{78     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{79         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81 \}}
+
+\end{DoxyCode}
+
+
+References crc16().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=276pt]{pac5xxx__flash__test_8c_ab724271a4b0080043439b20bc562d8c4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{pac5xxx__flash__test_8c_a776b115504b4ca97b6f96cc6b60a2d34}\label{pac5xxx__flash__test_8c_a776b115504b4ca97b6f96cc6b60a2d34}} 
+\index{pac5xxx\_flash\_test.c@{pac5xxx\_flash\_test.c}!test\_flash\_crc@{test\_flash\_crc}}
+\index{test\_flash\_crc@{test\_flash\_crc}!pac5xxx\_flash\_test.c@{pac5xxx\_flash\_test.c}}
+\doxysubsubsection{\texorpdfstring{test\_flash\_crc()}{test\_flash\_crc()}}
+{\footnotesize\ttfamily void test\+\_\+flash\+\_\+crc (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 23 of file pac5xxx\+\_\+flash\+\_\+test.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     uint32\_t ret;}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#ifdef FAMILY\_55XX}}
+\DoxyCodeLine{28     \textcolor{comment}{// Call flash test using HW CRC Module}}
+\DoxyCodeLine{29     ret = \mbox{\hyperlink{pac5xxx__flash__test_8h_ab6b75d3501aefa7fc0d47fb39a9bede7}{pac5xxx\_hw\_flash\_crc\_test}}(  (uint8\_t *) VECTOR\_TABLE\_ADDR,                                \textcolor{comment}{// Start Address}}
+\DoxyCodeLine{30                                       (uint32\_t) \&\mbox{\hyperlink{pac5xxx__flash__test_8h_a76a5374382b8be74faa334255352ca93}{\_\_crc16\_checksum}} -\/ (uint32\_t)VECTOR\_TABLE\_ADDR,   \textcolor{comment}{// Size in bytes}}
+\DoxyCodeLine{31                                       \mbox{\hyperlink{pac5xxx__flash__test_8h_a76a5374382b8be74faa334255352ca93}{\_\_crc16\_checksum}});                                            \textcolor{comment}{// Expected CRC Value}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{33     \textcolor{comment}{// Create 16-\/bit crc16 table in RAM at RAM Base Address, The memory will be reclaimed by the application}}
+\DoxyCodeLine{34     \textcolor{comment}{// Note: The stack pointer should be at the top of RAM so there is no conflict}}
+\DoxyCodeLine{35     \mbox{\hyperlink{pac5xxx__flash__test_8c_a2b7a40ce360b11d6553f1dced1b67730}{make\_crc16\_table}}(RAM\_BASE\_ADDRESS\_PTR);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{comment}{// Call fast flash test using generated RAM table}}
+\DoxyCodeLine{38     ret = \mbox{\hyperlink{pac5xxx__flash__test_8c_a2fbcbd49822b1ac36c5cbe8028c6c39e}{pac5xxx\_fast\_flash\_crc\_test}}(RAM\_BASE\_ADDRESS\_PTR,                                         \textcolor{comment}{// Pointer to CRC Table}}
+\DoxyCodeLine{39                                       (uint8\_t *) VECTOR\_TABLE\_ADDR,                                \textcolor{comment}{// Start Address}}
+\DoxyCodeLine{40                                       (uint32\_t) \&\mbox{\hyperlink{pac5xxx__flash__test_8h_a76a5374382b8be74faa334255352ca93}{\_\_crc16\_checksum}} -\/ (uint32\_t)VECTOR\_TABLE\_ADDR,   \textcolor{comment}{// Size in bytes}}
+\DoxyCodeLine{41                                       \mbox{\hyperlink{pac5xxx__flash__test_8h_a76a5374382b8be74faa334255352ca93}{\_\_crc16\_checksum}});                                            \textcolor{comment}{// Expected CRC Value}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#endif // FAMILY\_55XX}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{comment}{// Store the results of the Flash CRC Test so the application can handle the CRC Failure}}
+\DoxyCodeLine{45     uart\_scratch\_write(ret);  \textcolor{comment}{// CRC Passed-\/ret=0; CRC Failed-\/ret=1 (i.e. non zero)}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \}}
+
+\end{DoxyCode}
+
+
+References \+\_\+\+\_\+crc16\+\_\+checksum, make\+\_\+crc16\+\_\+table(), pac5xxx\+\_\+fast\+\_\+flash\+\_\+crc\+\_\+test(), and pac5xxx\+\_\+hw\+\_\+flash\+\_\+crc\+\_\+test().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__flash__test_8c_a776b115504b4ca97b6f96cc6b60a2d34_cgraph}
+\end{center}
+\end{figure}

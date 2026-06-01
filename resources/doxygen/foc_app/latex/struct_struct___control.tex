@@ -1,0 +1,435 @@
+\hypertarget{struct_struct___control}{}\doxysection{Struct\+\_\+\+Control Struct Reference}
+\label{struct_struct___control}\index{Struct\_Control@{Struct\_Control}}
+
+
+This structure use for F\+OC control related variables.  
+
+
+
+
+{\ttfamily \#include $<$control\+\_\+struct.\+h$>$}
+
+
+
+Collaboration diagram for Struct\+\_\+\+Control\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_struct___control__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___control_ab2b77a83eed8c483514c3f40c57d41c0}{u\+\_\+duty\+\_\+value}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___control_a01ec0ddb7ceb24d6a4d64ef1028af924}{v\+\_\+duty\+\_\+value}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___control_afde9a81b2e5a09b997304a314dd38239}{w\+\_\+duty\+\_\+value}}
+\item 
+\mbox{\hyperlink{struct_p_i_d___data___type}{P\+I\+D\+\_\+\+Data\+\_\+\+Type}} \mbox{\hyperlink{struct_struct___control_a7634d99c5262356aff936bf09765b8f7}{outerloop\+\_\+pid}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___control_a907a0da802a3d8e8b737ba06b58273de}{Iu\+\_\+measured\+\_\+q14}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___control_a462e03749ec3b2a007509bf9994ff5cd}{Iv\+\_\+measured\+\_\+q14}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___control_a4751839ee845a60e816c749d9a7a9270}{Iw\+\_\+measured\+\_\+q14}}
+\item 
+\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{struct_struct___control_ac611ff6b8265dff32efae11c1fb1196a}{outerloop\+\_\+ramp}}
+\item 
+\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{struct_struct___control_a317c9c05d3403af02941871576271f31}{outerloop\+\_\+ramp\+\_\+scaled\+\_\+q14}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___control_a13e8404089e8c446c4435e4a0c8239e1}{outerloop\+\_\+fdbk\+\_\+scaled\+\_\+q14}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_struct___control_a2fadc739c92fb4d145db8e7eee2673f4}{ctrl\+\_\+counter}}
+\item 
+\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{struct_struct___control_a712d2444c74ca85833716c0109b1c043}{outerloop\+\_\+target}}
+\item 
+\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{struct_struct___control_aa2a8f216248891280573b85cd9f1d671}{idrefcl\+\_\+target\+\_\+f16}}
+\item 
+\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{struct_struct___control_ad63c1fc824758afbaf818b5018c58df8}{iqrefcl\+\_\+target\+\_\+f16}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}{motor\+\_\+period\+\_\+ticks}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_struct___control_a409a52fd9fb77b1c81a7665d21f468f7}{motor\+\_\+period\+\_\+ticks\+\_\+1div}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_struct___control_a9e3ae56bbe1eead1f30dc51938f32a70}{duty\+\_\+max\+\_\+pct\+\_\+q14}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_struct___control_a854d4a297829c8eb4fea24a67a9ead83}{duty\+\_\+max\+\_\+pct\+\_\+1div\+\_\+q14}}
+\item 
+\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{struct_struct___control_a26545bb8d0166b9c61068c21c1d49369}{dt\+\_\+control\+\_\+q26}}
+\item 
+\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{struct_struct___control_a40d4c5e3068f482417417f6b77de3fe2}{dt\+\_\+control\+\_\+1div\+\_\+q6}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{struct_struct___control_a3018f84cb52d8939902c07bd5d885e93}{ctrl\+\_\+divider}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_struct___control_acb3fc7dea7622f76a8aceb5b601ebf5c}{outerloop\+\_\+pi\+\_\+scale\+\_\+shift}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_struct___control_abdafa9b9c2044bb4ec4f0aeaec7c177a}{scalefactor\+\_\+speed}}
+\item 
+\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{struct_struct___control_ae49f09f24dde4ba0ec403f57c09ad135}{outerloop\+\_\+rate}}
+\item 
+\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{struct_struct___control_a8c03557934eeb10638a818621be19ada}{outerloop\+\_\+rate\+\_\+store}}
+\item 
+\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{struct_struct___control_a7e1efe802bcf21763ff298f0863abf09}{idiqref\+\_\+rate\+\_\+f16}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___control_a56b4edfdaf4bbf6466f8bb6e78489407}{imax\+\_\+q16}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{struct_struct___control_a40542405610d46d00eb03fb9122137ea}{imax\+\_\+1div\+\_\+q16}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This structure use for F\+OC control related variables. 
+
+Definition at line 28 of file control\+\_\+struct.\+h.
+
+
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct_struct___control_a2fadc739c92fb4d145db8e7eee2673f4}\label{struct_struct___control_a2fadc739c92fb4d145db8e7eee2673f4}} 
+\index{Struct\_Control@{Struct\_Control}!ctrl\_counter@{ctrl\_counter}}
+\index{ctrl\_counter@{ctrl\_counter}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{ctrl\_counter}{ctrl\_counter}}
+{\footnotesize\ttfamily uint32\+\_\+t Struct\+\_\+\+Control\+::ctrl\+\_\+counter}
+
+
+
+Definition at line 41 of file control\+\_\+struct.\+h.
+
+
+
+Referenced by systemvar\+\_\+init().
+
+\mbox{\Hypertarget{struct_struct___control_a3018f84cb52d8939902c07bd5d885e93}\label{struct_struct___control_a3018f84cb52d8939902c07bd5d885e93}} 
+\index{Struct\_Control@{Struct\_Control}!ctrl\_divider@{ctrl\_divider}}
+\index{ctrl\_divider@{ctrl\_divider}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{ctrl\_divider}{ctrl\_divider}}
+{\footnotesize\ttfamily uint32\+\_\+t Struct\+\_\+\+Control\+::ctrl\+\_\+divider}
+
+
+
+Definition at line 55 of file control\+\_\+struct.\+h.
+
+
+
+Referenced by config\+\_\+control\+\_\+dt().
+
+\mbox{\Hypertarget{struct_struct___control_a40d4c5e3068f482417417f6b77de3fe2}\label{struct_struct___control_a40d4c5e3068f482417417f6b77de3fe2}} 
+\index{Struct\_Control@{Struct\_Control}!dt\_control\_1div\_q6@{dt\_control\_1div\_q6}}
+\index{dt\_control\_1div\_q6@{dt\_control\_1div\_q6}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{dt\_control\_1div\_q6}{dt\_control\_1div\_q6}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} Struct\+\_\+\+Control\+::dt\+\_\+control\+\_\+1div\+\_\+q6}
+
+
+
+Definition at line 54 of file control\+\_\+struct.\+h.
+
+
+
+Referenced by aligngo\+\_\+param\+\_\+write(), and config\+\_\+control\+\_\+dt().
+
+\mbox{\Hypertarget{struct_struct___control_a26545bb8d0166b9c61068c21c1d49369}\label{struct_struct___control_a26545bb8d0166b9c61068c21c1d49369}} 
+\index{Struct\_Control@{Struct\_Control}!dt\_control\_q26@{dt\_control\_q26}}
+\index{dt\_control\_q26@{dt\_control\_q26}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{dt\_control\_q26}{dt\_control\_q26}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} Struct\+\_\+\+Control\+::dt\+\_\+control\+\_\+q26}
+
+
+
+Definition at line 53 of file control\+\_\+struct.\+h.
+
+
+
+Referenced by config\+\_\+control\+\_\+dt(), lbg1\+\_\+calculate\+\_\+coefficients(), lbg1\+\_\+reset(), and lbg1\+\_\+statemon().
+
+\mbox{\Hypertarget{struct_struct___control_a854d4a297829c8eb4fea24a67a9ead83}\label{struct_struct___control_a854d4a297829c8eb4fea24a67a9ead83}} 
+\index{Struct\_Control@{Struct\_Control}!duty\_max\_pct\_1div\_q14@{duty\_max\_pct\_1div\_q14}}
+\index{duty\_max\_pct\_1div\_q14@{duty\_max\_pct\_1div\_q14}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{duty\_max\_pct\_1div\_q14}{duty\_max\_pct\_1div\_q14}}
+{\footnotesize\ttfamily uint16\+\_\+t Struct\+\_\+\+Control\+::duty\+\_\+max\+\_\+pct\+\_\+1div\+\_\+q14}
+
+
+
+Definition at line 52 of file control\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___control_a9e3ae56bbe1eead1f30dc51938f32a70}\label{struct_struct___control_a9e3ae56bbe1eead1f30dc51938f32a70}} 
+\index{Struct\_Control@{Struct\_Control}!duty\_max\_pct\_q14@{duty\_max\_pct\_q14}}
+\index{duty\_max\_pct\_q14@{duty\_max\_pct\_q14}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{duty\_max\_pct\_q14}{duty\_max\_pct\_q14}}
+{\footnotesize\ttfamily uint16\+\_\+t Struct\+\_\+\+Control\+::duty\+\_\+max\+\_\+pct\+\_\+q14}
+
+
+
+Definition at line 51 of file control\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___control_a7e1efe802bcf21763ff298f0863abf09}\label{struct_struct___control_a7e1efe802bcf21763ff298f0863abf09}} 
+\index{Struct\_Control@{Struct\_Control}!idiqref\_rate\_f16@{idiqref\_rate\_f16}}
+\index{idiqref\_rate\_f16@{idiqref\_rate\_f16}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{idiqref\_rate\_f16}{idiqref\_rate\_f16}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} Struct\+\_\+\+Control\+::idiqref\+\_\+rate\+\_\+f16}
+
+
+
+Definition at line 60 of file control\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___control_aa2a8f216248891280573b85cd9f1d671}\label{struct_struct___control_aa2a8f216248891280573b85cd9f1d671}} 
+\index{Struct\_Control@{Struct\_Control}!idrefcl\_target\_f16@{idrefcl\_target\_f16}}
+\index{idrefcl\_target\_f16@{idrefcl\_target\_f16}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{idrefcl\_target\_f16}{idrefcl\_target\_f16}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} Struct\+\_\+\+Control\+::idrefcl\+\_\+target\+\_\+f16}
+
+
+
+Definition at line 45 of file control\+\_\+struct.\+h.
+
+
+
+Referenced by control\+\_\+reset(), and sm\+\_\+mainsub\+\_\+prestart().
+
+\mbox{\Hypertarget{struct_struct___control_a40542405610d46d00eb03fb9122137ea}\label{struct_struct___control_a40542405610d46d00eb03fb9122137ea}} 
+\index{Struct\_Control@{Struct\_Control}!imax\_1div\_q16@{imax\_1div\_q16}}
+\index{imax\_1div\_q16@{imax\_1div\_q16}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{imax\_1div\_q16}{imax\_1div\_q16}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Control\+::imax\+\_\+1div\+\_\+q16}
+
+
+
+Definition at line 62 of file control\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___control_a56b4edfdaf4bbf6466f8bb6e78489407}\label{struct_struct___control_a56b4edfdaf4bbf6466f8bb6e78489407}} 
+\index{Struct\_Control@{Struct\_Control}!imax\_q16@{imax\_q16}}
+\index{imax\_q16@{imax\_q16}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{imax\_q16}{imax\_q16}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Control\+::imax\+\_\+q16}
+
+
+
+Definition at line 61 of file control\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___control_ad63c1fc824758afbaf818b5018c58df8}\label{struct_struct___control_ad63c1fc824758afbaf818b5018c58df8}} 
+\index{Struct\_Control@{Struct\_Control}!iqrefcl\_target\_f16@{iqrefcl\_target\_f16}}
+\index{iqrefcl\_target\_f16@{iqrefcl\_target\_f16}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{iqrefcl\_target\_f16}{iqrefcl\_target\_f16}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} Struct\+\_\+\+Control\+::iqrefcl\+\_\+target\+\_\+f16}
+
+
+
+Definition at line 46 of file control\+\_\+struct.\+h.
+
+
+
+Referenced by control\+\_\+reset(), and sm\+\_\+mainsub\+\_\+prestart().
+
+\mbox{\Hypertarget{struct_struct___control_a907a0da802a3d8e8b737ba06b58273de}\label{struct_struct___control_a907a0da802a3d8e8b737ba06b58273de}} 
+\index{Struct\_Control@{Struct\_Control}!Iu\_measured\_q14@{Iu\_measured\_q14}}
+\index{Iu\_measured\_q14@{Iu\_measured\_q14}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{Iu\_measured\_q14}{Iu\_measured\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Control\+::\+Iu\+\_\+measured\+\_\+q14}
+
+
+
+Definition at line 35 of file control\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___control_a462e03749ec3b2a007509bf9994ff5cd}\label{struct_struct___control_a462e03749ec3b2a007509bf9994ff5cd}} 
+\index{Struct\_Control@{Struct\_Control}!Iv\_measured\_q14@{Iv\_measured\_q14}}
+\index{Iv\_measured\_q14@{Iv\_measured\_q14}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{Iv\_measured\_q14}{Iv\_measured\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Control\+::\+Iv\+\_\+measured\+\_\+q14}
+
+
+
+Definition at line 36 of file control\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___control_a4751839ee845a60e816c749d9a7a9270}\label{struct_struct___control_a4751839ee845a60e816c749d9a7a9270}} 
+\index{Struct\_Control@{Struct\_Control}!Iw\_measured\_q14@{Iw\_measured\_q14}}
+\index{Iw\_measured\_q14@{Iw\_measured\_q14}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{Iw\_measured\_q14}{Iw\_measured\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Control\+::\+Iw\+\_\+measured\+\_\+q14}
+
+
+
+Definition at line 37 of file control\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}\label{struct_struct___control_aa861af26744b493d1ffdb742dacb890b}} 
+\index{Struct\_Control@{Struct\_Control}!motor\_period\_ticks@{motor\_period\_ticks}}
+\index{motor\_period\_ticks@{motor\_period\_ticks}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{motor\_period\_ticks}{motor\_period\_ticks}}
+{\footnotesize\ttfamily uint16\+\_\+t Struct\+\_\+\+Control\+::motor\+\_\+period\+\_\+ticks}
+
+
+
+Definition at line 49 of file control\+\_\+struct.\+h.
+
+
+
+Referenced by control\+\_\+reset(), foc\+\_\+config(), m1\+\_\+disable(), and m1\+\_\+enable().
+
+\mbox{\Hypertarget{struct_struct___control_a409a52fd9fb77b1c81a7665d21f468f7}\label{struct_struct___control_a409a52fd9fb77b1c81a7665d21f468f7}} 
+\index{Struct\_Control@{Struct\_Control}!motor\_period\_ticks\_1div@{motor\_period\_ticks\_1div}}
+\index{motor\_period\_ticks\_1div@{motor\_period\_ticks\_1div}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{motor\_period\_ticks\_1div}{motor\_period\_ticks\_1div}}
+{\footnotesize\ttfamily uint16\+\_\+t Struct\+\_\+\+Control\+::motor\+\_\+period\+\_\+ticks\+\_\+1div}
+
+
+
+Definition at line 50 of file control\+\_\+struct.\+h.
+
+
+
+Referenced by foc\+\_\+config().
+
+\mbox{\Hypertarget{struct_struct___control_a13e8404089e8c446c4435e4a0c8239e1}\label{struct_struct___control_a13e8404089e8c446c4435e4a0c8239e1}} 
+\index{Struct\_Control@{Struct\_Control}!outerloop\_fdbk\_scaled\_q14@{outerloop\_fdbk\_scaled\_q14}}
+\index{outerloop\_fdbk\_scaled\_q14@{outerloop\_fdbk\_scaled\_q14}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{outerloop\_fdbk\_scaled\_q14}{outerloop\_fdbk\_scaled\_q14}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Control\+::outerloop\+\_\+fdbk\+\_\+scaled\+\_\+q14}
+
+
+
+Definition at line 40 of file control\+\_\+struct.\+h.
+
+
+
+Referenced by control\+\_\+reset().
+
+\mbox{\Hypertarget{struct_struct___control_acb3fc7dea7622f76a8aceb5b601ebf5c}\label{struct_struct___control_acb3fc7dea7622f76a8aceb5b601ebf5c}} 
+\index{Struct\_Control@{Struct\_Control}!outerloop\_pi\_scale\_shift@{outerloop\_pi\_scale\_shift}}
+\index{outerloop\_pi\_scale\_shift@{outerloop\_pi\_scale\_shift}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{outerloop\_pi\_scale\_shift}{outerloop\_pi\_scale\_shift}}
+{\footnotesize\ttfamily uint16\+\_\+t Struct\+\_\+\+Control\+::outerloop\+\_\+pi\+\_\+scale\+\_\+shift}
+
+
+
+Definition at line 56 of file control\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___control_a7634d99c5262356aff936bf09765b8f7}\label{struct_struct___control_a7634d99c5262356aff936bf09765b8f7}} 
+\index{Struct\_Control@{Struct\_Control}!outerloop\_pid@{outerloop\_pid}}
+\index{outerloop\_pid@{outerloop\_pid}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{outerloop\_pid}{outerloop\_pid}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_p_i_d___data___type}{P\+I\+D\+\_\+\+Data\+\_\+\+Type}} Struct\+\_\+\+Control\+::outerloop\+\_\+pid}
+
+
+
+Definition at line 34 of file control\+\_\+struct.\+h.
+
+
+
+Referenced by control\+\_\+reset(), and parameters\+\_\+write\+\_\+foc().
+
+\mbox{\Hypertarget{struct_struct___control_ac611ff6b8265dff32efae11c1fb1196a}\label{struct_struct___control_ac611ff6b8265dff32efae11c1fb1196a}} 
+\index{Struct\_Control@{Struct\_Control}!outerloop\_ramp@{outerloop\_ramp}}
+\index{outerloop\_ramp@{outerloop\_ramp}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{outerloop\_ramp}{outerloop\_ramp}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} Struct\+\_\+\+Control\+::outerloop\+\_\+ramp}
+
+
+
+Definition at line 38 of file control\+\_\+struct.\+h.
+
+
+
+Referenced by control\+\_\+reset().
+
+\mbox{\Hypertarget{struct_struct___control_a317c9c05d3403af02941871576271f31}\label{struct_struct___control_a317c9c05d3403af02941871576271f31}} 
+\index{Struct\_Control@{Struct\_Control}!outerloop\_ramp\_scaled\_q14@{outerloop\_ramp\_scaled\_q14}}
+\index{outerloop\_ramp\_scaled\_q14@{outerloop\_ramp\_scaled\_q14}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{outerloop\_ramp\_scaled\_q14}{outerloop\_ramp\_scaled\_q14}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} Struct\+\_\+\+Control\+::outerloop\+\_\+ramp\+\_\+scaled\+\_\+q14}
+
+
+
+Definition at line 39 of file control\+\_\+struct.\+h.
+
+
+
+Referenced by control\+\_\+reset().
+
+\mbox{\Hypertarget{struct_struct___control_ae49f09f24dde4ba0ec403f57c09ad135}\label{struct_struct___control_ae49f09f24dde4ba0ec403f57c09ad135}} 
+\index{Struct\_Control@{Struct\_Control}!outerloop\_rate@{outerloop\_rate}}
+\index{outerloop\_rate@{outerloop\_rate}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{outerloop\_rate}{outerloop\_rate}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} Struct\+\_\+\+Control\+::outerloop\+\_\+rate}
+
+
+
+Definition at line 58 of file control\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___control_a8c03557934eeb10638a818621be19ada}\label{struct_struct___control_a8c03557934eeb10638a818621be19ada}} 
+\index{Struct\_Control@{Struct\_Control}!outerloop\_rate\_store@{outerloop\_rate\_store}}
+\index{outerloop\_rate\_store@{outerloop\_rate\_store}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{outerloop\_rate\_store}{outerloop\_rate\_store}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} Struct\+\_\+\+Control\+::outerloop\+\_\+rate\+\_\+store}
+
+
+
+Definition at line 59 of file control\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___control_a712d2444c74ca85833716c0109b1c043}\label{struct_struct___control_a712d2444c74ca85833716c0109b1c043}} 
+\index{Struct\_Control@{Struct\_Control}!outerloop\_target@{outerloop\_target}}
+\index{outerloop\_target@{outerloop\_target}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{outerloop\_target}{outerloop\_target}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} Struct\+\_\+\+Control\+::outerloop\+\_\+target}
+
+
+
+Definition at line 44 of file control\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___control_abdafa9b9c2044bb4ec4f0aeaec7c177a}\label{struct_struct___control_abdafa9b9c2044bb4ec4f0aeaec7c177a}} 
+\index{Struct\_Control@{Struct\_Control}!scalefactor\_speed@{scalefactor\_speed}}
+\index{scalefactor\_speed@{scalefactor\_speed}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{scalefactor\_speed}{scalefactor\_speed}}
+{\footnotesize\ttfamily uint16\+\_\+t Struct\+\_\+\+Control\+::scalefactor\+\_\+speed}
+
+
+
+Definition at line 57 of file control\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{struct_struct___control_ab2b77a83eed8c483514c3f40c57d41c0}\label{struct_struct___control_ab2b77a83eed8c483514c3f40c57d41c0}} 
+\index{Struct\_Control@{Struct\_Control}!u\_duty\_value@{u\_duty\_value}}
+\index{u\_duty\_value@{u\_duty\_value}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{u\_duty\_value}{u\_duty\_value}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Control\+::u\+\_\+duty\+\_\+value}
+
+
+
+Definition at line 31 of file control\+\_\+struct.\+h.
+
+
+
+Referenced by control\+\_\+reset().
+
+\mbox{\Hypertarget{struct_struct___control_a01ec0ddb7ceb24d6a4d64ef1028af924}\label{struct_struct___control_a01ec0ddb7ceb24d6a4d64ef1028af924}} 
+\index{Struct\_Control@{Struct\_Control}!v\_duty\_value@{v\_duty\_value}}
+\index{v\_duty\_value@{v\_duty\_value}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{v\_duty\_value}{v\_duty\_value}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Control\+::v\+\_\+duty\+\_\+value}
+
+
+
+Definition at line 32 of file control\+\_\+struct.\+h.
+
+
+
+Referenced by control\+\_\+reset().
+
+\mbox{\Hypertarget{struct_struct___control_afde9a81b2e5a09b997304a314dd38239}\label{struct_struct___control_afde9a81b2e5a09b997304a314dd38239}} 
+\index{Struct\_Control@{Struct\_Control}!w\_duty\_value@{w\_duty\_value}}
+\index{w\_duty\_value@{w\_duty\_value}!Struct\_Control@{Struct\_Control}}
+\doxysubsubsection{\texorpdfstring{w\_duty\_value}{w\_duty\_value}}
+{\footnotesize\ttfamily int32\+\_\+t Struct\+\_\+\+Control\+::w\+\_\+duty\+\_\+value}
+
+
+
+Definition at line 33 of file control\+\_\+struct.\+h.
+
+
+
+Referenced by control\+\_\+reset().
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+pac\+\_\+foc/src/control/\mbox{\hyperlink{control__struct_8h}{control\+\_\+struct.\+h}}\end{DoxyCompactItemize}

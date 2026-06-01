@@ -1,0 +1,57 @@
+\hypertarget{isr__gpio_d_8c}{}\doxysection{pac\+\_\+foc/src/isr/isr\+\_\+gpioD.c File Reference}
+\label{isr__gpio_d_8c}\index{pac\_foc/src/isr/isr\_gpioD.c@{pac\_foc/src/isr/isr\_gpioD.c}}
+
+
+Use for PortD I\+SR.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac\+\_\+init.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fault.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+tile.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hall\+\_\+funcs.\+h\char`\"{}}\newline
+Include dependency graph for isr\+\_\+gpio\+D.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{isr__gpio_d_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{isr__gpio_d_8c_a62739e2b7e3d6c7c4caee4b288ffeb88}{Gpio\+D\+\_\+\+I\+R\+Q\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Process G\+P\+I\+OD interrupts to handle hall inputs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for PortD I\+SR. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{isr__gpio_d_8c_a62739e2b7e3d6c7c4caee4b288ffeb88}\label{isr__gpio_d_8c_a62739e2b7e3d6c7c4caee4b288ffeb88}} 
+\index{isr\_gpioD.c@{isr\_gpioD.c}!GpioD\_IRQHandler@{GpioD\_IRQHandler}}
+\index{GpioD\_IRQHandler@{GpioD\_IRQHandler}!isr\_gpioD.c@{isr\_gpioD.c}}
+\doxysubsubsection{\texorpdfstring{GpioD\_IRQHandler()}{GpioD\_IRQHandler()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void Gpio\+D\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Process G\+P\+I\+OD interrupts to handle hall inputs. 
+
+
+
+Definition at line 34 of file isr\+\_\+gpio\+D.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_HALL == ENABLED) \& (HALL\_METHOD\_SELECT == HALL\_METHOD\_INTERRUPT) \& (Hall\_Gpio\_IRQn == GpioD\_IRQn)}}
+\DoxyCodeLine{37     hall\_isr\_handler();}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{39 \}}
+
+\end{DoxyCode}

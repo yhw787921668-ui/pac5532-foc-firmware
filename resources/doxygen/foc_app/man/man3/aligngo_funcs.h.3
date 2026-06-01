@@ -1,0 +1,87 @@
+.TH "pac_foc/src/mpos/aligngo/aligngo_funcs.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/mpos/aligngo/aligngo_funcs.h \- Use for align and go utility function\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'utils\&.h'\fP
+.br
+\fC#include 'driver_funcs\&.h'\fP
+.br
+\fC#include 'parameter_process\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBaligngo_param_write\fP (\fBStruct_Motor\fP *motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+.br
+.RI "Process parameter write\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for align and go utility function\&. 
+
+
+.PP
+Definition in file \fBaligngo_funcs\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void aligngo_param_write (\fBStruct_Motor\fP * motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+
+.PP
+Process parameter write\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.br
+\fIParameterCode\fP param_code 
+.br
+\fIint32_t\fP rx_data 
+.RE
+.PP
+
+.PP
+Definition at line 32 of file aligngo_funcs\&.c\&.
+.PP
+.nf
+33 {
+34     switch(param_code)
+35     {
+36     case open_loop_align_hold_num_steps:
+37         motor_ptr->startup\&.aligngo\&.aligntime_cmd = rx_data;
+38         break;
+39     case open_loop_speed_slew_rate:
+40         motor_ptr->startup\&.aligngo\&.speedrefol_rate = rx_data;
+41         break;
+42     case open_loop_speed_setpoint:
+43         motor_ptr->startup\&.aligngo\&.speedrefol_target = rx_data;
+44         motor_ptr->startup\&.aligngo\&.speedrefol_target_radps = ((rx_data >> 9) * (motor_ptr->control\&.dt_control_1div_q6 >> 7));        // f16>>9=8q7 * f16>>7=6q9 = q16 (rad/s)
+45         break;
+46     case id_ref:
+47         motor_ptr->startup\&.idrefol_gui_q16 = rx_data;
+48         motor_ptr->startup\&.aligngo\&.idrefol_target_q16 = rx_data;
+49         break;
+50     case iq_ref:
+51         motor_ptr->startup\&.itotrefol_gui_q16 = rx_data;
+52         write_itotstart_target(rx_data, &motor_ptr->startup\&.aligngo\&.itotrefol_target_q16, &motor_ptr->startup\&.aligngo\&.itotrefol_target_1div_q16);
+53         break;
+54     default:
+55         break;
+56     }
+57 }
+.fi
+.PP
+References Struct_StartupAlignGo::aligngo, Struct_AlignGo::aligntime_cmd, Struct_Motor::control, Struct_Control::dt_control_1div_q6, id_ref, Struct_StartupAlignGo::idrefol_gui_q16, Struct_AlignGo::idrefol_target_q16, iq_ref, Struct_StartupAlignGo::itotrefol_gui_q16, Struct_AlignGo::itotrefol_target_1div_q16, Struct_AlignGo::itotrefol_target_q16, open_loop_align_hold_num_steps, open_loop_speed_setpoint, open_loop_speed_slew_rate, Struct_AlignGo::speedrefol_rate, Struct_AlignGo::speedrefol_target, Struct_AlignGo::speedrefol_target_radps, Struct_Motor::startup, and write_itotstart_target()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

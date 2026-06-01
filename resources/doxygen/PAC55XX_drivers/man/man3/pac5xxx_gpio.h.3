@@ -1,0 +1,70 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_gpio.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_gpio.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBIO_MODE_TYPEDEF\fP"
+.br
+.ti -1c
+.RI "union \fBIO_PINS_TYPEDEF\fP"
+.br
+.ti -1c
+.RI "struct \fBPAC55XX_GPIO_TYPEDEF\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBIO_PINS_TYPEDEF_DEFINE\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBIO_MODE_TYPE\fP { \fBIO_ANAOG_INPUT\fP = 0, \fBIO_PUSH_PULL_OUTPUT\fP = 1, \fBIO_OPEN_DRAIN_OUTPUT\fP = 2, \fBIO_HIGH_IMPEDENCE_INPUT\fP = 3 }"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define IO_PINS_TYPEDEF_DEFINE"
+
+.PP
+Definition at line 47 of file pac5xxx_gpio\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBIO_MODE_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIO_ANAOG_INPUT \fP\fP
+.TP
+\fB\fIIO_PUSH_PULL_OUTPUT \fP\fP
+.TP
+\fB\fIIO_OPEN_DRAIN_OUTPUT \fP\fP
+.TP
+\fB\fIIO_HIGH_IMPEDENCE_INPUT \fP\fP
+.PP
+Definition at line 22 of file pac5xxx_gpio\&.h\&.
+.PP
+.nf
+22              {
+23   IO_ANAOG_INPUT               = 0,                 // Analog Input for ADC Pins only - Reserved for the other pins                            
+24   IO_PUSH_PULL_OUTPUT          = 1,                 // Push-Pull Digital Output 
+25   IO_OPEN_DRAIN_OUTPUT         = 2,                 // Open-Drain Digital Output                          
+26   IO_HIGH_IMPEDENCE_INPUT      = 3                  // High-Impedance Digital Input 
+27 } IO_MODE_TYPE;    
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

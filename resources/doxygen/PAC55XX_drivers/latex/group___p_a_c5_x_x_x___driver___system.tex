@@ -1,0 +1,189 @@
+\hypertarget{group___p_a_c5_x_x_x___driver___system}{}\doxysection{P\+A\+C5\+X\+XX System and Clock Controller}
+\label{group___p_a_c5_x_x_x___driver___system}\index{PAC5XXX System and Clock Controller@{PAC5XXX System and Clock Controller}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gaf342bdfd5e5a63868452ecd1c19eb69e}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+Y\+S\+T\+EM}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gaf342bdfd5e5a63868452ecd1c19eb69e}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+Y\+S\+T\+EM}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gae1b6cdc389194cb026984ef5d8a5077e}{pac5xxx\+\_\+sys\+\_\+pll\+\_\+config\+\_\+enable}} (uint32\+\_\+t pllindiv, uint32\+\_\+t pllfbdiv, uint32\+\_\+t plloutdiv)
+\begin{DoxyCompactList}\small\item\em This function configures and enables the P\+LL with the given frequency output using C\+L\+K\+R\+EF. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gabb7807c0a455033fda4ec8a824b82f9c}{pac\+\_\+recovery}} (void)
+\begin{DoxyCompactList}\small\item\em When P\+A\+C\+\_\+\+R\+E\+C\+O\+V\+E\+RY is defined, this function will insert a 3-\/second delay on startup if P\+E3 is low. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_ga36dd8d0224d2dfb94869b084607d7bb5}{pac\+\_\+delay\+\_\+asm}} (uint32\+\_\+t counts)
+\begin{DoxyCompactList}\small\item\em Implements a delay in assembly. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{pac5xxx_8h_a5f7dbab875d9273b4835bf69cf165101}{P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_ga4b3e78084818dafc892294d9f06adc84}{pac\+\_\+delay\+\_\+asm\+\_\+ramfunc}} (uint32\+\_\+t counts)
+\begin{DoxyCompactList}\small\item\em Implementes a delay executing from S\+R\+AM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___system_gaf342bdfd5e5a63868452ecd1c19eb69e}\label{group___p_a_c5_x_x_x___driver___system_gaf342bdfd5e5a63868452ecd1c19eb69e}} 
+\index{PAC5XXX System and Clock Controller@{PAC5XXX System and Clock Controller}!RAMFUNC\_SYSTEM@{RAMFUNC\_SYSTEM}}
+\index{RAMFUNC\_SYSTEM@{RAMFUNC\_SYSTEM}!PAC5XXX System and Clock Controller@{PAC5XXX System and Clock Controller}}
+\doxysubsubsection{\texorpdfstring{RAMFUNC\_SYSTEM}{RAMFUNC\_SYSTEM}}
+{\footnotesize\ttfamily \#define R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+Y\+S\+T\+EM}
+
+
+
+Definition at line 32 of file pac5xxx\+\_\+driver\+\_\+system.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___system_gae1b6cdc389194cb026984ef5d8a5077e}\label{group___p_a_c5_x_x_x___driver___system_gae1b6cdc389194cb026984ef5d8a5077e}} 
+\index{PAC5XXX System and Clock Controller@{PAC5XXX System and Clock Controller}!pac5xxx\_sys\_pll\_config\_enable@{pac5xxx\_sys\_pll\_config\_enable}}
+\index{pac5xxx\_sys\_pll\_config\_enable@{pac5xxx\_sys\_pll\_config\_enable}!PAC5XXX System and Clock Controller@{PAC5XXX System and Clock Controller}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_sys\_pll\_config\_enable()}{pac5xxx\_sys\_pll\_config\_enable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gaf342bdfd5e5a63868452ecd1c19eb69e}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+Y\+S\+T\+EM}} void pac5xxx\+\_\+sys\+\_\+pll\+\_\+config\+\_\+enable (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{pllindiv,  }\item[{uint32\+\_\+t}]{pllfbdiv,  }\item[{uint32\+\_\+t}]{plloutdiv }\end{DoxyParamCaption})}
+
+
+
+This function configures and enables the P\+LL with the given frequency output using C\+L\+K\+R\+EF. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pllindiv} & P\+LL input divider \\
+\hline
+{\em pllfbdiv} & P\+LL feedback divider \\
+\hline
+{\em plloutdiv} & P\+LL output divider \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function configures and enables the P\+LL from the internal reference (C\+L\+K\+R\+EF). After the P\+LL Lock time, the S\+C\+LK output is switched from C\+L\+K\+R\+EF to the P\+LL output. 
+\end{DoxyNote}
+
+
+Definition at line 21 of file pac5xxx\+\_\+driver\+\_\+system.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23     \textcolor{comment}{//  Configure PLL control reg and enable PLL}}
+\DoxyCodeLine{24     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>CCSPLLCTL.PLLEN = 0;}
+\DoxyCodeLine{25     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>CCSPLLCTL.PLLFBDIV = pllfbdiv;}
+\DoxyCodeLine{26     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>CCSPLLCTL.PLLOUTDIV = plloutdiv;}
+\DoxyCodeLine{27     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>CCSPLLCTL.PLLINDIV = pllindiv;}
+\DoxyCodeLine{28     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>CCSPLLCTL.PLLEN = 1;}
+\DoxyCodeLine{29     \textcolor{comment}{// Wait for Lock}}
+\DoxyCodeLine{30     \textcolor{keywordflow}{while}(\mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>CCSPLLCTL.PLLLOCK == 0);    }
+\DoxyCodeLine{31 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C55\+X\+X\+\_\+\+S\+CC.
+
+
+
+Referenced by init\+\_\+system().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{group___p_a_c5_x_x_x___driver___system_gae1b6cdc389194cb026984ef5d8a5077e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___system_ga36dd8d0224d2dfb94869b084607d7bb5}\label{group___p_a_c5_x_x_x___driver___system_ga36dd8d0224d2dfb94869b084607d7bb5}} 
+\index{PAC5XXX System and Clock Controller@{PAC5XXX System and Clock Controller}!pac\_delay\_asm@{pac\_delay\_asm}}
+\index{pac\_delay\_asm@{pac\_delay\_asm}!PAC5XXX System and Clock Controller@{PAC5XXX System and Clock Controller}}
+\doxysubsubsection{\texorpdfstring{pac\_delay\_asm()}{pac\_delay\_asm()}}
+{\footnotesize\ttfamily void pac\+\_\+delay\+\_\+asm (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{counts }\end{DoxyParamCaption})}
+
+
+
+Implements a delay in assembly. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em counts} & Number of loop iterations \\
+\hline
+\end{DoxyParams}
+
+
+Referenced by pac\+\_\+recovery().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{group___p_a_c5_x_x_x___driver___system_ga36dd8d0224d2dfb94869b084607d7bb5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___system_ga4b3e78084818dafc892294d9f06adc84}\label{group___p_a_c5_x_x_x___driver___system_ga4b3e78084818dafc892294d9f06adc84}} 
+\index{PAC5XXX System and Clock Controller@{PAC5XXX System and Clock Controller}!pac\_delay\_asm\_ramfunc@{pac\_delay\_asm\_ramfunc}}
+\index{pac\_delay\_asm\_ramfunc@{pac\_delay\_asm\_ramfunc}!PAC5XXX System and Clock Controller@{PAC5XXX System and Clock Controller}}
+\doxysubsubsection{\texorpdfstring{pac\_delay\_asm\_ramfunc()}{pac\_delay\_asm\_ramfunc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pac5xxx_8h_a5f7dbab875d9273b4835bf69cf165101}{P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC}} void pac\+\_\+delay\+\_\+asm\+\_\+ramfunc (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{counts }\end{DoxyParamCaption})}
+
+
+
+Implementes a delay executing from S\+R\+AM. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em counts} & Number of loop iterations \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___system_gabb7807c0a455033fda4ec8a824b82f9c}\label{group___p_a_c5_x_x_x___driver___system_gabb7807c0a455033fda4ec8a824b82f9c}} 
+\index{PAC5XXX System and Clock Controller@{PAC5XXX System and Clock Controller}!pac\_recovery@{pac\_recovery}}
+\index{pac\_recovery@{pac\_recovery}!PAC5XXX System and Clock Controller@{PAC5XXX System and Clock Controller}}
+\doxysubsubsection{\texorpdfstring{pac\_recovery()}{pac\_recovery()}}
+{\footnotesize\ttfamily void pac\+\_\+recovery (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+When P\+A\+C\+\_\+\+R\+E\+C\+O\+V\+E\+RY is defined, this function will insert a 3-\/second delay on startup if P\+E3 is low. 
+
+
+
+Definition at line 48 of file pac5xxx\+\_\+driver\+\_\+system.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{49 \{}
+\DoxyCodeLine{50     \textcolor{keyword}{volatile} uint32\_t i;}
+\DoxyCodeLine{51     uint32\_t perform\_delay = 1;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{comment}{// PE3 is already an input, just need to Enable Pull Up}}
+\DoxyCodeLine{54     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>PEPUEN.P3 = 1;                         \textcolor{comment}{// Enable Pull Up}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{comment}{// If PE3 is high a delay is not needed}}
+\DoxyCodeLine{57     \textcolor{comment}{// Must check over the length of a full UART packet at 115kbps in case UART is talking and making PE3 low for short durations}}
+\DoxyCodeLine{58     \textcolor{keywordflow}{for} (i=0; i < 40; i++)  \textcolor{comment}{// Value of 40 = at least 145 uS, which is enough for 1 UART packet (78uS)}}
+\DoxyCodeLine{59     \{}
+\DoxyCodeLine{60         \textcolor{comment}{// If PE3 is high at any time, then a delay is not needed}}
+\DoxyCodeLine{61         \textcolor{keywordflow}{if} (\mbox{\hyperlink{pac5xxx_8h_a51ce743cd2ecdabe8777a4edae318c9f}{PAC55XX\_GPIOE}}-\/>IN.P3 == 1)}
+\DoxyCodeLine{62         \{}
+\DoxyCodeLine{63             perform\_delay = 0;}
+\DoxyCodeLine{64         \}}
+\DoxyCodeLine{65     \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{comment}{// If PE3 was low, delay required, add 6 second delay}}
+\DoxyCodeLine{68     \textcolor{keywordflow}{if}(perform\_delay)}
+\DoxyCodeLine{69     \{}
+\DoxyCodeLine{70         \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_ga36dd8d0224d2dfb94869b084607d7bb5}{pac\_delay\_asm}}(2800000);}
+\DoxyCodeLine{71     \}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{comment}{// Restore PE3 to reset state}}
+\DoxyCodeLine{74     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>PEPUEN.P3 = 0;                         \textcolor{comment}{// Disable Pull Up}}
+\DoxyCodeLine{75 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C55\+X\+X\+\_\+\+G\+P\+I\+OE, P\+A\+C55\+X\+X\+\_\+\+S\+CC, and pac\+\_\+delay\+\_\+asm().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=275pt]{group___p_a_c5_x_x_x___driver___system_gabb7807c0a455033fda4ec8a824b82f9c_cgraph}
+\end{center}
+\end{figure}

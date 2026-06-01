@@ -1,0 +1,47 @@
+.TH "pac_foc/src/control/mtpa_funcs.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/control/mtpa_funcs.h \- Use for FOC MTPA function\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'parameter_process\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBmtpa_init\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.ti -1c
+.RI "void \fBmtpa_reset\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.ti -1c
+.RI "void \fBmtpa_param_write\fP (\fBStruct_Motor\fP *motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for FOC MTPA function\&. 
+
+
+.PP
+Definition in file \fBmtpa_funcs\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void mtpa_init (\fBStruct_Motor\fP * motor_ptr)"
+
+.SS "void mtpa_param_write (\fBStruct_Motor\fP * motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+
+.SS "void mtpa_reset (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Referenced by motor_reset()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

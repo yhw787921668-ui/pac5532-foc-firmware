@@ -1,0 +1,348 @@
+.TH "pac_foc/src/math/int64.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/math/int64.h \- Definitions for 64-bit math functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBlfm_int64\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBFIXMATH_NO_64BIT\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_RAMFUNC \fBlfm_int64\fP \fBint64_add\fP (\fBlfm_int64\fP x, \fBlfm_int64\fP y)"
+.br
+.RI "Adds two 64-bit numbers\&. "
+.ti -1c
+.RI "PAC5XXX_RAMFUNC \fBlfm_int64\fP \fBint64_neg\fP (\fBlfm_int64\fP x)"
+.br
+.RI "Negate a 64-bit number\&. "
+.ti -1c
+.RI "PAC5XXX_RAMFUNC \fBlfm_int64\fP \fBint64_sub\fP (\fBlfm_int64\fP x, \fBlfm_int64\fP y)"
+.br
+.RI "Subtract two 64-bit numbers (x - y) "
+.ti -1c
+.RI "PAC5XXX_RAMFUNC \fBlfm_int64\fP \fBint64_shift\fP (\fBlfm_int64\fP x, int8_t y)"
+.br
+.RI "Shift a 64-bit number by the given number of bits\&. "
+.ti -1c
+.RI "PAC5XXX_RAMFUNC \fBlfm_int64\fP \fBint64_mul_i32_i32\fP (int32_t x, int32_t y)"
+.br
+.RI "Multiply two 32-bit numbers into a 64-bit number\&. "
+.ti -1c
+.RI "PAC5XXX_RAMFUNC \fBlfm_int64\fP \fBint64_mul_i64_i32\fP (\fBlfm_int64\fP x, int32_t y)"
+.br
+.RI "Multiply a 64-bit and 32-bit number\&. "
+.ti -1c
+.RI "PAC5XXX_RAMFUNC \fBlfm_int64\fP \fBint64_div_i64_i32\fP (\fBlfm_int64\fP x, int32_t y)"
+.br
+.RI "Divide a 64-bit number by a 32-bit number (x / y) "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definitions for 64-bit math functions\&. 
+
+
+.PP
+Definition in file \fBint64\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define FIXMATH_NO_64BIT"
+
+.PP
+Definition at line 40 of file int64\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "PAC5XXX_RAMFUNC \fBlfm_int64\fP int64_add (\fBlfm_int64\fP x, \fBlfm_int64\fP y)"
+
+.PP
+Adds two 64-bit numbers\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP 64-bit number 
+.br
+\fIy\fP 64-bit number 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+64-bit sum 
+.RE
+.PP
+
+.PP
+Definition at line 782 of file fix16\&.c\&.
+.PP
+.nf
+783 {
+784         lfm_int64 ret;
+785         ret\&.hi = x\&.hi + y\&.hi;
+786         ret\&.lo = x\&.lo + y\&.lo;
+787         if((ret\&.lo < x\&.lo) || (ret\&.hi < y\&.hi))
+788                 ret\&.hi++;
+789         return ret;
+790 }
+.fi
+.PP
+References lfm_int64::hi, and lfm_int64::lo\&.
+.PP
+Referenced by int64_sub()\&.
+.SS "PAC5XXX_RAMFUNC \fBlfm_int64\fP int64_div_i64_i32 (\fBlfm_int64\fP x, int32_t y)"
+
+.PP
+Divide a 64-bit number by a 32-bit number (x / y) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP 64-bit number 
+.br
+\fIy\fP 32-bit number 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+64-bit result (x / y) 
+.RE
+.PP
+
+.PP
+Definition at line 859 of file fix16\&.c\&.
+.PP
+.nf
+859                                                     {
+860         int neg = ((x\&.hi ^ y) < 0);
+861         if(x\&.hi < 0)
+862                 x = int64_neg(x);
+863         if(y < 0)
+864                 y = -y;
+865 
+866         lfm_int64 ret = { (x\&.hi / y) , (x\&.lo / y) };
+867         x\&.hi = x\&.hi % y;
+868         x\&.lo = x\&.lo % y;
+869 
+870         lfm_int64 _y = int64_from_int32(y);
+871 
+872         lfm_int64 i;
+873         for(i = int64_from_int32(1); int64_cmp_lt(_y, x); _y = int64_shift(_y, 1), i = int64_shift(i, 1));
+874 
+875         while(x\&.hi) {
+876                 _y = int64_shift(_y, -1);
+877                  i = int64_shift(i, -1);
+878                 if(int64_cmp_ge(x, _y)) {
+879                         x = int64_sub(x, _y);
+880                         ret = int64_add(ret, i);
+881                 }
+882         }
+883 
+884         ret = int64_add(ret, int64_from_int32(x\&.lo / y));
+885         return (neg ? int64_neg(ret) : ret);
+886 }
+.fi
+.PP
+References lfm_int64::hi, int64_neg(), and lfm_int64::lo\&.
+.SS "PAC5XXX_RAMFUNC \fBlfm_int64\fP int64_mul_i32_i32 (int32_t x, int32_t y)"
+
+.PP
+Multiply two 32-bit numbers into a 64-bit number\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP 32-bit number 
+.br
+\fIy\fP 32-bit number 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+64-bit product 
+.RE
+.PP
+
+.PP
+Definition at line 823 of file fix16\&.c\&.
+.PP
+.nf
+823                                                   {
+824          int16_t hi[2] = { (x >> 16), (y >> 16) };
+825         uint16_t lo[2] = { (x & 0xFFFF), (y & 0xFFFF) };
+826 
+827          int32_t r_hi = hi[0] * hi[1];
+828          int32_t r_md = (hi[0] * lo[1]) + (hi[1] * lo[0]);
+829         uint32_t r_lo = lo[0] * lo[1];
+830 
+831         r_hi += (r_md >> 16);
+832         r_lo += (r_md << 16);
+833 
+834         return (lfm_int64){ r_hi, r_lo };
+835 }
+.fi
+.SS "PAC5XXX_RAMFUNC \fBlfm_int64\fP int64_mul_i64_i32 (\fBlfm_int64\fP x, int32_t y)"
+
+.PP
+Multiply a 64-bit and 32-bit number\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP 64-bit number 
+.br
+\fIy\fP 32-bit number 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+64-bit product 
+.RE
+.PP
+
+.PP
+Definition at line 837 of file fix16\&.c\&.
+.PP
+.nf
+837                                                     {
+838         int neg = ((x\&.hi ^ y) < 0);
+839         if(x\&.hi < 0)
+840                 x = int64_neg(x);
+841         if(y < 0)
+842                 y = -y;
+843 
+844         uint32_t _x[4] = { (x\&.hi >> 16), (x\&.hi & 0xFFFF), (x\&.lo >> 16), (x\&.lo & 0xFFFF) };
+845         uint32_t _y[2] = { (y >> 16), (y & 0xFFFF) };
+846 
+847         uint32_t r[4];
+848         r[0] = (_x[0] * _y[0]);
+849         r[1] = (_x[1] * _y[0]) + (_x[0] * _y[1]);
+850         r[2] = (_x[1] * _y[1]) + (_x[2] * _y[0]);
+851         r[3] = (_x[2] * _y[0]) + (_x[1] * _y[1]);
+852 
+853         lfm_int64 ret;
+854         ret\&.lo = r[0] + (r[1] << 16);
+855         ret\&.hi = (r[3] << 16) + r[2] + (r[1] >> 16);
+856         return (neg ? int64_neg(ret) : ret);
+857 }
+.fi
+.PP
+References lfm_int64::hi, int64_neg(), and lfm_int64::lo\&.
+.SS "PAC5XXX_RAMFUNC \fBlfm_int64\fP int64_neg (\fBlfm_int64\fP x)"
+
+.PP
+Negate a 64-bit number\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP 64-bit number 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+negated 64-bit number 
+.RE
+.PP
+
+.PP
+Definition at line 814 of file fix16\&.c\&.
+.PP
+.nf
+814                                  {
+815         lfm_int64 ret;
+816         ret\&.hi = ~x\&.hi;
+817         ret\&.lo = ~x\&.lo + 1;
+818         if(ret\&.lo == 0)
+819                 ret\&.hi++;
+820         return ret;
+821 }
+.fi
+.PP
+References lfm_int64::hi, and lfm_int64::lo\&.
+.PP
+Referenced by int64_div_i64_i32(), int64_mul_i64_i32(), and int64_sub()\&.
+.SS "PAC5XXX_RAMFUNC \fBlfm_int64\fP int64_shift (\fBlfm_int64\fP x, int8_t y)"
+
+.PP
+Shift a 64-bit number by the given number of bits\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP 64-bit number 
+.br
+\fIy\fP number of bits to shift 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+64-bit shifted number 
+.RE
+.PP
+
+.PP
+Definition at line 797 of file fix16\&.c\&.
+.PP
+.nf
+797                                              {
+798         lfm_int64 ret;
+799         if(y > 0) {
+800                 if(y >= 32)
+801                         return (lfm_int64){ 0, 0 };
+802                 ret\&.hi = (x\&.hi << y) | (x\&.lo >> (32 - y));
+803                 ret\&.lo = (x\&.lo << y);
+804         } else {
+805                 y = -y;
+806                 if(y >= 32)
+807                         return (lfm_int64){ 0, 0 };
+808                 ret\&.lo = (x\&.lo >> y) | (x\&.hi << (32 - y));
+809                 ret\&.hi = (x\&.hi >> y);
+810         }
+811         return ret;
+812 }
+.fi
+.PP
+References lfm_int64::hi, and lfm_int64::lo\&.
+.SS "PAC5XXX_RAMFUNC \fBlfm_int64\fP int64_sub (\fBlfm_int64\fP x, \fBlfm_int64\fP y)"
+
+.PP
+Subtract two 64-bit numbers (x - y) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP 64-bit number 
+.br
+\fIy\fP 64-bit number 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+64-bit difference (x - y ) 
+.RE
+.PP
+
+.PP
+Definition at line 792 of file fix16\&.c\&.
+.PP
+.nf
+792                                               {
+793         return int64_add(x, int64_neg(y));
+794 }
+.fi
+.PP
+References int64_add(), and int64_neg()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

@@ -1,0 +1,417 @@
+.TH "PAC55XX_I2C_TYPEDEF" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC55XX_I2C_TYPEDEF
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pac5xxx_i2c\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBADRF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBXADRF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBAA\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBSI\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSTO\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSTA\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBI2CEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBI2CIE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBGCF\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 23"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBI2CCONSET\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBAAC\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSIC\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSTAC\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBI2CENC\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBI2CIEC\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad2__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBI2CCONCLR\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBSTATUS\fP: 5"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBI2CSTAT\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBDATA\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBI2CDAT\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBN\fP: 4"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBM\fP: 3"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 25"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBI2CCLK\fP"
+.br
+.ti -1c
+.RI "\fBI2CADR_TYPEDEF\fP \fBI2CADR0\fP"
+.br
+.ti -1c
+.RI "\fBI2CADR_MASK_TYPEDEF\fP \fBI2CADRM0\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBADDRESS\fP: 10"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad1__\fP: 21"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBI2CXADR0\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBMASK\fP: 7"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBI2CXADRM0\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBRST\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBI2CRST\fP"
+.br
+.ti -1c
+.RI "\fBI2CADR_TYPEDEF\fP \fBI2CADR1\fP"
+.br
+.ti -1c
+.RI "\fBI2CADR_MASK_TYPEDEF\fP \fBI2CADRM1\fP"
+.br
+.ti -1c
+.RI "\fBI2CADR_TYPEDEF\fP \fBI2CADR2\fP"
+.br
+.ti -1c
+.RI "\fBI2CADR_MASK_TYPEDEF\fP \fBI2CADRM2\fP"
+.br
+.ti -1c
+.RI "\fBI2CADR_TYPEDEF\fP \fBI2CADR3\fP"
+.br
+.ti -1c
+.RI "\fBI2CADR_MASK_TYPEDEF\fP \fBI2CADRM3\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 49 of file pac5xxx_i2c\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t PAC55XX_I2C_TYPEDEF::__pad0__"
+
+.PP
+Definition at line 64 of file pac5xxx_i2c\&.h\&.
+.SS "uint32_t PAC55XX_I2C_TYPEDEF::__pad1__"
+
+.PP
+Definition at line 75 of file pac5xxx_i2c\&.h\&.
+.SS "uint32_t PAC55XX_I2C_TYPEDEF::__pad2__"
+
+.PP
+Definition at line 79 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_I2C_TYPEDEF::AA"
+
+.PP
+Definition at line 57 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_I2C_TYPEDEF::AAC"
+
+.PP
+Definition at line 73 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_I2C_TYPEDEF::ADDRESS"
+
+.PP
+Definition at line 123 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_I2C_TYPEDEF::ADRF"
+
+.PP
+Definition at line 55 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_I2C_TYPEDEF::DATA"
+
+.PP
+Definition at line 97 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_I2C_TYPEDEF::GCF"
+
+.PP
+Definition at line 63 of file pac5xxx_i2c\&.h\&.
+.SS "\fBI2CADR_TYPEDEF\fP PAC55XX_I2C_TYPEDEF::I2CADR0"
+
+.PP
+Definition at line 113 of file pac5xxx_i2c\&.h\&.
+.SS "\fBI2CADR_TYPEDEF\fP PAC55XX_I2C_TYPEDEF::I2CADR1"
+
+.PP
+Definition at line 148 of file pac5xxx_i2c\&.h\&.
+.SS "\fBI2CADR_TYPEDEF\fP PAC55XX_I2C_TYPEDEF::I2CADR2"
+
+.PP
+Definition at line 154 of file pac5xxx_i2c\&.h\&.
+.SS "\fBI2CADR_TYPEDEF\fP PAC55XX_I2C_TYPEDEF::I2CADR3"
+
+.PP
+Definition at line 160 of file pac5xxx_i2c\&.h\&.
+.SS "\fBI2CADR_MASK_TYPEDEF\fP PAC55XX_I2C_TYPEDEF::I2CADRM0"
+
+.PP
+Definition at line 116 of file pac5xxx_i2c\&.h\&.
+.SS "\fBI2CADR_MASK_TYPEDEF\fP PAC55XX_I2C_TYPEDEF::I2CADRM1"
+
+.PP
+Definition at line 151 of file pac5xxx_i2c\&.h\&.
+.SS "\fBI2CADR_MASK_TYPEDEF\fP PAC55XX_I2C_TYPEDEF::I2CADRM2"
+
+.PP
+Definition at line 157 of file pac5xxx_i2c\&.h\&.
+.SS "\fBI2CADR_MASK_TYPEDEF\fP PAC55XX_I2C_TYPEDEF::I2CADRM3"
+
+.PP
+Definition at line 163 of file pac5xxx_i2c\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_I2C_TYPEDEF::I2CCLK"
+
+.SS "union { \&.\&.\&. }  PAC55XX_I2C_TYPEDEF::I2CCONCLR"
+
+.SS "union { \&.\&.\&. }  PAC55XX_I2C_TYPEDEF::I2CCONSET"
+
+.SS "union { \&.\&.\&. }  PAC55XX_I2C_TYPEDEF::I2CDAT"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_I2C_TYPEDEF::I2CEN"
+
+.PP
+Definition at line 61 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_I2C_TYPEDEF::I2CENC"
+
+.PP
+Definition at line 77 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_I2C_TYPEDEF::I2CIE"
+
+.PP
+Definition at line 62 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_I2C_TYPEDEF::I2CIEC"
+
+.PP
+Definition at line 78 of file pac5xxx_i2c\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_I2C_TYPEDEF::I2CRST"
+
+.SS "union { \&.\&.\&. }  PAC55XX_I2C_TYPEDEF::I2CSTAT"
+
+.SS "union { \&.\&.\&. }  PAC55XX_I2C_TYPEDEF::I2CXADR0"
+
+.SS "union { \&.\&.\&. }  PAC55XX_I2C_TYPEDEF::I2CXADRM0"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_I2C_TYPEDEF::M"
+
+.PP
+Definition at line 107 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_I2C_TYPEDEF::MASK"
+
+.PP
+Definition at line 133 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_I2C_TYPEDEF::N"
+
+.PP
+Definition at line 106 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_I2C_TYPEDEF::RST"
+
+.PP
+Definition at line 142 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_I2C_TYPEDEF::SI"
+
+.PP
+Definition at line 58 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_I2C_TYPEDEF::SIC"
+
+.PP
+Definition at line 74 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_I2C_TYPEDEF::STA"
+
+.PP
+Definition at line 60 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_I2C_TYPEDEF::STAC"
+
+.PP
+Definition at line 76 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_I2C_TYPEDEF::STATUS"
+
+.PP
+Definition at line 88 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_I2C_TYPEDEF::STO"
+
+.PP
+Definition at line 59 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_I2C_TYPEDEF::w"
+
+.PP
+Definition at line 53 of file pac5xxx_i2c\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_I2C_TYPEDEF::XADRF"
+
+.PP
+Definition at line 56 of file pac5xxx_i2c\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

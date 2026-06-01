@@ -1,0 +1,2392 @@
+\hypertarget{group___p_a_c5_x_x_x___s_p_i}{}\doxysection{P\+A\+C5\+X\+XX S\+PI Controller (S\+PI)}
+\label{group___p_a_c5_x_x_x___s_p_i}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+Collaboration diagram for P\+A\+C5\+X\+XX S\+PI Controller (S\+PI)\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___p_a_c5_x_x_x___s_p_i}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_p_a_c5_x_x_x___s_p_i___type_def}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga71f17122e10eda169accfe94c5292ca0}{S\+P\+I\+C\+F\+G\+\_\+\+Early\+Xmit\+Data\+Phase\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga71f17122e10eda169accfe94c5292ca0a6612335b3fe2d19c3b3f1e62695f51ec}{S\+P\+I\+S\+C\+F\+G\+\_\+\+T\+D\+A\+T\+\_\+\+P\+H\+\_\+\+N\+O\+R\+M\+AL}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga71f17122e10eda169accfe94c5292ca0a575c43863c8d9a7216acf8b00d1af62b}{S\+P\+I\+S\+C\+F\+G\+\_\+\+T\+D\+A\+T\+\_\+\+P\+H\+\_\+\+H\+A\+LF}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaa157d616835a814c9931f478964942c2}{S\+P\+I\+S\+C\+F\+G\+\_\+\+Clock\+Polarity\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ggaa157d616835a814c9931f478964942c2a7c630c5987b68fe93eaaabe7218f13fa}{S\+P\+I\+S\+C\+F\+G\+\_\+\+S\+C\+L\+K\+\_\+\+A\+C\+T\+H\+I\+GH}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ggaa157d616835a814c9931f478964942c2a321cc7f9ec0e98d5331746f7965708f6}{S\+P\+I\+S\+C\+F\+G\+\_\+\+S\+C\+L\+K\+\_\+\+A\+C\+T\+L\+OW}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gab26093b18d3d0d74df9db02c3e54dc26}{S\+P\+I\+S\+C\+F\+G\+\_\+\+Clock\+Phase\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ggab26093b18d3d0d74df9db02c3e54dc26ab700c3c4299df437226273a97cbcbf7c}{S\+P\+I\+S\+C\+F\+G\+\_\+\+S\+M\+P\+\_\+\+S\+E\+T\+UP}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ggab26093b18d3d0d74df9db02c3e54dc26a632695d532b68fdf2059a2a0adbbd2b6}{S\+P\+I\+S\+C\+F\+G\+\_\+\+S\+E\+T\+U\+P\+\_\+\+S\+MP}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga6e027e955a3a2597c5b8d789658fe424}{S\+P\+I\+S\+C\+F\+G\+\_\+\+Word\+Length\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424ae242e202724d17a5590a2f7b8946ee3d}{S\+P\+I\+S\+C\+F\+G\+\_\+\+W\+L\+\_\+8B}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424a50f37ffe28bbd4ff2f80fa16359149b2}{S\+P\+I\+S\+C\+F\+G\+\_\+\+W\+L\+\_\+16B}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424a4328e88b17a7dd4401b8fa0f22747285}{S\+P\+I\+S\+C\+F\+G\+\_\+\+W\+L\+\_\+24B}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424a7d5b9d420386974685fce2d7f5bbe23b}{S\+P\+I\+S\+C\+F\+G\+\_\+\+W\+L\+\_\+32B}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3981b50eb04637b274dcdb068c355f41}{S\+P\+I\+S\+T\+A\+T\+\_\+\+State\+\_\+\+Type}} \{ \newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a9a7409a37da8e079ac5e49a520073df5}{S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+I\+D\+LE}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41ac81f5f689df3c6f5255d8f2a0684681c}{S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+C\+S\+S\+E\+T\+UP}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41abcc5ede8a606a7ba2d91ba3679b7a5a9}{S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+T\+R\+A\+N\+S\+F\+ER}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a00b3b07e8857a6d63bef7ce0f36a5c53}{S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+C\+S\+H\+O\+LD}} = 3, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a1681385e7ac99cd3e98f03e248f6ee3c}{S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+C\+S\+W\+A\+IT}} = 4, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a1e39125ed66bc2a9e9fc9f87c2db5cef}{S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+C\+K\+W\+A\+IT}} = 5, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a37f56aab430d2cba1138e45f03a40b16}{S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+M\+T\+R\+A\+NS}} = 6, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a714eb49ffc4e8771df1e9d705e587a7f}{S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+C\+S\+B\+E\+G\+IN}} = 7
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gadc46d977ea4f7dd55362acff8c53f9fe}{S\+P\+I\+C\+S\+\_\+\+Chip\+Select\+Polarity\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ggadc46d977ea4f7dd55362acff8c53f9fea0bead47b212fcce3394317ca4cdbd905}{S\+P\+I\+C\+S\+\_\+\+C\+S\+\_\+\+A\+C\+T\+L\+OW}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ggadc46d977ea4f7dd55362acff8c53f9fea8891916820a1cbdf03527b318cdbc8e6}{S\+P\+I\+C\+S\+\_\+\+C\+S\+\_\+\+A\+C\+T\+H\+I\+GH}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga7068d89b464ce13596bee04cccdfc627}{S\+P\+I\+C\+S\+\_\+\+Chip\+Select\+Number\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a90d34adfeb374184d1f0fc5ffe28f4c0}{S\+P\+I\+C\+S\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+S0}}, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a499ba5323984730d8ea57fe2729291ca}{S\+P\+I\+C\+S\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+S1}}, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a986a6be59adbbeae9d42baa1117e280c}{S\+P\+I\+C\+S\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+S2}}, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a98f6da8f674f216e6d6a90784e460c9e}{S\+P\+I\+C\+S\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+S3}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3e9d9b8bc8daba67b6b81bb7cdf31351}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::w}}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::s}}\+: 16
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 16
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}{PAC5XXX\_SPI\_TypeDef::s}}: 16\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 16\\
+\} \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::b}}\+: 8
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 24
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}{PAC5XXX\_SPI\_TypeDef::b}}: 8\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 24\\
+\} \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga9fdc1d040426ad446abbde415601c91e}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+S\+S\+EN}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga38f03fe264f23c51c0bbb90e7b4cf59c}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+S\+IE}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad86bcf7411c008c66e9f1a9a63b4cdb5}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+L\+P\+BK}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gac743dc2b74944a59aeb23a1097dfb4ac}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+SE}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaf2fd5aa2747eed34a9b30b43e9a595cc}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+M\+T\+R\+A\+RM}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaa85a481c271ce63544e1d147603f10aa}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+M\+T\+R\+A\+NS}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga14e7f567f747d0a8b1b85a8e7f5a9537}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+M\+M\+S\+T\+\_\+N}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga19c49788ca66578928bb1926d415a0ba}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+R\+T\+R\+A\+NS}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga571bb1b76074969e3d8628289af26c88}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad1\+\_\+\+\_\+}}\+: 23
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga9fdc1d040426ad446abbde415601c91e}{PAC5XXX\_SPI\_TypeDef::SSEN}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga38f03fe264f23c51c0bbb90e7b4cf59c}{PAC5XXX\_SPI\_TypeDef::SIE}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad86bcf7411c008c66e9f1a9a63b4cdb5}{PAC5XXX\_SPI\_TypeDef::LPBK}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gac743dc2b74944a59aeb23a1097dfb4ac}{PAC5XXX\_SPI\_TypeDef::SE}}: 1\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaf2fd5aa2747eed34a9b30b43e9a595cc}{PAC5XXX\_SPI\_TypeDef::MTRARM}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaa85a481c271ce63544e1d147603f10aa}{PAC5XXX\_SPI\_TypeDef::MTRANS}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga14e7f567f747d0a8b1b85a8e7f5a9537}{PAC5XXX\_SPI\_TypeDef::MMST\_N}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga19c49788ca66578928bb1926d415a0ba}{PAC5XXX\_SPI\_TypeDef::RTRANS}}: 1\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga571bb1b76074969e3d8628289af26c88}{PAC5XXX\_SPI\_TypeDef::\_\_pad1\_\_}}: 23\\
+\} \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3e9d9b8bc8daba67b6b81bb7cdf31351}{PAC5XXX\_SPI\_TypeDef::w}}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}{PAC5XXX\_SPI\_TypeDef::s}}: 16\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 16\\
+\>\} \\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}{PAC5XXX\_SPI\_TypeDef::b}}: 8\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 24\\
+\>\} \\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga9fdc1d040426ad446abbde415601c91e}{PAC5XXX\_SPI\_TypeDef::SSEN}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga38f03fe264f23c51c0bbb90e7b4cf59c}{PAC5XXX\_SPI\_TypeDef::SIE}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad86bcf7411c008c66e9f1a9a63b4cdb5}{PAC5XXX\_SPI\_TypeDef::LPBK}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gac743dc2b74944a59aeb23a1097dfb4ac}{PAC5XXX\_SPI\_TypeDef::SE}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaf2fd5aa2747eed34a9b30b43e9a595cc}{PAC5XXX\_SPI\_TypeDef::MTRARM}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaa85a481c271ce63544e1d147603f10aa}{PAC5XXX\_SPI\_TypeDef::MTRANS}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga14e7f567f747d0a8b1b85a8e7f5a9537}{PAC5XXX\_SPI\_TypeDef::MMST\_N}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga19c49788ca66578928bb1926d415a0ba}{PAC5XXX\_SPI\_TypeDef::RTRANS}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga571bb1b76074969e3d8628289af26c88}{PAC5XXX\_SPI\_TypeDef::\_\_pad1\_\_}}: 23\\
+\>\} \\
+\} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaed54f1f8302fdda9ed9d4ae1d512c0d1}{PAC5XXX\_SPI\_TypeDef::SPICTL}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3e9d9b8bc8daba67b6b81bb7cdf31351}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::w}}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::s}}\+: 16
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 16
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}{PAC5XXX\_SPI\_TypeDef::s}}: 16\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 16\\
+\} \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::b}}\+: 8
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 24
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}{PAC5XXX\_SPI\_TypeDef::b}}: 8\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 24\\
+\} \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaee3449f791c4cc7b49e84997e827f5aa}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+WL}}\+: 2
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga61e6d7d9c986cec9bc7a24e906f9b372}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+M\+R\+ST}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga56d0891839cf5b2051f9b239dcbda42b}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+L\+B1\+ST}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga6b112b09eb0977c9130d08347be48f23}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+CP}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0973dff41ccffe2e3dab66b12c89e05f}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+PH}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gac10363c524745554bb0b9a844fb4199a}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+R\+C\+V\+CP}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga799f28d2bfbd34a5a267c4d1fa67cc53}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+R\+C\+V\+C\+PH}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga6b67444d40c9b84c9b9ba7ce3499902b}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+T\+D\+A\+T\+\_\+\+PH}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga2f7f4ffee0b1bc6e9187bcc84bc7a641}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+T\+X\+D\+B\+UF}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gabaf1094f09a92eead3c24635bf4cc84a}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+M\+T\+U\+R\+BO}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga571bb1b76074969e3d8628289af26c88}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad1\+\_\+\+\_\+}}\+: 20
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaee3449f791c4cc7b49e84997e827f5aa}{PAC5XXX\_SPI\_TypeDef::WL}}: 2\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga61e6d7d9c986cec9bc7a24e906f9b372}{PAC5XXX\_SPI\_TypeDef::MRST}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga56d0891839cf5b2051f9b239dcbda42b}{PAC5XXX\_SPI\_TypeDef::LB1ST}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga6b112b09eb0977c9130d08347be48f23}{PAC5XXX\_SPI\_TypeDef::CP}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0973dff41ccffe2e3dab66b12c89e05f}{PAC5XXX\_SPI\_TypeDef::CPH}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gac10363c524745554bb0b9a844fb4199a}{PAC5XXX\_SPI\_TypeDef::RCVCP}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga799f28d2bfbd34a5a267c4d1fa67cc53}{PAC5XXX\_SPI\_TypeDef::RCVCPH}}: 1\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga6b67444d40c9b84c9b9ba7ce3499902b}{PAC5XXX\_SPI\_TypeDef::TDAT\_PH}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga2f7f4ffee0b1bc6e9187bcc84bc7a641}{PAC5XXX\_SPI\_TypeDef::TXDBUF}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gabaf1094f09a92eead3c24635bf4cc84a}{PAC5XXX\_SPI\_TypeDef::MTURBO}}: 1\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga571bb1b76074969e3d8628289af26c88}{PAC5XXX\_SPI\_TypeDef::\_\_pad1\_\_}}: 20\\
+\} \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3e9d9b8bc8daba67b6b81bb7cdf31351}{PAC5XXX\_SPI\_TypeDef::w}}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}{PAC5XXX\_SPI\_TypeDef::s}}: 16\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 16\\
+\>\} \\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}{PAC5XXX\_SPI\_TypeDef::b}}: 8\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 24\\
+\>\} \\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaee3449f791c4cc7b49e84997e827f5aa}{PAC5XXX\_SPI\_TypeDef::WL}}: 2\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga61e6d7d9c986cec9bc7a24e906f9b372}{PAC5XXX\_SPI\_TypeDef::MRST}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga56d0891839cf5b2051f9b239dcbda42b}{PAC5XXX\_SPI\_TypeDef::LB1ST}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga6b112b09eb0977c9130d08347be48f23}{PAC5XXX\_SPI\_TypeDef::CP}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0973dff41ccffe2e3dab66b12c89e05f}{PAC5XXX\_SPI\_TypeDef::CPH}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gac10363c524745554bb0b9a844fb4199a}{PAC5XXX\_SPI\_TypeDef::RCVCP}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga799f28d2bfbd34a5a267c4d1fa67cc53}{PAC5XXX\_SPI\_TypeDef::RCVCPH}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga6b67444d40c9b84c9b9ba7ce3499902b}{PAC5XXX\_SPI\_TypeDef::TDAT\_PH}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga2f7f4ffee0b1bc6e9187bcc84bc7a641}{PAC5XXX\_SPI\_TypeDef::TXDBUF}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gabaf1094f09a92eead3c24635bf4cc84a}{PAC5XXX\_SPI\_TypeDef::MTURBO}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga571bb1b76074969e3d8628289af26c88}{PAC5XXX\_SPI\_TypeDef::\_\_pad1\_\_}}: 20\\
+\>\} \\
+\} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga7620848ba8e9f486070f4a251fdc3228}{PAC5XXX\_SPI\_TypeDef::SPICFG}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga4c4805385b0d7a1e3c19c8a6c934ad7d}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+V\+AL}}\+: 16
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 16
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga4c4805385b0d7a1e3c19c8a6c934ad7d}{PAC5XXX\_SPI\_TypeDef::VAL}}: 16\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 16\\
+\} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga9641f574167f051b26a1216431ec00a9}{PAC5XXX\_SPI\_TypeDef::SPICLKDIV}}\\
+
+\end{tabbing}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0acff61a79bb82908beabbe9b15927ac}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+R\+E\+S\+E\+R\+V\+E\+D10}} \mbox{[}2\mbox{]}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3e9d9b8bc8daba67b6b81bb7cdf31351}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::w}}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::s}}\+: 16
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 16
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}{PAC5XXX\_SPI\_TypeDef::s}}: 16\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 16\\
+\} \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::b}}\+: 8
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 24
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}{PAC5XXX\_SPI\_TypeDef::b}}: 8\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 24\\
+\} \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga6ccdacaa73381aee4ae75a9a30bdea30}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+S\+P\+I\+\_\+\+I\+NT}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga4bc1bb7b2f23c63ed8c4d67370a79a05}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+R\+D\+O\+FL}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gade0d3a8b6b155ffdb7f1e5a50a0174fb}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+LE}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga1f18f20b257ea8fd5cd46820268f7f56}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+U\+C\+LK}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3c4ba13a753c87216f552d1eea656f88}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+Y\+C\+\_\+\+D\+O\+NE}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0c7c721314131da96635085ceb808c1f}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+TE}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga571bb1b76074969e3d8628289af26c88}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad1\+\_\+\+\_\+}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gac7537917a5717a84ff4841ccca7c04ba}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+W\+R\+U\+FL}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga9dc9d8feec70f4a05325819ab5dcceaa}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+T\+X\+F\+U\+LL}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga04ae60b4eb9ef3f1184e4dcb13becd8c}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+R\+X\+F\+U\+LL}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gabea0fdeecb3358a9bedbf17b9c72012b}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad2\+\_\+\+\_\+}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga1662e69616c2cbd0648a97f0037a0433}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+U\+R\+S\+T\+A\+TE}}\+: 2
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga9a70ee977808b57b135c0cf798f9670e}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad3\+\_\+\+\_\+}}\+: 18
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\_\_I}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga6ccdacaa73381aee4ae75a9a30bdea30}{PAC5XXX\_SPI\_TypeDef::SPI\_INT}}: 1\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga4bc1bb7b2f23c63ed8c4d67370a79a05}{PAC5XXX\_SPI\_TypeDef::RDOFL}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gade0d3a8b6b155ffdb7f1e5a50a0174fb}{PAC5XXX\_SPI\_TypeDef::LE}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga1f18f20b257ea8fd5cd46820268f7f56}{PAC5XXX\_SPI\_TypeDef::UCLK}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3c4ba13a753c87216f552d1eea656f88}{PAC5XXX\_SPI\_TypeDef::CYC\_DONE}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0c7c721314131da96635085ceb808c1f}{PAC5XXX\_SPI\_TypeDef::TE}}: 1\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga571bb1b76074969e3d8628289af26c88}{PAC5XXX\_SPI\_TypeDef::\_\_pad1\_\_}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gac7537917a5717a84ff4841ccca7c04ba}{PAC5XXX\_SPI\_TypeDef::WRUFL}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\_\_I}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga9dc9d8feec70f4a05325819ab5dcceaa}{PAC5XXX\_SPI\_TypeDef::TXFULL}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\_\_I}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga04ae60b4eb9ef3f1184e4dcb13becd8c}{PAC5XXX\_SPI\_TypeDef::RXFULL}}: 1\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gabea0fdeecb3358a9bedbf17b9c72012b}{PAC5XXX\_SPI\_TypeDef::\_\_pad2\_\_}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\_\_I}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga1662e69616c2cbd0648a97f0037a0433}{PAC5XXX\_SPI\_TypeDef::CURSTATE}}: 2\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga9a70ee977808b57b135c0cf798f9670e}{PAC5XXX\_SPI\_TypeDef::\_\_pad3\_\_}}: 18\\
+\} \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3e9d9b8bc8daba67b6b81bb7cdf31351}{PAC5XXX\_SPI\_TypeDef::w}}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}{PAC5XXX\_SPI\_TypeDef::s}}: 16\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 16\\
+\>\} \\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}{PAC5XXX\_SPI\_TypeDef::b}}: 8\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 24\\
+\>\} \\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\_\_I}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga6ccdacaa73381aee4ae75a9a30bdea30}{PAC5XXX\_SPI\_TypeDef::SPI\_INT}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga4bc1bb7b2f23c63ed8c4d67370a79a05}{PAC5XXX\_SPI\_TypeDef::RDOFL}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gade0d3a8b6b155ffdb7f1e5a50a0174fb}{PAC5XXX\_SPI\_TypeDef::LE}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga1f18f20b257ea8fd5cd46820268f7f56}{PAC5XXX\_SPI\_TypeDef::UCLK}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3c4ba13a753c87216f552d1eea656f88}{PAC5XXX\_SPI\_TypeDef::CYC\_DONE}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0c7c721314131da96635085ceb808c1f}{PAC5XXX\_SPI\_TypeDef::TE}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga571bb1b76074969e3d8628289af26c88}{PAC5XXX\_SPI\_TypeDef::\_\_pad1\_\_}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gac7537917a5717a84ff4841ccca7c04ba}{PAC5XXX\_SPI\_TypeDef::WRUFL}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\_\_I}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga9dc9d8feec70f4a05325819ab5dcceaa}{PAC5XXX\_SPI\_TypeDef::TXFULL}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\_\_I}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga04ae60b4eb9ef3f1184e4dcb13becd8c}{PAC5XXX\_SPI\_TypeDef::RXFULL}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gabea0fdeecb3358a9bedbf17b9c72012b}{PAC5XXX\_SPI\_TypeDef::\_\_pad2\_\_}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\_\_I}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga1662e69616c2cbd0648a97f0037a0433}{PAC5XXX\_SPI\_TypeDef::CURSTATE}}: 2\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga9a70ee977808b57b135c0cf798f9670e}{PAC5XXX\_SPI\_TypeDef::\_\_pad3\_\_}}: 18\\
+\>\} \\
+\} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81702ece04442cf69aab7157fb58b4d5}{PAC5XXX\_SPI\_TypeDef::SPISTAT}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3e9d9b8bc8daba67b6b81bb7cdf31351}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::w}}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::s}}\+: 16
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 16
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}{PAC5XXX\_SPI\_TypeDef::s}}: 16\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 16\\
+\} \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::b}}\+: 8
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 24
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}{PAC5XXX\_SPI\_TypeDef::b}}: 8\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 24\\
+\} \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga1d3d7f5e44794d1c6cb8c351bbbae6e8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+S\+N\+UM}}\+: 2
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gab871ad65504ddeb53ee9337cb6e152f5}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+SL}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 5
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gae59a5fbcd1aac07ab8ebefa921d3e7a7}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+S\+S\+E\+T\+UP}}\+: 4
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga373625de73bbe3bf0971011dc4984168}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+S\+H\+O\+LD}}\+: 4
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gac8b281cc53b594fa10067b45b2f546c5}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+S\+W\+A\+IT}}\+: 4
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga47a323cac1bdeb27d17c7c9a1ccb880b}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+K\+W\+A\+IT}}\+: 4
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga571bb1b76074969e3d8628289af26c88}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad1\+\_\+\+\_\+}}\+: 8
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga1d3d7f5e44794d1c6cb8c351bbbae6e8}{PAC5XXX\_SPI\_TypeDef::CSNUM}}: 2\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gab871ad65504ddeb53ee9337cb6e152f5}{PAC5XXX\_SPI\_TypeDef::CSL}}: 1\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 5\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gae59a5fbcd1aac07ab8ebefa921d3e7a7}{PAC5XXX\_SPI\_TypeDef::CSSETUP}}: 4\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga373625de73bbe3bf0971011dc4984168}{PAC5XXX\_SPI\_TypeDef::CSHOLD}}: 4\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gac8b281cc53b594fa10067b45b2f546c5}{PAC5XXX\_SPI\_TypeDef::CSWAIT}}: 4\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga47a323cac1bdeb27d17c7c9a1ccb880b}{PAC5XXX\_SPI\_TypeDef::CKWAIT}}: 4\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga571bb1b76074969e3d8628289af26c88}{PAC5XXX\_SPI\_TypeDef::\_\_pad1\_\_}}: 8\\
+\} \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3e9d9b8bc8daba67b6b81bb7cdf31351}{PAC5XXX\_SPI\_TypeDef::w}}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}{PAC5XXX\_SPI\_TypeDef::s}}: 16\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 16\\
+\>\} \\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}{PAC5XXX\_SPI\_TypeDef::b}}: 8\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 24\\
+\>\} \\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga1d3d7f5e44794d1c6cb8c351bbbae6e8}{PAC5XXX\_SPI\_TypeDef::CSNUM}}: 2\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gab871ad65504ddeb53ee9337cb6e152f5}{PAC5XXX\_SPI\_TypeDef::CSL}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 5\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gae59a5fbcd1aac07ab8ebefa921d3e7a7}{PAC5XXX\_SPI\_TypeDef::CSSETUP}}: 4\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga373625de73bbe3bf0971011dc4984168}{PAC5XXX\_SPI\_TypeDef::CSHOLD}}: 4\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gac8b281cc53b594fa10067b45b2f546c5}{PAC5XXX\_SPI\_TypeDef::CSWAIT}}: 4\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga47a323cac1bdeb27d17c7c9a1ccb880b}{PAC5XXX\_SPI\_TypeDef::CKWAIT}}: 4\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga571bb1b76074969e3d8628289af26c88}{PAC5XXX\_SPI\_TypeDef::\_\_pad1\_\_}}: 8\\
+\>\} \\
+\} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga38dba06b65b409a4955902d4aefbe9c6}{PAC5XXX\_SPI\_TypeDef::SPICCSTR}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3e9d9b8bc8daba67b6b81bb7cdf31351}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::w}}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::s}}\+: 16
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 16
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}{PAC5XXX\_SPI\_TypeDef::s}}: 16\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 16\\
+\} \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::b}}\+: 8
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 24
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}{PAC5XXX\_SPI\_TypeDef::b}}: 8\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 24\\
+\} \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3e9d9b8bc8daba67b6b81bb7cdf31351}{PAC5XXX\_SPI\_TypeDef::w}}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}{PAC5XXX\_SPI\_TypeDef::s}}: 16\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 16\\
+\>\} \\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}{PAC5XXX\_SPI\_TypeDef::b}}: 8\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 24\\
+\>\} \\
+\} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gac028dd01b6017627c481d530a8ebf788}{PAC5XXX\_SPI\_TypeDef::SPID}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3e9d9b8bc8daba67b6b81bb7cdf31351}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::w}}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::s}}\+: 16
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 16
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}{PAC5XXX\_SPI\_TypeDef::s}}: 16\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 16\\
+\} \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::b}}\+: 8
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 24
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}{PAC5XXX\_SPI\_TypeDef::b}}: 8\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 24\\
+\} \\
+
+\end{tabbing}\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 2
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3fd79d55d2b49be9b9f23bee4dc9a6e0}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+R\+D\+O\+F\+L\+\_\+\+EN}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaf0e470926f142a43dc9df77b3e8239ad}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+L\+E\+\_\+\+EN}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaa3b4e15cf69d26191999b951dd9ece20}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+U\+C\+L\+K\+\_\+\+EN}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gac80a0ec946f60f310023883ce2ed3efa}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+Y\+C\+\_\+\+D\+O\+N\+E\+\_\+\+EN}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga38a92e24f6222a825257e25fdea49837}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+T\+E\+\_\+\+EN}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga571bb1b76074969e3d8628289af26c88}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad1\+\_\+\+\_\+}}\+: 1
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga4d11e9e744c3e6c4e4bcb241e87acffd}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+W\+R\+U\+F\+L\+\_\+\+EN}}\+: 1
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gabea0fdeecb3358a9bedbf17b9c72012b}{P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad2\+\_\+\+\_\+}}\+: 23
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 2\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3fd79d55d2b49be9b9f23bee4dc9a6e0}{PAC5XXX\_SPI\_TypeDef::RDOFL\_EN}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaf0e470926f142a43dc9df77b3e8239ad}{PAC5XXX\_SPI\_TypeDef::LE\_EN}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaa3b4e15cf69d26191999b951dd9ece20}{PAC5XXX\_SPI\_TypeDef::UCLK\_EN}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gac80a0ec946f60f310023883ce2ed3efa}{PAC5XXX\_SPI\_TypeDef::CYC\_DONE\_EN}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga38a92e24f6222a825257e25fdea49837}{PAC5XXX\_SPI\_TypeDef::TE\_EN}}: 1\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga571bb1b76074969e3d8628289af26c88}{PAC5XXX\_SPI\_TypeDef::\_\_pad1\_\_}}: 1\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga4d11e9e744c3e6c4e4bcb241e87acffd}{PAC5XXX\_SPI\_TypeDef::WRUFL\_EN}}: 1\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gabea0fdeecb3358a9bedbf17b9c72012b}{PAC5XXX\_SPI\_TypeDef::\_\_pad2\_\_}}: 23\\
+\} \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3e9d9b8bc8daba67b6b81bb7cdf31351}{PAC5XXX\_SPI\_TypeDef::w}}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}{PAC5XXX\_SPI\_TypeDef::s}}: 16\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 16\\
+\>\} \\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}{PAC5XXX\_SPI\_TypeDef::b}}: 8\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 24\\
+\>\} \\
+\>struct \{\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}{PAC5XXX\_SPI\_TypeDef::\_\_pad0\_\_}}: 2\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3fd79d55d2b49be9b9f23bee4dc9a6e0}{PAC5XXX\_SPI\_TypeDef::RDOFL\_EN}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaf0e470926f142a43dc9df77b3e8239ad}{PAC5XXX\_SPI\_TypeDef::LE\_EN}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaa3b4e15cf69d26191999b951dd9ece20}{PAC5XXX\_SPI\_TypeDef::UCLK\_EN}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gac80a0ec946f60f310023883ce2ed3efa}{PAC5XXX\_SPI\_TypeDef::CYC\_DONE\_EN}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga38a92e24f6222a825257e25fdea49837}{PAC5XXX\_SPI\_TypeDef::TE\_EN}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga571bb1b76074969e3d8628289af26c88}{PAC5XXX\_SPI\_TypeDef::\_\_pad1\_\_}}: 1\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga4d11e9e744c3e6c4e4bcb241e87acffd}{PAC5XXX\_SPI\_TypeDef::WRUFL\_EN}}: 1\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gabea0fdeecb3358a9bedbf17b9c72012b}{PAC5XXX\_SPI\_TypeDef::\_\_pad2\_\_}}: 23\\
+\>\} \\
+\} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gadce20975c9024624526bd5d56bb435af}{PAC5XXX\_SPI\_TypeDef::SPIINT\_EN}}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga71f17122e10eda169accfe94c5292ca0}\label{group___p_a_c5_x_x_x___s_p_i_ga71f17122e10eda169accfe94c5292ca0}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPICFG\_EarlyXmitDataPhase\_Type@{SPICFG\_EarlyXmitDataPhase\_Type}}
+\index{SPICFG\_EarlyXmitDataPhase\_Type@{SPICFG\_EarlyXmitDataPhase\_Type}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SPICFG\_EarlyXmitDataPhase\_Type}{SPICFG\_EarlyXmitDataPhase\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga71f17122e10eda169accfe94c5292ca0}{S\+P\+I\+C\+F\+G\+\_\+\+Early\+Xmit\+Data\+Phase\+\_\+\+Type}}}
+
+S\+PI Data Phase Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPISCFG\_TDAT\_PH\_NORMAL@{SPISCFG\_TDAT\_PH\_NORMAL}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISCFG\_TDAT\_PH\_NORMAL@{SPISCFG\_TDAT\_PH\_NORMAL}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gga71f17122e10eda169accfe94c5292ca0a6612335b3fe2d19c3b3f1e62695f51ec}\label{group___p_a_c5_x_x_x___s_p_i_gga71f17122e10eda169accfe94c5292ca0a6612335b3fe2d19c3b3f1e62695f51ec}} 
+S\+P\+I\+S\+C\+F\+G\+\_\+\+T\+D\+A\+T\+\_\+\+P\+H\+\_\+\+N\+O\+R\+M\+AL&Normal transmit data phase, transitions are on edge of S\+C\+LK ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPISCFG\_TDAT\_PH\_HALF@{SPISCFG\_TDAT\_PH\_HALF}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISCFG\_TDAT\_PH\_HALF@{SPISCFG\_TDAT\_PH\_HALF}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gga71f17122e10eda169accfe94c5292ca0a575c43863c8d9a7216acf8b00d1af62b}\label{group___p_a_c5_x_x_x___s_p_i_gga71f17122e10eda169accfe94c5292ca0a575c43863c8d9a7216acf8b00d1af62b}} 
+S\+P\+I\+S\+C\+F\+G\+\_\+\+T\+D\+A\+T\+\_\+\+P\+H\+\_\+\+H\+A\+LF&Transitions occur 1/2 period sooner than normal ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 27 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27              \{}
+\DoxyCodeLine{28     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga71f17122e10eda169accfe94c5292ca0a6612335b3fe2d19c3b3f1e62695f51ec}{SPISCFG\_TDAT\_PH\_NORMAL}} = 0,              }
+\DoxyCodeLine{29     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga71f17122e10eda169accfe94c5292ca0a575c43863c8d9a7216acf8b00d1af62b}{SPISCFG\_TDAT\_PH\_HALF}} = 1                   }
+\DoxyCodeLine{30 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga71f17122e10eda169accfe94c5292ca0}{SPICFG\_EarlyXmitDataPhase\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga7068d89b464ce13596bee04cccdfc627}\label{group___p_a_c5_x_x_x___s_p_i_ga7068d89b464ce13596bee04cccdfc627}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPICS\_ChipSelectNumber\_Type@{SPICS\_ChipSelectNumber\_Type}}
+\index{SPICS\_ChipSelectNumber\_Type@{SPICS\_ChipSelectNumber\_Type}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SPICS\_ChipSelectNumber\_Type}{SPICS\_ChipSelectNumber\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga7068d89b464ce13596bee04cccdfc627}{S\+P\+I\+C\+S\+\_\+\+Chip\+Select\+Number\+\_\+\+Type}}}
+
+Chip Select Number Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPICS\_SELECT\_CS0@{SPICS\_SELECT\_CS0}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPICS\_SELECT\_CS0@{SPICS\_SELECT\_CS0}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a90d34adfeb374184d1f0fc5ffe28f4c0}\label{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a90d34adfeb374184d1f0fc5ffe28f4c0}} 
+S\+P\+I\+C\+S\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+S0&Chip Select slave S\+P\+Ix\+C\+S0 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPICS\_SELECT\_CS1@{SPICS\_SELECT\_CS1}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPICS\_SELECT\_CS1@{SPICS\_SELECT\_CS1}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a499ba5323984730d8ea57fe2729291ca}\label{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a499ba5323984730d8ea57fe2729291ca}} 
+S\+P\+I\+C\+S\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+S1&Chip Select slave S\+P\+Ix\+C\+S1 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPICS\_SELECT\_CS2@{SPICS\_SELECT\_CS2}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPICS\_SELECT\_CS2@{SPICS\_SELECT\_CS2}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a986a6be59adbbeae9d42baa1117e280c}\label{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a986a6be59adbbeae9d42baa1117e280c}} 
+S\+P\+I\+C\+S\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+S2&Chip Select slave S\+P\+Ix\+C\+S2 ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPICS\_SELECT\_CS3@{SPICS\_SELECT\_CS3}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPICS\_SELECT\_CS3@{SPICS\_SELECT\_CS3}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a98f6da8f674f216e6d6a90784e460c9e}\label{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a98f6da8f674f216e6d6a90784e460c9e}} 
+S\+P\+I\+C\+S\+\_\+\+S\+E\+L\+E\+C\+T\+\_\+\+C\+S3&Chip Select slave S\+P\+Ix\+C\+S3 ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 71 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{71              \{}
+\DoxyCodeLine{72   \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a90d34adfeb374184d1f0fc5ffe28f4c0}{SPICS\_SELECT\_CS0}},                          }
+\DoxyCodeLine{73     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a499ba5323984730d8ea57fe2729291ca}{SPICS\_SELECT\_CS1}},                          }
+\DoxyCodeLine{74     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a986a6be59adbbeae9d42baa1117e280c}{SPICS\_SELECT\_CS2}},                          }
+\DoxyCodeLine{75     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga7068d89b464ce13596bee04cccdfc627a98f6da8f674f216e6d6a90784e460c9e}{SPICS\_SELECT\_CS3}}                           }
+\DoxyCodeLine{76 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga7068d89b464ce13596bee04cccdfc627}{SPICS\_ChipSelectNumber\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gadc46d977ea4f7dd55362acff8c53f9fe}\label{group___p_a_c5_x_x_x___s_p_i_gadc46d977ea4f7dd55362acff8c53f9fe}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPICS\_ChipSelectPolarity\_Type@{SPICS\_ChipSelectPolarity\_Type}}
+\index{SPICS\_ChipSelectPolarity\_Type@{SPICS\_ChipSelectPolarity\_Type}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SPICS\_ChipSelectPolarity\_Type}{SPICS\_ChipSelectPolarity\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gadc46d977ea4f7dd55362acff8c53f9fe}{S\+P\+I\+C\+S\+\_\+\+Chip\+Select\+Polarity\+\_\+\+Type}}}
+
+Chip Select Polarity Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPICS\_CS\_ACTLOW@{SPICS\_CS\_ACTLOW}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPICS\_CS\_ACTLOW@{SPICS\_CS\_ACTLOW}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ggadc46d977ea4f7dd55362acff8c53f9fea0bead47b212fcce3394317ca4cdbd905}\label{group___p_a_c5_x_x_x___s_p_i_ggadc46d977ea4f7dd55362acff8c53f9fea0bead47b212fcce3394317ca4cdbd905}} 
+S\+P\+I\+C\+S\+\_\+\+C\+S\+\_\+\+A\+C\+T\+L\+OW&Chip Select polarity active low ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPICS\_CS\_ACTHIGH@{SPICS\_CS\_ACTHIGH}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPICS\_CS\_ACTHIGH@{SPICS\_CS\_ACTHIGH}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ggadc46d977ea4f7dd55362acff8c53f9fea8891916820a1cbdf03527b318cdbc8e6}\label{group___p_a_c5_x_x_x___s_p_i_ggadc46d977ea4f7dd55362acff8c53f9fea8891916820a1cbdf03527b318cdbc8e6}} 
+S\+P\+I\+C\+S\+\_\+\+C\+S\+\_\+\+A\+C\+T\+H\+I\+GH&Chip Select polarity active high ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 65 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{65              \{}
+\DoxyCodeLine{66     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ggadc46d977ea4f7dd55362acff8c53f9fea0bead47b212fcce3394317ca4cdbd905}{SPICS\_CS\_ACTLOW}} = 0,                       }
+\DoxyCodeLine{67     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ggadc46d977ea4f7dd55362acff8c53f9fea8891916820a1cbdf03527b318cdbc8e6}{SPICS\_CS\_ACTHIGH}} = 1                       }
+\DoxyCodeLine{68 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gadc46d977ea4f7dd55362acff8c53f9fe}{SPICS\_ChipSelectPolarity\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gab26093b18d3d0d74df9db02c3e54dc26}\label{group___p_a_c5_x_x_x___s_p_i_gab26093b18d3d0d74df9db02c3e54dc26}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISCFG\_ClockPhase\_Type@{SPISCFG\_ClockPhase\_Type}}
+\index{SPISCFG\_ClockPhase\_Type@{SPISCFG\_ClockPhase\_Type}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SPISCFG\_ClockPhase\_Type}{SPISCFG\_ClockPhase\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gab26093b18d3d0d74df9db02c3e54dc26}{S\+P\+I\+S\+C\+F\+G\+\_\+\+Clock\+Phase\+\_\+\+Type}}}
+
+S\+PI Clock Phase Config Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPISCFG\_SMP\_SETUP@{SPISCFG\_SMP\_SETUP}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISCFG\_SMP\_SETUP@{SPISCFG\_SMP\_SETUP}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ggab26093b18d3d0d74df9db02c3e54dc26ab700c3c4299df437226273a97cbcbf7c}\label{group___p_a_c5_x_x_x___s_p_i_ggab26093b18d3d0d74df9db02c3e54dc26ab700c3c4299df437226273a97cbcbf7c}} 
+S\+P\+I\+S\+C\+F\+G\+\_\+\+S\+M\+P\+\_\+\+S\+E\+T\+UP&First clock transition is used to sample data ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPISCFG\_SETUP\_SMP@{SPISCFG\_SETUP\_SMP}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISCFG\_SETUP\_SMP@{SPISCFG\_SETUP\_SMP}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ggab26093b18d3d0d74df9db02c3e54dc26a632695d532b68fdf2059a2a0adbbd2b6}\label{group___p_a_c5_x_x_x___s_p_i_ggab26093b18d3d0d74df9db02c3e54dc26a632695d532b68fdf2059a2a0adbbd2b6}} 
+S\+P\+I\+S\+C\+F\+G\+\_\+\+S\+E\+T\+U\+P\+\_\+\+S\+MP&Second clock transition is used to sample data ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 39 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39              \{}
+\DoxyCodeLine{40     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ggab26093b18d3d0d74df9db02c3e54dc26ab700c3c4299df437226273a97cbcbf7c}{SPISCFG\_SMP\_SETUP}} = 0,                     }
+\DoxyCodeLine{41     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ggab26093b18d3d0d74df9db02c3e54dc26a632695d532b68fdf2059a2a0adbbd2b6}{SPISCFG\_SETUP\_SMP}} = 1                      }
+\DoxyCodeLine{42 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gab26093b18d3d0d74df9db02c3e54dc26}{SPISCFG\_ClockPhase\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gaa157d616835a814c9931f478964942c2}\label{group___p_a_c5_x_x_x___s_p_i_gaa157d616835a814c9931f478964942c2}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISCFG\_ClockPolarity\_Type@{SPISCFG\_ClockPolarity\_Type}}
+\index{SPISCFG\_ClockPolarity\_Type@{SPISCFG\_ClockPolarity\_Type}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SPISCFG\_ClockPolarity\_Type}{SPISCFG\_ClockPolarity\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaa157d616835a814c9931f478964942c2}{S\+P\+I\+S\+C\+F\+G\+\_\+\+Clock\+Polarity\+\_\+\+Type}}}
+
+S\+PI Clock Polarity Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPISCFG\_SCLK\_ACTHIGH@{SPISCFG\_SCLK\_ACTHIGH}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISCFG\_SCLK\_ACTHIGH@{SPISCFG\_SCLK\_ACTHIGH}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ggaa157d616835a814c9931f478964942c2a7c630c5987b68fe93eaaabe7218f13fa}\label{group___p_a_c5_x_x_x___s_p_i_ggaa157d616835a814c9931f478964942c2a7c630c5987b68fe93eaaabe7218f13fa}} 
+S\+P\+I\+S\+C\+F\+G\+\_\+\+S\+C\+L\+K\+\_\+\+A\+C\+T\+H\+I\+GH&Clock polarity is active high ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPISCFG\_SCLK\_ACTLOW@{SPISCFG\_SCLK\_ACTLOW}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISCFG\_SCLK\_ACTLOW@{SPISCFG\_SCLK\_ACTLOW}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ggaa157d616835a814c9931f478964942c2a321cc7f9ec0e98d5331746f7965708f6}\label{group___p_a_c5_x_x_x___s_p_i_ggaa157d616835a814c9931f478964942c2a321cc7f9ec0e98d5331746f7965708f6}} 
+S\+P\+I\+S\+C\+F\+G\+\_\+\+S\+C\+L\+K\+\_\+\+A\+C\+T\+L\+OW&Clock polarity is active low ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 33 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33              \{}
+\DoxyCodeLine{34     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ggaa157d616835a814c9931f478964942c2a7c630c5987b68fe93eaaabe7218f13fa}{SPISCFG\_SCLK\_ACTHIGH}} = 0,                  }
+\DoxyCodeLine{35       \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ggaa157d616835a814c9931f478964942c2a321cc7f9ec0e98d5331746f7965708f6}{SPISCFG\_SCLK\_ACTLOW}} = 1                    }
+\DoxyCodeLine{36 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaa157d616835a814c9931f478964942c2}{SPISCFG\_ClockPolarity\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga6e027e955a3a2597c5b8d789658fe424}\label{group___p_a_c5_x_x_x___s_p_i_ga6e027e955a3a2597c5b8d789658fe424}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISCFG\_WordLength\_Type@{SPISCFG\_WordLength\_Type}}
+\index{SPISCFG\_WordLength\_Type@{SPISCFG\_WordLength\_Type}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SPISCFG\_WordLength\_Type}{SPISCFG\_WordLength\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga6e027e955a3a2597c5b8d789658fe424}{S\+P\+I\+S\+C\+F\+G\+\_\+\+Word\+Length\+\_\+\+Type}}}
+
+S\+PI Word Length Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPISCFG\_WL\_8B@{SPISCFG\_WL\_8B}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISCFG\_WL\_8B@{SPISCFG\_WL\_8B}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424ae242e202724d17a5590a2f7b8946ee3d}\label{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424ae242e202724d17a5590a2f7b8946ee3d}} 
+S\+P\+I\+S\+C\+F\+G\+\_\+\+W\+L\+\_\+8B&Word Length Select\+: 8b ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPISCFG\_WL\_16B@{SPISCFG\_WL\_16B}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISCFG\_WL\_16B@{SPISCFG\_WL\_16B}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424a50f37ffe28bbd4ff2f80fa16359149b2}\label{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424a50f37ffe28bbd4ff2f80fa16359149b2}} 
+S\+P\+I\+S\+C\+F\+G\+\_\+\+W\+L\+\_\+16B&Word Length Select\+: 16b ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPISCFG\_WL\_24B@{SPISCFG\_WL\_24B}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISCFG\_WL\_24B@{SPISCFG\_WL\_24B}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424a4328e88b17a7dd4401b8fa0f22747285}\label{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424a4328e88b17a7dd4401b8fa0f22747285}} 
+S\+P\+I\+S\+C\+F\+G\+\_\+\+W\+L\+\_\+24B&Word Length Select\+: 24b ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPISCFG\_WL\_32B@{SPISCFG\_WL\_32B}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISCFG\_WL\_32B@{SPISCFG\_WL\_32B}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424a7d5b9d420386974685fce2d7f5bbe23b}\label{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424a7d5b9d420386974685fce2d7f5bbe23b}} 
+S\+P\+I\+S\+C\+F\+G\+\_\+\+W\+L\+\_\+32B&Word Length Select\+: 32b ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 45 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45              \{}
+\DoxyCodeLine{46     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424ae242e202724d17a5590a2f7b8946ee3d}{SPISCFG\_WL\_8B}}  = 0,                        }
+\DoxyCodeLine{47     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424a50f37ffe28bbd4ff2f80fa16359149b2}{SPISCFG\_WL\_16B}} = 1,                        }
+\DoxyCodeLine{48     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424a4328e88b17a7dd4401b8fa0f22747285}{SPISCFG\_WL\_24B}} = 2,                        }
+\DoxyCodeLine{49     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga6e027e955a3a2597c5b8d789658fe424a7d5b9d420386974685fce2d7f5bbe23b}{SPISCFG\_WL\_32B}} = 3                         }
+\DoxyCodeLine{50 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga6e027e955a3a2597c5b8d789658fe424}{SPISCFG\_WordLength\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga3981b50eb04637b274dcdb068c355f41}\label{group___p_a_c5_x_x_x___s_p_i_ga3981b50eb04637b274dcdb068c355f41}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISTAT\_State\_Type@{SPISTAT\_State\_Type}}
+\index{SPISTAT\_State\_Type@{SPISTAT\_State\_Type}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SPISTAT\_State\_Type}{SPISTAT\_State\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3981b50eb04637b274dcdb068c355f41}{S\+P\+I\+S\+T\+A\+T\+\_\+\+State\+\_\+\+Type}}}
+
+S\+PI Status State Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPISTAT\_CURSTATE\_IDLE@{SPISTAT\_CURSTATE\_IDLE}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISTAT\_CURSTATE\_IDLE@{SPISTAT\_CURSTATE\_IDLE}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a9a7409a37da8e079ac5e49a520073df5}\label{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a9a7409a37da8e079ac5e49a520073df5}} 
+S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+I\+D\+LE&S\+PI State\+: Idle ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPISTAT\_CURSTATE\_CSSETUP@{SPISTAT\_CURSTATE\_CSSETUP}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISTAT\_CURSTATE\_CSSETUP@{SPISTAT\_CURSTATE\_CSSETUP}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41ac81f5f689df3c6f5255d8f2a0684681c}\label{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41ac81f5f689df3c6f5255d8f2a0684681c}} 
+S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+C\+S\+S\+E\+T\+UP&S\+PI State\+: Chip Select Setup ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPISTAT\_CURSTATE\_TRANSFER@{SPISTAT\_CURSTATE\_TRANSFER}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISTAT\_CURSTATE\_TRANSFER@{SPISTAT\_CURSTATE\_TRANSFER}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41abcc5ede8a606a7ba2d91ba3679b7a5a9}\label{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41abcc5ede8a606a7ba2d91ba3679b7a5a9}} 
+S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+T\+R\+A\+N\+S\+F\+ER&S\+PI State\+: Transfer Data ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPISTAT\_CURSTATE\_CSHOLD@{SPISTAT\_CURSTATE\_CSHOLD}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISTAT\_CURSTATE\_CSHOLD@{SPISTAT\_CURSTATE\_CSHOLD}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a00b3b07e8857a6d63bef7ce0f36a5c53}\label{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a00b3b07e8857a6d63bef7ce0f36a5c53}} 
+S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+C\+S\+H\+O\+LD&S\+PI State\+: Chip Select Hold ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPISTAT\_CURSTATE\_CSWAIT@{SPISTAT\_CURSTATE\_CSWAIT}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISTAT\_CURSTATE\_CSWAIT@{SPISTAT\_CURSTATE\_CSWAIT}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a1681385e7ac99cd3e98f03e248f6ee3c}\label{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a1681385e7ac99cd3e98f03e248f6ee3c}} 
+S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+C\+S\+W\+A\+IT&S\+PI State\+: Chip Select Wait ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPISTAT\_CURSTATE\_CKWAIT@{SPISTAT\_CURSTATE\_CKWAIT}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISTAT\_CURSTATE\_CKWAIT@{SPISTAT\_CURSTATE\_CKWAIT}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a1e39125ed66bc2a9e9fc9f87c2db5cef}\label{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a1e39125ed66bc2a9e9fc9f87c2db5cef}} 
+S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+C\+K\+W\+A\+IT&S\+PI State\+: Clock Wait ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPISTAT\_CURSTATE\_MTRANS@{SPISTAT\_CURSTATE\_MTRANS}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISTAT\_CURSTATE\_MTRANS@{SPISTAT\_CURSTATE\_MTRANS}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a37f56aab430d2cba1138e45f03a40b16}\label{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a37f56aab430d2cba1138e45f03a40b16}} 
+S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+M\+T\+R\+A\+NS&S\+PI State\+: Master Transfer ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPISTAT\_CURSTATE\_CSBEGIN@{SPISTAT\_CURSTATE\_CSBEGIN}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISTAT\_CURSTATE\_CSBEGIN@{SPISTAT\_CURSTATE\_CSBEGIN}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a714eb49ffc4e8771df1e9d705e587a7f}\label{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a714eb49ffc4e8771df1e9d705e587a7f}} 
+S\+P\+I\+S\+T\+A\+T\+\_\+\+C\+U\+R\+S\+T\+A\+T\+E\+\_\+\+C\+S\+B\+E\+G\+IN&S\+PI State\+: Chip Select begin ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 53 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53              \{}
+\DoxyCodeLine{54     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a9a7409a37da8e079ac5e49a520073df5}{SPISTAT\_CURSTATE\_IDLE}} = 0,                 }
+\DoxyCodeLine{55     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41ac81f5f689df3c6f5255d8f2a0684681c}{SPISTAT\_CURSTATE\_CSSETUP}} = 1,              }
+\DoxyCodeLine{56     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41abcc5ede8a606a7ba2d91ba3679b7a5a9}{SPISTAT\_CURSTATE\_TRANSFER}} = 2,             }
+\DoxyCodeLine{57     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a00b3b07e8857a6d63bef7ce0f36a5c53}{SPISTAT\_CURSTATE\_CSHOLD}} = 3,               }
+\DoxyCodeLine{58     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a1681385e7ac99cd3e98f03e248f6ee3c}{SPISTAT\_CURSTATE\_CSWAIT}} = 4,               }
+\DoxyCodeLine{59     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a1e39125ed66bc2a9e9fc9f87c2db5cef}{SPISTAT\_CURSTATE\_CKWAIT}} = 5,               }
+\DoxyCodeLine{60     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a37f56aab430d2cba1138e45f03a40b16}{SPISTAT\_CURSTATE\_MTRANS}} = 6,               }
+\DoxyCodeLine{61     \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gga3981b50eb04637b274dcdb068c355f41a714eb49ffc4e8771df1e9d705e587a7f}{SPISTAT\_CURSTATE\_CSBEGIN}} = 7               }
+\DoxyCodeLine{62 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga3981b50eb04637b274dcdb068c355f41}{SPISTAT\_State\_Type}};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gac66ce1286d623797265b99aa01a4f1bc}\label{group___p_a_c5_x_x_x___s_p_i_gac66ce1286d623797265b99aa01a4f1bc}} 
+\doxysubsubsection{\texorpdfstring{"@10}{@10}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga0b8559797a0ffebc87b19ae3ed0b7574}\label{group___p_a_c5_x_x_x___s_p_i_ga0b8559797a0ffebc87b19ae3ed0b7574}} 
+\doxysubsubsection{\texorpdfstring{"@12}{@12}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga5c51cb5b03d75f8bb7ad93416f0abf9e}\label{group___p_a_c5_x_x_x___s_p_i_ga5c51cb5b03d75f8bb7ad93416f0abf9e}} 
+\doxysubsubsection{\texorpdfstring{"@14}{@14}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga9cbe1dff11e37794be807cc911a26b98}\label{group___p_a_c5_x_x_x___s_p_i_ga9cbe1dff11e37794be807cc911a26b98}} 
+\doxysubsubsection{\texorpdfstring{"@16}{@16}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gaf91ca3f4e999cbbda1f854dfb07a5214}\label{group___p_a_c5_x_x_x___s_p_i_gaf91ca3f4e999cbbda1f854dfb07a5214}} 
+\doxysubsubsection{\texorpdfstring{"@18}{@18}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gaf7ec98de383bc5595df8c9bb0b9c0fad}\label{group___p_a_c5_x_x_x___s_p_i_gaf7ec98de383bc5595df8c9bb0b9c0fad}} 
+\doxysubsubsection{\texorpdfstring{"@20}{@20}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga9549f0902d7f35f5160101bcbd20fb64}\label{group___p_a_c5_x_x_x___s_p_i_ga9549f0902d7f35f5160101bcbd20fb64}} 
+\doxysubsubsection{\texorpdfstring{"@22}{@22}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gac42cab0de077087da3c5e25b847cb2be}\label{group___p_a_c5_x_x_x___s_p_i_gac42cab0de077087da3c5e25b847cb2be}} 
+\doxysubsubsection{\texorpdfstring{"@24}{@24}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gae5688c3d6e02704f77e83574069fe56c}\label{group___p_a_c5_x_x_x___s_p_i_gae5688c3d6e02704f77e83574069fe56c}} 
+\doxysubsubsection{\texorpdfstring{"@26}{@26}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga641efa8b74a9f5744e55d5622d504bea}\label{group___p_a_c5_x_x_x___s_p_i_ga641efa8b74a9f5744e55d5622d504bea}} 
+\doxysubsubsection{\texorpdfstring{"@28}{@28}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gab50b9bb3b8146c98f8b08c683dbbdbe7}\label{group___p_a_c5_x_x_x___s_p_i_gab50b9bb3b8146c98f8b08c683dbbdbe7}} 
+\doxysubsubsection{\texorpdfstring{"@30}{@30}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga3b6d41775b1552c2ac7f1159db5d4aa9}\label{group___p_a_c5_x_x_x___s_p_i_ga3b6d41775b1552c2ac7f1159db5d4aa9}} 
+\doxysubsubsection{\texorpdfstring{"@32}{@32}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gabcfb352e0e3eaabd8a9a17b48fa1e9b3}\label{group___p_a_c5_x_x_x___s_p_i_gabcfb352e0e3eaabd8a9a17b48fa1e9b3}} 
+\doxysubsubsection{\texorpdfstring{"@34}{@34}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga2d33bb45bd9b74f858b5be7c576eae9b}\label{group___p_a_c5_x_x_x___s_p_i_ga2d33bb45bd9b74f858b5be7c576eae9b}} 
+\doxysubsubsection{\texorpdfstring{"@36}{@36}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gae75bf56136672f9fb23df4a42d3616ed}\label{group___p_a_c5_x_x_x___s_p_i_gae75bf56136672f9fb23df4a42d3616ed}} 
+\doxysubsubsection{\texorpdfstring{"@38}{@38}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga0ced9a4e796188a20fed943ca199335d}\label{group___p_a_c5_x_x_x___s_p_i_ga0ced9a4e796188a20fed943ca199335d}} 
+\doxysubsubsection{\texorpdfstring{"@40}{@40}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gac9b1e18d0ca4736ccb3f5f3afd77d023}\label{group___p_a_c5_x_x_x___s_p_i_gac9b1e18d0ca4736ccb3f5f3afd77d023}} 
+\doxysubsubsection{\texorpdfstring{"@8}{@8}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}\label{group___p_a_c5_x_x_x___s_p_i_gad069da9900bb9169472c989e7599eac8}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [1/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+Must write as 0 ~\newline
+ 
+
+Definition at line 85 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gac25d2daee70d781528fbdb816488d373}\label{group___p_a_c5_x_x_x___s_p_i_gac25d2daee70d781528fbdb816488d373}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [2/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 85 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga69059d35926bc7a1abce641254da79dd}\label{group___p_a_c5_x_x_x___s_p_i_ga69059d35926bc7a1abce641254da79dd}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [3/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 89 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga8fffeda9e39bcd461ddaa2dddf8f9a27}\label{group___p_a_c5_x_x_x___s_p_i_ga8fffeda9e39bcd461ddaa2dddf8f9a27}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [4/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+Must write as 0 ~\newline
+ 
+
+Definition at line 96 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gab0a073e6c78626cf042d9dd46aec112b}\label{group___p_a_c5_x_x_x___s_p_i_gab0a073e6c78626cf042d9dd46aec112b}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [5/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 110 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga313542e6b1b5db6c9e3ae6020ebf21cf}\label{group___p_a_c5_x_x_x___s_p_i_ga313542e6b1b5db6c9e3ae6020ebf21cf}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [6/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 114 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gad4c5a4e8cd7183458d74d3b335508739}\label{group___p_a_c5_x_x_x___s_p_i_gad4c5a4e8cd7183458d74d3b335508739}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [7/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+Must write as 0 ~\newline
+ 
+
+Definition at line 124 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gadb80e57b0ec5238506bd247d6ca51111}\label{group___p_a_c5_x_x_x___s_p_i_gadb80e57b0ec5238506bd247d6ca51111}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [8/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 135 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga2bf8d23cb6ceeb9952e8346397d960d9}\label{group___p_a_c5_x_x_x___s_p_i_ga2bf8d23cb6ceeb9952e8346397d960d9}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [9/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 145 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga711f246e6f5ff5f0a37237dcb10ca88a}\label{group___p_a_c5_x_x_x___s_p_i_ga711f246e6f5ff5f0a37237dcb10ca88a}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [10/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 149 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga443230711c8675240de88d2f9c14f341}\label{group___p_a_c5_x_x_x___s_p_i_ga443230711c8675240de88d2f9c14f341}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [11/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 153 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga76860f60e78e005c9a24f246aae1318c}\label{group___p_a_c5_x_x_x___s_p_i_ga76860f60e78e005c9a24f246aae1318c}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [12/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 174 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gab3762028d90ceff7af46440d702e8fa9}\label{group___p_a_c5_x_x_x___s_p_i_gab3762028d90ceff7af46440d702e8fa9}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [13/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 178 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga35734e09f8df9422c649c3095bcbaeb5}\label{group___p_a_c5_x_x_x___s_p_i_ga35734e09f8df9422c649c3095bcbaeb5}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [14/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 183 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gaa3012e4546bb2f86e92962ae0dfce9a1}\label{group___p_a_c5_x_x_x___s_p_i_gaa3012e4546bb2f86e92962ae0dfce9a1}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [15/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 197 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga6026e3342a9080bdb5bfaceb4c4be5aa}\label{group___p_a_c5_x_x_x___s_p_i_ga6026e3342a9080bdb5bfaceb4c4be5aa}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [16/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 201 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga3288d15eacf88d37d0b7fdda22ada87a}\label{group___p_a_c5_x_x_x___s_p_i_ga3288d15eacf88d37d0b7fdda22ada87a}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [17/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 210 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga71fbc727cfac633373cf8556aca03e5b}\label{group___p_a_c5_x_x_x___s_p_i_ga71fbc727cfac633373cf8556aca03e5b}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [18/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 214 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga0a830e37888722ff6e0882220a4d9243}\label{group___p_a_c5_x_x_x___s_p_i_ga0a830e37888722ff6e0882220a4d9243}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [19/19]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 217 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga571bb1b76074969e3d8628289af26c88}\label{group___p_a_c5_x_x_x___s_p_i_ga571bb1b76074969e3d8628289af26c88}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad1\_\_@{\_\_pad1\_\_}}
+\index{\_\_pad1\_\_@{\_\_pad1\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad1\_\_}{\_\_pad1\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad1\+\_\+\+\_\+}
+
+
+
+Definition at line 101 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga1fb82794d656454078ab8cbf87ec8f13}\label{group___p_a_c5_x_x_x___s_p_i_ga1fb82794d656454078ab8cbf87ec8f13}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad1\_\_@{\_\_pad1\_\_}}
+\index{\_\_pad1\_\_@{\_\_pad1\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad1\_\_}{\_\_pad1\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad1\+\_\+\+\_\+}
+
+
+
+Definition at line 101 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga6d0110f0d943fb2388de59450a26384f}\label{group___p_a_c5_x_x_x___s_p_i_ga6d0110f0d943fb2388de59450a26384f}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad1\_\_@{\_\_pad1\_\_}}
+\index{\_\_pad1\_\_@{\_\_pad1\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad1\_\_}{\_\_pad1\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad1\+\_\+\+\_\+}
+
+
+
+Definition at line 128 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga7c3d436097e33a788e67b41bae8cf35a}\label{group___p_a_c5_x_x_x___s_p_i_ga7c3d436097e33a788e67b41bae8cf35a}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad1\_\_@{\_\_pad1\_\_}}
+\index{\_\_pad1\_\_@{\_\_pad1\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad1\_\_}{\_\_pad1\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad1\+\_\+\+\_\+}
+
+
+
+Definition at line 159 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga9f2b4b49d29cd3644d26f533d6a02f89}\label{group___p_a_c5_x_x_x___s_p_i_ga9f2b4b49d29cd3644d26f533d6a02f89}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad1\_\_@{\_\_pad1\_\_}}
+\index{\_\_pad1\_\_@{\_\_pad1\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad1\_\_}{\_\_pad1\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad1\+\_\+\+\_\+}
+
+
+
+Definition at line 188 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gafae79b7c792763badff735d13d013d2c}\label{group___p_a_c5_x_x_x___s_p_i_gafae79b7c792763badff735d13d013d2c}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad1\_\_@{\_\_pad1\_\_}}
+\index{\_\_pad1\_\_@{\_\_pad1\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad1\_\_}{\_\_pad1\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad1\+\_\+\+\_\+}
+
+
+
+Definition at line 223 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gac187a4f37213a3baa5a908d49f676934}\label{group___p_a_c5_x_x_x___s_p_i_gac187a4f37213a3baa5a908d49f676934}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad2\_\_@{\_\_pad2\_\_}}
+\index{\_\_pad2\_\_@{\_\_pad2\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad2\_\_}{\_\_pad2\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad2\+\_\+\+\_\+}
+
+
+
+Definition at line 163 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gabea0fdeecb3358a9bedbf17b9c72012b}\label{group___p_a_c5_x_x_x___s_p_i_gabea0fdeecb3358a9bedbf17b9c72012b}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad2\_\_@{\_\_pad2\_\_}}
+\index{\_\_pad2\_\_@{\_\_pad2\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad2\_\_}{\_\_pad2\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad2\+\_\+\+\_\+}
+
+
+
+Definition at line 163 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gaaca92f6112182133068391d1de27e16b}\label{group___p_a_c5_x_x_x___s_p_i_gaaca92f6112182133068391d1de27e16b}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad2\_\_@{\_\_pad2\_\_}}
+\index{\_\_pad2\_\_@{\_\_pad2\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad2\_\_}{\_\_pad2\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad2\+\_\+\+\_\+}
+
+
+
+Definition at line 225 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga7e75c83c44bbea11de2382221e731c69}\label{group___p_a_c5_x_x_x___s_p_i_ga7e75c83c44bbea11de2382221e731c69}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad3\_\_@{\_\_pad3\_\_}}
+\index{\_\_pad3\_\_@{\_\_pad3\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad3\_\_}{\_\_pad3\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad3\+\_\+\+\_\+}
+
+
+
+Definition at line 165 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga9a70ee977808b57b135c0cf798f9670e}\label{group___p_a_c5_x_x_x___s_p_i_ga9a70ee977808b57b135c0cf798f9670e}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!\_\_pad3\_\_@{\_\_pad3\_\_}}
+\index{\_\_pad3\_\_@{\_\_pad3\_\_}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad3\_\_}{\_\_pad3\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad3\+\_\+\+\_\+}
+
+
+
+Definition at line 165 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga7b34fb7e75ab1d623e812f8e1333fa8d}\label{group___p_a_c5_x_x_x___s_p_i_ga7b34fb7e75ab1d623e812f8e1333fa8d}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!b@{b}}
+\index{b@{b}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::b}
+
+
+
+Definition at line 88 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}\label{group___p_a_c5_x_x_x___s_p_i_ga0f305b44b2d7bc5cdd666e110e255ab6}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!b@{b}}
+\index{b@{b}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::b}
+
+
+
+Definition at line 88 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gaf0f3ca660f00f7306270fddf03a44ac2}\label{group___p_a_c5_x_x_x___s_p_i_gaf0f3ca660f00f7306270fddf03a44ac2}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!b@{b}}
+\index{b@{b}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::b}
+
+
+
+Definition at line 113 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga7ce46d86536683e0865c4b22df128d38}\label{group___p_a_c5_x_x_x___s_p_i_ga7ce46d86536683e0865c4b22df128d38}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!b@{b}}
+\index{b@{b}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::b}
+
+
+
+Definition at line 148 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga91063cf0ea3ea6f28a32a065dca9a303}\label{group___p_a_c5_x_x_x___s_p_i_ga91063cf0ea3ea6f28a32a065dca9a303}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!b@{b}}
+\index{b@{b}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::b}
+
+
+
+Definition at line 177 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga8858d62443dfdff429f84404d70dd127}\label{group___p_a_c5_x_x_x___s_p_i_ga8858d62443dfdff429f84404d70dd127}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!b@{b}}
+\index{b@{b}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::b}
+
+
+
+Definition at line 200 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gae1ba12125d7ce35f5d6f8db64cd755c4}\label{group___p_a_c5_x_x_x___s_p_i_gae1ba12125d7ce35f5d6f8db64cd755c4}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!b@{b}}
+\index{b@{b}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::b}
+
+
+
+Definition at line 213 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga47a323cac1bdeb27d17c7c9a1ccb880b}\label{group___p_a_c5_x_x_x___s_p_i_ga47a323cac1bdeb27d17c7c9a1ccb880b}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CKWAIT@{CKWAIT}}
+\index{CKWAIT@{CKWAIT}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CKWAIT}{CKWAIT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+K\+W\+A\+IT}
+
+S\+PI Clock Wait ~\newline
+ 
+
+Definition at line 187 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gab213d5b6f3daa07ee214eb1b5d0abca3}\label{group___p_a_c5_x_x_x___s_p_i_gab213d5b6f3daa07ee214eb1b5d0abca3}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CKWAIT@{CKWAIT}}
+\index{CKWAIT@{CKWAIT}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CKWAIT}{CKWAIT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::C\+K\+W\+A\+IT}
+
+S\+PI Clock Wait ~\newline
+ 
+
+Definition at line 187 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga6b112b09eb0977c9130d08347be48f23}\label{group___p_a_c5_x_x_x___s_p_i_ga6b112b09eb0977c9130d08347be48f23}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CP@{CP}}
+\index{CP@{CP}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CP}{CP}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+CP}
+
+Master Mode Clock Polarity ~\newline
+ 
+
+Definition at line 120 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga294f3adf4f85f4b0f7de43d32b20e7e2}\label{group___p_a_c5_x_x_x___s_p_i_ga294f3adf4f85f4b0f7de43d32b20e7e2}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CP@{CP}}
+\index{CP@{CP}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CP}{CP}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::CP}
+
+Master Mode Clock Polarity ~\newline
+ 
+
+Definition at line 120 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga162a7e4b858f5177f1485735621463fb}\label{group___p_a_c5_x_x_x___s_p_i_ga162a7e4b858f5177f1485735621463fb}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CPH@{CPH}}
+\index{CPH@{CPH}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CPH}{CPH}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::C\+PH}
+
+Master Mode Clock Phase ~\newline
+ 
+
+Definition at line 121 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga0973dff41ccffe2e3dab66b12c89e05f}\label{group___p_a_c5_x_x_x___s_p_i_ga0973dff41ccffe2e3dab66b12c89e05f}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CPH@{CPH}}
+\index{CPH@{CPH}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CPH}{CPH}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+PH}
+
+Master Mode Clock Phase ~\newline
+ 
+
+Definition at line 121 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga373625de73bbe3bf0971011dc4984168}\label{group___p_a_c5_x_x_x___s_p_i_ga373625de73bbe3bf0971011dc4984168}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CSHOLD@{CSHOLD}}
+\index{CSHOLD@{CSHOLD}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CSHOLD}{CSHOLD}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+S\+H\+O\+LD}
+
+Chip Select Hold ~\newline
+ 
+
+Definition at line 185 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga3c6c39cd318165a9adf8026f7a95ee02}\label{group___p_a_c5_x_x_x___s_p_i_ga3c6c39cd318165a9adf8026f7a95ee02}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CSHOLD@{CSHOLD}}
+\index{CSHOLD@{CSHOLD}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CSHOLD}{CSHOLD}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::C\+S\+H\+O\+LD}
+
+Chip Select Hold ~\newline
+ 
+
+Definition at line 185 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gab871ad65504ddeb53ee9337cb6e152f5}\label{group___p_a_c5_x_x_x___s_p_i_gab871ad65504ddeb53ee9337cb6e152f5}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CSL@{CSL}}
+\index{CSL@{CSL}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CSL}{CSL}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+SL}
+
+Chip Select Active Level Select ~\newline
+ 
+
+Definition at line 182 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gab5a98014484ac2b2a6de1f88fe7a7199}\label{group___p_a_c5_x_x_x___s_p_i_gab5a98014484ac2b2a6de1f88fe7a7199}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CSL@{CSL}}
+\index{CSL@{CSL}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CSL}{CSL}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::C\+SL}
+
+Chip Select Active Level Select ~\newline
+ 
+
+Definition at line 182 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga1d3d7f5e44794d1c6cb8c351bbbae6e8}\label{group___p_a_c5_x_x_x___s_p_i_ga1d3d7f5e44794d1c6cb8c351bbbae6e8}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CSNUM@{CSNUM}}
+\index{CSNUM@{CSNUM}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CSNUM}{CSNUM}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+S\+N\+UM}
+
+Chip Select Number ~\newline
+ 
+
+Definition at line 181 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gaaa257afe6c11114776b798bbe6e12e44}\label{group___p_a_c5_x_x_x___s_p_i_gaaa257afe6c11114776b798bbe6e12e44}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CSNUM@{CSNUM}}
+\index{CSNUM@{CSNUM}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CSNUM}{CSNUM}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::C\+S\+N\+UM}
+
+Chip Select Number ~\newline
+ 
+
+Definition at line 181 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gad2238a334127a902e518bb77ae830673}\label{group___p_a_c5_x_x_x___s_p_i_gad2238a334127a902e518bb77ae830673}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CSSETUP@{CSSETUP}}
+\index{CSSETUP@{CSSETUP}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CSSETUP}{CSSETUP}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::C\+S\+S\+E\+T\+UP}
+
+Chip Select Setup ~\newline
+ 
+
+Definition at line 184 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gae59a5fbcd1aac07ab8ebefa921d3e7a7}\label{group___p_a_c5_x_x_x___s_p_i_gae59a5fbcd1aac07ab8ebefa921d3e7a7}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CSSETUP@{CSSETUP}}
+\index{CSSETUP@{CSSETUP}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CSSETUP}{CSSETUP}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+S\+S\+E\+T\+UP}
+
+Chip Select Setup ~\newline
+ 
+
+Definition at line 184 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga4830faa61487308c59fb5e6b39d10baa}\label{group___p_a_c5_x_x_x___s_p_i_ga4830faa61487308c59fb5e6b39d10baa}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CSWAIT@{CSWAIT}}
+\index{CSWAIT@{CSWAIT}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CSWAIT}{CSWAIT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::C\+S\+W\+A\+IT}
+
+Chip Select Wait ~\newline
+ 
+
+Definition at line 186 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gac8b281cc53b594fa10067b45b2f546c5}\label{group___p_a_c5_x_x_x___s_p_i_gac8b281cc53b594fa10067b45b2f546c5}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CSWAIT@{CSWAIT}}
+\index{CSWAIT@{CSWAIT}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CSWAIT}{CSWAIT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+S\+W\+A\+IT}
+
+Chip Select Wait ~\newline
+ 
+
+Definition at line 186 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga1662e69616c2cbd0648a97f0037a0433}\label{group___p_a_c5_x_x_x___s_p_i_ga1662e69616c2cbd0648a97f0037a0433}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CURSTATE@{CURSTATE}}
+\index{CURSTATE@{CURSTATE}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CURSTATE}{CURSTATE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+U\+R\+S\+T\+A\+TE}
+
+Raw Status of the S\+PI Master State Machine\textquotesingle{}s \char`\"{}current\+\_\+state\char`\"{} reg ~\newline
+ 
+
+Definition at line 164 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gac4272355d4852be2d70c1ffc71e6a5f0}\label{group___p_a_c5_x_x_x___s_p_i_gac4272355d4852be2d70c1ffc71e6a5f0}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CURSTATE@{CURSTATE}}
+\index{CURSTATE@{CURSTATE}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CURSTATE}{CURSTATE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+I \{ ... \} \+::C\+U\+R\+S\+T\+A\+TE}
+
+Raw Status of the S\+PI Master State Machine\textquotesingle{}s \char`\"{}current\+\_\+state\char`\"{} reg ~\newline
+ 
+
+Definition at line 164 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga3c4ba13a753c87216f552d1eea656f88}\label{group___p_a_c5_x_x_x___s_p_i_ga3c4ba13a753c87216f552d1eea656f88}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CYC\_DONE@{CYC\_DONE}}
+\index{CYC\_DONE@{CYC\_DONE}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CYC\_DONE}{CYC\_DONE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+Y\+C\+\_\+\+D\+O\+NE}
+
+Cycle Done ~\newline
+ 
+
+Definition at line 157 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga6aa75735009593aa50cd9a968dd2aa0f}\label{group___p_a_c5_x_x_x___s_p_i_ga6aa75735009593aa50cd9a968dd2aa0f}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CYC\_DONE@{CYC\_DONE}}
+\index{CYC\_DONE@{CYC\_DONE}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CYC\_DONE}{CYC\_DONE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::C\+Y\+C\+\_\+\+D\+O\+NE}
+
+Cycle Done ~\newline
+ 
+
+Definition at line 157 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gac80a0ec946f60f310023883ce2ed3efa}\label{group___p_a_c5_x_x_x___s_p_i_gac80a0ec946f60f310023883ce2ed3efa}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CYC\_DONE\_EN@{CYC\_DONE\_EN}}
+\index{CYC\_DONE\_EN@{CYC\_DONE\_EN}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CYC\_DONE\_EN}{CYC\_DONE\_EN}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+C\+Y\+C\+\_\+\+D\+O\+N\+E\+\_\+\+EN}
+
+Enable S\+P\+Ix\+S\+T\+AT\+:C\+Y\+C\+\_\+\+D\+O\+NE Interrupt ~\newline
+ 
+
+Definition at line 221 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga9c1f10f9131af28ce000ae846f8a5667}\label{group___p_a_c5_x_x_x___s_p_i_ga9c1f10f9131af28ce000ae846f8a5667}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!CYC\_DONE\_EN@{CYC\_DONE\_EN}}
+\index{CYC\_DONE\_EN@{CYC\_DONE\_EN}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{CYC\_DONE\_EN}{CYC\_DONE\_EN}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::C\+Y\+C\+\_\+\+D\+O\+N\+E\+\_\+\+EN}
+
+Enable S\+P\+Ix\+S\+T\+AT\+:C\+Y\+C\+\_\+\+D\+O\+NE Interrupt ~\newline
+ 
+
+Definition at line 221 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga56d0891839cf5b2051f9b239dcbda42b}\label{group___p_a_c5_x_x_x___s_p_i_ga56d0891839cf5b2051f9b239dcbda42b}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!LB1ST@{LB1ST}}
+\index{LB1ST@{LB1ST}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{LB1ST}{LB1ST}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+L\+B1\+ST}
+
+L\+SB First ~\newline
+ 
+
+Definition at line 119 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga8aad973fa247932603132aa9eaa1f0a1}\label{group___p_a_c5_x_x_x___s_p_i_ga8aad973fa247932603132aa9eaa1f0a1}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!LB1ST@{LB1ST}}
+\index{LB1ST@{LB1ST}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{LB1ST}{LB1ST}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::L\+B1\+ST}
+
+L\+SB First ~\newline
+ 
+
+Definition at line 119 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gade0d3a8b6b155ffdb7f1e5a50a0174fb}\label{group___p_a_c5_x_x_x___s_p_i_gade0d3a8b6b155ffdb7f1e5a50a0174fb}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!LE@{LE}}
+\index{LE@{LE}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{LE}{LE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+LE}
+
+Chip Select Leading Edge Detect ~\newline
+ 
+
+Definition at line 155 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga4fa4e01768c4c140b664086708c9c338}\label{group___p_a_c5_x_x_x___s_p_i_ga4fa4e01768c4c140b664086708c9c338}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!LE@{LE}}
+\index{LE@{LE}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{LE}{LE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::LE}
+
+Chip Select Leading Edge Detect ~\newline
+ 
+
+Definition at line 155 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gaf0e470926f142a43dc9df77b3e8239ad}\label{group___p_a_c5_x_x_x___s_p_i_gaf0e470926f142a43dc9df77b3e8239ad}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!LE\_EN@{LE\_EN}}
+\index{LE\_EN@{LE\_EN}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{LE\_EN}{LE\_EN}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+L\+E\+\_\+\+EN}
+
+Enable S\+P\+Ix\+S\+T\+AT\+:LE Interrupt ~\newline
+ 
+
+Definition at line 219 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga9ab6d0efa005e9c863bb5ccbb8a2be77}\label{group___p_a_c5_x_x_x___s_p_i_ga9ab6d0efa005e9c863bb5ccbb8a2be77}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!LE\_EN@{LE\_EN}}
+\index{LE\_EN@{LE\_EN}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{LE\_EN}{LE\_EN}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::L\+E\+\_\+\+EN}
+
+Enable S\+P\+Ix\+S\+T\+AT\+:LE Interrupt ~\newline
+ 
+
+Definition at line 219 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gad86bcf7411c008c66e9f1a9a63b4cdb5}\label{group___p_a_c5_x_x_x___s_p_i_gad86bcf7411c008c66e9f1a9a63b4cdb5}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!LPBK@{LPBK}}
+\index{LPBK@{LPBK}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{LPBK}{LPBK}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+L\+P\+BK}
+
+Internal Loopback Mode ~\newline
+ 
+
+Definition at line 94 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga1dfde82111222e889bc5cbd516165fbe}\label{group___p_a_c5_x_x_x___s_p_i_ga1dfde82111222e889bc5cbd516165fbe}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!LPBK@{LPBK}}
+\index{LPBK@{LPBK}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{LPBK}{LPBK}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::L\+P\+BK}
+
+Internal Loopback Mode ~\newline
+ 
+
+Definition at line 94 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga14e7f567f747d0a8b1b85a8e7f5a9537}\label{group___p_a_c5_x_x_x___s_p_i_ga14e7f567f747d0a8b1b85a8e7f5a9537}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!MMST\_N@{MMST\_N}}
+\index{MMST\_N@{MMST\_N}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{MMST\_N}{MMST\_N}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+M\+M\+S\+T\+\_\+N}
+
+Multi-\/master mode ~\newline
+ 
+
+Definition at line 99 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga0fef133248a310addf40beaf626a59e5}\label{group___p_a_c5_x_x_x___s_p_i_ga0fef133248a310addf40beaf626a59e5}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!MMST\_N@{MMST\_N}}
+\index{MMST\_N@{MMST\_N}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{MMST\_N}{MMST\_N}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::M\+M\+S\+T\+\_\+N}
+
+Multi-\/master mode ~\newline
+ 
+
+Definition at line 99 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga61e6d7d9c986cec9bc7a24e906f9b372}\label{group___p_a_c5_x_x_x___s_p_i_ga61e6d7d9c986cec9bc7a24e906f9b372}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!MRST@{MRST}}
+\index{MRST@{MRST}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{MRST}{MRST}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+M\+R\+ST}
+
+Module Reset ~\newline
+ 
+
+Definition at line 118 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga2e8e4b60772257851ddc5a704e78464b}\label{group___p_a_c5_x_x_x___s_p_i_ga2e8e4b60772257851ddc5a704e78464b}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!MRST@{MRST}}
+\index{MRST@{MRST}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{MRST}{MRST}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::M\+R\+ST}
+
+Module Reset ~\newline
+ 
+
+Definition at line 118 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gaa85a481c271ce63544e1d147603f10aa}\label{group___p_a_c5_x_x_x___s_p_i_gaa85a481c271ce63544e1d147603f10aa}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!MTRANS@{MTRANS}}
+\index{MTRANS@{MTRANS}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{MTRANS}{MTRANS}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+M\+T\+R\+A\+NS}
+
+Multiple-\/transfer mode ~\newline
+ 
+
+Definition at line 98 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga2f1680e91fb5e716fccb4d0f56527199}\label{group___p_a_c5_x_x_x___s_p_i_ga2f1680e91fb5e716fccb4d0f56527199}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!MTRANS@{MTRANS}}
+\index{MTRANS@{MTRANS}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{MTRANS}{MTRANS}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::M\+T\+R\+A\+NS}
+
+Multiple-\/transfer mode ~\newline
+ 
+
+Definition at line 98 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gaf2fd5aa2747eed34a9b30b43e9a595cc}\label{group___p_a_c5_x_x_x___s_p_i_gaf2fd5aa2747eed34a9b30b43e9a595cc}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!MTRARM@{MTRARM}}
+\index{MTRARM@{MTRARM}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{MTRARM}{MTRARM}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+M\+T\+R\+A\+RM}
+
+M\+T\+R\+A\+NS re-\/arm ~\newline
+ 
+
+Definition at line 97 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga56f9b56c180271d03d5a633acc2682f5}\label{group___p_a_c5_x_x_x___s_p_i_ga56f9b56c180271d03d5a633acc2682f5}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!MTRARM@{MTRARM}}
+\index{MTRARM@{MTRARM}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{MTRARM}{MTRARM}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::M\+T\+R\+A\+RM}
+
+M\+T\+R\+A\+NS re-\/arm ~\newline
+ 
+
+Definition at line 97 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gabaf1094f09a92eead3c24635bf4cc84a}\label{group___p_a_c5_x_x_x___s_p_i_gabaf1094f09a92eead3c24635bf4cc84a}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!MTURBO@{MTURBO}}
+\index{MTURBO@{MTURBO}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{MTURBO}{MTURBO}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+M\+T\+U\+R\+BO}
+
+Master turbo mode (2x/clk) ~\newline
+ 
+
+Definition at line 127 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga3aa8679ca3202f97245826af0b2c09c7}\label{group___p_a_c5_x_x_x___s_p_i_ga3aa8679ca3202f97245826af0b2c09c7}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!MTURBO@{MTURBO}}
+\index{MTURBO@{MTURBO}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{MTURBO}{MTURBO}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::M\+T\+U\+R\+BO}
+
+Master turbo mode (2x/clk) ~\newline
+ 
+
+Definition at line 127 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gac10363c524745554bb0b9a844fb4199a}\label{group___p_a_c5_x_x_x___s_p_i_gac10363c524745554bb0b9a844fb4199a}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!RCVCP@{RCVCP}}
+\index{RCVCP@{RCVCP}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{RCVCP}{RCVCP}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+R\+C\+V\+CP}
+
+Slave Mode Clock Polarity ~\newline
+ 
+
+Definition at line 122 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga25f997ef26efcacf5422e7dd65faa3b2}\label{group___p_a_c5_x_x_x___s_p_i_ga25f997ef26efcacf5422e7dd65faa3b2}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!RCVCP@{RCVCP}}
+\index{RCVCP@{RCVCP}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{RCVCP}{RCVCP}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::R\+C\+V\+CP}
+
+Slave Mode Clock Polarity ~\newline
+ 
+
+Definition at line 122 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gaca363e580d4a9645828bf4533627f4ed}\label{group___p_a_c5_x_x_x___s_p_i_gaca363e580d4a9645828bf4533627f4ed}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!RCVCPH@{RCVCPH}}
+\index{RCVCPH@{RCVCPH}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{RCVCPH}{RCVCPH}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::R\+C\+V\+C\+PH}
+
+Slave Mode Clock Phase ~\newline
+ 
+
+Definition at line 123 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga799f28d2bfbd34a5a267c4d1fa67cc53}\label{group___p_a_c5_x_x_x___s_p_i_ga799f28d2bfbd34a5a267c4d1fa67cc53}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!RCVCPH@{RCVCPH}}
+\index{RCVCPH@{RCVCPH}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{RCVCPH}{RCVCPH}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+R\+C\+V\+C\+PH}
+
+Slave Mode Clock Phase ~\newline
+ 
+
+Definition at line 123 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga4bc1bb7b2f23c63ed8c4d67370a79a05}\label{group___p_a_c5_x_x_x___s_p_i_ga4bc1bb7b2f23c63ed8c4d67370a79a05}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!RDOFL@{RDOFL}}
+\index{RDOFL@{RDOFL}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{RDOFL}{RDOFL}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+R\+D\+O\+FL}
+
+Read Buffer Overflow ~\newline
+ 
+
+Definition at line 154 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gaf23346d191068c8a6c8e4ba06bbcc028}\label{group___p_a_c5_x_x_x___s_p_i_gaf23346d191068c8a6c8e4ba06bbcc028}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!RDOFL@{RDOFL}}
+\index{RDOFL@{RDOFL}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{RDOFL}{RDOFL}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::R\+D\+O\+FL}
+
+Read Buffer Overflow ~\newline
+ 
+
+Definition at line 154 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga3fd79d55d2b49be9b9f23bee4dc9a6e0}\label{group___p_a_c5_x_x_x___s_p_i_ga3fd79d55d2b49be9b9f23bee4dc9a6e0}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!RDOFL\_EN@{RDOFL\_EN}}
+\index{RDOFL\_EN@{RDOFL\_EN}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{RDOFL\_EN}{RDOFL\_EN}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+R\+D\+O\+F\+L\+\_\+\+EN}
+
+Enable S\+P\+Ix\+S\+T\+AT\+:F\+D\+O\+FL Interrupt ~\newline
+ 
+
+Definition at line 218 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga3150db4c28e37d5c9ee64439fd5407bc}\label{group___p_a_c5_x_x_x___s_p_i_ga3150db4c28e37d5c9ee64439fd5407bc}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!RDOFL\_EN@{RDOFL\_EN}}
+\index{RDOFL\_EN@{RDOFL\_EN}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{RDOFL\_EN}{RDOFL\_EN}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::R\+D\+O\+F\+L\+\_\+\+EN}
+
+Enable S\+P\+Ix\+S\+T\+AT\+:F\+D\+O\+FL Interrupt ~\newline
+ 
+
+Definition at line 218 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga0acff61a79bb82908beabbe9b15927ac}\label{group___p_a_c5_x_x_x___s_p_i_ga0acff61a79bb82908beabbe9b15927ac}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!RESERVED10@{RESERVED10}}
+\index{RESERVED10@{RESERVED10}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{RESERVED10}{RESERVED10}}
+{\footnotesize\ttfamily uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+R\+E\+S\+E\+R\+V\+E\+D10\mbox{[}2\mbox{]}}
+
+S\+P\+I\+S\+T\+AT\+: Offset\+: 0x0014 S\+PI Status Register ~\newline
+ 
+
+Definition at line 138 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga8fa1fa8753589426e341ab441ae12f5d}\label{group___p_a_c5_x_x_x___s_p_i_ga8fa1fa8753589426e341ab441ae12f5d}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!RTRANS@{RTRANS}}
+\index{RTRANS@{RTRANS}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{RTRANS}{RTRANS}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::R\+T\+R\+A\+NS}
+
+Auto-\/retransmit on S\+C\+LK error ~\newline
+ 
+
+Definition at line 100 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga19c49788ca66578928bb1926d415a0ba}\label{group___p_a_c5_x_x_x___s_p_i_ga19c49788ca66578928bb1926d415a0ba}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!RTRANS@{RTRANS}}
+\index{RTRANS@{RTRANS}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{RTRANS}{RTRANS}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+R\+T\+R\+A\+NS}
+
+Auto-\/retransmit on S\+C\+LK error ~\newline
+ 
+
+Definition at line 100 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga04ae60b4eb9ef3f1184e4dcb13becd8c}\label{group___p_a_c5_x_x_x___s_p_i_ga04ae60b4eb9ef3f1184e4dcb13becd8c}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!RXFULL@{RXFULL}}
+\index{RXFULL@{RXFULL}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{RXFULL}{RXFULL}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+R\+X\+F\+U\+LL}
+
+Raw indicator that the receiving incoming holding reg is full ~\newline
+ 
+
+Definition at line 162 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gabb8936e300025d93572f28949a863217}\label{group___p_a_c5_x_x_x___s_p_i_gabb8936e300025d93572f28949a863217}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!RXFULL@{RXFULL}}
+\index{RXFULL@{RXFULL}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{RXFULL}{RXFULL}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+I \{ ... \} \+::R\+X\+F\+U\+LL}
+
+Raw indicator that the receiving incoming holding reg is full ~\newline
+ 
+
+Definition at line 162 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gae3d52319a28b18a36ab8eb0e2f8d77e3}\label{group___p_a_c5_x_x_x___s_p_i_gae3d52319a28b18a36ab8eb0e2f8d77e3}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!s@{s}}
+\index{s@{s}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{s}{s}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::s}
+
+
+
+Definition at line 84 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}\label{group___p_a_c5_x_x_x___s_p_i_ga81e9db689cc79a204674ae730ef5d316}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!s@{s}}
+\index{s@{s}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{s}{s}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::s}
+
+
+
+Definition at line 84 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gad2b449222988c7f53d05b99035af6ee8}\label{group___p_a_c5_x_x_x___s_p_i_gad2b449222988c7f53d05b99035af6ee8}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!s@{s}}
+\index{s@{s}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{s}{s}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::s}
+
+
+
+Definition at line 109 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga6afd8b066fcabcf86b1d3ca7f39e730b}\label{group___p_a_c5_x_x_x___s_p_i_ga6afd8b066fcabcf86b1d3ca7f39e730b}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!s@{s}}
+\index{s@{s}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{s}{s}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::s}
+
+
+
+Definition at line 144 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gab5148b47ebb7eedd7cb0ee4ea62b6a6a}\label{group___p_a_c5_x_x_x___s_p_i_gab5148b47ebb7eedd7cb0ee4ea62b6a6a}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!s@{s}}
+\index{s@{s}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{s}{s}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::s}
+
+
+
+Definition at line 173 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gab8999691e3c5350ed91a7b9e732c8574}\label{group___p_a_c5_x_x_x___s_p_i_gab8999691e3c5350ed91a7b9e732c8574}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!s@{s}}
+\index{s@{s}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{s}{s}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::s}
+
+
+
+Definition at line 196 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga8db726d5882c03d176ae84ee62dfc87f}\label{group___p_a_c5_x_x_x___s_p_i_ga8db726d5882c03d176ae84ee62dfc87f}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!s@{s}}
+\index{s@{s}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{s}{s}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::s}
+
+
+
+Definition at line 209 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gac743dc2b74944a59aeb23a1097dfb4ac}\label{group___p_a_c5_x_x_x___s_p_i_gac743dc2b74944a59aeb23a1097dfb4ac}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SE@{SE}}
+\index{SE@{SE}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SE}{SE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+SE}
+
+Slave enable ~\newline
+ 
+
+Definition at line 95 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga518ff7dd2519c23824bf5effc8fafe9b}\label{group___p_a_c5_x_x_x___s_p_i_ga518ff7dd2519c23824bf5effc8fafe9b}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SE@{SE}}
+\index{SE@{SE}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SE}{SE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::SE}
+
+Slave enable ~\newline
+ 
+
+Definition at line 95 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga16f336427542b25b2d557c245128ac69}\label{group___p_a_c5_x_x_x___s_p_i_ga16f336427542b25b2d557c245128ac69}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SIE@{SIE}}
+\index{SIE@{SIE}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SIE}{SIE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::S\+IE}
+
+S\+PI Interrupt Enable ~\newline
+ 
+
+Definition at line 93 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga38f03fe264f23c51c0bbb90e7b4cf59c}\label{group___p_a_c5_x_x_x___s_p_i_ga38f03fe264f23c51c0bbb90e7b4cf59c}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SIE@{SIE}}
+\index{SIE@{SIE}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SIE}{SIE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+S\+IE}
+
+S\+PI Interrupt Enable ~\newline
+ 
+
+Definition at line 93 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga6ccdacaa73381aee4ae75a9a30bdea30}\label{group___p_a_c5_x_x_x___s_p_i_ga6ccdacaa73381aee4ae75a9a30bdea30}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPI\_INT@{SPI\_INT}}
+\index{SPI\_INT@{SPI\_INT}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SPI\_INT}{SPI\_INT}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+S\+P\+I\+\_\+\+I\+NT}
+
+S\+PI Interrupt ~\newline
+ 
+
+Definition at line 152 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga97da1d65bc193eb95fd189e12be5a0d2}\label{group___p_a_c5_x_x_x___s_p_i_ga97da1d65bc193eb95fd189e12be5a0d2}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPI\_INT@{SPI\_INT}}
+\index{SPI\_INT@{SPI\_INT}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SPI\_INT}{SPI\_INT}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+I \{ ... \} \+::S\+P\+I\+\_\+\+I\+NT}
+
+S\+PI Interrupt ~\newline
+ 
+
+Definition at line 152 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga38dba06b65b409a4955902d4aefbe9c6}\label{group___p_a_c5_x_x_x___s_p_i_ga38dba06b65b409a4955902d4aefbe9c6}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPICCSTR@{SPICCSTR}}
+\index{SPICCSTR@{SPICCSTR}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SPICCSTR}{SPICCSTR}}
+{\footnotesize\ttfamily union \{ ... \}  P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+S\+P\+I\+C\+C\+S\+TR}
+
+S\+P\+ID\+: Offset\+: 0x001C S\+PI Data Register ~\newline
+ \mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga7620848ba8e9f486070f4a251fdc3228}\label{group___p_a_c5_x_x_x___s_p_i_ga7620848ba8e9f486070f4a251fdc3228}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPICFG@{SPICFG}}
+\index{SPICFG@{SPICFG}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SPICFG}{SPICFG}}
+{\footnotesize\ttfamily union \{ ... \}  P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+S\+P\+I\+C\+FG}
+
+S\+P\+I\+C\+L\+K\+D\+IV\+: Offset\+: 0x0008 S\+PI Input Clock Divisor Register ~\newline
+ \mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga9641f574167f051b26a1216431ec00a9}\label{group___p_a_c5_x_x_x___s_p_i_ga9641f574167f051b26a1216431ec00a9}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPICLKDIV@{SPICLKDIV}}
+\index{SPICLKDIV@{SPICLKDIV}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SPICLKDIV}{SPICLKDIV}}
+{\footnotesize\ttfamily struct \{ ... \}  P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+S\+P\+I\+C\+L\+K\+D\+IV}
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gaed54f1f8302fdda9ed9d4ae1d512c0d1}\label{group___p_a_c5_x_x_x___s_p_i_gaed54f1f8302fdda9ed9d4ae1d512c0d1}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPICTL@{SPICTL}}
+\index{SPICTL@{SPICTL}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SPICTL}{SPICTL}}
+{\footnotesize\ttfamily union \{ ... \}  P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+S\+P\+I\+C\+TL}
+
+$<$ S\+P\+I\+C\+TL\+: Offset\+: 0x0000 S\+PI Control Register ~\newline
+ S\+P\+I\+C\+FG\+: Offset\+: 0x0004 S\+PI Configuration Register ~\newline
+ \mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gac028dd01b6017627c481d530a8ebf788}\label{group___p_a_c5_x_x_x___s_p_i_gac028dd01b6017627c481d530a8ebf788}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPID@{SPID}}
+\index{SPID@{SPID}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SPID}{SPID}}
+{\footnotesize\ttfamily union \{ ... \}  P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+S\+P\+ID}
+
+S\+P\+I\+I\+N\+T\+\_\+\+EN\+: Offset\+: 0x0020 S\+PI Interrupt Enable Register ~\newline
+ \mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gadce20975c9024624526bd5d56bb435af}\label{group___p_a_c5_x_x_x___s_p_i_gadce20975c9024624526bd5d56bb435af}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPIINT\_EN@{SPIINT\_EN}}
+\index{SPIINT\_EN@{SPIINT\_EN}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SPIINT\_EN}{SPIINT\_EN}}
+{\footnotesize\ttfamily union \{ ... \}  P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+S\+P\+I\+I\+N\+T\+\_\+\+EN}
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga81702ece04442cf69aab7157fb58b4d5}\label{group___p_a_c5_x_x_x___s_p_i_ga81702ece04442cf69aab7157fb58b4d5}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SPISTAT@{SPISTAT}}
+\index{SPISTAT@{SPISTAT}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SPISTAT}{SPISTAT}}
+{\footnotesize\ttfamily union \{ ... \}  P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+S\+P\+I\+S\+T\+AT}
+
+S\+P\+I\+C\+S\+S\+TR\+: Offset\+: 0x0018 S\+PI CS Steering Register ~\newline
+ \mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga9fdc1d040426ad446abbde415601c91e}\label{group___p_a_c5_x_x_x___s_p_i_ga9fdc1d040426ad446abbde415601c91e}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SSEN@{SSEN}}
+\index{SSEN@{SSEN}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SSEN}{SSEN}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+S\+S\+EN}
+
+S\+PI System Enable ~\newline
+ 
+
+Definition at line 92 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gadfd56a6e12986ec63b343545b1fca1a8}\label{group___p_a_c5_x_x_x___s_p_i_gadfd56a6e12986ec63b343545b1fca1a8}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!SSEN@{SSEN}}
+\index{SSEN@{SSEN}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{SSEN}{SSEN}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::S\+S\+EN}
+
+S\+PI System Enable ~\newline
+ 
+
+Definition at line 92 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga6b67444d40c9b84c9b9ba7ce3499902b}\label{group___p_a_c5_x_x_x___s_p_i_ga6b67444d40c9b84c9b9ba7ce3499902b}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!TDAT\_PH@{TDAT\_PH}}
+\index{TDAT\_PH@{TDAT\_PH}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{TDAT\_PH}{TDAT\_PH}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+T\+D\+A\+T\+\_\+\+PH}
+
+Early Transmit Data Phase ~\newline
+ 
+
+Definition at line 125 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gaec5ddbdf68962f85b17b2e3bcbb962b8}\label{group___p_a_c5_x_x_x___s_p_i_gaec5ddbdf68962f85b17b2e3bcbb962b8}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!TDAT\_PH@{TDAT\_PH}}
+\index{TDAT\_PH@{TDAT\_PH}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{TDAT\_PH}{TDAT\_PH}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::T\+D\+A\+T\+\_\+\+PH}
+
+Early Transmit Data Phase ~\newline
+ 
+
+Definition at line 125 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga0c7c721314131da96635085ceb808c1f}\label{group___p_a_c5_x_x_x___s_p_i_ga0c7c721314131da96635085ceb808c1f}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!TE@{TE}}
+\index{TE@{TE}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{TE}{TE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+TE}
+
+Chip Select Trailing Edge Detect ~\newline
+ 
+
+Definition at line 158 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gacb424e579edbfc10c1fe4984e0273590}\label{group___p_a_c5_x_x_x___s_p_i_gacb424e579edbfc10c1fe4984e0273590}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!TE@{TE}}
+\index{TE@{TE}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{TE}{TE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::TE}
+
+Chip Select Trailing Edge Detect ~\newline
+ 
+
+Definition at line 158 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga38a92e24f6222a825257e25fdea49837}\label{group___p_a_c5_x_x_x___s_p_i_ga38a92e24f6222a825257e25fdea49837}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!TE\_EN@{TE\_EN}}
+\index{TE\_EN@{TE\_EN}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{TE\_EN}{TE\_EN}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+T\+E\+\_\+\+EN}
+
+Enable S\+P\+Ix\+S\+T\+AT\+:TE Interrupt ~\newline
+ 
+
+Definition at line 222 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga60851284befb9a9fbe99bd8da8fd1f33}\label{group___p_a_c5_x_x_x___s_p_i_ga60851284befb9a9fbe99bd8da8fd1f33}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!TE\_EN@{TE\_EN}}
+\index{TE\_EN@{TE\_EN}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{TE\_EN}{TE\_EN}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::T\+E\+\_\+\+EN}
+
+Enable S\+P\+Ix\+S\+T\+AT\+:TE Interrupt ~\newline
+ 
+
+Definition at line 222 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga2f7f4ffee0b1bc6e9187bcc84bc7a641}\label{group___p_a_c5_x_x_x___s_p_i_ga2f7f4ffee0b1bc6e9187bcc84bc7a641}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!TXDBUF@{TXDBUF}}
+\index{TXDBUF@{TXDBUF}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{TXDBUF}{TXDBUF}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+T\+X\+D\+B\+UF}
+
+Transmit data double-\/buffer ~\newline
+ 
+
+Definition at line 126 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gabb4e7fcbcaa6e079f5ce5c4395937419}\label{group___p_a_c5_x_x_x___s_p_i_gabb4e7fcbcaa6e079f5ce5c4395937419}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!TXDBUF@{TXDBUF}}
+\index{TXDBUF@{TXDBUF}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{TXDBUF}{TXDBUF}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::T\+X\+D\+B\+UF}
+
+Transmit data double-\/buffer ~\newline
+ 
+
+Definition at line 126 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga9dc9d8feec70f4a05325819ab5dcceaa}\label{group___p_a_c5_x_x_x___s_p_i_ga9dc9d8feec70f4a05325819ab5dcceaa}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!TXFULL@{TXFULL}}
+\index{TXFULL@{TXFULL}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{TXFULL}{TXFULL}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+T\+X\+F\+U\+LL}
+
+Raw indicator that the transmit outgoing register is still in use 
+
+Definition at line 161 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gae3a755fe2ed099415de3dfd342284b1a}\label{group___p_a_c5_x_x_x___s_p_i_gae3a755fe2ed099415de3dfd342284b1a}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!TXFULL@{TXFULL}}
+\index{TXFULL@{TXFULL}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{TXFULL}{TXFULL}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+I \{ ... \} \+::T\+X\+F\+U\+LL}
+
+Raw indicator that the transmit outgoing register is still in use 
+
+Definition at line 161 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga1f18f20b257ea8fd5cd46820268f7f56}\label{group___p_a_c5_x_x_x___s_p_i_ga1f18f20b257ea8fd5cd46820268f7f56}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!UCLK@{UCLK}}
+\index{UCLK@{UCLK}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{UCLK}{UCLK}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+U\+C\+LK}
+
+Under-\/clock condition ~\newline
+ 
+
+Definition at line 156 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga008f30c900d57942d5dfa5c1a89c0af0}\label{group___p_a_c5_x_x_x___s_p_i_ga008f30c900d57942d5dfa5c1a89c0af0}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!UCLK@{UCLK}}
+\index{UCLK@{UCLK}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{UCLK}{UCLK}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::U\+C\+LK}
+
+Under-\/clock condition ~\newline
+ 
+
+Definition at line 156 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gaa3b4e15cf69d26191999b951dd9ece20}\label{group___p_a_c5_x_x_x___s_p_i_gaa3b4e15cf69d26191999b951dd9ece20}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!UCLK\_EN@{UCLK\_EN}}
+\index{UCLK\_EN@{UCLK\_EN}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{UCLK\_EN}{UCLK\_EN}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+U\+C\+L\+K\+\_\+\+EN}
+
+Enable S\+P\+Ix\+S\+T\+AT\+:U\+C\+LK Interrupt ~\newline
+ 
+
+Definition at line 220 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gaa5d23f5b837da539242b8e0936efede5}\label{group___p_a_c5_x_x_x___s_p_i_gaa5d23f5b837da539242b8e0936efede5}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!UCLK\_EN@{UCLK\_EN}}
+\index{UCLK\_EN@{UCLK\_EN}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{UCLK\_EN}{UCLK\_EN}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::U\+C\+L\+K\+\_\+\+EN}
+
+Enable S\+P\+Ix\+S\+T\+AT\+:U\+C\+LK Interrupt ~\newline
+ 
+
+Definition at line 220 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga4c4805385b0d7a1e3c19c8a6c934ad7d}\label{group___p_a_c5_x_x_x___s_p_i_ga4c4805385b0d7a1e3c19c8a6c934ad7d}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!VAL@{VAL}}
+\index{VAL@{VAL}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{VAL}{VAL}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+V\+AL}
+
+Clock divisor for master-\/mode S\+P\+Ix\+S\+C\+LK ~\newline
+ 
+
+Definition at line 134 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gaa82defa9df316cb5e11cdc74b1c278bb}\label{group___p_a_c5_x_x_x___s_p_i_gaa82defa9df316cb5e11cdc74b1c278bb}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!VAL@{VAL}}
+\index{VAL@{VAL}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{VAL}{VAL}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::V\+AL}
+
+Clock divisor for master-\/mode S\+P\+Ix\+S\+C\+LK ~\newline
+ 
+
+Definition at line 134 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga2c4ad34a18862d07b403626655ed0aad}\label{group___p_a_c5_x_x_x___s_p_i_ga2c4ad34a18862d07b403626655ed0aad}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!w@{w}}
+\index{w@{w}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{w}{w}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::w}
+
+
+
+Definition at line 82 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga3e9d9b8bc8daba67b6b81bb7cdf31351}\label{group___p_a_c5_x_x_x___s_p_i_ga3e9d9b8bc8daba67b6b81bb7cdf31351}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!w@{w}}
+\index{w@{w}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{w}{w}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::w}
+
+
+
+Definition at line 82 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gae9081b3bca8c6bd77d1dfe4c7528a740}\label{group___p_a_c5_x_x_x___s_p_i_gae9081b3bca8c6bd77d1dfe4c7528a740}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!w@{w}}
+\index{w@{w}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{w}{w}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::w}
+
+
+
+Definition at line 107 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga90ce4a10d6c65b0a47c63a66daf7257d}\label{group___p_a_c5_x_x_x___s_p_i_ga90ce4a10d6c65b0a47c63a66daf7257d}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!w@{w}}
+\index{w@{w}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{w}{w}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::w}
+
+
+
+Definition at line 142 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga07a90966afbdb0e8c1fd6980291de939}\label{group___p_a_c5_x_x_x___s_p_i_ga07a90966afbdb0e8c1fd6980291de939}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!w@{w}}
+\index{w@{w}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{w}{w}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::w}
+
+
+
+Definition at line 171 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga90232c8c344196b97c861a68da88d82e}\label{group___p_a_c5_x_x_x___s_p_i_ga90232c8c344196b97c861a68da88d82e}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!w@{w}}
+\index{w@{w}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{w}{w}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::w}
+
+
+
+Definition at line 194 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gab1661c0e56213c4a2ac1a79b86e2166e}\label{group___p_a_c5_x_x_x___s_p_i_gab1661c0e56213c4a2ac1a79b86e2166e}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!w@{w}}
+\index{w@{w}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{w}{w}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::w}
+
+
+
+Definition at line 207 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga82c274fb223b8e29cc49af92c051bdbe}\label{group___p_a_c5_x_x_x___s_p_i_ga82c274fb223b8e29cc49af92c051bdbe}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!WL@{WL}}
+\index{WL@{WL}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{WL}{WL}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::WL}
+
+Word Length Select ~\newline
+ 
+
+Definition at line 117 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gaee3449f791c4cc7b49e84997e827f5aa}\label{group___p_a_c5_x_x_x___s_p_i_gaee3449f791c4cc7b49e84997e827f5aa}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!WL@{WL}}
+\index{WL@{WL}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{WL}{WL}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+WL}
+
+Word Length Select ~\newline
+ 
+
+Definition at line 117 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_gac7537917a5717a84ff4841ccca7c04ba}\label{group___p_a_c5_x_x_x___s_p_i_gac7537917a5717a84ff4841ccca7c04ba}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!WRUFL@{WRUFL}}
+\index{WRUFL@{WRUFL}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{WRUFL}{WRUFL}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+W\+R\+U\+FL}
+
+Write Buffer underflow ~\newline
+ 
+
+Definition at line 160 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga4c54af0e95de258f95d0230f2c3d16e8}\label{group___p_a_c5_x_x_x___s_p_i_ga4c54af0e95de258f95d0230f2c3d16e8}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!WRUFL@{WRUFL}}
+\index{WRUFL@{WRUFL}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{WRUFL}{WRUFL}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::W\+R\+U\+FL}
+
+Write Buffer underflow ~\newline
+ 
+
+Definition at line 160 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga4d11e9e744c3e6c4e4bcb241e87acffd}\label{group___p_a_c5_x_x_x___s_p_i_ga4d11e9e744c3e6c4e4bcb241e87acffd}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!WRUFL\_EN@{WRUFL\_EN}}
+\index{WRUFL\_EN@{WRUFL\_EN}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{WRUFL\_EN}{WRUFL\_EN}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+S\+P\+I\+\_\+\+Type\+Def\+::\+W\+R\+U\+F\+L\+\_\+\+EN}
+
+Enable S\+P\+Ix\+S\+T\+AT\+:W\+R\+U\+FL Interrupt ~\newline
+ 
+
+Definition at line 224 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___s_p_i_ga997b6824b19d7b58a7d2d19857e69a09}\label{group___p_a_c5_x_x_x___s_p_i_ga997b6824b19d7b58a7d2d19857e69a09}} 
+\index{PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}!WRUFL\_EN@{WRUFL\_EN}}
+\index{WRUFL\_EN@{WRUFL\_EN}!PAC5XXX SPI Controller (SPI)@{PAC5XXX SPI Controller (SPI)}}
+\doxysubsubsection{\texorpdfstring{WRUFL\_EN}{WRUFL\_EN}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::W\+R\+U\+F\+L\+\_\+\+EN}
+
+Enable S\+P\+Ix\+S\+T\+AT\+:W\+R\+U\+FL Interrupt ~\newline
+ 
+
+Definition at line 224 of file pac5xxx\+\_\+\+S\+P\+I.\+h.
+

@@ -1,0 +1,169 @@
+.TH "PAC5XXX_Driver_Tile" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_Tile \- PAC5XXX Tile Driver
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_TILE\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_TILE\fP uint8_t \fBpac5xxx_tile_register_read\fP (uint8_t address)"
+.br
+.RI "This function reads a tile register via polling\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TILE\fP void \fBpac5xxx_tile_register_write\fP (uint8_t address, uint8_t data)"
+.br
+.RI "This function writes a tile register\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TILE\fP void \fBpac5xxx_tile_socbridge_config\fP (int enable, int int_enable)"
+.br
+.RI "This function configures the device for configuration with the Analog tiles via SOC Bridge\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_TILE"
+
+.PP
+Definition at line 31 of file pac5xxx_driver_tile\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_TILE\fP uint8_t pac5xxx_tile_register_read (uint8_t address)"
+
+.PP
+This function reads a tile register via polling\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIaddress\fP Register address to read from 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Data read from register 
+.RE
+.PP
+
+.PP
+Definition at line 52 of file pac5xxx_driver_tile_socbridge\&.c\&.
+.PP
+.nf
+53 {
+54     uint8_t data;
+55 
+56     // Send SPI address with address 7 bit; first 9 bits are 1 bit read-write and 8 bit data
+57     PAC55XX_SSPA->DAT\&.DATA = (address << 9);
+58     
+59     // Wait for transmission to be complete 
+60     while (!PAC55XX_SSPA->STAT\&.TNF);
+61     
+62     // Wait for receive data ready      
+63     while (!PAC55XX_SSPA->STAT\&.RNE);  
+64 
+65     data = PAC55XX_SSPA->DAT\&.DATA;
+66 
+67     // Return read data
+68     return data;
+69 }
+.fi
+.PP
+References PAC55XX_SSPA\&.
+.PP
+Referenced by config_seq_foc()\&.
+.SS "\fBRAMFUNC_TILE\fP void pac5xxx_tile_register_write (uint8_t address, uint8_t data)"
+
+.PP
+This function writes a tile register\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIaddress\fP Register address to write 
+.br
+\fIdata\fP Data to write 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+0: success, non-zero: failure
+.RE
+.PP
+\fBNote\fP
+.RS 4
+The user must configure interrupts for the SOC Bridge interface after calling this function and is responsible for registering the Cortex interrupts and providing the interrupt handlers\&. 
+.RE
+.PP
+
+.PP
+Definition at line 30 of file pac5xxx_driver_tile_socbridge\&.c\&.
+.PP
+.nf
+31 {
+32     volatile unsigned int data_read;
+33 
+34     // Ensure no transmission is pending
+35     while (!PAC55XX_SSPA->STAT\&.TNF);
+36     
+37     // Write 16-bits containing Addr, R/W=1, Data
+38     // Format: Addr(15:9) | R/W(8) | Data(7:0)
+39     PAC55XX_SSPA->DAT\&.DATA = (address << 9) | (1 << 8) | data;
+40 
+41     // Wait for transmission to be complete
+42     while (!PAC55XX_SSPA->STAT\&.TNF);
+43 
+44     // Must empty receive buffer
+45     while (!PAC55XX_SSPA->STAT\&.RNE);         // Wait for receive data ready         
+46     data_read = PAC55XX_SSPA->DAT\&.DATA;      // Read receive buffer data
+47     
+48     (void) data_read;                        // Added to prevent compiler warnings about the variable being set but not unused
+49 }
+.fi
+.PP
+References PAC55XX_SSPA\&.
+.PP
+Referenced by config_seq_foc(), config_seq_foc_vref(), and init_diff_amp_gain()\&.
+.SS "\fBRAMFUNC_TILE\fP void pac5xxx_tile_socbridge_config (int enable, int int_enable)"
+
+.PP
+This function configures the device for configuration with the Analog tiles via SOC Bridge\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP Set to 1 to enable SOC Bridge 
+.br
+\fIint_enable\fP Set to 1 to enable interrupts for SOC bridge 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file pac5xxx_driver_tile_socbridge\&.c\&.
+.PP
+.nf
+22 {
+23       // Configure SOC Bridge
+24     pac5xxx_socbridge_config(enable, int_enable);       // Enabled
+25 
+26     pac5xxx_socbridge_config_io();                      // Enable SPI IOs
+27 }
+.fi
+.PP
+References pac5xxx_socbridge_config(), and pac5xxx_socbridge_config_io()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

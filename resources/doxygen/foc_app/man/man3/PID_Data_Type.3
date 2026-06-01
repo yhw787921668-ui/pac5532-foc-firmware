@@ -1,0 +1,109 @@
+.TH "PID_Data_Type" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PID_Data_Type
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pid\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBfix16_t\fP \fBI_prev\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBPI\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBPI_sat\fP"
+.br
+.ti -1c
+.RI "int32_t \fBka_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBkb_q16\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBkp_q11\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBkidt_q16\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBmin_value\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBmax_value\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP \fBdt_q26\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 25 of file pid\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "\fBfix16_t\fP PID_Data_Type::dt_q26"
+
+.PP
+Definition at line 39 of file pid\&.h\&.
+.PP
+Referenced by parameters_write_foc(), and picon_convert_gain()\&.
+.SS "\fBfix16_t\fP PID_Data_Type::I_prev"
+
+.PP
+Definition at line 28 of file pid\&.h\&.
+.PP
+Referenced by pid_reset()\&.
+.SS "int32_t PID_Data_Type::ka_q16"
+
+.PP
+Definition at line 33 of file pid\&.h\&.
+.PP
+Referenced by foc_reset(), and picon_convert_gain()\&.
+.SS "int32_t PID_Data_Type::kb_q16"
+
+.PP
+Definition at line 34 of file pid\&.h\&.
+.PP
+Referenced by picon_convert_gain()\&.
+.SS "\fBfix16_t\fP PID_Data_Type::kidt_q16"
+
+.PP
+Definition at line 36 of file pid\&.h\&.
+.PP
+Referenced by picon_convert_gain()\&.
+.SS "\fBfix16_t\fP PID_Data_Type::kp_q11"
+
+.PP
+Definition at line 35 of file pid\&.h\&.
+.PP
+Referenced by picon_convert_gain()\&.
+.SS "\fBfix16_t\fP PID_Data_Type::max_value"
+
+.PP
+Definition at line 38 of file pid\&.h\&.
+.SS "\fBfix16_t\fP PID_Data_Type::min_value"
+
+.PP
+Definition at line 37 of file pid\&.h\&.
+.SS "\fBfix16_t\fP PID_Data_Type::PI"
+
+.PP
+Definition at line 29 of file pid\&.h\&.
+.PP
+Referenced by pid_reset()\&.
+.SS "\fBfix16_t\fP PID_Data_Type::PI_sat"
+
+.PP
+Definition at line 30 of file pid\&.h\&.
+.PP
+Referenced by pid_reset()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

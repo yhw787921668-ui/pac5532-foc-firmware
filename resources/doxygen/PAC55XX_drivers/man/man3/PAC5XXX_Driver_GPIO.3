@@ -1,0 +1,857 @@
+.TH "PAC5XXX_Driver_GPIO" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_GPIO \- PAC5XXX GPIO Peripheral
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_GPIO\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_configure_interrupt_a\fP (uint8_t port_mask, uint8_t active_high_mask)"
+.br
+.RI "This function configures interrupts for the given pins on the given port and enables them\&. "
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_configure_interrupt_b\fP (uint8_t port_mask, uint8_t active_high_mask)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_configure_interrupt_c\fP (uint8_t port_mask, uint8_t active_high_mask)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_configure_interrupt_d\fP (uint8_t port_mask, uint8_t active_high_mask)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_configure_interrupt_e\fP (uint8_t port_mask, uint8_t active_high_mask)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_configure_interrupt_f\fP (uint8_t port_mask, uint8_t active_high_mask)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_configure_interrupt_g\fP (uint8_t port_mask, uint8_t active_high_mask)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_GPIO"
+
+.PP
+Definition at line 31 of file pac5xxx_driver_gpio\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_configure_interrupt_a (uint8_t port_mask, uint8_t active_high_mask)"
+
+.PP
+This function configures interrupts for the given pins on the given port and enables them\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpin_mask\fP Mask of pins to configure and enable interrupts for 
+.br
+\fIactive_high_mask\fP Mask of pins to set to active high interrupts
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+None 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_gpio\&.c\&.
+.PP
+.nf
+21 {
+22     if ((port_mask & 0x01) == 0x01)
+23     {
+24         PAC55XX_GPIOA->MODE\&.P0 = 3;             // High-Z Input
+25         PAC55XX_GPIOA->INTTYPE\&.P0 = 0;          // Edge trigger
+26         PAC55XX_GPIOA->INTEDGEBOTH\&.P0 = 0;      // Only one edge
+27         if ((active_high_mask & 0x01) == 0x01)
+28             PAC55XX_GPIOA->INTCFG\&.P0 = 1;       // Rising edge
+29         else
+30             PAC55XX_GPIOA->INTCFG\&.P0 = 0;       // Falling edge
+31         PAC55XX_GPIOA->INTEN\&.P0 = 1;            // Enable Interrupt
+32     }
+33 
+34     if ((port_mask & 0x02) == 0x02)
+35     {
+36         PAC55XX_GPIOA->MODE\&.P1 = 3;             // High-Z Input
+37         PAC55XX_GPIOA->INTTYPE\&.P1 = 0;          // Edge trigger
+38         PAC55XX_GPIOA->INTEDGEBOTH\&.P1 = 0;      // Only one edge
+39         if ((active_high_mask & 0x02) == 0x02)
+40             PAC55XX_GPIOA->INTCFG\&.P1 = 1;       // Rising edge
+41         else
+42             PAC55XX_GPIOA->INTCFG\&.P1 = 0;       // Falling edge
+43         PAC55XX_GPIOA->INTEN\&.P1 = 1;            // Enable Interrupt
+44     }
+45 
+46     if ((port_mask & 0x04) == 0x04)
+47     {
+48         PAC55XX_GPIOA->MODE\&.P2 = 3;             // High-Z Input
+49         PAC55XX_GPIOA->INTTYPE\&.P2 = 0;          // Edge trigger
+50         PAC55XX_GPIOA->INTEDGEBOTH\&.P2 = 0;      // Only one edge
+51         if ((active_high_mask & 0x04) == 0x04)
+52             PAC55XX_GPIOA->INTCFG\&.P2 = 1;       // Rising edge
+53         else
+54             PAC55XX_GPIOA->INTCFG\&.P2 = 0;       // Falling edge
+55         PAC55XX_GPIOA->INTEN\&.P2 = 1;            // Enable Interrupt
+56     }
+57 
+58     if ((port_mask & 0x08) == 0x08)
+59     {
+60         PAC55XX_GPIOA->MODE\&.P3 = 3;             // High-Z Input
+61         PAC55XX_GPIOA->INTTYPE\&.P3 = 0;          // Edge trigger
+62         PAC55XX_GPIOA->INTEDGEBOTH\&.P3 = 0;      // Only one edge
+63         if ((active_high_mask & 0x08) == 0x08)
+64             PAC55XX_GPIOA->INTCFG\&.P3 = 1;       // Rising edge
+65         else
+66             PAC55XX_GPIOA->INTCFG\&.P3 = 0;       // Falling edge
+67         PAC55XX_GPIOA->INTEN\&.P3 = 1;            // Enable Interrupt
+68     }
+69 
+70     if ((port_mask & 0x10) == 0x10)
+71     {
+72         PAC55XX_GPIOA->MODE\&.P4 = 3;             // High-Z Input
+73         PAC55XX_GPIOA->INTTYPE\&.P4 = 0;          // Edge trigger
+74         PAC55XX_GPIOA->INTEDGEBOTH\&.P4 = 0;      // Only one edge
+75         if ((active_high_mask & 0x10) == 0x10)
+76             PAC55XX_GPIOA->INTCFG\&.P4 = 1;       // Rising edge
+77         else
+78             PAC55XX_GPIOA->INTCFG\&.P4 = 0;       // Falling edge
+79         PAC55XX_GPIOA->INTEN\&.P4 = 1;            // Enable Interrupt
+80     }
+81 
+82     if ((port_mask & 0x20) == 0x20)
+83     {
+84         PAC55XX_GPIOA->MODE\&.P5 = 3;             // High-Z Input
+85         PAC55XX_GPIOA->INTTYPE\&.P5 = 0;          // Edge trigger
+86         PAC55XX_GPIOA->INTEDGEBOTH\&.P5 = 0;      // Only one edge
+87         if ((active_high_mask & 0x20) == 0x20)
+88             PAC55XX_GPIOA->INTCFG\&.P5 = 1;       // Rising edge
+89         else
+90             PAC55XX_GPIOA->INTCFG\&.P5 = 0;       // Falling edge
+91         PAC55XX_GPIOA->INTEN\&.P5 = 1;            // Enable Interrupt
+92     }
+93 
+94     if ((port_mask & 0x40) == 0x40)
+95     {
+96         PAC55XX_GPIOA->MODE\&.P6 = 3;             // High-Z Input
+97         PAC55XX_GPIOA->INTTYPE\&.P6 = 0;          // Edge trigger
+98         PAC55XX_GPIOA->INTEDGEBOTH\&.P6 = 0;      // Only one edge
+99         if ((active_high_mask & 0x40) == 0x40)
+100             PAC55XX_GPIOA->INTCFG\&.P6 = 1;       // Rising edge
+101         else
+102             PAC55XX_GPIOA->INTCFG\&.P6 = 0;       // Falling edge
+103         PAC55XX_GPIOA->INTEN\&.P6 = 1;            // Enable Interrupt
+104     }
+105 
+106     if ((port_mask & 0x80) == 0x80)
+107     {
+108         PAC55XX_GPIOA->MODE\&.P7 = 3;             // High-Z Input
+109         PAC55XX_GPIOA->INTTYPE\&.P7 = 0;          // Edge trigger
+110         PAC55XX_GPIOA->INTEDGEBOTH\&.P7 = 0;      // Only one edge
+111         if ((active_high_mask & 0x80) == 0x80)
+112             PAC55XX_GPIOA->INTCFG\&.P7 = 1;       // Rising edge
+113         else
+114             PAC55XX_GPIOA->INTCFG\&.P7 = 0;       // Falling edge
+115         PAC55XX_GPIOA->INTEN\&.P7 = 1;            // Enable Interrupt
+116     }
+117     
+118     if (port_mask != 0x00)
+119     {
+120         PAC55XX_GPIOA->INTCLEAR\&.w = 0xFF;           // Clear any pending interrupts
+121         NVIC_EnableIRQ(GpioA_IRQn);                 // Enable interrupts in NVIC
+122     }
+123 }
+.fi
+.PP
+References GpioA_IRQn, NVIC_EnableIRQ(), and PAC55XX_GPIOA\&.
+.PP
+Referenced by configure_cafe_fault_interrupt()\&.
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_configure_interrupt_b (uint8_t port_mask, uint8_t active_high_mask)"
+
+.PP
+Definition at line 125 of file pac5xxx_driver_gpio\&.c\&.
+.PP
+.nf
+126 {
+127     if ((port_mask & 0x01) == 0x01)
+128     {
+129         PAC55XX_GPIOB->MODE\&.P0 = 3;             // High-Z Input
+130         PAC55XX_GPIOB->INTTYPE\&.P0 = 0;          // Edge trigger
+131         PAC55XX_GPIOB->INTEDGEBOTH\&.P0 = 0;      // Only one edge
+132         if ((active_high_mask & 0x01) == 0x01)
+133             PAC55XX_GPIOB->INTCFG\&.P0 = 1;       // Rising edge
+134         else
+135             PAC55XX_GPIOB->INTCFG\&.P0 = 0;       // Falling edge
+136         PAC55XX_GPIOB->INTEN\&.P0 = 1;            // Enable Interrupt
+137     }
+138 
+139     if ((port_mask & 0x02) == 0x02)
+140     {
+141         PAC55XX_GPIOB->MODE\&.P1 = 3;             // High-Z Input
+142         PAC55XX_GPIOB->INTTYPE\&.P1 = 0;          // Edge trigger
+143         PAC55XX_GPIOB->INTEDGEBOTH\&.P1 = 0;      // Only one edge
+144         if ((active_high_mask & 0x02) == 0x02)
+145             PAC55XX_GPIOB->INTCFG\&.P1 = 1;       // Rising edge
+146         else
+147             PAC55XX_GPIOB->INTCFG\&.P1 = 0;       // Falling edge
+148         PAC55XX_GPIOB->INTEN\&.P1 = 1;            // Enable Interrupt
+149     }
+150 
+151     if ((port_mask & 0x04) == 0x04)
+152     {
+153         PAC55XX_GPIOB->MODE\&.P2 = 3;             // High-Z Input
+154         PAC55XX_GPIOB->INTTYPE\&.P2 = 0;          // Edge trigger
+155         PAC55XX_GPIOB->INTEDGEBOTH\&.P2 = 0;      // Only one edge
+156         if ((active_high_mask & 0x04) == 0x04)
+157             PAC55XX_GPIOB->INTCFG\&.P2 = 1;       // Rising edge
+158         else
+159             PAC55XX_GPIOB->INTCFG\&.P2 = 0;       // Falling edge
+160         PAC55XX_GPIOB->INTEN\&.P2 = 1;            // Enable Interrupt
+161     }
+162 
+163     if ((port_mask & 0x08) == 0x08)
+164     {
+165         PAC55XX_GPIOB->MODE\&.P3 = 3;             // High-Z Input
+166         PAC55XX_GPIOB->INTTYPE\&.P3 = 0;          // Edge trigger
+167         PAC55XX_GPIOB->INTEDGEBOTH\&.P3 = 0;      // Only one edge
+168         if ((active_high_mask & 0x08) == 0x08)
+169             PAC55XX_GPIOB->INTCFG\&.P3 = 1;       // Rising edge
+170         else
+171             PAC55XX_GPIOB->INTCFG\&.P3 = 0;       // Falling edge
+172         PAC55XX_GPIOB->INTEN\&.P3 = 1;            // Enable Interrupt
+173     }
+174 
+175     if ((port_mask & 0x10) == 0x10)
+176     {
+177         PAC55XX_GPIOB->MODE\&.P4 = 3;             // High-Z Input
+178         PAC55XX_GPIOB->INTTYPE\&.P4 = 0;          // Edge trigger
+179         PAC55XX_GPIOB->INTEDGEBOTH\&.P4 = 0;      // Only one edge
+180         if ((active_high_mask & 0x10) == 0x10)
+181             PAC55XX_GPIOB->INTCFG\&.P4 = 1;       // Rising edge
+182         else
+183             PAC55XX_GPIOB->INTCFG\&.P4 = 0;       // Falling edge
+184         PAC55XX_GPIOB->INTEN\&.P4 = 1;            // Enable Interrupt
+185     }
+186 
+187     if ((port_mask & 0x20) == 0x20)
+188     {
+189         PAC55XX_GPIOB->MODE\&.P5 = 3;             // High-Z Input
+190         PAC55XX_GPIOB->INTTYPE\&.P5 = 0;          // Edge trigger
+191         PAC55XX_GPIOB->INTEDGEBOTH\&.P5 = 0;      // Only one edge
+192         if ((active_high_mask & 0x20) == 0x20)
+193             PAC55XX_GPIOB->INTCFG\&.P5 = 1;       // Rising edge
+194         else
+195             PAC55XX_GPIOB->INTCFG\&.P5 = 0;       // Falling edge
+196         PAC55XX_GPIOB->INTEN\&.P5 = 1;            // Enable Interrupt
+197     }
+198 
+199     if ((port_mask & 0x40) == 0x40)
+200     {
+201         PAC55XX_GPIOB->MODE\&.P6 = 3;             // High-Z Input
+202         PAC55XX_GPIOB->INTTYPE\&.P6 = 0;          // Edge trigger
+203         PAC55XX_GPIOB->INTEDGEBOTH\&.P6 = 0;      // Only one edge
+204         if ((active_high_mask & 0x40) == 0x40)
+205             PAC55XX_GPIOB->INTCFG\&.P6 = 1;       // Rising edge
+206         else
+207             PAC55XX_GPIOB->INTCFG\&.P6 = 0;       // Falling edge
+208         PAC55XX_GPIOB->INTEN\&.P6 = 1;            // Enable Interrupt
+209     }
+210 
+211     if ((port_mask & 0x80) == 0x80)
+212     {
+213         PAC55XX_GPIOB->MODE\&.P7 = 3;             // High-Z Input
+214         PAC55XX_GPIOB->INTTYPE\&.P7 = 0;          // Edge trigger
+215         PAC55XX_GPIOB->INTEDGEBOTH\&.P7 = 0;      // Only one edge
+216         if ((active_high_mask & 0x80) == 0x80)
+217             PAC55XX_GPIOB->INTCFG\&.P7 = 1;       // Rising edge
+218         else
+219             PAC55XX_GPIOB->INTCFG\&.P7 = 0;       // Falling edge
+220         PAC55XX_GPIOB->INTEN\&.P7 = 1;            // Enable Interrupt
+221     }
+222     
+223     if (port_mask != 0x00)
+224     {
+225         PAC55XX_GPIOB->INTCLEAR\&.w = 0xFF;           // Clear any pending interrupts
+226         NVIC_EnableIRQ(GpioB_IRQn);                 // Enable interrupts in NVIC
+227     }
+228 }
+.fi
+.PP
+References GpioB_IRQn, NVIC_EnableIRQ(), and PAC55XX_GPIOB\&.
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_configure_interrupt_c (uint8_t port_mask, uint8_t active_high_mask)"
+
+.PP
+Definition at line 230 of file pac5xxx_driver_gpio\&.c\&.
+.PP
+.nf
+231 {
+232     if ((port_mask & 0x01) == 0x01)
+233     {
+234         PAC55XX_GPIOC->MODE\&.P0 = 3;             // High-Z Input
+235         PAC55XX_GPIOC->INTTYPE\&.P0 = 0;          // Edge trigger
+236         PAC55XX_GPIOC->INTEDGEBOTH\&.P0 = 0;      // Only one edge
+237         if ((active_high_mask & 0x01) == 0x01)
+238             PAC55XX_GPIOC->INTCFG\&.P0 = 1;       // Rising edge
+239         else
+240             PAC55XX_GPIOC->INTCFG\&.P0 = 0;       // Falling edge
+241         PAC55XX_GPIOC->INTEN\&.P0 = 1;            // Enable Interrupt
+242     }
+243 
+244     if ((port_mask & 0x02) == 0x02)
+245     {
+246         PAC55XX_GPIOC->MODE\&.P1 = 3;             // High-Z Input
+247         PAC55XX_GPIOC->INTTYPE\&.P1 = 0;          // Edge trigger
+248         PAC55XX_GPIOC->INTEDGEBOTH\&.P1 = 0;      // Only one edge
+249         if ((active_high_mask & 0x02) == 0x02)
+250             PAC55XX_GPIOC->INTCFG\&.P1 = 1;       // Rising edge
+251         else
+252             PAC55XX_GPIOC->INTCFG\&.P1 = 0;       // Falling edge
+253         PAC55XX_GPIOC->INTEN\&.P1 = 1;            // Enable Interrupt
+254     }
+255 
+256     if ((port_mask & 0x04) == 0x04)
+257     {
+258         PAC55XX_GPIOC->MODE\&.P2 = 3;             // High-Z Input
+259         PAC55XX_GPIOC->INTTYPE\&.P2 = 0;          // Edge trigger
+260         PAC55XX_GPIOC->INTEDGEBOTH\&.P2 = 0;      // Only one edge
+261         if ((active_high_mask & 0x04) == 0x04)
+262             PAC55XX_GPIOC->INTCFG\&.P2 = 1;       // Rising edge
+263         else
+264             PAC55XX_GPIOC->INTCFG\&.P2 = 0;       // Falling edge
+265         PAC55XX_GPIOC->INTEN\&.P2 = 1;            // Enable Interrupt
+266     }
+267 
+268     if ((port_mask & 0x08) == 0x08)
+269     {
+270         PAC55XX_GPIOC->MODE\&.P3 = 3;             // High-Z Input
+271         PAC55XX_GPIOC->INTTYPE\&.P3 = 0;          // Edge trigger
+272         PAC55XX_GPIOC->INTEDGEBOTH\&.P3 = 0;      // Only one edge
+273         if ((active_high_mask & 0x08) == 0x08)
+274             PAC55XX_GPIOC->INTCFG\&.P3 = 1;       // Rising edge
+275         else
+276             PAC55XX_GPIOC->INTCFG\&.P3 = 0;       // Falling edge
+277         PAC55XX_GPIOC->INTEN\&.P3 = 1;            // Enable Interrupt
+278     }
+279 
+280     if ((port_mask & 0x10) == 0x10)
+281     {
+282         PAC55XX_GPIOC->MODE\&.P4 = 3;             // High-Z Input
+283         PAC55XX_GPIOC->INTTYPE\&.P4 = 0;          // Edge trigger
+284         PAC55XX_GPIOC->INTEDGEBOTH\&.P4 = 0;      // Only one edge
+285         if ((active_high_mask & 0x10) == 0x10)
+286             PAC55XX_GPIOC->INTCFG\&.P4 = 1;       // Rising edge
+287         else
+288             PAC55XX_GPIOC->INTCFG\&.P4 = 0;       // Falling edge
+289         PAC55XX_GPIOC->INTEN\&.P4 = 1;            // Enable Interrupt
+290     }
+291 
+292     if ((port_mask & 0x20) == 0x20)
+293     {
+294         PAC55XX_GPIOC->MODE\&.P5 = 3;             // High-Z Input
+295         PAC55XX_GPIOC->INTTYPE\&.P5 = 0;          // Edge trigger
+296         PAC55XX_GPIOC->INTEDGEBOTH\&.P5 = 0;      // Only one edge
+297         if ((active_high_mask & 0x20) == 0x20)
+298             PAC55XX_GPIOC->INTCFG\&.P5 = 1;       // Rising edge
+299         else
+300             PAC55XX_GPIOC->INTCFG\&.P5 = 0;       // Falling edge
+301         PAC55XX_GPIOC->INTEN\&.P5 = 1;            // Enable Interrupt
+302     }
+303 
+304     if ((port_mask & 0x40) == 0x40)
+305     {
+306         PAC55XX_GPIOC->MODE\&.P6 = 3;             // High-Z Input
+307         PAC55XX_GPIOC->INTTYPE\&.P6 = 0;          // Edge trigger
+308         PAC55XX_GPIOC->INTEDGEBOTH\&.P6 = 0;      // Only one edge
+309         if ((active_high_mask & 0x40) == 0x40)
+310             PAC55XX_GPIOC->INTCFG\&.P6 = 1;       // Rising edge
+311         else
+312             PAC55XX_GPIOC->INTCFG\&.P6 = 0;       // Falling edge
+313         PAC55XX_GPIOC->INTEN\&.P6 = 1;            // Enable Interrupt
+314     }
+315 
+316     if ((port_mask & 0x80) == 0x80)
+317     {
+318         PAC55XX_GPIOC->MODE\&.P7 = 3;             // High-Z Input
+319         PAC55XX_GPIOC->INTTYPE\&.P7 = 0;          // Edge trigger
+320         PAC55XX_GPIOC->INTEDGEBOTH\&.P7 = 0;      // Only one edge
+321         if ((active_high_mask & 0x80) == 0x80)
+322             PAC55XX_GPIOC->INTCFG\&.P7 = 1;       // Rising edge
+323         else
+324             PAC55XX_GPIOC->INTCFG\&.P7 = 0;       // Falling edge
+325         PAC55XX_GPIOC->INTEN\&.P7 = 1;            // Enable Interrupt
+326     }
+327     
+328     if (port_mask != 0x00)
+329     {
+330         PAC55XX_GPIOC->INTCLEAR\&.w = 0xFF;           // Clear any pending interrupts
+331         NVIC_EnableIRQ(GpioC_IRQn);                 // Enable interrupts in NVIC
+332     }
+333 }
+.fi
+.PP
+References GpioC_IRQn, NVIC_EnableIRQ(), and PAC55XX_GPIOC\&.
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_configure_interrupt_d (uint8_t port_mask, uint8_t active_high_mask)"
+
+.PP
+Definition at line 335 of file pac5xxx_driver_gpio\&.c\&.
+.PP
+.nf
+336 {
+337     if ((port_mask & 0x01) == 0x01)
+338     {
+339         PAC55XX_GPIOD->MODE\&.P0 = 3;             // High-Z Input
+340         PAC55XX_GPIOD->INTTYPE\&.P0 = 0;          // Edge trigger
+341         PAC55XX_GPIOD->INTEDGEBOTH\&.P0 = 0;      // Only one edge
+342         if ((active_high_mask & 0x01) == 0x01)
+343             PAC55XX_GPIOD->INTCFG\&.P0 = 1;       // Rising edge
+344         else
+345             PAC55XX_GPIOD->INTCFG\&.P0 = 0;       // Falling edge
+346         PAC55XX_GPIOD->INTEN\&.P0 = 1;            // Enable Interrupt
+347     }
+348 
+349     if ((port_mask & 0x02) == 0x02)
+350     {
+351         PAC55XX_GPIOD->MODE\&.P1 = 3;             // High-Z Input
+352         PAC55XX_GPIOD->INTTYPE\&.P1 = 0;          // Edge trigger
+353         PAC55XX_GPIOD->INTEDGEBOTH\&.P1 = 0;      // Only one edge
+354         if ((active_high_mask & 0x02) == 0x02)
+355             PAC55XX_GPIOD->INTCFG\&.P1 = 1;       // Rising edge
+356         else
+357             PAC55XX_GPIOD->INTCFG\&.P1 = 0;       // Falling edge
+358         PAC55XX_GPIOD->INTEN\&.P1 = 1;            // Enable Interrupt
+359     }
+360 
+361     if ((port_mask & 0x04) == 0x04)
+362     {
+363         PAC55XX_GPIOD->MODE\&.P2 = 3;             // High-Z Input
+364         PAC55XX_GPIOD->INTTYPE\&.P2 = 0;          // Edge trigger
+365         PAC55XX_GPIOD->INTEDGEBOTH\&.P2 = 0;      // Only one edge
+366         if ((active_high_mask & 0x04) == 0x04)
+367             PAC55XX_GPIOD->INTCFG\&.P2 = 1;       // Rising edge
+368         else
+369             PAC55XX_GPIOD->INTCFG\&.P2 = 0;       // Falling edge
+370         PAC55XX_GPIOD->INTEN\&.P2 = 1;            // Enable Interrupt
+371     }
+372 
+373     if ((port_mask & 0x08) == 0x08)
+374     {
+375         PAC55XX_GPIOD->MODE\&.P3 = 3;             // High-Z Input
+376         PAC55XX_GPIOD->INTTYPE\&.P3 = 0;          // Edge trigger
+377         PAC55XX_GPIOD->INTEDGEBOTH\&.P3 = 0;      // Only one edge
+378         if ((active_high_mask & 0x08) == 0x08)
+379             PAC55XX_GPIOD->INTCFG\&.P3 = 1;       // Rising edge
+380         else
+381             PAC55XX_GPIOD->INTCFG\&.P3 = 0;       // Falling edge
+382         PAC55XX_GPIOD->INTEN\&.P3 = 1;            // Enable Interrupt
+383     }
+384 
+385     if ((port_mask & 0x10) == 0x10)
+386     {
+387         PAC55XX_GPIOD->MODE\&.P4 = 3;             // High-Z Input
+388         PAC55XX_GPIOD->INTTYPE\&.P4 = 0;          // Edge trigger
+389         PAC55XX_GPIOD->INTEDGEBOTH\&.P4 = 0;      // Only one edge
+390         if ((active_high_mask & 0x10) == 0x10)
+391             PAC55XX_GPIOD->INTCFG\&.P4 = 1;       // Rising edge
+392         else
+393             PAC55XX_GPIOD->INTCFG\&.P4 = 0;       // Falling edge
+394         PAC55XX_GPIOD->INTEN\&.P4 = 1;            // Enable Interrupt
+395     }
+396 
+397     if ((port_mask & 0x20) == 0x20)
+398     {
+399         PAC55XX_GPIOD->MODE\&.P5 = 3;             // High-Z Input
+400         PAC55XX_GPIOD->INTTYPE\&.P5 = 0;          // Edge trigger
+401         PAC55XX_GPIOD->INTEDGEBOTH\&.P5 = 0;      // Only one edge
+402         if ((active_high_mask & 0x20) == 0x20)
+403             PAC55XX_GPIOD->INTCFG\&.P5 = 1;       // Rising edge
+404         else
+405             PAC55XX_GPIOD->INTCFG\&.P5 = 0;       // Falling edge
+406         PAC55XX_GPIOD->INTEN\&.P5 = 1;            // Enable Interrupt
+407     }
+408 
+409     if ((port_mask & 0x40) == 0x40)
+410     {
+411         PAC55XX_GPIOD->MODE\&.P6 = 3;             // High-Z Input
+412         PAC55XX_GPIOD->INTTYPE\&.P6 = 0;          // Edge trigger
+413         PAC55XX_GPIOD->INTEDGEBOTH\&.P6 = 0;      // Only one edge
+414         if ((active_high_mask & 0x40) == 0x40)
+415             PAC55XX_GPIOD->INTCFG\&.P6 = 1;       // Rising edge
+416         else
+417             PAC55XX_GPIOD->INTCFG\&.P6 = 0;       // Falling edge
+418         PAC55XX_GPIOD->INTEN\&.P6 = 1;            // Enable Interrupt
+419     }
+420 
+421     if ((port_mask & 0x80) == 0x80)
+422     {
+423         PAC55XX_GPIOD->MODE\&.P7 = 3;             // High-Z Input
+424         PAC55XX_GPIOD->INTTYPE\&.P7 = 0;          // Edge trigger
+425         PAC55XX_GPIOD->INTEDGEBOTH\&.P7 = 0;      // Only one edge
+426         if ((active_high_mask & 0x80) == 0x80)
+427             PAC55XX_GPIOD->INTCFG\&.P7 = 1;       // Rising edge
+428         else
+429             PAC55XX_GPIOD->INTCFG\&.P7 = 0;       // Falling edge
+430         PAC55XX_GPIOD->INTEN\&.P7 = 1;            // Enable Interrupt
+431     }
+432     
+433     if (port_mask != 0x00)
+434     {
+435         PAC55XX_GPIOD->INTCLEAR\&.w = 0xFF;           // Clear any pending interrupts
+436         NVIC_EnableIRQ(GpioD_IRQn);                 // Enable interrupts in NVIC
+437     }
+438 }
+.fi
+.PP
+References GpioD_IRQn, NVIC_EnableIRQ(), and PAC55XX_GPIOD\&.
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_configure_interrupt_e (uint8_t port_mask, uint8_t active_high_mask)"
+
+.PP
+Definition at line 440 of file pac5xxx_driver_gpio\&.c\&.
+.PP
+.nf
+441 {
+442     if ((port_mask & 0x01) == 0x01)
+443     {
+444         PAC55XX_GPIOE->MODE\&.P0 = 3;             // High-Z Input
+445         PAC55XX_GPIOE->INTTYPE\&.P0 = 0;          // Edge trigger
+446         PAC55XX_GPIOE->INTEDGEBOTH\&.P0 = 0;      // Only one edge
+447         if ((active_high_mask & 0x01) == 0x01)
+448             PAC55XX_GPIOE->INTCFG\&.P0 = 1;       // Rising edge
+449         else
+450             PAC55XX_GPIOE->INTCFG\&.P0 = 0;       // Falling edge
+451         PAC55XX_GPIOE->INTEN\&.P0 = 1;            // Enable Interrupt
+452     }
+453 
+454     if ((port_mask & 0x02) == 0x02)
+455     {
+456         PAC55XX_GPIOE->MODE\&.P1 = 3;             // High-Z Input
+457         PAC55XX_GPIOE->INTTYPE\&.P1 = 0;          // Edge trigger
+458         PAC55XX_GPIOE->INTEDGEBOTH\&.P1 = 0;      // Only one edge
+459         if ((active_high_mask & 0x02) == 0x02)
+460             PAC55XX_GPIOE->INTCFG\&.P1 = 1;       // Rising edge
+461         else
+462             PAC55XX_GPIOE->INTCFG\&.P1 = 0;       // Falling edge
+463         PAC55XX_GPIOE->INTEN\&.P1 = 1;            // Enable Interrupt
+464     }
+465 
+466     if ((port_mask & 0x04) == 0x04)
+467     {
+468         PAC55XX_GPIOE->MODE\&.P2 = 3;             // High-Z Input
+469         PAC55XX_GPIOE->INTTYPE\&.P2 = 0;          // Edge trigger
+470         PAC55XX_GPIOE->INTEDGEBOTH\&.P2 = 0;      // Only one edge
+471         if ((active_high_mask & 0x04) == 0x04)
+472             PAC55XX_GPIOE->INTCFG\&.P2 = 1;       // Rising edge
+473         else
+474             PAC55XX_GPIOE->INTCFG\&.P2 = 0;       // Falling edge
+475         PAC55XX_GPIOE->INTEN\&.P2 = 1;            // Enable Interrupt
+476     }
+477 
+478     if ((port_mask & 0x08) == 0x08)
+479     {
+480         PAC55XX_GPIOE->MODE\&.P3 = 3;             // High-Z Input
+481         PAC55XX_GPIOE->INTTYPE\&.P3 = 0;          // Edge trigger
+482         PAC55XX_GPIOE->INTEDGEBOTH\&.P3 = 0;      // Only one edge
+483         if ((active_high_mask & 0x08) == 0x08)
+484             PAC55XX_GPIOE->INTCFG\&.P3 = 1;       // Rising edge
+485         else
+486             PAC55XX_GPIOE->INTCFG\&.P3 = 0;       // Falling edge
+487         PAC55XX_GPIOE->INTEN\&.P3 = 1;            // Enable Interrupt
+488     }
+489 
+490     if ((port_mask & 0x10) == 0x10)
+491     {
+492         PAC55XX_GPIOE->MODE\&.P4 = 3;             // High-Z Input
+493         PAC55XX_GPIOE->INTTYPE\&.P4 = 0;          // Edge trigger
+494         PAC55XX_GPIOE->INTEDGEBOTH\&.P4 = 0;      // Only one edge
+495         if ((active_high_mask & 0x10) == 0x10)
+496             PAC55XX_GPIOE->INTCFG\&.P4 = 1;       // Rising edge
+497         else
+498             PAC55XX_GPIOE->INTCFG\&.P4 = 0;       // Falling edge
+499         PAC55XX_GPIOE->INTEN\&.P4 = 1;            // Enable Interrupt
+500     }
+501 
+502     if ((port_mask & 0x20) == 0x20)
+503     {
+504         PAC55XX_GPIOE->MODE\&.P5 = 3;             // High-Z Input
+505         PAC55XX_GPIOE->INTTYPE\&.P5 = 0;          // Edge trigger
+506         PAC55XX_GPIOE->INTEDGEBOTH\&.P5 = 0;      // Only one edge
+507         if ((active_high_mask & 0x20) == 0x20)
+508             PAC55XX_GPIOE->INTCFG\&.P5 = 1;       // Rising edge
+509         else
+510             PAC55XX_GPIOE->INTCFG\&.P5 = 0;       // Falling edge
+511         PAC55XX_GPIOE->INTEN\&.P5 = 1;            // Enable Interrupt
+512     }
+513 
+514     if ((port_mask & 0x40) == 0x40)
+515     {
+516         PAC55XX_GPIOE->MODE\&.P6 = 3;             // High-Z Input
+517         PAC55XX_GPIOE->INTTYPE\&.P6 = 0;          // Edge trigger
+518         PAC55XX_GPIOE->INTEDGEBOTH\&.P6 = 0;      // Only one edge
+519         if ((active_high_mask & 0x40) == 0x40)
+520             PAC55XX_GPIOE->INTCFG\&.P6 = 1;       // Rising edge
+521         else
+522             PAC55XX_GPIOE->INTCFG\&.P6 = 0;       // Falling edge
+523         PAC55XX_GPIOE->INTEN\&.P6 = 1;            // Enable Interrupt
+524     }
+525 
+526     if ((port_mask & 0x80) == 0x80)
+527     {
+528         PAC55XX_GPIOE->MODE\&.P7 = 3;             // High-Z Input
+529         PAC55XX_GPIOE->INTTYPE\&.P7 = 0;          // Edge trigger
+530         PAC55XX_GPIOE->INTEDGEBOTH\&.P7 = 0;      // Only one edge
+531         if ((active_high_mask & 0x80) == 0x80)
+532             PAC55XX_GPIOE->INTCFG\&.P7 = 1;       // Rising edge
+533         else
+534             PAC55XX_GPIOE->INTCFG\&.P7 = 0;       // Falling edge
+535         PAC55XX_GPIOE->INTEN\&.P7 = 1;            // Enable Interrupt
+536     }
+537     
+538     if (port_mask != 0x00)
+539     {
+540         PAC55XX_GPIOE->INTCLEAR\&.w = 0xFF;           // Clear any pending interrupts
+541         NVIC_EnableIRQ(GpioE_IRQn);                 // Enable interrupts in NVIC
+542     }
+543 }
+.fi
+.PP
+References GpioE_IRQn, NVIC_EnableIRQ(), and PAC55XX_GPIOE\&.
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_configure_interrupt_f (uint8_t port_mask, uint8_t active_high_mask)"
+
+.PP
+Definition at line 545 of file pac5xxx_driver_gpio\&.c\&.
+.PP
+.nf
+546 {
+547     if ((port_mask & 0x01) == 0x01)
+548     {
+549         PAC55XX_GPIOF->MODE\&.P0 = 3;             // High-Z Input
+550         PAC55XX_GPIOF->INTTYPE\&.P0 = 0;          // Edge trigger
+551         PAC55XX_GPIOF->INTEDGEBOTH\&.P0 = 0;      // Only one edge
+552         if ((active_high_mask & 0x01) == 0x01)
+553             PAC55XX_GPIOF->INTCFG\&.P0 = 1;       // Rising edge
+554         else
+555             PAC55XX_GPIOF->INTCFG\&.P0 = 0;       // Falling edge
+556         PAC55XX_GPIOF->INTEN\&.P0 = 1;            // Enable Interrupt
+557     }
+558 
+559     if ((port_mask & 0x02) == 0x02)
+560     {
+561         PAC55XX_GPIOF->MODE\&.P1 = 3;             // High-Z Input
+562         PAC55XX_GPIOF->INTTYPE\&.P1 = 0;          // Edge trigger
+563         PAC55XX_GPIOF->INTEDGEBOTH\&.P1 = 0;      // Only one edge
+564         if ((active_high_mask & 0x02) == 0x02)
+565             PAC55XX_GPIOF->INTCFG\&.P1 = 1;       // Rising edge
+566         else
+567             PAC55XX_GPIOF->INTCFG\&.P1 = 0;       // Falling edge
+568         PAC55XX_GPIOF->INTEN\&.P1 = 1;            // Enable Interrupt
+569     }
+570 
+571     if ((port_mask & 0x04) == 0x04)
+572     {
+573         PAC55XX_GPIOF->MODE\&.P2 = 3;             // High-Z Input
+574         PAC55XX_GPIOF->INTTYPE\&.P2 = 0;          // Edge trigger
+575         PAC55XX_GPIOF->INTEDGEBOTH\&.P2 = 0;      // Only one edge
+576         if ((active_high_mask & 0x04) == 0x04)
+577             PAC55XX_GPIOF->INTCFG\&.P2 = 1;       // Rising edge
+578         else
+579             PAC55XX_GPIOF->INTCFG\&.P2 = 0;       // Falling edge
+580         PAC55XX_GPIOF->INTEN\&.P2 = 1;            // Enable Interrupt
+581     }
+582 
+583     if ((port_mask & 0x08) == 0x08)
+584     {
+585         PAC55XX_GPIOF->MODE\&.P3 = 3;             // High-Z Input
+586         PAC55XX_GPIOF->INTTYPE\&.P3 = 0;          // Edge trigger
+587         PAC55XX_GPIOF->INTEDGEBOTH\&.P3 = 0;      // Only one edge
+588         if ((active_high_mask & 0x08) == 0x08)
+589             PAC55XX_GPIOF->INTCFG\&.P3 = 1;       // Rising edge
+590         else
+591             PAC55XX_GPIOF->INTCFG\&.P3 = 0;       // Falling edge
+592         PAC55XX_GPIOF->INTEN\&.P3 = 1;            // Enable Interrupt
+593     }
+594 
+595     if ((port_mask & 0x10) == 0x10)
+596     {
+597         PAC55XX_GPIOF->MODE\&.P4 = 3;             // High-Z Input
+598         PAC55XX_GPIOF->INTTYPE\&.P4 = 0;          // Edge trigger
+599         PAC55XX_GPIOF->INTEDGEBOTH\&.P4 = 0;      // Only one edge
+600         if ((active_high_mask & 0x10) == 0x10)
+601             PAC55XX_GPIOF->INTCFG\&.P4 = 1;       // Rising edge
+602         else
+603             PAC55XX_GPIOF->INTCFG\&.P4 = 0;       // Falling edge
+604         PAC55XX_GPIOF->INTEN\&.P4 = 1;            // Enable Interrupt
+605     }
+606 
+607     if ((port_mask & 0x20) == 0x20)
+608     {
+609         PAC55XX_GPIOF->MODE\&.P5 = 3;             // High-Z Input
+610         PAC55XX_GPIOF->INTTYPE\&.P5 = 0;          // Edge trigger
+611         PAC55XX_GPIOF->INTEDGEBOTH\&.P5 = 0;      // Only one edge
+612         if ((active_high_mask & 0x20) == 0x20)
+613             PAC55XX_GPIOF->INTCFG\&.P5 = 1;       // Rising edge
+614         else
+615             PAC55XX_GPIOF->INTCFG\&.P5 = 0;       // Falling edge
+616         PAC55XX_GPIOF->INTEN\&.P5 = 1;            // Enable Interrupt
+617     }
+618 
+619     if ((port_mask & 0x40) == 0x40)
+620     {
+621         PAC55XX_GPIOF->MODE\&.P6 = 3;             // High-Z Input
+622         PAC55XX_GPIOF->INTTYPE\&.P6 = 0;          // Edge trigger
+623         PAC55XX_GPIOF->INTEDGEBOTH\&.P6 = 0;      // Only one edge
+624         if ((active_high_mask & 0x40) == 0x40)
+625             PAC55XX_GPIOF->INTCFG\&.P6 = 1;       // Rising edge
+626         else
+627             PAC55XX_GPIOF->INTCFG\&.P6 = 0;       // Falling edge
+628         PAC55XX_GPIOF->INTEN\&.P6 = 1;            // Enable Interrupt
+629     }
+630 
+631     if ((port_mask & 0x80) == 0x80)
+632     {
+633         PAC55XX_GPIOF->MODE\&.P7 = 3;             // High-Z Input
+634         PAC55XX_GPIOF->INTTYPE\&.P7 = 0;          // Edge trigger
+635         PAC55XX_GPIOF->INTEDGEBOTH\&.P7 = 0;      // Only one edge
+636         if ((active_high_mask & 0x80) == 0x80)
+637             PAC55XX_GPIOF->INTCFG\&.P7 = 1;       // Rising edge
+638         else
+639             PAC55XX_GPIOF->INTCFG\&.P7 = 0;       // Falling edge
+640         PAC55XX_GPIOF->INTEN\&.P7 = 1;            // Enable Interrupt
+641     }
+642     
+643     if (port_mask != 0x00)
+644     {
+645         PAC55XX_GPIOF->INTCLEAR\&.w = 0xFF;           // Clear any pending interrupts
+646         NVIC_EnableIRQ(GpioF_IRQn);                 // Enable interrupts in NVIC
+647     }
+648 }
+.fi
+.PP
+References GpioF_IRQn, NVIC_EnableIRQ(), and PAC55XX_GPIOF\&.
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_configure_interrupt_g (uint8_t port_mask, uint8_t active_high_mask)"
+
+.PP
+Definition at line 650 of file pac5xxx_driver_gpio\&.c\&.
+.PP
+.nf
+651 {
+652     if ((port_mask & 0x01) == 0x01)
+653     {
+654         PAC55XX_GPIOG->MODE\&.P0 = 3;             // High-Z Input
+655         PAC55XX_GPIOG->INTTYPE\&.P0 = 0;          // Edge trigger
+656         PAC55XX_GPIOG->INTEDGEBOTH\&.P0 = 0;      // Only one edge
+657         if ((active_high_mask & 0x01) == 0x01)
+658             PAC55XX_GPIOG->INTCFG\&.P0 = 1;       // Rising edge
+659         else
+660             PAC55XX_GPIOG->INTCFG\&.P0 = 0;       // Falling edge
+661         PAC55XX_GPIOG->INTEN\&.P0 = 1;            // Enable Interrupt
+662     }
+663 
+664     if ((port_mask & 0x02) == 0x02)
+665     {
+666         PAC55XX_GPIOG->MODE\&.P1 = 3;             // High-Z Input
+667         PAC55XX_GPIOG->INTTYPE\&.P1 = 0;          // Edge trigger
+668         PAC55XX_GPIOG->INTEDGEBOTH\&.P1 = 0;      // Only one edge
+669         if ((active_high_mask & 0x02) == 0x02)
+670             PAC55XX_GPIOG->INTCFG\&.P1 = 1;       // Rising edge
+671         else
+672             PAC55XX_GPIOG->INTCFG\&.P1 = 0;       // Falling edge
+673         PAC55XX_GPIOG->INTEN\&.P1 = 1;            // Enable Interrupt
+674     }
+675 
+676     if ((port_mask & 0x04) == 0x04)
+677     {
+678         PAC55XX_GPIOG->MODE\&.P2 = 3;             // High-Z Input
+679         PAC55XX_GPIOG->INTTYPE\&.P2 = 0;          // Edge trigger
+680         PAC55XX_GPIOG->INTEDGEBOTH\&.P2 = 0;      // Only one edge
+681         if ((active_high_mask & 0x04) == 0x04)
+682             PAC55XX_GPIOG->INTCFG\&.P2 = 1;       // Rising edge
+683         else
+684             PAC55XX_GPIOG->INTCFG\&.P2 = 0;       // Falling edge
+685         PAC55XX_GPIOG->INTEN\&.P2 = 1;            // Enable Interrupt
+686     }
+687 
+688     if ((port_mask & 0x08) == 0x08)
+689     {
+690         PAC55XX_GPIOG->MODE\&.P3 = 3;             // High-Z Input
+691         PAC55XX_GPIOG->INTTYPE\&.P3 = 0;          // Edge trigger
+692         PAC55XX_GPIOG->INTEDGEBOTH\&.P3 = 0;      // Only one edge
+693         if ((active_high_mask & 0x08) == 0x08)
+694             PAC55XX_GPIOG->INTCFG\&.P3 = 1;       // Rising edge
+695         else
+696             PAC55XX_GPIOG->INTCFG\&.P3 = 0;       // Falling edge
+697         PAC55XX_GPIOG->INTEN\&.P3 = 1;            // Enable Interrupt
+698     }
+699 
+700     if ((port_mask & 0x10) == 0x10)
+701     {
+702         PAC55XX_GPIOG->MODE\&.P4 = 3;             // High-Z Input
+703         PAC55XX_GPIOG->INTTYPE\&.P4 = 0;          // Edge trigger
+704         PAC55XX_GPIOG->INTEDGEBOTH\&.P4 = 0;      // Only one edge
+705         if ((active_high_mask & 0x10) == 0x10)
+706             PAC55XX_GPIOG->INTCFG\&.P4 = 1;       // Rising edge
+707         else
+708             PAC55XX_GPIOG->INTCFG\&.P4 = 0;       // Falling edge
+709         PAC55XX_GPIOG->INTEN\&.P4 = 1;            // Enable Interrupt
+710     }
+711 
+712     if ((port_mask & 0x20) == 0x20)
+713     {
+714         PAC55XX_GPIOG->MODE\&.P5 = 3;             // High-Z Input
+715         PAC55XX_GPIOG->INTTYPE\&.P5 = 0;          // Edge trigger
+716         PAC55XX_GPIOG->INTEDGEBOTH\&.P5 = 0;      // Only one edge
+717         if ((active_high_mask & 0x20) == 0x20)
+718             PAC55XX_GPIOG->INTCFG\&.P5 = 1;       // Rising edge
+719         else
+720             PAC55XX_GPIOG->INTCFG\&.P5 = 0;       // Falling edge
+721         PAC55XX_GPIOG->INTEN\&.P5 = 1;            // Enable Interrupt
+722     }
+723 
+724     if ((port_mask & 0x40) == 0x40)
+725     {
+726         PAC55XX_GPIOG->MODE\&.P6 = 3;             // High-Z Input
+727         PAC55XX_GPIOG->INTTYPE\&.P6 = 0;          // Edge trigger
+728         PAC55XX_GPIOG->INTEDGEBOTH\&.P6 = 0;      // Only one edge
+729         if ((active_high_mask & 0x40) == 0x40)
+730             PAC55XX_GPIOG->INTCFG\&.P6 = 1;       // Rising edge
+731         else
+732             PAC55XX_GPIOG->INTCFG\&.P6 = 0;       // Falling edge
+733         PAC55XX_GPIOG->INTEN\&.P6 = 1;            // Enable Interrupt
+734     }
+735 
+736     if ((port_mask & 0x80) == 0x80)
+737     {
+738         PAC55XX_GPIOG->MODE\&.P7 = 3;             // High-Z Input
+739         PAC55XX_GPIOG->INTTYPE\&.P7 = 0;          // Edge trigger
+740         PAC55XX_GPIOG->INTEDGEBOTH\&.P7 = 0;      // Only one edge
+741         if ((active_high_mask & 0x80) == 0x80)
+742             PAC55XX_GPIOG->INTCFG\&.P7 = 1;       // Rising edge
+743         else
+744             PAC55XX_GPIOG->INTCFG\&.P7 = 0;       // Falling edge
+745         PAC55XX_GPIOG->INTEN\&.P7 = 1;            // Enable Interrupt
+746     }
+747     
+748     if (port_mask != 0x00)
+749     {
+750         PAC55XX_GPIOG->INTCLEAR\&.w = 0xFF;           // Clear any pending interrupts
+751         NVIC_EnableIRQ(GpioG_IRQn);                 // Enable interrupts in NVIC
+752     }
+753 }
+.fi
+.PP
+References GpioG_IRQn, NVIC_EnableIRQ(), and PAC55XX_GPIOG\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

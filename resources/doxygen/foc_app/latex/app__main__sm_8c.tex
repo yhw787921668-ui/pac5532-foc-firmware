@@ -1,0 +1,512 @@
+\hypertarget{app__main__sm_8c}{}\doxysection{pac\+\_\+foc/src/app/app\+\_\+main\+\_\+sm.c File Reference}
+\label{app__main__sm_8c}\index{pac\_foc/src/app/app\_main\_sm.c@{pac\_foc/src/app/app\_main\_sm.c}}
+
+
+Application main state machine, use to control various motor control state flow.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}app\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driver\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parameter\+\_\+process.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fault.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}control\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mpos\+\_\+funcs.\+h\char`\"{}}\newline
+Include dependency graph for app\+\_\+main\+\_\+sm.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{app__main__sm_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+O\+P\+T\+I\+M\+I\+Z\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+\+ON void \mbox{\hyperlink{app__main__sm_8c_a26e3c16d6a4f4ed8e84c2ef44cf591c0}{statemachine\+\_\+appmain}} (void)
+\begin{DoxyCompactList}\small\item\em This function use to F\+OC motor control state flow, F\+A\+U\+LT, R\+UN, S\+T\+A\+RT, S\+T\+OP, R\+E\+S\+ET, C\+O\+A\+ST, D\+I\+S\+A\+B\+LE. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Application main state machine, use to control various motor control state flow. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{app__main__sm_8c_a26e3c16d6a4f4ed8e84c2ef44cf591c0}\label{app__main__sm_8c_a26e3c16d6a4f4ed8e84c2ef44cf591c0}} 
+\index{app\_main\_sm.c@{app\_main\_sm.c}!statemachine\_appmain@{statemachine\_appmain}}
+\index{statemachine\_appmain@{statemachine\_appmain}!app\_main\_sm.c@{app\_main\_sm.c}}
+\doxysubsubsection{\texorpdfstring{statemachine\_appmain()}{statemachine\_appmain()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+O\+P\+T\+I\+M\+I\+Z\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+\+ON void statemachine\+\_\+appmain (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function use to F\+OC motor control state flow, F\+A\+U\+LT, R\+UN, S\+T\+A\+RT, S\+T\+OP, R\+E\+S\+ET, C\+O\+A\+ST, D\+I\+S\+A\+B\+LE. 
+
+
+
+Definition at line 55 of file app\+\_\+main\+\_\+sm.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{56 \{}
+\DoxyCodeLine{57     \textcolor{keyword}{static} \mbox{\hyperlink{struct_struct___motor}{Struct\_Motor}}* motor\_ptr = \&\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{comment}{// Handle terminal faults}}
+\DoxyCodeLine{60     \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}{fault}}.\mbox{\hyperlink{struct_struct___fault_afc539896415e1aa2b2d7727941519e5d}{fault\_terminal\_flag}})}
+\DoxyCodeLine{61     \{}
+\DoxyCodeLine{62         \textcolor{comment}{// Clear flag}}
+\DoxyCodeLine{63         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}{fault}}.\mbox{\hyperlink{struct_struct___fault_afc539896415e1aa2b2d7727941519e5d}{fault\_terminal\_flag}} = 0;}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65         \textcolor{comment}{// Clear motor enable command}}
+\DoxyCodeLine{66         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}} = 0;}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68         \textcolor{comment}{// Send to terminal state}}
+\DoxyCodeLine{69         \_\_disable\_irq();}
+\DoxyCodeLine{70         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_ac5675164c81fc41c78401168980d99ff}{appcontrol}} = \mbox{\hyperlink{state__struct_8h_a9ecbedf9b6d53bd3488d18b07060a343a1254467072c4d1b5f0eda9d1980469a3}{STATE\_APPCONTROL\_IDLE}};}
+\DoxyCodeLine{71         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daaf5e9b65285e4ac2b044eba72055f28aa}{STATE\_MAIN\_TERMINAL}};}
+\DoxyCodeLine{72         \_\_enable\_irq();}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74         \textcolor{comment}{// Clear status}}
+\DoxyCodeLine{75         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}{status}}.\mbox{\hyperlink{struct_struct___status_a207cca7ac0b21684b8f5ec6588fd4171}{motor}} \&= \string~\mbox{\hyperlink{status__struct_8h_ab4b859785c024a4c5d8ddbe1338b3629}{STATUS\_MAIN\_ALLSTATUS}};}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77         \textcolor{comment}{// Disable motor and PWMDAC's}}
+\DoxyCodeLine{78         \mbox{\hyperlink{driver__funcs_8c_ad98cb6be8dc3d2b416f8b2773a68c4fc}{m1\_disable}}();}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#ifdef ENABLE\_DEBUG\_PWMDAC}}
+\DoxyCodeLine{80         pwmdac\_disable();}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{82     \}}
+\DoxyCodeLine{83     \textcolor{comment}{// Handle state faults except when in terminal state}}
+\DoxyCodeLine{84     \textcolor{keywordflow}{if} ((motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}{fault}}.\mbox{\hyperlink{struct_struct___fault_a733a94c47032c7b453118bc28ae060ec}{fault\_state\_flag}}) \&\& (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} != \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daaf5e9b65285e4ac2b044eba72055f28aa}{STATE\_MAIN\_TERMINAL}})}
+\DoxyCodeLine{85             \textcolor{comment}{// Wait until sm\_main is not in one of the states below before processing fault so that power up sequence is not interrupted and bypassed}}
+\DoxyCodeLine{86             \&\& (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} != \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daaa3f8351726ef20a7963ea52f88c68bd5}{STATE\_MAIN\_RESET}})}
+\DoxyCodeLine{87             \&\& (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} != \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daaf5451846c5249486cf63c269a54c95d7}{STATE\_MAIN\_POST}})}
+\DoxyCodeLine{88             \&\& (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} != \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa0b37e351114d7403c936cb1cc6a92816}{STATE\_MAIN\_PRESTART}})}
+\DoxyCodeLine{89             \&\& (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} != \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa8718deb361af5942322f37a00e4a0281}{STATE\_MAIN\_MID1}}))}
+\DoxyCodeLine{90     \{}
+\DoxyCodeLine{91         \textcolor{comment}{// Clear flag}}
+\DoxyCodeLine{92         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}{fault}}.\mbox{\hyperlink{struct_struct___fault_a733a94c47032c7b453118bc28ae060ec}{fault\_state\_flag}} = 0;}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94         \textcolor{comment}{// Clear motor enable command}}
+\DoxyCodeLine{95         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}} = 0;}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97         \textcolor{comment}{// Send to FAULT state}}
+\DoxyCodeLine{98         \_\_disable\_irq();}
+\DoxyCodeLine{99         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_ac5675164c81fc41c78401168980d99ff}{appcontrol}} = \mbox{\hyperlink{state__struct_8h_a9ecbedf9b6d53bd3488d18b07060a343a1254467072c4d1b5f0eda9d1980469a3}{STATE\_APPCONTROL\_IDLE}};}
+\DoxyCodeLine{100         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa0573c1290bb5cb1b13d07416f2ccc700}{STATE\_MAIN\_FAULT}};}
+\DoxyCodeLine{101         \_\_enable\_irq();}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103         \textcolor{comment}{// Clear status}}
+\DoxyCodeLine{104         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}{status}}.\mbox{\hyperlink{struct_struct___status_a207cca7ac0b21684b8f5ec6588fd4171}{motor}} \&= \string~\mbox{\hyperlink{status__struct_8h_ab4b859785c024a4c5d8ddbe1338b3629}{STATUS\_MAIN\_ALLSTATUS}};}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106         \textcolor{comment}{// Disable motor (Special handling for over-\/current fault)}}
+\DoxyCodeLine{107         \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}{fault}}.\mbox{\hyperlink{struct_struct___fault_a873cbe07ef4988d4c164b357148934be}{motor}} \& \mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a7a320981168744eb5cf94199073647fc}{FAULT\_CAFE\_OC}})}
+\DoxyCodeLine{108             \mbox{\hyperlink{driver__funcs_8c_a3279abfa1b04c56c14db266ccb0fab6a}{set\_drivers\_gpio}}();}
+\DoxyCodeLine{109         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{110             \mbox{\hyperlink{driver__funcs_8c_ad98cb6be8dc3d2b416f8b2773a68c4fc}{m1\_disable}}();}
+\DoxyCodeLine{111     \}}
+\DoxyCodeLine{112     \textcolor{comment}{// Handle stop faults except when in terminal or fault states}}
+\DoxyCodeLine{113     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}{fault}}.\mbox{\hyperlink{struct_struct___fault_a8fa790ee68f0bef321d01018158e5d23}{fault\_stop\_flag}}) \&\& (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} != \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daaf5e9b65285e4ac2b044eba72055f28aa}{STATE\_MAIN\_TERMINAL}}) \&\& (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} != \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa0573c1290bb5cb1b13d07416f2ccc700}{STATE\_MAIN\_FAULT}}))}
+\DoxyCodeLine{114     \{}
+\DoxyCodeLine{115         \_\_disable\_irq();}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117         \textcolor{comment}{// Clear flag}}
+\DoxyCodeLine{118         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}{fault}}.\mbox{\hyperlink{struct_struct___fault_a8fa790ee68f0bef321d01018158e5d23}{fault\_stop\_flag}} = \mbox{\hyperlink{maths_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120         \textcolor{comment}{// Clear motor enable command}}
+\DoxyCodeLine{121         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}} = 0;}
+\DoxyCodeLine{122 }
+\DoxyCodeLine{123         \textcolor{comment}{// Send to DISABLE state}}
+\DoxyCodeLine{124         \textcolor{keywordflow}{switch} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}})}
+\DoxyCodeLine{125         \{}
+\DoxyCodeLine{126             \textcolor{keywordflow}{case} \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa227175fa393f6f250b2a9d9ae3255f21}{STATE\_MAIN\_STARTUP}}:}
+\DoxyCodeLine{127             \textcolor{keywordflow}{case} \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa55b6f6765a4d33f64ebd0ffcdd54462c}{STATE\_MAIN\_RUN}}:}
+\DoxyCodeLine{128             \textcolor{keywordflow}{case} \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa4a9374e6685ce2ca31479e26c8075d5a}{STATE\_MAIN\_COASTING}}:}
+\DoxyCodeLine{129                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daad9094f1c6669ef5599e76b34b1d10291}{STATE\_MAIN\_DISABLE}};}
+\DoxyCodeLine{130                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{131             \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{132                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{133         \}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135         \_\_enable\_irq();}
+\DoxyCodeLine{136     \}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138     \textcolor{keywordflow}{switch} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}})}
+\DoxyCodeLine{139     \{}
+\DoxyCodeLine{140         \textcolor{keywordflow}{case} \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daaa3f8351726ef20a7963ea52f88c68bd5}{STATE\_MAIN\_RESET}}:}
+\DoxyCodeLine{141             \_\_disable\_irq();}
+\DoxyCodeLine{142             \textcolor{comment}{// Initialize variables for operation}}
+\DoxyCodeLine{143             \mbox{\hyperlink{parameter__process_8c_a64be8a66270f29a133c1e86132a0b7af}{init\_default\_parameters}}(motor\_ptr);}
+\DoxyCodeLine{144             motor\_init(motor\_ptr);}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_HALL == ENABLED)}}
+\DoxyCodeLine{147             \mbox{\hyperlink{hall__funcs_8c_acf73e0cbc7349cd85b26759e5124d147}{hall\_init}}(motor\_ptr);}
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_QEP == ENABLED)}}
+\DoxyCodeLine{151             \mbox{\hyperlink{qep__funcs_8c_a38d34893483b976e7066c2dc33099d91}{qep\_init}}(motor\_ptr);}
+\DoxyCodeLine{152 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{154 \textcolor{preprocessor}{\#ifdef ENABLE\_OPD\_CL}}
+\DoxyCodeLine{155             opdcl\_init(motor\_ptr);}
+\DoxyCodeLine{156 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{158 \textcolor{preprocessor}{\#ifdef ENABLE\_DEBUG\_PWMDAC}}
+\DoxyCodeLine{159             pwmdac\_enable();}
+\DoxyCodeLine{160 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162 \textcolor{preprocessor}{\#if defined(ENABLE\_POWERUP\_AUTOSTART)}}
+\DoxyCodeLine{163             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_ae8999228e092adb6f5eddb5f428f8f77}{flag\_first\_start}} = 1;}
+\DoxyCodeLine{164 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166             \textcolor{comment}{// Transition Main state machine to POST state}}
+\DoxyCodeLine{167             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daaf5451846c5249486cf63c269a54c95d7}{STATE\_MAIN\_POST}};}
+\DoxyCodeLine{168             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a9dcb8822caf6658caf9e1cf68f109ae5}{post}} = \mbox{\hyperlink{state__struct_8h_a9fc5c989428be8c434312555e661d6e5a1d203ce7d5a577370a1443d35cafc302}{STATE\_POST\_RESET}};}
+\DoxyCodeLine{169             \_\_enable\_irq();}
+\DoxyCodeLine{170             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172         \textcolor{keywordflow}{case} \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daaf5451846c5249486cf63c269a54c95d7}{STATE\_MAIN\_POST}}:}
+\DoxyCodeLine{173             \textcolor{comment}{// Execute Power On Self Test until complete}}
+\DoxyCodeLine{174             \mbox{\hyperlink{app__funcs_8h_a105002eecb83a913e3ae961149d06b56}{sm\_mainsub\_post}}(motor\_ptr);}
+\DoxyCodeLine{175             \textcolor{comment}{// If POST is complete, transition to DISABLE state}}
+\DoxyCodeLine{176             \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a9dcb8822caf6658caf9e1cf68f109ae5}{post}} == \mbox{\hyperlink{state__struct_8h_a9fc5c989428be8c434312555e661d6e5adb9ee3ee78037c2d6b6bbc3cd649440a}{STATE\_POST\_COMPLETE}})}
+\DoxyCodeLine{177             \{}
+\DoxyCodeLine{178                 \_\_disable\_irq();}
+\DoxyCodeLine{179                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_ac5675164c81fc41c78401168980d99ff}{appcontrol}} = \mbox{\hyperlink{state__struct_8h_a9ecbedf9b6d53bd3488d18b07060a343a1254467072c4d1b5f0eda9d1980469a3}{STATE\_APPCONTROL\_IDLE}};}
+\DoxyCodeLine{180                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daad9094f1c6669ef5599e76b34b1d10291}{STATE\_MAIN\_DISABLE}};}
+\DoxyCodeLine{181                 \_\_enable\_irq();}
+\DoxyCodeLine{182             \}}
+\DoxyCodeLine{183             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185         \textcolor{keywordflow}{case} \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daad9094f1c6669ef5599e76b34b1d10291}{STATE\_MAIN\_DISABLE}}:}
+\DoxyCodeLine{186 \textcolor{comment}{//            debugio1\_off();}}
+\DoxyCodeLine{187             \_\_disable\_irq();}
+\DoxyCodeLine{188             \textcolor{comment}{// Disable the motor and PWM DACs}}
+\DoxyCodeLine{189             \mbox{\hyperlink{driver__funcs_8c_ad98cb6be8dc3d2b416f8b2773a68c4fc}{m1\_disable}}();}
+\DoxyCodeLine{190 }
+\DoxyCodeLine{191 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_HALL == ENABLED)}}
+\DoxyCodeLine{192             \textcolor{comment}{// Hall disable routine}}
+\DoxyCodeLine{193             hall\_timer\_disable();}
+\DoxyCodeLine{194             hall\_int\_hallport\_disable();}
+\DoxyCodeLine{195 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{196 }
+\DoxyCodeLine{197 \textcolor{preprocessor}{\#if defined(ENABLE\_AUTOTUNE\_PI)}}
+\DoxyCodeLine{198             at\_reset\_state(motor\_ptr);}
+\DoxyCodeLine{199 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{200 }
+\DoxyCodeLine{201             \textcolor{comment}{// Next state and status}}
+\DoxyCodeLine{202             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}{fault}}.\mbox{\hyperlink{struct_struct___fault_a8fa790ee68f0bef321d01018158e5d23}{fault\_stop\_flag}} = \mbox{\hyperlink{maths_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{203             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a6bd575bc93521bbaf72e3ec9c9972d30}{state}} = \mbox{\hyperlink{mpos__struct_8h_a70a5627e7a598669b6f10169eb74f6aba28d7255f39a7f385995aadc9b3bad2ca}{STATE\_MPOS\_IDLE}};}
+\DoxyCodeLine{204             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a5f6602da5069eeb74dec30fe5c770cd7}{control}} = \mbox{\hyperlink{state__struct_8h_abf641faa530878c71c799cece9a99a4eaa5836e459b458b2ca9a9ecb47d01baba}{STATE\_CONTROL\_IDLE}};}
+\DoxyCodeLine{205             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}{status}}.\mbox{\hyperlink{struct_struct___status_a207cca7ac0b21684b8f5ec6588fd4171}{motor}} \&= \string~(\mbox{\hyperlink{status__struct_8h_ab4b859785c024a4c5d8ddbe1338b3629}{STATUS\_MAIN\_ALLSTATUS}});}
+\DoxyCodeLine{206             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa8c8d442c44522dad62c8821b70a25cfa}{STATE\_MAIN\_STOPPED}};}
+\DoxyCodeLine{207             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_ac5675164c81fc41c78401168980d99ff}{appcontrol}} = \mbox{\hyperlink{state__struct_8h_a9ecbedf9b6d53bd3488d18b07060a343a1254467072c4d1b5f0eda9d1980469a3}{STATE\_APPCONTROL\_IDLE}};}
+\DoxyCodeLine{208             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}{status}}.\mbox{\hyperlink{struct_struct___status_a207cca7ac0b21684b8f5ec6588fd4171}{motor}} |= \mbox{\hyperlink{status__struct_8h_a6407485be68fd07aff7ecdae720e1528aff398ffb33d3e5bacce331e56ff1acfa}{STATUS\_MOTOR\_STOPPED}};}
+\DoxyCodeLine{209             \textcolor{comment}{// Initialize sub-\/state machines}}
+\DoxyCodeLine{210             motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a6785400300f01e5ca1cd0dcc0ff9bc73}{prestart}} = \mbox{\hyperlink{state__struct_8h_af80233f64f735165a2465652b6177fb0a2f99ab3028c4bc5d2ef72f11cbcc8d7a}{STATE\_PRESTART\_RESET}};}
+\DoxyCodeLine{211             startup\_reset\_state(motor\_ptr);}
+\DoxyCodeLine{212 }
+\DoxyCodeLine{213 \textcolor{preprocessor}{\#if defined(TM\_SIM\_REVERSE)}}
+\DoxyCodeLine{214             \textcolor{comment}{// Handle SIM\_Reverse test mode}}
+\DoxyCodeLine{215             \textcolor{keywordflow}{if} (motor\_ptr-\/>debug.testmode\_enable != 0)}
+\DoxyCodeLine{216             \{}
+\DoxyCodeLine{217                 \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_aa18e2135661f9851385f746bf538fddf}{direction\_reverse\_cmd}})}
+\DoxyCodeLine{218                     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_aa18e2135661f9851385f746bf538fddf}{direction\_reverse\_cmd}} = 0;}
+\DoxyCodeLine{219                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{220                     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_aa18e2135661f9851385f746bf538fddf}{direction\_reverse\_cmd}} = 1;}
+\DoxyCodeLine{221             \}}
+\DoxyCodeLine{222 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{223             \_\_enable\_irq();}
+\DoxyCodeLine{224             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{225 }
+\DoxyCodeLine{226 \textcolor{preprocessor}{\#ifdef ENABLE\_SIMBRAKE\_MOTORDISABLE}}
+\DoxyCodeLine{227         \textcolor{keywordflow}{case} \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa85e68a6e29c5937d01449e3745be3c9d}{STATE\_MAIN\_BRAKE}}:}
+\DoxyCodeLine{228             \textcolor{comment}{// Exit brake state if SIM is complete}}
+\DoxyCodeLine{229             \textcolor{keywordflow}{if} (motor\_ptr-\/>sim.status\_sim \& \mbox{\hyperlink{sim__h__defs_8h_ab668fdfc6324bc0be6647865bb201ab2}{STATUS\_SIM\_COMPLETE}})}
+\DoxyCodeLine{230             \{}
+\DoxyCodeLine{231                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daad9094f1c6669ef5599e76b34b1d10291}{STATE\_MAIN\_DISABLE}};}
+\DoxyCodeLine{232                 \mbox{\hyperlink{control__funcs_8c_add72aac22842126f7c88023b569ad717}{config\_control\_dt}}(motor\_ptr, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a53d396a9cd99df24ea0cecf75cae7d3e}{dt\_control\_q26}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_aaddf83287ef2ff6dacff87057bfa8ab7}{ctrl\_divider\_foc}});}
+\DoxyCodeLine{233                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}{status}}.\mbox{\hyperlink{struct_struct___status_a207cca7ac0b21684b8f5ec6588fd4171}{motor}} \&= \string~\mbox{\hyperlink{status__struct_8h_a6407485be68fd07aff7ecdae720e1528a97f9947f0bbba20068d0495cb1d38eca}{STATUS\_MOTOR\_BRAKING}};}
+\DoxyCodeLine{234             \}}
+\DoxyCodeLine{235             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{236 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{237 }
+\DoxyCodeLine{238         \textcolor{keywordflow}{case} \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa8c8d442c44522dad62c8821b70a25cfa}{STATE\_MAIN\_STOPPED}}:}
+\DoxyCodeLine{239 \textcolor{preprocessor}{\#if defined(ENABLE\_TM) \&\& defined(ENABLE\_TM\_SIM)}}
+\DoxyCodeLine{240             \textcolor{comment}{// Handle testmode}}
+\DoxyCodeLine{241             \textcolor{keywordflow}{if} (motor\_ptr-\/>debug.testmode\_enable != 0)}
+\DoxyCodeLine{242             \{}
+\DoxyCodeLine{243                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}} = 1;}
+\DoxyCodeLine{244             \}}
+\DoxyCodeLine{245 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{246             \textcolor{comment}{// Logic to reverse direction only when the motor is stopped}}
+\DoxyCodeLine{247             \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_abe938a34b99fdbffd835366edba3b1b0}{direction\_reverse\_flag}} != motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_aa18e2135661f9851385f746bf538fddf}{direction\_reverse\_cmd}})}
+\DoxyCodeLine{248             \{}
+\DoxyCodeLine{249                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_abe938a34b99fdbffd835366edba3b1b0}{direction\_reverse\_flag}} = motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_aa18e2135661f9851385f746bf538fddf}{direction\_reverse\_cmd}};}
+\DoxyCodeLine{250                 \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_abe938a34b99fdbffd835366edba3b1b0}{direction\_reverse\_flag}})}
+\DoxyCodeLine{251                     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}{status}}.\mbox{\hyperlink{struct_struct___status_a207cca7ac0b21684b8f5ec6588fd4171}{motor}} |= \mbox{\hyperlink{status__struct_8h_a6407485be68fd07aff7ecdae720e1528a02ad651ad6da7435245e291d5dfb497d}{STATUS\_MOTOR\_REVERSE}};}
+\DoxyCodeLine{252                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{253                     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}{status}}.\mbox{\hyperlink{struct_struct___status_a207cca7ac0b21684b8f5ec6588fd4171}{motor}} \&= \string~\mbox{\hyperlink{status__struct_8h_a6407485be68fd07aff7ecdae720e1528a02ad651ad6da7435245e291d5dfb497d}{STATUS\_MOTOR\_REVERSE}};}
+\DoxyCodeLine{254             \}}
+\DoxyCodeLine{255 }
+\DoxyCodeLine{256 \textcolor{preprocessor}{\#if defined(ENABLE\_HALL\_TUNING)}}
+\DoxyCodeLine{257             halltune\_process\_cmd\_enable(motor\_ptr);}
+\DoxyCodeLine{258 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{259 }
+\DoxyCodeLine{260 \textcolor{preprocessor}{\#if defined(ENABLE\_AUTOTUNE\_MID)}}
+\DoxyCodeLine{261             mid1\_process\_motor\_enable(motor\_ptr);}
+\DoxyCodeLine{262 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{264 \textcolor{preprocessor}{\#if defined(ENABLE\_POWERUP\_AUTOSTART)}}
+\DoxyCodeLine{265             \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_ae8999228e092adb6f5eddb5f428f8f77}{flag\_first\_start}})}
+\DoxyCodeLine{266             \{}
+\DoxyCodeLine{267                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}} = 1;}
+\DoxyCodeLine{268                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_ae8999228e092adb6f5eddb5f428f8f77}{flag\_first\_start}} = 0;}
+\DoxyCodeLine{269             \}}
+\DoxyCodeLine{270 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{271             \textcolor{comment}{// Wait for the motor enable command and then transition to the STARTUP state}}
+\DoxyCodeLine{272             \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}})}
+\DoxyCodeLine{273             \{}
+\DoxyCodeLine{274                 \_\_disable\_irq();}
+\DoxyCodeLine{275                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa0b37e351114d7403c936cb1cc6a92816}{STATE\_MAIN\_PRESTART}};}
+\DoxyCodeLine{276                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}{status}}.\mbox{\hyperlink{struct_struct___status_a207cca7ac0b21684b8f5ec6588fd4171}{motor}} |= \mbox{\hyperlink{status__struct_8h_a6407485be68fd07aff7ecdae720e1528af5966dadc25326f4f9e8eaa7fb2c417f}{STATUS\_MOTOR\_ENABLED}};}
+\DoxyCodeLine{277                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}{status}}.\mbox{\hyperlink{struct_struct___status_a207cca7ac0b21684b8f5ec6588fd4171}{motor}} \&= \string~\mbox{\hyperlink{status__struct_8h_a6407485be68fd07aff7ecdae720e1528aff398ffb33d3e5bacce331e56ff1acfa}{STATUS\_MOTOR\_STOPPED}};}
+\DoxyCodeLine{278                 \_\_enable\_irq();}
+\DoxyCodeLine{279             \}}
+\DoxyCodeLine{280             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{281 }
+\DoxyCodeLine{282         \textcolor{keywordflow}{case} \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa0b37e351114d7403c936cb1cc6a92816}{STATE\_MAIN\_PRESTART}}:}
+\DoxyCodeLine{283             \textcolor{comment}{// Execute Startup state machine until complete}}
+\DoxyCodeLine{284             \mbox{\hyperlink{app__funcs_8h_a0005de8ad8620aba09f75e214f7801a6}{sm\_mainsub\_prestart}}();}
+\DoxyCodeLine{285             \textcolor{comment}{// If startup is complete and no faults, then go to Open Loop; otherwise go to Disable state}}
+\DoxyCodeLine{286             \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a6785400300f01e5ca1cd0dcc0ff9bc73}{prestart}} == \mbox{\hyperlink{state__struct_8h_af80233f64f735165a2465652b6177fb0a133b5eefeaa04c67d60895fb0424de1d}{STATE\_PRESTART\_COMPLETE}})}
+\DoxyCodeLine{287             \{}
+\DoxyCodeLine{288                 \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}{status}}.\mbox{\hyperlink{struct_struct___status_a7252dcb490bdbb247c5251d25c799d83}{prestart}} == \mbox{\hyperlink{status__struct_8h_a931be0cbec2a2c62f1669fc5e7db1f9facf746259db61a6a8d05d57f843191430}{STATUS\_PRESTART\_COMPLETED}})}
+\DoxyCodeLine{289                 \{}
+\DoxyCodeLine{290                     \_\_disable\_irq();}
+\DoxyCodeLine{291                     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa227175fa393f6f250b2a9d9ae3255f21}{STATE\_MAIN\_STARTUP}};}
+\DoxyCodeLine{292                     \_\_enable\_irq();}
+\DoxyCodeLine{293                 \}}
+\DoxyCodeLine{294                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}{status}}.\mbox{\hyperlink{struct_struct___status_a7252dcb490bdbb247c5251d25c799d83}{prestart}} == \mbox{\hyperlink{status__struct_8h_a931be0cbec2a2c62f1669fc5e7db1f9fa1395478beac676ca2a75bd91abf33f47}{STATUS\_PRESTART\_FAILED}})}
+\DoxyCodeLine{295                 \{}
+\DoxyCodeLine{296                     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}} = 0;}
+\DoxyCodeLine{297                     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daad9094f1c6669ef5599e76b34b1d10291}{STATE\_MAIN\_DISABLE}};}
+\DoxyCodeLine{298                 \}}
+\DoxyCodeLine{299             \}}
+\DoxyCodeLine{300             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{301 }
+\DoxyCodeLine{302         \textcolor{keywordflow}{case} \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa227175fa393f6f250b2a9d9ae3255f21}{STATE\_MAIN\_STARTUP}}:}
+\DoxyCodeLine{303             \textcolor{comment}{// Call run state machine}}
+\DoxyCodeLine{304             startup\_controller(motor\_ptr);}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{306             \textcolor{comment}{// Next state}}
+\DoxyCodeLine{307             \textcolor{keywordflow}{if} (startup\_complete(motor\_ptr))}
+\DoxyCodeLine{308                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa55b6f6765a4d33f64ebd0ffcdd54462c}{STATE\_MAIN\_RUN}};}
+\DoxyCodeLine{309             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (!motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}})}
+\DoxyCodeLine{310                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daad9094f1c6669ef5599e76b34b1d10291}{STATE\_MAIN\_DISABLE}};}
+\DoxyCodeLine{311             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{312 }
+\DoxyCodeLine{313         \textcolor{keywordflow}{case} \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa55b6f6765a4d33f64ebd0ffcdd54462c}{STATE\_MAIN\_RUN}}:}
+\DoxyCodeLine{314             \textcolor{comment}{// If motor is no longer enabled, transition to the COASTING state}}
+\DoxyCodeLine{315             \textcolor{keywordflow}{if} (!motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}})}
+\DoxyCodeLine{316             \{}
+\DoxyCodeLine{317                 \_\_disable\_irq();}
+\DoxyCodeLine{318 \textcolor{preprocessor}{\#ifdef ENABLE\_SIM}}
+\DoxyCodeLine{319                 \textcolor{comment}{//JAGTAG: Move this to inside SIM}}
+\DoxyCodeLine{320                 \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_abe938a34b99fdbffd835366edba3b1b0}{direction\_reverse\_flag}})}
+\DoxyCodeLine{321                     motor\_ptr-\/>sim.sim\_spd\_scaled\_q28 = -\/motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ad3635e4ae36a38c9e92256e8a8f3f870}{mpos\_spd\_scaled\_q28}};}
+\DoxyCodeLine{322                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{323                     motor\_ptr-\/>sim.sim\_spd\_scaled\_q28 = motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ad3635e4ae36a38c9e92256e8a8f3f870}{mpos\_spd\_scaled\_q28}};}
+\DoxyCodeLine{324 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{325 \textcolor{preprocessor}{\#ifdef ENABLE\_COASTING}}
+\DoxyCodeLine{326                 \textcolor{comment}{// Need to write ramp as well to bypass ramp, in case iqref was at ripple peak when stop is commanded}}
+\DoxyCodeLine{327                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_ad63c1fc824758afbaf818b5018c58df8}{iqrefcl\_target\_f16}} = motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a2c409428c9a6acab71ab6c2eaed47235}{iqref\_ramp\_q14}} = motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a7888534281a1a5ae7e8813ffad8774db}{iqref\_ramp\_f16}} = 0;}
+\DoxyCodeLine{328                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a091a9a61bb2d7633b6b719e8895f3bfd}{coast\_timeout\_counter}} = 0;}
+\DoxyCodeLine{329                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}{status}}.\mbox{\hyperlink{struct_struct___status_a207cca7ac0b21684b8f5ec6588fd4171}{motor}} |= \mbox{\hyperlink{status__struct_8h_a6407485be68fd07aff7ecdae720e1528a10040a2c60ba58bd7dceb30ed145d051}{STATUS\_MOTOR\_CL\_RAMPDOWN}};}
+\DoxyCodeLine{330                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa4a9374e6685ce2ca31479e26c8075d5a}{STATE\_MAIN\_COASTING}};}
+\DoxyCodeLine{331                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a5f6602da5069eeb74dec30fe5c770cd7}{control}} = \mbox{\hyperlink{state__struct_8h_abf641faa530878c71c799cece9a99a4ea448d791055b97cb7f21b54d85a967922}{STATE\_CONTROL\_TORQUE}};}
+\DoxyCodeLine{332 \textcolor{preprocessor}{\#elif defined(ENABLE\_SIMBRAKE\_MOTORDISABLE)}}
+\DoxyCodeLine{333                 \textcolor{comment}{// Disable gate drivers}}
+\DoxyCodeLine{334                 \mbox{\hyperlink{driver__funcs_8c_ad98cb6be8dc3d2b416f8b2773a68c4fc}{m1\_disable}}();}
+\DoxyCodeLine{335                 \textcolor{comment}{// Reset sim state machine}}
+\DoxyCodeLine{336                 sim\_smstate\_reset(motor\_ptr);}
+\DoxyCodeLine{337                 \textcolor{comment}{// Initialize SIM speed}}
+\DoxyCodeLine{338                 motor\_ptr-\/>sim.sim\_spd\_scaled\_q28 = 0;}
+\DoxyCodeLine{339                 \textcolor{comment}{// Next state and configure sequencers and control divider for SIM mode}}
+\DoxyCodeLine{340                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a6bd575bc93521bbaf72e3ec9c9972d30}{state}} = \mbox{\hyperlink{mpos__struct_8h_a70a5627e7a598669b6f10169eb74f6aba28d7255f39a7f385995aadc9b3bad2ca}{STATE\_MPOS\_IDLE}};}
+\DoxyCodeLine{341                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a5f6602da5069eeb74dec30fe5c770cd7}{control}} = \mbox{\hyperlink{state__struct_8h_abf641faa530878c71c799cece9a99a4eaa5836e459b458b2ca9a9ecb47d01baba}{STATE\_CONTROL\_IDLE}};}
+\DoxyCodeLine{342                 config\_control\_timing\_sim();}
+\DoxyCodeLine{343                 \mbox{\hyperlink{control__funcs_8c_add72aac22842126f7c88023b569ad717}{config\_control\_dt}}(motor\_ptr, motor\_ptr-\/>sim.dt\_control\_q26, SIM\_CONTROL\_DIVIDER);}
+\DoxyCodeLine{344                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_ac5675164c81fc41c78401168980d99ff}{appcontrol}} = \mbox{\hyperlink{state__struct_8h_a9ecbedf9b6d53bd3488d18b07060a343a76eb7f641646f278beca58f5e07b2afb}{STATE\_APPCONTROL\_SIM\_RUN}};}
+\DoxyCodeLine{345                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa85e68a6e29c5937d01449e3745be3c9d}{STATE\_MAIN\_BRAKE}};}
+\DoxyCodeLine{346                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}{status}}.\mbox{\hyperlink{struct_struct___status_a207cca7ac0b21684b8f5ec6588fd4171}{motor}} |= \mbox{\hyperlink{status__struct_8h_a6407485be68fd07aff7ecdae720e1528a97f9947f0bbba20068d0495cb1d38eca}{STATUS\_MOTOR\_BRAKING}};}
+\DoxyCodeLine{347 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{348                 \textcolor{comment}{// Next state}}
+\DoxyCodeLine{349                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daad9094f1c6669ef5599e76b34b1d10291}{STATE\_MAIN\_DISABLE}};}
+\DoxyCodeLine{350 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{351                 \_\_enable\_irq();}
+\DoxyCodeLine{352             \}}
+\DoxyCodeLine{353             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{354             \{}
+\DoxyCodeLine{355                 \textcolor{comment}{// Switch to speed mode if motor is in torque mode and speed mode is commanded}}
+\DoxyCodeLine{356                 \textcolor{keywordflow}{if} ((motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a59571a5c31674a41408769620c09a0e1}{speed\_mode\_flag}}) \&\& (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a5f6602da5069eeb74dec30fe5c770cd7}{control}} != \mbox{\hyperlink{state__struct_8h_abf641faa530878c71c799cece9a99a4ea3902517df06b95a9a8cfb89671d3b8bd}{STATE\_CONTROL\_OUTERLOOP}}))}
+\DoxyCodeLine{357                 \{}
+\DoxyCodeLine{358                     \_\_disable\_irq();}
+\DoxyCodeLine{359                     \textcolor{comment}{// Initialize outer loop before switching to CL mode}}
+\DoxyCodeLine{360                     init\_pi(\&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7634d99c5262356aff936bf09765b8f7}{outerloop\_pid}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a2c409428c9a6acab71ab6c2eaed47235}{iqref\_ramp\_q14}});}
+\DoxyCodeLine{361                     update\_outerloop\_ramp\_sw(motor\_ptr);}
+\DoxyCodeLine{362                     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a5f6602da5069eeb74dec30fe5c770cd7}{control}} = \mbox{\hyperlink{state__struct_8h_abf641faa530878c71c799cece9a99a4ea3902517df06b95a9a8cfb89671d3b8bd}{STATE\_CONTROL\_OUTERLOOP}};}
+\DoxyCodeLine{363                     \_\_enable\_irq();}
+\DoxyCodeLine{364                 \}}
+\DoxyCodeLine{365                 \textcolor{comment}{// Switch to torque mode if motor is in speed mode and torque mode is commanded}}
+\DoxyCodeLine{366                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((!motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a59571a5c31674a41408769620c09a0e1}{speed\_mode\_flag}}) \&\& (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a5f6602da5069eeb74dec30fe5c770cd7}{control}} != \mbox{\hyperlink{state__struct_8h_abf641faa530878c71c799cece9a99a4ea448d791055b97cb7f21b54d85a967922}{STATE\_CONTROL\_TORQUE}}))}
+\DoxyCodeLine{367                 \{}
+\DoxyCodeLine{368                     \_\_disable\_irq();}
+\DoxyCodeLine{369                     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a7888534281a1a5ae7e8813ffad8774db}{iqref\_ramp\_f16}} = (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a2c409428c9a6acab71ab6c2eaed47235}{iqref\_ramp\_q14}} << 2);}
+\DoxyCodeLine{370                     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_ad63c1fc824758afbaf818b5018c58df8}{iqrefcl\_target\_f16}} = motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a3f149e8c07b0a0f4730ac4bab245848b}{iqrefcl\_cmd\_f16}};}
+\DoxyCodeLine{371                     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a5f6602da5069eeb74dec30fe5c770cd7}{control}} = \mbox{\hyperlink{state__struct_8h_abf641faa530878c71c799cece9a99a4ea448d791055b97cb7f21b54d85a967922}{STATE\_CONTROL\_TORQUE}};}
+\DoxyCodeLine{372                     \_\_enable\_irq();}
+\DoxyCodeLine{373                 \}}
+\DoxyCodeLine{374 }
+\DoxyCodeLine{375 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_HALL == ENABLED) \&\& (MODULE\_MPOS\_LBG1 == ENABLED)}}
+\DoxyCodeLine{376                 hall\_hall2est\_controller(motor\_ptr);}
+\DoxyCodeLine{377 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{378             \}}
+\DoxyCodeLine{379             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{380 }
+\DoxyCodeLine{381 \textcolor{preprocessor}{\#ifdef ENABLE\_COASTING}}
+\DoxyCodeLine{382         \textcolor{keywordflow}{case} \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa4a9374e6685ce2ca31479e26c8075d5a}{STATE\_MAIN\_COASTING}}:}
+\DoxyCodeLine{383             \textcolor{comment}{// Update outer loop ramp and feedback (for stall detection and display)}}
+\DoxyCodeLine{384             update\_outerloop\_ramp\_sw(motor\_ptr);}
+\DoxyCodeLine{385             update\_outerloop\_fdbk\_scaled(motor\_ptr);}
+\DoxyCodeLine{386             \textcolor{comment}{// Handle case when motor is re-\/enabled while coasting but direction was changed}}
+\DoxyCodeLine{387 \textcolor{preprocessor}{\#ifdef ENABLE\_NEGATIVE\_IQ\_COASTING}}
+\DoxyCodeLine{388             \textcolor{keywordflow}{if} ((motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}}) \&\& (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_aa18e2135661f9851385f746bf538fddf}{direction\_reverse\_cmd}} != motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_abe938a34b99fdbffd835366edba3b1b0}{direction\_reverse\_flag}}))}
+\DoxyCodeLine{389             \{}
+\DoxyCodeLine{390                 \textcolor{comment}{// Need to write ramp as well to bypass ramp, in case iqref was at ripple peak when stop is commanded}}
+\DoxyCodeLine{391                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_ad63c1fc824758afbaf818b5018c58df8}{iqrefcl\_target\_f16}} = \mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\_mul}}((0 -\/ motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7634d99c5262356aff936bf09765b8f7}{outerloop\_pid}}.\mbox{\hyperlink{struct_p_i_d___data___type_a2306918ba077e946e2055305c9f46087}{max\_value}}), NEGATIVE\_IQ\_CURRENT\_PER\_FOR\_COAST);}
+\DoxyCodeLine{392                 \textcolor{comment}{// Check if iqrefcl\_target is +ve than set it to 0}}
+\DoxyCodeLine{393                 \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_ad63c1fc824758afbaf818b5018c58df8}{iqrefcl\_target\_f16}} > 0)}
+\DoxyCodeLine{394                     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_ad63c1fc824758afbaf818b5018c58df8}{iqrefcl\_target\_f16}} = 0;}
+\DoxyCodeLine{395                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7e1efe802bcf21763ff298f0863abf09}{idiqref\_rate\_f16}} = \mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\_mul}}(motor\_ptr-\/>idiqref\_rate\_gui\_f16, IDIQ\_RAMP\_RATE\_PER\_FOR\_COAST);}
+\DoxyCodeLine{396                 \textcolor{comment}{// Check if idiqref\_rate is 0 than set it to default}}
+\DoxyCodeLine{397                 \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7e1efe802bcf21763ff298f0863abf09}{idiqref\_rate\_f16}} <= 0)}
+\DoxyCodeLine{398                     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7e1efe802bcf21763ff298f0863abf09}{idiqref\_rate\_f16}} = DEFAULT\_IDIQ\_RAMP\_RATE\_PER\_FOR\_COAST;}
+\DoxyCodeLine{399             \}}
+\DoxyCodeLine{400 }
+\DoxyCodeLine{401             \textcolor{comment}{// Handle case when motor is re-\/enabled while coasting}}
+\DoxyCodeLine{402             \textcolor{keywordflow}{if} ((motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}}) \&\& (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_aa18e2135661f9851385f746bf538fddf}{direction\_reverse\_cmd}} == motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_abe938a34b99fdbffd835366edba3b1b0}{direction\_reverse\_flag}}))}
+\DoxyCodeLine{403 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{404             \textcolor{comment}{// Handle case when motor is re-\/enabled while coasting}}
+\DoxyCodeLine{405             \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}})}
+\DoxyCodeLine{406 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{407             \{}
+\DoxyCodeLine{408                 \_\_disable\_irq();}
+\DoxyCodeLine{409                 \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a0172d134f01cbeab4c3af61b1002d21a}{mpos\_spd\_radps}} >= conv\_ol2cl\_speed(motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a40d4c5e3068f482417417f6b77de3fe2}{dt\_control\_1div\_q6}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}{startup}}.\mbox{\hyperlink{struct_struct___startup_align_go_ab8bafb11c8cd7169afca6bef8a499b64}{aligngo}}.\mbox{\hyperlink{struct_struct___align_go_abf2c6648232ae5fa7927049207522398}{speedrefol\_target}}))}
+\DoxyCodeLine{410                 \{}
+\DoxyCodeLine{411                     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}{status}}.\mbox{\hyperlink{struct_struct___status_a207cca7ac0b21684b8f5ec6588fd4171}{motor}} \&= \string~\mbox{\hyperlink{status__struct_8h_a6407485be68fd07aff7ecdae720e1528a10040a2c60ba58bd7dceb30ed145d051}{STATUS\_MOTOR\_CL\_RAMPDOWN}};}
+\DoxyCodeLine{412                     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa55b6f6765a4d33f64ebd0ffcdd54462c}{STATE\_MAIN\_RUN}};}
+\DoxyCodeLine{413                     \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a59571a5c31674a41408769620c09a0e1}{speed\_mode\_flag}})}
+\DoxyCodeLine{414                     \{}
+\DoxyCodeLine{415                         update\_outerloop\_ramp\_sw(motor\_ptr);}
+\DoxyCodeLine{416                         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a5f6602da5069eeb74dec30fe5c770cd7}{control}} = \mbox{\hyperlink{state__struct_8h_abf641faa530878c71c799cece9a99a4ea3902517df06b95a9a8cfb89671d3b8bd}{STATE\_CONTROL\_OUTERLOOP}};}
+\DoxyCodeLine{417                     \}}
+\DoxyCodeLine{418                     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{419                     \{}
+\DoxyCodeLine{420                         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_ad63c1fc824758afbaf818b5018c58df8}{iqrefcl\_target\_f16}} = motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a3f149e8c07b0a0f4730ac4bab245848b}{iqrefcl\_cmd\_f16}};}
+\DoxyCodeLine{421                         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a5f6602da5069eeb74dec30fe5c770cd7}{control}} = \mbox{\hyperlink{state__struct_8h_abf641faa530878c71c799cece9a99a4ea448d791055b97cb7f21b54d85a967922}{STATE\_CONTROL\_TORQUE}};}
+\DoxyCodeLine{422                     \}}
+\DoxyCodeLine{423                 \}}
+\DoxyCodeLine{424                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{425                     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daad9094f1c6669ef5599e76b34b1d10291}{STATE\_MAIN\_DISABLE}};}
+\DoxyCodeLine{426 \textcolor{preprocessor}{\#ifdef ENABLE\_NEGATIVE\_IQ\_COASTING}}
+\DoxyCodeLine{427                 \textcolor{comment}{// Restore value because it is overwritten by coast mode}}
+\DoxyCodeLine{428                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a7e1efe802bcf21763ff298f0863abf09}{idiqref\_rate\_f16}} = motor\_ptr-\/>idiqref\_rate\_gui\_f16;}
+\DoxyCodeLine{429 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{430                 \_\_enable\_irq();}
+\DoxyCodeLine{431             \}}
+\DoxyCodeLine{432             \textcolor{comment}{// Check if estimated speed less than switchover speed then disable motor}}
+\DoxyCodeLine{433             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_a0172d134f01cbeab4c3af61b1002d21a}{mpos\_spd\_radps}} < conv\_ol2cl\_speed(motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a40d4c5e3068f482417417f6b77de3fe2}{dt\_control\_1div\_q6}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}{startup}}.\mbox{\hyperlink{struct_struct___startup_align_go_ab8bafb11c8cd7169afca6bef8a499b64}{aligngo}}.\mbox{\hyperlink{struct_struct___align_go_abf2c6648232ae5fa7927049207522398}{speedrefol\_target}}))}
+\DoxyCodeLine{434             \{}
+\DoxyCodeLine{435                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daad9094f1c6669ef5599e76b34b1d10291}{STATE\_MAIN\_DISABLE}};}
+\DoxyCodeLine{436             \}}
+\DoxyCodeLine{437             \textcolor{comment}{// If coast has timed out, then go to DISABLE state}}
+\DoxyCodeLine{438             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a091a9a61bb2d7633b6b719e8895f3bfd}{coast\_timeout\_counter}}++ >= motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_ad48134deb82c4cf369e3326980ea9154}{coast\_timeout\_target}})}
+\DoxyCodeLine{439             \{}
+\DoxyCodeLine{440 \textcolor{preprocessor}{\#ifdef ENABLE\_NEGATIVE\_IQ\_COASTING}}
+\DoxyCodeLine{441                 \textcolor{keywordflow}{if} (!motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}})}
+\DoxyCodeLine{442                     \mbox{\hyperlink{fault_8c_a27e9497981905b8f49967f8b4bffb194}{set\_fault}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ad4f057cc0858c14d1c55e0ba8196a382}{FAULT\_COAST\_TIMEOUT}});}
+\DoxyCodeLine{443 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{444                 \mbox{\hyperlink{fault_8c_a27e9497981905b8f49967f8b4bffb194}{set\_fault}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8ad4f057cc0858c14d1c55e0ba8196a382}{FAULT\_COAST\_TIMEOUT}});}
+\DoxyCodeLine{445 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{446                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daad9094f1c6669ef5599e76b34b1d10291}{STATE\_MAIN\_DISABLE}};}
+\DoxyCodeLine{447             \}}
+\DoxyCodeLine{448             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{449 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{450 }
+\DoxyCodeLine{451         \textcolor{keywordflow}{case} \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa0573c1290bb5cb1b13d07416f2ccc700}{STATE\_MAIN\_FAULT}}:}
+\DoxyCodeLine{452             \textcolor{comment}{// Exit fault state if all fault conditions are clear}}
+\DoxyCodeLine{453             \textcolor{keywordflow}{if} ((motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}{fault}}.\mbox{\hyperlink{struct_struct___fault_a873cbe07ef4988d4c164b357148934be}{motor}} \& \mbox{\hyperlink{fault__struct_8h_a4aade078bab9e4ead49cee8fe9f242b1}{FAULT\_MAIN\_GRP\_STATE}}) == 0)}
+\DoxyCodeLine{454             \{}
+\DoxyCodeLine{455                 \_\_disable\_irq();}
+\DoxyCodeLine{456                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daad9094f1c6669ef5599e76b34b1d10291}{STATE\_MAIN\_DISABLE}};}
+\DoxyCodeLine{457                 \_\_enable\_irq();}
+\DoxyCodeLine{458             \}}
+\DoxyCodeLine{459             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{460 }
+\DoxyCodeLine{461         \textcolor{keywordflow}{case} \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daaf5e9b65285e4ac2b044eba72055f28aa}{STATE\_MAIN\_TERMINAL}}:}
+\DoxyCodeLine{462             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{463 }
+\DoxyCodeLine{464 \textcolor{preprocessor}{\#if defined(ENABLE\_HALL\_TUNING)}}
+\DoxyCodeLine{465         \textcolor{keywordflow}{case} \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa30ef44b1499e40026e8dc007aec37b61}{STATE\_MAIN\_HALLTUNE}}:}
+\DoxyCodeLine{466             \textcolor{comment}{// Hall tuning controller}}
+\DoxyCodeLine{467             halltune\_controller(motor\_ptr);}
+\DoxyCodeLine{468 }
+\DoxyCodeLine{469             \textcolor{comment}{// Next state}}
+\DoxyCodeLine{470             halltune\_process\_cmd\_disable(motor\_ptr);}
+\DoxyCodeLine{471             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{472 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{473 }
+\DoxyCodeLine{474 \textcolor{preprocessor}{\#if defined(ENABLE\_AUTOTUNE\_MID)}}
+\DoxyCodeLine{475         \textcolor{keywordflow}{case} \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daa8718deb361af5942322f37a00e4a0281}{STATE\_MAIN\_MID1}}:}
+\DoxyCodeLine{476             \textcolor{comment}{// MID1 main state machine}}
+\DoxyCodeLine{477             mid1\_main\_subsm(motor\_ptr);}
+\DoxyCodeLine{478 }
+\DoxyCodeLine{479             \textcolor{comment}{// Next state}}
+\DoxyCodeLine{480             \textcolor{keywordflow}{if} (motor\_ptr-\/>atune.state\_mainsub\_mid1 \& \mbox{\hyperlink{atune__struct_8h_a0eae5e59fcfcd88ce3aac6211614c1fea345fdb38f2ecf921ff262affad1ed5f5}{STATE\_MAINSUB\_MID1\_COMPLETE}})}
+\DoxyCodeLine{481 \textcolor{comment}{//            if (motor\_ptr-\/>atune.status\_atune \& (STATUS\_ATUNE\_MID1\_COMPLETE | STATUS\_ATUNE\_MID1\_FAILED))}}
+\DoxyCodeLine{482             \{}
+\DoxyCodeLine{483                 \textcolor{comment}{// Next state}}
+\DoxyCodeLine{484                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daad9094f1c6669ef5599e76b34b1d10291}{STATE\_MAIN\_DISABLE}};}
+\DoxyCodeLine{485             \}}
+\DoxyCodeLine{486             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{487 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{488 }
+\DoxyCodeLine{489         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{490             \textcolor{comment}{// If the state is not one of the above, then it's an error, so go to DISABLE state}}
+\DoxyCodeLine{491             \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}})}
+\DoxyCodeLine{492             \{}
+\DoxyCodeLine{493                 \_\_disable\_irq();}
+\DoxyCodeLine{494                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}} = 0;}
+\DoxyCodeLine{495                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daad9094f1c6669ef5599e76b34b1d10291}{STATE\_MAIN\_DISABLE}};}
+\DoxyCodeLine{496                 motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_ac5675164c81fc41c78401168980d99ff}{appcontrol}} = \mbox{\hyperlink{state__struct_8h_a9ecbedf9b6d53bd3488d18b07060a343a1254467072c4d1b5f0eda9d1980469a3}{STATE\_APPCONTROL\_IDLE}};}
+\DoxyCodeLine{497                 \_\_enable\_irq();}
+\DoxyCodeLine{498             \}}
+\DoxyCodeLine{499             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{500     \}}
+\DoxyCodeLine{501 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::app, Struct\+\_\+\+State\+::appcontrol, F\+A\+L\+SE, Struct\+\_\+\+Motor\+::fault, F\+A\+U\+L\+T\+\_\+\+C\+A\+F\+E\+\_\+\+OC, Struct\+\_\+\+Fault\+::fault\+\_\+state\+\_\+flag, Struct\+\_\+\+Fault\+::fault\+\_\+stop\+\_\+flag, Struct\+\_\+\+Fault\+::fault\+\_\+terminal\+\_\+flag, init\+\_\+default\+\_\+parameters(), m1\+\_\+disable(), Struct\+\_\+\+State\+::main, motor, Struct\+\_\+\+Fault\+::motor, Struct\+\_\+\+Status\+::motor, Struct\+\_\+\+App\+::motor\+\_\+enable\+\_\+cmd, set\+\_\+drivers\+\_\+gpio(), Struct\+\_\+\+Motor\+::state, S\+T\+A\+T\+E\+\_\+\+A\+P\+P\+C\+O\+N\+T\+R\+O\+L\+\_\+\+I\+D\+LE, S\+T\+A\+T\+E\+\_\+\+M\+A\+I\+N\+\_\+\+C\+O\+A\+S\+T\+I\+NG, S\+T\+A\+T\+E\+\_\+\+M\+A\+I\+N\+\_\+\+D\+I\+S\+A\+B\+LE, S\+T\+A\+T\+E\+\_\+\+M\+A\+I\+N\+\_\+\+F\+A\+U\+LT, S\+T\+A\+T\+E\+\_\+\+M\+A\+I\+N\+\_\+\+M\+I\+D1, S\+T\+A\+T\+E\+\_\+\+M\+A\+I\+N\+\_\+\+P\+O\+ST, S\+T\+A\+T\+E\+\_\+\+M\+A\+I\+N\+\_\+\+P\+R\+E\+S\+T\+A\+RT, S\+T\+A\+T\+E\+\_\+\+M\+A\+I\+N\+\_\+\+R\+E\+S\+ET, S\+T\+A\+T\+E\+\_\+\+M\+A\+I\+N\+\_\+\+R\+UN, S\+T\+A\+T\+E\+\_\+\+M\+A\+I\+N\+\_\+\+S\+T\+A\+R\+T\+UP, S\+T\+A\+T\+E\+\_\+\+M\+A\+I\+N\+\_\+\+T\+E\+R\+M\+I\+N\+AL, Struct\+\_\+\+Motor\+::status, and S\+T\+A\+T\+U\+S\+\_\+\+M\+A\+I\+N\+\_\+\+A\+L\+L\+S\+T\+A\+T\+US.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{app__main__sm_8c_a26e3c16d6a4f4ed8e84c2ef44cf591c0_cgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,106 @@
+.TH "pac_foc/src/math/fix16_sqrt.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/math/fix16_sqrt.c \- fix16_t square root functions  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'fix16\&.h'\fP
+.br
+\fC#include 'int64\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBFIXMATH_NO_CACHE\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBfix16_t\fP \fBfix16_sqrt\fP (\fBfix16_t\fP inValue)"
+.br
+.RI "Returns the square root of the given value\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+fix16_t square root functions 
+
+
+.PP
+Definition in file \fBfix16_sqrt\&.c\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define FIXMATH_NO_CACHE"
+
+.PP
+Definition at line 33 of file fix16_sqrt\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBfix16_t\fP fix16_sqrt (\fBfix16_t\fP inValue)"
+
+.PP
+Returns the square root of the given value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinValue\fP input value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+sqrt(inValue) 
+.RE
+.PP
+
+.PP
+Definition at line 42 of file fix16_sqrt\&.c\&.
+.PP
+.nf
+42                                     {
+43         int neg = (inValue < 0);
+44         if(neg)
+45                 inValue = -inValue;
+46 
+47         #ifndef FIXMATH_NO_CACHE
+48         fix16_t tempIndex = (((inValue >> 16) ^ (inValue >> 4)) & 0x00000FFF);
+49         if(_fix16_sqrt_cache_index[tempIndex] == inValue)
+50                 return (neg ? -_fix16_sqrt_cache_value[tempIndex] : _fix16_sqrt_cache_value[tempIndex]);
+51         #endif
+52 
+53         lfm_int64 tempOp  = int64_const((inValue >> 16), (inValue << 16));
+54         lfm_int64 tempOut = int64_const(0, 0);
+55         lfm_int64 tempOne = int64_const(0x40000000UL, 0x00000000UL);
+56 
+57         while(int64_cmp_gt(tempOne, tempOp))
+58                 tempOne = int64_shift(tempOne, -2);
+59 
+60         while(int64_cmp_ne(tempOne, int64_const(0, 0))) {
+61                 if(int64_cmp_ge(tempOp, int64_add(tempOut, tempOne))) {
+62 
+63 
+64                         tempOp  = int64_sub(tempOp, int64_add(tempOut, tempOne));
+65 
+66 
+67                         tempOut = int64_add(tempOut, int64_shift(tempOne, 1));
+68                 }
+69                 tempOut = int64_shift(tempOut, -1);
+70                 tempOne = int64_shift(tempOne, -2);
+71         }
+72 
+73         #ifndef FIXMATH_NO_CACHE
+74         _fix16_sqrt_cache_index[tempIndex] = inValue;
+75         _fix16_sqrt_cache_value[tempIndex] = int64_lo(tempOut);
+76         #endif
+77 
+78         return (neg ? -int64_lo(tempOut) : int64_lo(tempOut));
+79 }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

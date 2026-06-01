@@ -1,0 +1,143 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_tile_signal_manager.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_tile_signal_manager.h \- CMSIS Header File for the PAC5XXX Signal Manager Tile\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBCFGAIO0\fP"
+.br
+.ti -1c
+.RI "union \fBCFGAIO1\fP"
+.br
+.ti -1c
+.RI "union \fBCFGAIO2\fP"
+.br
+.ti -1c
+.RI "union \fBCFGAIO3\fP"
+.br
+.ti -1c
+.RI "union \fBCFGAIO4\fP"
+.br
+.ti -1c
+.RI "union \fBCFGAIO5\fP"
+.br
+.ti -1c
+.RI "union \fBCFGAIO6\fP"
+.br
+.ti -1c
+.RI "union \fBCFGAIO7\fP"
+.br
+.ti -1c
+.RI "union \fBCFGAIO8\fP"
+.br
+.ti -1c
+.RI "union \fBCFGAIO9\fP"
+.br
+.ti -1c
+.RI "union \fBSIGSTAT\fP"
+.br
+.ti -1c
+.RI "union \fBLPDAC1\fP"
+.br
+.ti -1c
+.RI "union \fBADCSCAN\fP"
+.br
+.ti -1c
+.RI "union \fBADCIN1\fP"
+.br
+.ti -1c
+.RI "union \fBPROTINTM\fP"
+.br
+.ti -1c
+.RI "union \fBPROTSTAT\fP"
+.br
+.ti -1c
+.RI "union \fBDOUTSIG0\fP"
+.br
+.ti -1c
+.RI "union \fBDOUTSIG1\fP"
+.br
+.ti -1c
+.RI "union \fBDINSIG0\fP"
+.br
+.ti -1c
+.RI "union \fBDINSIG1\fP"
+.br
+.ti -1c
+.RI "union \fBSIGINTM\fP"
+.br
+.ti -1c
+.RI "union \fBSIGINTF\fP"
+.br
+.ti -1c
+.RI "union \fBENSIG\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBEMUX_EN_MSPI\fP   0x40"
+.br
+.ti -1c
+.RI "#define \fBCOMP_HOLD\fP   0x20"
+.br
+.ti -1c
+.RI "#define \fBDIFFAMPS_HOLD\fP   0x10"
+.br
+.ti -1c
+.RI "#define \fBSIGMGR_EN_MSPI\fP   0x40"
+.br
+.ti -1c
+.RI "#define \fBSIGMGR_EN_SH_COMP\fP   0x20"
+.br
+.ti -1c
+.RI "#define \fBSIGMGR_EN_SH_DIFFAMP\fP   0x10"
+.br
+.ti -1c
+.RI "#define \fBSIGMGR_MSPI\fP(channel)   (\fBSIGMGR_EN_MSPI\fP | (channel))"
+.br
+.ti -1c
+.RI "#define \fBSIGMGR_MSPI_SH_DIFFAMP\fP   (\fBSIGMGR_EN_MSPI\fP | \fBSIGMGR_EN_SH_DIFFAMP\fP)"
+.br
+.ti -1c
+.RI "#define \fBSIGMGR_MSPI_SH_COMP\fP   (\fBSIGMGR_EN_MSPI\fP | \fBSIGMGR_EN_SH_COMP\fP)"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBEMUX_Select\fP { \fBEMUX_AIO10\fP = 0 | EMUX_EN_MSPI, \fBEMUX_AIO32\fP = 1 | EMUX_EN_MSPI, \fBEMUX_AIO54\fP = 2 | EMUX_EN_MSPI, \fBEMUX_AB1\fP = 3 | EMUX_EN_MSPI, \fBEMUX_AB2\fP = 4 | EMUX_EN_MSPI, \fBEMUX_AB3\fP = 5 | EMUX_EN_MSPI, \fBEMUX_AB4\fP = 6 | EMUX_EN_MSPI, \fBEMUX_AB5\fP = 7 | EMUX_EN_MSPI, \fBEMUX_AB6\fP = 8 | EMUX_EN_MSPI, \fBEMUX_AB7\fP = 9 | EMUX_EN_MSPI, \fBEMUX_AB8\fP = 10 | EMUX_EN_MSPI, \fBEMUX_AB9\fP = 11 | EMUX_EN_MSPI, \fBEMUX_AB10\fP = 12 | EMUX_EN_MSPI, \fBEMUX_AB11\fP = 13 | EMUX_EN_MSPI, \fBEMUX_AB12\fP = 14 | EMUX_EN_MSPI, \fBEMUX_VREFDIV2\fP = 15 | EMUX_EN_MSPI }"
+.br
+.ti -1c
+.RI "enum \fBSignal_Manager_MUX_Select\fP { \fBSIGMGR_AIO10\fP = 0, \fBSIGMGR_AIO32\fP = 1, \fBSIGMGR_AIO54\fP = 2, \fBSIGMGR_AB1\fP = 3, \fBSIGMGR_AB2\fP = 4, \fBSIGMGR_AB3\fP = 5, \fBSIGMGR_AB4\fP = 6, \fBSIGMGR_AB5\fP = 7, \fBSIGMGR_AB6\fP = 8, \fBSIGMGR_AB7\fP = 9, \fBSIGMGR_AB8\fP = 10, \fBSIGMGR_AB9\fP = 11, \fBSIGMGR_AB10\fP = 12, \fBSIGMGR_AB11\fP = 13, \fBSIGMGR_AB12\fP = 14, \fBSIGMGR_VREFDIV2\fP = 15 }"
+.br
+.ti -1c
+.RI "enum \fBSignal_Manager_Reg_Addr\fP { \fBADDR_CFGAIO0\fP = 0x20, \fBADDR_CFGAIO1\fP = 0x21, \fBADDR_CFGAIO2\fP = 0x22, \fBADDR_CFGAIO3\fP = 0x23, \fBADDR_CFGAIO4\fP = 0x24, \fBADDR_CFGAIO5\fP = 0x25, \fBADDR_CFGAIO6\fP = 0x26, \fBADDR_CFGAIO7\fP = 0x27, \fBADDR_CFGAIO8\fP = 0x28, \fBADDR_CFGAIO9\fP = 0x29, \fBADDR_SIGSET\fP = 0x2A, \fBADDR_HPDAC\fP = 0x2B, \fBADDR_LPDAC0\fP = 0x2C, \fBADDR_LPDAC1\fP = 0x2D, \fBADDR_ADCSCAN\fP = 0x2E, \fBADDR_ADCIN1\fP = 0x2F, \fBADDR_PROTINTM\fP = 0x30, \fBADDR_PROTSTAT\fP = 0x31, \fBADDR_DOUTSIG0\fP = 0x32, \fBADDR_DOUTSIG1\fP = 0x33, \fBADDR_DINSIG0\fP = 0x34, \fBADDR_DINSIG1\fP = 0x35, \fBADDR_SIGINTM\fP = 0x36, \fBADDR_SIGINTF\fP = 0x37, \fBADDR_ENSIG\fP = 0x38, \fBADDR_SPECCFG1\fP = 0x39, \fBADDR_SPECCFG2\fP = 0x3A }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CMSIS Header File for the PAC5XXX Signal Manager Tile\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2017-2020, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_tile_signal_manager\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

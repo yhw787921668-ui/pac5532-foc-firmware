@@ -1,0 +1,27 @@
+[FILEFORMAT]
+rev=1.6
+
+[CHIP]
+name=PAC5523
+endiansupport=le
+thumbsupport=true
+armsupport=false
+fpu=VFPv4_sp
+SIMD=false
+
+JTAG=true
+SWD=true
+SWO_TraceD0=false
+
+[CORE]
+name=Cortex-M4
+
+[DDF FILE]
+name=ActiveSemi\PAC5523.ddf
+
+[LINKER FILE]
+name=$TOOLKIT_DIR$\config\linker\ActiveSemi\pac55xx.icf
+
+[FLASH LOADER]
+
+little=$TOOLKIT_DIR$\config\flashloader\ActiveSemi\pac55xx-flash.board

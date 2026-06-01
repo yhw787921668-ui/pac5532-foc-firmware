@@ -1,0 +1,186 @@
+.TH "Struct_QEP" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Struct_QEP
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <qep_struct\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int32_t \fBqep_mech_angle\fP"
+.br
+.ti -1c
+.RI "int32_t \fBqep_calculated_angle\fP"
+.br
+.ti -1c
+.RI "int32_t \fBqep_previous_angle\fP"
+.br
+.ti -1c
+.RI "int32_t \fBcounter_counts\fP"
+.br
+.ti -1c
+.RI "int32_t \fBindex_counter\fP"
+.br
+.ti -1c
+.RI "int32_t \fBqep_spd_radps\fP"
+.br
+.ti -1c
+.RI "int32_t \fBqep_spd_scaled_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBqep_spd_scaled_q28\fP"
+.br
+.ti -1c
+.RI "int32_t \fBqep_spd_prefilt_scaled_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBqep_angle\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBqep_resolution\fP"
+.br
+.ti -1c
+.RI "int32_t \fBangcorr_offset_fwd\fP"
+.br
+.ti -1c
+.RI "int32_t \fBangcorr_offset_rev\fP"
+.br
+.ti -1c
+.RI "int32_t \fBfilter_fc_speed_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBfilter_alpha_speed_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBkspd_radps_q6\fP"
+.br
+.ti -1c
+.RI "int32_t \fBkspd_scaled_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBconv_qep2mech_q24\fP"
+.br
+.ti -1c
+.RI "\fBfix16_t\fP * \fBptr_angcorr_offset\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 21 of file qep_struct\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "int32_t Struct_QEP::angcorr_offset_fwd"
+
+.PP
+Definition at line 39 of file qep_struct\&.h\&.
+.PP
+Referenced by qep_param_write(), and qep_reset()\&.
+.SS "int32_t Struct_QEP::angcorr_offset_rev"
+
+.PP
+Definition at line 40 of file qep_struct\&.h\&.
+.PP
+Referenced by qep_param_write(), and qep_reset()\&.
+.SS "int32_t Struct_QEP::conv_qep2mech_q24"
+
+.PP
+Definition at line 45 of file qep_struct\&.h\&.
+.SS "int32_t Struct_QEP::counter_counts"
+
+.PP
+Definition at line 27 of file qep_struct\&.h\&.
+.PP
+Referenced by qep_reset()\&.
+.SS "int32_t Struct_QEP::filter_alpha_speed_q16"
+
+.PP
+Definition at line 42 of file qep_struct\&.h\&.
+.PP
+Referenced by qep_param_calc()\&.
+.SS "int32_t Struct_QEP::filter_fc_speed_q16"
+
+.PP
+Definition at line 41 of file qep_struct\&.h\&.
+.PP
+Referenced by qep_param_write()\&.
+.SS "int32_t Struct_QEP::index_counter"
+
+.PP
+Definition at line 28 of file qep_struct\&.h\&.
+.PP
+Referenced by qep_isr(), and qep_reset()\&.
+.SS "int32_t Struct_QEP::kspd_radps_q6"
+
+.PP
+Definition at line 43 of file qep_struct\&.h\&.
+.SS "int32_t Struct_QEP::kspd_scaled_q14"
+
+.PP
+Definition at line 44 of file qep_struct\&.h\&.
+.SS "\fBfix16_t\fP* Struct_QEP::ptr_angcorr_offset"
+
+.PP
+Definition at line 46 of file qep_struct\&.h\&.
+.PP
+Referenced by qep_reset()\&.
+.SS "int32_t Struct_QEP::qep_angle"
+
+.PP
+Definition at line 35 of file qep_struct\&.h\&.
+.PP
+Referenced by qep_reset()\&.
+.SS "int32_t Struct_QEP::qep_calculated_angle"
+
+.PP
+Definition at line 25 of file qep_struct\&.h\&.
+.PP
+Referenced by qep_reset()\&.
+.SS "int32_t Struct_QEP::qep_mech_angle"
+
+.PP
+Definition at line 24 of file qep_struct\&.h\&.
+.SS "int32_t Struct_QEP::qep_previous_angle"
+
+.PP
+Definition at line 26 of file qep_struct\&.h\&.
+.PP
+Referenced by qep_reset()\&.
+.SS "uint32_t Struct_QEP::qep_resolution"
+
+.PP
+Definition at line 38 of file qep_struct\&.h\&.
+.PP
+Referenced by qep_param_write()\&.
+.SS "int32_t Struct_QEP::qep_spd_prefilt_scaled_q14"
+
+.PP
+Definition at line 34 of file qep_struct\&.h\&.
+.PP
+Referenced by qep_reset()\&.
+.SS "int32_t Struct_QEP::qep_spd_radps"
+
+.PP
+Definition at line 31 of file qep_struct\&.h\&.
+.PP
+Referenced by qep_reset()\&.
+.SS "int32_t Struct_QEP::qep_spd_scaled_q14"
+
+.PP
+Definition at line 32 of file qep_struct\&.h\&.
+.PP
+Referenced by qep_reset()\&.
+.SS "int32_t Struct_QEP::qep_spd_scaled_q28"
+
+.PP
+Definition at line 33 of file qep_struct\&.h\&.
+.PP
+Referenced by qep_reset()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

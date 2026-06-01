@@ -1,0 +1,77 @@
+.TH "Struct_State" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Struct_State
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <state_struct\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBeStateAppMain\fP \fBmain\fP"
+.br
+.ti -1c
+.RI "\fBeStatePreStart\fP \fBprestart\fP"
+.br
+.ti -1c
+.RI "\fBeStateAppControl\fP \fBappcontrol\fP"
+.br
+.ti -1c
+.RI "\fBeStateControl\fP \fBcontrol\fP"
+.br
+.ti -1c
+.RI "\fBeStatePost\fP \fBpost\fP"
+.br
+.ti -1c
+.RI "\fBeStateADCCal\fP \fBadccal\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 90 of file state_struct\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "\fBeStateADCCal\fP Struct_State::adccal"
+
+.PP
+Definition at line 97 of file state_struct\&.h\&.
+.PP
+Referenced by sm_mainsub_post()\&.
+.SS "\fBeStateAppControl\fP Struct_State::appcontrol"
+
+.PP
+Definition at line 94 of file state_struct\&.h\&.
+.PP
+Referenced by sm_mainsub_post(), sm_mainsub_prestart(), statemachine_appmain(), and systemvar_init()\&.
+.SS "\fBeStateControl\fP Struct_State::control"
+
+.PP
+Definition at line 95 of file state_struct\&.h\&.
+.PP
+Referenced by sm_mainsub_prestart()\&.
+.SS "\fBeStateAppMain\fP Struct_State::main"
+
+.PP
+Definition at line 92 of file state_struct\&.h\&.
+.PP
+Referenced by check_param_while_run(), hall_timer_isr(), lbg1_statemon(), sm_mainsub_prestart(), statemachine_appmain(), and systemvar_init()\&.
+.SS "\fBeStatePost\fP Struct_State::post"
+
+.PP
+Definition at line 96 of file state_struct\&.h\&.
+.PP
+Referenced by sm_mainsub_post()\&.
+.SS "\fBeStatePreStart\fP Struct_State::prestart"
+
+.PP
+Definition at line 93 of file state_struct\&.h\&.
+.PP
+Referenced by sm_mainsub_prestart()\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

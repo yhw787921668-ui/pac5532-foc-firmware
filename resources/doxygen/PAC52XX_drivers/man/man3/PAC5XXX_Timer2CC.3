@@ -1,0 +1,1974 @@
+.TH "PAC5XXX_Timer2CC" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Timer2CC \- PAC5XXX Timer Capture/Compare/PWM outputs (TIMER2CC)
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPAC5XXX_Timer2CC_TypeDef\fP"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_TIMERCC_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_TIMERCC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_TIMERCC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_TIMERCC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_TIMERCC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_TIMERCC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_TIMERCC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_TIMERCC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_TIMERCC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_TIMERCC_TypeDef::CCEDGE\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_TIMERCC_TypeDef::CCINT\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_TIMERCC_TypeDef::CCINTEN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_TIMERCC_TypeDef::CCMODE\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_TIMERCC_TypeDef::__pad0__\fP: 27"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_TIMERCC_TypeDef::CCEDGE\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_TIMERCC_TypeDef::CCINT\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_TIMERCC_TypeDef::CCINTEN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_TIMERCC_TypeDef::CCMODE\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_TIMERCC_TypeDef::__pad0__\fP: 27"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_DTGCTL_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_DTGCTL_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_DTGCTL_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_DTGCTL_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_DTGCTL_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_DTGCTL_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_DTGCTL_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_DTGCTL_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_DTGCTL_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_DTGCTL_TypeDef::__pad0__\fP: 4"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_DTGCTL_TypeDef::INV_B\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_DTGCTL_TypeDef::INV_A\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_DTGCTL_TypeDef::OTP\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_DTGCTL_TypeDef::BYPASS\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_DTGCTL_TypeDef::__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_DTGCTL_TypeDef::__pad0__\fP: 4"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_DTGCTL_TypeDef::INV_B\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_DTGCTL_TypeDef::INV_A\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_DTGCTL_TypeDef::OTP\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_DTGCTL_TypeDef::BYPASS\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_DTGCTL_TypeDef::__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer4CC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_Timer4CC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer4CC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_Timer4CC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::PRDL\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer4CC_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::CLR\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::SS\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::INT\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::INTEN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::CLKDIV\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::CLK\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::MODE\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::SYNC\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::DTGCLKDIVEN\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer4CC_TypeDef::__pad1__\fP: 18"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::PRDL\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_Timer4CC_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::CLR\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::SS\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::INT\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::INTEN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::CLKDIV\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::CLK\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::MODE\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::SYNC\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::DTGCLKDIVEN\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_Timer4CC_TypeDef::__pad1__\fP: 18"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_Timer4CC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_Timer4CC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::PRDL\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_Timer4CC_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::CLR\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::SS\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::INT\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::INTEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::CLKDIV\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::CLK\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::MODE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::SYNC\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::DTGCLKDIVEN\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_Timer4CC_TypeDef::__pad1__\fP: 18"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_Timer4CC_TypeDef::CTL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::PRD\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::CTR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer4CC_TypeDef::RESERVED5\fP [13]"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP \fBPAC5XXX_Timer4CC_TypeDef::CCTRL0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::CTR0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP \fBPAC5XXX_Timer4CC_TypeDef::CCTRL1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::CTR1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP \fBPAC5XXX_Timer4CC_TypeDef::CCTRL2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::CTR2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP \fBPAC5XXX_Timer4CC_TypeDef::CCTRL3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::CTR3\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer4CC_TypeDef::RESERVED6\fP [16]"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_DTGCTL_TypeDef\fP \fBPAC5XXX_Timer4CC_TypeDef::DTGCTL0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::DTGLED0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer4CC_TypeDef::DTGTED0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer8CC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_Timer8CC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer8CC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_Timer8CC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::PRDL\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer8CC_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::CLR\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::SS\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::INT\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::INTEN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::CLKDIV\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::CLK\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::MODE\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::SYNC\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::DTGCLKDIVEN\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer8CC_TypeDef::__pad1__\fP: 18"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::PRDL\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_Timer8CC_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::CLR\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::SS\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::INT\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::INTEN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::CLKDIV\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::CLK\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::MODE\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::SYNC\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::DTGCLKDIVEN\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_Timer8CC_TypeDef::__pad1__\fP: 18"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_Timer8CC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_Timer8CC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::PRDL\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_Timer8CC_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::CLR\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::SS\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::INT\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::INTEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::CLKDIV\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::CLK\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::MODE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::SYNC\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::DTGCLKDIVEN\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_Timer8CC_TypeDef::__pad1__\fP: 18"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_Timer8CC_TypeDef::CTL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::PRD\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::CTR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer8CC_TypeDef::RESERVED0\fP [13]"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP \fBPAC5XXX_Timer8CC_TypeDef::CCTRL0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::CTR0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP \fBPAC5XXX_Timer8CC_TypeDef::CCTRL1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::CTR1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP \fBPAC5XXX_Timer8CC_TypeDef::CCTRL2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::CTR2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP \fBPAC5XXX_Timer8CC_TypeDef::CCTRL3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::CTR3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP \fBPAC5XXX_Timer8CC_TypeDef::CCTRL4\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::CTR4\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP \fBPAC5XXX_Timer8CC_TypeDef::CCTRL5\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::CTR5\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP \fBPAC5XXX_Timer8CC_TypeDef::CCTRL6\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::CTR6\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP \fBPAC5XXX_Timer8CC_TypeDef::CCTRL7\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::CTR7\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer8CC_TypeDef::RESERVED1\fP [8]"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_DTGCTL_TypeDef\fP \fBPAC5XXX_Timer8CC_TypeDef::DTGCTL0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::DTGLED0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::DTGTED0\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer8CC_TypeDef::RESERVED2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_DTGCTL_TypeDef\fP \fBPAC5XXX_Timer8CC_TypeDef::DTGCTL1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::DTGLED1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::DTGTED1\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer8CC_TypeDef::RESERVED3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_DTGCTL_TypeDef\fP \fBPAC5XXX_Timer8CC_TypeDef::DTGCTL2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::DTGLED2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::DTGTED2\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer8CC_TypeDef::RESERVED4\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_DTGCTL_TypeDef\fP \fBPAC5XXX_Timer8CC_TypeDef::DTGCTL3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::DTGLED3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer8CC_TypeDef::DTGTED3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer2CC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_Timer2CC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer2CC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_Timer2CC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::PRDL\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer2CC_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::CLR\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::SS\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::INT\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::INTEN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::CLKDIV\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::CLK\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::MODE\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::SYNC\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::DTGCLKDIVEN\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer2CC_TypeDef::__pad1__\fP: 18"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::PRDL\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_Timer2CC_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::CLR\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::SS\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::INT\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::INTEN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::CLKDIV\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::CLK\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::MODE\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::SYNC\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::DTGCLKDIVEN\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_Timer2CC_TypeDef::__pad1__\fP: 18"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_Timer2CC_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_Timer2CC_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::PRDL\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_Timer2CC_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::CLR\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::SS\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::INT\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::INTEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::CLKDIV\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::CLK\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::MODE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::SYNC\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::DTGCLKDIVEN\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_Timer2CC_TypeDef::__pad1__\fP: 18"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_Timer2CC_TypeDef::CTL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::PRD\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::CTR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer2CC_TypeDef::RESERVED5\fP [13]"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP \fBPAC5XXX_Timer2CC_TypeDef::CCTRL0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::CTR0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP \fBPAC5XXX_Timer2CC_TypeDef::CCTRL1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::CTR1\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_Timer2CC_TypeDef::RESERVED6\fP [20]"
+.br
+.ti -1c
+.RI "\fB__IO\fP \fBPAC5XXX_DTGCTL_TypeDef\fP \fBPAC5XXX_Timer2CC_TypeDef::DTGCTL0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::DTGLED0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_Timer2CC_TypeDef::DTGTED0\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Variable Documentation"
+.PP 
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 69 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t PAC5XXX_TIMERCC_TypeDef::__pad0__"
+
+.PP
+Definition at line 69 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 73 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 80 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 89 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t PAC5XXX_DTGCTL_TypeDef::__pad0__"
+
+.PP
+Definition at line 89 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 93 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 96 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t PAC5XXX_Timer4CC_TypeDef::__pad0__"
+
+.PP
+Definition at line 115 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 115 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 119 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 123 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t PAC5XXX_Timer8CC_TypeDef::__pad0__"
+
+.PP
+Definition at line 164 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 164 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 168 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 172 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t PAC5XXX_Timer2CC_TypeDef::__pad0__"
+
+.PP
+Definition at line 237 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 237 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 241 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 245 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t PAC5XXX_DTGCTL_TypeDef::__pad1__"
+
+.PP
+Definition at line 101 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 101 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t PAC5XXX_Timer4CC_TypeDef::__pad1__"
+
+.PP
+Definition at line 133 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 133 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t PAC5XXX_Timer8CC_TypeDef::__pad1__"
+
+.PP
+Definition at line 182 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 182 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t PAC5XXX_Timer2CC_TypeDef::__pad1__"
+
+.PP
+Definition at line 255 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 255 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 72 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_TIMERCC_TypeDef::b"
+
+.PP
+Definition at line 72 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_DTGCTL_TypeDef::b"
+
+.PP
+Definition at line 92 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 92 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::b"
+
+.PP
+Definition at line 118 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 118 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::b"
+
+.PP
+Definition at line 167 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 167 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer2CC_TypeDef::b"
+
+.PP
+Definition at line 240 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 240 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_DTGCTL_TypeDef::BYPASS"
+Pass-through mode 
+.br
+ 
+.PP
+Definition at line 100 of file pac5xxx_Timers\&.h\&.
+.PP
+Referenced by pac5xxx_dtg_config()\&.
+.SS "__IO { \&.\&.\&. } ::BYPASS"
+Pass-through mode 
+.br
+ 
+.PP
+Definition at line 100 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_TIMERCC_TypeDef::CCEDGE"
+Capture Edge Detect 
+.br
+ 
+.PP
+Definition at line 76 of file pac5xxx_Timers\&.h\&.
+.PP
+Referenced by pac5xxx_timer_cctrl_capture_config()\&.
+.SS "__IO { \&.\&.\&. } ::CCEDGE"
+Capture Edge Detect 
+.br
+ 
+.PP
+Definition at line 76 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_TIMERCC_TypeDef::CCINT"
+Capture/Compare Interrupt Flag 
+.br
+ 
+.PP
+Definition at line 77 of file pac5xxx_Timers\&.h\&.
+.PP
+Referenced by pac5xxx_timer_cctrl_capture_config(), and pac5xxx_timer_cctrl_config()\&.
+.SS "__IO { \&.\&.\&. } ::CCINT"
+Capture/Compare Interrupt Flag 
+.br
+ 
+.PP
+Definition at line 77 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CCINTEN"
+Capture/Compare Interrupt Enabled 
+.br
+ 
+.PP
+Definition at line 78 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_TIMERCC_TypeDef::CCINTEN"
+Capture/Compare Interrupt Enabled 
+.br
+ 
+.PP
+Definition at line 78 of file pac5xxx_Timers\&.h\&.
+.PP
+Referenced by pac5xxx_timer_cctrl_capture_config(), and pac5xxx_timer_cctrl_config()\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_TIMERCC_TypeDef::CCMODE"
+Capture Mode 
+.br
+ 
+.PP
+Definition at line 79 of file pac5xxx_Timers\&.h\&.
+.PP
+Referenced by pac5xxx_timer_cctrl_capture_config()\&.
+.SS "__IO { \&.\&.\&. } ::CCMODE"
+Capture Mode 
+.br
+ 
+.PP
+Definition at line 79 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP PAC5XXX_Timer4CC_TypeDef::CCTRL0"
+Offset: 0x0040 Timer Capture/Compare 0 Control Register 
+.br
+ 
+.PP
+Definition at line 141 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP PAC5XXX_Timer8CC_TypeDef::CCTRL0"
+Offset: 0x0040 Timer Capture/Compare 0 Control Register 
+.br
+ 
+.PP
+Definition at line 190 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP PAC5XXX_Timer2CC_TypeDef::CCTRL0"
+Offset: 0x0040 Timer Capture/Compare 0 Control Register 
+.br
+ 
+.PP
+Definition at line 263 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP PAC5XXX_Timer4CC_TypeDef::CCTRL1"
+Offset: 0x0048 Timer Capture/Compare 1 Control Register 
+.br
+ 
+.PP
+Definition at line 143 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP PAC5XXX_Timer8CC_TypeDef::CCTRL1"
+Offset: 0x0048 Timer Capture/Compare 1 Control Register 
+.br
+ 
+.PP
+Definition at line 192 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP PAC5XXX_Timer2CC_TypeDef::CCTRL1"
+Offset: 0x0048 Timer Capture/Compare 1 Control Register 
+.br
+ 
+.PP
+Definition at line 265 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP PAC5XXX_Timer4CC_TypeDef::CCTRL2"
+Offset: 0x0050 Timer Capture/Compare 2 Control Register 
+.br
+ 
+.PP
+Definition at line 145 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP PAC5XXX_Timer8CC_TypeDef::CCTRL2"
+Offset: 0x0050 Timer Capture/Compare 2 Control Register 
+.br
+ 
+.PP
+Definition at line 194 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP PAC5XXX_Timer4CC_TypeDef::CCTRL3"
+Offset: 0x0058 Timer Capture/Compare 3 Control Register 
+.br
+ 
+.PP
+Definition at line 147 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP PAC5XXX_Timer8CC_TypeDef::CCTRL3"
+Offset: 0x0058 Timer Capture/Compare 3 Control Register 
+.br
+ 
+.PP
+Definition at line 196 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP PAC5XXX_Timer8CC_TypeDef::CCTRL4"
+Offset: 0x0060 Timer Capture/Compare 4 Control Register 
+.br
+ 
+.PP
+Definition at line 198 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP PAC5XXX_Timer8CC_TypeDef::CCTRL5"
+Offset: 0x0068 Timer Capture/Compare 5 Control Register 
+.br
+ 
+.PP
+Definition at line 200 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP PAC5XXX_Timer8CC_TypeDef::CCTRL6"
+Offset: 0x0070 Timer Capture/Compare 6 Control Register 
+.br
+ 
+.PP
+Definition at line 202 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_TIMERCC_TypeDef\fP PAC5XXX_Timer8CC_TypeDef::CCTRL7"
+Offset: 0x0078 Timer Capture/Compare 7 Control Register 
+.br
+ 
+.PP
+Definition at line 204 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::CLK"
+Timer Input Clock Source 
+.br
+ 
+.PP
+Definition at line 129 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CLK"
+Timer Input Clock Source 
+.br
+ 
+.PP
+Definition at line 129 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::CLK"
+Timer Input Clock Source 
+.br
+ 
+.PP
+Definition at line 178 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CLK"
+Timer Input Clock Source 
+.br
+ 
+.PP
+Definition at line 178 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer2CC_TypeDef::CLK"
+Timer Input Clock Source 
+.br
+ 
+.PP
+Definition at line 251 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CLK"
+Timer Input Clock Source 
+.br
+ 
+.PP
+Definition at line 251 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CLKDIV"
+Timer Input Clock divider 
+.br
+ 
+.PP
+Definition at line 128 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::CLKDIV"
+Timer Input Clock divider 
+.br
+ 
+.PP
+Definition at line 128 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::CLKDIV"
+Timer Input Clock pre-scaler 
+.br
+ 
+.PP
+Definition at line 177 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CLKDIV"
+Timer Input Clock pre-scaler 
+.br
+ 
+.PP
+Definition at line 177 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer2CC_TypeDef::CLKDIV"
+Timer Input Clock pre-scaler 
+.br
+ 
+.PP
+Definition at line 250 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CLKDIV"
+Timer Input Clock pre-scaler 
+.br
+ 
+.PP
+Definition at line 250 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::CLR"
+Timer Clear 
+.br
+ 
+.PP
+Definition at line 124 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CLR"
+Timer Clear 
+.br
+ 
+.PP
+Definition at line 124 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::CLR"
+Timer Clear 
+.br
+ 
+.PP
+Definition at line 173 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CLR"
+Timer Clear 
+.br
+ 
+.PP
+Definition at line 173 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer2CC_TypeDef::CLR"
+Timer Clear 
+.br
+ 
+.PP
+Definition at line 246 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CLR"
+Timer Clear 
+.br
+ 
+.PP
+Definition at line 246 of file pac5xxx_Timers\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_Timer4CC_TypeDef::CTL"
+< TxCTRL<n>: Offset: 0x0000 Timer Control Register 
+.br
+ 
+.SS "union { \&.\&.\&. }  PAC5XXX_Timer8CC_TypeDef::CTL"
+< TxCTRL<n>: Offset: 0x0000 Timer Control Register 
+.br
+ 
+.SS "union { \&.\&.\&. }  PAC5XXX_Timer2CC_TypeDef::CTL"
+< TxCTRL<n>: Offset: 0x0000 Timer Control Register 
+.br
+ 
+.SS "\fB__I\fP uint32_t PAC5XXX_Timer4CC_TypeDef::CTR"
+Offset: 0x0008 Timer Counter Register 
+.br
+ 
+.PP
+Definition at line 138 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_Timer8CC_TypeDef::CTR"
+Offset: 0x0008 Timer Counter Register 
+.br
+ 
+.PP
+Definition at line 187 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_Timer2CC_TypeDef::CTR"
+Offset: 0x0008 Timer Counter Register 
+.br
+ 
+.PP
+Definition at line 260 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::CTR0"
+Offset: 0x0044 Timer Capture/Compare 0 Counter Register 
+.br
+ 
+.PP
+Definition at line 142 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::CTR0"
+Offset: 0x0044 Timer Capture/Compare 0 Counter Register 
+.br
+ 
+.PP
+Definition at line 191 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer2CC_TypeDef::CTR0"
+Offset: 0x0044 Timer Capture/Compare 0 Counter Register 
+.br
+ 
+.PP
+Definition at line 264 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::CTR1"
+Offset: 0x004C Timer Capture/Compare 1 Counter Register 
+.br
+ 
+.PP
+Definition at line 144 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::CTR1"
+Offset: 0x004C Timer Capture/Compare 1 Counter Register 
+.br
+ 
+.PP
+Definition at line 193 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer2CC_TypeDef::CTR1"
+Offset: 0x004C Timer Capture/Compare 1 Counter Register 
+.br
+ 
+.PP
+Definition at line 266 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::CTR2"
+Offset: 0x0054 Timer Capture/Compare 2 Counter Register 
+.br
+ 
+.PP
+Definition at line 146 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::CTR2"
+Offset: 0x0054 Timer Capture/Compare 2 Counter Register 
+.br
+ 
+.PP
+Definition at line 195 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::CTR3"
+Offset: 0x005C Timer Capture/Compare 3 Counter Register 
+.br
+ 
+.PP
+Definition at line 148 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::CTR3"
+Offset: 0x005C Timer Capture/Compare 3 Counter Register 
+.br
+ 
+.PP
+Definition at line 197 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::CTR4"
+Offset: 0x0064 Timer Capture/Compare 4 Counter Register 
+.br
+ 
+.PP
+Definition at line 199 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::CTR5"
+Offset: 0x006C Timer Capture/Compare 5 Counter Register 
+.br
+ 
+.PP
+Definition at line 201 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::CTR6"
+Offset: 0x0074 Timer Capture/Compare 6 Counter Register 
+.br
+ 
+.PP
+Definition at line 203 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::CTR7"
+Offset: 0x007C Timer Capture/Compare 7 Counter Register 
+.br
+ 
+.PP
+Definition at line 205 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DTGCLKDIVEN"
+DTG clock divider enabled 
+.br
+ 
+.PP
+Definition at line 132 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::DTGCLKDIVEN"
+DTG clock divider enabled 
+.br
+ 
+.PP
+Definition at line 132 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::DTGCLKDIVEN"
+DTG clock divider enabled 
+.br
+ 
+.PP
+Definition at line 181 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DTGCLKDIVEN"
+DTG clock divider enabled 
+.br
+ 
+.PP
+Definition at line 181 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer2CC_TypeDef::DTGCLKDIVEN"
+DTG clock pre-scaling enabled 
+.br
+ 
+.PP
+Definition at line 254 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DTGCLKDIVEN"
+DTG clock pre-scaling enabled 
+.br
+ 
+.PP
+Definition at line 254 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_DTGCTL_TypeDef\fP PAC5XXX_Timer4CC_TypeDef::DTGCTL0"
+Offset: 0x00A0 Dead-Time Generator 0 Control Register 
+.br
+ 
+.PP
+Definition at line 151 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_DTGCTL_TypeDef\fP PAC5XXX_Timer8CC_TypeDef::DTGCTL0"
+Offset: 0x00A0 Dead-Time Generator 0 Control Register 
+.br
+ 
+.PP
+Definition at line 207 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_DTGCTL_TypeDef\fP PAC5XXX_Timer2CC_TypeDef::DTGCTL0"
+Offset: 0x00A0 Dead-Time Generator 0 Control Register 
+.br
+ 
+.PP
+Definition at line 268 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_DTGCTL_TypeDef\fP PAC5XXX_Timer8CC_TypeDef::DTGCTL1"
+Offset: 0x00B0 Dead-Time Generator 1 Control Register 
+.br
+ 
+.PP
+Definition at line 211 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_DTGCTL_TypeDef\fP PAC5XXX_Timer8CC_TypeDef::DTGCTL2"
+Offset: 0x00C0 Dead-Time Generator 2 Control Register 
+.br
+ 
+.PP
+Definition at line 215 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP \fBPAC5XXX_DTGCTL_TypeDef\fP PAC5XXX_Timer8CC_TypeDef::DTGCTL3"
+Offset: 0x00D0 Dead-Time Generator 3 Control Register 
+.br
+ 
+.PP
+Definition at line 219 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::DTGLED0"
+Offset: 0x00A4 Dead-Time Generator 0 Leading-Edge Delay Reg 
+.br
+ 
+.PP
+Definition at line 152 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::DTGLED0"
+Offset: 0x00A4 Dead-Time Generator 0 Leading-Edge Delay Reg 
+.br
+ 
+.PP
+Definition at line 208 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer2CC_TypeDef::DTGLED0"
+Offset: 0x00A4 Dead-Time Generator 0 Leading-Edge Delay Reg 
+.br
+ 
+.PP
+Definition at line 269 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::DTGLED1"
+Offset: 0x00B4 Dead-Time Generator 1 Leading-Edge Delay Reg 
+.br
+ 
+.PP
+Definition at line 212 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::DTGLED2"
+Offset: 0x00C4 Dead-Time Generator 2 Leading-Edge Delay Reg 
+.br
+ 
+.PP
+Definition at line 216 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::DTGLED3"
+Offset: 0x00D4 Dead-Time Generator 3 Leading-Edge Delay Reg 
+.br
+ 
+.PP
+Definition at line 220 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::DTGTED0"
+Offset: 0x00A8 Dead-Time Generator 0 Trailing-Edge Delay Reg 
+.PP
+Definition at line 153 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::DTGTED0"
+Offset: 0x00A8 Dead-Time Generator 0 Trailing-Edge Delay Reg 
+.PP
+Definition at line 209 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer2CC_TypeDef::DTGTED0"
+Offset: 0x00A8 Dead-Time Generator 0 Trailing-Edge Delay Reg 
+.PP
+Definition at line 270 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::DTGTED1"
+Offset: 0x00B8 Dead-Time Generator 1 Trailing-Edge Delay Reg 
+.PP
+Definition at line 213 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::DTGTED2"
+Offset: 0x00C8 Dead-Time Generator 2 Trailing-Edge Delay Reg 
+.PP
+Definition at line 217 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::DTGTED3"
+Offset: 0x00D8 Dead-Time Generator 3 Trailing-Edge Delay Reg 
+.PP
+Definition at line 221 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::INT"
+Base Timer interrupt flag 
+.br
+ 
+.PP
+Definition at line 126 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::INT"
+Base Timer interrupt flag 
+.br
+ 
+.PP
+Definition at line 126 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::INT"
+Base Timer interrupt flag 
+.br
+ 
+.PP
+Definition at line 175 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::INT"
+Base Timer interrupt flag 
+.br
+ 
+.PP
+Definition at line 175 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer2CC_TypeDef::INT"
+Base Timer interrupt flag 
+.br
+ 
+.PP
+Definition at line 248 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::INT"
+Base Timer interrupt flag 
+.br
+ 
+.PP
+Definition at line 248 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::INTEN"
+Base Timer interrupt enable 
+.br
+ 
+.PP
+Definition at line 127 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::INTEN"
+Base Timer interrupt enable 
+.br
+ 
+.PP
+Definition at line 127 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::INTEN"
+Base Timer interrupt enable 
+.br
+ 
+.PP
+Definition at line 176 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::INTEN"
+Base Timer interrupt enable 
+.br
+ 
+.PP
+Definition at line 176 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer2CC_TypeDef::INTEN"
+Base Timer interrupt enable 
+.br
+ 
+.PP
+Definition at line 249 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::INTEN"
+Base Timer interrupt enable 
+.br
+ 
+.PP
+Definition at line 249 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_DTGCTL_TypeDef::INV_A"
+Invert PWM_OUT[n] 
+.br
+ 
+.PP
+Definition at line 98 of file pac5xxx_Timers\&.h\&.
+.PP
+Referenced by pac5xxx_dtg_config()\&.
+.SS "__IO { \&.\&.\&. } ::INV_A"
+Invert PWM_OUT[n] 
+.br
+ 
+.PP
+Definition at line 98 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_DTGCTL_TypeDef::INV_B"
+Invert PWM_OUT[n+1] 
+.br
+ 
+.PP
+Definition at line 97 of file pac5xxx_Timers\&.h\&.
+.PP
+Referenced by pac5xxx_dtg_config()\&.
+.SS "__IO { \&.\&.\&. } ::INV_B"
+Invert PWM_OUT[n+1] 
+.br
+ 
+.PP
+Definition at line 97 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::MODE"
+Timer Mode 
+.br
+ 
+.PP
+Definition at line 130 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MODE"
+Timer Mode 
+.br
+ 
+.PP
+Definition at line 130 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::MODE"
+Timer Mode 
+.br
+ 
+.PP
+Definition at line 179 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MODE"
+Timer Mode 
+.br
+ 
+.PP
+Definition at line 179 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MODE"
+Timer Mode 
+.br
+ 
+.PP
+Definition at line 252 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer2CC_TypeDef::MODE"
+Timer Mode 
+.br
+ 
+.PP
+Definition at line 252 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_DTGCTL_TypeDef::OTP"
+Pulse on-time preservation 
+.br
+ 
+.PP
+Definition at line 99 of file pac5xxx_Timers\&.h\&.
+.PP
+Referenced by pac5xxx_dtg_config()\&.
+.SS "__IO { \&.\&.\&. } ::OTP"
+Pulse on-time preservation 
+.br
+ 
+.PP
+Definition at line 99 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::PRD"
+Offset: 0x0004 Timer Period Register 
+.br
+ 
+.PP
+Definition at line 137 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::PRD"
+Offset: 0x0004 Timer Period Register 
+.br
+ 
+.PP
+Definition at line 186 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer2CC_TypeDef::PRD"
+Offset: 0x0004 Timer Period Register 
+.br
+ 
+.PP
+Definition at line 259 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::PRDL"
+Compare Latch Period 
+.br
+ 
+.PP
+Definition at line 122 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::PRDL"
+Compare Latch Period 
+.br
+ 
+.PP
+Definition at line 122 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::PRDL"
+Compare Latch Period 
+.br
+ 
+.PP
+Definition at line 171 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::PRDL"
+Compare Latch Period 
+.br
+ 
+.PP
+Definition at line 171 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer2CC_TypeDef::PRDL"
+Compare Latch Period 
+.br
+ 
+.PP
+Definition at line 244 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::PRDL"
+Compare Latch Period 
+.br
+ 
+.PP
+Definition at line 244 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t PAC5XXX_Timer8CC_TypeDef::RESERVED0[13]"
+
+.PP
+Definition at line 188 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t PAC5XXX_Timer8CC_TypeDef::RESERVED1[8]"
+
+.PP
+Definition at line 206 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t PAC5XXX_Timer8CC_TypeDef::RESERVED2"
+
+.PP
+Definition at line 210 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t PAC5XXX_Timer8CC_TypeDef::RESERVED3"
+
+.PP
+Definition at line 214 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t PAC5XXX_Timer8CC_TypeDef::RESERVED4"
+
+.PP
+Definition at line 218 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t PAC5XXX_Timer4CC_TypeDef::RESERVED5[13]"
+
+.PP
+Definition at line 139 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t PAC5XXX_Timer2CC_TypeDef::RESERVED5[13]"
+
+.PP
+Definition at line 261 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t PAC5XXX_Timer4CC_TypeDef::RESERVED6[16]"
+
+.PP
+Definition at line 150 of file pac5xxx_Timers\&.h\&.
+.SS "uint32_t PAC5XXX_Timer2CC_TypeDef::RESERVED6[20]"
+
+.PP
+Definition at line 267 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 68 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_TIMERCC_TypeDef::s"
+
+.PP
+Definition at line 68 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 88 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_DTGCTL_TypeDef::s"
+
+.PP
+Definition at line 88 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::s"
+
+.PP
+Definition at line 114 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 114 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 163 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::s"
+
+.PP
+Definition at line 163 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer2CC_TypeDef::s"
+
+.PP
+Definition at line 236 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 236 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SS"
+Single-shot mode 
+.br
+ 
+.PP
+Definition at line 125 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::SS"
+Single-shot mode 
+.br
+ 
+.PP
+Definition at line 125 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::SS"
+Single-shot mode 
+.br
+ 
+.PP
+Definition at line 174 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SS"
+Single-shot mode 
+.br
+ 
+.PP
+Definition at line 174 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SS"
+Single-shot mode 
+.br
+ 
+.PP
+Definition at line 247 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer2CC_TypeDef::SS"
+Single-shot mode 
+.br
+ 
+.PP
+Definition at line 247 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer4CC_TypeDef::SYNC"
+Timer Sync 
+.br
+ 
+.PP
+Definition at line 131 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SYNC"
+Timer Sync 
+.br
+ 
+.PP
+Definition at line 131 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SYNC"
+Timer Sync 
+.br
+ 
+.PP
+Definition at line 180 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer8CC_TypeDef::SYNC"
+Timer Sync 
+.br
+ 
+.PP
+Definition at line 180 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_Timer2CC_TypeDef::SYNC"
+Timer Sync 
+.br
+ 
+.PP
+Definition at line 253 of file pac5xxx_Timers\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SYNC"
+Timer Sync 
+.br
+ 
+.PP
+Definition at line 253 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_TIMERCC_TypeDef::w"
+
+.PP
+Definition at line 66 of file pac5xxx_Timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_DTGCTL_TypeDef::w"
+
+.PP
+Definition at line 86 of file pac5xxx_Timers\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

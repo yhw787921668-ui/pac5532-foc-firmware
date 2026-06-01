@@ -1,0 +1,172 @@
+.TH "PAC55XX_WWDT_TYPEDEF" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC55XX_WWDT_TYPEDEF
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pac5xxx_wwdt\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBRSTEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCLKSEL\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCLKDIV\fP: 4"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBWWDTCTL\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCDV\fP: 16"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBWINDOW\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBWWDTCDCTL\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBWWDTCTR\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBIF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBRSTF\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 30"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBWWDTFLAG\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBWWDTCLEAR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBWWDTLOCK\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 56 of file pac5xxx_wwdt\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t PAC55XX_WWDT_TYPEDEF::__pad0__"
+
+.PP
+Definition at line 68 of file pac5xxx_wwdt\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_WWDT_TYPEDEF::CDV"
+
+.PP
+Definition at line 77 of file pac5xxx_wwdt\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_WWDT_TYPEDEF::CLKDIV"
+
+.PP
+Definition at line 67 of file pac5xxx_wwdt\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_WWDT_TYPEDEF::CLKSEL"
+
+.PP
+Definition at line 66 of file pac5xxx_wwdt\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_WWDT_TYPEDEF::EN"
+
+.PP
+Definition at line 63 of file pac5xxx_wwdt\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_WWDT_TYPEDEF::IF"
+
+.PP
+Definition at line 91 of file pac5xxx_wwdt\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_WWDT_TYPEDEF::INTEN"
+
+.PP
+Definition at line 64 of file pac5xxx_wwdt\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_WWDT_TYPEDEF::RSTEN"
+
+.PP
+Definition at line 65 of file pac5xxx_wwdt\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_WWDT_TYPEDEF::RSTF"
+
+.PP
+Definition at line 92 of file pac5xxx_wwdt\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_WWDT_TYPEDEF::w"
+
+.PP
+Definition at line 61 of file pac5xxx_wwdt\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_WWDT_TYPEDEF::WINDOW"
+
+.PP
+Definition at line 78 of file pac5xxx_wwdt\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_WWDT_TYPEDEF::WWDTCDCTL"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_WWDT_TYPEDEF::WWDTCLEAR"
+
+.PP
+Definition at line 98 of file pac5xxx_wwdt\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_WWDT_TYPEDEF::WWDTCTL"
+
+.SS "\fB__I\fP uint32_t PAC55XX_WWDT_TYPEDEF::WWDTCTR"
+
+.PP
+Definition at line 84 of file pac5xxx_wwdt\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_WWDT_TYPEDEF::WWDTFLAG"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_WWDT_TYPEDEF::WWDTLOCK"
+
+.PP
+Definition at line 101 of file pac5xxx_wwdt\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

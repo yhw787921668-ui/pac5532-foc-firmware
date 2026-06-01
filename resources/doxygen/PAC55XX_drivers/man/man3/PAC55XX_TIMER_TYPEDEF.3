@@ -1,0 +1,490 @@
+.TH "PAC55XX_TIMER_TYPEDEF" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC55XX_TIMER_TYPEDEF
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pac5xxx_timers\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBTIMER_CTL_TYPEDEF\fP \fBCTL\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCCR0IF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCCR1IF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCCR2IF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCCR3IF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCCR4IF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCCR5IF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCCR6IF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCCR7IF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBBASEIF\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 23"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBINT\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPERIOD\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPRD\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCOUNTER\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBCTR\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBQEPEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBDIR\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBDIRIE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPHAIE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPHBIE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBWRIE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBIDXEVIE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBIDXRST\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBDIRIF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPHAIF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPHBIF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBWRIF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBIDXEVIF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCNTAB\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCNTEDGE\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTICKS\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBIFCLEAR\fP: 5"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad1__\fP: 19"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBQEPCTL\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVER1\fP [59]"
+.br
+.ti -1c
+.RI "\fBCCTL_TYPEDEF\fP \fBCCTL0\fP"
+.br
+.ti -1c
+.RI "\fBCCTR_TYPEDEF\fP \fBCCTR0\fP"
+.br
+.ti -1c
+.RI "\fBCCTL_TYPEDEF\fP \fBCCTL1\fP"
+.br
+.ti -1c
+.RI "\fBCCTR_TYPEDEF\fP \fBCCTR1\fP"
+.br
+.ti -1c
+.RI "\fBCCTL_TYPEDEF\fP \fBCCTL2\fP"
+.br
+.ti -1c
+.RI "\fBCCTR_TYPEDEF\fP \fBCCTR2\fP"
+.br
+.ti -1c
+.RI "\fBCCTL_TYPEDEF\fP \fBCCTL3\fP"
+.br
+.ti -1c
+.RI "\fBCCTR_TYPEDEF\fP \fBCCTR3\fP"
+.br
+.ti -1c
+.RI "\fBCCTL_TYPEDEF\fP \fBCCTL4\fP"
+.br
+.ti -1c
+.RI "\fBCCTR_TYPEDEF\fP \fBCCTR4\fP"
+.br
+.ti -1c
+.RI "\fBCCTL_TYPEDEF\fP \fBCCTL5\fP"
+.br
+.ti -1c
+.RI "\fBCCTR_TYPEDEF\fP \fBCCTR5\fP"
+.br
+.ti -1c
+.RI "\fBCCTL_TYPEDEF\fP \fBCCTL6\fP"
+.br
+.ti -1c
+.RI "\fBCCTR_TYPEDEF\fP \fBCCTR6\fP"
+.br
+.ti -1c
+.RI "\fBCCTL_TYPEDEF\fP \fBCCTL7\fP"
+.br
+.ti -1c
+.RI "\fBCCTR_TYPEDEF\fP \fBCCTR7\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVER2\fP [48]"
+.br
+.ti -1c
+.RI "\fBDTGCTL_TYPEDEF\fP \fBDTGCTL0\fP"
+.br
+.ti -1c
+.RI "\fBDTGCTL_TYPEDEF\fP \fBDTGCTL1\fP"
+.br
+.ti -1c
+.RI "\fBDTGCTL_TYPEDEF\fP \fBDTGCTL2\fP"
+.br
+.ti -1c
+.RI "\fBDTGCTL_TYPEDEF\fP \fBDTGCTL3\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 199 of file pac5xxx_timers\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t PAC55XX_TIMER_TYPEDEF::__pad0__"
+
+.PP
+Definition at line 216 of file pac5xxx_timers\&.h\&.
+.SS "uint32_t PAC55XX_TIMER_TYPEDEF::__pad1__"
+
+.PP
+Definition at line 263 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::BASEIF"
+
+.PP
+Definition at line 215 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::CCR0IF"
+
+.PP
+Definition at line 207 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::CCR1IF"
+
+.PP
+Definition at line 208 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::CCR2IF"
+
+.PP
+Definition at line 209 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::CCR3IF"
+
+.PP
+Definition at line 210 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::CCR4IF"
+
+.PP
+Definition at line 211 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::CCR5IF"
+
+.PP
+Definition at line 212 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::CCR6IF"
+
+.PP
+Definition at line 213 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::CCR7IF"
+
+.PP
+Definition at line 214 of file pac5xxx_timers\&.h\&.
+.SS "\fBCCTL_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::CCTL0"
+
+.PP
+Definition at line 270 of file pac5xxx_timers\&.h\&.
+.SS "\fBCCTL_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::CCTL1"
+
+.PP
+Definition at line 275 of file pac5xxx_timers\&.h\&.
+.SS "\fBCCTL_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::CCTL2"
+
+.PP
+Definition at line 280 of file pac5xxx_timers\&.h\&.
+.SS "\fBCCTL_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::CCTL3"
+
+.PP
+Definition at line 285 of file pac5xxx_timers\&.h\&.
+.SS "\fBCCTL_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::CCTL4"
+
+.PP
+Definition at line 290 of file pac5xxx_timers\&.h\&.
+.SS "\fBCCTL_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::CCTL5"
+
+.PP
+Definition at line 295 of file pac5xxx_timers\&.h\&.
+.SS "\fBCCTL_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::CCTL6"
+
+.PP
+Definition at line 300 of file pac5xxx_timers\&.h\&.
+.SS "\fBCCTL_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::CCTL7"
+
+.PP
+Definition at line 305 of file pac5xxx_timers\&.h\&.
+.SS "\fBCCTR_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::CCTR0"
+
+.PP
+Definition at line 272 of file pac5xxx_timers\&.h\&.
+.SS "\fBCCTR_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::CCTR1"
+
+.PP
+Definition at line 277 of file pac5xxx_timers\&.h\&.
+.SS "\fBCCTR_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::CCTR2"
+
+.PP
+Definition at line 282 of file pac5xxx_timers\&.h\&.
+.SS "\fBCCTR_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::CCTR3"
+
+.PP
+Definition at line 287 of file pac5xxx_timers\&.h\&.
+.SS "\fBCCTR_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::CCTR4"
+
+.PP
+Definition at line 292 of file pac5xxx_timers\&.h\&.
+.SS "\fBCCTR_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::CCTR5"
+
+.PP
+Definition at line 297 of file pac5xxx_timers\&.h\&.
+.SS "\fBCCTR_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::CCTR6"
+
+.PP
+Definition at line 302 of file pac5xxx_timers\&.h\&.
+.SS "\fBCCTR_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::CCTR7"
+
+.PP
+Definition at line 307 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::CNTAB"
+
+.PP
+Definition at line 255 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::CNTEDGE"
+
+.PP
+Definition at line 256 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::COUNTER"
+
+.PP
+Definition at line 233 of file pac5xxx_timers\&.h\&.
+.SS "\fBTIMER_CTL_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::CTL"
+
+.PP
+Definition at line 201 of file pac5xxx_timers\&.h\&.
+.PP
+Referenced by pac5xxx_timer_base_config(), and pac5xxx_timer_clock_config()\&.
+.SS "union { \&.\&.\&. }  PAC55XX_TIMER_TYPEDEF::CTR"
+
+.SS "\fB__I\fP uint32_t PAC55XX_TIMER_TYPEDEF::DIR"
+
+.PP
+Definition at line 243 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::DIRIE"
+
+.PP
+Definition at line 244 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::DIRIF"
+
+.PP
+Definition at line 250 of file pac5xxx_timers\&.h\&.
+.SS "\fBDTGCTL_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::DTGCTL0"
+
+.PP
+Definition at line 312 of file pac5xxx_timers\&.h\&.
+.SS "\fBDTGCTL_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::DTGCTL1"
+
+.PP
+Definition at line 315 of file pac5xxx_timers\&.h\&.
+.SS "\fBDTGCTL_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::DTGCTL2"
+
+.PP
+Definition at line 318 of file pac5xxx_timers\&.h\&.
+.SS "\fBDTGCTL_TYPEDEF\fP PAC55XX_TIMER_TYPEDEF::DTGCTL3"
+
+.PP
+Definition at line 321 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::IDXEVIE"
+
+.PP
+Definition at line 248 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::IDXEVIF"
+
+.PP
+Definition at line 254 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::IDXRST"
+
+.PP
+Definition at line 249 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::IFCLEAR"
+
+.PP
+Definition at line 262 of file pac5xxx_timers\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_TIMER_TYPEDEF::INT"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::PERIOD"
+
+.PP
+Definition at line 224 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::PHAIE"
+
+.PP
+Definition at line 245 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::PHAIF"
+
+.PP
+Definition at line 251 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::PHBIE"
+
+.PP
+Definition at line 246 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::PHBIF"
+
+.PP
+Definition at line 252 of file pac5xxx_timers\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_TIMER_TYPEDEF::PRD"
+
+.PP
+Referenced by pac5xxx_timer_base_config()\&.
+.SS "union { \&.\&.\&. }  PAC55XX_TIMER_TYPEDEF::QEPCTL"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::QEPEN"
+
+.PP
+Definition at line 242 of file pac5xxx_timers\&.h\&.
+.SS "uint32_t PAC55XX_TIMER_TYPEDEF::RESERVER1[59]"
+
+.PP
+Definition at line 267 of file pac5xxx_timers\&.h\&.
+.SS "uint32_t PAC55XX_TIMER_TYPEDEF::RESERVER2[48]"
+
+.PP
+Definition at line 309 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::TICKS"
+
+.PP
+Definition at line 258 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::w"
+
+.PP
+Definition at line 205 of file pac5xxx_timers\&.h\&.
+.PP
+Referenced by pac5xxx_timer_base_config()\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::WRIE"
+
+.PP
+Definition at line 247 of file pac5xxx_timers\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_TIMER_TYPEDEF::WRIF"
+
+.PP
+Definition at line 253 of file pac5xxx_timers\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

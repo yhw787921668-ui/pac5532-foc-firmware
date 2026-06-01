@@ -1,0 +1,62 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/driver/pac5xxx_driver_adc.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/driver/pac5xxx_driver_adc.h \- Firmware driver for the PAC5XXX ADC\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_config\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_ADC\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_config_emux_io\fP (void)"
+.br
+.RI "This function configures the EMUX IO ports on the device for EMUX output\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_config_io\fP (uint8_t channel_mask)"
+.br
+.RI "This function configures the IO ports on the device for the given ADC channels\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_emux_config\fP (\fBADC_EMUX_CTL_TYPE\fP control_type, \fBADCEMUXCTL_DIV_TYPE\fP divider)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_config\fP (\fBADCCTL_MODE_TYPE\fP adc_mode, \fBADCCTL_CLKDIV_Type\fP clock_divider, int repeat)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_dtse_seq_config\fP (uint32_t entry_num, uint32_t adc_chan, uint32_t emux_data, uint32_t irq_num_en, uint32_t seq_done)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_dtse_seq_config_table\fP (\fBDTSE_SEQ_CFG_TYPEDEF\fP *ptr_seq_config_table, uint32_t emuxc, uint32_t channel, uint32_t reserved1, uint32_t seq_done, uint32_t emux_data, uint32_t irq_number, uint32_t irq_enable, uint32_t reserved2)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Firmware driver for the PAC5XXX ADC\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_driver_adc\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

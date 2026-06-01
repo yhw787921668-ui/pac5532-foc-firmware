@@ -1,0 +1,491 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_adc.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_adc.h \- CMSIS Cortex-M Header File for the PAC55XX ADC and DTSE\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBADC_RESULT_TYPEDEF\fP"
+.br
+.ti -1c
+.RI "union \fBDTSE_SEQ_CFG_TYPEDEF\fP"
+.br
+.ti -1c
+.RI "struct \fBPAC55XX_ADC_TYPEDEF\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSEQ_END\fP   1"
+.br
+.ti -1c
+.RI "#define \fBADC_IRQ_EN\fP   0x10"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBADCCTL_CLKDIV_TYPE\fP \fBADCCTL_CLKDIV_Type\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBADCEMUXCTL_DIV_TYPE\fP { \fBADCEMUXCTL_EMUXDIV_DIV1\fP = 0, \fBADCEMUXCTL_EMUXDIV_DIV2\fP = 1, \fBADCEMUXCTL_EMUXDIV_DIV3\fP = 2, \fBADCEMUXCTL_EMUXDIV_DIV4\fP = 3, \fBADCEMUXCTL_EMUXDIV_DIV5\fP = 4, \fBADCEMUXCTL_EMUXDIV_DIV6\fP = 5, \fBADCEMUXCTL_EMUXDIV_DIV7\fP = 6, \fBADCEMUXCTL_EMUXDIV_DIV8\fP = 7, \fBADCEMUXCTL_EMUXDIV_DIV9\fP = 8, \fBADCEMUXCTL_EMUXDIV_DIV10\fP = 9, \fBADCEMUXCTL_EMUXDIV_DIV11\fP = 10, \fBADCEMUXCTL_EMUXDIV_DIV12\fP = 11, \fBADCEMUXCTL_EMUXDIV_DIV13\fP = 12, \fBADCEMUXCTL_EMUXDIV_DIV14\fP = 13, \fBADCEMUXCTL_EMUXDIV_DIV15\fP = 14, \fBADCEMUXCTL_EMUXDIV_DIV16\fP = 15 }"
+.br
+.ti -1c
+.RI "enum \fBADC_EMUX_CTL_TYPE\fP { \fBADCEMUXCTL_EMUXDATA\fP = 0, \fBADCEMUXCTL_DTSE_SEQ\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBADCCTL_CLKDIV_TYPE\fP { \fBADCCTL_CLKDIV_DIV1\fP = 0, \fBADCCTL_CLKDIV_DIV2\fP = 1, \fBADCCTL_CLKDIV_DIV3\fP = 2, \fBADCCTL_CLKDIV_DIV4\fP = 3, \fBADCCTL_CLKDIV_DIV5\fP = 4, \fBADCCTL_CLKDIV_DIV6\fP = 5, \fBADCCTL_CLKDIV_DIV7\fP = 6, \fBADCCTL_CLKDIV_DIV8\fP = 7, \fBADCCTL_CLKDIV_DIV9\fP = 8, \fBADCCTL_CLKDIV_DIV10\fP = 9, \fBADCCTL_CLKDIV_DIV11\fP = 10, \fBADCCTL_CLKDIV_DIV12\fP = 11, \fBADCCTL_CLKDIV_DIV13\fP = 12, \fBADCCTL_CLKDIV_DIV14\fP = 13, \fBADCCTL_CLKDIV_DIV15\fP = 14, \fBADCCTL_CLKDIV_DIV16\fP = 15 }"
+.br
+.ti -1c
+.RI "enum \fBADC_CHAN_TYPE\fP { \fBADC0\fP = 0, \fBADC1\fP = 1, \fBADC2\fP = 2, \fBADC3\fP = 3, \fBADC4\fP = 4, \fBADC5\fP = 5, \fBADC6\fP = 6, \fBADC7\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBADCCTL_ADMUX_Type\fP { \fBADCCTL_ADMUX_AD0\fP = 0, \fBADCCTL_ADMUX_AD1\fP = 1, \fBADCCTL_ADMUX_AD2\fP = 2, \fBADCCTL_ADMUX_AD3\fP = 3, \fBADCCTL_ADMUX_AD4\fP = 4, \fBADCCTL_ADMUX_AD5\fP = 5, \fBADCCTL_ADMUX_AD6\fP = 6, \fBADCCTL_ADMUX_AD7\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBADCCTL_CHANNEL_TYPE\fP { \fBADCCTL_CHANNEL_ADC0\fP = 0, \fBADCCTL_CHANNEL_ADC1\fP = 1, \fBADCCTL_CHANNEL_ADC2\fP = 2, \fBADCCTL_CHANNEL_ADC3\fP = 3, \fBADCCTL_CHANNEL_ADC4\fP = 4, \fBADCCTL_CHANNEL_ADC5\fP = 5, \fBADCCTL_CHANNEL_ADC6\fP = 6, \fBADCCTL_CHANNEL_ADC7\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBADCCTL_MODE_TYPE\fP { \fBADCCTL_MODE_MANUAL\fP = 0, \fBADCCTL_MODE_DTSE\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBADCDTSE_TRIGEDGE_TYPE\fP { \fBADCDTSE_TRIGEDGE_UNUSED\fP = 0, \fBADCDTSE_TRIGEDGE_RISING\fP = 1, \fBADCDTSE_TRIGEDGE_FALLING\fP = 2, \fBADCDTSE_TRIGEDGE_BOTH\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBADCDTSE_IRQNUM_TYPE\fP { \fBADCDTSE_IRQNUM_ADC0\fP = 0, \fBADCDTSE_IRQNUM_ADC1\fP = 1, \fBADCDTSE_IRQNUM_ADC2\fP = 2, \fBADCDTSE_IRQNUM_ADC3\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBDTSE_IRQNUM_ENABLE_TYPE\fP { \fBADC_IRQ0_EN\fP = ADCDTSE_IRQNUM_ADC0 | ADC_IRQ_EN, \fBADC_IRQ1_EN\fP = ADCDTSE_IRQNUM_ADC1 | ADC_IRQ_EN, \fBADC_IRQ2_EN\fP = ADCDTSE_IRQNUM_ADC2 | ADC_IRQ_EN, \fBADC_IRQ3_EN\fP = ADCDTSE_IRQNUM_ADC3 | ADC_IRQ_EN }"
+.br
+.ti -1c
+.RI "enum \fBDTSESEQCFG_EMUXC_TYPE\fP { \fBDTSESEQCFG_EMUXC_NONE\fP = 0, \fBDTSESEQCFG_EMUXC_BSH\fP = 1, \fBDTSESEQCFG_EMUXC_AEOC\fP = 2 }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CMSIS Cortex-M Header File for the PAC55XX ADC and DTSE\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2017-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_adc\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ADC_IRQ_EN   0x10"
+
+.PP
+Definition at line 22 of file pac5xxx_adc\&.h\&.
+.SS "#define SEQ_END   1"
+
+.PP
+Definition at line 21 of file pac5xxx_adc\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef  enum \fBADCCTL_CLKDIV_TYPE\fP \fBADCCTL_CLKDIV_Type\fP"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBADC_CHAN_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADC0 \fP\fP
+.TP
+\fB\fIADC1 \fP\fP
+.TP
+\fB\fIADC2 \fP\fP
+.TP
+\fB\fIADC3 \fP\fP
+.TP
+\fB\fIADC4 \fP\fP
+.TP
+\fB\fIADC5 \fP\fP
+.TP
+\fB\fIADC6 \fP\fP
+.TP
+\fB\fIADC7 \fP\fP
+.PP
+Definition at line 71 of file pac5xxx_adc\&.h\&.
+.PP
+.nf
+71              {
+72     ADC0 = 0,                    // Chanel 0
+73     ADC1 = 1,                    // Chanel 1
+74     ADC2 = 2,                    // Chanel 2
+75     ADC3 = 3,                    // Chanel 3
+76     ADC4 = 4,                    // Chanel 4
+77     ADC5 = 5,                    // Chanel 5
+78     ADC6 = 6,                    // Chanel 6
+79     ADC7 = 7                     // Chanel 7
+80 } ADC_CHAN_TYPE;
+.fi
+.SS "enum \fBADC_EMUX_CTL_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCEMUXCTL_EMUXDATA \fP\fP
+.TP
+\fB\fIADCEMUXCTL_DTSE_SEQ \fP\fP
+.PP
+Definition at line 45 of file pac5xxx_adc\&.h\&.
+.PP
+.nf
+45              {
+46     ADCEMUXCTL_EMUXDATA = 0,                    // EMUX is controlled by EMUXDATA                              
+47     ADCEMUXCTL_DTSE_SEQ = 1                     // EMUX is controlled by DTSE sequencer commands  
+48 } ADC_EMUX_CTL_TYPE;
+.fi
+.SS "enum \fBADCCTL_ADMUX_Type\fP"
+ADCCTL Positive Input MUX channel select 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCCTL_ADMUX_AD0 \fP\fP
+ADC positive input MUX channel select: AD0 (Analog die) 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADMUX_AD1 \fP\fP
+ADC positive input MUX channel select: AD1 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADMUX_AD2 \fP\fP
+ADC positive input MUX channel select: AD2 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADMUX_AD3 \fP\fP
+ADC positive input MUX channel select: AD3 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADMUX_AD4 \fP\fP
+ADC positive input MUX channel select: AD4 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADMUX_AD5 \fP\fP
+ADC positive input MUX channel select: AD5 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADMUX_AD6 \fP\fP
+ADC positive input MUX channel select: AD5 
+.br
+ 
+.TP
+\fB\fIADCCTL_ADMUX_AD7 \fP\fP
+ADC positive input MUX channel select: AD5 
+.br
+ 
+.PP
+Definition at line 86 of file pac5xxx_adc\&.h\&.
+.PP
+.nf
+86               {
+87      ADCCTL_ADMUX_AD0 = 0,                        
+88      ADCCTL_ADMUX_AD1 = 1,                        
+89      ADCCTL_ADMUX_AD2 = 2,                        
+90      ADCCTL_ADMUX_AD3 = 3,                        
+91      ADCCTL_ADMUX_AD4 = 4,                        
+92      ADCCTL_ADMUX_AD5 = 5,                        
+93      ADCCTL_ADMUX_AD6 = 6,                        
+94      ADCCTL_ADMUX_AD7 = 7,                        
+95 //     ADCCTL_ADMUX_VSSA = 7                      // ADC Chan 7 is not VSSA on PAC55xx 
+96 } ADCCTL_ADMUX_Type;
+.fi
+.SS "enum \fBADCCTL_CHANNEL_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCCTL_CHANNEL_ADC0 \fP\fP
+.TP
+\fB\fIADCCTL_CHANNEL_ADC1 \fP\fP
+.TP
+\fB\fIADCCTL_CHANNEL_ADC2 \fP\fP
+.TP
+\fB\fIADCCTL_CHANNEL_ADC3 \fP\fP
+.TP
+\fB\fIADCCTL_CHANNEL_ADC4 \fP\fP
+.TP
+\fB\fIADCCTL_CHANNEL_ADC5 \fP\fP
+.TP
+\fB\fIADCCTL_CHANNEL_ADC6 \fP\fP
+.TP
+\fB\fIADCCTL_CHANNEL_ADC7 \fP\fP
+.PP
+Definition at line 101 of file pac5xxx_adc\&.h\&.
+.PP
+.nf
+101              {
+102     ADCCTL_CHANNEL_ADC0 = 0,                    // Chanel 0                             
+103     ADCCTL_CHANNEL_ADC1 = 1,                    // Chanel 1                             
+104     ADCCTL_CHANNEL_ADC2 = 2,                    // Chanel 2                             
+105     ADCCTL_CHANNEL_ADC3 = 3,                    // Chanel 3                             
+106     ADCCTL_CHANNEL_ADC4 = 4,                    // Chanel 4                             
+107     ADCCTL_CHANNEL_ADC5 = 5,                    // Chanel 5                             
+108     ADCCTL_CHANNEL_ADC6 = 6,                    // Chanel 6  
+109     ADCCTL_CHANNEL_ADC7 = 7                     // Chanel 7  
+110 } ADCCTL_CHANNEL_TYPE;
+.fi
+.SS "enum \fBADCCTL_CLKDIV_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCCTL_CLKDIV_DIV1 \fP\fP
+.TP
+\fB\fIADCCTL_CLKDIV_DIV2 \fP\fP
+.TP
+\fB\fIADCCTL_CLKDIV_DIV3 \fP\fP
+.TP
+\fB\fIADCCTL_CLKDIV_DIV4 \fP\fP
+.TP
+\fB\fIADCCTL_CLKDIV_DIV5 \fP\fP
+.TP
+\fB\fIADCCTL_CLKDIV_DIV6 \fP\fP
+.TP
+\fB\fIADCCTL_CLKDIV_DIV7 \fP\fP
+.TP
+\fB\fIADCCTL_CLKDIV_DIV8 \fP\fP
+.TP
+\fB\fIADCCTL_CLKDIV_DIV9 \fP\fP
+.TP
+\fB\fIADCCTL_CLKDIV_DIV10 \fP\fP
+.TP
+\fB\fIADCCTL_CLKDIV_DIV11 \fP\fP
+.TP
+\fB\fIADCCTL_CLKDIV_DIV12 \fP\fP
+.TP
+\fB\fIADCCTL_CLKDIV_DIV13 \fP\fP
+.TP
+\fB\fIADCCTL_CLKDIV_DIV14 \fP\fP
+.TP
+\fB\fIADCCTL_CLKDIV_DIV15 \fP\fP
+.TP
+\fB\fIADCCTL_CLKDIV_DIV16 \fP\fP
+.PP
+Definition at line 51 of file pac5xxx_adc\&.h\&.
+.PP
+.nf
+51              {
+52     ADCCTL_CLKDIV_DIV1  = 0,                    // ADC module clock input divider: /1                                
+53     ADCCTL_CLKDIV_DIV2  = 1,                    // ADC module clock input divider: /2                                 
+54     ADCCTL_CLKDIV_DIV3  = 2,                    // ADC module clock input divider: /3                                
+55     ADCCTL_CLKDIV_DIV4  = 3,                    // ADC module clock input divider: /4                                 
+56     ADCCTL_CLKDIV_DIV5  = 4,                    // ADC module clock input divider: /5                                
+57     ADCCTL_CLKDIV_DIV6  = 5,                    // ADC module clock input divider: /6                                
+58     ADCCTL_CLKDIV_DIV7  = 6,                    // ADC module clock input divider: /7                                 
+59     ADCCTL_CLKDIV_DIV8  = 7,                    // ADC module clock input divider: /8 
+60     ADCCTL_CLKDIV_DIV9  = 8,                    // ADC module clock input divider: /9                                 
+61     ADCCTL_CLKDIV_DIV10 = 9,                    // ADC module clock input divider: /10                                 
+62     ADCCTL_CLKDIV_DIV11 = 10,                   // ADC module clock input divider: /11                                
+63     ADCCTL_CLKDIV_DIV12 = 11,                   // ADC module clock input divider: /12                                 
+64     ADCCTL_CLKDIV_DIV13 = 12,                   // ADC module clock input divider: /13                               
+65     ADCCTL_CLKDIV_DIV14 = 13,                   // ADC module clock input divider: /14                                
+66     ADCCTL_CLKDIV_DIV15 = 14,                   // ADC module clock input divider: /15                                
+67     ADCCTL_CLKDIV_DIV16 = 15                    // ADC module clock input divider: /16    
+68 } ADCCTL_CLKDIV_TYPE, ADCCTL_CLKDIV_Type;
+.fi
+.SS "enum \fBADCCTL_MODE_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCCTL_MODE_MANUAL \fP\fP
+.TP
+\fB\fIADCCTL_MODE_DTSE \fP\fP
+.PP
+Definition at line 113 of file pac5xxx_adc\&.h\&.
+.PP
+.nf
+113              {
+114     ADCCTL_MODE_MANUAL = 0,                     // Manual Mode                             
+115     ADCCTL_MODE_DTSE   = 1                      // DTSE Mode 
+116 } ADCCTL_MODE_TYPE;
+.fi
+.SS "enum \fBADCDTSE_IRQNUM_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCDTSE_IRQNUM_ADC0 \fP\fP
+.TP
+\fB\fIADCDTSE_IRQNUM_ADC1 \fP\fP
+.TP
+\fB\fIADCDTSE_IRQNUM_ADC2 \fP\fP
+.TP
+\fB\fIADCDTSE_IRQNUM_ADC3 \fP\fP
+.PP
+Definition at line 127 of file pac5xxx_adc\&.h\&.
+.PP
+.nf
+127              {
+128     ADCDTSE_IRQNUM_ADC0 = 0,                    // Assert ADC0 IRQ to NVIC when the sequence has completed conversion                             
+129     ADCDTSE_IRQNUM_ADC1 = 1,                    // Assert ADC1 IRQ to NVIC when the sequence has completed conversion 
+130     ADCDTSE_IRQNUM_ADC2 = 2,                    // Assert ADC2 IRQ to NVIC when the sequence has completed conversion                            
+131     ADCDTSE_IRQNUM_ADC3 = 3                     // Assert ADC3 IRQ to NVIC when the sequence has completed conversion    
+132 } ADCDTSE_IRQNUM_TYPE;
+.fi
+.SS "enum \fBADCDTSE_TRIGEDGE_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCDTSE_TRIGEDGE_UNUSED \fP\fP
+.TP
+\fB\fIADCDTSE_TRIGEDGE_RISING \fP\fP
+.TP
+\fB\fIADCDTSE_TRIGEDGE_FALLING \fP\fP
+.TP
+\fB\fIADCDTSE_TRIGEDGE_BOTH \fP\fP
+.PP
+Definition at line 119 of file pac5xxx_adc\&.h\&.
+.PP
+.nf
+119              {
+120     ADCDTSE_TRIGEDGE_UNUSED  = 0,               // Trigger Unused
+121     ADCDTSE_TRIGEDGE_RISING  = 1,               // Trigger Rising Edge
+122     ADCDTSE_TRIGEDGE_FALLING = 2,               // Trigger Falling Edge                           
+123     ADCDTSE_TRIGEDGE_BOTH    = 3                // Trigger both Rising and Falling Edges   
+124 } ADCDTSE_TRIGEDGE_TYPE;
+.fi
+.SS "enum \fBADCEMUXCTL_DIV_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV1 \fP\fP
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV2 \fP\fP
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV3 \fP\fP
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV4 \fP\fP
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV5 \fP\fP
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV6 \fP\fP
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV7 \fP\fP
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV8 \fP\fP
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV9 \fP\fP
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV10 \fP\fP
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV11 \fP\fP
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV12 \fP\fP
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV13 \fP\fP
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV14 \fP\fP
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV15 \fP\fP
+.TP
+\fB\fIADCEMUXCTL_EMUXDIV_DIV16 \fP\fP
+.PP
+Definition at line 25 of file pac5xxx_adc\&.h\&.
+.PP
+.nf
+25              {
+26     ADCEMUXCTL_EMUXDIV_DIV1  = 0,               // External MUX clock divider: /1
+27     ADCEMUXCTL_EMUXDIV_DIV2  = 1,               // External MUX clock divider: /2
+28     ADCEMUXCTL_EMUXDIV_DIV3  = 2,               // External MUX clock divider: /3
+29     ADCEMUXCTL_EMUXDIV_DIV4  = 3,               // External MUX clock divider: /4
+30     ADCEMUXCTL_EMUXDIV_DIV5  = 4,               // External MUX clock divider: /5
+31     ADCEMUXCTL_EMUXDIV_DIV6  = 5,               // External MUX clock divider: /6
+32     ADCEMUXCTL_EMUXDIV_DIV7  = 6,               // External MUX clock divider: /7
+33     ADCEMUXCTL_EMUXDIV_DIV8  = 7,               // External MUX clock divider: /8  
+34     ADCEMUXCTL_EMUXDIV_DIV9  = 8,               // External MUX clock divider: /9
+35     ADCEMUXCTL_EMUXDIV_DIV10 = 9,               // External MUX clock divider: /10
+36     ADCEMUXCTL_EMUXDIV_DIV11 = 10,              // External MUX clock divider: /11                                
+37     ADCEMUXCTL_EMUXDIV_DIV12 = 11,              // External MUX clock divider: /12                                 
+38     ADCEMUXCTL_EMUXDIV_DIV13 = 12,              // External MUX clock divider: /13                                
+39     ADCEMUXCTL_EMUXDIV_DIV14 = 13,              // External MUX clock divider: /14                                
+40     ADCEMUXCTL_EMUXDIV_DIV15 = 14,              // External MUX clock divider: /15                                 
+41     ADCEMUXCTL_EMUXDIV_DIV16 = 15               // External MUX clock divider: /16    
+42 } ADCEMUXCTL_DIV_TYPE;
+.fi
+.SS "enum \fBDTSE_IRQNUM_ENABLE_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIADC_IRQ0_EN \fP\fP
+.TP
+\fB\fIADC_IRQ1_EN \fP\fP
+.TP
+\fB\fIADC_IRQ2_EN \fP\fP
+.TP
+\fB\fIADC_IRQ3_EN \fP\fP
+.PP
+Definition at line 135 of file pac5xxx_adc\&.h\&.
+.PP
+.nf
+135              {
+136     ADC_IRQ0_EN = ADCDTSE_IRQNUM_ADC0 | ADC_IRQ_EN,     // Assert ADC0 IRQ to NVIC when the sequence has completed conversion
+137     ADC_IRQ1_EN = ADCDTSE_IRQNUM_ADC1 | ADC_IRQ_EN,     // Assert ADC1 IRQ to NVIC when the sequence has completed conversion
+138     ADC_IRQ2_EN = ADCDTSE_IRQNUM_ADC2 | ADC_IRQ_EN,     // Assert ADC2 IRQ to NVIC when the sequence has completed conversion
+139     ADC_IRQ3_EN = ADCDTSE_IRQNUM_ADC3 | ADC_IRQ_EN      // Assert ADC3 IRQ to NVIC when the sequence has completed conversion
+140 } DTSE_IRQNUM_ENABLE_TYPE;
+.fi
+.SS "enum \fBDTSESEQCFG_EMUXC_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIDTSESEQCFG_EMUXC_NONE \fP\fP
+.TP
+\fB\fIDTSESEQCFG_EMUXC_BSH \fP\fP
+.TP
+\fB\fIDTSESEQCFG_EMUXC_AEOC \fP\fP
+.PP
+Definition at line 144 of file pac5xxx_adc\&.h\&.
+.PP
+.nf
+144              {
+145     DTSESEQCFG_EMUXC_NONE = 0,                  // Do not send EMUX Command
+146     DTSESEQCFG_EMUXC_BSH  = 1,                  // Send EMUX command before sample and hold
+147     DTSESEQCFG_EMUXC_AEOC = 2,                  // Send EMUX command after conversion complete
+148 } DTSESEQCFG_EMUXC_TYPE;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

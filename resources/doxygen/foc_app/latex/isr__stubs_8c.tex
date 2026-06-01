@@ -1,0 +1,169 @@
+\hypertarget{isr__stubs_8c}{}\doxysection{pac\+\_\+foc/src/isr/isr\+\_\+stubs.c File Reference}
+\label{isr__stubs_8c}\index{pac\_foc/src/isr/isr\_stubs.c@{pac\_foc/src/isr/isr\_stubs.c}}
+
+
+Use for N\+MI, Mem\+Ctl, Hard\+Fault and Default I\+SR handlers.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fault.\+h\char`\"{}}\newline
+Include dependency graph for isr\+\_\+stubs.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{isr__stubs_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{isr__stubs_8c_a6ad7a5e3ee69cb6db6a6b9111ba898bc}{N\+M\+I\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Process interrupt for N\+M\+I\+\_\+\+Handler. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{isr__stubs_8c_a2bffc10d5bd4106753b7c30e86903bea}{Hard\+Fault\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Process interrupt for Hard\+Fault\+\_\+\+Handler. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{isr__stubs_8c_a03656d46b9f0cda06a2279b94eed8345}{Mem\+Ctl\+\_\+\+I\+R\+Q\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Process interrupt for Mem\+Ctl\+\_\+\+I\+R\+Q\+Handler. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{isr__stubs_8c_a4e0c522c1bb26af24accaf20e6b87d12}{Default\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Process interrupt for Default\+\_\+\+Handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for N\+MI, Mem\+Ctl, Hard\+Fault and Default I\+SR handlers. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{isr__stubs_8c_a4e0c522c1bb26af24accaf20e6b87d12}\label{isr__stubs_8c_a4e0c522c1bb26af24accaf20e6b87d12}} 
+\index{isr\_stubs.c@{isr\_stubs.c}!Default\_Handler@{Default\_Handler}}
+\index{Default\_Handler@{Default\_Handler}!isr\_stubs.c@{isr\_stubs.c}}
+\doxysubsubsection{\texorpdfstring{Default\_Handler()}{Default\_Handler()}}
+{\footnotesize\ttfamily void Default\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Process interrupt for Default\+\_\+\+Handler. 
+
+
+
+Definition at line 50 of file isr\+\_\+stubs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51 \{}
+\DoxyCodeLine{52     \textcolor{comment}{// Go into an infinite loop.}}
+\DoxyCodeLine{53     \mbox{\hyperlink{fault_8c_aace1292fddb0bc3023763f890a5b8474}{fault}}();}
+\DoxyCodeLine{54 \}}
+
+\end{DoxyCode}
+
+
+References fault().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{isr__stubs_8c_a4e0c522c1bb26af24accaf20e6b87d12_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{isr__stubs_8c_a2bffc10d5bd4106753b7c30e86903bea}\label{isr__stubs_8c_a2bffc10d5bd4106753b7c30e86903bea}} 
+\index{isr\_stubs.c@{isr\_stubs.c}!HardFault\_Handler@{HardFault\_Handler}}
+\index{HardFault\_Handler@{HardFault\_Handler}!isr\_stubs.c@{isr\_stubs.c}}
+\doxysubsubsection{\texorpdfstring{HardFault\_Handler()}{HardFault\_Handler()}}
+{\footnotesize\ttfamily void Hard\+Fault\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Process interrupt for Hard\+Fault\+\_\+\+Handler. 
+
+
+
+Definition at line 34 of file isr\+\_\+stubs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36     \mbox{\hyperlink{fault_8c_aace1292fddb0bc3023763f890a5b8474}{fault}}();}
+\DoxyCodeLine{37 \}}
+
+\end{DoxyCode}
+
+
+References fault().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{isr__stubs_8c_a2bffc10d5bd4106753b7c30e86903bea_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{isr__stubs_8c_a03656d46b9f0cda06a2279b94eed8345}\label{isr__stubs_8c_a03656d46b9f0cda06a2279b94eed8345}} 
+\index{isr\_stubs.c@{isr\_stubs.c}!MemCtl\_IRQHandler@{MemCtl\_IRQHandler}}
+\index{MemCtl\_IRQHandler@{MemCtl\_IRQHandler}!isr\_stubs.c@{isr\_stubs.c}}
+\doxysubsubsection{\texorpdfstring{MemCtl\_IRQHandler()}{MemCtl\_IRQHandler()}}
+{\footnotesize\ttfamily void Mem\+Ctl\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Process interrupt for Mem\+Ctl\+\_\+\+I\+R\+Q\+Handler. 
+
+
+
+Definition at line 42 of file isr\+\_\+stubs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43 \{}
+\DoxyCodeLine{44     \mbox{\hyperlink{fault_8c_aace1292fddb0bc3023763f890a5b8474}{fault}}();}
+\DoxyCodeLine{45 \}}
+
+\end{DoxyCode}
+
+
+References fault().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{isr__stubs_8c_a03656d46b9f0cda06a2279b94eed8345_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{isr__stubs_8c_a6ad7a5e3ee69cb6db6a6b9111ba898bc}\label{isr__stubs_8c_a6ad7a5e3ee69cb6db6a6b9111ba898bc}} 
+\index{isr\_stubs.c@{isr\_stubs.c}!NMI\_Handler@{NMI\_Handler}}
+\index{NMI\_Handler@{NMI\_Handler}!isr\_stubs.c@{isr\_stubs.c}}
+\doxysubsubsection{\texorpdfstring{NMI\_Handler()}{NMI\_Handler()}}
+{\footnotesize\ttfamily void N\+M\+I\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Process interrupt for N\+M\+I\+\_\+\+Handler. 
+
+
+
+Definition at line 26 of file isr\+\_\+stubs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28     \mbox{\hyperlink{fault_8c_aace1292fddb0bc3023763f890a5b8474}{fault}}();}
+\DoxyCodeLine{29 \}}
+
+\end{DoxyCode}
+
+
+References fault().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{isr__stubs_8c_a6ad7a5e3ee69cb6db6a6b9111ba898bc_cgraph}
+\end{center}
+\end{figure}

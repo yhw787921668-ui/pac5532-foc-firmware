@@ -1,0 +1,201 @@
+.TH "pac_foc/src/app/status_struct.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/app/status_struct.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'maths\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBStruct_Status\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSTATUS_MAIN_ALLSTATUS\fP"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_MOTOR_GRP_CLEARREAD\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBeStatusMotor\fP { \fBSTATUS_MOTOR_UNUSED_0\fP = BIT_00, \fBSTATUS_MOTOR_ALIGN\fP = BIT_01, \fBSTATUS_MOTOR_UNUSED_2\fP = BIT_02, \fBSTATUS_MOTOR_UNUSED_3\fP = BIT_03, \fBSTATUS_MOTOR_UNUSED_4\fP = BIT_04, \fBSTATUS_MOTOR_UNUSED_5\fP = BIT_05, \fBSTATUS_MOTOR_UNUSED_6\fP = BIT_06, \fBSTATUS_MOTOR_UNUSED_7\fP = BIT_07, \fBSTATUS_MOTOR_UNUSED_8\fP = BIT_08, \fBSTATUS_MOTOR_UNUSED_9\fP = BIT_09, \fBSTATUS_MOTOR_UNUSED_10\fP = BIT_10, \fBSTATUS_MOTOR_UNUSED_11\fP = BIT_11, \fBSTATUS_MOTOR_SIMBEMF_NODET\fP = BIT_12, \fBSTATUS_MOTOR_SIMBEMF_DET\fP = BIT_13, \fBSTATUS_MOTOR_WAITSTOP\fP = BIT_14, \fBSTATUS_MOTOR_BRAKING\fP = BIT_15, \fBSTATUS_MOTOR_STOPPED\fP = BIT_16, \fBSTATUS_MOTOR_ENABLED\fP = BIT_17, \fBSTATUS_MOTOR_OPEN_LOOP\fP = BIT_18, \fBSTATUS_MOTOR_OL_RAMPUP\fP = BIT_19, \fBSTATUS_MOTOR_CL_RAMPDOWN\fP = BIT_20, \fBSTATUS_MOTOR_CLOSED_LOOP\fP = BIT_21, \fBSTATUS_MOTOR_REVERSE\fP = BIT_22, \fBSTATUS_MOTOR_FW_ACTIVE\fP = BIT_23, \fBSTATUS_MOTOR_OVERMOD\fP = BIT_24, \fBSTATUS_MOTOR_MPOSMODE_HALL\fP = BIT_25, \fBSTATUS_MOTOR_MPOSMODE_EST\fP = BIT_26, \fBSTATUS_MOTOR_UNUSED_27\fP = BIT_27, \fBSTATUS_MOTOR_UNUSED_28\fP = BIT_28, \fBSTATUS_MOTOR_UNUSED_29\fP = BIT_29, \fBFLAG_MPOS_UPDATE_CALC\fP = BIT_30 }"
+.br
+.ti -1c
+.RI "enum \fBeStatusPrestart\fP { \fBSTATUS_PRESTART_RUNNING\fP = 0, \fBSTATUS_PRESTART_COMPLETED\fP, \fBSTATUS_PRESTART_FAILED\fP }"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define STATUS_MAIN_ALLSTATUS"
+\fBValue:\fP
+.PP
+.nf
+        (\
+        STATUS_MOTOR_ENABLED \
+        | STATUS_MOTOR_OL_RAMPUP \
+        | STATUS_MOTOR_CL_RAMPDOWN \
+        | STATUS_MOTOR_OPEN_LOOP \
+        | STATUS_MOTOR_CLOSED_LOOP \
+        | STATUS_MOTOR_FW_ACTIVE \
+        | STATUS_MOTOR_ALIGN \
+        | STATUS_MOTOR_STOPPED \
+        | STATUS_MOTOR_MPOSMODE_HALL \
+        | STATUS_MOTOR_MPOSMODE_EST \
+        )
+.fi
+.PP
+Definition at line 61 of file status_struct\&.h\&.
+.SS "#define STATUS_MOTOR_GRP_CLEARREAD"
+\fBValue:\fP
+.PP
+.nf
+        (\
+        STATUS_MOTOR_OVERMOD \
+        | FLAG_MPOS_UPDATE_CALC \
+        )
+.fi
+.PP
+Definition at line 77 of file status_struct\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBeStatusMotor\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISTATUS_MOTOR_UNUSED_0 \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_ALIGN \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_UNUSED_2 \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_UNUSED_3 \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_UNUSED_4 \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_UNUSED_5 \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_UNUSED_6 \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_UNUSED_7 \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_UNUSED_8 \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_UNUSED_9 \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_UNUSED_10 \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_UNUSED_11 \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_SIMBEMF_NODET \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_SIMBEMF_DET \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_WAITSTOP \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_BRAKING \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_STOPPED \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_ENABLED \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_OPEN_LOOP \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_OL_RAMPUP \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_CL_RAMPDOWN \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_CLOSED_LOOP \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_REVERSE \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_FW_ACTIVE \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_OVERMOD \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_MPOSMODE_HALL \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_MPOSMODE_EST \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_UNUSED_27 \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_UNUSED_28 \fP\fP
+.TP
+\fB\fISTATUS_MOTOR_UNUSED_29 \fP\fP
+.TP
+\fB\fIFLAG_MPOS_UPDATE_CALC \fP\fP
+.PP
+Definition at line 26 of file status_struct\&.h\&.
+.PP
+.nf
+27 {
+28     STATUS_MOTOR_UNUSED_0       = BIT_00,           // 0 :
+29     STATUS_MOTOR_ALIGN          = BIT_01,           // 1 : FOC in align
+30     STATUS_MOTOR_UNUSED_2       = BIT_02,           // 2 :
+31     STATUS_MOTOR_UNUSED_3       = BIT_03,           // 3 :
+32     STATUS_MOTOR_UNUSED_4       = BIT_04,           // 4 :
+33     STATUS_MOTOR_UNUSED_5       = BIT_05,           // 5 :
+34     STATUS_MOTOR_UNUSED_6       = BIT_06,           // 6 :
+35     STATUS_MOTOR_UNUSED_7       = BIT_07,           // 7 :
+36     STATUS_MOTOR_UNUSED_8       = BIT_08,           // 8 :
+37     STATUS_MOTOR_UNUSED_9       = BIT_09,           // 9 :
+38     STATUS_MOTOR_UNUSED_10      = BIT_10,           // 10 :
+39     STATUS_MOTOR_UNUSED_11      = BIT_11,           // 11 :
+40     STATUS_MOTOR_SIMBEMF_NODET  = BIT_12,           // 12 : SIM BEMF signal not detected
+41     STATUS_MOTOR_SIMBEMF_DET    = BIT_13,           // 13 : SIM BEMF signal detected
+42     STATUS_MOTOR_WAITSTOP       = BIT_14,           // 14 : Waiting for motor to stop
+43     STATUS_MOTOR_BRAKING        = BIT_15,           // 15 : Motor is braking
+44     STATUS_MOTOR_STOPPED        = BIT_16,           // 16 : Motor is stopped
+45     STATUS_MOTOR_ENABLED        = BIT_17,           // 17 : Motor is enabled
+46     STATUS_MOTOR_OPEN_LOOP      = BIT_18,           // 18 : FOC in open loop mode
+47     STATUS_MOTOR_OL_RAMPUP      = BIT_19,           // 19 : FOC in open loop speed ramp
+48     STATUS_MOTOR_CL_RAMPDOWN    = BIT_20,           // 20 : FOC in closed loop speed ramp down
+49     STATUS_MOTOR_CLOSED_LOOP    = BIT_21,           // 21 : FOC in closed loop mode
+50     STATUS_MOTOR_REVERSE        = BIT_22,           // 22 : Motor in reverse direction mode
+51     STATUS_MOTOR_FW_ACTIVE      = BIT_23,           // 23 : Motor in Field Weakening range
+52     STATUS_MOTOR_OVERMOD        = BIT_24,           // 24 : Motor operating in Over-Modulation region
+53     STATUS_MOTOR_MPOSMODE_HALL  = BIT_25,           // 25 : MPOS operating in Hall Sensor mode
+54     STATUS_MOTOR_MPOSMODE_EST   = BIT_26,           // 26 : MPOS operating in Estimator mode
+55     STATUS_MOTOR_UNUSED_27      = BIT_27,           // 27 :
+56     STATUS_MOTOR_UNUSED_28      = BIT_28,           // 28 :
+57     STATUS_MOTOR_UNUSED_29      = BIT_29,           // 29 :
+58     FLAG_MPOS_UPDATE_CALC       = BIT_30            // 30 : Flag MPOS: Update MPOS Values
+59 } eStatusMotor;
+.fi
+.SS "enum \fBeStatusPrestart\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISTATUS_PRESTART_RUNNING \fP\fP
+.TP
+\fB\fISTATUS_PRESTART_COMPLETED \fP\fP
+.TP
+\fB\fISTATUS_PRESTART_FAILED \fP\fP
+.PP
+Definition at line 84 of file status_struct\&.h\&.
+.PP
+.nf
+85 {
+86     STATUS_PRESTART_RUNNING = 0,         // 0: Motor Startup Start In Motion Detection
+87     STATUS_PRESTART_COMPLETED,           // 1: Motor Startup Start In Motion Detection
+88     STATUS_PRESTART_FAILED,              // 2: Motor Startup Initial Position Detection
+89 } eStatusPrestart;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

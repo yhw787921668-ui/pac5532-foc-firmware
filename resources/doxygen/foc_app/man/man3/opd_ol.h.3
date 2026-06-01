@@ -1,0 +1,205 @@
+.TH "pac_foc/src/features/opd/opd_ol.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/features/opd/opd_ol.h \- Use to process control functions in Open-loop OPD\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'opd_ol_struct\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSTATUS_OPDOL_IDLE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_OPDOL_SAMPLING\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_OPDOL_SAMPLEDONE\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_OPDOL_PASS\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_OPDOL_FAIL\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSTATUSMASK_OPDOL_FAIL_U\fP   0x10"
+.br
+.ti -1c
+.RI "#define \fBSTATUSMASK_OPDOL_FAIL_V\fP   0x20"
+.br
+.ti -1c
+.RI "#define \fBSTATUSMASK_OPDOL_FAIL_W\fP   0x40"
+.br
+.ti -1c
+.RI "#define \fBSTATE_OPDOL_MAIN_IDLE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSTATE_OPDOL_MAIN_START\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSTATE_OPDOL_MAIN_SAMPLING\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSTATE_OPDOL_MAIN_SAMPLEDONE\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSTATE_OPDOL_MAIN_COMPLETE\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSTATE_OPDOL_CTL_IDLE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSTATE_OPDOL_CTL_START\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSTATE_OPDOL_CTL_IQRAMPING\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSTATE_OPDOL_CTL_DELAY_STARTSAMPLE\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSTATE_OPDOL_CTL_SAMPLING\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSTATE_OPDOL_CTL_SAMPLEDONE\fP   5"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcheck_opdol_fault\fP (\fBStruct_OPDOL\fP *opdol_ptr, \fBfix16_t\fP iqref_ramp_q14)"
+.br
+.RI "Use to process the OPD function calls\&. "
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBstore_current_opdol\fP (\fBStruct_OPDOL\fP *opdol_ptr, int32_t Iu_measured_q14, int32_t Iv_measured_q14, int32_t Iw_measured_q14)"
+.br
+.RI "Use to store the current\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use to process control functions in Open-loop OPD\&. 
+
+
+.PP
+Definition in file \fBopd_ol\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define STATE_OPDOL_CTL_DELAY_STARTSAMPLE   3"
+
+.PP
+Definition at line 45 of file opd_ol\&.h\&.
+.SS "#define STATE_OPDOL_CTL_IDLE   0"
+
+.PP
+Definition at line 42 of file opd_ol\&.h\&.
+.SS "#define STATE_OPDOL_CTL_IQRAMPING   2"
+
+.PP
+Definition at line 44 of file opd_ol\&.h\&.
+.SS "#define STATE_OPDOL_CTL_SAMPLEDONE   5"
+
+.PP
+Definition at line 47 of file opd_ol\&.h\&.
+.SS "#define STATE_OPDOL_CTL_SAMPLING   4"
+
+.PP
+Definition at line 46 of file opd_ol\&.h\&.
+.SS "#define STATE_OPDOL_CTL_START   1"
+
+.PP
+Definition at line 43 of file opd_ol\&.h\&.
+.SS "#define STATE_OPDOL_MAIN_COMPLETE   4"
+
+.PP
+Definition at line 39 of file opd_ol\&.h\&.
+.SS "#define STATE_OPDOL_MAIN_IDLE   0"
+
+.PP
+Definition at line 35 of file opd_ol\&.h\&.
+.SS "#define STATE_OPDOL_MAIN_SAMPLEDONE   3"
+
+.PP
+Definition at line 38 of file opd_ol\&.h\&.
+.SS "#define STATE_OPDOL_MAIN_SAMPLING   2"
+
+.PP
+Definition at line 37 of file opd_ol\&.h\&.
+.SS "#define STATE_OPDOL_MAIN_START   1"
+
+.PP
+Definition at line 36 of file opd_ol\&.h\&.
+.SS "#define STATUS_OPDOL_FAIL   4"
+
+.PP
+Definition at line 29 of file opd_ol\&.h\&.
+.SS "#define STATUS_OPDOL_IDLE   0"
+
+.PP
+Definition at line 25 of file opd_ol\&.h\&.
+.SS "#define STATUS_OPDOL_PASS   3"
+
+.PP
+Definition at line 28 of file opd_ol\&.h\&.
+.SS "#define STATUS_OPDOL_SAMPLEDONE   2"
+
+.PP
+Definition at line 27 of file opd_ol\&.h\&.
+.SS "#define STATUS_OPDOL_SAMPLING   1"
+
+.PP
+Definition at line 26 of file opd_ol\&.h\&.
+.SS "#define STATUSMASK_OPDOL_FAIL_U   0x10"
+
+.PP
+Definition at line 30 of file opd_ol\&.h\&.
+.SS "#define STATUSMASK_OPDOL_FAIL_V   0x20"
+
+.PP
+Definition at line 31 of file opd_ol\&.h\&.
+.SS "#define STATUSMASK_OPDOL_FAIL_W   0x40"
+
+.PP
+Definition at line 32 of file opd_ol\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void check_opdol_fault (\fBStruct_OPDOL\fP * opdol_ptr, \fBfix16_t\fP iqref_ramp_q14)"
+
+.PP
+Use to process the OPD function calls\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_OPDOL*\fP opdol_ptr 
+.br
+\fIfix16_t\fP iqref_ramp_q14 
+.RE
+.PP
+
+.SS "PAC5XXX_RAMFUNC void store_current_opdol (\fBStruct_OPDOL\fP * opdol_ptr, int32_t Iu_measured_q14, int32_t Iv_measured_q14, int32_t Iw_measured_q14)"
+
+.PP
+Use to store the current\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_OPDOL*\fP opdol_ptr 
+.br
+\fIint32_t\fP Iu_measured_q14 
+.br
+\fIint32_t\fP Iv_measured_q14 
+.br
+\fIint32_t\fP Iw_measured_q14 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

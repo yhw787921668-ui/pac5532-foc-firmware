@@ -1,0 +1,276 @@
+\hypertarget{group___p_a_c5_x_x_x___driver___timer}{}\doxysection{P\+A\+C5\+X\+XX Analog Timer and D\+TG Driver}
+\label{group___p_a_c5_x_x_x___driver___timer}\index{PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga6257884f8bbc7da3ca860d8c5d1736df}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+M\+ER}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga810f094890ec42303bad6850e0f779c5}{Timer\+Instance}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a1fcb0c3b3987f50d5930a396985397c4}{TimerA}}, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a3240360e2fe7977664e0942ec716863b}{TimerB}}, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a03dad59a44f48b5826e00e09bc1a499d}{TimerC}}, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5af2d224eb1f2683e27b02478f0accb98a}{TimerD}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga6257884f8bbc7da3ca860d8c5d1736df}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+M\+ER}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga477610d3b23d0c368c787b57ccd4fbb7}{pac5xxx\+\_\+timer\+\_\+base\+\_\+config}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga810f094890ec42303bad6850e0f779c5}{Timer\+Instance}} timer, uint16\+\_\+t period, int single\+\_\+shot, \mbox{\hyperlink{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079}{T\+X\+C\+T\+R\+L\+\_\+\+M\+O\+D\+E\+\_\+\+Type}} mode, int sync)
+\begin{DoxyCompactList}\small\item\em This function configures the base timer period, mode and single-\/use mode for the given timer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga6257884f8bbc7da3ca860d8c5d1736df}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+M\+ER}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga68efe7c061f6cf627576aa9a7afb5cd2}{pac5xxx\+\_\+dtg\+\_\+config2}} (\mbox{\hyperlink{union_d_t_g_c_t_l___t_y_p_e_d_e_f}{D\+T\+G\+C\+T\+L\+\_\+\+T\+Y\+P\+E\+D\+EF}} $\ast$p\+\_\+dtg, uint16\+\_\+t red, uint16\+\_\+t fed)
+\begin{DoxyCompactList}\small\item\em This function configures and enables the given Dead-\/\+Time Generator (D\+TG) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga6257884f8bbc7da3ca860d8c5d1736df}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+M\+ER}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga90647c7abf592b1dc85ce89754eb157b}{pac5xxx\+\_\+timer\+\_\+clock\+\_\+config}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga810f094890ec42303bad6850e0f779c5}{Timer\+Instance}} timer, \mbox{\hyperlink{pac5xxx__timers_8h_aa5cf3efad496e80f2d95dfc74bc68f9d}{T\+X\+C\+T\+R\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+Type}} source, \mbox{\hyperlink{pac5xxx__timers_8h_ada6b1a667d9ffa80cd35719d958cf1fe}{T\+X\+C\+T\+R\+L\+\_\+\+P\+S\+\_\+\+Type}} prescale)
+\begin{DoxyCompactList}\small\item\em This function configures the clock source and pre-\/scaler for the given timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___timer_ga6257884f8bbc7da3ca860d8c5d1736df}\label{group___p_a_c5_x_x_x___driver___timer_ga6257884f8bbc7da3ca860d8c5d1736df}} 
+\index{PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}!RAMFUNC\_TIMER@{RAMFUNC\_TIMER}}
+\index{RAMFUNC\_TIMER@{RAMFUNC\_TIMER}!PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}}
+\doxysubsubsection{\texorpdfstring{RAMFUNC\_TIMER}{RAMFUNC\_TIMER}}
+{\footnotesize\ttfamily \#define R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+M\+ER}
+
+
+
+Definition at line 32 of file pac5xxx\+\_\+driver\+\_\+timer.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___timer_ga810f094890ec42303bad6850e0f779c5}\label{group___p_a_c5_x_x_x___driver___timer_ga810f094890ec42303bad6850e0f779c5}} 
+\index{PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}!TimerInstance@{TimerInstance}}
+\index{TimerInstance@{TimerInstance}!PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}}
+\doxysubsubsection{\texorpdfstring{TimerInstance}{TimerInstance}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga810f094890ec42303bad6850e0f779c5}{Timer\+Instance}}}
+
+Timer Instance for Timer Driver Configuration \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TimerA@{TimerA}!PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}}\index{PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}!TimerA@{TimerA}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a1fcb0c3b3987f50d5930a396985397c4}\label{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a1fcb0c3b3987f50d5930a396985397c4}} 
+TimerA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TimerB@{TimerB}!PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}}\index{PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}!TimerB@{TimerB}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a3240360e2fe7977664e0942ec716863b}\label{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a3240360e2fe7977664e0942ec716863b}} 
+TimerB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TimerC@{TimerC}!PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}}\index{PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}!TimerC@{TimerC}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a03dad59a44f48b5826e00e09bc1a499d}\label{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a03dad59a44f48b5826e00e09bc1a499d}} 
+TimerC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TimerD@{TimerD}!PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}}\index{PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}!TimerD@{TimerD}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5af2d224eb1f2683e27b02478f0accb98a}\label{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5af2d224eb1f2683e27b02478f0accb98a}} 
+TimerD&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 36 of file pac5xxx\+\_\+driver\+\_\+timer.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36              \{ }
+\DoxyCodeLine{37     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a1fcb0c3b3987f50d5930a396985397c4}{TimerA}},}
+\DoxyCodeLine{38     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a3240360e2fe7977664e0942ec716863b}{TimerB}},}
+\DoxyCodeLine{39     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a03dad59a44f48b5826e00e09bc1a499d}{TimerC}},}
+\DoxyCodeLine{40     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5af2d224eb1f2683e27b02478f0accb98a}{TimerD}}}
+\DoxyCodeLine{41 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga810f094890ec42303bad6850e0f779c5}{TimerInstance}}; }
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___timer_ga68efe7c061f6cf627576aa9a7afb5cd2}\label{group___p_a_c5_x_x_x___driver___timer_ga68efe7c061f6cf627576aa9a7afb5cd2}} 
+\index{PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}!pac5xxx\_dtg\_config2@{pac5xxx\_dtg\_config2}}
+\index{pac5xxx\_dtg\_config2@{pac5xxx\_dtg\_config2}!PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_dtg\_config2()}{pac5xxx\_dtg\_config2()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga6257884f8bbc7da3ca860d8c5d1736df}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+M\+ER}} void pac5xxx\+\_\+dtg\+\_\+config2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{union_d_t_g_c_t_l___t_y_p_e_d_e_f}{D\+T\+G\+C\+T\+L\+\_\+\+T\+Y\+P\+E\+D\+EF}} $\ast$}]{p\+\_\+dtg,  }\item[{uint16\+\_\+t}]{red,  }\item[{uint16\+\_\+t}]{fed }\end{DoxyParamCaption})}
+
+
+
+This function configures and enables the given Dead-\/\+Time Generator (D\+TG) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+dtg} & D\+TG Instance \\
+\hline
+{\em red} & Risigin Edge Delay \\
+\hline
+{\em fed} & Trailing Edge Delay \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+timer.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     p\_dtg-\/>\mbox{\hyperlink{union_d_t_g_c_t_l___t_y_p_e_d_e_f_a9ab5117d054d38541a0aa4933bb8224c}{RED}} = red;}
+\DoxyCodeLine{23     p\_dtg-\/>\mbox{\hyperlink{union_d_t_g_c_t_l___t_y_p_e_d_e_f_a2336ad1487a015417ce37e5addc5db94}{FED}} = fed;}
+\DoxyCodeLine{24     p\_dtg-\/>\mbox{\hyperlink{union_d_t_g_c_t_l___t_y_p_e_d_e_f_a974c81bce4597febb3677ec7bda3ce12}{DTEN}} = 1;}
+\DoxyCodeLine{25 \}}
+
+\end{DoxyCode}
+
+
+References D\+T\+G\+C\+T\+L\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+D\+T\+EN, D\+T\+G\+C\+T\+L\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+F\+ED, and D\+T\+G\+C\+T\+L\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+R\+ED.
+
+
+
+Referenced by configure\+\_\+foc\+\_\+timer().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{group___p_a_c5_x_x_x___driver___timer_ga68efe7c061f6cf627576aa9a7afb5cd2_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___timer_ga477610d3b23d0c368c787b57ccd4fbb7}\label{group___p_a_c5_x_x_x___driver___timer_ga477610d3b23d0c368c787b57ccd4fbb7}} 
+\index{PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}!pac5xxx\_timer\_base\_config@{pac5xxx\_timer\_base\_config}}
+\index{pac5xxx\_timer\_base\_config@{pac5xxx\_timer\_base\_config}!PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_timer\_base\_config()}{pac5xxx\_timer\_base\_config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga6257884f8bbc7da3ca860d8c5d1736df}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+M\+ER}} void pac5xxx\+\_\+timer\+\_\+base\+\_\+config (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga810f094890ec42303bad6850e0f779c5}{Timer\+Instance}}}]{timer,  }\item[{uint16\+\_\+t}]{period,  }\item[{int}]{single\+\_\+shot,  }\item[{\mbox{\hyperlink{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079}{T\+X\+C\+T\+R\+L\+\_\+\+M\+O\+D\+E\+\_\+\+Type}}}]{mode,  }\item[{int}]{sync }\end{DoxyParamCaption})}
+
+
+
+This function configures the base timer period, mode and single-\/use mode for the given timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & Timer Instance \\
+\hline
+{\em period} & Timer Period in clock ticks \\
+\hline
+{\em single\+\_\+shot} & Set to 1 for single-\/use timer mode, 0 for auto-\/reload \\
+\hline
+{\em mode} & Timer Mode (up, up/down, etc.) \\
+\hline
+{\em sync} & Timer slave synchronize (set for slave sync) if set to 1 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 51 of file pac5xxx\+\_\+driver\+\_\+timer.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52 \{}
+\DoxyCodeLine{53     \mbox{\hyperlink{struct_p_a_c55_x_x___t_i_m_e_r___t_y_p_e_d_e_f}{PAC55XX\_TIMER\_TYPEDEF}} * p\_timer = \mbox{\hyperlink{pac5xxx_8h_a94fdec6a62b954456a806eddcb30c2eb}{PAC55XX\_TIMERD}};}
+\DoxyCodeLine{54     }
+\DoxyCodeLine{55     \textcolor{keywordflow}{switch} (timer)}
+\DoxyCodeLine{56     \{}
+\DoxyCodeLine{57         \textcolor{keywordflow}{case} \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a1fcb0c3b3987f50d5930a396985397c4}{TimerA}}:}
+\DoxyCodeLine{58             p\_timer = \mbox{\hyperlink{pac5xxx_8h_aefeeba7c969d717dceaa50575c78fc6c}{PAC55XX\_TIMERA}};}
+\DoxyCodeLine{59             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{60         \textcolor{keywordflow}{case} \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a3240360e2fe7977664e0942ec716863b}{TimerB}}:}
+\DoxyCodeLine{61             p\_timer = \mbox{\hyperlink{pac5xxx_8h_af0315dbfcb3eee5e3bce34c437ebd855}{PAC55XX\_TIMERB}};}
+\DoxyCodeLine{62             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{63         \textcolor{keywordflow}{case} \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a03dad59a44f48b5826e00e09bc1a499d}{TimerC}}:}
+\DoxyCodeLine{64             p\_timer = \mbox{\hyperlink{pac5xxx_8h_ab14f3a470c59cf1f954c82c6c83f9374}{PAC55XX\_TIMERC}};}
+\DoxyCodeLine{65             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{66         \textcolor{keywordflow}{case} \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5af2d224eb1f2683e27b02478f0accb98a}{TimerD}}:}
+\DoxyCodeLine{67             p\_timer = \mbox{\hyperlink{pac5xxx_8h_a94fdec6a62b954456a806eddcb30c2eb}{PAC55XX\_TIMERD}};}
+\DoxyCodeLine{68             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{69     \}}
+\DoxyCodeLine{70         }
+\DoxyCodeLine{71     p\_timer-\/>\mbox{\hyperlink{struct_p_a_c55_x_x___t_i_m_e_r___t_y_p_e_d_e_f_a917af96eb224a933d9a78674a4065bff}{CTL}}.\mbox{\hyperlink{union_t_i_m_e_r___c_t_l___t_y_p_e_d_e_f_a27fa1af7cfc0dc98c3c6a782c203c3f0}{SSYNC}} = slave\_sync; \textcolor{comment}{// Be sure to set sync bit first}}
+\DoxyCodeLine{72     p\_timer-\/>\mbox{\hyperlink{struct_p_a_c55_x_x___t_i_m_e_r___t_y_p_e_d_e_f_ae14f221124ce374f3c868e95a391129a}{PRD}}.\mbox{\hyperlink{struct_p_a_c55_x_x___t_i_m_e_r___t_y_p_e_d_e_f_a3963343e8919a501b457b3d4763eb8cc}{w}} = period;}
+\DoxyCodeLine{73     p\_timer-\/>\mbox{\hyperlink{struct_p_a_c55_x_x___t_i_m_e_r___t_y_p_e_d_e_f_a917af96eb224a933d9a78674a4065bff}{CTL}}.\mbox{\hyperlink{union_t_i_m_e_r___c_t_l___t_y_p_e_d_e_f_a713a82b025fd24c80b1f2c33c6322578}{MODE}} = mode;}
+\DoxyCodeLine{74     p\_timer-\/>\mbox{\hyperlink{struct_p_a_c55_x_x___t_i_m_e_r___t_y_p_e_d_e_f_a917af96eb224a933d9a78674a4065bff}{CTL}}.\mbox{\hyperlink{union_t_i_m_e_r___c_t_l___t_y_p_e_d_e_f_acaefc17938262e2a0f4aad314b493d32}{SINGLE}} = single\_shot;}
+\DoxyCodeLine{75  }
+\DoxyCodeLine{76 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C55\+X\+X\+\_\+\+T\+I\+M\+E\+R\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+C\+TL, T\+I\+M\+E\+R\+\_\+\+C\+T\+L\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+M\+O\+DE, P\+A\+C55\+X\+X\+\_\+\+T\+I\+M\+E\+RA, P\+A\+C55\+X\+X\+\_\+\+T\+I\+M\+E\+RB, P\+A\+C55\+X\+X\+\_\+\+T\+I\+M\+E\+RC, P\+A\+C55\+X\+X\+\_\+\+T\+I\+M\+E\+RD, P\+A\+C55\+X\+X\+\_\+\+T\+I\+M\+E\+R\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+P\+RD, T\+I\+M\+E\+R\+\_\+\+C\+T\+L\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+S\+I\+N\+G\+LE, T\+I\+M\+E\+R\+\_\+\+C\+T\+L\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+S\+S\+Y\+NC, TimerA, TimerB, TimerC, TimerD, and P\+A\+C55\+X\+X\+\_\+\+T\+I\+M\+E\+R\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::w.
+
+
+
+Referenced by configure\+\_\+foc\+\_\+timer(), and configure\+\_\+pwm\+\_\+dac().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{group___p_a_c5_x_x_x___driver___timer_ga477610d3b23d0c368c787b57ccd4fbb7_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___timer_ga90647c7abf592b1dc85ce89754eb157b}\label{group___p_a_c5_x_x_x___driver___timer_ga90647c7abf592b1dc85ce89754eb157b}} 
+\index{PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}!pac5xxx\_timer\_clock\_config@{pac5xxx\_timer\_clock\_config}}
+\index{pac5xxx\_timer\_clock\_config@{pac5xxx\_timer\_clock\_config}!PAC5XXX Analog Timer and DTG Driver@{PAC5XXX Analog Timer and DTG Driver}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_timer\_clock\_config()}{pac5xxx\_timer\_clock\_config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga6257884f8bbc7da3ca860d8c5d1736df}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+M\+ER}} void pac5xxx\+\_\+timer\+\_\+clock\+\_\+config (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga810f094890ec42303bad6850e0f779c5}{Timer\+Instance}}}]{timer,  }\item[{\mbox{\hyperlink{pac5xxx__timers_8h_aa5cf3efad496e80f2d95dfc74bc68f9d}{T\+X\+C\+T\+R\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+Type}}}]{source,  }\item[{\mbox{\hyperlink{pac5xxx__timers_8h_ada6b1a667d9ffa80cd35719d958cf1fe}{T\+X\+C\+T\+R\+L\+\_\+\+P\+S\+\_\+\+Type}}}]{prescale }\end{DoxyParamCaption})}
+
+
+
+This function configures the clock source and pre-\/scaler for the given timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & Timer Instance \\
+\hline
+{\em source} & Timer clock input source \\
+\hline
+{\em prescale} & Timer pre-\/scaler \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 27 of file pac5xxx\+\_\+driver\+\_\+timer.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29     \mbox{\hyperlink{struct_p_a_c55_x_x___t_i_m_e_r___t_y_p_e_d_e_f}{PAC55XX\_TIMER\_TYPEDEF}} * p\_timer = \mbox{\hyperlink{pac5xxx_8h_a94fdec6a62b954456a806eddcb30c2eb}{PAC55XX\_TIMERD}};;}
+\DoxyCodeLine{30     }
+\DoxyCodeLine{31     \textcolor{keywordflow}{switch} (timer)}
+\DoxyCodeLine{32     \{}
+\DoxyCodeLine{33         \textcolor{keywordflow}{case} \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a1fcb0c3b3987f50d5930a396985397c4}{TimerA}}:}
+\DoxyCodeLine{34             p\_timer = \mbox{\hyperlink{pac5xxx_8h_aefeeba7c969d717dceaa50575c78fc6c}{PAC55XX\_TIMERA}};}
+\DoxyCodeLine{35             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{36         \textcolor{keywordflow}{case} \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a3240360e2fe7977664e0942ec716863b}{TimerB}}:}
+\DoxyCodeLine{37             p\_timer = \mbox{\hyperlink{pac5xxx_8h_af0315dbfcb3eee5e3bce34c437ebd855}{PAC55XX\_TIMERB}};}
+\DoxyCodeLine{38             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{39         \textcolor{keywordflow}{case} \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a03dad59a44f48b5826e00e09bc1a499d}{TimerC}}:}
+\DoxyCodeLine{40             p\_timer = \mbox{\hyperlink{pac5xxx_8h_ab14f3a470c59cf1f954c82c6c83f9374}{PAC55XX\_TIMERC}};}
+\DoxyCodeLine{41             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{42         \textcolor{keywordflow}{case} \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5af2d224eb1f2683e27b02478f0accb98a}{TimerD}}:}
+\DoxyCodeLine{43             p\_timer = \mbox{\hyperlink{pac5xxx_8h_a94fdec6a62b954456a806eddcb30c2eb}{PAC55XX\_TIMERD}};}
+\DoxyCodeLine{44             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46     }
+\DoxyCodeLine{47     p\_timer-\/>\mbox{\hyperlink{struct_p_a_c55_x_x___t_i_m_e_r___t_y_p_e_d_e_f_a917af96eb224a933d9a78674a4065bff}{CTL}}.\mbox{\hyperlink{union_t_i_m_e_r___c_t_l___t_y_p_e_d_e_f_a9720c160f3f71d832eb928ec91ae0f48}{CLKSRC}} = source;}
+\DoxyCodeLine{48     p\_timer-\/>\mbox{\hyperlink{struct_p_a_c55_x_x___t_i_m_e_r___t_y_p_e_d_e_f_a917af96eb224a933d9a78674a4065bff}{CTL}}.\mbox{\hyperlink{union_t_i_m_e_r___c_t_l___t_y_p_e_d_e_f_a91135a80e98a05edaa549754f711b56a}{CLKDIV}} = prescale;}
+\DoxyCodeLine{49 \}}
+
+\end{DoxyCode}
+
+
+References T\+I\+M\+E\+R\+\_\+\+C\+T\+L\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+C\+L\+K\+D\+IV, T\+I\+M\+E\+R\+\_\+\+C\+T\+L\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+C\+L\+K\+S\+RC, P\+A\+C55\+X\+X\+\_\+\+T\+I\+M\+E\+R\+\_\+\+T\+Y\+P\+E\+D\+E\+F\+::\+C\+TL, P\+A\+C55\+X\+X\+\_\+\+T\+I\+M\+E\+RA, P\+A\+C55\+X\+X\+\_\+\+T\+I\+M\+E\+RB, P\+A\+C55\+X\+X\+\_\+\+T\+I\+M\+E\+RC, P\+A\+C55\+X\+X\+\_\+\+T\+I\+M\+E\+RD, TimerA, TimerB, TimerC, and TimerD.
+
+
+
+Referenced by configure\+\_\+foc\+\_\+timer(), and configure\+\_\+pwm\+\_\+dac().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{group___p_a_c5_x_x_x___driver___timer_ga90647c7abf592b1dc85ce89754eb157b_icgraph}
+\end{center}
+\end{figure}

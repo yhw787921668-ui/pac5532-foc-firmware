@@ -1,0 +1,381 @@
+.TH "PAC55XX_RTC_TYPEDEF" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC55XX_RTC_TYPEDEF
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pac5xxx_rtc\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBIE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBIF\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCLKDIV\fP: 5"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad1__\fP: 22"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSETCAL\fP: 1"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBCTL\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBSECOND\fP: 7"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBMINUTE\fP: 7"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBHOUR\fP: 6"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad2__\fP: 10"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBTIME\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBDAYOFWEEK\fP: 3"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBDAY\fP: 6"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad1__\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBMONTH\fP: 5"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad2__\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBYEAR\fP: 8"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBDATE\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSECOND\fP: 7"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBMINUTE\fP: 7"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBHOUR\fP: 6"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad2__\fP: 10"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBTIMESET\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBDAYOFWEEK\fP: 3"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBDAY\fP: 6"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad1__\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBMONTH\fP: 5"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad2__\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBYEAR\fP: 8"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBDATESET\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBMINUTEALARM\fP: 7"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBMINUTEALARMEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBHOURALARM\fP: 6"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBHOURALARMEN\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBDAYOFWEEKALARM\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBDAYOFWEEKALARMEN\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad1__\fP: 4"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBDAYALARM\fP: 6"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBDAYALARMEN\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad2__\fP: 1"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBALARMSET\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 62 of file pac5xxx_rtc\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t PAC55XX_RTC_TYPEDEF::__pad0__"
+
+.PP
+Definition at line 71 of file pac5xxx_rtc\&.h\&.
+.SS "uint32_t PAC55XX_RTC_TYPEDEF::__pad1__"
+
+.PP
+Definition at line 73 of file pac5xxx_rtc\&.h\&.
+.SS "uint32_t PAC55XX_RTC_TYPEDEF::__pad2__"
+
+.PP
+Definition at line 88 of file pac5xxx_rtc\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_RTC_TYPEDEF::ALARMSET"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::CLKDIV"
+
+.PP
+Definition at line 72 of file pac5xxx_rtc\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_RTC_TYPEDEF::CTL"
+
+.SS "union { \&.\&.\&. }  PAC55XX_RTC_TYPEDEF::DATE"
+
+.SS "union { \&.\&.\&. }  PAC55XX_RTC_TYPEDEF::DATESET"
+
+.SS "\fB__I\fP uint32_t PAC55XX_RTC_TYPEDEF::DAY"
+
+.PP
+Definition at line 98 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::DAY"
+
+.PP
+Definition at line 125 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::DAYALARM"
+
+.PP
+Definition at line 145 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::DAYALARMEN"
+
+.PP
+Definition at line 146 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_RTC_TYPEDEF::DAYOFWEEK"
+
+.PP
+Definition at line 96 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::DAYOFWEEK"
+
+.PP
+Definition at line 123 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::DAYOFWEEKALARM"
+
+.PP
+Definition at line 142 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::DAYOFWEEKALARMEN"
+
+.PP
+Definition at line 143 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::EN"
+
+.PP
+Definition at line 68 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_RTC_TYPEDEF::HOUR"
+
+.PP
+Definition at line 87 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::HOUR"
+
+.PP
+Definition at line 114 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::HOURALARM"
+
+.PP
+Definition at line 139 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::HOURALARMEN"
+
+.PP
+Definition at line 140 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::IE"
+
+.PP
+Definition at line 69 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::IF"
+
+.PP
+Definition at line 70 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_RTC_TYPEDEF::MINUTE"
+
+.PP
+Definition at line 85 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::MINUTE"
+
+.PP
+Definition at line 112 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::MINUTEALARM"
+
+.PP
+Definition at line 137 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::MINUTEALARMEN"
+
+.PP
+Definition at line 138 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_RTC_TYPEDEF::MONTH"
+
+.PP
+Definition at line 100 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::MONTH"
+
+.PP
+Definition at line 127 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_RTC_TYPEDEF::SECOND"
+
+.PP
+Definition at line 83 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::SECOND"
+
+.PP
+Definition at line 110 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::SETCAL"
+
+.PP
+Definition at line 74 of file pac5xxx_rtc\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_RTC_TYPEDEF::TIME"
+
+.SS "union { \&.\&.\&. }  PAC55XX_RTC_TYPEDEF::TIMESET"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::w"
+
+.PP
+Definition at line 66 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_RTC_TYPEDEF::YEAR"
+
+.PP
+Definition at line 102 of file pac5xxx_rtc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_RTC_TYPEDEF::YEAR"
+
+.PP
+Definition at line 129 of file pac5xxx_rtc\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

@@ -1,0 +1,102 @@
+\hypertarget{ppm_8c}{}\doxysection{pac\+\_\+foc/src/comm/ppm/ppm.c File Reference}
+\label{ppm_8c}\index{pac\_foc/src/comm/ppm/ppm.c@{pac\_foc/src/comm/ppm/ppm.c}}
+{\ttfamily \#include \char`\"{}ppm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+timers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+Include dependency graph for ppm.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ppm_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ppm_8c_a6d4d5cfa5bea13ce5ff0db616d7ae1c3}{config\+\_\+ppm}} (Timer\+Instance timer)
+\item 
+void \mbox{\hyperlink{ppm_8c_a4928e9d284310db78e9a1d7ed653bff8}{ppm\+\_\+init}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ppm_8c_a6d4d5cfa5bea13ce5ff0db616d7ae1c3}\label{ppm_8c_a6d4d5cfa5bea13ce5ff0db616d7ae1c3}} 
+\index{ppm.c@{ppm.c}!config\_ppm@{config\_ppm}}
+\index{config\_ppm@{config\_ppm}!ppm.c@{ppm.c}}
+\doxysubsubsection{\texorpdfstring{config\_ppm()}{config\_ppm()}}
+{\footnotesize\ttfamily void config\+\_\+ppm (\begin{DoxyParamCaption}\item[{Timer\+Instance}]{timer }\end{DoxyParamCaption})}
+
+
+
+Definition at line 22 of file ppm.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     pac5xxx\_timer\_clock\_config(timer, TXCTL\_CS\_ACLK, TXCTL\_PS\_DIV2);            \textcolor{comment}{// Configure timer clock input for ACLK (100MHz), /1 divider}}
+\DoxyCodeLine{25       \textcolor{comment}{//Set Timer frequency and mode}}
+\DoxyCodeLine{26     pac5xxx\_timer\_base\_config(timer,\mbox{\hyperlink{ppm_8h_a2c9fc031372d4013113ec632e94db80c}{PPM\_TIMER\_TIME\_PERIOD}},0,TxCTL\_MODE\_UP,0);    \textcolor{comment}{// 1 count = 1.28usec,  19531 * 1.28usec = 25 msec = 40 Hz}}
+\DoxyCodeLine{27       PPM\_Timer\_Ptr-\/>CTL.MODE = 1;}
+\DoxyCodeLine{28       PPM\_Timer\_Ptr-\/>CTL.BASEIE = 1;}
+\DoxyCodeLine{29       PPM\_Timer\_Ptr-\/>CTL.CLKSRC = 1;}
+\DoxyCodeLine{30       PPM\_Timer\_Ptr-\/>CTL.CLKDIV = TXCTL\_PS\_DIV128;}
+\DoxyCodeLine{31       PPM\_Timer\_Ptr-\/>INT.w = 0;}
+\DoxyCodeLine{32     }
+\DoxyCodeLine{33       \textcolor{comment}{// Configure GPIO pin for PPM input}}
+\DoxyCodeLine{34     PAC55XX\_SCC-\/>PPM\_IO\_MUXSEL.PPM\_INPUT\_PORTNUM = 2;}
+\DoxyCodeLine{35       \textcolor{comment}{// configuration as input}}
+\DoxyCodeLine{36     PAC5XXX\_GPIO\_PPM\_IN-\/>MODE.PPM\_INPUT\_PORTNUM = 3;}
+\DoxyCodeLine{37       \textcolor{comment}{// configuration pull up}}
+\DoxyCodeLine{38     PAC55XX\_SCC-\/>PFPUEN.PPM\_INPUT\_PORTNUM = 1;}
+\DoxyCodeLine{39     }
+\DoxyCodeLine{40       PPM\_Timer\_Ptr-\/>PPM\_CC\_CONTROL.CCINTEDGE = 2;}
+\DoxyCodeLine{41       PPM\_Timer\_Ptr-\/>PPM\_CC\_CONTROL.CCINTEN = 1;}
+\DoxyCodeLine{42       PPM\_Timer\_Ptr-\/>PPM\_CC\_CONTROL.CCMODE = 1;}
+\DoxyCodeLine{43       PPM\_Timer\_Ptr-\/>PPM\_CC\_CONTROL.CCLATCH = 2;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45       PPM\_Timer\_Ptr-\/>INT.w = 0;}
+\DoxyCodeLine{46         }
+\DoxyCodeLine{47         NVIC\_SetPriority(PPM\_Timer\_IRQn,4);}
+\DoxyCodeLine{48     NVIC\_EnableIRQ(PPM\_Timer\_IRQn);}
+\DoxyCodeLine{49 \}}
+
+\end{DoxyCode}
+
+
+References P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+T\+I\+M\+E\+\_\+\+P\+E\+R\+I\+OD.
+
+\mbox{\Hypertarget{ppm_8c_a4928e9d284310db78e9a1d7ed653bff8}\label{ppm_8c_a4928e9d284310db78e9a1d7ed653bff8}} 
+\index{ppm.c@{ppm.c}!ppm\_init@{ppm\_init}}
+\index{ppm\_init@{ppm\_init}!ppm.c@{ppm.c}}
+\doxysubsubsection{\texorpdfstring{ppm\_init()}{ppm\_init()}}
+{\footnotesize\ttfamily void ppm\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 52 of file ppm.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53 \{}
+\DoxyCodeLine{54     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2abb6c0c82c94d5cb7e0637cab985fd3}{ppm}}.\mbox{\hyperlink{struct_struct___p_p_m_afc25a06112ec243a03327cdf9377b4ee}{valid\_motor\_on\_pulse\_detect}} = 0;}
+\DoxyCodeLine{55     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2abb6c0c82c94d5cb7e0637cab985fd3}{ppm}}.\mbox{\hyperlink{struct_struct___p_p_m_a7acf709d3c2bc9fc11972286b779bb9d}{invalid\_pulse\_detect\_count}} = 0;}
+\DoxyCodeLine{56 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+P\+P\+M\+::invalid\+\_\+pulse\+\_\+detect\+\_\+count, Struct\+\_\+\+Motor\+::ppm, and Struct\+\_\+\+P\+P\+M\+::valid\+\_\+motor\+\_\+on\+\_\+pulse\+\_\+detect.
+
+
+
+Referenced by motor\+\_\+reset().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ppm_8c_a4928e9d284310db78e9a1d7ed653bff8_icgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,247 @@
+\hypertarget{pac5xxx__wwdt_8h}{}\doxysection{pac\+\_\+foc/pac55xx/pac55xx\+\_\+sdk/peripheral/pac5xxx\+\_\+wwdt.h File Reference}
+\label{pac5xxx__wwdt_8h}\index{pac\_foc/pac55xx/pac55xx\_sdk/peripheral/pac5xxx\_wwdt.h@{pac\_foc/pac55xx/pac55xx\_sdk/peripheral/pac5xxx\_wwdt.h}}
+
+
+C\+M\+S\+IS Cortex-\/M Header File for the P\+A\+C55\+XX Windowed Watch Dog Timer.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__wwdt_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_p_a_c55_x_x___w_w_d_t___t_y_p_e_d_e_f}{P\+A\+C55\+X\+X\+\_\+\+W\+W\+D\+T\+\_\+\+T\+Y\+P\+E\+D\+EF}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{pac5xxx__wwdt_8h_a0ca9868ec73e2051d250733110537381}{W\+W\+D\+T\+L\+O\+C\+K\+\_\+\+R\+E\+G\+S\+\_\+\+W\+R\+I\+T\+E\+\_\+\+A\+V\+A\+L\+A\+B\+LE}}~0x55\+A\+A6699
+\item 
+\#define \mbox{\hyperlink{pac5xxx__wwdt_8h_a88e5b49a1bac47717937ed9b023d40af}{W\+W\+D\+T\+L\+O\+C\+K\+\_\+\+R\+E\+G\+S\+\_\+\+R\+E\+A\+D\+\_\+\+O\+N\+LY}}~0x55\+A\+A6698
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{pac5xxx__wwdt_8h_ae22bfb890296bb8e216db60949df408c}{W\+W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__wwdt_8h_ae22bfb890296bb8e216db60949df408ca86212f89ff02ad1046d4a6c9927b1b6a}{W\+W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+F\+R\+C\+LK}} = 0, 
+\mbox{\hyperlink{pac5xxx__wwdt_8h_ae22bfb890296bb8e216db60949df408ca1350b692a1425c4ef8fbd97c7fb304f5}{W\+W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+R\+O\+S\+C\+C\+LK}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63}{W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+T\+Y\+PE}} \{ \newline
+\mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a232a3866c52d65bb7a2f2ed54baa156b}{W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V1}} = 0, 
+\mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a87e6458892df7f6f5e287599a0afb975}{W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V2}} = 1, 
+\mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a8c5fd09cedb47126ea57bafbdad58a31}{W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V4}} = 2, 
+\mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a120c286839b0cbf258894e7688ec9a3c}{W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V8}} = 3, 
+\newline
+\mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a734db57a0dd3891974163a9b92d4c589}{W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V16}} = 4, 
+\mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a52c4d6f27e55c7d460060055c891095e}{W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V32}} = 5, 
+\mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63ae11e64de57e62eba1125f3e4c52bb43e}{W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V64}} = 6, 
+\mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a191c271e6b6f502a68be547794a7cb48}{W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V128}} = 7, 
+\newline
+\mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a6a1aa37b6200ebc0080fb92e69bf1ffd}{W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V256}} = 8, 
+\mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63ad03a39447fabc450618619f75903796b}{W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V512}} = 9, 
+\mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a090fefb05befb67c4b3d7d7c9d84d525}{W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V1024}} = 10, 
+\mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63af4e6cc61343ce89eab3dde7b1e0af4fd}{W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V2048}} = 11, 
+\newline
+\mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63add476b202aba784fe46c971f200257a3}{W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V4096}} = 12, 
+\mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a90653e370e601cae22bd43cdefb88aaa}{W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V8192}} = 13, 
+\mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63abc14fcbd1d45f27073a849c7a4efc569}{W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V16384}} = 14, 
+\mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a57d0418fb525eb40b48957b92584ecdc}{W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V32768}} = 15
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__wwdt_8h_a39717e719bb0cad9c177bfe8a554c43f}{W\+W\+D\+T\+\_\+\+I\+N\+T\+F\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__wwdt_8h_a39717e719bb0cad9c177bfe8a554c43fa1d02d481037de88860bcc5ec9f54cc60}{W\+W\+D\+T\+\_\+\+I\+N\+T\+F\+\_\+\+N\+O\+\_\+\+F\+L\+AG}} = 0, 
+\mbox{\hyperlink{pac5xxx__wwdt_8h_a39717e719bb0cad9c177bfe8a554c43fa2a0e4ac25a7d04eb156a64af5829d2f7}{W\+W\+D\+T\+\_\+\+I\+N\+T\+F\+\_\+\+F\+L\+AG}} = 1
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+M\+S\+IS Cortex-\/M Header File for the P\+A\+C55\+XX Windowed Watch Dog Timer. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2017-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{pac5xxx__wwdt_8h_a88e5b49a1bac47717937ed9b023d40af}\label{pac5xxx__wwdt_8h_a88e5b49a1bac47717937ed9b023d40af}} 
+\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDTLOCK\_REGS\_READ\_ONLY@{WWDTLOCK\_REGS\_READ\_ONLY}}
+\index{WWDTLOCK\_REGS\_READ\_ONLY@{WWDTLOCK\_REGS\_READ\_ONLY}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}
+\doxysubsubsection{\texorpdfstring{WWDTLOCK\_REGS\_READ\_ONLY}{WWDTLOCK\_REGS\_READ\_ONLY}}
+{\footnotesize\ttfamily \#define W\+W\+D\+T\+L\+O\+C\+K\+\_\+\+R\+E\+G\+S\+\_\+\+R\+E\+A\+D\+\_\+\+O\+N\+LY~0x55\+A\+A6698}
+
+
+
+Definition at line 54 of file pac5xxx\+\_\+wwdt.\+h.
+
+\mbox{\Hypertarget{pac5xxx__wwdt_8h_a0ca9868ec73e2051d250733110537381}\label{pac5xxx__wwdt_8h_a0ca9868ec73e2051d250733110537381}} 
+\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDTLOCK\_REGS\_WRITE\_AVALABLE@{WWDTLOCK\_REGS\_WRITE\_AVALABLE}}
+\index{WWDTLOCK\_REGS\_WRITE\_AVALABLE@{WWDTLOCK\_REGS\_WRITE\_AVALABLE}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}
+\doxysubsubsection{\texorpdfstring{WWDTLOCK\_REGS\_WRITE\_AVALABLE}{WWDTLOCK\_REGS\_WRITE\_AVALABLE}}
+{\footnotesize\ttfamily \#define W\+W\+D\+T\+L\+O\+C\+K\+\_\+\+R\+E\+G\+S\+\_\+\+W\+R\+I\+T\+E\+\_\+\+A\+V\+A\+L\+A\+B\+LE~0x55\+A\+A6699}
+
+
+
+Definition at line 53 of file pac5xxx\+\_\+wwdt.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63}\label{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63}} 
+\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_CLKDIV\_TYPE@{WWDT\_CLKDIV\_TYPE}}
+\index{WWDT\_CLKDIV\_TYPE@{WWDT\_CLKDIV\_TYPE}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}
+\doxysubsubsection{\texorpdfstring{WWDT\_CLKDIV\_TYPE}{WWDT\_CLKDIV\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63}{W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDT\_CLKDIV\_DIV1@{WWDT\_CLKDIV\_DIV1}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_CLKDIV\_DIV1@{WWDT\_CLKDIV\_DIV1}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a232a3866c52d65bb7a2f2ed54baa156b}\label{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a232a3866c52d65bb7a2f2ed54baa156b}} 
+W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDT\_CLKDIV\_DIV2@{WWDT\_CLKDIV\_DIV2}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_CLKDIV\_DIV2@{WWDT\_CLKDIV\_DIV2}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a87e6458892df7f6f5e287599a0afb975}\label{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a87e6458892df7f6f5e287599a0afb975}} 
+W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDT\_CLKDIV\_DIV4@{WWDT\_CLKDIV\_DIV4}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_CLKDIV\_DIV4@{WWDT\_CLKDIV\_DIV4}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a8c5fd09cedb47126ea57bafbdad58a31}\label{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a8c5fd09cedb47126ea57bafbdad58a31}} 
+W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDT\_CLKDIV\_DIV8@{WWDT\_CLKDIV\_DIV8}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_CLKDIV\_DIV8@{WWDT\_CLKDIV\_DIV8}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a120c286839b0cbf258894e7688ec9a3c}\label{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a120c286839b0cbf258894e7688ec9a3c}} 
+W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDT\_CLKDIV\_DIV16@{WWDT\_CLKDIV\_DIV16}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_CLKDIV\_DIV16@{WWDT\_CLKDIV\_DIV16}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a734db57a0dd3891974163a9b92d4c589}\label{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a734db57a0dd3891974163a9b92d4c589}} 
+W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V16&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDT\_CLKDIV\_DIV32@{WWDT\_CLKDIV\_DIV32}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_CLKDIV\_DIV32@{WWDT\_CLKDIV\_DIV32}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a52c4d6f27e55c7d460060055c891095e}\label{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a52c4d6f27e55c7d460060055c891095e}} 
+W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V32&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDT\_CLKDIV\_DIV64@{WWDT\_CLKDIV\_DIV64}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_CLKDIV\_DIV64@{WWDT\_CLKDIV\_DIV64}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63ae11e64de57e62eba1125f3e4c52bb43e}\label{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63ae11e64de57e62eba1125f3e4c52bb43e}} 
+W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V64&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDT\_CLKDIV\_DIV128@{WWDT\_CLKDIV\_DIV128}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_CLKDIV\_DIV128@{WWDT\_CLKDIV\_DIV128}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a191c271e6b6f502a68be547794a7cb48}\label{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a191c271e6b6f502a68be547794a7cb48}} 
+W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V128&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDT\_CLKDIV\_DIV256@{WWDT\_CLKDIV\_DIV256}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_CLKDIV\_DIV256@{WWDT\_CLKDIV\_DIV256}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a6a1aa37b6200ebc0080fb92e69bf1ffd}\label{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a6a1aa37b6200ebc0080fb92e69bf1ffd}} 
+W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V256&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDT\_CLKDIV\_DIV512@{WWDT\_CLKDIV\_DIV512}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_CLKDIV\_DIV512@{WWDT\_CLKDIV\_DIV512}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63ad03a39447fabc450618619f75903796b}\label{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63ad03a39447fabc450618619f75903796b}} 
+W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V512&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDT\_CLKDIV\_DIV1024@{WWDT\_CLKDIV\_DIV1024}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_CLKDIV\_DIV1024@{WWDT\_CLKDIV\_DIV1024}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a090fefb05befb67c4b3d7d7c9d84d525}\label{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a090fefb05befb67c4b3d7d7c9d84d525}} 
+W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V1024&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDT\_CLKDIV\_DIV2048@{WWDT\_CLKDIV\_DIV2048}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_CLKDIV\_DIV2048@{WWDT\_CLKDIV\_DIV2048}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63af4e6cc61343ce89eab3dde7b1e0af4fd}\label{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63af4e6cc61343ce89eab3dde7b1e0af4fd}} 
+W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V2048&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDT\_CLKDIV\_DIV4096@{WWDT\_CLKDIV\_DIV4096}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_CLKDIV\_DIV4096@{WWDT\_CLKDIV\_DIV4096}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63add476b202aba784fe46c971f200257a3}\label{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63add476b202aba784fe46c971f200257a3}} 
+W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V4096&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDT\_CLKDIV\_DIV8192@{WWDT\_CLKDIV\_DIV8192}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_CLKDIV\_DIV8192@{WWDT\_CLKDIV\_DIV8192}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a90653e370e601cae22bd43cdefb88aaa}\label{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a90653e370e601cae22bd43cdefb88aaa}} 
+W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V8192&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDT\_CLKDIV\_DIV16384@{WWDT\_CLKDIV\_DIV16384}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_CLKDIV\_DIV16384@{WWDT\_CLKDIV\_DIV16384}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63abc14fcbd1d45f27073a849c7a4efc569}\label{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63abc14fcbd1d45f27073a849c7a4efc569}} 
+W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V16384&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDT\_CLKDIV\_DIV32768@{WWDT\_CLKDIV\_DIV32768}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_CLKDIV\_DIV32768@{WWDT\_CLKDIV\_DIV32768}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a57d0418fb525eb40b48957b92584ecdc}\label{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a57d0418fb525eb40b48957b92584ecdc}} 
+W\+W\+D\+T\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V32768&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 28 of file pac5xxx\+\_\+wwdt.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28              \{}
+\DoxyCodeLine{29     \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a232a3866c52d65bb7a2f2ed54baa156b}{WWDT\_CLKDIV\_DIV1}}     =  0, \textcolor{comment}{// WWDTCTL.CLKSEL / 1}}
+\DoxyCodeLine{30     \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a87e6458892df7f6f5e287599a0afb975}{WWDT\_CLKDIV\_DIV2}}     =  1, \textcolor{comment}{// WWDTCTL.CLKSEL / 2}}
+\DoxyCodeLine{31     \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a8c5fd09cedb47126ea57bafbdad58a31}{WWDT\_CLKDIV\_DIV4}}     =  2, \textcolor{comment}{// WWDTCTL.CLKSEL / 4}}
+\DoxyCodeLine{32     \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a120c286839b0cbf258894e7688ec9a3c}{WWDT\_CLKDIV\_DIV8}}     =  3, \textcolor{comment}{// WWDTCTL.CLKSEL / 8}}
+\DoxyCodeLine{33     \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a734db57a0dd3891974163a9b92d4c589}{WWDT\_CLKDIV\_DIV16}}    =  4, \textcolor{comment}{// WWDTCTL.CLKSEL / 16}}
+\DoxyCodeLine{34     \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a52c4d6f27e55c7d460060055c891095e}{WWDT\_CLKDIV\_DIV32}}    =  5, \textcolor{comment}{// WWDTCTL.CLKSEL / 32}}
+\DoxyCodeLine{35     \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63ae11e64de57e62eba1125f3e4c52bb43e}{WWDT\_CLKDIV\_DIV64}}    =  6, \textcolor{comment}{// WWDTCTL.CLKSEL / 64}}
+\DoxyCodeLine{36     \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a191c271e6b6f502a68be547794a7cb48}{WWDT\_CLKDIV\_DIV128}}   =  7, \textcolor{comment}{// WWDTCTL.CLKSEL / 128}}
+\DoxyCodeLine{37     \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a6a1aa37b6200ebc0080fb92e69bf1ffd}{WWDT\_CLKDIV\_DIV256}}   =  8, \textcolor{comment}{// WWDTCTL.CLKSEL / 256}}
+\DoxyCodeLine{38     \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63ad03a39447fabc450618619f75903796b}{WWDT\_CLKDIV\_DIV512}}   =  9, \textcolor{comment}{// WWDTCTL.CLKSEL / 512}}
+\DoxyCodeLine{39     \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a090fefb05befb67c4b3d7d7c9d84d525}{WWDT\_CLKDIV\_DIV1024}}  = 10, \textcolor{comment}{// WWDTCTL.CLKSEL / 1024}}
+\DoxyCodeLine{40     \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63af4e6cc61343ce89eab3dde7b1e0af4fd}{WWDT\_CLKDIV\_DIV2048}}  = 11, \textcolor{comment}{// WWDTCTL.CLKSEL / 2048}}
+\DoxyCodeLine{41     \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63add476b202aba784fe46c971f200257a3}{WWDT\_CLKDIV\_DIV4096}}  = 12, \textcolor{comment}{// WWDTCTL.CLKSEL / 4096}}
+\DoxyCodeLine{42     \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a90653e370e601cae22bd43cdefb88aaa}{WWDT\_CLKDIV\_DIV8192}}  = 13, \textcolor{comment}{// WWDTCTL.CLKSEL / 8192}}
+\DoxyCodeLine{43     \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63abc14fcbd1d45f27073a849c7a4efc569}{WWDT\_CLKDIV\_DIV16384}} = 14, \textcolor{comment}{// WWDTCTL.CLKSEL / 16384}}
+\DoxyCodeLine{44     \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63a57d0418fb525eb40b48957b92584ecdc}{WWDT\_CLKDIV\_DIV32768}} = 15  \textcolor{comment}{// WWDTCTL.CLKSEL / 32768}}
+\DoxyCodeLine{45 \} \mbox{\hyperlink{pac5xxx__wwdt_8h_a60505f462a2ba69179ed374abb18ef63}{WWDT\_CLKDIV\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__wwdt_8h_a39717e719bb0cad9c177bfe8a554c43f}\label{pac5xxx__wwdt_8h_a39717e719bb0cad9c177bfe8a554c43f}} 
+\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_INTF\_TYPE@{WWDT\_INTF\_TYPE}}
+\index{WWDT\_INTF\_TYPE@{WWDT\_INTF\_TYPE}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}
+\doxysubsubsection{\texorpdfstring{WWDT\_INTF\_TYPE}{WWDT\_INTF\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__wwdt_8h_a39717e719bb0cad9c177bfe8a554c43f}{W\+W\+D\+T\+\_\+\+I\+N\+T\+F\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDT\_INTF\_NO\_FLAG@{WWDT\_INTF\_NO\_FLAG}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_INTF\_NO\_FLAG@{WWDT\_INTF\_NO\_FLAG}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_a39717e719bb0cad9c177bfe8a554c43fa1d02d481037de88860bcc5ec9f54cc60}\label{pac5xxx__wwdt_8h_a39717e719bb0cad9c177bfe8a554c43fa1d02d481037de88860bcc5ec9f54cc60}} 
+W\+W\+D\+T\+\_\+\+I\+N\+T\+F\+\_\+\+N\+O\+\_\+\+F\+L\+AG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDT\_INTF\_FLAG@{WWDT\_INTF\_FLAG}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDT\_INTF\_FLAG@{WWDT\_INTF\_FLAG}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_a39717e719bb0cad9c177bfe8a554c43fa2a0e4ac25a7d04eb156a64af5829d2f7}\label{pac5xxx__wwdt_8h_a39717e719bb0cad9c177bfe8a554c43fa2a0e4ac25a7d04eb156a64af5829d2f7}} 
+W\+W\+D\+T\+\_\+\+I\+N\+T\+F\+\_\+\+F\+L\+AG&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 48 of file pac5xxx\+\_\+wwdt.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48              \{}
+\DoxyCodeLine{49     \mbox{\hyperlink{pac5xxx__wwdt_8h_a39717e719bb0cad9c177bfe8a554c43fa1d02d481037de88860bcc5ec9f54cc60}{WWDT\_INTF\_NO\_FLAG}} =  0,                  \textcolor{comment}{// no flags}}
+\DoxyCodeLine{50     \mbox{\hyperlink{pac5xxx__wwdt_8h_a39717e719bb0cad9c177bfe8a554c43fa2a0e4ac25a7d04eb156a64af5829d2f7}{WWDT\_INTF\_FLAG}}    =  1                   \textcolor{comment}{// flags}}
+\DoxyCodeLine{51 \} \mbox{\hyperlink{pac5xxx__wwdt_8h_a39717e719bb0cad9c177bfe8a554c43f}{WWDT\_INTF\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__wwdt_8h_ae22bfb890296bb8e216db60949df408c}\label{pac5xxx__wwdt_8h_ae22bfb890296bb8e216db60949df408c}} 
+\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDTCTL\_CLKSEL\_TYPE@{WWDTCTL\_CLKSEL\_TYPE}}
+\index{WWDTCTL\_CLKSEL\_TYPE@{WWDTCTL\_CLKSEL\_TYPE}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}
+\doxysubsubsection{\texorpdfstring{WWDTCTL\_CLKSEL\_TYPE}{WWDTCTL\_CLKSEL\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__wwdt_8h_ae22bfb890296bb8e216db60949df408c}{W\+W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDTCTL\_CLKSEL\_FRCLK@{WWDTCTL\_CLKSEL\_FRCLK}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDTCTL\_CLKSEL\_FRCLK@{WWDTCTL\_CLKSEL\_FRCLK}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_ae22bfb890296bb8e216db60949df408ca86212f89ff02ad1046d4a6c9927b1b6a}\label{pac5xxx__wwdt_8h_ae22bfb890296bb8e216db60949df408ca86212f89ff02ad1046d4a6c9927b1b6a}} 
+W\+W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+F\+R\+C\+LK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WWDTCTL\_CLKSEL\_ROSCCLK@{WWDTCTL\_CLKSEL\_ROSCCLK}!pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}}\index{pac5xxx\_wwdt.h@{pac5xxx\_wwdt.h}!WWDTCTL\_CLKSEL\_ROSCCLK@{WWDTCTL\_CLKSEL\_ROSCCLK}}}\mbox{\Hypertarget{pac5xxx__wwdt_8h_ae22bfb890296bb8e216db60949df408ca1350b692a1425c4ef8fbd97c7fb304f5}\label{pac5xxx__wwdt_8h_ae22bfb890296bb8e216db60949df408ca1350b692a1425c4ef8fbd97c7fb304f5}} 
+W\+W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+R\+O\+S\+C\+C\+LK&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 22 of file pac5xxx\+\_\+wwdt.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22              \{}
+\DoxyCodeLine{23     \mbox{\hyperlink{pac5xxx__wwdt_8h_ae22bfb890296bb8e216db60949df408ca86212f89ff02ad1046d4a6c9927b1b6a}{WWDTCTL\_CLKSEL\_FRCLK}}   =    0,}
+\DoxyCodeLine{24     \mbox{\hyperlink{pac5xxx__wwdt_8h_ae22bfb890296bb8e216db60949df408ca1350b692a1425c4ef8fbd97c7fb304f5}{WWDTCTL\_CLKSEL\_ROSCCLK}} =    1}
+\DoxyCodeLine{25 \} \mbox{\hyperlink{pac5xxx__wwdt_8h_ae22bfb890296bb8e216db60949df408c}{WWDTCTL\_CLKSEL\_TYPE}};}
+
+\end{DoxyCode}

@@ -1,0 +1,218 @@
+.TH "PAC5XXX_Timer8CC" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Timer8CC \- PAC5XXX Timer Capture/Compare/PWM outputs (TIMER8CC)
+.SH SYNOPSIS
+.br
+.PP
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBPAC5XXX Timer Capture/Compare/PWM outputs (TIMER4CC)\fP"
+.br
+.in -1c
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBPAC5XXX_TIMERCC_TypeDef\fP"
+.br
+.ti -1c
+.RI "union \fBPAC5XXX_DTGCTL_TypeDef\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBTXCTRL_MODE_Type\fP { \fBTxCTL_MODE_DISABLED\fP = 0, \fBTxCTL_MODE_UP\fP = 1, \fBTxCTL_MODE_UPDOWN\fP = 2 }"
+.br
+.ti -1c
+.RI "enum \fBTXCTRL_CLKIN_Type\fP { \fBTxCTL_CS_HCLK\fP = 0, \fBTxCTL_CS_ACLK\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBTXCTRL_PS_Type\fP { \fBTxCTL_PS_DIV1\fP = 0, \fBTxCTL_PS_DIV2\fP = 1, \fBTxCTL_PS_DIV4\fP = 2, \fBTxCTL_PS_DIV8\fP = 3, \fBTxCTL_PS_DIV16\fP = 4, \fBTxCTL_PS_DIV32\fP = 5, \fBTxCTL_PS_DIV64\fP = 6, \fBTxCTL_PS_DIV128\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBTXCCTRL_LATCH_Type\fP { \fBTxCTL_CLPRD_PRD\fP = 0, \fBTxCTL_CLPRD_0\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBTXCCTRL_CAPEDGE_Type\fP { \fBTxCCTL_CED_HIGHTOLOW\fP = 0, \fBTxCCTL_CED_LOWTOHIGH\fP = 1, \fBTxCCTL_CED_BOTH\fP = 2 }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBTXCCTRL_CAPEDGE_Type\fP"
+TXCTRL Capture Edge Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fITxCCTL_CED_HIGHTOLOW \fP\fP
+Timer Capture edge high-to-low transition 
+.br
+ 
+.TP
+\fB\fITxCCTL_CED_LOWTOHIGH \fP\fP
+Timer Capture edge low-to-high transition 
+.br
+ 
+.TP
+\fB\fITxCCTL_CED_BOTH \fP\fP
+Timer Capture edge both high-to-low and low-to-high transition 
+.br
+ 
+.PP
+Definition at line 58 of file pac5xxx_Timers\&.h\&.
+.PP
+.nf
+58              {
+59   TxCCTL_CED_HIGHTOLOW = 0,                   
+60   TxCCTL_CED_LOWTOHIGH = 1,                   
+61   TxCCTL_CED_BOTH = 2                         
+62 } TXCCTRL_CAPEDGE_Type;
+.fi
+.SS "enum \fBTXCCTRL_LATCH_Type\fP"
+TXCTRL Counter Period Latch Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fITxCTL_CLPRD_PRD \fP\fP
+Timer Compare Latch Period: TxPRD - 1 (up mode, or counting up) 
+.TP
+\fB\fITxCTL_CLPRD_0 \fP\fP
+Timer Compare Latch Period: 1 (up/down mode counting down) 
+.br
+ 
+.PP
+Definition at line 52 of file pac5xxx_Timers\&.h\&.
+.PP
+.nf
+52              {
+53   TxCTL_CLPRD_PRD = 0,                        
+54   TxCTL_CLPRD_0 = 1                           
+55 } TXCCTRL_LATCH_Type;
+.fi
+.SS "enum \fBTXCTRL_CLKIN_Type\fP"
+TXCTRL Clock Input Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fITxCTL_CS_HCLK \fP\fP
+Timer clock source: HCLK 
+.br
+ 
+.TP
+\fB\fITxCTL_CS_ACLK \fP\fP
+Timer clock source: ACLK 
+.br
+ 
+.PP
+Definition at line 34 of file pac5xxx_Timers\&.h\&.
+.PP
+.nf
+34              {
+35   TxCTL_CS_HCLK = 0,                          
+36   TxCTL_CS_ACLK = 1                           
+37 } TXCTRL_CLKIN_Type;
+.fi
+.SS "enum \fBTXCTRL_MODE_Type\fP"
+TXCTRL Timer Mode Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fITxCTL_MODE_DISABLED \fP\fP
+Timer mode: disabled 
+.br
+ 
+.TP
+\fB\fITxCTL_MODE_UP \fP\fP
+Timer mode: up 
+.br
+ 
+.TP
+\fB\fITxCTL_MODE_UPDOWN \fP\fP
+Timer mode: up/down 
+.br
+ 
+.PP
+Definition at line 27 of file pac5xxx_Timers\&.h\&.
+.PP
+.nf
+27              {
+28   TxCTL_MODE_DISABLED = 0,                    
+29   TxCTL_MODE_UP = 1,                          
+30   TxCTL_MODE_UPDOWN = 2                       
+31 } TXCTRL_MODE_Type;
+.fi
+.SS "enum \fBTXCTRL_PS_Type\fP"
+TXCTRL Clock Input Pre-scaler Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fITxCTL_PS_DIV1 \fP\fP
+Timer pre-scaler: /1 
+.br
+ 
+.TP
+\fB\fITxCTL_PS_DIV2 \fP\fP
+Timer pre-scaler: /2 
+.br
+ 
+.TP
+\fB\fITxCTL_PS_DIV4 \fP\fP
+Timer pre-scaler: /4 
+.br
+ 
+.TP
+\fB\fITxCTL_PS_DIV8 \fP\fP
+Timer pre-scaler: /8 
+.br
+ 
+.TP
+\fB\fITxCTL_PS_DIV16 \fP\fP
+Timer pre-scaler: /16 
+.br
+ 
+.TP
+\fB\fITxCTL_PS_DIV32 \fP\fP
+Timer pre-scaler: /32 
+.br
+ 
+.TP
+\fB\fITxCTL_PS_DIV64 \fP\fP
+Timer pre-scaler: /64 
+.br
+ 
+.TP
+\fB\fITxCTL_PS_DIV128 \fP\fP
+Timer pre-scaler: /128 
+.br
+ 
+.PP
+Definition at line 40 of file pac5xxx_Timers\&.h\&.
+.PP
+.nf
+40              {
+41   TxCTL_PS_DIV1 = 0,                          
+42   TxCTL_PS_DIV2 = 1,                          
+43   TxCTL_PS_DIV4 = 2,                          
+44   TxCTL_PS_DIV8 = 3,                          
+45   TxCTL_PS_DIV16 = 4,                         
+46   TxCTL_PS_DIV32 = 5,                         
+47   TxCTL_PS_DIV64 = 6,                         
+48   TxCTL_PS_DIV128 = 7                         
+49 } TXCTRL_PS_Type;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

@@ -1,0 +1,205 @@
+.TH "pac_foc/src/app/driver_funcs.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/app/driver_funcs.h \- Use to initialize PWM duty, port mode and enable disable motor, low side PWM\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBm1_enable\fP (void)"
+.br
+.RI "This function use to enable motor\&. "
+.ti -1c
+.RI "void \fBm1_enable_with_duty\fP (uint32_t duty_cycle)"
+.br
+.RI "This function use to set all three phases PWM duty cycle\&. "
+.ti -1c
+.RI "void \fBm1_enable_no_duty\fP (void)"
+.br
+.RI "This function use to enable PWM, GPIO and OutPut Enable\&. "
+.ti -1c
+.RI "void \fBset_drivers_gpio\fP (void)"
+.br
+.RI "This function use to set port to GPIO mode and set output to low\&. "
+.ti -1c
+.RI "void \fBm1_disable\fP (void)"
+.br
+.RI "This function use to disable motor\&. "
+.ti -1c
+.RI "void \fBm1_LS_pwm_only_config\fP (void)"
+.br
+.RI "This function use to configure low side PWM\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use to initialize PWM duty, port mode and enable disable motor, low side PWM\&. 
+
+
+.PP
+Definition in file \fBdriver_funcs\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void m1_disable (void)"
+
+.PP
+This function use to disable motor\&. 
+.PP
+Definition at line 107 of file driver_funcs\&.c\&.
+.PP
+.nf
+108 {
+109     // Disable driver manager and verify active - need to enable even in PAC5210 to get ENHS pin to work
+110     pac5xxx_tile_register_write(ADDR_ENDRV, 0);
+111 
+112     // Set drivers to GPIO mode
+113     set_drivers_gpio();
+114 
+115     // Set duty cycles to 50%
+116     m1_u_set_duty(motor\&.control\&.motor_period_ticks >> 1);
+117     m1_v_set_duty(motor\&.control\&.motor_period_ticks >> 1);
+118     m1_w_set_duty(motor\&.control\&.motor_period_ticks >> 1);
+119 }
+.fi
+.PP
+References Struct_Motor::control, motor, Struct_Control::motor_period_ticks, and set_drivers_gpio()\&.
+.PP
+Referenced by fault(), and statemachine_appmain()\&.
+.SS "void m1_enable (void)"
+
+.PP
+This function use to enable motor\&. 
+.PP
+Definition at line 30 of file driver_funcs\&.c\&.
+.PP
+.nf
+31 {
+32     m1_enable_with_duty(motor\&.control\&.motor_period_ticks >> 1);
+33 }
+.fi
+.PP
+References Struct_Motor::control, m1_enable_with_duty(), motor, and Struct_Control::motor_period_ticks\&.
+.SS "void m1_enable_no_duty (void)"
+
+.PP
+This function use to enable PWM, GPIO and OutPut Enable\&. 
+.PP
+Definition at line 68 of file driver_funcs\&.c\&.
+.PP
+.nf
+69 {
+70     // Select PWM peripheral for Driver Port
+71     motor_psel_pwm();
+72 
+73    // Select GPIO mode for Driver Port
+74     motor_modesel_gpio();
+75     
+76     // Turn on output enables
+77     motor_outen_enable();
+78 
+79     // Enable driver manager and verify active - need to enable even in PAC5210 to get ENHS pin to work
+80 #ifdef CAFE_ARCH3
+81     pac5xxx_tile_register_write(ADDR_ENDRV, 1 | (1 << 1));
+82 #else
+83     pac5xxx_tile_register_write(ADDR_ENDRV, 1);
+84 #endif
+85 }
+.fi
+.SS "void m1_enable_with_duty (uint32_t duty_cycle)"
+
+.PP
+This function use to set all three phases PWM duty cycle\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIduty_cycle\fP 
+.RE
+.PP
+
+.PP
+Definition at line 40 of file driver_funcs\&.c\&.
+.PP
+.nf
+41 {
+42     // Set duty cycles to 50%
+43     m1_u_set_duty(duty_cycle);
+44     m1_v_set_duty(duty_cycle);
+45     m1_w_set_duty(duty_cycle);
+46 
+47     // Select PWM peripheral for Driver Port
+48     motor_psel_pwm();
+49     
+50    // Select GPIO mode for Driver Port
+51     motor_modesel_gpio();
+52     
+53     // Turn on output enables
+54     motor_outen_enable();
+55 
+56     // Enable driver manager and verify active - need to enable even in PAC5210 to get ENHS pin to work
+57 #ifdef CAFE_ARCH3
+58     pac5xxx_tile_register_write(ADDR_ENDRV, 1 | (1 << 1));
+59 #else
+60       pac5xxx_tile_register_write(ADDR_ENDRV, 1);   
+61 #endif
+62 }
+.fi
+.SS "void m1_LS_pwm_only_config (void)"
+
+.PP
+This function use to configure low side PWM\&. 
+.PP
+Definition at line 125 of file driver_funcs\&.c\&.
+.PP
+.nf
+126 {
+127     // Set IO state of all pins to 0
+128     motor_out_clear();
+129 
+130     // Select GPIO peripheral for Port A
+131     motor_psel_gpio();
+132 
+133     // Select PWM peripheral for Port A only low side
+134     motor_psel_pwm_LS();
+135 
+136     // Turn on output enables
+137     motor_outen_enable();
+138 
+139     // Enable driver manager
+140 #ifdef CAFE_ARCH3
+141     pac5xxx_tile_register_write(ADDR_ENDRV, 1 | (1 << 1));
+142 #else   
+143     pac5xxx_tile_register_write(ADDR_ENDRV, 1);
+144 #endif
+145 }
+.fi
+.SS "void set_drivers_gpio (void)"
+
+.PP
+This function use to set port to GPIO mode and set output to low\&. 
+.PP
+Definition at line 91 of file driver_funcs\&.c\&.
+.PP
+.nf
+92 {
+93     // Set IO state of all pins to 0
+94     motor_out_clear();
+95     // Select GPIO peripheral for Driver Port
+96     motor_psel_gpio();
+97     // Select GPIO mode for Driver Port
+98     motor_modesel_gpio(); 
+99     // Turn on output enables
+100     motor_outen_enable();
+101 }
+.fi
+.PP
+Referenced by m1_disable(), oc_reset(), and statemachine_appmain()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

@@ -1,0 +1,40 @@
+.TH "pac_foc/src/features/speed_check.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/features/speed_check.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcheck_speedtargetol_warning\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.ti -1c
+.RI "void \fBcheck_speedlimitcl_fault\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Use for checking speed min - max limit and generate speed fault\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void check_speedlimitcl_fault (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Use for checking speed min - max limit and generate speed fault\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.RE
+.PP
+
+.SS "void check_speedtargetol_warning (\fBStruct_Motor\fP * motor_ptr)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

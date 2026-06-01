@@ -1,0 +1,61 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/driver/pac5xxx_driver_timer.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/driver/pac5xxx_driver_timer.h \- Firmware driver for the PAC5XXX timer and DTG units\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_config\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_TIMER\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBTimerInstance\fP { \fBTimerA\fP, \fBTimerB\fP, \fBTimerC\fP, \fBTimerD\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_base_config\fP (\fBTimerInstance\fP timer, uint16_t period, int single_shot, \fBTXCTRL_MODE_Type\fP mode, int sync)"
+.br
+.RI "This function configures the base timer period, mode and single-use mode for the given timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_dtg_config2\fP (\fBDTGCTL_TYPEDEF\fP *p_dtg, uint16_t red, uint16_t fed)"
+.br
+.RI "This function configures and enables the given Dead-Time Generator (DTG) "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_clock_config\fP (\fBTimerInstance\fP timer, \fBTXCTRL_CLKIN_Type\fP source, \fBTXCTRL_PS_Type\fP prescale)"
+.br
+.RI "This function configures the clock source and pre-scaler for the given timer\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Firmware driver for the PAC5XXX timer and DTG units\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_driver_timer\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

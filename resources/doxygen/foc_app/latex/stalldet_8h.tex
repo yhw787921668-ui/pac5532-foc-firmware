@@ -1,0 +1,70 @@
+\hypertarget{stalldet_8h}{}\doxysection{pac\+\_\+foc/src/features/stalldet/stalldet.h File Reference}
+\label{stalldet_8h}\index{pac\_foc/src/features/stalldet/stalldet.h@{pac\_foc/src/features/stalldet/stalldet.h}}
+
+
+Use for stall detect structure.  
+
+
+{\ttfamily \#include \char`\"{}fix16.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}maths.\+h\char`\"{}}\newline
+Include dependency graph for stalldet.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{stalldet_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{stalldet_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_struct___stall_det}{Struct\+\_\+\+Stall\+Det}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{struct_struct___stall_det}{Struct\+\_\+\+Stall\+Det}} structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{stalldet_8h_adfdd6257e6ae4ed0de6fe607b7773e9b}{stall\+\_\+detect\+\_\+processing}} (\mbox{\hyperlink{struct_struct___stall_det}{Struct\+\_\+\+Stall\+Det}} $\ast$stall\+\_\+ptr, uint32\+\_\+t systick\+\_\+div\+\_\+cntr, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} motor\+\_\+speed\+\_\+peak, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} descale\+\_\+volt\+\_\+factor, \mbox{\hyperlink{maths_8h_a292cc6836a9316ee646c918689614774}{q1p14\+\_\+t}} vdrvsq\+\_\+peak, int32\+\_\+t iq\+\_\+q14, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} est\+\_\+speed)
+\begin{DoxyCompactList}\small\item\em Use to check stall detection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for stall detect structure. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{stalldet_8h_adfdd6257e6ae4ed0de6fe607b7773e9b}\label{stalldet_8h_adfdd6257e6ae4ed0de6fe607b7773e9b}} 
+\index{stalldet.h@{stalldet.h}!stall\_detect\_processing@{stall\_detect\_processing}}
+\index{stall\_detect\_processing@{stall\_detect\_processing}!stalldet.h@{stalldet.h}}
+\doxysubsubsection{\texorpdfstring{stall\_detect\_processing()}{stall\_detect\_processing()}}
+{\footnotesize\ttfamily void stall\+\_\+detect\+\_\+processing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___stall_det}{Struct\+\_\+\+Stall\+Det}} $\ast$}]{stall\+\_\+ptr,  }\item[{uint32\+\_\+t}]{systick\+\_\+div\+\_\+cntr,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{motor\+\_\+speed\+\_\+peak,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{descale\+\_\+volt\+\_\+factor,  }\item[{\mbox{\hyperlink{maths_8h_a292cc6836a9316ee646c918689614774}{q1p14\+\_\+t}}}]{vdrvsq\+\_\+peak,  }\item[{int32\+\_\+t}]{iq\+\_\+q14,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{est\+\_\+speed }\end{DoxyParamCaption})}
+
+
+
+Use to check stall detection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Stall\+Det$\ast$} & stall\+\_\+ptr \\
+\hline
+{\em uint32\+\_\+t} & systick\+\_\+div\+\_\+cntr \\
+\hline
+{\em fix16\+\_\+t} & motor\+\_\+speed\+\_\+peak \\
+\hline
+{\em fix16\+\_\+t} & descale\+\_\+volt\+\_\+factor \\
+\hline
+{\em q1p14\+\_\+t} & vdrvsq\+\_\+peak \\
+\hline
+{\em int32\+\_\+t} & iq\+\_\+q14 \\
+\hline
+{\em fix16\+\_\+t} & est\+\_\+speed \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,905 @@
+.TH "Struct_ATune" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Struct_ATune
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <atune_struct\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBeStateMID2\fP \fBstate_mid2\fP"
+.br
+.ti -1c
+.RI "\fBeUICmdATune\fP \fBuicmd_atune\fP"
+.br
+.ti -1c
+.RI "\fBeUICmdATune\fP \fBuicmd_atune_previous\fP"
+.br
+.ti -1c
+.RI "\fBeStatusATune\fP \fBstatus_atune\fP"
+.br
+.ti -1c
+.RI "\fBeStateRecMID2\fP \fBstaterec_mid2\fP"
+.br
+.ti -1c
+.RI "\fBeStateMainSubMID1\fP \fBstate_mainsub_mid1\fP"
+.br
+.ti -1c
+.RI "\fBeMID1RunMode\fP \fBmid1_runmode\fP"
+.br
+.ti -1c
+.RI "\fBeMID2RunMode\fP \fBmid2_runmode\fP"
+.br
+.ti -1c
+.RI "\fBeMID1ManCmd\fP \fBmid1_mancmd\fP"
+.br
+.ti -1c
+.RI "\fBeMID1InjMode\fP \fBmid1_injmode\fP"
+.br
+.ti -1c
+.RI "\fBeStatusMID1\fP \fBstatus_mid1\fP"
+.br
+.ti -1c
+.RI "\fBeCmdMID1SM\fP \fBcmd_mid1_sm\fP"
+.br
+.ti -1c
+.RI "\fBeCmdMID2SM\fP \fBcmd_mid2_sm\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBstate_mid1_external\fP: 7"
+.br
+.ti -1c
+.RI "uint32_t \fBmid1_motor_enable_cmd\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBmotion_detected_flag\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBmotion_detection_complete\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBmotiondet_to_flag\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBmid2_speed_settled\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBtemp\fP: 20"
+.br
+.ti -1c
+.RI "int32_t \fBsum_speed_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBsum_iq_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBsum_vpsq_q18\fP"
+.br
+.ti -1c
+.RI "int32_t \fBsum_samplenum\fP"
+.br
+.ti -1c
+.RI "int32_t \fBsum_speed_store_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBsum_iq_store_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBsum_vpsq_store_q18\fP"
+.br
+.ti -1c
+.RI "int32_t \fBsum_samplenum_store\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmid2_vpsq_q22\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmid2_iq_q22\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmid2_spd_q22\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmid2_acc_q22\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmid2_filtacc2_q22\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmid2_amax_q22\fP"
+.br
+.ti -1c
+.RI "int32_t \fBanoise_thd_q22\fP"
+.br
+.ti -1c
+.RI "int32_t \fBanoise_delay_ctr\fP"
+.br
+.ti -1c
+.RI "int32_t \fBanoise_warn_ctr\fP"
+.br
+.ti -1c
+.RI "int32_t \fBspeed_settled_majfilt_cnt\fP"
+.br
+.ti -1c
+.RI "int32_t \fBsum_speed2_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBsum_samplenum2\fP"
+.br
+.ti -1c
+.RI "int32_t \fBdt_control_q26\fP"
+.br
+.ti -1c
+.RI "int32_t \fBdt_control_1div_q6\fP"
+.br
+.ti -1c
+.RI "int32_t \fBdt_speed_q26\fP"
+.br
+.ti -1c
+.RI "int32_t \fBdt_systickdiv_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBdelta_q6\fP"
+.br
+.ti -1c
+.RI "int32_t \fBfilter_fc_speed_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBfilter_tau_speed_q26\fP"
+.br
+.ti -1c
+.RI "int32_t \fBfilter_alpha_acc2_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBfilter_alpha_dc_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBistep_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBanoise_delay_cycles\fP"
+.br
+.ti -1c
+.RI "int32_t \fBanoise_threshold_multp\fP"
+.br
+.ti -1c
+.RI "int32_t \fBanoise_fault_retries\fP"
+.br
+.ti -1c
+.RI "int32_t \fBaccdet_thresh_q22\fP"
+.br
+.ti -1c
+.RI "int32_t \fBspeed_settled_majfilt_limit\fP"
+.br
+.ti -1c
+.RI "int32_t \fBnum_limit\fP"
+.br
+.ti -1c
+.RI "int32_t \fBnum_limit_gui\fP"
+.br
+.ti -1c
+.RI "int32_t \fBperiod_fraction_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBv_inj_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBv_align_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBone_div_numlimit_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBfilter_shift\fP"
+.br
+.ti -1c
+.RI "int32_t \fBrdson_ivscale_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBv_led_scaled_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBv_ted_scaled_q14\fP"
+.br
+.ti -1c
+.RI "\fBeMID1InvType\fP \fBmid1_inverter_type\fP"
+.br
+.ti -1c
+.RI "int32_t \fBv_diode_scaled_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBv_ce_scaled_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBcomp_term_scaled_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBvd_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBvq_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBi_max_control_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBiac_ref_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBisq_rms_q28\fP"
+.br
+.ti -1c
+.RI "int32_t \fBv_dc_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBi_dc_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBpsq_app_out_q40\fP"
+.br
+.ti -1c
+.RI "int32_t \fBpsq_real_out_q40\fP"
+.br
+.ti -1c
+.RI "int32_t \fBisq_rms_out_q28\fP"
+.br
+.ti -1c
+.RI "int32_t \fBvsq_rms_out_q24\fP"
+.br
+.ti -1c
+.RI "int32_t \fBpsq_app_q40\fP"
+.br
+.ti -1c
+.RI "int32_t \fBpsq_real_q40\fP"
+.br
+.ti -1c
+.RI "int32_t \fBi1_align_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBi2_align_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBv1_align_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBv2_align_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBv_align_inc_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBi_align_limit1_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBi_align_limit2_q14\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBfilter_delay_config_q0\fP"
+.br
+.ti -1c
+.RI "int32_t \fBi_inj_gui_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBi_align1_gui_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBi_align2_gui_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBv_dc1_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBi_dc1_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBv_dc2_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBi_dc2_q14\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBfilter_delay_q0\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmid2_spd_store_q22\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmid2_iq1_store_q22\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmid2_iq2_store_q22\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmid2_vpsq_store_q22\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmid2_amax_store_q22\fP"
+.br
+.ti -1c
+.RI "int32_t \fBke_q26\fP"
+.br
+.ti -1c
+.RI "int32_t \fBj_q26\fP"
+.br
+.ti -1c
+.RI "int32_t \fBspeed_ka_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBspeed_kb_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBid_ka_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBid_kb_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBiq_ka_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBiq_kb_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBld_q26\fP"
+.br
+.ti -1c
+.RI "int32_t \fBlq_q26\fP"
+.br
+.ti -1c
+.RI "int32_t \fBrs_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBflag_iqref_reg_active\fP"
+.br
+.ti -1c
+.RI "int32_t \fBiqref_start_pct_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBiqref_inc_pct_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBfilter_alpha_anglediff\fP"
+.br
+.ti -1c
+.RI "int32_t \fBrcheck_rd_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBrcheck_rq_q16\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmotion_max_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmotion_min_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmotiondet_delay_limit_cnt\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmotiondet_to_limit_cnt\fP"
+.br
+.ti -1c
+.RI "int32_t \fBmotiondet_delta_threshold_pct_q14\fP"
+.br
+.ti -1c
+.RI "int32_t \fBpower_factor_sq_q16\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 240 of file atune_struct\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "int32_t Struct_ATune::accdet_thresh_q22"
+
+.PP
+Definition at line 300 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::anoise_delay_ctr"
+
+.PP
+Definition at line 280 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::anoise_delay_cycles"
+
+.PP
+Definition at line 297 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::anoise_fault_retries"
+
+.PP
+Definition at line 299 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::anoise_thd_q22"
+
+.PP
+Definition at line 279 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::anoise_threshold_multp"
+
+.PP
+Definition at line 298 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::anoise_warn_ctr"
+
+.PP
+Definition at line 281 of file atune_struct\&.h\&.
+.SS "\fBeCmdMID1SM\fP Struct_ATune::cmd_mid1_sm"
+
+.PP
+Definition at line 254 of file atune_struct\&.h\&.
+.SS "\fBeCmdMID2SM\fP Struct_ATune::cmd_mid2_sm"
+
+.PP
+Definition at line 255 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::comp_term_scaled_q14"
+
+.PP
+Definition at line 316 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::delta_q6"
+
+.PP
+Definition at line 291 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::dt_control_1div_q6"
+
+.PP
+Definition at line 288 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::dt_control_q26"
+
+.PP
+Definition at line 287 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::dt_speed_q26"
+
+.PP
+Definition at line 289 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::dt_systickdiv_q16"
+
+.PP
+Definition at line 290 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::filter_alpha_acc2_q16"
+
+.PP
+Definition at line 294 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::filter_alpha_anglediff"
+
+.PP
+Definition at line 376 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::filter_alpha_dc_q16"
+
+.PP
+Definition at line 295 of file atune_struct\&.h\&.
+.SS "uint32_t Struct_ATune::filter_delay_config_q0"
+
+.PP
+Definition at line 342 of file atune_struct\&.h\&.
+.SS "uint32_t Struct_ATune::filter_delay_q0"
+
+.PP
+Definition at line 352 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::filter_fc_speed_q16"
+
+.PP
+Definition at line 292 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::filter_shift"
+
+.PP
+Definition at line 309 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::filter_tau_speed_q26"
+
+.PP
+Definition at line 293 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::flag_iqref_reg_active"
+
+.PP
+Definition at line 373 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::i1_align_q14"
+
+.PP
+Definition at line 335 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::i2_align_q14"
+
+.PP
+Definition at line 336 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::i_align1_gui_q14"
+
+.PP
+Definition at line 344 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::i_align2_gui_q14"
+
+.PP
+Definition at line 345 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::i_align_limit1_q14"
+
+.PP
+Definition at line 340 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::i_align_limit2_q14"
+
+.PP
+Definition at line 341 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::i_dc1_q14"
+
+.PP
+Definition at line 349 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::i_dc2_q14"
+
+.PP
+Definition at line 351 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::i_dc_q14"
+
+.PP
+Definition at line 326 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::i_inj_gui_q14"
+
+.PP
+Definition at line 343 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::i_max_control_q14"
+
+.PP
+Definition at line 322 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::iac_ref_q14"
+
+.PP
+Definition at line 323 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::id_ka_q16"
+
+.PP
+Definition at line 364 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::id_kb_q16"
+
+.PP
+Definition at line 365 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::iq_ka_q16"
+
+.PP
+Definition at line 366 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::iq_kb_q16"
+
+.PP
+Definition at line 367 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::iqref_inc_pct_q16"
+
+.PP
+Definition at line 375 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::iqref_start_pct_q16"
+
+.PP
+Definition at line 374 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::isq_rms_out_q28"
+
+.PP
+Definition at line 329 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::isq_rms_q28"
+
+.PP
+Definition at line 324 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::istep_q16"
+
+.PP
+Definition at line 296 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::j_q26"
+
+.PP
+Definition at line 361 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::ke_q26"
+
+.PP
+Definition at line 360 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::ld_q26"
+
+.PP
+Definition at line 368 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::lq_q26"
+
+.PP
+Definition at line 369 of file atune_struct\&.h\&.
+.SS "\fBeMID1InjMode\fP Struct_ATune::mid1_injmode"
+
+.PP
+Definition at line 252 of file atune_struct\&.h\&.
+.SS "\fBeMID1InvType\fP Struct_ATune::mid1_inverter_type"
+
+.PP
+Definition at line 313 of file atune_struct\&.h\&.
+.SS "\fBeMID1ManCmd\fP Struct_ATune::mid1_mancmd"
+
+.PP
+Definition at line 251 of file atune_struct\&.h\&.
+.SS "uint32_t Struct_ATune::mid1_motor_enable_cmd"
+
+.PP
+Definition at line 257 of file atune_struct\&.h\&.
+.SS "\fBeMID1RunMode\fP Struct_ATune::mid1_runmode"
+
+.PP
+Definition at line 249 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::mid2_acc_q22"
+
+.PP
+Definition at line 276 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::mid2_amax_q22"
+
+.PP
+Definition at line 278 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::mid2_amax_store_q22"
+
+.PP
+Definition at line 359 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::mid2_filtacc2_q22"
+
+.PP
+Definition at line 277 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::mid2_iq1_store_q22"
+
+.PP
+Definition at line 356 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::mid2_iq2_store_q22"
+
+.PP
+Definition at line 357 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::mid2_iq_q22"
+
+.PP
+Definition at line 274 of file atune_struct\&.h\&.
+.SS "\fBeMID2RunMode\fP Struct_ATune::mid2_runmode"
+
+.PP
+Definition at line 250 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::mid2_spd_q22"
+
+.PP
+Definition at line 275 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::mid2_spd_store_q22"
+
+.PP
+Definition at line 355 of file atune_struct\&.h\&.
+.SS "uint32_t Struct_ATune::mid2_speed_settled"
+
+.PP
+Definition at line 261 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::mid2_vpsq_q22"
+
+.PP
+Definition at line 273 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::mid2_vpsq_store_q22"
+
+.PP
+Definition at line 358 of file atune_struct\&.h\&.
+.SS "uint32_t Struct_ATune::motion_detected_flag"
+
+.PP
+Definition at line 258 of file atune_struct\&.h\&.
+.SS "uint32_t Struct_ATune::motion_detection_complete"
+
+.PP
+Definition at line 259 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::motion_max_q14"
+
+.PP
+Definition at line 379 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::motion_min_q14"
+
+.PP
+Definition at line 380 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::motiondet_delay_limit_cnt"
+
+.PP
+Definition at line 381 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::motiondet_delta_threshold_pct_q14"
+
+.PP
+Definition at line 383 of file atune_struct\&.h\&.
+.SS "uint32_t Struct_ATune::motiondet_to_flag"
+
+.PP
+Definition at line 260 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::motiondet_to_limit_cnt"
+
+.PP
+Definition at line 382 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::num_limit"
+
+.PP
+Definition at line 303 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::num_limit_gui"
+
+.PP
+Definition at line 304 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::one_div_numlimit_q16"
+
+.PP
+Definition at line 308 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::period_fraction_q16"
+
+.PP
+Definition at line 305 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::power_factor_sq_q16"
+
+.PP
+Definition at line 384 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::psq_app_out_q40"
+
+.PP
+Definition at line 327 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::psq_app_q40"
+
+.PP
+Definition at line 331 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::psq_real_out_q40"
+
+.PP
+Definition at line 328 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::psq_real_q40"
+
+.PP
+Definition at line 332 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::rcheck_rd_q16"
+
+.PP
+Definition at line 377 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::rcheck_rq_q16"
+
+.PP
+Definition at line 378 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::rdson_ivscale_q16"
+
+.PP
+Definition at line 310 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::rs_q16"
+
+.PP
+Definition at line 370 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::speed_ka_q16"
+
+.PP
+Definition at line 362 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::speed_kb_q16"
+
+.PP
+Definition at line 363 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::speed_settled_majfilt_cnt"
+
+.PP
+Definition at line 282 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::speed_settled_majfilt_limit"
+
+.PP
+Definition at line 301 of file atune_struct\&.h\&.
+.SS "\fBeStateMainSubMID1\fP Struct_ATune::state_mainsub_mid1"
+
+.PP
+Definition at line 248 of file atune_struct\&.h\&.
+.SS "uint32_t Struct_ATune::state_mid1_external"
+
+.PP
+Definition at line 256 of file atune_struct\&.h\&.
+.SS "\fBeStateMID2\fP Struct_ATune::state_mid2"
+
+.PP
+Definition at line 243 of file atune_struct\&.h\&.
+.SS "\fBeStateRecMID2\fP Struct_ATune::staterec_mid2"
+
+.PP
+Definition at line 247 of file atune_struct\&.h\&.
+.SS "\fBeStatusATune\fP Struct_ATune::status_atune"
+
+.PP
+Definition at line 246 of file atune_struct\&.h\&.
+.SS "\fBeStatusMID1\fP Struct_ATune::status_mid1"
+
+.PP
+Definition at line 253 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::sum_iq_q14"
+
+.PP
+Definition at line 266 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::sum_iq_store_q14"
+
+.PP
+Definition at line 270 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::sum_samplenum"
+
+.PP
+Definition at line 268 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::sum_samplenum2"
+
+.PP
+Definition at line 284 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::sum_samplenum_store"
+
+.PP
+Definition at line 272 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::sum_speed2_q14"
+
+.PP
+Definition at line 283 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::sum_speed_q14"
+
+.PP
+Definition at line 265 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::sum_speed_store_q14"
+
+.PP
+Definition at line 269 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::sum_vpsq_q18"
+
+.PP
+Definition at line 267 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::sum_vpsq_store_q18"
+
+.PP
+Definition at line 271 of file atune_struct\&.h\&.
+.SS "uint32_t Struct_ATune::temp"
+
+.PP
+Definition at line 262 of file atune_struct\&.h\&.
+.SS "\fBeUICmdATune\fP Struct_ATune::uicmd_atune"
+
+.PP
+Definition at line 244 of file atune_struct\&.h\&.
+.SS "\fBeUICmdATune\fP Struct_ATune::uicmd_atune_previous"
+
+.PP
+Definition at line 245 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::v1_align_q14"
+
+.PP
+Definition at line 337 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::v2_align_q14"
+
+.PP
+Definition at line 338 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::v_align_inc_q14"
+
+.PP
+Definition at line 339 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::v_align_q14"
+
+.PP
+Definition at line 307 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::v_ce_scaled_q14"
+
+.PP
+Definition at line 315 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::v_dc1_q14"
+
+.PP
+Definition at line 348 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::v_dc2_q14"
+
+.PP
+Definition at line 350 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::v_dc_q14"
+
+.PP
+Definition at line 325 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::v_diode_scaled_q14"
+
+.PP
+Definition at line 314 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::v_inj_q14"
+
+.PP
+Definition at line 306 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::v_led_scaled_q14"
+
+.PP
+Definition at line 311 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::v_ted_scaled_q14"
+
+.PP
+Definition at line 312 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::vd_q14"
+
+.PP
+Definition at line 319 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::vq_q14"
+
+.PP
+Definition at line 320 of file atune_struct\&.h\&.
+.SS "int32_t Struct_ATune::vsq_rms_out_q24"
+
+.PP
+Definition at line 330 of file atune_struct\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

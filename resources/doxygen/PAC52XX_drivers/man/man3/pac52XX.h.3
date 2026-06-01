@@ -1,0 +1,5528 @@
+.TH "pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_peripheral/pac52XX.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_peripheral/pac52XX.h \- CMSIS Cortex-M0 Peripheral Access Layer Header File for PAC52XX from Active-Semi\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <core_cm0\&.h>\fP
+.br
+\fC#include 'system_pac5xxx\&.h'\fP
+.br
+\fC#include 'pac5xxx_ADC\&.h'\fP
+.br
+\fC#include 'pac5xxx_GPIO\&.h'\fP
+.br
+\fC#include 'pac5xxx_I2C\&.h'\fP
+.br
+\fC#include 'pac5xxx_Memory\&.h'\fP
+.br
+\fC#include 'pac5xxx_SPI\&.h'\fP
+.br
+\fC#include 'pac5xxx_SocBridge\&.h'\fP
+.br
+\fC#include 'pac5xxx_SYS\&.h'\fP
+.br
+\fC#include 'pac5xxx_Timers\&.h'\fP
+.br
+\fC#include 'pac5xxx_UART\&.h'\fP
+.br
+\fC#include 'pac5xxx_WDT\&.h'\fP
+.br
+\fC#include 'pac5xxx_RTC\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBSYSCLK_Type\fP"
+.br
+.RI "System and Clock Control (SYSCLK) "
+.ti -1c
+.RI "struct \fBMEMCTL_Type\fP"
+.br
+.RI "FLASH Memory Controller (MEMCTL) "
+.ti -1c
+.RI "struct \fBWDT_Type\fP"
+.br
+.RI "Watchdog Timer (WDT) "
+.ti -1c
+.RI "struct \fBRTC_Type\fP"
+.br
+.RI "Real-Time Clock (RTC) "
+.ti -1c
+.RI "struct \fBGPIOA_Type\fP"
+.br
+.RI "General-Purpose Input-Output Port A (GPIOA) "
+.ti -1c
+.RI "struct \fBGPIOC_Type\fP"
+.br
+.RI "General-Purpose Input-Output Port C (GPIOC) "
+.ti -1c
+.RI "struct \fBTIMERA_Type\fP"
+.br
+.RI "Timer A Peripheral (TIMERA) "
+.ti -1c
+.RI "struct \fBTIMERB_Type\fP"
+.br
+.RI "Timer B Peripheral (TIMERB) "
+.ti -1c
+.RI "struct \fBTIMERC_Type\fP"
+.br
+.RI "Timer C Peripheral (TIMERC) "
+.ti -1c
+.RI "struct \fBTIMERD_Type\fP"
+.br
+.RI "Timer D Peripheral (TIMERD) "
+.ti -1c
+.RI "struct \fBADC_Type\fP"
+.br
+.RI "Analog to Digital Converter (ADC) "
+.ti -1c
+.RI "struct \fBI2C_Type\fP"
+.br
+.RI "I2C (I2C) "
+.ti -1c
+.RI "struct \fBUART_Type\fP"
+.br
+.RI "UART (UART) "
+.ti -1c
+.RI "struct \fBSOCB_Type\fP"
+.br
+.RI "SOC Bus Bridge (SOCB) "
+.ti -1c
+.RI "struct \fBSPI_Type\fP"
+.br
+.RI "SPI (SPI) "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPAC5XXX_RAMFUNC\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_OPTIMIZE_SPEED_ON\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_OPTIMIZE_SPEED_OFF\fP"
+.br
+.ti -1c
+.RI "#define \fBUNUSED_PARAM\fP"
+.br
+.ti -1c
+.RI "#define \fB__CM0_REV\fP   0x0201"
+.br
+.ti -1c
+.RI "#define \fB__NVIC_PRIO_BITS\fP   2"
+.br
+.ti -1c
+.RI "#define \fB__Vendor_SysTickConfig\fP   0"
+.br
+.ti -1c
+.RI "#define \fB__MPU_PRESENT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPAC52XX_RELEASED\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPAC52XX_RC\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPAC52XX_BETA\fP   2"
+.br
+.ti -1c
+.RI "#define \fBPAC52XX_ALPHA\fP   3"
+.br
+.ti -1c
+.RI "#define \fBPAC52XX_IN_DEVELOPMENT\fP   4"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_RELEASED\fP   \fBPAC52XX_RELEASED\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_RC\fP   \fBPAC52XX_RC\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_BETA\fP   \fBPAC52XX_BETA\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_ALPHA\fP   \fBPAC52XX_ALPHA\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_IN_DEVELOPMENT\fP   \fBPAC52XX_IN_DEVELOPMENT\fP"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_SCCTL_CLKIN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_SCCTL_CLKIN_Msk\fP   (0x03UL << \fBSYSCLK_SCCTL_CLKIN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_SCCTL_ACLKDIV_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_SCCTL_ACLKDIV_Msk\fP   (0x07UL << \fBSYSCLK_SCCTL_ACLKDIV_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_SCCTL_HCLKDIV_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_SCCTL_HCLKDIV_Msk\fP   (0x03UL << \fBSYSCLK_SCCTL_HCLKDIV_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_SCCTL_FCLK_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_SCCTL_FCLK_Msk\fP   (0x01UL << \fBSYSCLK_SCCTL_FCLK_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_PLLCTL_PLLEN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_PLLCTL_PLLEN_Msk\fP   (0x01UL << \fBSYSCLK_PLLCTL_PLLEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_PLLCTL_PLLINDIV_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_PLLCTL_PLLINDIV_Msk\fP   (0x1fUL << \fBSYSCLK_PLLCTL_PLLINDIV_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_PLLCTL_PLLFBDIV_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_PLLCTL_PLLFBDIV_Msk\fP   (0x000001ffUL << \fBSYSCLK_PLLCTL_PLLFBDIV_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_PLLCTL_PLLOUTDIV_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_PLLCTL_PLLOUTDIV_Msk\fP   (0x0fUL << \fBSYSCLK_PLLCTL_PLLOUTDIV_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_ROSCCTL_ROSCEN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_ROSCCTL_ROSCEN_Msk\fP   (0x01UL << \fBSYSCLK_ROSCCTL_ROSCEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_ROSCCTL_ROSCP_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_ROSCCTL_ROSCP_Msk\fP   (0x03UL << \fBSYSCLK_ROSCCTL_ROSCP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_XTALCTL_XTALEN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSYSCLK_XTALCTL_XTALEN_Msk\fP   (0x01UL << \fBSYSCLK_XTALCTL_XTALEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBMEMCTL_FLASHSTATUS_WRITE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBMEMCTL_FLASHSTATUS_WRITE_Msk\fP   (0x01UL << \fBMEMCTL_FLASHSTATUS_WRITE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBMEMCTL_FLASHSTATUS_PERASE_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMEMCTL_FLASHSTATUS_PERASE_Msk\fP   (0x01UL << \fBMEMCTL_FLASHSTATUS_PERASE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBMEMCTL_FLASHWSTATE_WSTATE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBMEMCTL_FLASHWSTATE_WSTATE_Msk\fP   (0x03UL << \fBMEMCTL_FLASHWSTATE_WSTATE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCTL_WDTCTRRST_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCTL_WDTCTRRST_Msk\fP   (0x07UL << \fBWDT_WDTCTL_WDTCTRRST_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCTL_WDTINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCTL_WDTINTEN_Msk\fP   (0x01UL << \fBWDT_WDTCTL_WDTINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCTL_WDTINT_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCTL_WDTINT_Msk\fP   (0x01UL << \fBWDT_WDTCTL_WDTINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCTL_WDTRESETEN_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCTL_WDTRESETEN_Msk\fP   (0x01UL << \fBWDT_WDTCTL_WDTRESETEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCTL_WDTCLKDIV_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCTL_WDTCLKDIV_Msk\fP   (0x0fUL << \fBWDT_WDTCTL_WDTCLKDIV_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCTL_WDTCLKSEL_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCTL_WDTCLKSEL_Msk\fP   (0x01UL << \fBWDT_WDTCTL_WDTCLKSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCTL_WRBUSY_Pos\fP   11"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCTL_WRBUSY_Msk\fP   (0x01UL << \fBWDT_WDTCTL_WRBUSY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCTL_KEY_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCTL_KEY_Msk\fP   (0x000000ffUL << \fBWDT_WDTCTL_KEY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCDV_RSTVALUE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCDV_RSTVALUE_Msk\fP   (0x00ffffffUL << \fBWDT_WDTCDV_RSTVALUE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCDV_KEY_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBWDT_WDTCDV_KEY_Msk\fP   (0x000000ffUL << \fBWDT_WDTCDV_KEY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBRTC_RTCCTL_RTCCTRRST_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBRTC_RTCCTL_RTCCTRRST_Msk\fP   (0x07UL << \fBRTC_RTCCTL_RTCCTRRST_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBRTC_RTCCTL_RTCINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBRTC_RTCCTL_RTCINTEN_Msk\fP   (0x01UL << \fBRTC_RTCCTL_RTCINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBRTC_RTCCTL_RTCINT_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBRTC_RTCCTL_RTCINT_Msk\fP   (0x01UL << \fBRTC_RTCCTL_RTCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBRTC_RTCCTL_RTCCLKDIV_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBRTC_RTCCTL_RTCCLKDIV_Msk\fP   (0x0fUL << \fBRTC_RTCCTL_RTCCLKDIV_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBRTC_RTCCTL_WRBUSY_Pos\fP   11"
+.br
+.ti -1c
+.RI "#define \fBRTC_RTCCTL_WRBUSY_Msk\fP   (0x01UL << \fBRTC_RTCCTL_WRBUSY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBRTC_RTCCTL_KEY_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBRTC_RTCCTL_KEY_Msk\fP   (0x000000ffUL << \fBRTC_RTCCTL_KEY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBRTC_RTCCDV_RSTVALUE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBRTC_RTCCDV_RSTVALUE_Msk\fP   (0x00ffffffUL << \fBRTC_RTCCDV_RSTVALUE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBRTC_RTCCDV_KEY_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBRTC_RTCCDV_KEY_Msk\fP   (0x000000ffUL << \fBRTC_RTCCDV_KEY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnO_Pn0O_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnO_Pn0O_Msk\fP   (0x01UL << \fBGPIOA_GPIOnO_Pn0O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnO_Pn1O_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnO_Pn1O_Msk\fP   (0x01UL << \fBGPIOA_GPIOnO_Pn1O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnO_Pn2O_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnO_Pn2O_Msk\fP   (0x01UL << \fBGPIOA_GPIOnO_Pn2O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnO_Pn3O_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnO_Pn3O_Msk\fP   (0x01UL << \fBGPIOA_GPIOnO_Pn3O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnO_Pn4O_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnO_Pn4O_Msk\fP   (0x01UL << \fBGPIOA_GPIOnO_Pn4O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnO_Pn5O_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnO_Pn5O_Msk\fP   (0x01UL << \fBGPIOA_GPIOnO_Pn5O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnO_Pn6O_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnO_Pn6O_Msk\fP   (0x01UL << \fBGPIOA_GPIOnO_Pn6O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnO_Pn7O_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnO_Pn7O_Msk\fP   (0x01UL << \fBGPIOA_GPIOnO_Pn7O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnOE_Pn0OE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnOE_Pn0OE_Msk\fP   (0x01UL << \fBGPIOA_GPIOnOE_Pn0OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnOE_Pn1OE_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnOE_Pn1OE_Msk\fP   (0x01UL << \fBGPIOA_GPIOnOE_Pn1OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnOE_Pn2OE_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnOE_Pn2OE_Msk\fP   (0x01UL << \fBGPIOA_GPIOnOE_Pn2OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnOE_Pn3OE_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnOE_Pn3OE_Msk\fP   (0x01UL << \fBGPIOA_GPIOnOE_Pn3OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnOE_Pn4OE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnOE_Pn4OE_Msk\fP   (0x01UL << \fBGPIOA_GPIOnOE_Pn4OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnOE_Pn5OE_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnOE_Pn5OE_Msk\fP   (0x01UL << \fBGPIOA_GPIOnOE_Pn5OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnOE_Pn6OE_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnOE_Pn6OE_Msk\fP   (0x01UL << \fBGPIOA_GPIOnOE_Pn6OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnOE_Pn7OE_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnOE_Pn7OE_Msk\fP   (0x01UL << \fBGPIOA_GPIOnOE_Pn7OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnDS_Pn0DS_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnDS_Pn0DS_Msk\fP   (0x01UL << \fBGPIOA_GPIOnDS_Pn0DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnDS_Pn1DS_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnDS_Pn1DS_Msk\fP   (0x01UL << \fBGPIOA_GPIOnDS_Pn1DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnDS_Pn2DS_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnDS_Pn2DS_Msk\fP   (0x01UL << \fBGPIOA_GPIOnDS_Pn2DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnDS_Pn3DS_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnDS_Pn3DS_Msk\fP   (0x01UL << \fBGPIOA_GPIOnDS_Pn3DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnDS_Pn4DS_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnDS_Pn4DS_Msk\fP   (0x01UL << \fBGPIOA_GPIOnDS_Pn4DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnDS_Pn5DS_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnDS_Pn5DS_Msk\fP   (0x01UL << \fBGPIOA_GPIOnDS_Pn5DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnDS_Pn6DS_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnDS_Pn6DS_Msk\fP   (0x01UL << \fBGPIOA_GPIOnDS_Pn6DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnDS_Pn7DS_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnDS_Pn7DS_Msk\fP   (0x01UL << \fBGPIOA_GPIOnDS_Pn7DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRUP_Pn0RUP_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRUP_Pn0RUP_Msk\fP   (0x01UL << \fBGPIOA_GPIOnRUP_Pn0RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRUP_Pn1RUP_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRUP_Pn1RUP_Msk\fP   (0x01UL << \fBGPIOA_GPIOnRUP_Pn1RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRUP_Pn2RUP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRUP_Pn2RUP_Msk\fP   (0x01UL << \fBGPIOA_GPIOnRUP_Pn2RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRUP_Pn3RUP_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRUP_Pn3RUP_Msk\fP   (0x01UL << \fBGPIOA_GPIOnRUP_Pn3RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRUP_Pn4RUP_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRUP_Pn4RUP_Msk\fP   (0x01UL << \fBGPIOA_GPIOnRUP_Pn4RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRUP_Pn5RUP_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRUP_Pn5RUP_Msk\fP   (0x01UL << \fBGPIOA_GPIOnRUP_Pn5RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRUP_Pn6RUP_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRUP_Pn6RUP_Msk\fP   (0x01UL << \fBGPIOA_GPIOnRUP_Pn6RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRUP_Pn7RUP_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRUP_Pn7RUP_Msk\fP   (0x01UL << \fBGPIOA_GPIOnRUP_Pn7RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRDN_Pn0RDN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRDN_Pn0RDN_Msk\fP   (0x01UL << \fBGPIOA_GPIOnRDN_Pn0RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRDN_Pn1RDN_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRDN_Pn1RDN_Msk\fP   (0x01UL << \fBGPIOA_GPIOnRDN_Pn1RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRDN_Pn2RDN_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRDN_Pn2RDN_Msk\fP   (0x01UL << \fBGPIOA_GPIOnRDN_Pn2RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRDN_Pn3RDN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRDN_Pn3RDN_Msk\fP   (0x01UL << \fBGPIOA_GPIOnRDN_Pn3RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRDN_Pn4RDN_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRDN_Pn4RDN_Msk\fP   (0x01UL << \fBGPIOA_GPIOnRDN_Pn4RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRDN_Pn5RDN_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRDN_Pn5RDN_Msk\fP   (0x01UL << \fBGPIOA_GPIOnRDN_Pn5RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRDN_Pn6RDN_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRDN_Pn6RDN_Msk\fP   (0x01UL << \fBGPIOA_GPIOnRDN_Pn6RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRDN_Pn7RDN_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnRDN_Pn7RDN_Msk\fP   (0x01UL << \fBGPIOA_GPIOnRDN_Pn7RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnI_Pn0I_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnI_Pn0I_Msk\fP   (0x01UL << \fBGPIOA_GPIOnI_Pn0I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnI_Pn1I_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnI_Pn1I_Msk\fP   (0x01UL << \fBGPIOA_GPIOnI_Pn1I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnI_Pn2I_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnI_Pn2I_Msk\fP   (0x01UL << \fBGPIOA_GPIOnI_Pn2I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnI_Pn3I_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnI_Pn3I_Msk\fP   (0x01UL << \fBGPIOA_GPIOnI_Pn3I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnI_Pn4I_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnI_Pn4I_Msk\fP   (0x01UL << \fBGPIOA_GPIOnI_Pn4I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnI_Pn5I_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnI_Pn5I_Msk\fP   (0x01UL << \fBGPIOA_GPIOnI_Pn5I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnI_Pn6I_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnI_Pn6I_Msk\fP   (0x01UL << \fBGPIOA_GPIOnI_Pn6I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnI_Pn7I_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnI_Pn7I_Msk\fP   (0x01UL << \fBGPIOA_GPIOnI_Pn7I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnPSEL_Pn0PSEL_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnPSEL_Pn0PSEL_Msk\fP   (0x03UL << \fBGPIOA_GPIOnPSEL_Pn0PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnPSEL_Pn1PSEL_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnPSEL_Pn1PSEL_Msk\fP   (0x03UL << \fBGPIOA_GPIOnPSEL_Pn1PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnPSEL_Pn2PSEL_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnPSEL_Pn2PSEL_Msk\fP   (0x03UL << \fBGPIOA_GPIOnPSEL_Pn2PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnPSEL_Pn3PSEL_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnPSEL_Pn3PSEL_Msk\fP   (0x03UL << \fBGPIOA_GPIOnPSEL_Pn3PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnPSEL_Pn4PSEL_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnPSEL_Pn4PSEL_Msk\fP   (0x03UL << \fBGPIOA_GPIOnPSEL_Pn4PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnPSEL_Pn5PSEL_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnPSEL_Pn5PSEL_Msk\fP   (0x03UL << \fBGPIOA_GPIOnPSEL_Pn5PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnPSEL_Pn6PSEL_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnPSEL_Pn6PSEL_Msk\fP   (0x03UL << \fBGPIOA_GPIOnPSEL_Pn6PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnPSEL_Pn7PSEL_Pos\fP   14"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnPSEL_Pn7PSEL_Msk\fP   (0x03UL << \fBGPIOA_GPIOnPSEL_Pn7PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTP_Pn0INTP_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTP_Pn0INTP_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTP_Pn0INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTP_Pn1INTP_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTP_Pn1INTP_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTP_Pn1INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTP_Pn2INTP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTP_Pn2INTP_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTP_Pn2INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTP_Pn3INTP_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTP_Pn3INTP_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTP_Pn3INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTP_Pn4INTP_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTP_Pn4INTP_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTP_Pn4INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTP_Pn5INTP_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTP_Pn5INTP_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTP_Pn5INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTP_Pn6INTP_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTP_Pn6INTP_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTP_Pn6INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTP_Pn7INTP_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTP_Pn7INTP_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTP_Pn7INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTEN_Pn0INTEN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTEN_Pn0INTEN_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTEN_Pn0INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTEN_Pn1INTEN_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTEN_Pn1INTEN_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTEN_Pn1INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTEN_Pn2INTEN_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTEN_Pn2INTEN_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTEN_Pn2INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTEN_Pn3INTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTEN_Pn3INTEN_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTEN_Pn3INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTEN_Pn4INTEN_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTEN_Pn4INTEN_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTEN_Pn4INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTEN_Pn5INTEN_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTEN_Pn5INTEN_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTEN_Pn5INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTEN_Pn6INTEN_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTEN_Pn6INTEN_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTEN_Pn6INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTEN_Pn7INTEN_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTEN_Pn7INTEN_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTEN_Pn7INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINT_Pn0INT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINT_Pn0INT_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINT_Pn0INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINT_Pn1INT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINT_Pn1INT_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINT_Pn1INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINT_Pn2INT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINT_Pn2INT_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINT_Pn2INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINT_Pn3INT_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINT_Pn3INT_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINT_Pn3INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINT_Pn4INT_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINT_Pn4INT_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINT_Pn4INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINT_Pn5INT_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINT_Pn5INT_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINT_Pn5INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINT_Pn6INT_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINT_Pn6INT_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINT_Pn6INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINT_Pn7INT_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINT_Pn7INT_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINT_Pn7INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTM_Pn0INTM_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTM_Pn0INTM_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTM_Pn0INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTM_Pn1INTM_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTM_Pn1INTM_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTM_Pn1INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTM_Pn2INTM_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTM_Pn2INTM_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTM_Pn2INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTM_Pn3INTM_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTM_Pn3INTM_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTM_Pn3INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTM_Pn4INTM_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTM_Pn4INTM_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTM_Pn4INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTM_Pn5INTM_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTM_Pn5INTM_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTM_Pn5INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTM_Pn6INTM_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTM_Pn6INTM_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTM_Pn6INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTM_Pn7INTM_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOA_GPIOnINTM_Pn7INTM_Msk\fP   (0x01UL << \fBGPIOA_GPIOnINTM_Pn7INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnO_Pn0O_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnO_Pn0O_Msk\fP   (0x01UL << \fBGPIOB_GPIOnO_Pn0O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnO_Pn1O_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnO_Pn1O_Msk\fP   (0x01UL << \fBGPIOB_GPIOnO_Pn1O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnO_Pn2O_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnO_Pn2O_Msk\fP   (0x01UL << \fBGPIOB_GPIOnO_Pn2O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnO_Pn3O_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnO_Pn3O_Msk\fP   (0x01UL << \fBGPIOB_GPIOnO_Pn3O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnO_Pn4O_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnO_Pn4O_Msk\fP   (0x01UL << \fBGPIOB_GPIOnO_Pn4O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnO_Pn5O_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnO_Pn5O_Msk\fP   (0x01UL << \fBGPIOB_GPIOnO_Pn5O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnO_Pn6O_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnO_Pn6O_Msk\fP   (0x01UL << \fBGPIOB_GPIOnO_Pn6O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnO_Pn7O_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnO_Pn7O_Msk\fP   (0x01UL << \fBGPIOB_GPIOnO_Pn7O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnOE_Pn0OE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnOE_Pn0OE_Msk\fP   (0x01UL << \fBGPIOB_GPIOnOE_Pn0OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnOE_Pn1OE_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnOE_Pn1OE_Msk\fP   (0x01UL << \fBGPIOB_GPIOnOE_Pn1OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnOE_Pn2OE_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnOE_Pn2OE_Msk\fP   (0x01UL << \fBGPIOB_GPIOnOE_Pn2OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnOE_Pn3OE_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnOE_Pn3OE_Msk\fP   (0x01UL << \fBGPIOB_GPIOnOE_Pn3OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnOE_Pn4OE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnOE_Pn4OE_Msk\fP   (0x01UL << \fBGPIOB_GPIOnOE_Pn4OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnOE_Pn5OE_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnOE_Pn5OE_Msk\fP   (0x01UL << \fBGPIOB_GPIOnOE_Pn5OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnOE_Pn6OE_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnOE_Pn6OE_Msk\fP   (0x01UL << \fBGPIOB_GPIOnOE_Pn6OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnOE_Pn7OE_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnOE_Pn7OE_Msk\fP   (0x01UL << \fBGPIOB_GPIOnOE_Pn7OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnDS_Pn0DS_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnDS_Pn0DS_Msk\fP   (0x01UL << \fBGPIOB_GPIOnDS_Pn0DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnDS_Pn1DS_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnDS_Pn1DS_Msk\fP   (0x01UL << \fBGPIOB_GPIOnDS_Pn1DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnDS_Pn2DS_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnDS_Pn2DS_Msk\fP   (0x01UL << \fBGPIOB_GPIOnDS_Pn2DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnDS_Pn3DS_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnDS_Pn3DS_Msk\fP   (0x01UL << \fBGPIOB_GPIOnDS_Pn3DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnDS_Pn4DS_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnDS_Pn4DS_Msk\fP   (0x01UL << \fBGPIOB_GPIOnDS_Pn4DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnDS_Pn5DS_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnDS_Pn5DS_Msk\fP   (0x01UL << \fBGPIOB_GPIOnDS_Pn5DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnDS_Pn6DS_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnDS_Pn6DS_Msk\fP   (0x01UL << \fBGPIOB_GPIOnDS_Pn6DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnDS_Pn7DS_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnDS_Pn7DS_Msk\fP   (0x01UL << \fBGPIOB_GPIOnDS_Pn7DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRUP_Pn0RUP_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRUP_Pn0RUP_Msk\fP   (0x01UL << \fBGPIOB_GPIOnRUP_Pn0RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRUP_Pn1RUP_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRUP_Pn1RUP_Msk\fP   (0x01UL << \fBGPIOB_GPIOnRUP_Pn1RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRUP_Pn2RUP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRUP_Pn2RUP_Msk\fP   (0x01UL << \fBGPIOB_GPIOnRUP_Pn2RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRUP_Pn3RUP_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRUP_Pn3RUP_Msk\fP   (0x01UL << \fBGPIOB_GPIOnRUP_Pn3RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRUP_Pn4RUP_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRUP_Pn4RUP_Msk\fP   (0x01UL << \fBGPIOB_GPIOnRUP_Pn4RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRUP_Pn5RUP_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRUP_Pn5RUP_Msk\fP   (0x01UL << \fBGPIOB_GPIOnRUP_Pn5RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRUP_Pn6RUP_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRUP_Pn6RUP_Msk\fP   (0x01UL << \fBGPIOB_GPIOnRUP_Pn6RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRUP_Pn7RUP_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRUP_Pn7RUP_Msk\fP   (0x01UL << \fBGPIOB_GPIOnRUP_Pn7RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRDN_Pn0RDN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRDN_Pn0RDN_Msk\fP   (0x01UL << \fBGPIOB_GPIOnRDN_Pn0RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRDN_Pn1RDN_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRDN_Pn1RDN_Msk\fP   (0x01UL << \fBGPIOB_GPIOnRDN_Pn1RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRDN_Pn2RDN_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRDN_Pn2RDN_Msk\fP   (0x01UL << \fBGPIOB_GPIOnRDN_Pn2RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRDN_Pn3RDN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRDN_Pn3RDN_Msk\fP   (0x01UL << \fBGPIOB_GPIOnRDN_Pn3RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRDN_Pn4RDN_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRDN_Pn4RDN_Msk\fP   (0x01UL << \fBGPIOB_GPIOnRDN_Pn4RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRDN_Pn5RDN_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRDN_Pn5RDN_Msk\fP   (0x01UL << \fBGPIOB_GPIOnRDN_Pn5RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRDN_Pn6RDN_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRDN_Pn6RDN_Msk\fP   (0x01UL << \fBGPIOB_GPIOnRDN_Pn6RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRDN_Pn7RDN_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnRDN_Pn7RDN_Msk\fP   (0x01UL << \fBGPIOB_GPIOnRDN_Pn7RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnI_Pn0I_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnI_Pn0I_Msk\fP   (0x01UL << \fBGPIOB_GPIOnI_Pn0I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnI_Pn1I_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnI_Pn1I_Msk\fP   (0x01UL << \fBGPIOB_GPIOnI_Pn1I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnI_Pn2I_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnI_Pn2I_Msk\fP   (0x01UL << \fBGPIOB_GPIOnI_Pn2I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnI_Pn3I_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnI_Pn3I_Msk\fP   (0x01UL << \fBGPIOB_GPIOnI_Pn3I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnI_Pn4I_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnI_Pn4I_Msk\fP   (0x01UL << \fBGPIOB_GPIOnI_Pn4I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnI_Pn5I_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnI_Pn5I_Msk\fP   (0x01UL << \fBGPIOB_GPIOnI_Pn5I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnI_Pn6I_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnI_Pn6I_Msk\fP   (0x01UL << \fBGPIOB_GPIOnI_Pn6I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnI_Pn7I_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnI_Pn7I_Msk\fP   (0x01UL << \fBGPIOB_GPIOnI_Pn7I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnPSEL_Pn0PSEL_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnPSEL_Pn0PSEL_Msk\fP   (0x03UL << \fBGPIOB_GPIOnPSEL_Pn0PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnPSEL_Pn1PSEL_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnPSEL_Pn1PSEL_Msk\fP   (0x03UL << \fBGPIOB_GPIOnPSEL_Pn1PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnPSEL_Pn2PSEL_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnPSEL_Pn2PSEL_Msk\fP   (0x03UL << \fBGPIOB_GPIOnPSEL_Pn2PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnPSEL_Pn3PSEL_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnPSEL_Pn3PSEL_Msk\fP   (0x03UL << \fBGPIOB_GPIOnPSEL_Pn3PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnPSEL_Pn4PSEL_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnPSEL_Pn4PSEL_Msk\fP   (0x03UL << \fBGPIOB_GPIOnPSEL_Pn4PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnPSEL_Pn5PSEL_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnPSEL_Pn5PSEL_Msk\fP   (0x03UL << \fBGPIOB_GPIOnPSEL_Pn5PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnPSEL_Pn6PSEL_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnPSEL_Pn6PSEL_Msk\fP   (0x03UL << \fBGPIOB_GPIOnPSEL_Pn6PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnPSEL_Pn7PSEL_Pos\fP   14"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnPSEL_Pn7PSEL_Msk\fP   (0x03UL << \fBGPIOB_GPIOnPSEL_Pn7PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTP_Pn0INTP_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTP_Pn0INTP_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTP_Pn0INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTP_Pn1INTP_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTP_Pn1INTP_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTP_Pn1INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTP_Pn2INTP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTP_Pn2INTP_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTP_Pn2INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTP_Pn3INTP_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTP_Pn3INTP_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTP_Pn3INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTP_Pn4INTP_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTP_Pn4INTP_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTP_Pn4INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTP_Pn5INTP_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTP_Pn5INTP_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTP_Pn5INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTP_Pn6INTP_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTP_Pn6INTP_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTP_Pn6INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTP_Pn7INTP_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTP_Pn7INTP_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTP_Pn7INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTEN_Pn0INTEN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTEN_Pn0INTEN_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTEN_Pn0INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTEN_Pn1INTEN_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTEN_Pn1INTEN_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTEN_Pn1INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTEN_Pn2INTEN_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTEN_Pn2INTEN_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTEN_Pn2INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTEN_Pn3INTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTEN_Pn3INTEN_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTEN_Pn3INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTEN_Pn4INTEN_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTEN_Pn4INTEN_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTEN_Pn4INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTEN_Pn5INTEN_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTEN_Pn5INTEN_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTEN_Pn5INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTEN_Pn6INTEN_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTEN_Pn6INTEN_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTEN_Pn6INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTEN_Pn7INTEN_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTEN_Pn7INTEN_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTEN_Pn7INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINT_Pn0INT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINT_Pn0INT_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINT_Pn0INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINT_Pn1INT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINT_Pn1INT_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINT_Pn1INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINT_Pn2INT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINT_Pn2INT_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINT_Pn2INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINT_Pn3INT_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINT_Pn3INT_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINT_Pn3INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINT_Pn4INT_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINT_Pn4INT_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINT_Pn4INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINT_Pn5INT_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINT_Pn5INT_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINT_Pn5INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINT_Pn6INT_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINT_Pn6INT_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINT_Pn6INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINT_Pn7INT_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINT_Pn7INT_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINT_Pn7INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTM_Pn0INTM_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTM_Pn0INTM_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTM_Pn0INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTM_Pn1INTM_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTM_Pn1INTM_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTM_Pn1INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTM_Pn2INTM_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTM_Pn2INTM_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTM_Pn2INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTM_Pn3INTM_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTM_Pn3INTM_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTM_Pn3INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTM_Pn4INTM_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTM_Pn4INTM_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTM_Pn4INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTM_Pn5INTM_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTM_Pn5INTM_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTM_Pn5INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTM_Pn6INTM_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTM_Pn6INTM_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTM_Pn6INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTM_Pn7INTM_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOB_GPIOnINTM_Pn7INTM_Msk\fP   (0x01UL << \fBGPIOB_GPIOnINTM_Pn7INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnO_Pn0O_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnO_Pn0O_Msk\fP   (0x01UL << \fBGPIOC_GPIOnO_Pn0O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnO_Pn1O_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnO_Pn1O_Msk\fP   (0x01UL << \fBGPIOC_GPIOnO_Pn1O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnO_Pn2O_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnO_Pn2O_Msk\fP   (0x01UL << \fBGPIOC_GPIOnO_Pn2O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnO_Pn3O_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnO_Pn3O_Msk\fP   (0x01UL << \fBGPIOC_GPIOnO_Pn3O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnO_Pn4O_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnO_Pn4O_Msk\fP   (0x01UL << \fBGPIOC_GPIOnO_Pn4O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnO_Pn5O_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnO_Pn5O_Msk\fP   (0x01UL << \fBGPIOC_GPIOnO_Pn5O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnO_Pn6O_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnO_Pn6O_Msk\fP   (0x01UL << \fBGPIOC_GPIOnO_Pn6O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnO_Pn7O_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnO_Pn7O_Msk\fP   (0x01UL << \fBGPIOC_GPIOnO_Pn7O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnOE_Pn0OE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnOE_Pn0OE_Msk\fP   (0x01UL << \fBGPIOC_GPIOnOE_Pn0OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnOE_Pn1OE_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnOE_Pn1OE_Msk\fP   (0x01UL << \fBGPIOC_GPIOnOE_Pn1OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnOE_Pn2OE_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnOE_Pn2OE_Msk\fP   (0x01UL << \fBGPIOC_GPIOnOE_Pn2OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnOE_Pn3OE_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnOE_Pn3OE_Msk\fP   (0x01UL << \fBGPIOC_GPIOnOE_Pn3OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnOE_Pn4OE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnOE_Pn4OE_Msk\fP   (0x01UL << \fBGPIOC_GPIOnOE_Pn4OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnOE_Pn5OE_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnOE_Pn5OE_Msk\fP   (0x01UL << \fBGPIOC_GPIOnOE_Pn5OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnOE_Pn6OE_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnOE_Pn6OE_Msk\fP   (0x01UL << \fBGPIOC_GPIOnOE_Pn6OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnOE_Pn7OE_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnOE_Pn7OE_Msk\fP   (0x01UL << \fBGPIOC_GPIOnOE_Pn7OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnI_Pn0I_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnI_Pn0I_Msk\fP   (0x01UL << \fBGPIOC_GPIOnI_Pn0I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnI_Pn1I_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnI_Pn1I_Msk\fP   (0x01UL << \fBGPIOC_GPIOnI_Pn1I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnI_Pn2I_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnI_Pn2I_Msk\fP   (0x01UL << \fBGPIOC_GPIOnI_Pn2I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnI_Pn3I_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnI_Pn3I_Msk\fP   (0x01UL << \fBGPIOC_GPIOnI_Pn3I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnI_Pn4I_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnI_Pn4I_Msk\fP   (0x01UL << \fBGPIOC_GPIOnI_Pn4I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnI_Pn5I_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnI_Pn5I_Msk\fP   (0x01UL << \fBGPIOC_GPIOnI_Pn5I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnI_Pn6I_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnI_Pn6I_Msk\fP   (0x01UL << \fBGPIOC_GPIOnI_Pn6I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnI_Pn7I_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnI_Pn7I_Msk\fP   (0x01UL << \fBGPIOC_GPIOnI_Pn7I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnIE_Pn0IE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnIE_Pn0IE_Msk\fP   (0x01UL << \fBGPIOC_GPIOnIE_Pn0IE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnIE_Pn1IE_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnIE_Pn1IE_Msk\fP   (0x01UL << \fBGPIOC_GPIOnIE_Pn1IE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnIE_Pn2IE_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnIE_Pn2IE_Msk\fP   (0x01UL << \fBGPIOC_GPIOnIE_Pn2IE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnIE_Pn3IE_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnIE_Pn3IE_Msk\fP   (0x01UL << \fBGPIOC_GPIOnIE_Pn3IE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnIE_Pn4IE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnIE_Pn4IE_Msk\fP   (0x01UL << \fBGPIOC_GPIOnIE_Pn4IE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnIE_Pn5IE_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnIE_Pn5IE_Msk\fP   (0x01UL << \fBGPIOC_GPIOnIE_Pn5IE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnIE_Pn6IE_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnIE_Pn6IE_Msk\fP   (0x01UL << \fBGPIOC_GPIOnIE_Pn6IE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnIE_Pn7IE_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnIE_Pn7IE_Msk\fP   (0x01UL << \fBGPIOC_GPIOnIE_Pn7IE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTP_Pn0INTP_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTP_Pn0INTP_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTP_Pn0INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTP_Pn1INTP_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTP_Pn1INTP_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTP_Pn1INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTP_Pn2INTP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTP_Pn2INTP_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTP_Pn2INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTP_Pn3INTP_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTP_Pn3INTP_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTP_Pn3INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTP_Pn4INTP_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTP_Pn4INTP_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTP_Pn4INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTP_Pn5INTP_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTP_Pn5INTP_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTP_Pn5INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTP_Pn6INTP_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTP_Pn6INTP_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTP_Pn6INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTP_Pn7INTP_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTP_Pn7INTP_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTP_Pn7INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTEN_Pn0INTEN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTEN_Pn0INTEN_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTEN_Pn0INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTEN_Pn1INTEN_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTEN_Pn1INTEN_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTEN_Pn1INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTEN_Pn2INTEN_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTEN_Pn2INTEN_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTEN_Pn2INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTEN_Pn3INTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTEN_Pn3INTEN_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTEN_Pn3INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTEN_Pn4INTEN_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTEN_Pn4INTEN_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTEN_Pn4INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTEN_Pn5INTEN_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTEN_Pn5INTEN_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTEN_Pn5INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTEN_Pn6INTEN_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTEN_Pn6INTEN_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTEN_Pn6INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTEN_Pn7INTEN_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTEN_Pn7INTEN_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTEN_Pn7INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINT_Pn0INT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINT_Pn0INT_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINT_Pn0INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINT_Pn1INT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINT_Pn1INT_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINT_Pn1INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINT_Pn2INT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINT_Pn2INT_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINT_Pn2INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINT_Pn3INT_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINT_Pn3INT_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINT_Pn3INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINT_Pn4INT_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINT_Pn4INT_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINT_Pn4INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINT_Pn5INT_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINT_Pn5INT_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINT_Pn5INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINT_Pn6INT_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINT_Pn6INT_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINT_Pn6INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINT_Pn7INT_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINT_Pn7INT_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINT_Pn7INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTM_Pn0INTM_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTM_Pn0INTM_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTM_Pn0INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTM_Pn1INTM_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTM_Pn1INTM_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTM_Pn1INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTM_Pn2INTM_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTM_Pn2INTM_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTM_Pn2INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTM_Pn3INTM_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTM_Pn3INTM_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTM_Pn3INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTM_Pn4INTM_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTM_Pn4INTM_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTM_Pn4INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTM_Pn5INTM_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTM_Pn5INTM_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTM_Pn5INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTM_Pn6INTM_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTM_Pn6INTM_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTM_Pn6INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTM_Pn7INTM_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOC_GPIOnINTM_Pn7INTM_Msk\fP   (0x01UL << \fBGPIOC_GPIOnINTM_Pn7INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnO_Pn0O_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnO_Pn0O_Msk\fP   (0x01UL << \fBGPIOD_GPIOnO_Pn0O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnO_Pn1O_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnO_Pn1O_Msk\fP   (0x01UL << \fBGPIOD_GPIOnO_Pn1O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnO_Pn2O_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnO_Pn2O_Msk\fP   (0x01UL << \fBGPIOD_GPIOnO_Pn2O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnO_Pn3O_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnO_Pn3O_Msk\fP   (0x01UL << \fBGPIOD_GPIOnO_Pn3O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnO_Pn4O_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnO_Pn4O_Msk\fP   (0x01UL << \fBGPIOD_GPIOnO_Pn4O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnO_Pn5O_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnO_Pn5O_Msk\fP   (0x01UL << \fBGPIOD_GPIOnO_Pn5O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnO_Pn6O_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnO_Pn6O_Msk\fP   (0x01UL << \fBGPIOD_GPIOnO_Pn6O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnO_Pn7O_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnO_Pn7O_Msk\fP   (0x01UL << \fBGPIOD_GPIOnO_Pn7O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnOE_Pn0OE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnOE_Pn0OE_Msk\fP   (0x01UL << \fBGPIOD_GPIOnOE_Pn0OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnOE_Pn1OE_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnOE_Pn1OE_Msk\fP   (0x01UL << \fBGPIOD_GPIOnOE_Pn1OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnOE_Pn2OE_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnOE_Pn2OE_Msk\fP   (0x01UL << \fBGPIOD_GPIOnOE_Pn2OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnOE_Pn3OE_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnOE_Pn3OE_Msk\fP   (0x01UL << \fBGPIOD_GPIOnOE_Pn3OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnOE_Pn4OE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnOE_Pn4OE_Msk\fP   (0x01UL << \fBGPIOD_GPIOnOE_Pn4OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnOE_Pn5OE_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnOE_Pn5OE_Msk\fP   (0x01UL << \fBGPIOD_GPIOnOE_Pn5OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnOE_Pn6OE_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnOE_Pn6OE_Msk\fP   (0x01UL << \fBGPIOD_GPIOnOE_Pn6OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnOE_Pn7OE_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnOE_Pn7OE_Msk\fP   (0x01UL << \fBGPIOD_GPIOnOE_Pn7OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnDS_Pn0DS_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnDS_Pn0DS_Msk\fP   (0x01UL << \fBGPIOD_GPIOnDS_Pn0DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnDS_Pn1DS_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnDS_Pn1DS_Msk\fP   (0x01UL << \fBGPIOD_GPIOnDS_Pn1DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnDS_Pn2DS_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnDS_Pn2DS_Msk\fP   (0x01UL << \fBGPIOD_GPIOnDS_Pn2DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnDS_Pn3DS_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnDS_Pn3DS_Msk\fP   (0x01UL << \fBGPIOD_GPIOnDS_Pn3DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnDS_Pn4DS_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnDS_Pn4DS_Msk\fP   (0x01UL << \fBGPIOD_GPIOnDS_Pn4DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnDS_Pn5DS_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnDS_Pn5DS_Msk\fP   (0x01UL << \fBGPIOD_GPIOnDS_Pn5DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnDS_Pn6DS_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnDS_Pn6DS_Msk\fP   (0x01UL << \fBGPIOD_GPIOnDS_Pn6DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnDS_Pn7DS_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnDS_Pn7DS_Msk\fP   (0x01UL << \fBGPIOD_GPIOnDS_Pn7DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRUP_Pn0RUP_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRUP_Pn0RUP_Msk\fP   (0x01UL << \fBGPIOD_GPIOnRUP_Pn0RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRUP_Pn1RUP_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRUP_Pn1RUP_Msk\fP   (0x01UL << \fBGPIOD_GPIOnRUP_Pn1RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRUP_Pn2RUP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRUP_Pn2RUP_Msk\fP   (0x01UL << \fBGPIOD_GPIOnRUP_Pn2RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRUP_Pn3RUP_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRUP_Pn3RUP_Msk\fP   (0x01UL << \fBGPIOD_GPIOnRUP_Pn3RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRUP_Pn4RUP_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRUP_Pn4RUP_Msk\fP   (0x01UL << \fBGPIOD_GPIOnRUP_Pn4RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRUP_Pn5RUP_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRUP_Pn5RUP_Msk\fP   (0x01UL << \fBGPIOD_GPIOnRUP_Pn5RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRUP_Pn6RUP_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRUP_Pn6RUP_Msk\fP   (0x01UL << \fBGPIOD_GPIOnRUP_Pn6RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRUP_Pn7RUP_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRUP_Pn7RUP_Msk\fP   (0x01UL << \fBGPIOD_GPIOnRUP_Pn7RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRDN_Pn0RDN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRDN_Pn0RDN_Msk\fP   (0x01UL << \fBGPIOD_GPIOnRDN_Pn0RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRDN_Pn1RDN_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRDN_Pn1RDN_Msk\fP   (0x01UL << \fBGPIOD_GPIOnRDN_Pn1RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRDN_Pn2RDN_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRDN_Pn2RDN_Msk\fP   (0x01UL << \fBGPIOD_GPIOnRDN_Pn2RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRDN_Pn3RDN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRDN_Pn3RDN_Msk\fP   (0x01UL << \fBGPIOD_GPIOnRDN_Pn3RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRDN_Pn4RDN_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRDN_Pn4RDN_Msk\fP   (0x01UL << \fBGPIOD_GPIOnRDN_Pn4RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRDN_Pn5RDN_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRDN_Pn5RDN_Msk\fP   (0x01UL << \fBGPIOD_GPIOnRDN_Pn5RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRDN_Pn6RDN_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRDN_Pn6RDN_Msk\fP   (0x01UL << \fBGPIOD_GPIOnRDN_Pn6RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRDN_Pn7RDN_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnRDN_Pn7RDN_Msk\fP   (0x01UL << \fBGPIOD_GPIOnRDN_Pn7RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnI_Pn0I_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnI_Pn0I_Msk\fP   (0x01UL << \fBGPIOD_GPIOnI_Pn0I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnI_Pn1I_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnI_Pn1I_Msk\fP   (0x01UL << \fBGPIOD_GPIOnI_Pn1I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnI_Pn2I_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnI_Pn2I_Msk\fP   (0x01UL << \fBGPIOD_GPIOnI_Pn2I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnI_Pn3I_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnI_Pn3I_Msk\fP   (0x01UL << \fBGPIOD_GPIOnI_Pn3I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnI_Pn4I_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnI_Pn4I_Msk\fP   (0x01UL << \fBGPIOD_GPIOnI_Pn4I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnI_Pn5I_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnI_Pn5I_Msk\fP   (0x01UL << \fBGPIOD_GPIOnI_Pn5I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnI_Pn6I_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnI_Pn6I_Msk\fP   (0x01UL << \fBGPIOD_GPIOnI_Pn6I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnI_Pn7I_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnI_Pn7I_Msk\fP   (0x01UL << \fBGPIOD_GPIOnI_Pn7I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnPSEL_Pn0PSEL_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnPSEL_Pn0PSEL_Msk\fP   (0x03UL << \fBGPIOD_GPIOnPSEL_Pn0PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnPSEL_Pn1PSEL_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnPSEL_Pn1PSEL_Msk\fP   (0x03UL << \fBGPIOD_GPIOnPSEL_Pn1PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnPSEL_Pn2PSEL_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnPSEL_Pn2PSEL_Msk\fP   (0x03UL << \fBGPIOD_GPIOnPSEL_Pn2PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnPSEL_Pn3PSEL_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnPSEL_Pn3PSEL_Msk\fP   (0x03UL << \fBGPIOD_GPIOnPSEL_Pn3PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnPSEL_Pn4PSEL_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnPSEL_Pn4PSEL_Msk\fP   (0x03UL << \fBGPIOD_GPIOnPSEL_Pn4PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnPSEL_Pn5PSEL_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnPSEL_Pn5PSEL_Msk\fP   (0x03UL << \fBGPIOD_GPIOnPSEL_Pn5PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnPSEL_Pn6PSEL_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnPSEL_Pn6PSEL_Msk\fP   (0x03UL << \fBGPIOD_GPIOnPSEL_Pn6PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnPSEL_Pn7PSEL_Pos\fP   14"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnPSEL_Pn7PSEL_Msk\fP   (0x03UL << \fBGPIOD_GPIOnPSEL_Pn7PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTP_Pn0INTP_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTP_Pn0INTP_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTP_Pn0INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTP_Pn1INTP_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTP_Pn1INTP_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTP_Pn1INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTP_Pn2INTP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTP_Pn2INTP_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTP_Pn2INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTP_Pn3INTP_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTP_Pn3INTP_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTP_Pn3INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTP_Pn4INTP_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTP_Pn4INTP_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTP_Pn4INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTP_Pn5INTP_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTP_Pn5INTP_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTP_Pn5INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTP_Pn6INTP_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTP_Pn6INTP_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTP_Pn6INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTP_Pn7INTP_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTP_Pn7INTP_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTP_Pn7INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTEN_Pn0INTEN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTEN_Pn0INTEN_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTEN_Pn0INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTEN_Pn1INTEN_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTEN_Pn1INTEN_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTEN_Pn1INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTEN_Pn2INTEN_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTEN_Pn2INTEN_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTEN_Pn2INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTEN_Pn3INTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTEN_Pn3INTEN_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTEN_Pn3INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTEN_Pn4INTEN_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTEN_Pn4INTEN_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTEN_Pn4INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTEN_Pn5INTEN_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTEN_Pn5INTEN_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTEN_Pn5INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTEN_Pn6INTEN_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTEN_Pn6INTEN_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTEN_Pn6INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTEN_Pn7INTEN_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTEN_Pn7INTEN_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTEN_Pn7INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINT_Pn0INT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINT_Pn0INT_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINT_Pn0INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINT_Pn1INT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINT_Pn1INT_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINT_Pn1INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINT_Pn2INT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINT_Pn2INT_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINT_Pn2INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINT_Pn3INT_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINT_Pn3INT_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINT_Pn3INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINT_Pn4INT_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINT_Pn4INT_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINT_Pn4INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINT_Pn5INT_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINT_Pn5INT_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINT_Pn5INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINT_Pn6INT_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINT_Pn6INT_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINT_Pn6INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINT_Pn7INT_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINT_Pn7INT_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINT_Pn7INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTM_Pn0INTM_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTM_Pn0INTM_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTM_Pn0INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTM_Pn1INTM_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTM_Pn1INTM_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTM_Pn1INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTM_Pn2INTM_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTM_Pn2INTM_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTM_Pn2INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTM_Pn3INTM_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTM_Pn3INTM_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTM_Pn3INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTM_Pn4INTM_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTM_Pn4INTM_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTM_Pn4INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTM_Pn5INTM_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTM_Pn5INTM_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTM_Pn5INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTM_Pn6INTM_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTM_Pn6INTM_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTM_Pn6INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTM_Pn7INTM_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOD_GPIOnINTM_Pn7INTM_Msk\fP   (0x01UL << \fBGPIOD_GPIOnINTM_Pn7INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnO_Pn0O_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnO_Pn0O_Msk\fP   (0x01UL << \fBGPIOE_GPIOnO_Pn0O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnO_Pn1O_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnO_Pn1O_Msk\fP   (0x01UL << \fBGPIOE_GPIOnO_Pn1O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnO_Pn2O_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnO_Pn2O_Msk\fP   (0x01UL << \fBGPIOE_GPIOnO_Pn2O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnO_Pn3O_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnO_Pn3O_Msk\fP   (0x01UL << \fBGPIOE_GPIOnO_Pn3O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnO_Pn4O_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnO_Pn4O_Msk\fP   (0x01UL << \fBGPIOE_GPIOnO_Pn4O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnO_Pn5O_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnO_Pn5O_Msk\fP   (0x01UL << \fBGPIOE_GPIOnO_Pn5O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnO_Pn6O_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnO_Pn6O_Msk\fP   (0x01UL << \fBGPIOE_GPIOnO_Pn6O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnO_Pn7O_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnO_Pn7O_Msk\fP   (0x01UL << \fBGPIOE_GPIOnO_Pn7O_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnOE_Pn0OE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnOE_Pn0OE_Msk\fP   (0x01UL << \fBGPIOE_GPIOnOE_Pn0OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnOE_Pn1OE_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnOE_Pn1OE_Msk\fP   (0x01UL << \fBGPIOE_GPIOnOE_Pn1OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnOE_Pn2OE_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnOE_Pn2OE_Msk\fP   (0x01UL << \fBGPIOE_GPIOnOE_Pn2OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnOE_Pn3OE_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnOE_Pn3OE_Msk\fP   (0x01UL << \fBGPIOE_GPIOnOE_Pn3OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnOE_Pn4OE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnOE_Pn4OE_Msk\fP   (0x01UL << \fBGPIOE_GPIOnOE_Pn4OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnOE_Pn5OE_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnOE_Pn5OE_Msk\fP   (0x01UL << \fBGPIOE_GPIOnOE_Pn5OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnOE_Pn6OE_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnOE_Pn6OE_Msk\fP   (0x01UL << \fBGPIOE_GPIOnOE_Pn6OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnOE_Pn7OE_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnOE_Pn7OE_Msk\fP   (0x01UL << \fBGPIOE_GPIOnOE_Pn7OE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnDS_Pn0DS_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnDS_Pn0DS_Msk\fP   (0x01UL << \fBGPIOE_GPIOnDS_Pn0DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnDS_Pn1DS_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnDS_Pn1DS_Msk\fP   (0x01UL << \fBGPIOE_GPIOnDS_Pn1DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnDS_Pn2DS_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnDS_Pn2DS_Msk\fP   (0x01UL << \fBGPIOE_GPIOnDS_Pn2DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnDS_Pn3DS_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnDS_Pn3DS_Msk\fP   (0x01UL << \fBGPIOE_GPIOnDS_Pn3DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnDS_Pn4DS_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnDS_Pn4DS_Msk\fP   (0x01UL << \fBGPIOE_GPIOnDS_Pn4DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnDS_Pn5DS_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnDS_Pn5DS_Msk\fP   (0x01UL << \fBGPIOE_GPIOnDS_Pn5DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnDS_Pn6DS_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnDS_Pn6DS_Msk\fP   (0x01UL << \fBGPIOE_GPIOnDS_Pn6DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnDS_Pn7DS_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnDS_Pn7DS_Msk\fP   (0x01UL << \fBGPIOE_GPIOnDS_Pn7DS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRUP_Pn0RUP_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRUP_Pn0RUP_Msk\fP   (0x01UL << \fBGPIOE_GPIOnRUP_Pn0RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRUP_Pn1RUP_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRUP_Pn1RUP_Msk\fP   (0x01UL << \fBGPIOE_GPIOnRUP_Pn1RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRUP_Pn2RUP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRUP_Pn2RUP_Msk\fP   (0x01UL << \fBGPIOE_GPIOnRUP_Pn2RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRUP_Pn3RUP_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRUP_Pn3RUP_Msk\fP   (0x01UL << \fBGPIOE_GPIOnRUP_Pn3RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRUP_Pn4RUP_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRUP_Pn4RUP_Msk\fP   (0x01UL << \fBGPIOE_GPIOnRUP_Pn4RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRUP_Pn5RUP_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRUP_Pn5RUP_Msk\fP   (0x01UL << \fBGPIOE_GPIOnRUP_Pn5RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRUP_Pn6RUP_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRUP_Pn6RUP_Msk\fP   (0x01UL << \fBGPIOE_GPIOnRUP_Pn6RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRUP_Pn7RUP_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRUP_Pn7RUP_Msk\fP   (0x01UL << \fBGPIOE_GPIOnRUP_Pn7RUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRDN_Pn0RDN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRDN_Pn0RDN_Msk\fP   (0x01UL << \fBGPIOE_GPIOnRDN_Pn0RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRDN_Pn1RDN_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRDN_Pn1RDN_Msk\fP   (0x01UL << \fBGPIOE_GPIOnRDN_Pn1RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRDN_Pn2RDN_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRDN_Pn2RDN_Msk\fP   (0x01UL << \fBGPIOE_GPIOnRDN_Pn2RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRDN_Pn3RDN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRDN_Pn3RDN_Msk\fP   (0x01UL << \fBGPIOE_GPIOnRDN_Pn3RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRDN_Pn4RDN_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRDN_Pn4RDN_Msk\fP   (0x01UL << \fBGPIOE_GPIOnRDN_Pn4RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRDN_Pn5RDN_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRDN_Pn5RDN_Msk\fP   (0x01UL << \fBGPIOE_GPIOnRDN_Pn5RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRDN_Pn6RDN_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRDN_Pn6RDN_Msk\fP   (0x01UL << \fBGPIOE_GPIOnRDN_Pn6RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRDN_Pn7RDN_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnRDN_Pn7RDN_Msk\fP   (0x01UL << \fBGPIOE_GPIOnRDN_Pn7RDN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnI_Pn0I_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnI_Pn0I_Msk\fP   (0x01UL << \fBGPIOE_GPIOnI_Pn0I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnI_Pn1I_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnI_Pn1I_Msk\fP   (0x01UL << \fBGPIOE_GPIOnI_Pn1I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnI_Pn2I_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnI_Pn2I_Msk\fP   (0x01UL << \fBGPIOE_GPIOnI_Pn2I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnI_Pn3I_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnI_Pn3I_Msk\fP   (0x01UL << \fBGPIOE_GPIOnI_Pn3I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnI_Pn4I_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnI_Pn4I_Msk\fP   (0x01UL << \fBGPIOE_GPIOnI_Pn4I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnI_Pn5I_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnI_Pn5I_Msk\fP   (0x01UL << \fBGPIOE_GPIOnI_Pn5I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnI_Pn6I_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnI_Pn6I_Msk\fP   (0x01UL << \fBGPIOE_GPIOnI_Pn6I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnI_Pn7I_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnI_Pn7I_Msk\fP   (0x01UL << \fBGPIOE_GPIOnI_Pn7I_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnPSEL_Pn0PSEL_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnPSEL_Pn0PSEL_Msk\fP   (0x03UL << \fBGPIOE_GPIOnPSEL_Pn0PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnPSEL_Pn1PSEL_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnPSEL_Pn1PSEL_Msk\fP   (0x03UL << \fBGPIOE_GPIOnPSEL_Pn1PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnPSEL_Pn2PSEL_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnPSEL_Pn2PSEL_Msk\fP   (0x03UL << \fBGPIOE_GPIOnPSEL_Pn2PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnPSEL_Pn3PSEL_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnPSEL_Pn3PSEL_Msk\fP   (0x03UL << \fBGPIOE_GPIOnPSEL_Pn3PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnPSEL_Pn4PSEL_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnPSEL_Pn4PSEL_Msk\fP   (0x03UL << \fBGPIOE_GPIOnPSEL_Pn4PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnPSEL_Pn5PSEL_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnPSEL_Pn5PSEL_Msk\fP   (0x03UL << \fBGPIOE_GPIOnPSEL_Pn5PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnPSEL_Pn6PSEL_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnPSEL_Pn6PSEL_Msk\fP   (0x03UL << \fBGPIOE_GPIOnPSEL_Pn6PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnPSEL_Pn7PSEL_Pos\fP   14"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnPSEL_Pn7PSEL_Msk\fP   (0x03UL << \fBGPIOE_GPIOnPSEL_Pn7PSEL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTP_Pn0INTP_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTP_Pn0INTP_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTP_Pn0INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTP_Pn1INTP_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTP_Pn1INTP_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTP_Pn1INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTP_Pn2INTP_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTP_Pn2INTP_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTP_Pn2INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTP_Pn3INTP_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTP_Pn3INTP_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTP_Pn3INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTP_Pn4INTP_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTP_Pn4INTP_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTP_Pn4INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTP_Pn5INTP_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTP_Pn5INTP_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTP_Pn5INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTP_Pn6INTP_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTP_Pn6INTP_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTP_Pn6INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTP_Pn7INTP_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTP_Pn7INTP_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTP_Pn7INTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTEN_Pn0INTEN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTEN_Pn0INTEN_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTEN_Pn0INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTEN_Pn1INTEN_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTEN_Pn1INTEN_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTEN_Pn1INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTEN_Pn2INTEN_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTEN_Pn2INTEN_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTEN_Pn2INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTEN_Pn3INTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTEN_Pn3INTEN_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTEN_Pn3INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTEN_Pn4INTEN_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTEN_Pn4INTEN_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTEN_Pn4INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTEN_Pn5INTEN_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTEN_Pn5INTEN_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTEN_Pn5INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTEN_Pn6INTEN_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTEN_Pn6INTEN_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTEN_Pn6INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTEN_Pn7INTEN_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTEN_Pn7INTEN_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTEN_Pn7INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINT_Pn0INT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINT_Pn0INT_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINT_Pn0INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINT_Pn1INT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINT_Pn1INT_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINT_Pn1INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINT_Pn2INT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINT_Pn2INT_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINT_Pn2INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINT_Pn3INT_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINT_Pn3INT_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINT_Pn3INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINT_Pn4INT_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINT_Pn4INT_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINT_Pn4INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINT_Pn5INT_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINT_Pn5INT_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINT_Pn5INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINT_Pn6INT_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINT_Pn6INT_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINT_Pn6INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINT_Pn7INT_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINT_Pn7INT_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINT_Pn7INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTM_Pn0INTM_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTM_Pn0INTM_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTM_Pn0INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTM_Pn1INTM_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTM_Pn1INTM_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTM_Pn1INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTM_Pn2INTM_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTM_Pn2INTM_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTM_Pn2INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTM_Pn3INTM_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTM_Pn3INTM_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTM_Pn3INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTM_Pn4INTM_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTM_Pn4INTM_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTM_Pn4INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTM_Pn5INTM_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTM_Pn5INTM_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTM_Pn5INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTM_Pn6INTM_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTM_Pn6INTM_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTM_Pn6INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTM_Pn7INTM_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBGPIOE_GPIOnINTM_Pn7INTM_Msk\fP   (0x01UL << \fBGPIOE_GPIOnINTM_Pn7INTM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTL_PRDL_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTL_PRDL_Msk\fP   (0x01UL << \fBTIMERA_TxCTL_PRDL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTL_CLR_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTL_CLR_Msk\fP   (0x01UL << \fBTIMERA_TxCTL_CLR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTL_SS_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTL_SS_Msk\fP   (0x01UL << \fBTIMERA_TxCTL_SS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTL_INT_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTL_INT_Msk\fP   (0x01UL << \fBTIMERA_TxCTL_INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTL_INTEN_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTL_INTEN_Msk\fP   (0x01UL << \fBTIMERA_TxCTL_INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTL_CLKDIV_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTL_CLKDIV_Msk\fP   (0x07UL << \fBTIMERA_TxCTL_CLKDIV_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTL_CLK_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTL_CLK_Msk\fP   (0x01UL << \fBTIMERA_TxCTL_CLK_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTL_MODE_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTL_MODE_Msk\fP   (0x03UL << \fBTIMERA_TxCTL_MODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTL_DTGCLK_Pos\fP   13"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTL_DTGCLK_Msk\fP   (0x01UL << \fBTIMERA_TxCTL_DTGCLK_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxPRD_PERIOD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxPRD_PERIOD_Msk\fP   (0x0000ffffUL << \fBTIMERA_TxPRD_PERIOD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTR_CTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCTR_CTR_Msk\fP   (0x0000ffffUL << \fBTIMERA_TxCTR_CTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC0CTL_CCEDG_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC0CTL_CCEDG_Msk\fP   (0x03UL << \fBTIMERA_TxCC0CTL_CCEDG_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC0CTL_CCINT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC0CTL_CCINT_Msk\fP   (0x01UL << \fBTIMERA_TxCC0CTL_CCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC0CTL_CCINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC0CTL_CCINTEN_Msk\fP   (0x01UL << \fBTIMERA_TxCC0CTL_CCINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC0CTL_CCMODE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC0CTL_CCMODE_Msk\fP   (0x01UL << \fBTIMERA_TxCC0CTL_CCMODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC0CTR_CCCTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC0CTR_CCCTR_Msk\fP   (0x0000ffffUL << \fBTIMERA_TxCC0CTR_CCCTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC1CTL_CCEDG_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC1CTL_CCEDG_Msk\fP   (0x03UL << \fBTIMERA_TxCC1CTL_CCEDG_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC1CTL_CCINT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC1CTL_CCINT_Msk\fP   (0x01UL << \fBTIMERA_TxCC1CTL_CCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC1CTL_CCINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC1CTL_CCINTEN_Msk\fP   (0x01UL << \fBTIMERA_TxCC1CTL_CCINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC1CTL_CCMODE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC1CTL_CCMODE_Msk\fP   (0x01UL << \fBTIMERA_TxCC1CTL_CCMODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC1CTR_CCCTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC1CTR_CCCTR_Msk\fP   (0x0000ffffUL << \fBTIMERA_TxCC1CTR_CCCTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC2CTL_CCEDG_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC2CTL_CCEDG_Msk\fP   (0x03UL << \fBTIMERA_TxCC2CTL_CCEDG_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC2CTL_CCINT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC2CTL_CCINT_Msk\fP   (0x01UL << \fBTIMERA_TxCC2CTL_CCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC2CTL_CCINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC2CTL_CCINTEN_Msk\fP   (0x01UL << \fBTIMERA_TxCC2CTL_CCINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC2CTL_CCMODE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC2CTL_CCMODE_Msk\fP   (0x01UL << \fBTIMERA_TxCC2CTL_CCMODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC2CTR_CCCTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC2CTR_CCCTR_Msk\fP   (0x0000ffffUL << \fBTIMERA_TxCC2CTR_CCCTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC3CTL_CCEDG_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC3CTL_CCEDG_Msk\fP   (0x03UL << \fBTIMERA_TxCC3CTL_CCEDG_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC3CTL_CCINT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC3CTL_CCINT_Msk\fP   (0x01UL << \fBTIMERA_TxCC3CTL_CCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC3CTL_CCINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC3CTL_CCINTEN_Msk\fP   (0x01UL << \fBTIMERA_TxCC3CTL_CCINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC3CTL_CCMODE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC3CTL_CCMODE_Msk\fP   (0x01UL << \fBTIMERA_TxCC3CTL_CCMODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC3CTR_CCCTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC3CTR_CCCTR_Msk\fP   (0x0000ffffUL << \fBTIMERA_TxCC3CTR_CCCTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC4CTL_CCEDG_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC4CTL_CCEDG_Msk\fP   (0x03UL << \fBTIMERA_TxCC4CTL_CCEDG_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC4CTL_CCINT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC4CTL_CCINT_Msk\fP   (0x01UL << \fBTIMERA_TxCC4CTL_CCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC4CTL_CCINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC4CTL_CCINTEN_Msk\fP   (0x01UL << \fBTIMERA_TxCC4CTL_CCINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC4CTL_CCMODE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC4CTL_CCMODE_Msk\fP   (0x01UL << \fBTIMERA_TxCC4CTL_CCMODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC4CTR_CCCTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC4CTR_CCCTR_Msk\fP   (0x0000ffffUL << \fBTIMERA_TxCC4CTR_CCCTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC5CTL_CCEDG_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC5CTL_CCEDG_Msk\fP   (0x03UL << \fBTIMERA_TxCC5CTL_CCEDG_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC5CTL_CCINT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC5CTL_CCINT_Msk\fP   (0x01UL << \fBTIMERA_TxCC5CTL_CCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC5CTL_CCINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC5CTL_CCINTEN_Msk\fP   (0x01UL << \fBTIMERA_TxCC5CTL_CCINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC5CTL_CCMODE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC5CTL_CCMODE_Msk\fP   (0x01UL << \fBTIMERA_TxCC5CTL_CCMODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC5CTR_CCCTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC5CTR_CCCTR_Msk\fP   (0x0000ffffUL << \fBTIMERA_TxCC5CTR_CCCTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC6CTL_CCEDG_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC6CTL_CCEDG_Msk\fP   (0x03UL << \fBTIMERA_TxCC6CTL_CCEDG_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC6CTL_CCINT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC6CTL_CCINT_Msk\fP   (0x01UL << \fBTIMERA_TxCC6CTL_CCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC6CTL_CCINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC6CTL_CCINTEN_Msk\fP   (0x01UL << \fBTIMERA_TxCC6CTL_CCINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC6CTL_CCMODE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC6CTL_CCMODE_Msk\fP   (0x01UL << \fBTIMERA_TxCC6CTL_CCMODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC6CTR_CCCTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC6CTR_CCCTR_Msk\fP   (0x0000ffffUL << \fBTIMERA_TxCC6CTR_CCCTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC7CTL_CCEDG_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC7CTL_CCEDG_Msk\fP   (0x03UL << \fBTIMERA_TxCC7CTL_CCEDG_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC7CTL_CCINT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC7CTL_CCINT_Msk\fP   (0x01UL << \fBTIMERA_TxCC7CTL_CCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC7CTL_CCINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC7CTL_CCINTEN_Msk\fP   (0x01UL << \fBTIMERA_TxCC7CTL_CCINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC7CTL_CCMODE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC7CTL_CCMODE_Msk\fP   (0x01UL << \fBTIMERA_TxCC7CTL_CCMODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC7CTR_CCCTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_TxCC7CTR_CCCTR_Msk\fP   (0x0000ffffUL << \fBTIMERA_TxCC7CTR_CCCTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA0CTL_INVLS_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA0CTL_INVLS_Msk\fP   (0x01UL << \fBTIMERA_DTGA0CTL_INVLS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA0CTL_INVHS_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA0CTL_INVHS_Msk\fP   (0x01UL << \fBTIMERA_DTGA0CTL_INVHS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA0CTL_OTP_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA0CTL_OTP_Msk\fP   (0x01UL << \fBTIMERA_DTGA0CTL_OTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA0CTL_BYPASS_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA0CTL_BYPASS_Msk\fP   (0x01UL << \fBTIMERA_DTGA0CTL_BYPASS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA0LED_LED_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA0LED_LED_Msk\fP   (0x00000fffUL << \fBTIMERA_DTGA0LED_LED_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA0TED_TED_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA0TED_TED_Msk\fP   (0x00000fffUL << \fBTIMERA_DTGA0TED_TED_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA1CTL_INVLS_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA1CTL_INVLS_Msk\fP   (0x01UL << \fBTIMERA_DTGA1CTL_INVLS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA1CTL_INVHS_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA1CTL_INVHS_Msk\fP   (0x01UL << \fBTIMERA_DTGA1CTL_INVHS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA1CTL_OTP_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA1CTL_OTP_Msk\fP   (0x01UL << \fBTIMERA_DTGA1CTL_OTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA1CTL_BYPASS_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA1CTL_BYPASS_Msk\fP   (0x01UL << \fBTIMERA_DTGA1CTL_BYPASS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA1LED_LED_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA1LED_LED_Msk\fP   (0x00000fffUL << \fBTIMERA_DTGA1LED_LED_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA1TED_TED_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA1TED_TED_Msk\fP   (0x00000fffUL << \fBTIMERA_DTGA1TED_TED_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA2CTL_INVLS_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA2CTL_INVLS_Msk\fP   (0x01UL << \fBTIMERA_DTGA2CTL_INVLS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA2CTL_INVHS_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA2CTL_INVHS_Msk\fP   (0x01UL << \fBTIMERA_DTGA2CTL_INVHS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA2CTL_OTP_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA2CTL_OTP_Msk\fP   (0x01UL << \fBTIMERA_DTGA2CTL_OTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA2CTL_BYPASS_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA2CTL_BYPASS_Msk\fP   (0x01UL << \fBTIMERA_DTGA2CTL_BYPASS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA2LED_LED_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA2LED_LED_Msk\fP   (0x00000fffUL << \fBTIMERA_DTGA2LED_LED_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA2TED_TED_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA2TED_TED_Msk\fP   (0x00000fffUL << \fBTIMERA_DTGA2TED_TED_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA3CTL_INVLS_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA3CTL_INVLS_Msk\fP   (0x01UL << \fBTIMERA_DTGA3CTL_INVLS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA3CTL_INVHS_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA3CTL_INVHS_Msk\fP   (0x01UL << \fBTIMERA_DTGA3CTL_INVHS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA3CTL_OTP_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA3CTL_OTP_Msk\fP   (0x01UL << \fBTIMERA_DTGA3CTL_OTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA3CTL_BYPASS_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA3CTL_BYPASS_Msk\fP   (0x01UL << \fBTIMERA_DTGA3CTL_BYPASS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA3LED_LED_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA3LED_LED_Msk\fP   (0x00000fffUL << \fBTIMERA_DTGA3LED_LED_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA3TED_TED_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERA_DTGA3TED_TED_Msk\fP   (0x00000fffUL << \fBTIMERA_DTGA3TED_TED_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTL_PRDL_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTL_PRDL_Msk\fP   (0x01UL << \fBTIMERB_TxCTL_PRDL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTL_CLR_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTL_CLR_Msk\fP   (0x01UL << \fBTIMERB_TxCTL_CLR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTL_SS_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTL_SS_Msk\fP   (0x01UL << \fBTIMERB_TxCTL_SS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTL_INT_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTL_INT_Msk\fP   (0x01UL << \fBTIMERB_TxCTL_INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTL_INTEN_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTL_INTEN_Msk\fP   (0x01UL << \fBTIMERB_TxCTL_INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTL_CLKDIV_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTL_CLKDIV_Msk\fP   (0x07UL << \fBTIMERB_TxCTL_CLKDIV_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTL_CLK_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTL_CLK_Msk\fP   (0x01UL << \fBTIMERB_TxCTL_CLK_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTL_MODE_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTL_MODE_Msk\fP   (0x03UL << \fBTIMERB_TxCTL_MODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTL_DTGCLK_Pos\fP   13"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTL_DTGCLK_Msk\fP   (0x01UL << \fBTIMERB_TxCTL_DTGCLK_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxPRD_PERIOD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxPRD_PERIOD_Msk\fP   (0x0000ffffUL << \fBTIMERB_TxPRD_PERIOD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTR_CTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCTR_CTR_Msk\fP   (0x0000ffffUL << \fBTIMERB_TxCTR_CTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC0CTL_CCEDG_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC0CTL_CCEDG_Msk\fP   (0x03UL << \fBTIMERB_TxCC0CTL_CCEDG_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC0CTL_CCINT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC0CTL_CCINT_Msk\fP   (0x01UL << \fBTIMERB_TxCC0CTL_CCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC0CTL_CCINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC0CTL_CCINTEN_Msk\fP   (0x01UL << \fBTIMERB_TxCC0CTL_CCINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC0CTL_CCMODE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC0CTL_CCMODE_Msk\fP   (0x01UL << \fBTIMERB_TxCC0CTL_CCMODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC0CTR_CCCTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC0CTR_CCCTR_Msk\fP   (0x0000ffffUL << \fBTIMERB_TxCC0CTR_CCCTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC1CTL_CCEDG_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC1CTL_CCEDG_Msk\fP   (0x03UL << \fBTIMERB_TxCC1CTL_CCEDG_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC1CTL_CCINT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC1CTL_CCINT_Msk\fP   (0x01UL << \fBTIMERB_TxCC1CTL_CCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC1CTL_CCINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC1CTL_CCINTEN_Msk\fP   (0x01UL << \fBTIMERB_TxCC1CTL_CCINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC1CTL_CCMODE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC1CTL_CCMODE_Msk\fP   (0x01UL << \fBTIMERB_TxCC1CTL_CCMODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC1CTR_CCCTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC1CTR_CCCTR_Msk\fP   (0x0000ffffUL << \fBTIMERB_TxCC1CTR_CCCTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC2CTL_CCEDG_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC2CTL_CCEDG_Msk\fP   (0x03UL << \fBTIMERB_TxCC2CTL_CCEDG_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC2CTL_CCINT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC2CTL_CCINT_Msk\fP   (0x01UL << \fBTIMERB_TxCC2CTL_CCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC2CTL_CCINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC2CTL_CCINTEN_Msk\fP   (0x01UL << \fBTIMERB_TxCC2CTL_CCINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC2CTL_CCMODE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC2CTL_CCMODE_Msk\fP   (0x01UL << \fBTIMERB_TxCC2CTL_CCMODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC2CTR_CCCTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC2CTR_CCCTR_Msk\fP   (0x0000ffffUL << \fBTIMERB_TxCC2CTR_CCCTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC3CTL_CCEDG_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC3CTL_CCEDG_Msk\fP   (0x03UL << \fBTIMERB_TxCC3CTL_CCEDG_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC3CTL_CCINT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC3CTL_CCINT_Msk\fP   (0x01UL << \fBTIMERB_TxCC3CTL_CCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC3CTL_CCINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC3CTL_CCINTEN_Msk\fP   (0x01UL << \fBTIMERB_TxCC3CTL_CCINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC3CTL_CCMODE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC3CTL_CCMODE_Msk\fP   (0x01UL << \fBTIMERB_TxCC3CTL_CCMODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC3CTR_CCCTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_TxCC3CTR_CCCTR_Msk\fP   (0x0000ffffUL << \fBTIMERB_TxCC3CTR_CCCTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_DTGB0CTL_INVLS_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_DTGB0CTL_INVLS_Msk\fP   (0x01UL << \fBTIMERB_DTGB0CTL_INVLS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_DTGB0CTL_INVHS_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_DTGB0CTL_INVHS_Msk\fP   (0x01UL << \fBTIMERB_DTGB0CTL_INVHS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_DTGB0CTL_OTP_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_DTGB0CTL_OTP_Msk\fP   (0x01UL << \fBTIMERB_DTGB0CTL_OTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_DTGB0CTL_BYPASS_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_DTGB0CTL_BYPASS_Msk\fP   (0x01UL << \fBTIMERB_DTGB0CTL_BYPASS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_DTGB0LED_LED_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_DTGB0LED_LED_Msk\fP   (0x00000fffUL << \fBTIMERB_DTGB0LED_LED_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_DTGB0TED_TED_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERB_DTGB0TED_TED_Msk\fP   (0x00000fffUL << \fBTIMERB_DTGB0TED_TED_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTL_PRDL_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTL_PRDL_Msk\fP   (0x01UL << \fBTIMERC_TxCTL_PRDL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTL_CLR_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTL_CLR_Msk\fP   (0x01UL << \fBTIMERC_TxCTL_CLR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTL_SS_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTL_SS_Msk\fP   (0x01UL << \fBTIMERC_TxCTL_SS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTL_INT_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTL_INT_Msk\fP   (0x01UL << \fBTIMERC_TxCTL_INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTL_INTEN_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTL_INTEN_Msk\fP   (0x01UL << \fBTIMERC_TxCTL_INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTL_CLKDIV_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTL_CLKDIV_Msk\fP   (0x07UL << \fBTIMERC_TxCTL_CLKDIV_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTL_CLK_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTL_CLK_Msk\fP   (0x01UL << \fBTIMERC_TxCTL_CLK_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTL_MODE_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTL_MODE_Msk\fP   (0x03UL << \fBTIMERC_TxCTL_MODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTL_DTGCLK_Pos\fP   13"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTL_DTGCLK_Msk\fP   (0x01UL << \fBTIMERC_TxCTL_DTGCLK_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxPRD_PERIOD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxPRD_PERIOD_Msk\fP   (0x0000ffffUL << \fBTIMERC_TxPRD_PERIOD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTR_CTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCTR_CTR_Msk\fP   (0x0000ffffUL << \fBTIMERC_TxCTR_CTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC0CTL_CCEDG_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC0CTL_CCEDG_Msk\fP   (0x03UL << \fBTIMERC_TxCC0CTL_CCEDG_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC0CTL_CCINT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC0CTL_CCINT_Msk\fP   (0x01UL << \fBTIMERC_TxCC0CTL_CCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC0CTL_CCINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC0CTL_CCINTEN_Msk\fP   (0x01UL << \fBTIMERC_TxCC0CTL_CCINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC0CTL_CCMODE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC0CTL_CCMODE_Msk\fP   (0x01UL << \fBTIMERC_TxCC0CTL_CCMODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC0CTR_CCCTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC0CTR_CCCTR_Msk\fP   (0x0000ffffUL << \fBTIMERC_TxCC0CTR_CCCTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC1CTL_CCEDG_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC1CTL_CCEDG_Msk\fP   (0x03UL << \fBTIMERC_TxCC1CTL_CCEDG_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC1CTL_CCINT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC1CTL_CCINT_Msk\fP   (0x01UL << \fBTIMERC_TxCC1CTL_CCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC1CTL_CCINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC1CTL_CCINTEN_Msk\fP   (0x01UL << \fBTIMERC_TxCC1CTL_CCINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC1CTL_CCMODE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC1CTL_CCMODE_Msk\fP   (0x01UL << \fBTIMERC_TxCC1CTL_CCMODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC1CTR_CCCTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_TxCC1CTR_CCCTR_Msk\fP   (0x0000ffffUL << \fBTIMERC_TxCC1CTR_CCCTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_DTGC0CTL_INVLS_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_DTGC0CTL_INVLS_Msk\fP   (0x01UL << \fBTIMERC_DTGC0CTL_INVLS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_DTGC0CTL_INVHS_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_DTGC0CTL_INVHS_Msk\fP   (0x01UL << \fBTIMERC_DTGC0CTL_INVHS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_DTGC0CTL_OTP_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_DTGC0CTL_OTP_Msk\fP   (0x01UL << \fBTIMERC_DTGC0CTL_OTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_DTGC0CTL_BYPASS_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_DTGC0CTL_BYPASS_Msk\fP   (0x01UL << \fBTIMERC_DTGC0CTL_BYPASS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_DTGC0LED_LED_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_DTGC0LED_LED_Msk\fP   (0x00000fffUL << \fBTIMERC_DTGC0LED_LED_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_DTGC0TED_TED_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERC_DTGC0TED_TED_Msk\fP   (0x00000fffUL << \fBTIMERC_DTGC0TED_TED_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTL_PRDL_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTL_PRDL_Msk\fP   (0x01UL << \fBTIMERD_TxCTL_PRDL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTL_CLR_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTL_CLR_Msk\fP   (0x01UL << \fBTIMERD_TxCTL_CLR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTL_SS_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTL_SS_Msk\fP   (0x01UL << \fBTIMERD_TxCTL_SS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTL_INT_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTL_INT_Msk\fP   (0x01UL << \fBTIMERD_TxCTL_INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTL_INTEN_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTL_INTEN_Msk\fP   (0x01UL << \fBTIMERD_TxCTL_INTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTL_CLKDIV_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTL_CLKDIV_Msk\fP   (0x07UL << \fBTIMERD_TxCTL_CLKDIV_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTL_CLK_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTL_CLK_Msk\fP   (0x01UL << \fBTIMERD_TxCTL_CLK_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTL_MODE_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTL_MODE_Msk\fP   (0x03UL << \fBTIMERD_TxCTL_MODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTL_DTGCLK_Pos\fP   13"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTL_DTGCLK_Msk\fP   (0x01UL << \fBTIMERD_TxCTL_DTGCLK_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxPRD_PERIOD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxPRD_PERIOD_Msk\fP   (0x0000ffffUL << \fBTIMERD_TxPRD_PERIOD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTR_CTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCTR_CTR_Msk\fP   (0x0000ffffUL << \fBTIMERD_TxCTR_CTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC0CTL_CCEDG_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC0CTL_CCEDG_Msk\fP   (0x03UL << \fBTIMERD_TxCC0CTL_CCEDG_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC0CTL_CCINT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC0CTL_CCINT_Msk\fP   (0x01UL << \fBTIMERD_TxCC0CTL_CCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC0CTL_CCINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC0CTL_CCINTEN_Msk\fP   (0x01UL << \fBTIMERD_TxCC0CTL_CCINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC0CTL_CCMODE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC0CTL_CCMODE_Msk\fP   (0x01UL << \fBTIMERD_TxCC0CTL_CCMODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC0CTR_CCCTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC0CTR_CCCTR_Msk\fP   (0x0000ffffUL << \fBTIMERD_TxCC0CTR_CCCTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC1CTL_CCEDG_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC1CTL_CCEDG_Msk\fP   (0x03UL << \fBTIMERD_TxCC1CTL_CCEDG_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC1CTL_CCINT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC1CTL_CCINT_Msk\fP   (0x01UL << \fBTIMERD_TxCC1CTL_CCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC1CTL_CCINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC1CTL_CCINTEN_Msk\fP   (0x01UL << \fBTIMERD_TxCC1CTL_CCINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC1CTL_CCMODE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC1CTL_CCMODE_Msk\fP   (0x01UL << \fBTIMERD_TxCC1CTL_CCMODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC1CTR_CCCTR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_TxCC1CTR_CCCTR_Msk\fP   (0x0000ffffUL << \fBTIMERD_TxCC1CTR_CCCTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_DTGD0CTL_INVLS_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_DTGD0CTL_INVLS_Msk\fP   (0x01UL << \fBTIMERD_DTGD0CTL_INVLS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_DTGD0CTL_INVHS_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_DTGD0CTL_INVHS_Msk\fP   (0x01UL << \fBTIMERD_DTGD0CTL_INVHS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_DTGD0CTL_OTP_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_DTGD0CTL_OTP_Msk\fP   (0x01UL << \fBTIMERD_DTGD0CTL_OTP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_DTGD0CTL_BYPASS_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_DTGD0CTL_BYPASS_Msk\fP   (0x01UL << \fBTIMERD_DTGD0CTL_BYPASS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_DTGD0LED_LED_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_DTGD0LED_LED_Msk\fP   (0x00000fffUL << \fBTIMERD_DTGD0LED_LED_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_DTGD0TED_TED_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBTIMERD_DTGD0TED_TED_Msk\fP   (0x00000fffUL << \fBTIMERD_DTGD0TED_TED_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_EMUXCTL_EMUXCDIV_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_EMUXCTL_EMUXCDIV_Msk\fP   (0x07UL << \fBADC_EMUXCTL_EMUXCDIV_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_EMUXCTL_EMUXDONE_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBADC_EMUXCTL_EMUXDONE_Msk\fP   (0x01UL << \fBADC_EMUXCTL_EMUXDONE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_EMUXCTL_EMUXBUSY_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBADC_EMUXCTL_EMUXBUSY_Msk\fP   (0x01UL << \fBADC_EMUXCTL_EMUXBUSY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_EMUXCTL_EMUXC_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBADC_EMUXCTL_EMUXC_Msk\fP   (0x01UL << \fBADC_EMUXCTL_EMUXC_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_EMUXDATA_DATA_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_EMUXDATA_DATA_Msk\fP   (0x0000ffffUL << \fBADC_EMUXDATA_DATA_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCCTL_ADCCDIV_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCCTL_ADCCDIV_Msk\fP   (0x07UL << \fBADC_ADCCTL_ADCCDIV_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCCTL_ADCMUX_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCCTL_ADCMUX_Msk\fP   (0x07UL << \fBADC_ADCCTL_ADCMUX_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCCTL_ADCBUSY_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCCTL_ADCBUSY_Msk\fP   (0x01UL << \fBADC_ADCCTL_ADCBUSY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCCTL_ADCMODE_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCCTL_ADCMODE_Msk\fP   (0x07UL << \fBADC_ADCCTL_ADCMODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCCTL_ADCSTART_Pos\fP   14"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCCTL_ADCSTART_Msk\fP   (0x01UL << \fBADC_ADCCTL_ADCSTART_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCCTL_ADCEN_Pos\fP   15"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCCTL_ADCEN_Msk\fP   (0x01UL << \fBADC_ADCCTL_ADCEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCCR_ADCRESULT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCCR_ADCRESULT_Msk\fP   (0x0000ffffUL << \fBADC_ADCCR_ADCRESULT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_ADCINT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_ADCINT_Msk\fP   (0x01UL << \fBADC_ADCINT_ADCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_EMUXINT_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_EMUXINT_Msk\fP   (0x01UL << \fBADC_ADCINT_EMUXINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_AS0INT_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_AS0INT_Msk\fP   (0x01UL << \fBADC_ADCINT_AS0INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_AS1INT_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_AS1INT_Msk\fP   (0x01UL << \fBADC_ADCINT_AS1INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_ASCINT_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_ASCINT_Msk\fP   (0x01UL << \fBADC_ADCINT_ASCINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_ADCINT_EN_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_ADCINT_EN_Msk\fP   (0x01UL << \fBADC_ADCINT_ADCINT_EN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_EMUXINT_EN_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_EMUXINT_EN_Msk\fP   (0x01UL << \fBADC_ADCINT_EMUXINT_EN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_AS0INT_EN_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_AS0INT_EN_Msk\fP   (0x01UL << \fBADC_ADCINT_AS0INT_EN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_AS1INT_EN_Pos\fP   11"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_AS1INT_EN_Msk\fP   (0x01UL << \fBADC_ADCINT_AS1INT_EN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_ASCINT_EN_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_ASCINT_EN_Msk\fP   (0x01UL << \fBADC_ADCINT_ASCINT_EN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_ASCINTSEQ_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_ASCINTSEQ_Msk\fP   (0x03UL << \fBADC_ADCINT_ASCINTSEQ_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_ASCINTTR_Pos\fP   18"
+.br
+.ti -1c
+.RI "#define \fBADC_ADCINT_ASCINTTR_Msk\fP   (0x03UL << \fBADC_ADCINT_ASCINTTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0CTL_ASAxTRPWM_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0CTL_ASAxTRPWM_Msk\fP   (0x0fUL << \fBADC_AS0CTL_ASAxTRPWM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0CTL_ASAxTRTMR_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0CTL_ASAxTRTMR_Msk\fP   (0x03UL << \fBADC_AS0CTL_ASAxTRTMR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0CTL_ASxTRE_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0CTL_ASxTRE_Msk\fP   (0x01UL << \fBADC_AS0CTL_ASxTRE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0CTL_ASxTR_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0CTL_ASxTR_Msk\fP   (0x01UL << \fBADC_AS0CTL_ASxTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0CTL_ASxD_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0CTL_ASxD_Msk\fP   (0x07UL << \fBADC_AS0CTL_ASxD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0CTL_ASxEN_Pos\fP   11"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0CTL_ASxEN_Msk\fP   (0x01UL << \fBADC_AS0CTL_ASxEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0CTL_ASxBUSY_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0CTL_ASxBUSY_Msk\fP   (0x01UL << \fBADC_AS0CTL_ASxBUSY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S0_EMUXD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S0_EMUXD_Msk\fP   (0x000000ffUL << \fBADC_AS0S0_EMUXD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S0_EMUXS_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S0_EMUXS_Msk\fP   (0x03UL << \fBADC_AS0S0_EMUXS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S0_DELAY_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S0_DELAY_Msk\fP   (0x03UL << \fBADC_AS0S0_DELAY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S0_ADCMUX_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S0_ADCMUX_Msk\fP   (0x07UL << \fBADC_AS0S0_ADCMUX_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0R0_ADCRESULT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0R0_ADCRESULT_Msk\fP   (0x000003ffUL << \fBADC_AS0R0_ADCRESULT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S1_EMUXD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S1_EMUXD_Msk\fP   (0x000000ffUL << \fBADC_AS0S1_EMUXD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S1_EMUXS_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S1_EMUXS_Msk\fP   (0x03UL << \fBADC_AS0S1_EMUXS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S1_DELAY_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S1_DELAY_Msk\fP   (0x03UL << \fBADC_AS0S1_DELAY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S1_ADCMUX_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S1_ADCMUX_Msk\fP   (0x07UL << \fBADC_AS0S1_ADCMUX_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S2_EMUXD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S2_EMUXD_Msk\fP   (0x000000ffUL << \fBADC_AS0S2_EMUXD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S2_EMUXS_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S2_EMUXS_Msk\fP   (0x03UL << \fBADC_AS0S2_EMUXS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S2_DELAY_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S2_DELAY_Msk\fP   (0x03UL << \fBADC_AS0S2_DELAY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S2_ADCMUX_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S2_ADCMUX_Msk\fP   (0x07UL << \fBADC_AS0S2_ADCMUX_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S3_EMUXD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S3_EMUXD_Msk\fP   (0x000000ffUL << \fBADC_AS0S3_EMUXD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S3_EMUXS_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S3_EMUXS_Msk\fP   (0x03UL << \fBADC_AS0S3_EMUXS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S3_DELAY_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S3_DELAY_Msk\fP   (0x03UL << \fBADC_AS0S3_DELAY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S3_ADCMUX_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S3_ADCMUX_Msk\fP   (0x07UL << \fBADC_AS0S3_ADCMUX_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S4_EMUXD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S4_EMUXD_Msk\fP   (0x000000ffUL << \fBADC_AS0S4_EMUXD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S4_EMUXS_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S4_EMUXS_Msk\fP   (0x03UL << \fBADC_AS0S4_EMUXS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S4_DELAY_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S4_DELAY_Msk\fP   (0x03UL << \fBADC_AS0S4_DELAY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S4_ADCMUX_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S4_ADCMUX_Msk\fP   (0x07UL << \fBADC_AS0S4_ADCMUX_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S5_EMUXD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S5_EMUXD_Msk\fP   (0x000000ffUL << \fBADC_AS0S5_EMUXD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S5_EMUXS_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S5_EMUXS_Msk\fP   (0x03UL << \fBADC_AS0S5_EMUXS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S5_DELAY_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S5_DELAY_Msk\fP   (0x03UL << \fBADC_AS0S5_DELAY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S5_ADCMUX_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S5_ADCMUX_Msk\fP   (0x07UL << \fBADC_AS0S5_ADCMUX_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S6_EMUXD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S6_EMUXD_Msk\fP   (0x000000ffUL << \fBADC_AS0S6_EMUXD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S6_EMUXS_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S6_EMUXS_Msk\fP   (0x03UL << \fBADC_AS0S6_EMUXS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S6_DELAY_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S6_DELAY_Msk\fP   (0x03UL << \fBADC_AS0S6_DELAY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S6_ADCMUX_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S6_ADCMUX_Msk\fP   (0x07UL << \fBADC_AS0S6_ADCMUX_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S7_EMUXD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S7_EMUXD_Msk\fP   (0x000000ffUL << \fBADC_AS0S7_EMUXD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S7_EMUXS_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S7_EMUXS_Msk\fP   (0x03UL << \fBADC_AS0S7_EMUXS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S7_DELAY_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S7_DELAY_Msk\fP   (0x03UL << \fBADC_AS0S7_DELAY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S7_ADCMUX_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_AS0S7_ADCMUX_Msk\fP   (0x07UL << \fBADC_AS0S7_ADCMUX_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1CTL_ASAxTRPWM_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1CTL_ASAxTRPWM_Msk\fP   (0x0fUL << \fBADC_AS1CTL_ASAxTRPWM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1CTL_ASAxTRTMR_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1CTL_ASAxTRTMR_Msk\fP   (0x03UL << \fBADC_AS1CTL_ASAxTRTMR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1CTL_ASxTRE_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1CTL_ASxTRE_Msk\fP   (0x01UL << \fBADC_AS1CTL_ASxTRE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1CTL_ASxTR_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1CTL_ASxTR_Msk\fP   (0x01UL << \fBADC_AS1CTL_ASxTR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1CTL_ASxD_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1CTL_ASxD_Msk\fP   (0x07UL << \fBADC_AS1CTL_ASxD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1CTL_ASxEN_Pos\fP   11"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1CTL_ASxEN_Msk\fP   (0x01UL << \fBADC_AS1CTL_ASxEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1CTL_ASxBUSY_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1CTL_ASxBUSY_Msk\fP   (0x01UL << \fBADC_AS1CTL_ASxBUSY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S0_EMUXD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S0_EMUXD_Msk\fP   (0x000000ffUL << \fBADC_AS1S0_EMUXD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S0_EMUXS_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S0_EMUXS_Msk\fP   (0x03UL << \fBADC_AS1S0_EMUXS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S0_DELAY_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S0_DELAY_Msk\fP   (0x03UL << \fBADC_AS1S0_DELAY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S0_ADCMUX_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S0_ADCMUX_Msk\fP   (0x07UL << \fBADC_AS1S0_ADCMUX_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1R0_ADCRESULT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1R0_ADCRESULT_Msk\fP   (0x000003ffUL << \fBADC_AS1R0_ADCRESULT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S1_EMUXD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S1_EMUXD_Msk\fP   (0x000000ffUL << \fBADC_AS1S1_EMUXD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S1_EMUXS_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S1_EMUXS_Msk\fP   (0x03UL << \fBADC_AS1S1_EMUXS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S1_DELAY_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S1_DELAY_Msk\fP   (0x03UL << \fBADC_AS1S1_DELAY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S1_ADCMUX_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S1_ADCMUX_Msk\fP   (0x07UL << \fBADC_AS1S1_ADCMUX_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S2_EMUXD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S2_EMUXD_Msk\fP   (0x000000ffUL << \fBADC_AS1S2_EMUXD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S2_EMUXS_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S2_EMUXS_Msk\fP   (0x03UL << \fBADC_AS1S2_EMUXS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S2_DELAY_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S2_DELAY_Msk\fP   (0x03UL << \fBADC_AS1S2_DELAY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S2_ADCMUX_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S2_ADCMUX_Msk\fP   (0x07UL << \fBADC_AS1S2_ADCMUX_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S3_EMUXD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S3_EMUXD_Msk\fP   (0x000000ffUL << \fBADC_AS1S3_EMUXD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S3_EMUXS_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S3_EMUXS_Msk\fP   (0x03UL << \fBADC_AS1S3_EMUXS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S3_DELAY_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S3_DELAY_Msk\fP   (0x03UL << \fBADC_AS1S3_DELAY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S3_ADCMUX_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S3_ADCMUX_Msk\fP   (0x07UL << \fBADC_AS1S3_ADCMUX_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S4_EMUXD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S4_EMUXD_Msk\fP   (0x000000ffUL << \fBADC_AS1S4_EMUXD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S4_EMUXS_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S4_EMUXS_Msk\fP   (0x03UL << \fBADC_AS1S4_EMUXS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S4_DELAY_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S4_DELAY_Msk\fP   (0x03UL << \fBADC_AS1S4_DELAY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S4_ADCMUX_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S4_ADCMUX_Msk\fP   (0x07UL << \fBADC_AS1S4_ADCMUX_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S5_EMUXD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S5_EMUXD_Msk\fP   (0x000000ffUL << \fBADC_AS1S5_EMUXD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S5_EMUXS_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S5_EMUXS_Msk\fP   (0x03UL << \fBADC_AS1S5_EMUXS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S5_DELAY_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S5_DELAY_Msk\fP   (0x03UL << \fBADC_AS1S5_DELAY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S5_ADCMUX_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S5_ADCMUX_Msk\fP   (0x07UL << \fBADC_AS1S5_ADCMUX_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S6_EMUXD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S6_EMUXD_Msk\fP   (0x000000ffUL << \fBADC_AS1S6_EMUXD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S6_EMUXS_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S6_EMUXS_Msk\fP   (0x03UL << \fBADC_AS1S6_EMUXS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S6_DELAY_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S6_DELAY_Msk\fP   (0x03UL << \fBADC_AS1S6_DELAY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S6_ADCMUX_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S6_ADCMUX_Msk\fP   (0x07UL << \fBADC_AS1S6_ADCMUX_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S7_EMUXD_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S7_EMUXD_Msk\fP   (0x000000ffUL << \fBADC_AS1S7_EMUXD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S7_EMUXS_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S7_EMUXS_Msk\fP   (0x03UL << \fBADC_AS1S7_EMUXS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S7_DELAY_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S7_DELAY_Msk\fP   (0x03UL << \fBADC_AS1S7_DELAY_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S7_ADCMUX_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBADC_AS1S7_ADCMUX_Msk\fP   (0x07UL << \fBADC_AS1S7_ADCMUX_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CCFG_SLEN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CCFG_SLEN_Msk\fP   (0x01UL << \fBI2C_I2CCFG_SLEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CCFG_MAEN_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CCFG_MAEN_Msk\fP   (0x01UL << \fBI2C_I2CCFG_MAEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CCFG_ADDRMODE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CCFG_ADDRMODE_Msk\fP   (0x01UL << \fBI2C_I2CCFG_ADDRMODE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_MATXE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_MATXE_Msk\fP   (0x01UL << \fBI2C_I2CINT_MATXE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_MACTLE_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_MACTLE_Msk\fP   (0x01UL << \fBI2C_I2CINT_MACTLE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_MARXF_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_MARXF_Msk\fP   (0x01UL << \fBI2C_I2CINT_MARXF_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_MAXFERDONEINT_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_MAXFERDONEINT_Msk\fP   (0x01UL << \fBI2C_I2CINT_MAXFERDONEINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_MAADDRACKINT_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_MAADDRACKINT_Msk\fP   (0x01UL << \fBI2C_I2CINT_MAADDRACKINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_MAARBLINT_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_MAARBLINT_Msk\fP   (0x01UL << \fBI2C_I2CINT_MAARBLINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_MADACKINT_Pos\fP   11"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_MADACKINT_Msk\fP   (0x01UL << \fBI2C_I2CINT_MADACKINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_SLADDRMINT_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_SLADDRMINT_Msk\fP   (0x01UL << \fBI2C_I2CINT_SLADDRMINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_SLTXEINT_Pos\fP   17"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_SLTXEINT_Msk\fP   (0x01UL << \fBI2C_I2CINT_SLTXEINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_SLRXFINT_Pos\fP   18"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_SLRXFINT_Msk\fP   (0x01UL << \fBI2C_I2CINT_SLRXFINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_SLXFERDONEINT_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINT_SLXFERDONEINT_Msk\fP   (0x01UL << \fBI2C_I2CINT_SLXFERDONEINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINTEN_MATXE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINTEN_MATXE_Msk\fP   (0x01UL << \fBI2C_I2CINTEN_MATXE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINTEN_MACTLE_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINTEN_MACTLE_Msk\fP   (0x01UL << \fBI2C_I2CINTEN_MACTLE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINTEN_MARXF_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINTEN_MARXF_Msk\fP   (0x01UL << \fBI2C_I2CINTEN_MARXF_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINTEN_MAXFERDONE_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINTEN_MAXFERDONE_Msk\fP   (0x01UL << \fBI2C_I2CINTEN_MAXFERDONE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINTEN_SLADDRM_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINTEN_SLADDRM_Msk\fP   (0x01UL << \fBI2C_I2CINTEN_SLADDRM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINTEN_SLTXE_Pos\fP   17"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINTEN_SLTXE_Msk\fP   (0x01UL << \fBI2C_I2CINTEN_SLTXE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINTEN_SLRXF_Pos\fP   18"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINTEN_SLRXF_Msk\fP   (0x01UL << \fBI2C_I2CINTEN_SLRXF_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINTEN_SLXFERDONEINTEN_Pos\fP   24"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CINTEN_SLXFERDONEINTEN_Msk\fP   (0x01UL << \fBI2C_I2CINTEN_SLXFERDONEINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMACTL_I2CADDRL_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMACTL_I2CADDRL_Msk\fP   (0x7fUL << \fBI2C_I2CMACTL_I2CADDRL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMACTL_I2CADDRU_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMACTL_I2CADDRU_Msk\fP   (0x07UL << \fBI2C_I2CMACTL_I2CADDRU_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMACTL_RSTART_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMACTL_RSTART_Msk\fP   (0x01UL << \fBI2C_I2CMACTL_RSTART_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMACTL_XFERTYPE_Pos\fP   11"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMACTL_XFERTYPE_Msk\fP   (0x01UL << \fBI2C_I2CMACTL_XFERTYPE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMACTL_I2CMACTLF_Pos\fP   13"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMACTL_I2CMACTLF_Msk\fP   (0x01UL << \fBI2C_I2CMACTL_I2CMACTLF_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMARXDATA_MARXDATA_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMARXDATA_MARXDATA_Msk\fP   (0x000000ffUL << \fBI2C_I2CMARXDATA_MARXDATA_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMARXDATA_I2CMARXDATAF_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMARXDATA_I2CMARXDATAF_Msk\fP   (0x01UL << \fBI2C_I2CMARXDATA_I2CMARXDATAF_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMATXDATA_MATXDATA_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMATXDATA_MATXDATA_Msk\fP   (0x000000ffUL << \fBI2C_I2CMATXDATA_MATXDATA_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMATXDATA_I2CMATXDATAF_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMATXDATA_I2CMATXDATAF_Msk\fP   (0x01UL << \fBI2C_I2CMATXDATA_I2CMATXDATAF_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMATXDATA_LBYTE_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CMATXDATA_LBYTE_Msk\fP   (0x01UL << \fBI2C_I2CMATXDATA_LBYTE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CBAUD_SCLL_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CBAUD_SCLL_Msk\fP   (0x000007ffUL << \fBI2C_I2CBAUD_SCLL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CBAUD_SCLH_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CBAUD_SCLH_Msk\fP   (0x000007ffUL << \fBI2C_I2CBAUD_SCLH_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CSLRXDATA_SLRXDATA_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CSLRXDATA_SLRXDATA_Msk\fP   (0x000000ffUL << \fBI2C_I2CSLRXDATA_SLRXDATA_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CSLRXDATA_I2CSLRXDATAF_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CSLRXDATA_I2CSLRXDATAF_Msk\fP   (0x01UL << \fBI2C_I2CSLRXDATA_I2CSLRXDATAF_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CSLTXDATA_SLTXDATA_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CSLTXDATA_SLTXDATA_Msk\fP   (0x000000ffUL << \fBI2C_I2CSLTXDATA_SLTXDATA_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CSLTXDATA_NACK_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CSLTXDATA_NACK_Msk\fP   (0x01UL << \fBI2C_I2CSLTXDATA_NACK_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CSLTXDATA_I2CSLTXDATAF_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CSLTXDATA_I2CSLTXDATAF_Msk\fP   (0x01UL << \fBI2C_I2CSLTXDATA_I2CSLTXDATAF_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CSLADDR_SLADDRL_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CSLADDR_SLADDRL_Msk\fP   (0x7fUL << \fBI2C_I2CSLADDR_SLADDRL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CSLADDR_SLADDRH_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBI2C_I2CSLADDR_SLADDRH_Msk\fP   (0x07UL << \fBI2C_I2CSLADDR_SLADDRH_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTRXTX_RXTX_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTRXTX_RXTX_Msk\fP   (0x000000ffUL << \fBUART_UARTRXTX_RXTX_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTIEN_RXINTEN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTIEN_RXINTEN_Msk\fP   (0x01UL << \fBUART_UARTIEN_RXINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTIEN_TXINTEN_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTIEN_TXINTEN_Msk\fP   (0x01UL << \fBUART_UARTIEN_TXINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTIEN_RSINTEN_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTIEN_RSINTEN_Msk\fP   (0x01UL << \fBUART_UARTIEN_RSINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTIEN_MSINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTIEN_MSINTEN_Msk\fP   (0x01UL << \fBUART_UARTIEN_MSINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTII_UARTINT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTII_UARTINT_Msk\fP   (0x01UL << \fBUART_UARTII_UARTINT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTII_UARTINTID_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTII_UARTINTID_Msk\fP   (0x07UL << \fBUART_UARTII_UARTINTID_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLC_BPC_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLC_BPC_Msk\fP   (0x03UL << \fBUART_UARTLC_BPC_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLC_STB_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLC_STB_Msk\fP   (0x01UL << \fBUART_UARTLC_STB_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLC_PEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLC_PEN_Msk\fP   (0x01UL << \fBUART_UARTLC_PEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLC_EPS_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLC_EPS_Msk\fP   (0x01UL << \fBUART_UARTLC_EPS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLC_SP_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLC_SP_Msk\fP   (0x01UL << \fBUART_UARTLC_SP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLC_SB_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLC_SB_Msk\fP   (0x01UL << \fBUART_UARTLC_SB_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLS_RXDR_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLS_RXDR_Msk\fP   (0x01UL << \fBUART_UARTLS_RXDR_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLS_RXOE_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLS_RXOE_Msk\fP   (0x01UL << \fBUART_UARTLS_RXOE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLS_RXPE_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLS_RXPE_Msk\fP   (0x01UL << \fBUART_UARTLS_RXPE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLS_RXFE_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLS_RXFE_Msk\fP   (0x01UL << \fBUART_UARTLS_RXFE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLS_RXBE_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLS_RXBE_Msk\fP   (0x01UL << \fBUART_UARTLS_RXBE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLS_TCFE_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLS_TCFE_Msk\fP   (0x01UL << \fBUART_UARTLS_TCFE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLS_TXE_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLS_TXE_Msk\fP   (0x01UL << \fBUART_UARTLS_TXE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLS_RXE_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTLS_RXE_Msk\fP   (0x01UL << \fBUART_UARTLS_RXE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTFCTL_FEN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTFCTL_FEN_Msk\fP   (0x01UL << \fBUART_UARTFCTL_FEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTFCTL_RXFRESET_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTFCTL_RXFRESET_Msk\fP   (0x01UL << \fBUART_UARTFCTL_RXFRESET_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTFCTL_TXFRESET_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTFCTL_TXFRESET_Msk\fP   (0x01UL << \fBUART_UARTFCTL_TXFRESET_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTFCTL_RXFT_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTFCTL_RXFT_Msk\fP   (0x03UL << \fBUART_UARTFCTL_RXFT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTIE_R_RXINTEN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTIE_R_RXINTEN_Msk\fP   (0x01UL << \fBUART_UARTIE_R_RXINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTIE_R_TXINTEN_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTIE_R_TXINTEN_Msk\fP   (0x01UL << \fBUART_UARTIE_R_TXINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTIE_R_RSINTEN_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTIE_R_RSINTEN_Msk\fP   (0x01UL << \fBUART_UARTIE_R_RSINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTIE_R_MSINTEN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTIE_R_MSINTEN_Msk\fP   (0x01UL << \fBUART_UARTIE_R_MSINTEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTDL_L_DL_L_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTDL_L_DL_L_Msk\fP   (0x000000ffUL << \fBUART_UARTDL_L_DL_L_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTDL_H_DL_H_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTDL_H_DL_H_Msk\fP   (0x000000ffUL << \fBUART_UARTDL_H_DL_H_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTFD_F_FRAC_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTFD_F_FRAC_Msk\fP   (0x000000ffUL << \fBUART_UARTFD_F_FRAC_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTFSTAT_TXFE_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTFSTAT_TXFE_Msk\fP   (0x01UL << \fBUART_UARTFSTAT_TXFE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTFSTAT_TXFF_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTFSTAT_TXFF_Msk\fP   (0x01UL << \fBUART_UARTFSTAT_TXFF_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTFSTAT_RXFE_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTFSTAT_RXFE_Msk\fP   (0x01UL << \fBUART_UARTFSTAT_RXFE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTFSTAT_RXFF_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBUART_UARTFSTAT_RXFF_Msk\fP   (0x01UL << \fBUART_UARTFSTAT_RXFF_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBCTL_SSEN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBCTL_SSEN_Msk\fP   (0x01UL << \fBSOCB_SOCBCTL_SSEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBCTL_SIE_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBCTL_SIE_Msk\fP   (0x01UL << \fBSOCB_SOCBCTL_SIE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBCTL_MTRARM_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBCTL_MTRARM_Msk\fP   (0x01UL << \fBSOCB_SOCBCTL_MTRARM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBCFG_MRST_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBCFG_MRST_Msk\fP   (0x01UL << \fBSOCB_SOCBCFG_MRST_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBSTAT_SOCB_INT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBSTAT_SOCB_INT_Msk\fP   (0x01UL << \fBSOCB_SOCBSTAT_SOCB_INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBSTAT_RDOFL_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBSTAT_RDOFL_Msk\fP   (0x01UL << \fBSOCB_SOCBSTAT_RDOFL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBSTAT_CYC_DONE_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBSTAT_CYC_DONE_Msk\fP   (0x01UL << \fBSOCB_SOCBSTAT_CYC_DONE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBSTAT_WRUFL_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBSTAT_WRUFL_Msk\fP   (0x01UL << \fBSOCB_SOCBSTAT_WRUFL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBSTAT_TXFULL_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBSTAT_TXFULL_Msk\fP   (0x01UL << \fBSOCB_SOCBSTAT_TXFULL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBSTAT_RXFULL_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBSTAT_RXFULL_Msk\fP   (0x01UL << \fBSOCB_SOCBSTAT_RXFULL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBSTAT_CURSTATE_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBSTAT_CURSTATE_Msk\fP   (0x07UL << \fBSOCB_SOCBSTAT_CURSTATE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBD_DATA_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBD_DATA_Msk\fP   (0x000000ffUL << \fBSOCB_SOCBD_DATA_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBINT_EN_RDOFL_EN_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBINT_EN_RDOFL_EN_Msk\fP   (0x01UL << \fBSOCB_SOCBINT_EN_RDOFL_EN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBINT_EN_WRUFL_EN_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSOCB_SOCBINT_EN_WRUFL_EN_Msk\fP   (0x01UL << \fBSOCB_SOCBINT_EN_WRUFL_EN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICTL_SSEN_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICTL_SSEN_Msk\fP   (0x01UL << \fBSPI_SPICTL_SSEN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICTL_SIE_Pos\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICTL_SIE_Msk\fP   (0x01UL << \fBSPI_SPICTL_SIE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICTL_LPBK_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICTL_LPBK_Msk\fP   (0x01UL << \fBSPI_SPICTL_LPBK_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICTL_SE_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICTL_SE_Msk\fP   (0x01UL << \fBSPI_SPICTL_SE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICTL_MTRARM_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICTL_MTRARM_Msk\fP   (0x01UL << \fBSPI_SPICTL_MTRARM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICTL_MTRANS_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICTL_MTRANS_Msk\fP   (0x01UL << \fBSPI_SPICTL_MTRANS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICTL_MMST_N_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICTL_MMST_N_Msk\fP   (0x01UL << \fBSPI_SPICTL_MMST_N_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICTL_RTRANS_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICTL_RTRANS_Msk\fP   (0x01UL << \fBSPI_SPICTL_RTRANS_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_WL_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_WL_Msk\fP   (0x03UL << \fBSPI_SPICFG_WL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_MRST_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_MRST_Msk\fP   (0x01UL << \fBSPI_SPICFG_MRST_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_LB1ST_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_LB1ST_Msk\fP   (0x01UL << \fBSPI_SPICFG_LB1ST_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_CP_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_CP_Msk\fP   (0x01UL << \fBSPI_SPICFG_CP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_CPH_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_CPH_Msk\fP   (0x01UL << \fBSPI_SPICFG_CPH_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_RCVCP_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_RCVCP_Msk\fP   (0x01UL << \fBSPI_SPICFG_RCVCP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_RCVCPH_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_RCVCPH_Msk\fP   (0x01UL << \fBSPI_SPICFG_RCVCPH_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_TXDATPH_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_TXDATPH_Msk\fP   (0x01UL << \fBSPI_SPICFG_TXDATPH_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_TDBUF_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_TDBUF_Msk\fP   (0x01UL << \fBSPI_SPICFG_TDBUF_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_MTURBO_Pos\fP   11"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICFG_MTURBO_Msk\fP   (0x01UL << \fBSPI_SPICFG_MTURBO_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICLKDIV_CLKDIV_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICLKDIV_CLKDIV_Msk\fP   (0x0000ffffUL << \fBSPI_SPICLKDIV_CLKDIV_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_SPI_INT_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_SPI_INT_Msk\fP   (0x01UL << \fBSPI_SPISTAT_SPI_INT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_RDOFL_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_RDOFL_Msk\fP   (0x01UL << \fBSPI_SPISTAT_RDOFL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_LE_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_LE_Msk\fP   (0x01UL << \fBSPI_SPISTAT_LE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_UCLK_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_UCLK_Msk\fP   (0x01UL << \fBSPI_SPISTAT_UCLK_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_CYC_DONE_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_CYC_DONE_Msk\fP   (0x01UL << \fBSPI_SPISTAT_CYC_DONE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_TE_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_TE_Msk\fP   (0x01UL << \fBSPI_SPISTAT_TE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_WRUFL_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_WRUFL_Msk\fP   (0x01UL << \fBSPI_SPISTAT_WRUFL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_TXFULL_Pos\fP   9"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_TXFULL_Msk\fP   (0x01UL << \fBSPI_SPISTAT_TXFULL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_RXFULL_Pos\fP   10"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_RXFULL_Msk\fP   (0x01UL << \fBSPI_SPISTAT_RXFULL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_CURSTATE_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPISTAT_CURSTATE_Msk\fP   (0x07UL << \fBSPI_SPISTAT_CURSTATE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICSSTR_CSNUM_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICSSTR_CSNUM_Msk\fP   (0x03UL << \fBSPI_SPICSSTR_CSNUM_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICSSTR_CSL_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICSSTR_CSL_Msk\fP   (0x01UL << \fBSPI_SPICSSTR_CSL_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICSSTR_CSSETUP_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICSSTR_CSSETUP_Msk\fP   (0x0fUL << \fBSPI_SPICSSTR_CSSETUP_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICSSTR_CSHOLD_Pos\fP   12"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICSSTR_CSHOLD_Msk\fP   (0x0fUL << \fBSPI_SPICSSTR_CSHOLD_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICSSTR_CSWAIT_Pos\fP   16"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICSSTR_CSWAIT_Msk\fP   (0x0fUL << \fBSPI_SPICSSTR_CSWAIT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICSSTR_CKWAIT_Pos\fP   20"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPICSSTR_CKWAIT_Msk\fP   (0x0fUL << \fBSPI_SPICSSTR_CKWAIT_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPID_DATA_Pos\fP   0"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPID_DATA_Msk\fP   (0x000000ffUL << \fBSPI_SPID_DATA_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPIINT_EN_RDOFL_EN_Pos\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPIINT_EN_RDOFL_EN_Msk\fP   (0x01UL << \fBSPI_SPIINT_EN_RDOFL_EN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPIINT_EN_LE_EN_Pos\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPIINT_EN_LE_EN_Msk\fP   (0x01UL << \fBSPI_SPIINT_EN_LE_EN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPIINT_EN_UCLK_EN_Pos\fP   4"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPIINT_EN_UCLK_EN_Msk\fP   (0x01UL << \fBSPI_SPIINT_EN_UCLK_EN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPIINT_EN_CYC_DONE_EN_Pos\fP   5"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPIINT_EN_CYC_DONE_EN_Msk\fP   (0x01UL << \fBSPI_SPIINT_EN_CYC_DONE_EN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPIINT_EN_TE_EN_Pos\fP   6"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPIINT_EN_TE_EN_Msk\fP   (0x01UL << \fBSPI_SPIINT_EN_TE_EN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPIINT_EN_BP_DONE_Pos\fP   7"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPIINT_EN_BP_DONE_Msk\fP   (0x01UL << \fBSPI_SPIINT_EN_BP_DONE_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPIINT_EN_WRUFL_EN_Pos\fP   8"
+.br
+.ti -1c
+.RI "#define \fBSPI_SPIINT_EN_WRUFL_EN_Msk\fP   (0x01UL << \fBSPI_SPIINT_EN_WRUFL_EN_Pos\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_BASE\fP   (0x00000000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG0_BASE\fP   (0x00000000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG1_BASE\fP   (0x00000400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG2_BASE\fP   (0x00000800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG3_BASE\fP   (0x00000C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG4_BASE\fP   (0x00001000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG5_BASE\fP   (0x00001400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG6_BASE\fP   (0x00001800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG7_BASE\fP   (0x00001C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG8_BASE\fP   (0x00002000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG9_BASE\fP   (0x00002400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG10_BASE\fP   (0x00002800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG11_BASE\fP   (0x00002C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG12_BASE\fP   (0x00003000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG13_BASE\fP   (0x00003400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG14_BASE\fP   (0x00003800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG15_BASE\fP   (0x00003C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG16_BASE\fP   (0x00004000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG17_BASE\fP   (0x00004400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG18_BASE\fP   (0x00004800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG19_BASE\fP   (0x00004C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG20_BASE\fP   (0x00005000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG21_BASE\fP   (0x00005400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG22_BASE\fP   (0x00005800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG23_BASE\fP   (0x00005C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG24_BASE\fP   (0x00006000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG25_BASE\fP   (0x00006400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG26_BASE\fP   (0x00006800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG27_BASE\fP   (0x00006C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG28_BASE\fP   (0x00007000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG29_BASE\fP   (0x00007400UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG30_BASE\fP   (0x00007800UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_FLASH_SEG31_BASE\fP   (0x00007C00UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_SRAM_BASE\fP   (0x20000000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_PERIPH_BASE\fP   (0x40000000UL)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_SYSCTL_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_MEMCTL_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x20000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_WDT_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x30000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_RTC_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x40000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOA_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x70000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOB_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x70040)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOAB_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x70080)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOC_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x80000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOD_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x80040)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOCD_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x80080)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOE_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x90000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_TIMERA_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0xD0000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_TIMERB_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0xE0000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_TIMERC_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0xF0000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_TIMERD_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x100000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_ADC_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x150000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_I2C_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x1B0000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_UART_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x1D0000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_SOCBRIDGE_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x200000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_SPI_BASE\fP   (\fBPAC5XXX_PERIPH_BASE\fP + 0x210000)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_SYSCTL\fP   ((\fBPAC5XXX_SYSCLKCTL_TypeDef\fP *) \fBPAC5XXX_SYSCTL_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_MEMCTL\fP   ((\fBPAC5XXX_MEMCTL_TypeDef\fP *) \fBPAC5XXX_MEMCTL_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_WDT\fP   ((\fBPAC5XXX_WDT_TypeDef\fP *) \fBPAC5XXX_WDT_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_RTC\fP   ((\fBPAC5XXX_RTC_TypeDef\fP *) \fBPAC5XXX_RTC_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOA\fP   ((\fBPAC5XXX_GPIO_TypeDef\fP *) \fBPAC5XXX_GPIOA_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOB\fP   ((\fBPAC5XXX_GPIO_TypeDef\fP *) \fBPAC5XXX_GPIOB_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOAB\fP   ((\fBPAC5XXX_GPIO_TypeDef\fP *) \fBPAC5XXX_GPIOAB_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOC\fP   ((\fBPAC5XXX_GPIO_TypeDef\fP *) \fBPAC5XXX_GPIOC_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOD\fP   ((\fBPAC5XXX_GPIO_TypeDef\fP *) \fBPAC5XXX_GPIOD_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOCD\fP   ((\fBPAC5XXX_GPIO_TypeDef\fP *) \fBPAC5XXX_GPIOCD_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIOE\fP   ((\fBPAC5XXX_GPIO_TypeDef\fP *) \fBPAC5XXX_GPIOE_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_TIMERA\fP   ((\fBPAC5XXX_Timer8CC_TypeDef\fP *) \fBPAC5XXX_TIMERA_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_TIMERB\fP   ((\fBPAC5XXX_Timer4CC_TypeDef\fP *) \fBPAC5XXX_TIMERB_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_TIMERC\fP   ((\fBPAC5XXX_Timer2CC_TypeDef\fP *) \fBPAC5XXX_TIMERC_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_TIMERD\fP   ((\fBPAC5XXX_Timer2CC_TypeDef\fP *) \fBPAC5XXX_TIMERD_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_ADC\fP   ((\fBPAC5XXX_ADC_TypeDef\fP *) \fBPAC5XXX_ADC_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_I2C\fP   ((\fBPAC5XXX_I2C_TypeDef\fP *) \fBPAC5XXX_I2C_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_UART\fP   ((\fBPAC5XXX_UART_TypeDef\fP *) \fBPAC5XXX_UART_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_SPI\fP   ((\fBPAC5XXX_SPI_TypeDef\fP *) \fBPAC5XXX_SPI_BASE\fP)"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_SOCBRIDGE\fP   ((\fBPAC5XXX_SocBridge_TypeDef\fP *) \fBPAC5XXX_SOCBRIDGE_BASE\fP)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBIRQn\fP \fBIRQn_Type\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBIRQn\fP { \fBReset_IRQn\fP = -15, \fBNonMaskableInt_IRQn\fP = -14, \fBHardFault_IRQn\fP = -13, \fBSVCall_IRQn\fP = -5, \fBPendSV_IRQn\fP = -2, \fBSysTick_IRQn\fP = -1, \fBMemCtl_IRQn\fP = 0, \fBSysClk_IRQn\fP = 1, \fBWdt_IRQn\fP = 2, \fBGpioA_IRQn\fP = 3, \fBGpioB_IRQn\fP = 4, \fBGpioC_IRQn\fP = 5, \fBGpioD_IRQn\fP = 6, \fBGpioE_IRQn\fP = 7, \fBTimerA_IRQn\fP = 8, \fBTimerAExt_IRQn\fP = 9, \fBTimerB_IRQn\fP = 10, \fBTimerC_IRQn\fP = 11, \fBTimerD_IRQn\fP = 12, \fBADC_IRQn\fP = 13, \fBSocBridge_IRQn\fP = 14, \fBSPI_IRQn\fP = 15, \fBUART_IRQn\fP = 16, \fBI2C_IRQn\fP = 17, \fBEMUX_IRQn\fP = 18, \fBRTC_IRQn\fP = 19 }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CMSIS Cortex-M0 Peripheral Access Layer Header File for PAC52XX from Active-Semi\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Portions of this file generated with Keil SVDConv V2\&.85b from CMSIS SVD File 'PAC52XX\&.svd' Version 1\&.0, 
+.PP
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac52XX\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

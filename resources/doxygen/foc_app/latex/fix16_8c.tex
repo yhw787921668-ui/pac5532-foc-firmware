@@ -1,0 +1,766 @@
+\hypertarget{fix16_8c}{}\doxysection{pac\+\_\+foc/src/math/fix16.c File Reference}
+\label{fix16_8c}\index{pac\_foc/src/math/fix16.c@{pac\_foc/src/math/fix16.c}}
+
+
+Fixed math library functions (fix16\+\_\+t)  
+
+
+{\ttfamily \#include \char`\"{}fix16.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}int64.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx.\+h\char`\"{}}\newline
+Include dependency graph for fix16.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{fix16_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{fix16_8c_a87750133a7277a237da3e0877e208262}{F\+I\+X\+M\+A\+T\+H\+\_\+\+N\+O\+\_\+64\+B\+IT}}
+\item 
+\#define \mbox{\hyperlink{fix16_8c_ae27632fe06cad9c8d0af29160710f783}{F\+I\+X\+M\+A\+T\+H\+\_\+\+O\+P\+T\+I\+M\+I\+Z\+E\+\_\+8\+B\+IT}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\+\_\+mul}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Arg0, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} in\+Arg1)
+\begin{DoxyCompactList}\small\item\em Multiplies two fix16\+\_\+t values. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} uint32\+\_\+t \mbox{\hyperlink{fix16_8c_a1721ce85d21b48108703980965689208}{fix16\+\_\+mul\+\_\+uint}} (uint32\+\_\+t in\+Arg0, uint32\+\_\+t in\+Arg1)
+\begin{DoxyCompactList}\small\item\em Multiplies two integers and returns a fix16\+\_\+t. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\+\_\+div}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} a, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} b)
+\begin{DoxyCompactList}\small\item\em Divides two fix16\+\_\+t numbers (a / b) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} \mbox{\hyperlink{fix16_8c_a456b3a510b6c10f22fc3fdccc8f222d6}{int64\+\_\+add}} (\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} x, \mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} y)
+\begin{DoxyCompactList}\small\item\em Adds two 64-\/bit numbers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} \mbox{\hyperlink{fix16_8c_a352c64e0064bfd7e7ddf1229f7ee16e3}{int64\+\_\+sub}} (\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} x, \mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} y)
+\begin{DoxyCompactList}\small\item\em Subtract two 64-\/bit numbers (x -\/ y) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} \mbox{\hyperlink{fix16_8c_a29932d285873eff00e210103227209b5}{int64\+\_\+shift}} (\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} x, int8\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Shift a 64-\/bit number by the given number of bits. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} \mbox{\hyperlink{fix16_8c_a96c5885cdfc79b1b44cf0b5eef71dec4}{int64\+\_\+neg}} (\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} x)
+\begin{DoxyCompactList}\small\item\em Negate a 64-\/bit number. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} \mbox{\hyperlink{fix16_8c_a5d56aa09f8be10ad6c04c6d8e534b46d}{int64\+\_\+mul\+\_\+i32\+\_\+i32}} (int32\+\_\+t x, int32\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Multiply two 32-\/bit numbers into a 64-\/bit number. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} \mbox{\hyperlink{fix16_8c_a1e488f228f7b3a9dcb97cc872d2ec5a2}{int64\+\_\+mul\+\_\+i64\+\_\+i32}} (\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} x, int32\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Multiply a 64-\/bit and 32-\/bit number. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} \mbox{\hyperlink{fix16_8c_aa228d6d352ee555bae441299dcefe343}{int64\+\_\+div\+\_\+i64\+\_\+i32}} (\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} x, int32\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Divide a 64-\/bit number by a 32-\/bit number (x / y) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Fixed math library functions (fix16\+\_\+t) 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{fix16_8c_a87750133a7277a237da3e0877e208262}\label{fix16_8c_a87750133a7277a237da3e0877e208262}} 
+\index{fix16.c@{fix16.c}!FIXMATH\_NO\_64BIT@{FIXMATH\_NO\_64BIT}}
+\index{FIXMATH\_NO\_64BIT@{FIXMATH\_NO\_64BIT}!fix16.c@{fix16.c}}
+\doxysubsubsection{\texorpdfstring{FIXMATH\_NO\_64BIT}{FIXMATH\_NO\_64BIT}}
+{\footnotesize\ttfamily \#define F\+I\+X\+M\+A\+T\+H\+\_\+\+N\+O\+\_\+64\+B\+IT}
+
+
+
+Definition at line 35 of file fix16.\+c.
+
+\mbox{\Hypertarget{fix16_8c_ae27632fe06cad9c8d0af29160710f783}\label{fix16_8c_ae27632fe06cad9c8d0af29160710f783}} 
+\index{fix16.c@{fix16.c}!FIXMATH\_OPTIMIZE\_8BIT@{FIXMATH\_OPTIMIZE\_8BIT}}
+\index{FIXMATH\_OPTIMIZE\_8BIT@{FIXMATH\_OPTIMIZE\_8BIT}!fix16.c@{fix16.c}}
+\doxysubsubsection{\texorpdfstring{FIXMATH\_OPTIMIZE\_8BIT}{FIXMATH\_OPTIMIZE\_8BIT}}
+{\footnotesize\ttfamily \#define F\+I\+X\+M\+A\+T\+H\+\_\+\+O\+P\+T\+I\+M\+I\+Z\+E\+\_\+8\+B\+IT}
+
+
+
+Definition at line 36 of file fix16.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fix16_8c_abb488a2ab45695bda44d528c75556b99}\label{fix16_8c_abb488a2ab45695bda44d528c75556b99}} 
+\index{fix16.c@{fix16.c}!fix16\_div@{fix16\_div}}
+\index{fix16\_div@{fix16\_div}!fix16.c@{fix16.c}}
+\doxysubsubsection{\texorpdfstring{fix16\_div()}{fix16\_div()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} fix16\+\_\+div (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Arg0,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Arg1 }\end{DoxyParamCaption})}
+
+
+
+Divides two fix16\+\_\+t numbers (a / b) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & Value a \\
+\hline
+{\em b} & Value b \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result (a / b) 
+\end{DoxyReturn}
+
+
+Definition at line 653 of file fix16.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{654 \{}
+\DoxyCodeLine{655   \textcolor{comment}{// This uses the basic binary restoring division algorithm.}}
+\DoxyCodeLine{656   \textcolor{comment}{// It appears to be faster to do the whole division manually than}}
+\DoxyCodeLine{657   \textcolor{comment}{// trying to compose a 64-\/bit divide out of 32-\/bit divisions on}}
+\DoxyCodeLine{658   \textcolor{comment}{// platforms without hardware divide.}}
+\DoxyCodeLine{659   }
+\DoxyCodeLine{660   \textcolor{keywordflow}{if} (b == 0)}
+\DoxyCodeLine{661   \{}
+\DoxyCodeLine{662 \textcolor{preprocessor}{\#ifdef FIX16\_OVERFLOW\_DETECT}}
+\DoxyCodeLine{663     fault\_mask |= FAULT\_FIX16\_OVERFLOW;}
+\DoxyCodeLine{664     \mbox{\hyperlink{fault_8c_aace1292fddb0bc3023763f890a5b8474}{fault}}(0);}
+\DoxyCodeLine{665     \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_abdaae63e6ce752c6fa9e95e41ddec2a5}{fix16\_overflow}};}
+\DoxyCodeLine{666 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{667     \textcolor{keywordflow}{if} ((a >= 0) == (b >= 0))}
+\DoxyCodeLine{668         \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_a1576383986c02f452cecd9926fbdca56}{fix16\_max}};}
+\DoxyCodeLine{669     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{670         \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_a1d9706a123a7b35617cf3eaf6930f7b1}{fix16\_min}};}
+\DoxyCodeLine{671 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{672   \}}
+\DoxyCodeLine{673   }
+\DoxyCodeLine{674   uint32\_t remainder = (a >= 0) ? a : (-\/a);}
+\DoxyCodeLine{675   uint32\_t divider = (b >= 0) ? b : (-\/b);}
+\DoxyCodeLine{676 }
+\DoxyCodeLine{677   uint32\_t quotient = 0;}
+\DoxyCodeLine{678   uint32\_t bit = 0x10000;}
+\DoxyCodeLine{679   }
+\DoxyCodeLine{680   \textcolor{comment}{// The algorithm requires D >= R}}
+\DoxyCodeLine{681   \textcolor{keywordflow}{while} (divider < remainder)}
+\DoxyCodeLine{682   \{}
+\DoxyCodeLine{683     divider <<= 1;}
+\DoxyCodeLine{684     bit <<= 1;}
+\DoxyCodeLine{685   \}}
+\DoxyCodeLine{686   }
+\DoxyCodeLine{687 \textcolor{preprocessor}{  \#ifndef FIXMATH\_NO\_OVERFLOW}}
+\DoxyCodeLine{688   \textcolor{keywordflow}{if} (!bit)}
+\DoxyCodeLine{689   \{}
+\DoxyCodeLine{690 \textcolor{preprocessor}{\#ifdef FIX16\_OVERFLOW\_DETECT}}
+\DoxyCodeLine{691     fault\_mask |= FAULT\_FIX16\_OVERFLOW;}
+\DoxyCodeLine{692     \mbox{\hyperlink{fault_8c_aace1292fddb0bc3023763f890a5b8474}{fault}}(0);}
+\DoxyCodeLine{693     \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_abdaae63e6ce752c6fa9e95e41ddec2a5}{fix16\_overflow}};}
+\DoxyCodeLine{694 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{695     \textcolor{keywordflow}{if} ((a >= 0) == (b >= 0))}
+\DoxyCodeLine{696         \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_a1576383986c02f452cecd9926fbdca56}{fix16\_max}};}
+\DoxyCodeLine{697     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{698         \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_a1d9706a123a7b35617cf3eaf6930f7b1}{fix16\_min}};}
+\DoxyCodeLine{699 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{700   \}}
+\DoxyCodeLine{701 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{702   }
+\DoxyCodeLine{703   \textcolor{keywordflow}{if} (divider \& 0x80000000)}
+\DoxyCodeLine{704   \{}
+\DoxyCodeLine{705     \textcolor{comment}{// Perform one step manually to avoid overflows later.}}
+\DoxyCodeLine{706     \textcolor{comment}{// We know that divider's bottom bit is 0 here.}}
+\DoxyCodeLine{707     \textcolor{keywordflow}{if} (remainder >= divider)}
+\DoxyCodeLine{708     \{}
+\DoxyCodeLine{709         quotient |= bit;}
+\DoxyCodeLine{710         remainder -\/= divider;}
+\DoxyCodeLine{711     \}}
+\DoxyCodeLine{712     divider >>= 1;}
+\DoxyCodeLine{713     bit >>= 1;}
+\DoxyCodeLine{714   \}}
+\DoxyCodeLine{715   }
+\DoxyCodeLine{716   \textcolor{comment}{// Main division loop}}
+\DoxyCodeLine{717   \textcolor{keywordflow}{while} (bit \&\& remainder)}
+\DoxyCodeLine{718   \{}
+\DoxyCodeLine{719     \textcolor{keywordflow}{if} (remainder >= divider)}
+\DoxyCodeLine{720     \{}
+\DoxyCodeLine{721         quotient |= bit;}
+\DoxyCodeLine{722         remainder -\/= divider;}
+\DoxyCodeLine{723     \}}
+\DoxyCodeLine{724     }
+\DoxyCodeLine{725     remainder <<= 1;}
+\DoxyCodeLine{726     bit >>= 1;}
+\DoxyCodeLine{727   \}   }
+\DoxyCodeLine{728       }
+\DoxyCodeLine{729 \textcolor{preprocessor}{  \#ifndef FIXMATH\_NO\_ROUNDING}}
+\DoxyCodeLine{730   \textcolor{keywordflow}{if} (remainder >= divider)}
+\DoxyCodeLine{731   \{}
+\DoxyCodeLine{732     quotient++;}
+\DoxyCodeLine{733   \}}
+\DoxyCodeLine{734 \textcolor{preprocessor}{  \#endif}}
+\DoxyCodeLine{735   }
+\DoxyCodeLine{736   \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}} result = quotient;}
+\DoxyCodeLine{737   }
+\DoxyCodeLine{738   \textcolor{comment}{// Figure out the sign of result}}
+\DoxyCodeLine{739   \textcolor{keywordflow}{if} ((a \string^ b) \& 0x80000000)}
+\DoxyCodeLine{740   \{}
+\DoxyCodeLine{741 \textcolor{preprocessor}{    \#ifndef FIXMATH\_NO\_OVERFLOW}}
+\DoxyCodeLine{742     \textcolor{keywordflow}{if} (result == \mbox{\hyperlink{fix16_8h_a1d9706a123a7b35617cf3eaf6930f7b1}{fix16\_min}})}
+\DoxyCodeLine{743     \{}
+\DoxyCodeLine{744 \textcolor{preprocessor}{\#ifdef FIX16\_OVERFLOW\_DETECT}}
+\DoxyCodeLine{745     fault\_mask |= FAULT\_FIX16\_OVERFLOW;}
+\DoxyCodeLine{746     \mbox{\hyperlink{fault_8c_aace1292fddb0bc3023763f890a5b8474}{fault}}(0);}
+\DoxyCodeLine{747     \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_abdaae63e6ce752c6fa9e95e41ddec2a5}{fix16\_overflow}};}
+\DoxyCodeLine{748 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{749     \textcolor{keywordflow}{if} ((a >= 0) == (b >= 0))}
+\DoxyCodeLine{750         \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_a1576383986c02f452cecd9926fbdca56}{fix16\_max}};}
+\DoxyCodeLine{751     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{752         \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_a1d9706a123a7b35617cf3eaf6930f7b1}{fix16\_min}};}
+\DoxyCodeLine{753 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{754     \}}
+\DoxyCodeLine{755 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{756     }
+\DoxyCodeLine{757     result = -\/result;}
+\DoxyCodeLine{758   \}}
+\DoxyCodeLine{759   }
+\DoxyCodeLine{760   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{761 \}}
+
+\end{DoxyCode}
+
+
+References fault(), fix16\+\_\+max, fix16\+\_\+min, and fix16\+\_\+overflow.
+
+
+
+Referenced by cal\+\_\+vm\+\_\+const(), calc\+\_\+vbus\+\_\+internal(), config\+\_\+control\+\_\+dt(), foc\+\_\+calc\+\_\+pwmtimer(), foc\+\_\+config(), foc\+\_\+reset(), init\+\_\+over\+\_\+current\+\_\+limit(), picon\+\_\+convert\+\_\+gain(), trig\+\_\+arctan\+\_\+90deg\+\_\+q16(), and write\+\_\+itotstart\+\_\+target().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fix16_8c_abb488a2ab45695bda44d528c75556b99_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fix16_8c_abb488a2ab45695bda44d528c75556b99_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}\label{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}} 
+\index{fix16.c@{fix16.c}!fix16\_mul@{fix16\_mul}}
+\index{fix16\_mul@{fix16\_mul}!fix16.c@{fix16.c}}
+\doxysubsubsection{\texorpdfstring{fix16\_mul()}{fix16\_mul()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} fix16\+\_\+mul (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Arg0,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{in\+Arg1 }\end{DoxyParamCaption})}
+
+
+
+Multiplies two fix16\+\_\+t values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Arg0} & Value a \\
+\hline
+{\em in\+Arg1} & Value b \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result (a $\ast$ b) 
+\end{DoxyReturn}
+
+
+Definition at line 227 of file fix16.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{228 \{}
+\DoxyCodeLine{229   \textcolor{comment}{// Each argument is divided to 16-\/bit parts.}}
+\DoxyCodeLine{230   \textcolor{comment}{// AB}}
+\DoxyCodeLine{231   \textcolor{comment}{// * CD}}
+\DoxyCodeLine{232   \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{233   \textcolor{comment}{// BD 16 * 16 -\/> 32 bit products}}
+\DoxyCodeLine{234   \textcolor{comment}{// CB}}
+\DoxyCodeLine{235   \textcolor{comment}{// AD}}
+\DoxyCodeLine{236   \textcolor{comment}{// AC}}
+\DoxyCodeLine{237   \textcolor{comment}{// |-\/-\/-\/-\/| 64 bit product}}
+\DoxyCodeLine{238   int32\_t A = (inArg0 >> 16), C = (inArg1 >> 16);}
+\DoxyCodeLine{239   uint32\_t B = (inArg0 \& 0xFFFF), D = (inArg1 \& 0xFFFF);}
+\DoxyCodeLine{240 }
+\DoxyCodeLine{241   int32\_t AC = A*C;}
+\DoxyCodeLine{242   int32\_t AD\_CB = A*D + C*B;}
+\DoxyCodeLine{243   uint32\_t BD = B*D;}
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245   int32\_t product\_hi = AC + (AD\_CB >> 16);}
+\DoxyCodeLine{246 }
+\DoxyCodeLine{247   \textcolor{comment}{// Handle carry from lower 32 bits to upper part of result.}}
+\DoxyCodeLine{248   uint32\_t ad\_cb\_temp = AD\_CB << 16;}
+\DoxyCodeLine{249   uint32\_t product\_lo = BD + ad\_cb\_temp;}
+\DoxyCodeLine{250   \textcolor{keywordflow}{if} (product\_lo < BD)}
+\DoxyCodeLine{251     product\_hi++;}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{253 \textcolor{preprocessor}{\#ifndef FIXMATH\_NO\_OVERFLOW}}
+\DoxyCodeLine{254   \textcolor{comment}{// The upper 17 bits should all be the same (the sign).}}
+\DoxyCodeLine{255   \textcolor{keywordflow}{if} (product\_hi >> 31 != product\_hi >> 15)}
+\DoxyCodeLine{256     \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8h_abdaae63e6ce752c6fa9e95e41ddec2a5}{fix16\_overflow}};}
+\DoxyCodeLine{257 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{258 }
+\DoxyCodeLine{259 \textcolor{preprocessor}{\#ifdef FIXMATH\_NO\_ROUNDING}}
+\DoxyCodeLine{260   \textcolor{keywordflow}{return} (product\_hi << 16) | (product\_lo >> 16);}
+\DoxyCodeLine{261 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{262   \textcolor{comment}{// Subtracting 0x8000 (= 0.5) and then using signed right shift}}
+\DoxyCodeLine{263   \textcolor{comment}{// achieves proper rounding to result-\/1, except in the corner}}
+\DoxyCodeLine{264   \textcolor{comment}{// case of negative numbers and lowest word = 0x8000.}}
+\DoxyCodeLine{265   \textcolor{comment}{// To handle that, we also have to subtract 1 for negative numbers.}}
+\DoxyCodeLine{266   uint32\_t product\_lo\_tmp = product\_lo;}
+\DoxyCodeLine{267   product\_lo -\/= 0x8000;}
+\DoxyCodeLine{268   product\_lo -\/= (uint32\_t)product\_hi >> 31;}
+\DoxyCodeLine{269   \textcolor{keywordflow}{if} (product\_lo > product\_lo\_tmp)}
+\DoxyCodeLine{270     product\_hi-\/-\/;}
+\DoxyCodeLine{271 }
+\DoxyCodeLine{272   \textcolor{comment}{// Discard the lowest 16 bits. Note that this is not exactly the same}}
+\DoxyCodeLine{273   \textcolor{comment}{// as dividing by 0x10000. For example if product = -\/1, result will}}
+\DoxyCodeLine{274   \textcolor{comment}{// also be -\/1 and not 0. This is compensated by adding +1 to the result}}
+\DoxyCodeLine{275   \textcolor{comment}{// and compensating this in turn in the rounding above.}}
+\DoxyCodeLine{276   \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}} result = (product\_hi << 16) | (product\_lo >> 16);}
+\DoxyCodeLine{277   result += 1;}
+\DoxyCodeLine{278   \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{279 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{280 \}}
+
+\end{DoxyCode}
+
+
+References fix16\+\_\+overflow.
+
+
+
+Referenced by calc\+\_\+vbus\+\_\+internal(), est\+\_\+anglediff\+\_\+check(), foc\+\_\+calc\+\_\+pwmtimer(), hall\+\_\+param\+\_\+write(), init\+\_\+over\+\_\+current\+\_\+limit(), parameters\+\_\+write\+\_\+foc(), and picon\+\_\+convert\+\_\+gain().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fix16_8c_a1721ce85d21b48108703980965689208}\label{fix16_8c_a1721ce85d21b48108703980965689208}} 
+\index{fix16.c@{fix16.c}!fix16\_mul\_uint@{fix16\_mul\_uint}}
+\index{fix16\_mul\_uint@{fix16\_mul\_uint}!fix16.c@{fix16.c}}
+\doxysubsubsection{\texorpdfstring{fix16\_mul\_uint()}{fix16\_mul\_uint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_af99e358bcc3ed57944789710c9d7136b}{F\+I\+X16\+\_\+\+R\+A\+M\+F\+U\+NC}} uint32\+\_\+t fix16\+\_\+mul\+\_\+uint (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{in\+Arg0,  }\item[{uint32\+\_\+t}]{in\+Arg1 }\end{DoxyParamCaption})}
+
+
+
+Multiplies two integers and returns a fix16\+\_\+t. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in\+Arg0} & Value a \\
+\hline
+{\em in\+Arg1} & Value b \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Result (a $\ast$ b) in fix16\+\_\+t format 
+\end{DoxyReturn}
+
+
+Definition at line 282 of file fix16.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{283 \{}
+\DoxyCodeLine{284   \textcolor{comment}{// Each argument is divided to 16-\/bit parts.}}
+\DoxyCodeLine{285   \textcolor{comment}{// AB}}
+\DoxyCodeLine{286   \textcolor{comment}{// * CD}}
+\DoxyCodeLine{287   \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{288   \textcolor{comment}{// BD 16 * 16 -\/> 32 bit products}}
+\DoxyCodeLine{289   \textcolor{comment}{// CB}}
+\DoxyCodeLine{290   \textcolor{comment}{// AD}}
+\DoxyCodeLine{291   \textcolor{comment}{// AC}}
+\DoxyCodeLine{292   \textcolor{comment}{// |-\/-\/-\/-\/| 64 bit product}}
+\DoxyCodeLine{293   uint32\_t A = (inArg0 >> 16), C = (inArg1 >> 16);}
+\DoxyCodeLine{294   uint32\_t B = (inArg0 \& 0xFFFF), D = (inArg1 \& 0xFFFF);}
+\DoxyCodeLine{295 }
+\DoxyCodeLine{296   uint32\_t AC = A*C;}
+\DoxyCodeLine{297   uint32\_t AD\_CB = A*D + C*B;}
+\DoxyCodeLine{298   uint32\_t BD = B*D;}
+\DoxyCodeLine{299 }
+\DoxyCodeLine{300   uint32\_t product\_hi = AC + (AD\_CB >> 16);}
+\DoxyCodeLine{301 }
+\DoxyCodeLine{302   \textcolor{comment}{// Handle carry from lower 32 bits to upper part of result.}}
+\DoxyCodeLine{303   uint32\_t ad\_cb\_temp = AD\_CB << 16;}
+\DoxyCodeLine{304   uint32\_t product\_lo = BD + ad\_cb\_temp;}
+\DoxyCodeLine{305   \textcolor{keywordflow}{if} (product\_lo < BD)}
+\DoxyCodeLine{306     product\_hi++;}
+\DoxyCodeLine{307 }
+\DoxyCodeLine{308   \textcolor{keywordflow}{return} (product\_hi << 16) | (product\_lo >> 16);}
+\DoxyCodeLine{309 \}}
+
+\end{DoxyCode}
+
+
+Referenced by picon\+\_\+convert\+\_\+gain().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{fix16_8c_a1721ce85d21b48108703980965689208_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fix16_8c_a456b3a510b6c10f22fc3fdccc8f222d6}\label{fix16_8c_a456b3a510b6c10f22fc3fdccc8f222d6}} 
+\index{fix16.c@{fix16.c}!int64\_add@{int64\_add}}
+\index{int64\_add@{int64\_add}!fix16.c@{fix16.c}}
+\doxysubsubsection{\texorpdfstring{int64\_add()}{int64\_add()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} int64\+\_\+add (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}}}]{x,  }\item[{\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}}}]{y }\end{DoxyParamCaption})}
+
+
+
+Adds two 64-\/bit numbers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & 64-\/bit number \\
+\hline
+{\em y} & 64-\/bit number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+64-\/bit sum 
+\end{DoxyReturn}
+
+
+Definition at line 782 of file fix16.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{783 \{}
+\DoxyCodeLine{784         \mbox{\hyperlink{structlfm__int64}{lfm\_int64}} ret;}
+\DoxyCodeLine{785         ret.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} = x.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} + y.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}};}
+\DoxyCodeLine{786         ret.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}} = x.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}} + y.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}};}
+\DoxyCodeLine{787         \textcolor{keywordflow}{if}((ret.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}} < x.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}}) || (ret.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} < y.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}}))}
+\DoxyCodeLine{788                 ret.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}}++;}
+\DoxyCodeLine{789         \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{790 \}}
+
+\end{DoxyCode}
+
+
+References lfm\+\_\+int64\+::hi, and lfm\+\_\+int64\+::lo.
+
+
+
+Referenced by int64\+\_\+sub().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{fix16_8c_a456b3a510b6c10f22fc3fdccc8f222d6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fix16_8c_aa228d6d352ee555bae441299dcefe343}\label{fix16_8c_aa228d6d352ee555bae441299dcefe343}} 
+\index{fix16.c@{fix16.c}!int64\_div\_i64\_i32@{int64\_div\_i64\_i32}}
+\index{int64\_div\_i64\_i32@{int64\_div\_i64\_i32}!fix16.c@{fix16.c}}
+\doxysubsubsection{\texorpdfstring{int64\_div\_i64\_i32()}{int64\_div\_i64\_i32()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} int64\+\_\+div\+\_\+i64\+\_\+i32 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}}}]{x,  }\item[{int32\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+
+
+Divide a 64-\/bit number by a 32-\/bit number (x / y) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & 64-\/bit number \\
+\hline
+{\em y} & 32-\/bit number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+64-\/bit result (x / y) 
+\end{DoxyReturn}
+
+
+Definition at line 859 of file fix16.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{859                                                     \{}
+\DoxyCodeLine{860         \textcolor{keywordtype}{int} neg = ((x.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} \string^ y) < 0);}
+\DoxyCodeLine{861         \textcolor{keywordflow}{if}(x.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} < 0)}
+\DoxyCodeLine{862                 x = \mbox{\hyperlink{fix16_8c_a96c5885cdfc79b1b44cf0b5eef71dec4}{int64\_neg}}(x);}
+\DoxyCodeLine{863         \textcolor{keywordflow}{if}(y < 0)}
+\DoxyCodeLine{864                 y = -\/y;}
+\DoxyCodeLine{865 }
+\DoxyCodeLine{866         \mbox{\hyperlink{structlfm__int64}{lfm\_int64}} ret = \{ (x.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} / y) , (x.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}} / y) \};}
+\DoxyCodeLine{867         x.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} = x.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} \% y;}
+\DoxyCodeLine{868         x.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}} = x.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}} \% y;}
+\DoxyCodeLine{869 }
+\DoxyCodeLine{870         \mbox{\hyperlink{structlfm__int64}{lfm\_int64}} \_y = int64\_from\_int32(y);}
+\DoxyCodeLine{871 }
+\DoxyCodeLine{872         \mbox{\hyperlink{structlfm__int64}{lfm\_int64}} i;}
+\DoxyCodeLine{873         \textcolor{keywordflow}{for}(i = int64\_from\_int32(1); int64\_cmp\_lt(\_y, x); \_y = \mbox{\hyperlink{fix16_8c_a29932d285873eff00e210103227209b5}{int64\_shift}}(\_y, 1), i = \mbox{\hyperlink{fix16_8c_a29932d285873eff00e210103227209b5}{int64\_shift}}(i, 1));}
+\DoxyCodeLine{874 }
+\DoxyCodeLine{875         \textcolor{keywordflow}{while}(x.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}}) \{}
+\DoxyCodeLine{876                 \_y = \mbox{\hyperlink{fix16_8c_a29932d285873eff00e210103227209b5}{int64\_shift}}(\_y, -\/1);}
+\DoxyCodeLine{877                  i = \mbox{\hyperlink{fix16_8c_a29932d285873eff00e210103227209b5}{int64\_shift}}(i, -\/1);}
+\DoxyCodeLine{878                 \textcolor{keywordflow}{if}(int64\_cmp\_ge(x, \_y)) \{}
+\DoxyCodeLine{879                         x = \mbox{\hyperlink{fix16_8c_a352c64e0064bfd7e7ddf1229f7ee16e3}{int64\_sub}}(x, \_y);}
+\DoxyCodeLine{880                         ret = \mbox{\hyperlink{fix16_8c_a456b3a510b6c10f22fc3fdccc8f222d6}{int64\_add}}(ret, i);}
+\DoxyCodeLine{881                 \}}
+\DoxyCodeLine{882         \}}
+\DoxyCodeLine{883 }
+\DoxyCodeLine{884         ret = \mbox{\hyperlink{fix16_8c_a456b3a510b6c10f22fc3fdccc8f222d6}{int64\_add}}(ret, int64\_from\_int32(x.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}} / y));}
+\DoxyCodeLine{885         \textcolor{keywordflow}{return} (neg ? \mbox{\hyperlink{fix16_8c_a96c5885cdfc79b1b44cf0b5eef71dec4}{int64\_neg}}(ret) : ret);}
+\DoxyCodeLine{886 \}}
+
+\end{DoxyCode}
+
+
+References lfm\+\_\+int64\+::hi, int64\+\_\+neg(), and lfm\+\_\+int64\+::lo.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{fix16_8c_aa228d6d352ee555bae441299dcefe343_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fix16_8c_a5d56aa09f8be10ad6c04c6d8e534b46d}\label{fix16_8c_a5d56aa09f8be10ad6c04c6d8e534b46d}} 
+\index{fix16.c@{fix16.c}!int64\_mul\_i32\_i32@{int64\_mul\_i32\_i32}}
+\index{int64\_mul\_i32\_i32@{int64\_mul\_i32\_i32}!fix16.c@{fix16.c}}
+\doxysubsubsection{\texorpdfstring{int64\_mul\_i32\_i32()}{int64\_mul\_i32\_i32()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} int64\+\_\+mul\+\_\+i32\+\_\+i32 (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{x,  }\item[{int32\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+
+
+Multiply two 32-\/bit numbers into a 64-\/bit number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & 32-\/bit number \\
+\hline
+{\em y} & 32-\/bit number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+64-\/bit product 
+\end{DoxyReturn}
+
+
+Definition at line 823 of file fix16.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{823                                                   \{}
+\DoxyCodeLine{824          int16\_t hi[2] = \{ (x >> 16), (y >> 16) \};}
+\DoxyCodeLine{825         uint16\_t lo[2] = \{ (x \& 0xFFFF), (y \& 0xFFFF) \};}
+\DoxyCodeLine{826 }
+\DoxyCodeLine{827          int32\_t r\_hi = hi[0] * hi[1];}
+\DoxyCodeLine{828          int32\_t r\_md = (hi[0] * lo[1]) + (hi[1] * lo[0]);}
+\DoxyCodeLine{829         uint32\_t r\_lo = lo[0] * lo[1];}
+\DoxyCodeLine{830 }
+\DoxyCodeLine{831         r\_hi += (r\_md >> 16);}
+\DoxyCodeLine{832         r\_lo += (r\_md << 16);}
+\DoxyCodeLine{833 }
+\DoxyCodeLine{834         \textcolor{keywordflow}{return} (\mbox{\hyperlink{structlfm__int64}{lfm\_int64}})\{ r\_hi, r\_lo \};}
+\DoxyCodeLine{835 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{fix16_8c_a1e488f228f7b3a9dcb97cc872d2ec5a2}\label{fix16_8c_a1e488f228f7b3a9dcb97cc872d2ec5a2}} 
+\index{fix16.c@{fix16.c}!int64\_mul\_i64\_i32@{int64\_mul\_i64\_i32}}
+\index{int64\_mul\_i64\_i32@{int64\_mul\_i64\_i32}!fix16.c@{fix16.c}}
+\doxysubsubsection{\texorpdfstring{int64\_mul\_i64\_i32()}{int64\_mul\_i64\_i32()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} int64\+\_\+mul\+\_\+i64\+\_\+i32 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}}}]{x,  }\item[{int32\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+
+
+Multiply a 64-\/bit and 32-\/bit number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & 64-\/bit number \\
+\hline
+{\em y} & 32-\/bit number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+64-\/bit product 
+\end{DoxyReturn}
+
+
+Definition at line 837 of file fix16.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{837                                                     \{}
+\DoxyCodeLine{838         \textcolor{keywordtype}{int} neg = ((x.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} \string^ y) < 0);}
+\DoxyCodeLine{839         \textcolor{keywordflow}{if}(x.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} < 0)}
+\DoxyCodeLine{840                 x = \mbox{\hyperlink{fix16_8c_a96c5885cdfc79b1b44cf0b5eef71dec4}{int64\_neg}}(x);}
+\DoxyCodeLine{841         \textcolor{keywordflow}{if}(y < 0)}
+\DoxyCodeLine{842                 y = -\/y;}
+\DoxyCodeLine{843 }
+\DoxyCodeLine{844         uint32\_t \_x[4] = \{ (x.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} >> 16), (x.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} \& 0xFFFF), (x.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}} >> 16), (x.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}} \& 0xFFFF) \};}
+\DoxyCodeLine{845         uint32\_t \_y[2] = \{ (y >> 16), (y \& 0xFFFF) \};}
+\DoxyCodeLine{846 }
+\DoxyCodeLine{847         uint32\_t r[4];}
+\DoxyCodeLine{848         r[0] = (\_x[0] * \_y[0]);}
+\DoxyCodeLine{849         r[1] = (\_x[1] * \_y[0]) + (\_x[0] * \_y[1]);}
+\DoxyCodeLine{850         r[2] = (\_x[1] * \_y[1]) + (\_x[2] * \_y[0]);}
+\DoxyCodeLine{851         r[3] = (\_x[2] * \_y[0]) + (\_x[1] * \_y[1]);}
+\DoxyCodeLine{852 }
+\DoxyCodeLine{853         \mbox{\hyperlink{structlfm__int64}{lfm\_int64}} ret;}
+\DoxyCodeLine{854         ret.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}} = r[0] + (r[1] << 16);}
+\DoxyCodeLine{855         ret.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} = (r[3] << 16) + r[2] + (r[1] >> 16);}
+\DoxyCodeLine{856         \textcolor{keywordflow}{return} (neg ? \mbox{\hyperlink{fix16_8c_a96c5885cdfc79b1b44cf0b5eef71dec4}{int64\_neg}}(ret) : ret);}
+\DoxyCodeLine{857 \}}
+
+\end{DoxyCode}
+
+
+References lfm\+\_\+int64\+::hi, int64\+\_\+neg(), and lfm\+\_\+int64\+::lo.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{fix16_8c_a1e488f228f7b3a9dcb97cc872d2ec5a2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fix16_8c_a96c5885cdfc79b1b44cf0b5eef71dec4}\label{fix16_8c_a96c5885cdfc79b1b44cf0b5eef71dec4}} 
+\index{fix16.c@{fix16.c}!int64\_neg@{int64\_neg}}
+\index{int64\_neg@{int64\_neg}!fix16.c@{fix16.c}}
+\doxysubsubsection{\texorpdfstring{int64\_neg()}{int64\_neg()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} int64\+\_\+neg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}}}]{x }\end{DoxyParamCaption})}
+
+
+
+Negate a 64-\/bit number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & 64-\/bit number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+negated 64-\/bit number 
+\end{DoxyReturn}
+
+
+Definition at line 814 of file fix16.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{814                                  \{}
+\DoxyCodeLine{815         \mbox{\hyperlink{structlfm__int64}{lfm\_int64}} ret;}
+\DoxyCodeLine{816         ret.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} = \string~x.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}};}
+\DoxyCodeLine{817         ret.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}} = \string~x.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}} + 1;}
+\DoxyCodeLine{818         \textcolor{keywordflow}{if}(ret.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}} == 0)}
+\DoxyCodeLine{819                 ret.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}}++;}
+\DoxyCodeLine{820         \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{821 \}}
+
+\end{DoxyCode}
+
+
+References lfm\+\_\+int64\+::hi, and lfm\+\_\+int64\+::lo.
+
+
+
+Referenced by int64\+\_\+div\+\_\+i64\+\_\+i32(), int64\+\_\+mul\+\_\+i64\+\_\+i32(), and int64\+\_\+sub().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{fix16_8c_a96c5885cdfc79b1b44cf0b5eef71dec4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fix16_8c_a29932d285873eff00e210103227209b5}\label{fix16_8c_a29932d285873eff00e210103227209b5}} 
+\index{fix16.c@{fix16.c}!int64\_shift@{int64\_shift}}
+\index{int64\_shift@{int64\_shift}!fix16.c@{fix16.c}}
+\doxysubsubsection{\texorpdfstring{int64\_shift()}{int64\_shift()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} int64\+\_\+shift (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}}}]{x,  }\item[{int8\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+
+
+Shift a 64-\/bit number by the given number of bits. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & 64-\/bit number \\
+\hline
+{\em y} & number of bits to shift \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+64-\/bit shifted number 
+\end{DoxyReturn}
+
+
+Definition at line 797 of file fix16.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{797                                              \{}
+\DoxyCodeLine{798         \mbox{\hyperlink{structlfm__int64}{lfm\_int64}} ret;}
+\DoxyCodeLine{799         \textcolor{keywordflow}{if}(y > 0) \{}
+\DoxyCodeLine{800                 \textcolor{keywordflow}{if}(y >= 32)}
+\DoxyCodeLine{801                         \textcolor{keywordflow}{return} (\mbox{\hyperlink{structlfm__int64}{lfm\_int64}})\{ 0, 0 \};}
+\DoxyCodeLine{802                 ret.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} = (x.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} << y) | (x.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}} >> (32 -\/ y));}
+\DoxyCodeLine{803                 ret.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}} = (x.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}} << y);}
+\DoxyCodeLine{804         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{805                 y = -\/y;}
+\DoxyCodeLine{806                 \textcolor{keywordflow}{if}(y >= 32)}
+\DoxyCodeLine{807                         \textcolor{keywordflow}{return} (\mbox{\hyperlink{structlfm__int64}{lfm\_int64}})\{ 0, 0 \};}
+\DoxyCodeLine{808                 ret.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}} = (x.\mbox{\hyperlink{structlfm__int64_aa12dc1351e2424f195255d3f3c380d82}{lo}} >> y) | (x.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} << (32 -\/ y));}
+\DoxyCodeLine{809                 ret.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} = (x.\mbox{\hyperlink{structlfm__int64_adbf10e5d1038afc8ed52e106142d9add}{hi}} >> y);}
+\DoxyCodeLine{810         \}}
+\DoxyCodeLine{811         \textcolor{keywordflow}{return} ret;}
+\DoxyCodeLine{812 \}}
+
+\end{DoxyCode}
+
+
+References lfm\+\_\+int64\+::hi, and lfm\+\_\+int64\+::lo.
+
+\mbox{\Hypertarget{fix16_8c_a352c64e0064bfd7e7ddf1229f7ee16e3}\label{fix16_8c_a352c64e0064bfd7e7ddf1229f7ee16e3}} 
+\index{fix16.c@{fix16.c}!int64\_sub@{int64\_sub}}
+\index{int64\_sub@{int64\_sub}!fix16.c@{fix16.c}}
+\doxysubsubsection{\texorpdfstring{int64\_sub()}{int64\_sub()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}} int64\+\_\+sub (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}}}]{x,  }\item[{\mbox{\hyperlink{structlfm__int64}{lfm\+\_\+int64}}}]{y }\end{DoxyParamCaption})}
+
+
+
+Subtract two 64-\/bit numbers (x -\/ y) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & 64-\/bit number \\
+\hline
+{\em y} & 64-\/bit number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+64-\/bit difference (x -\/ y ) 
+\end{DoxyReturn}
+
+
+Definition at line 792 of file fix16.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{792                                               \{}
+\DoxyCodeLine{793         \textcolor{keywordflow}{return} \mbox{\hyperlink{fix16_8c_a456b3a510b6c10f22fc3fdccc8f222d6}{int64\_add}}(x, \mbox{\hyperlink{fix16_8c_a96c5885cdfc79b1b44cf0b5eef71dec4}{int64\_neg}}(y));}
+\DoxyCodeLine{794 \}}
+
+\end{DoxyCode}
+
+
+References int64\+\_\+add(), and int64\+\_\+neg().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{fix16_8c_a352c64e0064bfd7e7ddf1229f7ee16e3_cgraph}
+\end{center}
+\end{figure}

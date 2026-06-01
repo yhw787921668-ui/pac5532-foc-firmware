@@ -1,0 +1,74 @@
+\hypertarget{trig_8c}{}\doxysection{pac\+\_\+foc/src/math/trig.c File Reference}
+\label{trig_8c}\index{pac\_foc/src/math/trig.c@{pac\_foc/src/math/trig.c}}
+
+
+Trigonometric support functions.  
+
+
+{\ttfamily \#include \char`\"{}pac5xxx.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}maths.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}trig.\+h\char`\"{}}\newline
+Include dependency graph for trig.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{trig_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int32\+\_\+t \mbox{\hyperlink{trig_8c_ab3555c3b754597b29ba9bb19178fca2f}{trig\+\_\+arctan\+\_\+90deg\+\_\+q16}} (int32\+\_\+t opposite\+\_\+q16, int32\+\_\+t adjacent\+\_\+q16)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Trigonometric support functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{trig_8c_ab3555c3b754597b29ba9bb19178fca2f}\label{trig_8c_ab3555c3b754597b29ba9bb19178fca2f}} 
+\index{trig.c@{trig.c}!trig\_arctan\_90deg\_q16@{trig\_arctan\_90deg\_q16}}
+\index{trig\_arctan\_90deg\_q16@{trig\_arctan\_90deg\_q16}!trig.c@{trig.c}}
+\doxysubsubsection{\texorpdfstring{trig\_arctan\_90deg\_q16()}{trig\_arctan\_90deg\_q16()}}
+{\footnotesize\ttfamily int32\+\_\+t trig\+\_\+arctan\+\_\+90deg\+\_\+q16 (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{opposite\+\_\+q16,  }\item[{int32\+\_\+t}]{adjacent\+\_\+q16 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 25 of file trig.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27     int32\_t result\_q16;}
+\DoxyCodeLine{28     int32\_t arg\_q16;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordflow}{if} (opposite\_q16 < adjacent\_q16)}
+\DoxyCodeLine{31     \{}
+\DoxyCodeLine{32         arg\_q16 = \mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}(opposite\_q16, adjacent\_q16);}
+\DoxyCodeLine{33         result\_q16 = \mbox{\hyperlink{calc__angle_8h_a923cbb8406ada0314987afc88dcd0c03}{foc\_atan\_tbl}}[arg\_q16 >> 8];}
+\DoxyCodeLine{34     \}}
+\DoxyCodeLine{35     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{36     \{}
+\DoxyCodeLine{37         arg\_q16 = \mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}(adjacent\_q16, opposite\_q16);}
+\DoxyCodeLine{38         result\_q16 = \mbox{\hyperlink{maths_8h_a563effd2032cc9f4be21f71250d0d1ad}{FIX16\_PI\_DIV\_2}} -\/ \mbox{\hyperlink{calc__angle_8h_a923cbb8406ada0314987afc88dcd0c03}{foc\_atan\_tbl}}[arg\_q16 >> 8];}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordflow}{return} result\_q16;}
+\DoxyCodeLine{42 \}}
+
+\end{DoxyCode}
+
+
+References fix16\+\_\+div(), F\+I\+X16\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+2, and foc\+\_\+atan\+\_\+tbl.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{trig_8c_ab3555c3b754597b29ba9bb19178fca2f_cgraph}
+\end{center}
+\end{figure}

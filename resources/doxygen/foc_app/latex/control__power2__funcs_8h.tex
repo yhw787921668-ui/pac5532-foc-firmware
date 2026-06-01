@@ -1,0 +1,66 @@
+\hypertarget{control__power2__funcs_8h}{}\doxysection{pac\+\_\+foc/src/control/control\+\_\+power2\+\_\+funcs.h File Reference}
+\label{control__power2__funcs_8h}\index{pac\_foc/src/control/control\_power2\_funcs.h@{pac\_foc/src/control/control\_power2\_funcs.h}}
+
+
+Use for control power functions.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}control\+\_\+power2\+\_\+struct.\+h\char`\"{}}\newline
+Include dependency graph for control\+\_\+power2\+\_\+funcs.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{control__power2__funcs_8h__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{control__power2__funcs_8h_a9871c4a3483725b9c2441cf0aecfb6ac}{C\+U\+R\+R\+E\+N\+T\+\_\+\+I\+B\+U\+S\+\_\+\+S\+C\+A\+L\+E\+\_\+\+F\+A\+C\+T\+O\+R\+\_\+\+F\+LT}}~(float)(2.\+5f / (P\+C\+B\+\_\+\+R\+S\+E\+N\+S\+E\+\_\+\+I\+U\+V\+W\+\_\+\+O\+H\+MS $\ast$ A\+M\+P\+G\+A\+I\+N\+\_\+\+A\+I\+O6))
+\item 
+\#define \mbox{\hyperlink{control__power2__funcs_8h_a3e5b07e88c57056c9280b290dac9649f}{P\+O\+W\+E\+R\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+D\+E\+S\+C\+A\+L\+E\+\_\+\+F\+A\+C\+T\+O\+R\+\_\+\+Q16}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(\mbox{\hyperlink{control__power2__funcs_8h_a9871c4a3483725b9c2441cf0aecfb6ac}{C\+U\+R\+R\+E\+N\+T\+\_\+\+I\+B\+U\+S\+\_\+\+S\+C\+A\+L\+E\+\_\+\+F\+A\+C\+T\+O\+R\+\_\+\+F\+LT}}, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{control__power2__funcs_8h_aefb4ba879892c724d43f0afcff4c16af}{power\+\_\+compensation\+\_\+coefficient\+\_\+calc}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for control power functions. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{control__power2__funcs_8h_a9871c4a3483725b9c2441cf0aecfb6ac}\label{control__power2__funcs_8h_a9871c4a3483725b9c2441cf0aecfb6ac}} 
+\index{control\_power2\_funcs.h@{control\_power2\_funcs.h}!CURRENT\_IBUS\_SCALE\_FACTOR\_FLT@{CURRENT\_IBUS\_SCALE\_FACTOR\_FLT}}
+\index{CURRENT\_IBUS\_SCALE\_FACTOR\_FLT@{CURRENT\_IBUS\_SCALE\_FACTOR\_FLT}!control\_power2\_funcs.h@{control\_power2\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{CURRENT\_IBUS\_SCALE\_FACTOR\_FLT}{CURRENT\_IBUS\_SCALE\_FACTOR\_FLT}}
+{\footnotesize\ttfamily \#define C\+U\+R\+R\+E\+N\+T\+\_\+\+I\+B\+U\+S\+\_\+\+S\+C\+A\+L\+E\+\_\+\+F\+A\+C\+T\+O\+R\+\_\+\+F\+LT~(float)(2.\+5f / (P\+C\+B\+\_\+\+R\+S\+E\+N\+S\+E\+\_\+\+I\+U\+V\+W\+\_\+\+O\+H\+MS $\ast$ A\+M\+P\+G\+A\+I\+N\+\_\+\+A\+I\+O6))}
+
+
+
+Definition at line 14 of file control\+\_\+power2\+\_\+funcs.\+h.
+
+\mbox{\Hypertarget{control__power2__funcs_8h_a3e5b07e88c57056c9280b290dac9649f}\label{control__power2__funcs_8h_a3e5b07e88c57056c9280b290dac9649f}} 
+\index{control\_power2\_funcs.h@{control\_power2\_funcs.h}!POWER\_CURRENT\_DESCALE\_FACTOR\_Q16@{POWER\_CURRENT\_DESCALE\_FACTOR\_Q16}}
+\index{POWER\_CURRENT\_DESCALE\_FACTOR\_Q16@{POWER\_CURRENT\_DESCALE\_FACTOR\_Q16}!control\_power2\_funcs.h@{control\_power2\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{POWER\_CURRENT\_DESCALE\_FACTOR\_Q16}{POWER\_CURRENT\_DESCALE\_FACTOR\_Q16}}
+{\footnotesize\ttfamily \#define P\+O\+W\+E\+R\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+D\+E\+S\+C\+A\+L\+E\+\_\+\+F\+A\+C\+T\+O\+R\+\_\+\+Q16~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(\mbox{\hyperlink{control__power2__funcs_8h_a9871c4a3483725b9c2441cf0aecfb6ac}{C\+U\+R\+R\+E\+N\+T\+\_\+\+I\+B\+U\+S\+\_\+\+S\+C\+A\+L\+E\+\_\+\+F\+A\+C\+T\+O\+R\+\_\+\+F\+LT}}, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 15 of file control\+\_\+power2\+\_\+funcs.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{control__power2__funcs_8h_aefb4ba879892c724d43f0afcff4c16af}\label{control__power2__funcs_8h_aefb4ba879892c724d43f0afcff4c16af}} 
+\index{control\_power2\_funcs.h@{control\_power2\_funcs.h}!power\_compensation\_coefficient\_calc@{power\_compensation\_coefficient\_calc}}
+\index{power\_compensation\_coefficient\_calc@{power\_compensation\_coefficient\_calc}!control\_power2\_funcs.h@{control\_power2\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{power\_compensation\_coefficient\_calc()}{power\_compensation\_coefficient\_calc()}}
+{\footnotesize\ttfamily void power\+\_\+compensation\+\_\+coefficient\+\_\+calc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+

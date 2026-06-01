@@ -1,0 +1,116 @@
+.TH "pac_foc/src/math/maths.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/math/maths.c \- Math support functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'maths\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBbubble_sort_array\fP (int32_t *sort_array, uint32_t size)"
+.br
+.RI "Bubble sort an array\&. "
+.ti -1c
+.RI "void \fBbubble_sort_array_descending\fP (int32_t *sort_array, uint32_t size)"
+.br
+.RI "Bubble sort an array in descending order\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Math support functions\&. 
+
+
+.PP
+Definition in file \fBmaths\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void bubble_sort_array (int32_t * sort_array, uint32_t size)"
+
+.PP
+Bubble sort an array\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsort_array\fP pointer to array 
+.br
+\fIsize\fP length of array 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file maths\&.c\&.
+.PP
+.nf
+26 {
+27     volatile int32_t temp;
+28     volatile uint32_t i,j;
+29 
+30     // Sort array with max at the end
+31     // Sort array in ascending order, Min to Max values
+32     for(i = 0 ; i < size ; i++)
+33     {
+34         for(j = 0 ; j < size-i-1 ; j++)
+35         {
+36             if(sort_array[j] > sort_array[j+1])
+37             {
+38                 temp = sort_array[j];
+39                 sort_array[j] = sort_array[j+1];
+40                 sort_array[j+1] = temp;
+41             }
+42         }
+43     }
+44 }
+.fi
+.PP
+Referenced by hall_sort_create_next_state_array()\&.
+.SS "void bubble_sort_array_descending (int32_t * sort_array, uint32_t size)"
+
+.PP
+Bubble sort an array in descending order\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsort_array\fP pointer to array 
+.br
+\fIsize\fP length of array 
+.RE
+.PP
+
+.PP
+Definition at line 48 of file maths\&.c\&.
+.PP
+.nf
+49 {
+50     volatile int32_t temp;
+51     volatile uint32_t i,j;
+52 
+53     // Sort array with max at the end
+54     // Sort array in ascending order, Min to Max values
+55     for(i = 0 ; i < size ; i++)
+56     {
+57         for(j = 0 ; j < size-i-1 ; j++)
+58         {
+59             if(sort_array[j] < sort_array[j+1])
+60             {
+61                 temp = sort_array[j];
+62                 sort_array[j] = sort_array[j+1];
+63                 sort_array[j+1] = temp;
+64             }
+65         }
+66     }
+67 }
+.fi
+.PP
+Referenced by hall_sort_create_prev_state_array()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

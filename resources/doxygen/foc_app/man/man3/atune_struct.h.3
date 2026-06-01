@@ -1,0 +1,662 @@
+.TH "pac_foc/src/features/autotune/atune_struct.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/features/autotune/atune_struct.h \- Use for auto-tuning structure definition\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'maths\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBStruct_ATune\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSTATUS_ATUNE_ALLSTATUS_RESET\fP"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_ATUNE_ALLWARNINGS_FAULTSTATE\fP"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_ATUNE_ALLWARNINGS_RESET\fP"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_ATUNE_ALLWARNINGS_MAINSTAT\fP"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_ATUNE_MID1_ALLSTATUS\fP"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_ATUNE_MID1_ALLWARNINGS\fP"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_ATUNE_MID1_ALLFAULTS\fP"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_MID1_ALLSTATUS\fP"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_MID1_ALLFAULTS\fP"
+.br
+.ti -1c
+.RI "#define \fBSTATUS_MID1_ALLWARNINGS\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBeStateMID2\fP { \fBSTATE_MID2_IDLE\fP = 0, \fBSTATE_MID2_RESET\fP, \fBSTATE_MID2_READY\fP, \fBSTATE_MID2_STEP1\fP, \fBSTATE_MID2_ANOISE\fP, \fBSTATE_MID2_RECORDING\fP, \fBSTATE_MID2_STEP2\fP, \fBSTATE_MID2_RECORDDONE\fP, \fBSTATE_MID2_CALCULATE\fP, \fBSTATE_MID2_COMPLETE\fP, \fBSTATE_MID2_FAULT\fP }"
+.br
+.ti -1c
+.RI "enum \fBeUICmdATune\fP { \fBUICMD_ATUNE_NEXTCMD\fP = 0, \fBUICMD_ATUNE_RESET\fP, \fBUICMD_ATUNE_ISTEP\fP, \fBUICMD_ATUNE_CALCMID\fP, \fBUICMD_ATUNE_CALCGAIN_CURRENT\fP, \fBUICMD_ATUNE_CALCGAIN_SPEED\fP, \fBUICMD_ATUNE_MID2_STOP\fP }"
+.br
+.ti -1c
+.RI "enum \fBeStatusATune\fP { \fBSTATUS_ATUNE_MID1_READY\fP = BIT_00, \fBSTATUS_ATUNE_MID1_INPROGRESS\fP = BIT_01, \fBSTATUS_ATUNE_MID1_COMPLETE\fP = BIT_02, \fBSTATUS_ATUNE_MID1_FAILED\fP = BIT_03, \fBSTATUS_ATUNE_MID2_READY\fP = BIT_04, \fBSTATUS_ATUNE_MID2_INPROGRESS\fP = BIT_05, \fBSTATUS_ATUNE_MID2_SPEED_SETTLED\fP = BIT_06, \fBSTATUS_ATUNE_MID2_WAITSETTLE\fP = BIT_07, \fBSTATUS_ATUNE_MID2_ISTEPWAIT\fP = BIT_08, \fBSTATUS_ATUNE_MID2_COMPLETE\fP = BIT_09, \fBSTATUS_ATUNE_MID2_FAILED\fP = BIT_10, \fBSTATUS_ATUNE_UNUSED_11\fP = BIT_11, \fBSTATUS_ATUNE_UNUSED_12\fP = BIT_12, \fBSTATUS_ATUNE_UNUSED_13\fP = BIT_13, \fBSTATUS_ATUNE_UNUSED_14\fP = BIT_14, \fBSTATUS_ATUNE_UNUSED_15\fP = BIT_15, \fBSTATUS_ATUNE_UNUSED_16\fP = BIT_16, \fBSTATUS_ATUNE_UNUSED_17\fP = BIT_17, \fBSTATUS_ATUNE_UNUSED_18\fP = BIT_18, \fBFAULT_ATUNE_MID1_PHASECHK\fP = BIT_19, \fBWARNING_ATUNE_MID1_PHASECHK\fP = BIT_20, \fBWARNING_ATUNE_MID1_MOTIONDET\fP = BIT_21, \fBWARNING_ATUNE_MID2_CTRLMODE\fP = BIT_22, \fBWARNING_ATUNE_MID2_NOISECHK\fP = BIT_23, \fBWARNING_ATUNE_ATPI_CALCNEEDED_I\fP = BIT_24, \fBWARNING_ATUNE_ATPI_CALCNEEDED_SPD\fP = BIT_25, \fBFLAG_ATUNE_MID1_UPDATE_CALC\fP = BIT_26, \fBFLAG_ATUNE_MID1_UPDATE_CFG\fP = BIT_27, \fBFLAG_ATUNE_MID2_UPDATE_CALC\fP = BIT_28, \fBFLAG_ATUNE_MID2_UPDATE_CFG\fP = BIT_29, \fBFLAG_ATUNE_ATPI_UPDATE_I\fP = BIT_30, \fBFLAG_ATUNE_ATPI_UPDATE_SPD\fP = BIT_31 }"
+.br
+.ti -1c
+.RI "enum \fBeStateRecMID2\fP { \fBSTATEREC_MID2_VALUES_STORED\fP = 0, \fBSTATEREC_MID2_VALUES_READ\fP }"
+.br
+.ti -1c
+.RI "enum \fBeStateMainSubMID1\fP { \fBSTATE_MAINSUB_MID1_IDLE\fP = 0, \fBSTATE_MAINSUB_MID1_RESET\fP, \fBSTATE_MAINSUB_MID1_RUN\fP, \fBSTATE_MAINSUB_MID1_EXIT\fP, \fBSTATE_MAINSUB_MID1_COMPLETE\fP }"
+.br
+.ti -1c
+.RI "enum \fBeMID1InjMode\fP { \fBMID1_INJMODE_NOINJ\fP = 0, \fBMID1_INJMODE_DDC_Q00\fP, \fBMID1_INJMODE_D00_QDC\fP, \fBMID1_INJMODE_DDCAC_Q00\fP, \fBMID1_INJMODE_DDC_QAC\fP }"
+.br
+.ti -1c
+.RI "enum \fBeMID1InvType\fP { \fBMID1_INVERTER_TYPE_MOS\fP, \fBMID1_INVERTER_TYPE_IGBT\fP }"
+.br
+.ti -1c
+.RI "enum \fBeStatusMID1\fP { \fBSTATUS_MID1_IDLE\fP = BIT_00, \fBSTATUS_MID1_IN_PROCESS\fP = BIT_01, \fBSTATUS_MID1_COMPLETE\fP = BIT_02, \fBSTATUS_MID1_FAILED\fP = BIT_03, \fBFAULT_MID1_RCHECK\fP = BIT_04, \fBWARNING_MID1_RCHECK\fP = BIT_05, \fBWARNING_MID1_MOTIONDET\fP = BIT_06, \fBUNUSED_07\fP = BIT_07, \fBFAULT_MID1_HALTED\fP = BIT_08 }"
+.br
+.ti -1c
+.RI "enum \fBeCmdMID1SM\fP { \fBCMD_MID1SM_SETSTATE_RESET\fP = BIT_00, \fBCMD_MID1SM_SETSTATE_IDLE\fP = BIT_01, \fBCMD_MID1SM_SETSTATE_EXIT\fP = BIT_02, \fBCMD_MID1SM_READSTATE\fP = BIT_03 }"
+.br
+.ti -1c
+.RI "enum \fBeCmdMID2SM\fP { \fBCMD_MID2SM_SETSTATE_RESET\fP = BIT_00, \fBCMD_MID2SM_SETSTATE_ISTEP\fP = BIT_01, \fBCMD_MID2SM_SETSTATE_CALC\fP = BIT_02 }"
+.br
+.ti -1c
+.RI "enum \fBeMID1RunMode\fP { \fBMID1_RUNMODE_AUTO\fP = 0, \fBMID1_RUNMODE_AUTO_MANCFG\fP, \fBMID1_RUNMODE_MANUAL\fP }"
+.br
+.ti -1c
+.RI "enum \fBeMID2RunMode\fP { \fBMID2_RUNMODE_AUTO\fP = 0, \fBMID2_RUNMODE_AUTO_MANCFG\fP, \fBMID2_RUNMODE_MANUAL\fP }"
+.br
+.ti -1c
+.RI "enum \fBeMID1ManCmd\fP { \fBMID1_MANCMD_IDLE\fP = 0, \fBMID1_MANCMD_MEAS_RD\fP, \fBMID1_MANCMD_MEAS_RQ\fP, \fBMID1_MANCMD_MEAS_LD\fP, \fBMID1_MANCMD_MEAS_LQ\fP }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for auto-tuning structure definition\&. 
+
+
+.PP
+Definition in file \fBatune_struct\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define STATUS_ATUNE_ALLSTATUS_RESET"
+\fBValue:\fP
+.PP
+.nf
+        (\
+        STATUS_ATUNE_MID2_READY \
+        | STATUS_ATUNE_MID2_INPROGRESS \
+        | STATUS_ATUNE_MID2_COMPLETE \
+        | STATUS_ATUNE_MID2_FAILED \
+        | STATUS_ATUNE_MID2_SPEED_SETTLED \
+        )
+.fi
+.PP
+Definition at line 170 of file atune_struct\&.h\&.
+.SS "#define STATUS_ATUNE_ALLWARNINGS_FAULTSTATE"
+\fBValue:\fP
+.PP
+.nf
+        (\
+        WARNING_ATUNE_MID2_CTRLMODE \
+        | WARNING_ATUNE_MID2_NOISECHK \
+        )
+.fi
+.PP
+Definition at line 178 of file atune_struct\&.h\&.
+.SS "#define STATUS_ATUNE_ALLWARNINGS_MAINSTAT"
+\fBValue:\fP
+.PP
+.nf
+        (\
+        STATUS_ATUNE_MID2_FAILED \
+        | WARNING_ATUNE_MID2_CTRLMODE \
+        | WARNING_ATUNE_MID2_NOISECHK \
+        | WARNING_ATUNE_ATPI_CALCNEEDED_I \
+        | WARNING_ATUNE_ATPI_CALCNEEDED_SPD \
+        | WARNING_ATUNE_MID1_PHASECHK \
+        | FAULT_ATUNE_MID1_PHASECHK \
+        | WARNING_ATUNE_MID1_MOTIONDET \
+        )
+.fi
+.PP
+Definition at line 189 of file atune_struct\&.h\&.
+.SS "#define STATUS_ATUNE_ALLWARNINGS_RESET"
+\fBValue:\fP
+.PP
+.nf
+        (\
+        STATUS_ATUNE_MID2_FAILED \
+        | WARNING_ATUNE_MID2_CTRLMODE \
+        | WARNING_ATUNE_MID2_NOISECHK \
+        )
+.fi
+.PP
+Definition at line 183 of file atune_struct\&.h\&.
+.SS "#define STATUS_ATUNE_MID1_ALLFAULTS"
+\fBValue:\fP
+.PP
+.nf
+        (\
+        FAULT_ATUNE_MID1_PHASECHK \
+        )
+.fi
+.PP
+Definition at line 212 of file atune_struct\&.h\&.
+.SS "#define STATUS_ATUNE_MID1_ALLSTATUS"
+\fBValue:\fP
+.PP
+.nf
+        (\
+        STATUS_ATUNE_MID1_READY \
+        | STATUS_ATUNE_MID1_INPROGRESS \
+        | STATUS_ATUNE_MID1_COMPLETE \
+        | STATUS_ATUNE_MID1_FAILED \
+        )
+.fi
+.PP
+Definition at line 200 of file atune_struct\&.h\&.
+.SS "#define STATUS_ATUNE_MID1_ALLWARNINGS"
+\fBValue:\fP
+.PP
+.nf
+        (\
+        WARNING_ATUNE_MID1_PHASECHK \
+        | WARNING_ATUNE_MID1_MOTIONDET \
+        )
+.fi
+.PP
+Definition at line 207 of file atune_struct\&.h\&.
+.SS "#define STATUS_MID1_ALLFAULTS"
+\fBValue:\fP
+.PP
+.nf
+        (\
+        FAULT_MID1_RCHECK \
+        | FAULT_MID1_HALTED \
+        )
+.fi
+.PP
+Definition at line 228 of file atune_struct\&.h\&.
+.SS "#define STATUS_MID1_ALLSTATUS"
+\fBValue:\fP
+.PP
+.nf
+        (\
+        STATUS_MID1_IDLE \
+        | STATUS_MID1_IN_PROCESS \
+        | STATUS_MID1_COMPLETE \
+        | STATUS_MID1_FAILED \
+        )
+.fi
+.PP
+Definition at line 216 of file atune_struct\&.h\&.
+.SS "#define STATUS_MID1_ALLWARNINGS"
+\fBValue:\fP
+.PP
+.nf
+        (\
+        WARNING_MID1_RCHECK \
+        | WARNING_MID1_MOTIONDET \
+        )
+.fi
+.PP
+Definition at line 234 of file atune_struct\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBeCmdMID1SM\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICMD_MID1SM_SETSTATE_RESET \fP\fP
+.TP
+\fB\fICMD_MID1SM_SETSTATE_IDLE \fP\fP
+.TP
+\fB\fICMD_MID1SM_SETSTATE_EXIT \fP\fP
+.TP
+\fB\fICMD_MID1SM_READSTATE \fP\fP
+.PP
+Definition at line 130 of file atune_struct\&.h\&.
+.PP
+.nf
+131 {
+132     CMD_MID1SM_SETSTATE_RESET           = BIT_00,   // Set state reset
+133     CMD_MID1SM_SETSTATE_IDLE            = BIT_01,   // Set state idle
+134     CMD_MID1SM_SETSTATE_EXIT            = BIT_02,   // Set state exit
+135     CMD_MID1SM_READSTATE                = BIT_03    // Read state into register
+136 } eCmdMID1SM;
+.fi
+.SS "enum \fBeCmdMID2SM\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICMD_MID2SM_SETSTATE_RESET \fP\fP
+.TP
+\fB\fICMD_MID2SM_SETSTATE_ISTEP \fP\fP
+.TP
+\fB\fICMD_MID2SM_SETSTATE_CALC \fP\fP
+.PP
+Definition at line 138 of file atune_struct\&.h\&.
+.PP
+.nf
+139 {
+140     CMD_MID2SM_SETSTATE_RESET           = BIT_00,    // Set state reset
+141     CMD_MID2SM_SETSTATE_ISTEP           = BIT_01,    // Set state Istep
+142     CMD_MID2SM_SETSTATE_CALC            = BIT_02,    // Set state Calc
+143 } eCmdMID2SM;
+.fi
+.SS "enum \fBeMID1InjMode\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMID1_INJMODE_NOINJ \fP\fP
+.TP
+\fB\fIMID1_INJMODE_DDC_Q00 \fP\fP
+.TP
+\fB\fIMID1_INJMODE_D00_QDC \fP\fP
+.TP
+\fB\fIMID1_INJMODE_DDCAC_Q00 \fP\fP
+.TP
+\fB\fIMID1_INJMODE_DDC_QAC \fP\fP
+.PP
+Definition at line 102 of file atune_struct\&.h\&.
+.PP
+.nf
+103 {
+104     MID1_INJMODE_NOINJ = 0,             // No Injection
+105     MID1_INJMODE_DDC_Q00,               // Only DC in d-axis
+106     MID1_INJMODE_D00_QDC,               // Only DC in q-axis
+107     MID1_INJMODE_DDCAC_Q00,             // DC + AC Injection in d-axis
+108     MID1_INJMODE_DDC_QAC                // DC in d-axis + AC Injection in q-axis
+109 } eMID1InjMode;
+.fi
+.SS "enum \fBeMID1InvType\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMID1_INVERTER_TYPE_MOS \fP\fP
+.TP
+\fB\fIMID1_INVERTER_TYPE_IGBT \fP\fP
+.PP
+Definition at line 111 of file atune_struct\&.h\&.
+.PP
+.nf
+112 {
+113     MID1_INVERTER_TYPE_MOS,             // 0
+114     MID1_INVERTER_TYPE_IGBT,            // 1
+115 } eMID1InvType;
+.fi
+.SS "enum \fBeMID1ManCmd\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMID1_MANCMD_IDLE \fP\fP
+.TP
+\fB\fIMID1_MANCMD_MEAS_RD \fP\fP
+.TP
+\fB\fIMID1_MANCMD_MEAS_RQ \fP\fP
+.TP
+\fB\fIMID1_MANCMD_MEAS_LD \fP\fP
+.TP
+\fB\fIMID1_MANCMD_MEAS_LQ \fP\fP
+.PP
+Definition at line 159 of file atune_struct\&.h\&.
+.PP
+.nf
+160 {
+161     MID1_MANCMD_IDLE = 0,               // No measurement
+162     MID1_MANCMD_MEAS_RD,                // Measure R in D-axis
+163     MID1_MANCMD_MEAS_RQ,                // Measure R in Q-Axis
+164     MID1_MANCMD_MEAS_LD,                // Measure L in D-axis
+165     MID1_MANCMD_MEAS_LQ                 // Measure L in D-axis
+166 } eMID1ManCmd;
+.fi
+.SS "enum \fBeMID1RunMode\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMID1_RUNMODE_AUTO \fP\fP
+.TP
+\fB\fIMID1_RUNMODE_AUTO_MANCFG \fP\fP
+.TP
+\fB\fIMID1_RUNMODE_MANUAL \fP\fP
+.PP
+Definition at line 145 of file atune_struct\&.h\&.
+.PP
+.nf
+146 {
+147     MID1_RUNMODE_AUTO = 0,              // Auto sequence with auto config
+148     MID1_RUNMODE_AUTO_MANCFG,           // Auto sequence with manual config
+149     MID1_RUNMODE_MANUAL                 // Manual mode
+150 } eMID1RunMode;
+.fi
+.SS "enum \fBeMID2RunMode\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMID2_RUNMODE_AUTO \fP\fP
+.TP
+\fB\fIMID2_RUNMODE_AUTO_MANCFG \fP\fP
+.TP
+\fB\fIMID2_RUNMODE_MANUAL \fP\fP
+.PP
+Definition at line 152 of file atune_struct\&.h\&.
+.PP
+.nf
+153 {
+154     MID2_RUNMODE_AUTO = 0,              // Auto sequence with auto config
+155     MID2_RUNMODE_AUTO_MANCFG,           // Auto sequence with manual config
+156     MID2_RUNMODE_MANUAL                 // Manual mode
+157 } eMID2RunMode;
+.fi
+.SS "enum \fBeStateMainSubMID1\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISTATE_MAINSUB_MID1_IDLE \fP\fP
+.TP
+\fB\fISTATE_MAINSUB_MID1_RESET \fP\fP
+.TP
+\fB\fISTATE_MAINSUB_MID1_RUN \fP\fP
+.TP
+\fB\fISTATE_MAINSUB_MID1_EXIT \fP\fP
+.TP
+\fB\fISTATE_MAINSUB_MID1_COMPLETE \fP\fP
+.PP
+Definition at line 93 of file atune_struct\&.h\&.
+.PP
+.nf
+94 {
+95     STATE_MAINSUB_MID1_IDLE             = 0,
+96     STATE_MAINSUB_MID1_RESET,           // 1
+97     STATE_MAINSUB_MID1_RUN,             // 2
+98     STATE_MAINSUB_MID1_EXIT,            // 3
+99     STATE_MAINSUB_MID1_COMPLETE         // 4
+100 } eStateMainSubMID1;
+.fi
+.SS "enum \fBeStateMID2\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISTATE_MID2_IDLE \fP\fP
+.TP
+\fB\fISTATE_MID2_RESET \fP\fP
+.TP
+\fB\fISTATE_MID2_READY \fP\fP
+.TP
+\fB\fISTATE_MID2_STEP1 \fP\fP
+.TP
+\fB\fISTATE_MID2_ANOISE \fP\fP
+.TP
+\fB\fISTATE_MID2_RECORDING \fP\fP
+.TP
+\fB\fISTATE_MID2_STEP2 \fP\fP
+.TP
+\fB\fISTATE_MID2_RECORDDONE \fP\fP
+.TP
+\fB\fISTATE_MID2_CALCULATE \fP\fP
+.TP
+\fB\fISTATE_MID2_COMPLETE \fP\fP
+.TP
+\fB\fISTATE_MID2_FAULT \fP\fP
+.PP
+Definition at line 25 of file atune_struct\&.h\&.
+.PP
+.nf
+26 {
+27     STATE_MID2_IDLE                     = 0,
+28     STATE_MID2_RESET,                   // 1
+29     STATE_MID2_READY,                   // 2
+30     STATE_MID2_STEP1,                   // 3
+31     STATE_MID2_ANOISE,                  // 4
+32     STATE_MID2_RECORDING,               // 5
+33     STATE_MID2_STEP2,                   // 6
+34     STATE_MID2_RECORDDONE,              // 7
+35     STATE_MID2_CALCULATE,               // 8
+36     STATE_MID2_COMPLETE,                // 9
+37     STATE_MID2_FAULT                    // 10
+38 } eStateMID2;
+.fi
+.SS "enum \fBeStateRecMID2\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISTATEREC_MID2_VALUES_STORED \fP\fP
+.TP
+\fB\fISTATEREC_MID2_VALUES_READ \fP\fP
+.PP
+Definition at line 87 of file atune_struct\&.h\&.
+.PP
+.nf
+88 {
+89     STATEREC_MID2_VALUES_STORED         = 0,
+90     STATEREC_MID2_VALUES_READ           // 1
+91 } eStateRecMID2;
+.fi
+.SS "enum \fBeStatusATune\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISTATUS_ATUNE_MID1_READY \fP\fP
+.TP
+\fB\fISTATUS_ATUNE_MID1_INPROGRESS \fP\fP
+.TP
+\fB\fISTATUS_ATUNE_MID1_COMPLETE \fP\fP
+.TP
+\fB\fISTATUS_ATUNE_MID1_FAILED \fP\fP
+.TP
+\fB\fISTATUS_ATUNE_MID2_READY \fP\fP
+.TP
+\fB\fISTATUS_ATUNE_MID2_INPROGRESS \fP\fP
+.TP
+\fB\fISTATUS_ATUNE_MID2_SPEED_SETTLED \fP\fP
+.TP
+\fB\fISTATUS_ATUNE_MID2_WAITSETTLE \fP\fP
+.TP
+\fB\fISTATUS_ATUNE_MID2_ISTEPWAIT \fP\fP
+.TP
+\fB\fISTATUS_ATUNE_MID2_COMPLETE \fP\fP
+.TP
+\fB\fISTATUS_ATUNE_MID2_FAILED \fP\fP
+.TP
+\fB\fISTATUS_ATUNE_UNUSED_11 \fP\fP
+.TP
+\fB\fISTATUS_ATUNE_UNUSED_12 \fP\fP
+.TP
+\fB\fISTATUS_ATUNE_UNUSED_13 \fP\fP
+.TP
+\fB\fISTATUS_ATUNE_UNUSED_14 \fP\fP
+.TP
+\fB\fISTATUS_ATUNE_UNUSED_15 \fP\fP
+.TP
+\fB\fISTATUS_ATUNE_UNUSED_16 \fP\fP
+.TP
+\fB\fISTATUS_ATUNE_UNUSED_17 \fP\fP
+.TP
+\fB\fISTATUS_ATUNE_UNUSED_18 \fP\fP
+.TP
+\fB\fIFAULT_ATUNE_MID1_PHASECHK \fP\fP
+.TP
+\fB\fIWARNING_ATUNE_MID1_PHASECHK \fP\fP
+.TP
+\fB\fIWARNING_ATUNE_MID1_MOTIONDET \fP\fP
+.TP
+\fB\fIWARNING_ATUNE_MID2_CTRLMODE \fP\fP
+.TP
+\fB\fIWARNING_ATUNE_MID2_NOISECHK \fP\fP
+.TP
+\fB\fIWARNING_ATUNE_ATPI_CALCNEEDED_I \fP\fP
+.TP
+\fB\fIWARNING_ATUNE_ATPI_CALCNEEDED_SPD \fP\fP
+.TP
+\fB\fIFLAG_ATUNE_MID1_UPDATE_CALC \fP\fP
+.TP
+\fB\fIFLAG_ATUNE_MID1_UPDATE_CFG \fP\fP
+.TP
+\fB\fIFLAG_ATUNE_MID2_UPDATE_CALC \fP\fP
+.TP
+\fB\fIFLAG_ATUNE_MID2_UPDATE_CFG \fP\fP
+.TP
+\fB\fIFLAG_ATUNE_ATPI_UPDATE_I \fP\fP
+.TP
+\fB\fIFLAG_ATUNE_ATPI_UPDATE_SPD \fP\fP
+.PP
+Definition at line 51 of file atune_struct\&.h\&.
+.PP
+.nf
+52 {
+53     STATUS_ATUNE_MID1_READY             = BIT_00,   // Status MID1: Ready
+54     STATUS_ATUNE_MID1_INPROGRESS        = BIT_01,   // Status MID1: In Progress
+55     STATUS_ATUNE_MID1_COMPLETE          = BIT_02,   // Status MID1: Complete
+56     STATUS_ATUNE_MID1_FAILED            = BIT_03,   // Status MID1: Failed
+57     STATUS_ATUNE_MID2_READY             = BIT_04,   // Status MID2: Waiting -> Click "IStep" when motor speed has settled
+58     STATUS_ATUNE_MID2_INPROGRESS        = BIT_05,   // Status MID2: Stepping Current -> Click "Calculate" when motor speed has settled
+59     STATUS_ATUNE_MID2_SPEED_SETTLED     = BIT_06,   // Status MID2: Motor speed has settled
+60     STATUS_ATUNE_MID2_WAITSETTLE        = BIT_07,   // Status MID2: Waiting for motor speed to settle\&.\&.\&.
+61     STATUS_ATUNE_MID2_ISTEPWAIT         = BIT_08,   // Status MID2: Stepping current and waiting for motor speed to settle\&.\&.\&.
+62     STATUS_ATUNE_MID2_COMPLETE          = BIT_09,   // Status MID2: Complete
+63     STATUS_ATUNE_MID2_FAILED            = BIT_10,   // Status MID2: Failed
+64     STATUS_ATUNE_UNUSED_11              = BIT_11,   // Status: Unused
+65     STATUS_ATUNE_UNUSED_12              = BIT_12,   // Status: Unused
+66     STATUS_ATUNE_UNUSED_13              = BIT_13,   // Status: Unused
+67     STATUS_ATUNE_UNUSED_14              = BIT_14,   // Status: Unused
+68     STATUS_ATUNE_UNUSED_15              = BIT_15,   // Status: Unused
+69     STATUS_ATUNE_UNUSED_16              = BIT_16,   // Status: Unused
+70     STATUS_ATUNE_UNUSED_17              = BIT_17,   // Status: Unused
+71     STATUS_ATUNE_UNUSED_18              = BIT_18,   // Status: Unused
+72     FAULT_ATUNE_MID1_PHASECHK           = BIT_19,   // Fault MID1: Phase Check Failed
+73     WARNING_ATUNE_MID1_PHASECHK         = BIT_20,   // Warning MID1: Phase Check Abnormal
+74     WARNING_ATUNE_MID1_MOTIONDET        = BIT_21,   // Warning MID1: Motion detected while sensing current
+75     WARNING_ATUNE_MID2_CTRLMODE         = BIT_22,   // Warning MID2: Control mode must be set to Torque
+76     WARNING_ATUNE_MID2_NOISECHK         = BIT_23,   // Warning MID2: Increase Istep and repeat Step1
+77     WARNING_ATUNE_ATPI_CALCNEEDED_I     = BIT_24,   // Warning ATPI: Current PI Calculation Necessary
+78     WARNING_ATUNE_ATPI_CALCNEEDED_SPD   = BIT_25,   // Warning ATPI: Speed PI Calculation Necessary
+79     FLAG_ATUNE_MID1_UPDATE_CALC         = BIT_26,   // Flag MID1: Update Calculated Values
+80     FLAG_ATUNE_MID1_UPDATE_CFG          = BIT_27,   // Flag MID1: Update Configuration Values
+81     FLAG_ATUNE_MID2_UPDATE_CALC         = BIT_28,   // Flag MID2: Update Calculated Values
+82     FLAG_ATUNE_MID2_UPDATE_CFG          = BIT_29,   // Flag MID2: Update Configuration Values
+83     FLAG_ATUNE_ATPI_UPDATE_I            = BIT_30,   // Flag ATPI: Update Current PI Values
+84     FLAG_ATUNE_ATPI_UPDATE_SPD          = BIT_31,   // Flag ATPI: Update Speed PI Values
+85 } eStatusATune;
+.fi
+.SS "enum \fBeStatusMID1\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISTATUS_MID1_IDLE \fP\fP
+.TP
+\fB\fISTATUS_MID1_IN_PROCESS \fP\fP
+.TP
+\fB\fISTATUS_MID1_COMPLETE \fP\fP
+.TP
+\fB\fISTATUS_MID1_FAILED \fP\fP
+.TP
+\fB\fIFAULT_MID1_RCHECK \fP\fP
+.TP
+\fB\fIWARNING_MID1_RCHECK \fP\fP
+.TP
+\fB\fIWARNING_MID1_MOTIONDET \fP\fP
+.TP
+\fB\fIUNUSED_07 \fP\fP
+.TP
+\fB\fIFAULT_MID1_HALTED \fP\fP
+.PP
+Definition at line 117 of file atune_struct\&.h\&.
+.PP
+.nf
+118 {
+119     STATUS_MID1_IDLE                    = BIT_00,   // Status: Idle, no doing any thing
+120     STATUS_MID1_IN_PROCESS              = BIT_01,   // Status: Motor Id detection in process
+121     STATUS_MID1_COMPLETE                = BIT_02,   // Status: Complete
+122     STATUS_MID1_FAILED                  = BIT_03,   // Status: Motor Id Sequence Failed
+123     FAULT_MID1_RCHECK                   = BIT_04,   // Fault: Phase currents grossly imbalanced
+124     WARNING_MID1_RCHECK                 = BIT_05,   // Warning: Phase currents slightly imbalanced
+125     WARNING_MID1_MOTIONDET              = BIT_06,   // Warning: Motion detected while sensing current
+126     UNUSED_07                           = BIT_07,   // Unused
+127     FAULT_MID1_HALTED                   = BIT_08    // Fault: MID1 sequence halted by user
+128 } eStatusMID1;
+.fi
+.SS "enum \fBeUICmdATune\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUICMD_ATUNE_NEXTCMD \fP\fP
+.TP
+\fB\fIUICMD_ATUNE_RESET \fP\fP
+.TP
+\fB\fIUICMD_ATUNE_ISTEP \fP\fP
+.TP
+\fB\fIUICMD_ATUNE_CALCMID \fP\fP
+.TP
+\fB\fIUICMD_ATUNE_CALCGAIN_CURRENT \fP\fP
+.TP
+\fB\fIUICMD_ATUNE_CALCGAIN_SPEED \fP\fP
+.TP
+\fB\fIUICMD_ATUNE_MID2_STOP \fP\fP
+.PP
+Definition at line 40 of file atune_struct\&.h\&.
+.PP
+.nf
+41 {
+42     UICMD_ATUNE_NEXTCMD                 = 0,
+43     UICMD_ATUNE_RESET,                  // 1
+44     UICMD_ATUNE_ISTEP,                  // 2
+45     UICMD_ATUNE_CALCMID,                // 3
+46     UICMD_ATUNE_CALCGAIN_CURRENT,       // 4
+47     UICMD_ATUNE_CALCGAIN_SPEED,         // 5
+48     UICMD_ATUNE_MID2_STOP,              // 6
+49 } eUICmdATune;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

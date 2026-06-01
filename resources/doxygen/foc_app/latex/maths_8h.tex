@@ -1,0 +1,2974 @@
+\hypertarget{maths_8h}{}\doxysection{pac\+\_\+foc/src/math/maths.h File Reference}
+\label{maths_8h}\index{pac\_foc/src/math/maths.h@{pac\_foc/src/math/maths.h}}
+
+
+Math support function declarations.  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}fix16.\+h\char`\"{}}\newline
+Include dependency graph for maths.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{maths_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{maths_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{maths_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\+R\+UE}}~1
+\item 
+\#define \mbox{\hyperlink{maths_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\+A\+L\+SE}}~0
+\item 
+\#define \mbox{\hyperlink{maths_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}}~3.\+14159265358979323846
+\item 
+\#define \mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}}~3.\+14159f
+\item 
+\#define \mbox{\hyperlink{maths_8h_af96e608f74972ef17d6e153ad264ce8b}{F\+L\+T\+\_\+2\+PI}}~(2.\+0f $\ast$ \mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_aed16f49b31688edb0fa539e603f04d3e}{F\+L\+T\+\_\+\+S\+Q\+R\+T\+\_\+3}}~1.\+732051f
+\item 
+\#define \mbox{\hyperlink{maths_8h_a6a9d423450b18ddbdb3b6a2208ffcaf9}{F\+I\+X16\+\_\+\+PI}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(\mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}}, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a563effd2032cc9f4be21f71250d0d1ad}{F\+I\+X16\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+2}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((\mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}} / 2), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_accc2cce96b785bfba2a91a3b747e1548}{F\+I\+X16\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+3}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((\mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}} / 3), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a3c4d3b5a9f0894b45a7eae28a46390f6}{F\+I\+X16\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+4}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((\mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}} / 4), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a10afaaf5420906c4eb9c9973ac7ef7ec}{F\+I\+X16\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+6}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((\mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}} / 6), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a553eebbef4914d437475e1d36f6e281f}{F\+I\+X16\+\_\+2\+PI}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((2.\+0f $\ast$ \mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}}), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_ae3b266b4c8ff20b40bfb221d15aa7d99}{F\+I\+X16\+\_\+2\+P\+I\+\_\+\+D\+I\+V\+\_\+3}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((\mbox{\hyperlink{maths_8h_af96e608f74972ef17d6e153ad264ce8b}{F\+L\+T\+\_\+2\+PI}} / 3), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_aaf3800438364a44fe75241356bfbe53d}{F\+I\+X16\+\_\+1\+P5\+\_\+\+PI}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((1.\+5f $\ast$ \mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}}), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a8ae72c3e71fe83b066d2508064d1e7de}{F\+I\+X16\+\_\+1\+P0\+\_\+\+D\+I\+V\+\_\+2\+\_\+\+PI}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((1.\+0f / \mbox{\hyperlink{maths_8h_af96e608f74972ef17d6e153ad264ce8b}{F\+L\+T\+\_\+2\+PI}}), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a4948123f0c76be4df441afd701185c9f}{F\+I\+X16\+\_\+\+P\+I\+\_\+\+X\+\_\+1024}}~(\mbox{\hyperlink{maths_8h_a6a9d423450b18ddbdb3b6a2208ffcaf9}{F\+I\+X16\+\_\+\+PI}} $<$$<$ 10)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a9c23cca4281c3cd6b51e6c402880b39b}{F\+I\+X16\+\_\+2\+P\+I\+\_\+\+X\+\_\+1024}}~(\mbox{\hyperlink{maths_8h_a553eebbef4914d437475e1d36f6e281f}{F\+I\+X16\+\_\+2\+PI}} $<$$<$ 10)
+\item 
+\#define \mbox{\hyperlink{maths_8h_ae4f9f28bb8820400659c4c2faff505c9}{F\+I\+X16\+\_\+\+M\+I\+N\+U\+S\+\_\+\+P\+I\+\_\+\+X\+\_\+1024}}~((int32\+\_\+t)(((-\/\mbox{\hyperlink{maths_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}} $\ast$ 1024) $\ast$ 0x10000) + 0.\+5))
+\item 
+\#define \mbox{\hyperlink{maths_8h_a84796faf8c1f3a42a5faccf818317769}{F\+I\+X16\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+180\+\_\+\+X\+\_\+1024}}~((int32\+\_\+t)(((\mbox{\hyperlink{maths_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}}/180 $\ast$ 1024) $\ast$ 0x10000) + 0.\+5))
+\item 
+\#define \mbox{\hyperlink{maths_8h_a1df5c58b3ac08e6c6d5214cada43cd8e}{F\+I\+X16\+\_\+\+N\+E\+G\+\_\+\+PI}}~0x\+F\+F\+F\+C\+D\+B\+C1
+\item 
+\#define \mbox{\hyperlink{maths_8h_a73f14f386cf9bc2993e563030efaba60}{F\+I\+X16\+\_\+\+N\+E\+G\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+4}}~0x\+F\+F\+F\+F35\+C3
+\item 
+\#define \mbox{\hyperlink{maths_8h_a57a408fa051638dc58e19796f80d550a}{F\+I\+X16\+\_\+\+N\+E\+G\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+3}}~0x\+F\+F\+F\+E\+F3\+EB
+\item 
+\#define \mbox{\hyperlink{maths_8h_af59a710e4a2eefb442e36bf5d22a6792}{F\+I\+X16\+\_\+\+N\+E\+G\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+2}}~0x\+F\+F\+F\+E6\+D\+E1
+\item 
+\#define \mbox{\hyperlink{maths_8h_a317ae35aa5c1f21e8d52b831dcde83ca}{F\+I\+X16\+\_\+1\+P0}}~0x00010000
+\item 
+\#define \mbox{\hyperlink{maths_8h_aa2ea9c97e80d6911c341d03397731815}{F\+I\+X16\+\_\+1\+P5}}~0x00018000
+\item 
+\#define \mbox{\hyperlink{maths_8h_acfd536dfd5a7209febf971f3fd542a09}{F\+I\+X16\+\_\+0\+P9}}~0x0000\+E666
+\item 
+\#define \mbox{\hyperlink{maths_8h_aae6aed6e8bb3fb9fd66800153b5a8779}{F\+I\+X16\+\_\+0\+P1}}~0x0000199A
+\item 
+\#define \mbox{\hyperlink{maths_8h_a07fb7647a3f013ee6974c0f4d6f8ac2b}{F\+I\+X16\+\_\+\+S\+Q\+R\+T\+\_\+3}}~0x0001\+B\+B67
+\item 
+\#define \mbox{\hyperlink{maths_8h_a22de349a73f76654dec769c7ccbc6284}{F\+I\+X16\+\_\+\+S\+Q\+R\+T\+\_\+3\+\_\+\+D\+I\+V\+\_\+2}}~0x0000\+D\+D\+B3
+\item 
+\#define \mbox{\hyperlink{maths_8h_a441c9f2b5af98d784cac218583514fd9}{F\+I\+X16\+\_\+1\+P0\+\_\+\+D\+I\+V\+\_\+\+S\+Q\+R\+T\+\_\+3}}~0x000093\+CD
+\item 
+\#define \mbox{\hyperlink{maths_8h_a06abf693f76dd6f7772372ff26093017}{F\+I\+X16\+\_\+1\+P0\+\_\+\+D\+I\+V\+\_\+100}}~0x0000028F
+\item 
+\#define \mbox{\hyperlink{maths_8h_a4a1c7106a35dacb275eb24a530442a34}{F\+I\+X16\+\_\+1\+\_\+\+D\+I\+V\+\_\+\+S\+Q\+R\+T2}}~0x0000\+B505
+\item 
+\#define \mbox{\hyperlink{maths_8h_af7e4c572e5a2e0e1ed91f1a7e88f57be}{F\+I\+X1\+Q14\+\_\+1\+P0\+\_\+\+D\+I\+V\+\_\+\+S\+Q\+R\+T\+\_\+3}}~0x49\+E6
+\item 
+\#define \mbox{\hyperlink{maths_8h_a0084faa35b0497abc289485b938bd5ee}{F\+I\+X\+Q1\+P14\+\_\+1\+P5}}~(0x00018000 $>$$>$ 2)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a4503730a7017b25549232fea431df102}{F\+I\+X\+Q1\+P14\+\_\+0\+P9}}~(0x0000\+E666 $>$$>$ 2)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a53c6fe47ae6b6790e44ad96bf01156c8}{F\+I\+X\+Q1\+P14\+\_\+\+S\+Q\+R\+T\+\_\+3}}~(0x0001\+B\+B67 $>$$>$ 2)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a9b8d8344ce24a40fa0a89c75fe470d1a}{F\+I\+X\+Q1\+P14\+\_\+\+S\+Q\+R\+T\+\_\+3\+\_\+\+D\+I\+V\+\_\+2}}~(0x0000\+D\+D\+B3 $>$$>$ 2)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a980b704eec5758bfb853fc8db700c9b9}{Z\+E\+R\+O\+\_\+\+P\+O\+I\+N\+T\+\_\+5773\+\_\+\+I\+N\+\_\+\+Q14}}~0x24\+F2
+\item 
+\#define \mbox{\hyperlink{maths_8h_acc2006bdefd9baf49f7c988704d7110f}{Z\+E\+R\+O\+\_\+\+P\+O\+I\+N\+T\+\_\+866\+\_\+\+I\+N\+\_\+\+Q14}}~0x376C
+\item 
+\#define \mbox{\hyperlink{maths_8h_acdb46ba54bc0db170119ce87378d28f8}{O\+N\+E\+\_\+\+D\+I\+V\+I\+D\+E\+\_\+\+B\+Y\+\_\+5\+\_\+\+F\+I\+X16}}~0x00003333
+\item 
+\#define \mbox{\hyperlink{maths_8h_a58a9d5e0f8470cbb27e14fe32b70e5ac}{F\+I\+X16\+\_\+1\+D\+I\+V3}}~0x5555
+\item 
+\#define \mbox{\hyperlink{maths_8h_aa070611aceceab6976d41423e092da9f}{Q00}}~0
+\item 
+\#define \mbox{\hyperlink{maths_8h_ada4630d1056a70b2e8e0b5efa86f3c5e}{Q01}}~1
+\item 
+\#define \mbox{\hyperlink{maths_8h_a68e8c3b92d1880e54905caf103e93236}{Q02}}~2
+\item 
+\#define \mbox{\hyperlink{maths_8h_a54fb581a36519790bdb7042f10f27fb5}{Q03}}~3
+\item 
+\#define \mbox{\hyperlink{maths_8h_af0f28bc21cf1c5127c001e0d53519f00}{Q04}}~4
+\item 
+\#define \mbox{\hyperlink{maths_8h_aeb17b4eacd9b651ea67b28359e99dc83}{Q05}}~5
+\item 
+\#define \mbox{\hyperlink{maths_8h_adeb492ed1697f26f028e6c058b5a2604}{Q06}}~6
+\item 
+\#define \mbox{\hyperlink{maths_8h_a5502297532d68b83a60121d6c76ad560}{Q07}}~7
+\item 
+\#define \mbox{\hyperlink{maths_8h_a4f07c617dbab90bd1df7a63204b4bfff}{Q08}}~8
+\item 
+\#define \mbox{\hyperlink{maths_8h_a756b012714b50704d51550eee64977f9}{Q09}}~9
+\item 
+\#define \mbox{\hyperlink{maths_8h_a693e3a9063a1e7582e682ffd4fe06f46}{Q10}}~10
+\item 
+\#define \mbox{\hyperlink{maths_8h_a2667934cffb93b5b656fbb9b11495d52}{Q11}}~11
+\item 
+\#define \mbox{\hyperlink{maths_8h_aa17f3fc65627eb4768c42c6b3c0e45c2}{Q12}}~12
+\item 
+\#define \mbox{\hyperlink{maths_8h_a20b103b2d99d52937c5c8bbb782fe1ed}{Q13}}~13
+\item 
+\#define \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}}~14
+\item 
+\#define \mbox{\hyperlink{maths_8h_a8a984e001751722078ccdb9e4e6e04e9}{Q15}}~15
+\item 
+\#define \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}~16
+\item 
+\#define \mbox{\hyperlink{maths_8h_a8053423c12e73f56942893134d703faf}{Q17}}~17
+\item 
+\#define \mbox{\hyperlink{maths_8h_aa6e43cbf7460a91a94c8699b2cb1d13a}{Q18}}~18
+\item 
+\#define \mbox{\hyperlink{maths_8h_ae7f78b59c54071af0018c5c71b22217d}{Q19}}~19
+\item 
+\#define \mbox{\hyperlink{maths_8h_a81b513e8af18f9217399d0806cbdfb0e}{Q20}}~20
+\item 
+\#define \mbox{\hyperlink{maths_8h_a99bb24769f4834ade22b53029ef59fea}{Q21}}~21
+\item 
+\#define \mbox{\hyperlink{maths_8h_ae92799bea6457224d138516adeeb30c1}{Q22}}~22
+\item 
+\#define \mbox{\hyperlink{maths_8h_af1870e7f9916220d3ce188fdd2b046e6}{Q23}}~23
+\item 
+\#define \mbox{\hyperlink{maths_8h_ab62dc43778c04bc5057e145bbfb258dd}{Q24}}~24
+\item 
+\#define \mbox{\hyperlink{maths_8h_a62183f0d7c0c45069938411e92e21c84}{Q25}}~25
+\item 
+\#define \mbox{\hyperlink{maths_8h_a6b6408dd9fe19d0d285d4617ae200b40}{Q26}}~26
+\item 
+\#define \mbox{\hyperlink{maths_8h_aee76fe84a6dab8fdcae5408f7ecd1b4d}{Q27}}~27
+\item 
+\#define \mbox{\hyperlink{maths_8h_a3f29485fcccd5245cf870d42fa6b8992}{Q28}}~28
+\item 
+\#define \mbox{\hyperlink{maths_8h_a8e38eacf810bdf0b504e426250b6108f}{Q29}}~29
+\item 
+\#define \mbox{\hyperlink{maths_8h_a5f365bc9e368baf2239b6aae26a4f128}{Q30}}~30
+\item 
+\#define \mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(const\+\_\+val,  q\+\_\+num)~( ((int32\+\_\+t) ((const\+\_\+val) $\ast$ (1 $<$$<$ (q\+\_\+num)))) )
+\item 
+\#define \mbox{\hyperlink{maths_8h_a7dd1d04e91fb1909e02ade73cb0121b1}{Q14\+\_\+0\+P5}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+5f, \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a2761f1b86e5f1aec55a8b366e072707b}{Q14\+\_\+1\+P0}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+0f, \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a6761ef52cfe1162095147eab0df4314d}{Q14\+\_\+1\+P5}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+5f, \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a622b48c3d750471a77285acc0baa51e5}{Q14\+\_\+1\+\_\+\+D\+I\+V\+\_\+3}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+33333333f, \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a42c5135915c1146ee298068bda0a8750}{Q14\+\_\+\+S\+Q\+R\+T3\+\_\+\+D\+I\+V\+\_\+\+S\+Q\+R\+T2}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+22474487f, \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a7e52a2f4f2c431887f08be3250ead650}{Q14\+\_\+1\+\_\+\+D\+I\+V\+\_\+\+S\+Q\+R\+T2}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+70710678f, \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a937296ccb349ec731a4445d8763d223d}{Q16\+\_\+0\+P5}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+5f, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a4fce3c86876aa43a3512bd03505c0f65}{Q16\+\_\+1\+P0}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+0f, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a0e6ba2ec74b22485764a19d7575db455}{Q16\+\_\+1\+P5}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+5f, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a8cad0ae4dae166a58ef6b01a8cbf9f42}{Q16\+\_\+\+S\+Q\+R\+T\+\_\+2}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+41421356f, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_adb088e50ce8ebb1d1fe0264cbe990197}{C\+O\+N\+S\+T\+\_\+7\+P\+I\+\_\+\+D\+I\+V\+\_\+6\+\_\+\+F\+I\+X16}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((7.\+0 $\ast$ \mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}} / 6.\+0), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_aba672cb8f2009f0ce8f7b82a48127016}{C\+O\+N\+S\+T\+\_\+5\+P\+I\+\_\+\+D\+I\+V\+\_\+6\+\_\+\+F\+I\+X16}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((5.\+0 $\ast$ \mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}} / 6.\+0), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_ac0c2ff0654ba727de495346191911da1}{Q16\+\_\+\+O\+N\+E\+\_\+\+D\+I\+V\+\_\+\+S\+Q\+R\+T3}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+57735027f, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a24f027525235b719444176b37ffa9bd2}{Q16\+\_\+1000}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1000.\+0f, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a772a958b7cb140a8bd3049ceeedfbbc4}{Q16\+\_\+100}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(100.\+0f, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}}~411775
+\item 
+\#define \mbox{\hyperlink{maths_8h_ad6d4d2d5dbf27aceb37bf86038b36328}{R\+A\+D2\+H\+Z\+\_\+\+F\+I\+X16}}~10430
+\item 
+\#define \mbox{\hyperlink{maths_8h_a34ae4c00fc54a0517f8adbc9fbab2324}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+0\+HZ}}~0
+\item 
+\#define \mbox{\hyperlink{maths_8h_abaac3cf08e5aab60981a6690f4361c81}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+0p5\+HZ}}~(\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}}/2)
+\item 
+\#define \mbox{\hyperlink{maths_8h_aa52a7b210003c7dc20846164fcf33b8b}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+0p75\+HZ}}~(3$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}}/4)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a5a9a751d231cd1576b7b517b1c23d818}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+1\+HZ}}~(1$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_ac9fe12ed63b76a5aa987c11170133c49}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+2\+HZ}}~(2$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a5d6e21deaf4b051aefe558db6ae943f9}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+3\+HZ}}~(3$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_aaf48e5e83dca8f2fc8bb642d26b0d62e}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+4\+HZ}}~(4$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a098896da30ba9738b7aa5d343b4cb650}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+5\+HZ}}~(5$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_ab3773466bc07943246c9009d804e9f79}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+6\+HZ}}~(6$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a374c84844432fdddfad25203f92b98f1}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+7\+HZ}}~(7$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a73d1b534bbb7783c233103a4cd972f2a}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+8\+HZ}}~(8$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a15d84cc8a6acc4ddcc108b129c989ed3}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+9\+HZ}}~(9$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_ae5e706f969ac2de69da420e0216ad9f0}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+10\+HZ}}~(10$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a3ed8d3b5591023764a581aa5bbc102f4}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+20\+HZ}}~(20$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_aefdc4b3d90742cb5bbed74e73b8a7d6f}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+25\+HZ}}~(25$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_acc748a74f0cc0d0edf7537beb31b0c74}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+50\+HZ}}~(50$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_ae2071341989b2d5039b5b18de2c81611}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+100\+HZ}}~(100$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a4270d7b7046ec3839e33607e630e11d5}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+150\+HZ}}~(150$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_ac15bd03664e93c19fe05eb3c73b30a31}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+200\+HZ}}~(200$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a5f808804ee846b4d335959e3abce793e}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+250\+HZ}}~(250$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a03fa2b2a639d77b11fd57bdd8246b259}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+300\+HZ}}~(300$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a3502d8bd10cb502ab37a1c7404757a72}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+400\+HZ}}~(400$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_af6a80cdc03f9d0cd2925520e33fc79f7}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+500\+HZ}}~(500$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a9eaad18263bb0806b3ed05fed83e2acf}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+600\+HZ}}~(600$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_ae51354a2b90a971f457c701a5ef8b091}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+750\+HZ}}~(750$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a4a893c87fe4b380c4c21c70157476df2}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+1000\+HZ}}~(1000$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_ab6e2044f3b8a77e148dfbc2980bcedb7}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+1500\+HZ}}~(1500$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_ae2ace5b96bd959d218b1bc78ef324e07}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+2000\+HZ}}~(2000$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a6cb07c0a7165b340012a3539095a5364}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+2500\+HZ}}~(2500$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a6a1bab7bcd60d8ea69a0b200737f3fd7}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+3000\+HZ}}~(3000$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a00e87f6feb84300f89ef74bb27f3313e}{C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+3500\+HZ}}~(3500$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a0b7798a2320fda330aa559bce060d447}{V\+D\+C\+\_\+1V}}~(1$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a847f1b383ac861976497a77373afe57b}{V\+D\+C\+\_\+5V}}~(5$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a18a8e9b4af395906f54eb8446559a287}{V\+D\+C\+\_\+6V}}~(6$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_ae607b6422a329a233dc6e3a278fa52cc}{V\+D\+C\+\_\+7V}}~(7$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a83a561fa29bfa3e75f436ccb5ce1bc7b}{V\+D\+C\+\_\+8V}}~(8$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a0c3970b82aaae919e155f37481ef1f1e}{V\+D\+C\+\_\+9V}}~(9$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a0737365ca5ba2b188f8eec1f2971632f}{V\+D\+C\+\_\+10V}}~(10$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_ab45a332e7431a734967f907d019a1859}{V\+D\+C\+\_\+11V}}~(11$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a038df4bcc79d54e607cae813b2ba1e67}{V\+D\+C\+\_\+12V}}~(12$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a0aa27ed2911ad91001e8d6538271aaf6}{V\+D\+C\+\_\+13V}}~(13$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_ad1c83d793b239545a64df5a374237aff}{V\+D\+C\+\_\+14V}}~(14$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_aa9f81785c098c00125d559d6d3087e71}{V\+D\+C\+\_\+15V}}~(15$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_ac2dcaafabad3b4f3efa0b884ae33e57f}{V\+D\+C\+\_\+16V}}~(16$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a919fcc09088b4f9920c9b2b14bb43fc0}{V\+D\+C\+\_\+17V}}~(17$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_ae08bd7ea84cc2abb790a35fac0c60766}{V\+D\+C\+\_\+18V}}~(18$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a565cf38ed76cb79491c15a91634b9ff2}{V\+D\+C\+\_\+19V}}~(19$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a5f1de1c8502d0bec6222169729c2724f}{V\+D\+C\+\_\+20V}}~(20$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_af21f552756440800c6ac0002abf71101}{V\+D\+C\+\_\+24V}}~(24$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a2764517e8379b7dceac8040ec807bacd}{V\+D\+C\+\_\+25V}}~(25$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a3fd9331b943af37a7a1164c71b6af615}{V\+D\+C\+\_\+30V}}~(30$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a62b44a5ecf46baa233f3d45fe6277a25}{V\+D\+C\+\_\+45V}}~(45$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a01bf9ca3b2a6783a99aa85e023afe017}{V\+D\+C\+\_\+50V}}~(50$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a1596b2270dd2e6226b56a215ecd30540}{V\+D\+C\+\_\+60V}}~(60$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a010930f0573d39ac5f77c91f66508392}{V\+D\+C\+\_\+70V}}~(70$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a0bbd05e668613f75555ebde0b0de75c1}{V\+D\+C\+\_\+75V}}~(75$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_aab2791bbacda90ff3ff80ec049c84628}{V\+D\+C\+\_\+100V}}~(100$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a2e9b7ec12c022147a5b98045728819a3}{V\+D\+C\+\_\+150V}}~(150$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a04c28c9cdf27cafc3824ef24014dd686}{V\+D\+C\+\_\+200V}}~(200$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a46eefbc224b115f9f3d23f71783b8085}{V\+D\+C\+\_\+250V}}~(250$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a47f8212fbb02030e570633ff71a4d87d}{V\+D\+C\+\_\+300V}}~(300$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_ae84974946a50a1cf1ca25870dbccf2a7}{V\+D\+C\+\_\+350V}}~(350$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_aa669602005678fd66070161a658ecb91}{V\+D\+C\+\_\+400V}}~(350$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a59a3a51404da31439f147bd00f81f979}{V\+D\+C\+\_\+450V}}~(450$\ast$65536)
+\item 
+\#define \mbox{\hyperlink{maths_8h_ab8f3600e6df1c5c1f62073b271825969}{D\+I\+F\+F\+\_\+\+A\+M\+P\+\_\+\+G\+A\+I\+N\+\_\+1X}}~1
+\item 
+\#define \mbox{\hyperlink{maths_8h_a79205257bd52a633fb34270bdc83f3da}{D\+I\+F\+F\+\_\+\+A\+M\+P\+\_\+\+G\+A\+I\+N\+\_\+2X}}~2
+\item 
+\#define \mbox{\hyperlink{maths_8h_ad77627bc85c2455d5d77dba8c1ec1219}{D\+I\+F\+F\+\_\+\+A\+M\+P\+\_\+\+G\+A\+I\+N\+\_\+4X}}~3
+\item 
+\#define \mbox{\hyperlink{maths_8h_a6d7cbf02c933656cc4f57fa7d054feca}{D\+I\+F\+F\+\_\+\+A\+M\+P\+\_\+\+G\+A\+I\+N\+\_\+8X}}~4
+\item 
+\#define \mbox{\hyperlink{maths_8h_a15c604d4590847cb4cde501ed60543e9}{D\+I\+F\+F\+\_\+\+A\+M\+P\+\_\+\+G\+A\+I\+N\+\_\+16X}}~5
+\item 
+\#define \mbox{\hyperlink{maths_8h_a1c8291c564d589526df62e86c9514e3e}{D\+I\+F\+F\+\_\+\+A\+M\+P\+\_\+\+G\+A\+I\+N\+\_\+32X}}~6
+\item 
+\#define \mbox{\hyperlink{maths_8h_adec1cae000e1f4ea865dcc1885b57a90}{D\+I\+F\+F\+\_\+\+A\+M\+P\+\_\+\+G\+A\+I\+N\+\_\+48X}}~7
+\item 
+\#define \mbox{\hyperlink{maths_8h_ae67f063daae846c2405aaa8e0647986b}{Q3\+\_\+0\+P000}}~0
+\item 
+\#define \mbox{\hyperlink{maths_8h_aaca61ceded6567b395ea2c2cc92afffd}{Q3\+\_\+0\+P125}}~1
+\item 
+\#define \mbox{\hyperlink{maths_8h_ae86133988fa0824329607577b1a8d683}{Q3\+\_\+0\+P250}}~2
+\item 
+\#define \mbox{\hyperlink{maths_8h_a5e7b7bc7d43fda217fd880156aef5441}{Q3\+\_\+0\+P375}}~3
+\item 
+\#define \mbox{\hyperlink{maths_8h_ad83705460bda2b2ac73f412f06e80632}{Q3\+\_\+0\+P500}}~4
+\item 
+\#define \mbox{\hyperlink{maths_8h_a0f4a7aacb894457310aa1a72682c9837}{Q3\+\_\+0\+P625}}~5
+\item 
+\#define \mbox{\hyperlink{maths_8h_a738c1181f1e250c74aed102ec9543b2e}{Q3\+\_\+0\+P750}}~6
+\item 
+\#define \mbox{\hyperlink{maths_8h_a547cb109e92c43c236618a9b7f1bb82d}{Q3\+\_\+0\+P875}}~7
+\item 
+\#define \mbox{\hyperlink{maths_8h_a8cc92336b60af319e1cf527340dd69d4}{B\+I\+T\+\_\+00}}~(1 $<$$<$ 0)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a12f9c1112ccf6ed75b109eae74a16e79}{B\+I\+T\+\_\+01}}~(1 $<$$<$ 1)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a5a8ebb5928dca9c49bded111d7bc7ad0}{B\+I\+T\+\_\+02}}~(1 $<$$<$ 2)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a88803359ca82475bbc185bc06d430b2a}{B\+I\+T\+\_\+03}}~(1 $<$$<$ 3)
+\item 
+\#define \mbox{\hyperlink{maths_8h_adb72982febaaafd9ed406183f7ffb1da}{B\+I\+T\+\_\+04}}~(1 $<$$<$ 4)
+\item 
+\#define \mbox{\hyperlink{maths_8h_af9e43f77ce96dc5ee3aac7bf86c952f0}{B\+I\+T\+\_\+05}}~(1 $<$$<$ 5)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a49eaf0fd28f145d58400bf37564f9f45}{B\+I\+T\+\_\+06}}~(1 $<$$<$ 6)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a99f2d436bdb4dd3bb81888362bfa2f4c}{B\+I\+T\+\_\+07}}~(1 $<$$<$ 7)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a5cdf9dffe1e8d1a88823939add02b88f}{B\+I\+T\+\_\+08}}~(1 $<$$<$ 8)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a002dcc81f1cbf474e74b02ebf10e2805}{B\+I\+T\+\_\+09}}~(1 $<$$<$ 9)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a68c53eefb39121d3abb4967a2ac5c683}{B\+I\+T\+\_\+10}}~(1 $<$$<$ 10)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a635fff3e12ecbdf623544d1732415ffb}{B\+I\+T\+\_\+11}}~(1 $<$$<$ 11)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a0ba5b67de2f048ed69dd42be5cf509d4}{B\+I\+T\+\_\+12}}~(1 $<$$<$ 12)
+\item 
+\#define \mbox{\hyperlink{maths_8h_ada1400714b9061183d116797f8775dce}{B\+I\+T\+\_\+13}}~(1 $<$$<$ 13)
+\item 
+\#define \mbox{\hyperlink{maths_8h_af50496d04a614ddef31ba9b1a8a92242}{B\+I\+T\+\_\+14}}~(1 $<$$<$ 14)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a7611ad2315432d0865055d2ff3066968}{B\+I\+T\+\_\+15}}~(1 $<$$<$ 15)
+\item 
+\#define \mbox{\hyperlink{maths_8h_aa5b535cdb2b0b6509a32f8a02ef64719}{B\+I\+T\+\_\+16}}~(1 $<$$<$ 16)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a719c9089fcb3f58137f378a921628d0a}{B\+I\+T\+\_\+17}}~(1 $<$$<$ 17)
+\item 
+\#define \mbox{\hyperlink{maths_8h_af07a5c39b3919b991251d343f923a873}{B\+I\+T\+\_\+18}}~(1 $<$$<$ 18)
+\item 
+\#define \mbox{\hyperlink{maths_8h_aba36883fad68c8173b9593446e434df8}{B\+I\+T\+\_\+19}}~(1 $<$$<$ 19)
+\item 
+\#define \mbox{\hyperlink{maths_8h_ac9001d4bab72ac449e9d77898e7281f0}{B\+I\+T\+\_\+20}}~(1 $<$$<$ 20)
+\item 
+\#define \mbox{\hyperlink{maths_8h_ae270a65bf72d98073b3ffd596f8a718b}{B\+I\+T\+\_\+21}}~(1 $<$$<$ 21)
+\item 
+\#define \mbox{\hyperlink{maths_8h_ac479e79f083a12cc19dc36620b7d9113}{B\+I\+T\+\_\+22}}~(1 $<$$<$ 22)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a70b366d9fe3292f07acf7be57f25a482}{B\+I\+T\+\_\+23}}~(1 $<$$<$ 23)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a2811bef23f495846be6b3321f4707d4c}{B\+I\+T\+\_\+24}}~(1 $<$$<$ 24)
+\item 
+\#define \mbox{\hyperlink{maths_8h_aec6d87ecf2b28eaed2d0ef3e670d562f}{B\+I\+T\+\_\+25}}~(1 $<$$<$ 25)
+\item 
+\#define \mbox{\hyperlink{maths_8h_aed69321efb136ed29cce0586ce1ab873}{B\+I\+T\+\_\+26}}~(1 $<$$<$ 26)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a49f55567349ae6b9aa15ce9da1a4f175}{B\+I\+T\+\_\+27}}~(1 $<$$<$ 27)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a9a170db0113ab9f9a23367ae7dfbfe3f}{B\+I\+T\+\_\+28}}~(1 $<$$<$ 28)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a150f7ce50b60a7baaafabf8378e74ceb}{B\+I\+T\+\_\+29}}~(1 $<$$<$ 29)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a48d9a21ee4088feb4b1743beac4b4a32}{B\+I\+T\+\_\+30}}~(1 $<$$<$ 30)
+\item 
+\#define \mbox{\hyperlink{maths_8h_ac397885e78e2ad51c518b95195a2a57e}{B\+I\+T\+\_\+31}}~(1 $<$$<$ 31)
+\item 
+\#define \mbox{\hyperlink{maths_8h_a65682f49db5edb58d4a8ce89d0cbdea6}{D\+E\+G\+\_\+m180\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x\+F\+F\+F\+C\+D\+B\+C1
+\item 
+\#define \mbox{\hyperlink{maths_8h_abfb59940ae673c99edd9ba2ff2722c85}{D\+E\+G\+\_\+m150\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x\+F\+F\+F\+D61\+CC
+\item 
+\#define \mbox{\hyperlink{maths_8h_a421395df2c03b7016257ce0de0993069}{D\+E\+G\+\_\+m120\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x\+F\+F\+F\+D\+E7\+F0
+\item 
+\#define \mbox{\hyperlink{maths_8h_a3c750465dc94e8cb73b1fd98a1ee0cc7}{D\+E\+G\+\_\+m090\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x\+F\+F\+F\+E6\+D\+E1
+\item 
+\#define \mbox{\hyperlink{maths_8h_a266c60a88dc76a5bed96f6de9c498e58}{D\+E\+G\+\_\+m060\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x\+F\+F\+F\+E\+F3\+EB
+\item 
+\#define \mbox{\hyperlink{maths_8h_a3a6b1afd9272d9dca54975214eef51d5}{D\+E\+G\+\_\+m030\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x\+F\+F\+F\+F79\+F6
+\item 
+\#define \mbox{\hyperlink{maths_8h_a2f68bf77fbe9a0e1a39cffed8c3db533}{D\+E\+G\+\_\+p000\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x00000000
+\item 
+\#define \mbox{\hyperlink{maths_8h_aaa4d0953377d6fc89815680baf1c5e15}{D\+E\+G\+\_\+p030\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x0000860A
+\item 
+\#define \mbox{\hyperlink{maths_8h_a89f97755aafd2d1edd869de9000ef2e2}{D\+E\+G\+\_\+p060\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x00010\+C15
+\item 
+\#define \mbox{\hyperlink{maths_8h_a4f83a875c2b64edc0133a63dc4372f52}{D\+E\+G\+\_\+p090\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x0001921F
+\item 
+\#define \mbox{\hyperlink{maths_8h_a8b0ff568f0d05b7efccf62d54b083fd3}{D\+E\+G\+\_\+p120\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x00021810
+\item 
+\#define \mbox{\hyperlink{maths_8h_a4747ab3c791a102bbd898b40689a08ab}{D\+E\+G\+\_\+p150\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x00029\+E34
+\item 
+\#define \mbox{\hyperlink{maths_8h_a14863889edbbda603c4a3b3f48c337ab}{D\+E\+G\+\_\+p180\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x0003243F
+\item 
+\#define \mbox{\hyperlink{maths_8h_ab2e8050651fa0360f128643634c15022}{D\+E\+G\+\_\+m135\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x\+F\+F\+F\+D\+A4\+D0
+\item 
+\#define \mbox{\hyperlink{maths_8h_af70797501edbf4110887ba7e2e4a4b47}{D\+E\+G\+\_\+p045\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x0000\+C910
+\item 
+\#define \mbox{\hyperlink{maths_8h_a009bbfc83497bf10f1f681c49524ebb0}{D\+E\+G\+\_\+m015\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x\+F\+F\+F\+F\+B\+C\+FB
+\item 
+\#define \mbox{\hyperlink{maths_8h_a1d7a33cd1cea71c1df66bb1947545845}{D\+E\+G\+\_\+p165\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x0002\+E13A
+\item 
+\#define \mbox{\hyperlink{maths_8h_a7d622e781d693e1754be4834ae9c28bc}{D\+E\+G\+\_\+p105\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x0001\+D525
+\item 
+\#define \mbox{\hyperlink{maths_8h_a48f22ad03810d978b8918b5159b8b65b}{D\+E\+G\+\_\+m075\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16}}~0x\+F\+F\+F\+E\+B0\+E6
+\item 
+\#define \mbox{\hyperlink{maths_8h_a27df169486fdd9e315986d3aea7cf958}{Z\+E\+R\+O\+\_\+\+P\+O\+I\+N\+T\+\_\+\+F\+I\+VE}}~0x00008000
+\item 
+\#define \mbox{\hyperlink{maths_8h_a171a1c9c546e43c472f3afe55b60f3f9}{Q16\+\_\+m\+V\+\_\+\+P\+E\+R\+\_\+\+A\+D\+C\+\_\+\+C\+O\+U\+NT}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(2500.\+0/1023.\+0, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a3bbfa7506d5eafa60dcdb79614cfdb84}{O\+N\+E\+\_\+\+T\+H\+I\+R\+D\+\_\+\+I\+N\+\_\+\+F\+I\+X16}}~0x00005555
+\item 
+\#define \mbox{\hyperlink{maths_8h_a078fcc8a14cad3e7807f9c36326ce675}{C\+O\+N\+V\+\_\+\+Q10\+T\+O\+Q14}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((16383.\+0f / 1023.\+0f), \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a15a61f3d4ab0de4b1c80b60bd7b819bc}{C\+O\+N\+V\+\_\+\+A\+D\+C2\+V\+A\+I\+O\+\_\+\+Q10\+Q14}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((2.\+5f / 1023.\+0f), \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_aa928cdf5bae309e4095d7955436c45c8}{C\+O\+N\+V\+\_\+\+A\+D\+C2\+V\+A\+I\+O\+\_\+\+Q10\+Q16}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((2.\+5f / 1023.\+0f), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a29e7a86b0c0348dfee5d593cec2856d8}{Q14\+\_\+\+O\+NE}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+0f, \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_a7dd1d04e91fb1909e02ade73cb0121b1}{Q14\+\_\+0\+P5}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+5f, \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})
+\item 
+\#define \mbox{\hyperlink{maths_8h_ac0bdf61483c6393d7c99c7dd07139320}{Q28\+\_\+\+O\+NE}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+0f, \mbox{\hyperlink{maths_8h_a3f29485fcccd5245cf870d42fa6b8992}{Q28}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{maths_8h_a292cc6836a9316ee646c918689614774}{q1p14\+\_\+t}}
+\item 
+typedef long int \mbox{\hyperlink{maths_8h_a4ac4ba7fab3ca94847eb277e1359390f}{q1p30\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{maths_8h_a98ed19b058a85283208af79c048973cb}{bubble\+\_\+sort\+\_\+array}} (int32\+\_\+t $\ast$sort\+\_\+array, uint32\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Bubble sort an array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{maths_8h_a09413eae8cd0a64db3eb97727cdc481a}{bubble\+\_\+sort\+\_\+array\+\_\+descending}} (int32\+\_\+t $\ast$sort\+\_\+array, uint32\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Bubble sort an array in descending order. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint16\+\_\+t \mbox{\hyperlink{maths_8h_ab5323ff4a0360144b4b45dc12fe0d929}{foc\+\_\+sin\+\_\+tbl}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Fixed point sine table for F\+OC controller. \end{DoxyCompactList}\item 
+const uint16\+\_\+t \mbox{\hyperlink{maths_8h_a9fdebd08c1633c998994e5da08ecd7b9}{foc\+\_\+circle\+\_\+tbl}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Fixed point circle table for F\+OC controller. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Math support function declarations. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{maths_8h_a8cc92336b60af319e1cf527340dd69d4}\label{maths_8h_a8cc92336b60af319e1cf527340dd69d4}} 
+\index{maths.h@{maths.h}!BIT\_00@{BIT\_00}}
+\index{BIT\_00@{BIT\_00}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_00}{BIT\_00}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+00~(1 $<$$<$ 0)}
+
+
+
+Definition at line 231 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a12f9c1112ccf6ed75b109eae74a16e79}\label{maths_8h_a12f9c1112ccf6ed75b109eae74a16e79}} 
+\index{maths.h@{maths.h}!BIT\_01@{BIT\_01}}
+\index{BIT\_01@{BIT\_01}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_01}{BIT\_01}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+01~(1 $<$$<$ 1)}
+
+
+
+Definition at line 232 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a5a8ebb5928dca9c49bded111d7bc7ad0}\label{maths_8h_a5a8ebb5928dca9c49bded111d7bc7ad0}} 
+\index{maths.h@{maths.h}!BIT\_02@{BIT\_02}}
+\index{BIT\_02@{BIT\_02}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_02}{BIT\_02}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+02~(1 $<$$<$ 2)}
+
+
+
+Definition at line 233 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a88803359ca82475bbc185bc06d430b2a}\label{maths_8h_a88803359ca82475bbc185bc06d430b2a}} 
+\index{maths.h@{maths.h}!BIT\_03@{BIT\_03}}
+\index{BIT\_03@{BIT\_03}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_03}{BIT\_03}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+03~(1 $<$$<$ 3)}
+
+
+
+Definition at line 234 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_adb72982febaaafd9ed406183f7ffb1da}\label{maths_8h_adb72982febaaafd9ed406183f7ffb1da}} 
+\index{maths.h@{maths.h}!BIT\_04@{BIT\_04}}
+\index{BIT\_04@{BIT\_04}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_04}{BIT\_04}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+04~(1 $<$$<$ 4)}
+
+
+
+Definition at line 235 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_af9e43f77ce96dc5ee3aac7bf86c952f0}\label{maths_8h_af9e43f77ce96dc5ee3aac7bf86c952f0}} 
+\index{maths.h@{maths.h}!BIT\_05@{BIT\_05}}
+\index{BIT\_05@{BIT\_05}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_05}{BIT\_05}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+05~(1 $<$$<$ 5)}
+
+
+
+Definition at line 236 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a49eaf0fd28f145d58400bf37564f9f45}\label{maths_8h_a49eaf0fd28f145d58400bf37564f9f45}} 
+\index{maths.h@{maths.h}!BIT\_06@{BIT\_06}}
+\index{BIT\_06@{BIT\_06}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_06}{BIT\_06}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+06~(1 $<$$<$ 6)}
+
+
+
+Definition at line 237 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a99f2d436bdb4dd3bb81888362bfa2f4c}\label{maths_8h_a99f2d436bdb4dd3bb81888362bfa2f4c}} 
+\index{maths.h@{maths.h}!BIT\_07@{BIT\_07}}
+\index{BIT\_07@{BIT\_07}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_07}{BIT\_07}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+07~(1 $<$$<$ 7)}
+
+
+
+Definition at line 238 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a5cdf9dffe1e8d1a88823939add02b88f}\label{maths_8h_a5cdf9dffe1e8d1a88823939add02b88f}} 
+\index{maths.h@{maths.h}!BIT\_08@{BIT\_08}}
+\index{BIT\_08@{BIT\_08}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_08}{BIT\_08}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+08~(1 $<$$<$ 8)}
+
+
+
+Definition at line 239 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a002dcc81f1cbf474e74b02ebf10e2805}\label{maths_8h_a002dcc81f1cbf474e74b02ebf10e2805}} 
+\index{maths.h@{maths.h}!BIT\_09@{BIT\_09}}
+\index{BIT\_09@{BIT\_09}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_09}{BIT\_09}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+09~(1 $<$$<$ 9)}
+
+
+
+Definition at line 240 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a68c53eefb39121d3abb4967a2ac5c683}\label{maths_8h_a68c53eefb39121d3abb4967a2ac5c683}} 
+\index{maths.h@{maths.h}!BIT\_10@{BIT\_10}}
+\index{BIT\_10@{BIT\_10}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_10}{BIT\_10}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+10~(1 $<$$<$ 10)}
+
+
+
+Definition at line 241 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a635fff3e12ecbdf623544d1732415ffb}\label{maths_8h_a635fff3e12ecbdf623544d1732415ffb}} 
+\index{maths.h@{maths.h}!BIT\_11@{BIT\_11}}
+\index{BIT\_11@{BIT\_11}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_11}{BIT\_11}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+11~(1 $<$$<$ 11)}
+
+
+
+Definition at line 242 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a0ba5b67de2f048ed69dd42be5cf509d4}\label{maths_8h_a0ba5b67de2f048ed69dd42be5cf509d4}} 
+\index{maths.h@{maths.h}!BIT\_12@{BIT\_12}}
+\index{BIT\_12@{BIT\_12}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_12}{BIT\_12}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+12~(1 $<$$<$ 12)}
+
+
+
+Definition at line 243 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ada1400714b9061183d116797f8775dce}\label{maths_8h_ada1400714b9061183d116797f8775dce}} 
+\index{maths.h@{maths.h}!BIT\_13@{BIT\_13}}
+\index{BIT\_13@{BIT\_13}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_13}{BIT\_13}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+13~(1 $<$$<$ 13)}
+
+
+
+Definition at line 244 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_af50496d04a614ddef31ba9b1a8a92242}\label{maths_8h_af50496d04a614ddef31ba9b1a8a92242}} 
+\index{maths.h@{maths.h}!BIT\_14@{BIT\_14}}
+\index{BIT\_14@{BIT\_14}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_14}{BIT\_14}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+14~(1 $<$$<$ 14)}
+
+
+
+Definition at line 245 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a7611ad2315432d0865055d2ff3066968}\label{maths_8h_a7611ad2315432d0865055d2ff3066968}} 
+\index{maths.h@{maths.h}!BIT\_15@{BIT\_15}}
+\index{BIT\_15@{BIT\_15}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_15}{BIT\_15}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+15~(1 $<$$<$ 15)}
+
+
+
+Definition at line 246 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aa5b535cdb2b0b6509a32f8a02ef64719}\label{maths_8h_aa5b535cdb2b0b6509a32f8a02ef64719}} 
+\index{maths.h@{maths.h}!BIT\_16@{BIT\_16}}
+\index{BIT\_16@{BIT\_16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_16}{BIT\_16}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+16~(1 $<$$<$ 16)}
+
+
+
+Definition at line 247 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a719c9089fcb3f58137f378a921628d0a}\label{maths_8h_a719c9089fcb3f58137f378a921628d0a}} 
+\index{maths.h@{maths.h}!BIT\_17@{BIT\_17}}
+\index{BIT\_17@{BIT\_17}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_17}{BIT\_17}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+17~(1 $<$$<$ 17)}
+
+
+
+Definition at line 248 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_af07a5c39b3919b991251d343f923a873}\label{maths_8h_af07a5c39b3919b991251d343f923a873}} 
+\index{maths.h@{maths.h}!BIT\_18@{BIT\_18}}
+\index{BIT\_18@{BIT\_18}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_18}{BIT\_18}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+18~(1 $<$$<$ 18)}
+
+
+
+Definition at line 249 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aba36883fad68c8173b9593446e434df8}\label{maths_8h_aba36883fad68c8173b9593446e434df8}} 
+\index{maths.h@{maths.h}!BIT\_19@{BIT\_19}}
+\index{BIT\_19@{BIT\_19}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_19}{BIT\_19}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+19~(1 $<$$<$ 19)}
+
+
+
+Definition at line 250 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ac9001d4bab72ac449e9d77898e7281f0}\label{maths_8h_ac9001d4bab72ac449e9d77898e7281f0}} 
+\index{maths.h@{maths.h}!BIT\_20@{BIT\_20}}
+\index{BIT\_20@{BIT\_20}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_20}{BIT\_20}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+20~(1 $<$$<$ 20)}
+
+
+
+Definition at line 251 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ae270a65bf72d98073b3ffd596f8a718b}\label{maths_8h_ae270a65bf72d98073b3ffd596f8a718b}} 
+\index{maths.h@{maths.h}!BIT\_21@{BIT\_21}}
+\index{BIT\_21@{BIT\_21}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_21}{BIT\_21}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+21~(1 $<$$<$ 21)}
+
+
+
+Definition at line 252 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ac479e79f083a12cc19dc36620b7d9113}\label{maths_8h_ac479e79f083a12cc19dc36620b7d9113}} 
+\index{maths.h@{maths.h}!BIT\_22@{BIT\_22}}
+\index{BIT\_22@{BIT\_22}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_22}{BIT\_22}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+22~(1 $<$$<$ 22)}
+
+
+
+Definition at line 253 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a70b366d9fe3292f07acf7be57f25a482}\label{maths_8h_a70b366d9fe3292f07acf7be57f25a482}} 
+\index{maths.h@{maths.h}!BIT\_23@{BIT\_23}}
+\index{BIT\_23@{BIT\_23}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_23}{BIT\_23}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+23~(1 $<$$<$ 23)}
+
+
+
+Definition at line 254 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a2811bef23f495846be6b3321f4707d4c}\label{maths_8h_a2811bef23f495846be6b3321f4707d4c}} 
+\index{maths.h@{maths.h}!BIT\_24@{BIT\_24}}
+\index{BIT\_24@{BIT\_24}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_24}{BIT\_24}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+24~(1 $<$$<$ 24)}
+
+
+
+Definition at line 255 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aec6d87ecf2b28eaed2d0ef3e670d562f}\label{maths_8h_aec6d87ecf2b28eaed2d0ef3e670d562f}} 
+\index{maths.h@{maths.h}!BIT\_25@{BIT\_25}}
+\index{BIT\_25@{BIT\_25}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_25}{BIT\_25}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+25~(1 $<$$<$ 25)}
+
+
+
+Definition at line 256 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aed69321efb136ed29cce0586ce1ab873}\label{maths_8h_aed69321efb136ed29cce0586ce1ab873}} 
+\index{maths.h@{maths.h}!BIT\_26@{BIT\_26}}
+\index{BIT\_26@{BIT\_26}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_26}{BIT\_26}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+26~(1 $<$$<$ 26)}
+
+
+
+Definition at line 257 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a49f55567349ae6b9aa15ce9da1a4f175}\label{maths_8h_a49f55567349ae6b9aa15ce9da1a4f175}} 
+\index{maths.h@{maths.h}!BIT\_27@{BIT\_27}}
+\index{BIT\_27@{BIT\_27}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_27}{BIT\_27}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+27~(1 $<$$<$ 27)}
+
+
+
+Definition at line 258 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a9a170db0113ab9f9a23367ae7dfbfe3f}\label{maths_8h_a9a170db0113ab9f9a23367ae7dfbfe3f}} 
+\index{maths.h@{maths.h}!BIT\_28@{BIT\_28}}
+\index{BIT\_28@{BIT\_28}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_28}{BIT\_28}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+28~(1 $<$$<$ 28)}
+
+
+
+Definition at line 259 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a150f7ce50b60a7baaafabf8378e74ceb}\label{maths_8h_a150f7ce50b60a7baaafabf8378e74ceb}} 
+\index{maths.h@{maths.h}!BIT\_29@{BIT\_29}}
+\index{BIT\_29@{BIT\_29}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_29}{BIT\_29}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+29~(1 $<$$<$ 29)}
+
+
+
+Definition at line 260 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a48d9a21ee4088feb4b1743beac4b4a32}\label{maths_8h_a48d9a21ee4088feb4b1743beac4b4a32}} 
+\index{maths.h@{maths.h}!BIT\_30@{BIT\_30}}
+\index{BIT\_30@{BIT\_30}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_30}{BIT\_30}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+30~(1 $<$$<$ 30)}
+
+
+
+Definition at line 261 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ac397885e78e2ad51c518b95195a2a57e}\label{maths_8h_ac397885e78e2ad51c518b95195a2a57e}} 
+\index{maths.h@{maths.h}!BIT\_31@{BIT\_31}}
+\index{BIT\_31@{BIT\_31}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{BIT\_31}{BIT\_31}}
+{\footnotesize\ttfamily \#define B\+I\+T\+\_\+31~(1 $<$$<$ 31)}
+
+
+
+Definition at line 262 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a34ae4c00fc54a0517f8adbc9fbab2324}\label{maths_8h_a34ae4c00fc54a0517f8adbc9fbab2324}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_0HZ@{CL\_SPEED\_0HZ}}
+\index{CL\_SPEED\_0HZ@{CL\_SPEED\_0HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_0HZ}{CL\_SPEED\_0HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+0\+HZ~0}
+
+
+
+Definition at line 148 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_abaac3cf08e5aab60981a6690f4361c81}\label{maths_8h_abaac3cf08e5aab60981a6690f4361c81}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_0p5HZ@{CL\_SPEED\_0p5HZ}}
+\index{CL\_SPEED\_0p5HZ@{CL\_SPEED\_0p5HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_0p5HZ}{CL\_SPEED\_0p5HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+0p5\+HZ~(\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}}/2)}
+
+
+
+Definition at line 149 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aa52a7b210003c7dc20846164fcf33b8b}\label{maths_8h_aa52a7b210003c7dc20846164fcf33b8b}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_0p75HZ@{CL\_SPEED\_0p75HZ}}
+\index{CL\_SPEED\_0p75HZ@{CL\_SPEED\_0p75HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_0p75HZ}{CL\_SPEED\_0p75HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+0p75\+HZ~(3$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}}/4)}
+
+
+
+Definition at line 150 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a4a893c87fe4b380c4c21c70157476df2}\label{maths_8h_a4a893c87fe4b380c4c21c70157476df2}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_1000HZ@{CL\_SPEED\_1000HZ}}
+\index{CL\_SPEED\_1000HZ@{CL\_SPEED\_1000HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_1000HZ}{CL\_SPEED\_1000HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+1000\+HZ~(1000$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 173 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ae2071341989b2d5039b5b18de2c81611}\label{maths_8h_ae2071341989b2d5039b5b18de2c81611}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_100HZ@{CL\_SPEED\_100HZ}}
+\index{CL\_SPEED\_100HZ@{CL\_SPEED\_100HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_100HZ}{CL\_SPEED\_100HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+100\+HZ~(100$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 164 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ae5e706f969ac2de69da420e0216ad9f0}\label{maths_8h_ae5e706f969ac2de69da420e0216ad9f0}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_10HZ@{CL\_SPEED\_10HZ}}
+\index{CL\_SPEED\_10HZ@{CL\_SPEED\_10HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_10HZ}{CL\_SPEED\_10HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+10\+HZ~(10$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 160 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ab6e2044f3b8a77e148dfbc2980bcedb7}\label{maths_8h_ab6e2044f3b8a77e148dfbc2980bcedb7}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_1500HZ@{CL\_SPEED\_1500HZ}}
+\index{CL\_SPEED\_1500HZ@{CL\_SPEED\_1500HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_1500HZ}{CL\_SPEED\_1500HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+1500\+HZ~(1500$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 174 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a4270d7b7046ec3839e33607e630e11d5}\label{maths_8h_a4270d7b7046ec3839e33607e630e11d5}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_150HZ@{CL\_SPEED\_150HZ}}
+\index{CL\_SPEED\_150HZ@{CL\_SPEED\_150HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_150HZ}{CL\_SPEED\_150HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+150\+HZ~(150$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 165 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a5a9a751d231cd1576b7b517b1c23d818}\label{maths_8h_a5a9a751d231cd1576b7b517b1c23d818}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_1HZ@{CL\_SPEED\_1HZ}}
+\index{CL\_SPEED\_1HZ@{CL\_SPEED\_1HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_1HZ}{CL\_SPEED\_1HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+1\+HZ~(1$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 151 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ae2ace5b96bd959d218b1bc78ef324e07}\label{maths_8h_ae2ace5b96bd959d218b1bc78ef324e07}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_2000HZ@{CL\_SPEED\_2000HZ}}
+\index{CL\_SPEED\_2000HZ@{CL\_SPEED\_2000HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_2000HZ}{CL\_SPEED\_2000HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+2000\+HZ~(2000$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 175 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ac15bd03664e93c19fe05eb3c73b30a31}\label{maths_8h_ac15bd03664e93c19fe05eb3c73b30a31}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_200HZ@{CL\_SPEED\_200HZ}}
+\index{CL\_SPEED\_200HZ@{CL\_SPEED\_200HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_200HZ}{CL\_SPEED\_200HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+200\+HZ~(200$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 166 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a3ed8d3b5591023764a581aa5bbc102f4}\label{maths_8h_a3ed8d3b5591023764a581aa5bbc102f4}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_20HZ@{CL\_SPEED\_20HZ}}
+\index{CL\_SPEED\_20HZ@{CL\_SPEED\_20HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_20HZ}{CL\_SPEED\_20HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+20\+HZ~(20$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 161 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a6cb07c0a7165b340012a3539095a5364}\label{maths_8h_a6cb07c0a7165b340012a3539095a5364}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_2500HZ@{CL\_SPEED\_2500HZ}}
+\index{CL\_SPEED\_2500HZ@{CL\_SPEED\_2500HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_2500HZ}{CL\_SPEED\_2500HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+2500\+HZ~(2500$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 176 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a5f808804ee846b4d335959e3abce793e}\label{maths_8h_a5f808804ee846b4d335959e3abce793e}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_250HZ@{CL\_SPEED\_250HZ}}
+\index{CL\_SPEED\_250HZ@{CL\_SPEED\_250HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_250HZ}{CL\_SPEED\_250HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+250\+HZ~(250$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 167 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aefdc4b3d90742cb5bbed74e73b8a7d6f}\label{maths_8h_aefdc4b3d90742cb5bbed74e73b8a7d6f}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_25HZ@{CL\_SPEED\_25HZ}}
+\index{CL\_SPEED\_25HZ@{CL\_SPEED\_25HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_25HZ}{CL\_SPEED\_25HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+25\+HZ~(25$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 162 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ac9fe12ed63b76a5aa987c11170133c49}\label{maths_8h_ac9fe12ed63b76a5aa987c11170133c49}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_2HZ@{CL\_SPEED\_2HZ}}
+\index{CL\_SPEED\_2HZ@{CL\_SPEED\_2HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_2HZ}{CL\_SPEED\_2HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+2\+HZ~(2$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 152 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a6a1bab7bcd60d8ea69a0b200737f3fd7}\label{maths_8h_a6a1bab7bcd60d8ea69a0b200737f3fd7}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_3000HZ@{CL\_SPEED\_3000HZ}}
+\index{CL\_SPEED\_3000HZ@{CL\_SPEED\_3000HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_3000HZ}{CL\_SPEED\_3000HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+3000\+HZ~(3000$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 177 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a03fa2b2a639d77b11fd57bdd8246b259}\label{maths_8h_a03fa2b2a639d77b11fd57bdd8246b259}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_300HZ@{CL\_SPEED\_300HZ}}
+\index{CL\_SPEED\_300HZ@{CL\_SPEED\_300HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_300HZ}{CL\_SPEED\_300HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+300\+HZ~(300$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 168 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a00e87f6feb84300f89ef74bb27f3313e}\label{maths_8h_a00e87f6feb84300f89ef74bb27f3313e}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_3500HZ@{CL\_SPEED\_3500HZ}}
+\index{CL\_SPEED\_3500HZ@{CL\_SPEED\_3500HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_3500HZ}{CL\_SPEED\_3500HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+3500\+HZ~(3500$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 178 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a5d6e21deaf4b051aefe558db6ae943f9}\label{maths_8h_a5d6e21deaf4b051aefe558db6ae943f9}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_3HZ@{CL\_SPEED\_3HZ}}
+\index{CL\_SPEED\_3HZ@{CL\_SPEED\_3HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_3HZ}{CL\_SPEED\_3HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+3\+HZ~(3$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 153 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a3502d8bd10cb502ab37a1c7404757a72}\label{maths_8h_a3502d8bd10cb502ab37a1c7404757a72}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_400HZ@{CL\_SPEED\_400HZ}}
+\index{CL\_SPEED\_400HZ@{CL\_SPEED\_400HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_400HZ}{CL\_SPEED\_400HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+400\+HZ~(400$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 169 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aaf48e5e83dca8f2fc8bb642d26b0d62e}\label{maths_8h_aaf48e5e83dca8f2fc8bb642d26b0d62e}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_4HZ@{CL\_SPEED\_4HZ}}
+\index{CL\_SPEED\_4HZ@{CL\_SPEED\_4HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_4HZ}{CL\_SPEED\_4HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+4\+HZ~(4$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 154 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_af6a80cdc03f9d0cd2925520e33fc79f7}\label{maths_8h_af6a80cdc03f9d0cd2925520e33fc79f7}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_500HZ@{CL\_SPEED\_500HZ}}
+\index{CL\_SPEED\_500HZ@{CL\_SPEED\_500HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_500HZ}{CL\_SPEED\_500HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+500\+HZ~(500$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 170 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_acc748a74f0cc0d0edf7537beb31b0c74}\label{maths_8h_acc748a74f0cc0d0edf7537beb31b0c74}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_50HZ@{CL\_SPEED\_50HZ}}
+\index{CL\_SPEED\_50HZ@{CL\_SPEED\_50HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_50HZ}{CL\_SPEED\_50HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+50\+HZ~(50$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 163 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a098896da30ba9738b7aa5d343b4cb650}\label{maths_8h_a098896da30ba9738b7aa5d343b4cb650}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_5HZ@{CL\_SPEED\_5HZ}}
+\index{CL\_SPEED\_5HZ@{CL\_SPEED\_5HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_5HZ}{CL\_SPEED\_5HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+5\+HZ~(5$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 155 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a9eaad18263bb0806b3ed05fed83e2acf}\label{maths_8h_a9eaad18263bb0806b3ed05fed83e2acf}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_600HZ@{CL\_SPEED\_600HZ}}
+\index{CL\_SPEED\_600HZ@{CL\_SPEED\_600HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_600HZ}{CL\_SPEED\_600HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+600\+HZ~(600$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 171 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ab3773466bc07943246c9009d804e9f79}\label{maths_8h_ab3773466bc07943246c9009d804e9f79}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_6HZ@{CL\_SPEED\_6HZ}}
+\index{CL\_SPEED\_6HZ@{CL\_SPEED\_6HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_6HZ}{CL\_SPEED\_6HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+6\+HZ~(6$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 156 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ae51354a2b90a971f457c701a5ef8b091}\label{maths_8h_ae51354a2b90a971f457c701a5ef8b091}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_750HZ@{CL\_SPEED\_750HZ}}
+\index{CL\_SPEED\_750HZ@{CL\_SPEED\_750HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_750HZ}{CL\_SPEED\_750HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+750\+HZ~(750$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 172 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a374c84844432fdddfad25203f92b98f1}\label{maths_8h_a374c84844432fdddfad25203f92b98f1}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_7HZ@{CL\_SPEED\_7HZ}}
+\index{CL\_SPEED\_7HZ@{CL\_SPEED\_7HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_7HZ}{CL\_SPEED\_7HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+7\+HZ~(7$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 157 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a73d1b534bbb7783c233103a4cd972f2a}\label{maths_8h_a73d1b534bbb7783c233103a4cd972f2a}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_8HZ@{CL\_SPEED\_8HZ}}
+\index{CL\_SPEED\_8HZ@{CL\_SPEED\_8HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_8HZ}{CL\_SPEED\_8HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+8\+HZ~(8$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 158 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a15d84cc8a6acc4ddcc108b129c989ed3}\label{maths_8h_a15d84cc8a6acc4ddcc108b129c989ed3}} 
+\index{maths.h@{maths.h}!CL\_SPEED\_9HZ@{CL\_SPEED\_9HZ}}
+\index{CL\_SPEED\_9HZ@{CL\_SPEED\_9HZ}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CL\_SPEED\_9HZ}{CL\_SPEED\_9HZ}}
+{\footnotesize\ttfamily \#define C\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+9\+HZ~(9$\ast$\mbox{\hyperlink{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}{H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16}})}
+
+
+
+Definition at line 159 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aba672cb8f2009f0ce8f7b82a48127016}\label{maths_8h_aba672cb8f2009f0ce8f7b82a48127016}} 
+\index{maths.h@{maths.h}!CONST\_5PI\_DIV\_6\_FIX16@{CONST\_5PI\_DIV\_6\_FIX16}}
+\index{CONST\_5PI\_DIV\_6\_FIX16@{CONST\_5PI\_DIV\_6\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CONST\_5PI\_DIV\_6\_FIX16}{CONST\_5PI\_DIV\_6\_FIX16}}
+{\footnotesize\ttfamily \#define C\+O\+N\+S\+T\+\_\+5\+P\+I\+\_\+\+D\+I\+V\+\_\+6\+\_\+\+F\+I\+X16~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((5.\+0 $\ast$ \mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}} / 6.\+0), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 135 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_adb088e50ce8ebb1d1fe0264cbe990197}\label{maths_8h_adb088e50ce8ebb1d1fe0264cbe990197}} 
+\index{maths.h@{maths.h}!CONST\_7PI\_DIV\_6\_FIX16@{CONST\_7PI\_DIV\_6\_FIX16}}
+\index{CONST\_7PI\_DIV\_6\_FIX16@{CONST\_7PI\_DIV\_6\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CONST\_7PI\_DIV\_6\_FIX16}{CONST\_7PI\_DIV\_6\_FIX16}}
+{\footnotesize\ttfamily \#define C\+O\+N\+S\+T\+\_\+7\+P\+I\+\_\+\+D\+I\+V\+\_\+6\+\_\+\+F\+I\+X16~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((7.\+0 $\ast$ \mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}} / 6.\+0), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 134 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a15a61f3d4ab0de4b1c80b60bd7b819bc}\label{maths_8h_a15a61f3d4ab0de4b1c80b60bd7b819bc}} 
+\index{maths.h@{maths.h}!CONV\_ADC2VAIO\_Q10Q14@{CONV\_ADC2VAIO\_Q10Q14}}
+\index{CONV\_ADC2VAIO\_Q10Q14@{CONV\_ADC2VAIO\_Q10Q14}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CONV\_ADC2VAIO\_Q10Q14}{CONV\_ADC2VAIO\_Q10Q14}}
+{\footnotesize\ttfamily \#define C\+O\+N\+V\+\_\+\+A\+D\+C2\+V\+A\+I\+O\+\_\+\+Q10\+Q14~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((2.\+5f / 1023.\+0f), \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})}
+
+
+
+Definition at line 291 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aa928cdf5bae309e4095d7955436c45c8}\label{maths_8h_aa928cdf5bae309e4095d7955436c45c8}} 
+\index{maths.h@{maths.h}!CONV\_ADC2VAIO\_Q10Q16@{CONV\_ADC2VAIO\_Q10Q16}}
+\index{CONV\_ADC2VAIO\_Q10Q16@{CONV\_ADC2VAIO\_Q10Q16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CONV\_ADC2VAIO\_Q10Q16}{CONV\_ADC2VAIO\_Q10Q16}}
+{\footnotesize\ttfamily \#define C\+O\+N\+V\+\_\+\+A\+D\+C2\+V\+A\+I\+O\+\_\+\+Q10\+Q16~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((2.\+5f / 1023.\+0f), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 292 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a078fcc8a14cad3e7807f9c36326ce675}\label{maths_8h_a078fcc8a14cad3e7807f9c36326ce675}} 
+\index{maths.h@{maths.h}!CONV\_Q10TOQ14@{CONV\_Q10TOQ14}}
+\index{CONV\_Q10TOQ14@{CONV\_Q10TOQ14}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{CONV\_Q10TOQ14}{CONV\_Q10TOQ14}}
+{\footnotesize\ttfamily \#define C\+O\+N\+V\+\_\+\+Q10\+T\+O\+Q14~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((16383.\+0f / 1023.\+0f), \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})}
+
+
+
+Definition at line 290 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a009bbfc83497bf10f1f681c49524ebb0}\label{maths_8h_a009bbfc83497bf10f1f681c49524ebb0}} 
+\index{maths.h@{maths.h}!DEG\_m015\_IN\_RAD\_FIX16@{DEG\_m015\_IN\_RAD\_FIX16}}
+\index{DEG\_m015\_IN\_RAD\_FIX16@{DEG\_m015\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_m015\_IN\_RAD\_FIX16}{DEG\_m015\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+m015\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x\+F\+F\+F\+F\+B\+C\+FB}
+
+
+
+Definition at line 280 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a3a6b1afd9272d9dca54975214eef51d5}\label{maths_8h_a3a6b1afd9272d9dca54975214eef51d5}} 
+\index{maths.h@{maths.h}!DEG\_m030\_IN\_RAD\_FIX16@{DEG\_m030\_IN\_RAD\_FIX16}}
+\index{DEG\_m030\_IN\_RAD\_FIX16@{DEG\_m030\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_m030\_IN\_RAD\_FIX16}{DEG\_m030\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+m030\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x\+F\+F\+F\+F79\+F6}
+
+
+
+Definition at line 269 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a266c60a88dc76a5bed96f6de9c498e58}\label{maths_8h_a266c60a88dc76a5bed96f6de9c498e58}} 
+\index{maths.h@{maths.h}!DEG\_m060\_IN\_RAD\_FIX16@{DEG\_m060\_IN\_RAD\_FIX16}}
+\index{DEG\_m060\_IN\_RAD\_FIX16@{DEG\_m060\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_m060\_IN\_RAD\_FIX16}{DEG\_m060\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+m060\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x\+F\+F\+F\+E\+F3\+EB}
+
+
+
+Definition at line 268 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a48f22ad03810d978b8918b5159b8b65b}\label{maths_8h_a48f22ad03810d978b8918b5159b8b65b}} 
+\index{maths.h@{maths.h}!DEG\_m075\_IN\_RAD\_FIX16@{DEG\_m075\_IN\_RAD\_FIX16}}
+\index{DEG\_m075\_IN\_RAD\_FIX16@{DEG\_m075\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_m075\_IN\_RAD\_FIX16}{DEG\_m075\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+m075\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x\+F\+F\+F\+E\+B0\+E6}
+
+
+
+Definition at line 283 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a3c750465dc94e8cb73b1fd98a1ee0cc7}\label{maths_8h_a3c750465dc94e8cb73b1fd98a1ee0cc7}} 
+\index{maths.h@{maths.h}!DEG\_m090\_IN\_RAD\_FIX16@{DEG\_m090\_IN\_RAD\_FIX16}}
+\index{DEG\_m090\_IN\_RAD\_FIX16@{DEG\_m090\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_m090\_IN\_RAD\_FIX16}{DEG\_m090\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+m090\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x\+F\+F\+F\+E6\+D\+E1}
+
+
+
+Definition at line 267 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a421395df2c03b7016257ce0de0993069}\label{maths_8h_a421395df2c03b7016257ce0de0993069}} 
+\index{maths.h@{maths.h}!DEG\_m120\_IN\_RAD\_FIX16@{DEG\_m120\_IN\_RAD\_FIX16}}
+\index{DEG\_m120\_IN\_RAD\_FIX16@{DEG\_m120\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_m120\_IN\_RAD\_FIX16}{DEG\_m120\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+m120\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x\+F\+F\+F\+D\+E7\+F0}
+
+
+
+Definition at line 266 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ab2e8050651fa0360f128643634c15022}\label{maths_8h_ab2e8050651fa0360f128643634c15022}} 
+\index{maths.h@{maths.h}!DEG\_m135\_IN\_RAD\_FIX16@{DEG\_m135\_IN\_RAD\_FIX16}}
+\index{DEG\_m135\_IN\_RAD\_FIX16@{DEG\_m135\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_m135\_IN\_RAD\_FIX16}{DEG\_m135\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+m135\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x\+F\+F\+F\+D\+A4\+D0}
+
+
+
+Definition at line 278 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_abfb59940ae673c99edd9ba2ff2722c85}\label{maths_8h_abfb59940ae673c99edd9ba2ff2722c85}} 
+\index{maths.h@{maths.h}!DEG\_m150\_IN\_RAD\_FIX16@{DEG\_m150\_IN\_RAD\_FIX16}}
+\index{DEG\_m150\_IN\_RAD\_FIX16@{DEG\_m150\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_m150\_IN\_RAD\_FIX16}{DEG\_m150\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+m150\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x\+F\+F\+F\+D61\+CC}
+
+
+
+Definition at line 265 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a65682f49db5edb58d4a8ce89d0cbdea6}\label{maths_8h_a65682f49db5edb58d4a8ce89d0cbdea6}} 
+\index{maths.h@{maths.h}!DEG\_m180\_IN\_RAD\_FIX16@{DEG\_m180\_IN\_RAD\_FIX16}}
+\index{DEG\_m180\_IN\_RAD\_FIX16@{DEG\_m180\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_m180\_IN\_RAD\_FIX16}{DEG\_m180\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+m180\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x\+F\+F\+F\+C\+D\+B\+C1}
+
+
+
+Definition at line 264 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a2f68bf77fbe9a0e1a39cffed8c3db533}\label{maths_8h_a2f68bf77fbe9a0e1a39cffed8c3db533}} 
+\index{maths.h@{maths.h}!DEG\_p000\_IN\_RAD\_FIX16@{DEG\_p000\_IN\_RAD\_FIX16}}
+\index{DEG\_p000\_IN\_RAD\_FIX16@{DEG\_p000\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_p000\_IN\_RAD\_FIX16}{DEG\_p000\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+p000\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x00000000}
+
+
+
+Definition at line 270 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aaa4d0953377d6fc89815680baf1c5e15}\label{maths_8h_aaa4d0953377d6fc89815680baf1c5e15}} 
+\index{maths.h@{maths.h}!DEG\_p030\_IN\_RAD\_FIX16@{DEG\_p030\_IN\_RAD\_FIX16}}
+\index{DEG\_p030\_IN\_RAD\_FIX16@{DEG\_p030\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_p030\_IN\_RAD\_FIX16}{DEG\_p030\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+p030\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x0000860A}
+
+
+
+Definition at line 271 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_af70797501edbf4110887ba7e2e4a4b47}\label{maths_8h_af70797501edbf4110887ba7e2e4a4b47}} 
+\index{maths.h@{maths.h}!DEG\_p045\_IN\_RAD\_FIX16@{DEG\_p045\_IN\_RAD\_FIX16}}
+\index{DEG\_p045\_IN\_RAD\_FIX16@{DEG\_p045\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_p045\_IN\_RAD\_FIX16}{DEG\_p045\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+p045\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x0000\+C910}
+
+
+
+Definition at line 279 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a89f97755aafd2d1edd869de9000ef2e2}\label{maths_8h_a89f97755aafd2d1edd869de9000ef2e2}} 
+\index{maths.h@{maths.h}!DEG\_p060\_IN\_RAD\_FIX16@{DEG\_p060\_IN\_RAD\_FIX16}}
+\index{DEG\_p060\_IN\_RAD\_FIX16@{DEG\_p060\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_p060\_IN\_RAD\_FIX16}{DEG\_p060\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+p060\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x00010\+C15}
+
+
+
+Definition at line 272 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a4f83a875c2b64edc0133a63dc4372f52}\label{maths_8h_a4f83a875c2b64edc0133a63dc4372f52}} 
+\index{maths.h@{maths.h}!DEG\_p090\_IN\_RAD\_FIX16@{DEG\_p090\_IN\_RAD\_FIX16}}
+\index{DEG\_p090\_IN\_RAD\_FIX16@{DEG\_p090\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_p090\_IN\_RAD\_FIX16}{DEG\_p090\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+p090\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x0001921F}
+
+
+
+Definition at line 273 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a7d622e781d693e1754be4834ae9c28bc}\label{maths_8h_a7d622e781d693e1754be4834ae9c28bc}} 
+\index{maths.h@{maths.h}!DEG\_p105\_IN\_RAD\_FIX16@{DEG\_p105\_IN\_RAD\_FIX16}}
+\index{DEG\_p105\_IN\_RAD\_FIX16@{DEG\_p105\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_p105\_IN\_RAD\_FIX16}{DEG\_p105\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+p105\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x0001\+D525}
+
+
+
+Definition at line 282 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a8b0ff568f0d05b7efccf62d54b083fd3}\label{maths_8h_a8b0ff568f0d05b7efccf62d54b083fd3}} 
+\index{maths.h@{maths.h}!DEG\_p120\_IN\_RAD\_FIX16@{DEG\_p120\_IN\_RAD\_FIX16}}
+\index{DEG\_p120\_IN\_RAD\_FIX16@{DEG\_p120\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_p120\_IN\_RAD\_FIX16}{DEG\_p120\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+p120\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x00021810}
+
+
+
+Definition at line 274 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a4747ab3c791a102bbd898b40689a08ab}\label{maths_8h_a4747ab3c791a102bbd898b40689a08ab}} 
+\index{maths.h@{maths.h}!DEG\_p150\_IN\_RAD\_FIX16@{DEG\_p150\_IN\_RAD\_FIX16}}
+\index{DEG\_p150\_IN\_RAD\_FIX16@{DEG\_p150\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_p150\_IN\_RAD\_FIX16}{DEG\_p150\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+p150\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x00029\+E34}
+
+
+
+Definition at line 275 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a1d7a33cd1cea71c1df66bb1947545845}\label{maths_8h_a1d7a33cd1cea71c1df66bb1947545845}} 
+\index{maths.h@{maths.h}!DEG\_p165\_IN\_RAD\_FIX16@{DEG\_p165\_IN\_RAD\_FIX16}}
+\index{DEG\_p165\_IN\_RAD\_FIX16@{DEG\_p165\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_p165\_IN\_RAD\_FIX16}{DEG\_p165\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+p165\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x0002\+E13A}
+
+
+
+Definition at line 281 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a14863889edbbda603c4a3b3f48c337ab}\label{maths_8h_a14863889edbbda603c4a3b3f48c337ab}} 
+\index{maths.h@{maths.h}!DEG\_p180\_IN\_RAD\_FIX16@{DEG\_p180\_IN\_RAD\_FIX16}}
+\index{DEG\_p180\_IN\_RAD\_FIX16@{DEG\_p180\_IN\_RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DEG\_p180\_IN\_RAD\_FIX16}{DEG\_p180\_IN\_RAD\_FIX16}}
+{\footnotesize\ttfamily \#define D\+E\+G\+\_\+p180\+\_\+\+I\+N\+\_\+\+R\+A\+D\+\_\+\+F\+I\+X16~0x0003243F}
+
+
+
+Definition at line 276 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a15c604d4590847cb4cde501ed60543e9}\label{maths_8h_a15c604d4590847cb4cde501ed60543e9}} 
+\index{maths.h@{maths.h}!DIFF\_AMP\_GAIN\_16X@{DIFF\_AMP\_GAIN\_16X}}
+\index{DIFF\_AMP\_GAIN\_16X@{DIFF\_AMP\_GAIN\_16X}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DIFF\_AMP\_GAIN\_16X}{DIFF\_AMP\_GAIN\_16X}}
+{\footnotesize\ttfamily \#define D\+I\+F\+F\+\_\+\+A\+M\+P\+\_\+\+G\+A\+I\+N\+\_\+16X~5}
+
+
+
+Definition at line 218 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ab8f3600e6df1c5c1f62073b271825969}\label{maths_8h_ab8f3600e6df1c5c1f62073b271825969}} 
+\index{maths.h@{maths.h}!DIFF\_AMP\_GAIN\_1X@{DIFF\_AMP\_GAIN\_1X}}
+\index{DIFF\_AMP\_GAIN\_1X@{DIFF\_AMP\_GAIN\_1X}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DIFF\_AMP\_GAIN\_1X}{DIFF\_AMP\_GAIN\_1X}}
+{\footnotesize\ttfamily \#define D\+I\+F\+F\+\_\+\+A\+M\+P\+\_\+\+G\+A\+I\+N\+\_\+1X~1}
+
+
+
+Definition at line 214 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a79205257bd52a633fb34270bdc83f3da}\label{maths_8h_a79205257bd52a633fb34270bdc83f3da}} 
+\index{maths.h@{maths.h}!DIFF\_AMP\_GAIN\_2X@{DIFF\_AMP\_GAIN\_2X}}
+\index{DIFF\_AMP\_GAIN\_2X@{DIFF\_AMP\_GAIN\_2X}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DIFF\_AMP\_GAIN\_2X}{DIFF\_AMP\_GAIN\_2X}}
+{\footnotesize\ttfamily \#define D\+I\+F\+F\+\_\+\+A\+M\+P\+\_\+\+G\+A\+I\+N\+\_\+2X~2}
+
+
+
+Definition at line 215 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a1c8291c564d589526df62e86c9514e3e}\label{maths_8h_a1c8291c564d589526df62e86c9514e3e}} 
+\index{maths.h@{maths.h}!DIFF\_AMP\_GAIN\_32X@{DIFF\_AMP\_GAIN\_32X}}
+\index{DIFF\_AMP\_GAIN\_32X@{DIFF\_AMP\_GAIN\_32X}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DIFF\_AMP\_GAIN\_32X}{DIFF\_AMP\_GAIN\_32X}}
+{\footnotesize\ttfamily \#define D\+I\+F\+F\+\_\+\+A\+M\+P\+\_\+\+G\+A\+I\+N\+\_\+32X~6}
+
+
+
+Definition at line 219 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_adec1cae000e1f4ea865dcc1885b57a90}\label{maths_8h_adec1cae000e1f4ea865dcc1885b57a90}} 
+\index{maths.h@{maths.h}!DIFF\_AMP\_GAIN\_48X@{DIFF\_AMP\_GAIN\_48X}}
+\index{DIFF\_AMP\_GAIN\_48X@{DIFF\_AMP\_GAIN\_48X}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DIFF\_AMP\_GAIN\_48X}{DIFF\_AMP\_GAIN\_48X}}
+{\footnotesize\ttfamily \#define D\+I\+F\+F\+\_\+\+A\+M\+P\+\_\+\+G\+A\+I\+N\+\_\+48X~7}
+
+
+
+Definition at line 220 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ad77627bc85c2455d5d77dba8c1ec1219}\label{maths_8h_ad77627bc85c2455d5d77dba8c1ec1219}} 
+\index{maths.h@{maths.h}!DIFF\_AMP\_GAIN\_4X@{DIFF\_AMP\_GAIN\_4X}}
+\index{DIFF\_AMP\_GAIN\_4X@{DIFF\_AMP\_GAIN\_4X}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DIFF\_AMP\_GAIN\_4X}{DIFF\_AMP\_GAIN\_4X}}
+{\footnotesize\ttfamily \#define D\+I\+F\+F\+\_\+\+A\+M\+P\+\_\+\+G\+A\+I\+N\+\_\+4X~3}
+
+
+
+Definition at line 216 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a6d7cbf02c933656cc4f57fa7d054feca}\label{maths_8h_a6d7cbf02c933656cc4f57fa7d054feca}} 
+\index{maths.h@{maths.h}!DIFF\_AMP\_GAIN\_8X@{DIFF\_AMP\_GAIN\_8X}}
+\index{DIFF\_AMP\_GAIN\_8X@{DIFF\_AMP\_GAIN\_8X}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{DIFF\_AMP\_GAIN\_8X}{DIFF\_AMP\_GAIN\_8X}}
+{\footnotesize\ttfamily \#define D\+I\+F\+F\+\_\+\+A\+M\+P\+\_\+\+G\+A\+I\+N\+\_\+8X~4}
+
+
+
+Definition at line 217 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aa93f0eb578d23995850d61f7d61c55c1}\label{maths_8h_aa93f0eb578d23995850d61f7d61c55c1}} 
+\index{maths.h@{maths.h}!FALSE@{FALSE}}
+\index{FALSE@{FALSE}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FALSE}{FALSE}}
+{\footnotesize\ttfamily \#define F\+A\+L\+SE~0}
+
+
+
+Definition at line 34 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aae6aed6e8bb3fb9fd66800153b5a8779}\label{maths_8h_aae6aed6e8bb3fb9fd66800153b5a8779}} 
+\index{maths.h@{maths.h}!FIX16\_0P1@{FIX16\_0P1}}
+\index{FIX16\_0P1@{FIX16\_0P1}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_0P1}{FIX16\_0P1}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+0\+P1~0x0000199A}
+
+
+
+Definition at line 65 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_acfd536dfd5a7209febf971f3fd542a09}\label{maths_8h_acfd536dfd5a7209febf971f3fd542a09}} 
+\index{maths.h@{maths.h}!FIX16\_0P9@{FIX16\_0P9}}
+\index{FIX16\_0P9@{FIX16\_0P9}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_0P9}{FIX16\_0P9}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+0\+P9~0x0000\+E666}
+
+
+
+Definition at line 64 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a4a1c7106a35dacb275eb24a530442a34}\label{maths_8h_a4a1c7106a35dacb275eb24a530442a34}} 
+\index{maths.h@{maths.h}!FIX16\_1\_DIV\_SQRT2@{FIX16\_1\_DIV\_SQRT2}}
+\index{FIX16\_1\_DIV\_SQRT2@{FIX16\_1\_DIV\_SQRT2}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_1\_DIV\_SQRT2}{FIX16\_1\_DIV\_SQRT2}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+1\+\_\+\+D\+I\+V\+\_\+\+S\+Q\+R\+T2~0x0000\+B505}
+
+
+
+Definition at line 71 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a58a9d5e0f8470cbb27e14fe32b70e5ac}\label{maths_8h_a58a9d5e0f8470cbb27e14fe32b70e5ac}} 
+\index{maths.h@{maths.h}!FIX16\_1DIV3@{FIX16\_1DIV3}}
+\index{FIX16\_1DIV3@{FIX16\_1DIV3}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_1DIV3}{FIX16\_1DIV3}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+1\+D\+I\+V3~0x5555}
+
+
+
+Definition at line 83 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a317ae35aa5c1f21e8d52b831dcde83ca}\label{maths_8h_a317ae35aa5c1f21e8d52b831dcde83ca}} 
+\index{maths.h@{maths.h}!FIX16\_1P0@{FIX16\_1P0}}
+\index{FIX16\_1P0@{FIX16\_1P0}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_1P0}{FIX16\_1P0}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+1\+P0~0x00010000}
+
+
+
+Definition at line 62 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a06abf693f76dd6f7772372ff26093017}\label{maths_8h_a06abf693f76dd6f7772372ff26093017}} 
+\index{maths.h@{maths.h}!FIX16\_1P0\_DIV\_100@{FIX16\_1P0\_DIV\_100}}
+\index{FIX16\_1P0\_DIV\_100@{FIX16\_1P0\_DIV\_100}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_1P0\_DIV\_100}{FIX16\_1P0\_DIV\_100}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+1\+P0\+\_\+\+D\+I\+V\+\_\+100~0x0000028F}
+
+
+
+Definition at line 69 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a8ae72c3e71fe83b066d2508064d1e7de}\label{maths_8h_a8ae72c3e71fe83b066d2508064d1e7de}} 
+\index{maths.h@{maths.h}!FIX16\_1P0\_DIV\_2\_PI@{FIX16\_1P0\_DIV\_2\_PI}}
+\index{FIX16\_1P0\_DIV\_2\_PI@{FIX16\_1P0\_DIV\_2\_PI}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_1P0\_DIV\_2\_PI}{FIX16\_1P0\_DIV\_2\_PI}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+1\+P0\+\_\+\+D\+I\+V\+\_\+2\+\_\+\+PI~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((1.\+0f / \mbox{\hyperlink{maths_8h_af96e608f74972ef17d6e153ad264ce8b}{F\+L\+T\+\_\+2\+PI}}), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 51 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a441c9f2b5af98d784cac218583514fd9}\label{maths_8h_a441c9f2b5af98d784cac218583514fd9}} 
+\index{maths.h@{maths.h}!FIX16\_1P0\_DIV\_SQRT\_3@{FIX16\_1P0\_DIV\_SQRT\_3}}
+\index{FIX16\_1P0\_DIV\_SQRT\_3@{FIX16\_1P0\_DIV\_SQRT\_3}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_1P0\_DIV\_SQRT\_3}{FIX16\_1P0\_DIV\_SQRT\_3}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+1\+P0\+\_\+\+D\+I\+V\+\_\+\+S\+Q\+R\+T\+\_\+3~0x000093\+CD}
+
+
+
+Definition at line 68 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aa2ea9c97e80d6911c341d03397731815}\label{maths_8h_aa2ea9c97e80d6911c341d03397731815}} 
+\index{maths.h@{maths.h}!FIX16\_1P5@{FIX16\_1P5}}
+\index{FIX16\_1P5@{FIX16\_1P5}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_1P5}{FIX16\_1P5}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+1\+P5~0x00018000}
+
+
+
+Definition at line 63 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aaf3800438364a44fe75241356bfbe53d}\label{maths_8h_aaf3800438364a44fe75241356bfbe53d}} 
+\index{maths.h@{maths.h}!FIX16\_1P5\_PI@{FIX16\_1P5\_PI}}
+\index{FIX16\_1P5\_PI@{FIX16\_1P5\_PI}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_1P5\_PI}{FIX16\_1P5\_PI}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+1\+P5\+\_\+\+PI~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((1.\+5f $\ast$ \mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}}), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 50 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a553eebbef4914d437475e1d36f6e281f}\label{maths_8h_a553eebbef4914d437475e1d36f6e281f}} 
+\index{maths.h@{maths.h}!FIX16\_2PI@{FIX16\_2PI}}
+\index{FIX16\_2PI@{FIX16\_2PI}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_2PI}{FIX16\_2PI}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+2\+PI~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((2.\+0f $\ast$ \mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}}), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 48 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ae3b266b4c8ff20b40bfb221d15aa7d99}\label{maths_8h_ae3b266b4c8ff20b40bfb221d15aa7d99}} 
+\index{maths.h@{maths.h}!FIX16\_2PI\_DIV\_3@{FIX16\_2PI\_DIV\_3}}
+\index{FIX16\_2PI\_DIV\_3@{FIX16\_2PI\_DIV\_3}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_2PI\_DIV\_3}{FIX16\_2PI\_DIV\_3}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+2\+P\+I\+\_\+\+D\+I\+V\+\_\+3~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((\mbox{\hyperlink{maths_8h_af96e608f74972ef17d6e153ad264ce8b}{F\+L\+T\+\_\+2\+PI}} / 3), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 49 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a9c23cca4281c3cd6b51e6c402880b39b}\label{maths_8h_a9c23cca4281c3cd6b51e6c402880b39b}} 
+\index{maths.h@{maths.h}!FIX16\_2PI\_X\_1024@{FIX16\_2PI\_X\_1024}}
+\index{FIX16\_2PI\_X\_1024@{FIX16\_2PI\_X\_1024}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_2PI\_X\_1024}{FIX16\_2PI\_X\_1024}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+2\+P\+I\+\_\+\+X\+\_\+1024~(\mbox{\hyperlink{maths_8h_a553eebbef4914d437475e1d36f6e281f}{F\+I\+X16\+\_\+2\+PI}} $<$$<$ 10)}
+
+
+
+Definition at line 53 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ae4f9f28bb8820400659c4c2faff505c9}\label{maths_8h_ae4f9f28bb8820400659c4c2faff505c9}} 
+\index{maths.h@{maths.h}!FIX16\_MINUS\_PI\_X\_1024@{FIX16\_MINUS\_PI\_X\_1024}}
+\index{FIX16\_MINUS\_PI\_X\_1024@{FIX16\_MINUS\_PI\_X\_1024}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_MINUS\_PI\_X\_1024}{FIX16\_MINUS\_PI\_X\_1024}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+\+M\+I\+N\+U\+S\+\_\+\+P\+I\+\_\+\+X\+\_\+1024~((int32\+\_\+t)(((-\/\mbox{\hyperlink{maths_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}} $\ast$ 1024) $\ast$ 0x10000) + 0.\+5))}
+
+
+
+Definition at line 54 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a1df5c58b3ac08e6c6d5214cada43cd8e}\label{maths_8h_a1df5c58b3ac08e6c6d5214cada43cd8e}} 
+\index{maths.h@{maths.h}!FIX16\_NEG\_PI@{FIX16\_NEG\_PI}}
+\index{FIX16\_NEG\_PI@{FIX16\_NEG\_PI}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_NEG\_PI}{FIX16\_NEG\_PI}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+\+N\+E\+G\+\_\+\+PI~0x\+F\+F\+F\+C\+D\+B\+C1}
+
+
+
+Definition at line 57 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_af59a710e4a2eefb442e36bf5d22a6792}\label{maths_8h_af59a710e4a2eefb442e36bf5d22a6792}} 
+\index{maths.h@{maths.h}!FIX16\_NEG\_PI\_DIV\_2@{FIX16\_NEG\_PI\_DIV\_2}}
+\index{FIX16\_NEG\_PI\_DIV\_2@{FIX16\_NEG\_PI\_DIV\_2}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_NEG\_PI\_DIV\_2}{FIX16\_NEG\_PI\_DIV\_2}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+\+N\+E\+G\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+2~0x\+F\+F\+F\+E6\+D\+E1}
+
+
+
+Definition at line 60 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a57a408fa051638dc58e19796f80d550a}\label{maths_8h_a57a408fa051638dc58e19796f80d550a}} 
+\index{maths.h@{maths.h}!FIX16\_NEG\_PI\_DIV\_3@{FIX16\_NEG\_PI\_DIV\_3}}
+\index{FIX16\_NEG\_PI\_DIV\_3@{FIX16\_NEG\_PI\_DIV\_3}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_NEG\_PI\_DIV\_3}{FIX16\_NEG\_PI\_DIV\_3}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+\+N\+E\+G\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+3~0x\+F\+F\+F\+E\+F3\+EB}
+
+
+
+Definition at line 59 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a73f14f386cf9bc2993e563030efaba60}\label{maths_8h_a73f14f386cf9bc2993e563030efaba60}} 
+\index{maths.h@{maths.h}!FIX16\_NEG\_PI\_DIV\_4@{FIX16\_NEG\_PI\_DIV\_4}}
+\index{FIX16\_NEG\_PI\_DIV\_4@{FIX16\_NEG\_PI\_DIV\_4}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_NEG\_PI\_DIV\_4}{FIX16\_NEG\_PI\_DIV\_4}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+\+N\+E\+G\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+4~0x\+F\+F\+F\+F35\+C3}
+
+
+
+Definition at line 58 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a6a9d423450b18ddbdb3b6a2208ffcaf9}\label{maths_8h_a6a9d423450b18ddbdb3b6a2208ffcaf9}} 
+\index{maths.h@{maths.h}!FIX16\_PI@{FIX16\_PI}}
+\index{FIX16\_PI@{FIX16\_PI}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_PI}{FIX16\_PI}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+\+PI~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(\mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}}, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 43 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a84796faf8c1f3a42a5faccf818317769}\label{maths_8h_a84796faf8c1f3a42a5faccf818317769}} 
+\index{maths.h@{maths.h}!FIX16\_PI\_DIV\_180\_X\_1024@{FIX16\_PI\_DIV\_180\_X\_1024}}
+\index{FIX16\_PI\_DIV\_180\_X\_1024@{FIX16\_PI\_DIV\_180\_X\_1024}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_PI\_DIV\_180\_X\_1024}{FIX16\_PI\_DIV\_180\_X\_1024}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+180\+\_\+\+X\+\_\+1024~((int32\+\_\+t)(((\mbox{\hyperlink{maths_8h_ae71449b1cc6e6250b91f539153a7a0d3}{M\+\_\+\+PI}}/180 $\ast$ 1024) $\ast$ 0x10000) + 0.\+5))}
+
+
+
+Definition at line 55 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a563effd2032cc9f4be21f71250d0d1ad}\label{maths_8h_a563effd2032cc9f4be21f71250d0d1ad}} 
+\index{maths.h@{maths.h}!FIX16\_PI\_DIV\_2@{FIX16\_PI\_DIV\_2}}
+\index{FIX16\_PI\_DIV\_2@{FIX16\_PI\_DIV\_2}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_PI\_DIV\_2}{FIX16\_PI\_DIV\_2}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+2~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((\mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}} / 2), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 44 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_accc2cce96b785bfba2a91a3b747e1548}\label{maths_8h_accc2cce96b785bfba2a91a3b747e1548}} 
+\index{maths.h@{maths.h}!FIX16\_PI\_DIV\_3@{FIX16\_PI\_DIV\_3}}
+\index{FIX16\_PI\_DIV\_3@{FIX16\_PI\_DIV\_3}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_PI\_DIV\_3}{FIX16\_PI\_DIV\_3}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+3~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((\mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}} / 3), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 45 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a3c4d3b5a9f0894b45a7eae28a46390f6}\label{maths_8h_a3c4d3b5a9f0894b45a7eae28a46390f6}} 
+\index{maths.h@{maths.h}!FIX16\_PI\_DIV\_4@{FIX16\_PI\_DIV\_4}}
+\index{FIX16\_PI\_DIV\_4@{FIX16\_PI\_DIV\_4}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_PI\_DIV\_4}{FIX16\_PI\_DIV\_4}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+4~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((\mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}} / 4), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 46 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a10afaaf5420906c4eb9c9973ac7ef7ec}\label{maths_8h_a10afaaf5420906c4eb9c9973ac7ef7ec}} 
+\index{maths.h@{maths.h}!FIX16\_PI\_DIV\_6@{FIX16\_PI\_DIV\_6}}
+\index{FIX16\_PI\_DIV\_6@{FIX16\_PI\_DIV\_6}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_PI\_DIV\_6}{FIX16\_PI\_DIV\_6}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+\+P\+I\+\_\+\+D\+I\+V\+\_\+6~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}((\mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}} / 6), \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 47 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a4948123f0c76be4df441afd701185c9f}\label{maths_8h_a4948123f0c76be4df441afd701185c9f}} 
+\index{maths.h@{maths.h}!FIX16\_PI\_X\_1024@{FIX16\_PI\_X\_1024}}
+\index{FIX16\_PI\_X\_1024@{FIX16\_PI\_X\_1024}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_PI\_X\_1024}{FIX16\_PI\_X\_1024}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+\+P\+I\+\_\+\+X\+\_\+1024~(\mbox{\hyperlink{maths_8h_a6a9d423450b18ddbdb3b6a2208ffcaf9}{F\+I\+X16\+\_\+\+PI}} $<$$<$ 10)}
+
+
+
+Definition at line 52 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a07fb7647a3f013ee6974c0f4d6f8ac2b}\label{maths_8h_a07fb7647a3f013ee6974c0f4d6f8ac2b}} 
+\index{maths.h@{maths.h}!FIX16\_SQRT\_3@{FIX16\_SQRT\_3}}
+\index{FIX16\_SQRT\_3@{FIX16\_SQRT\_3}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_SQRT\_3}{FIX16\_SQRT\_3}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+\+S\+Q\+R\+T\+\_\+3~0x0001\+B\+B67}
+
+
+
+Definition at line 66 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a22de349a73f76654dec769c7ccbc6284}\label{maths_8h_a22de349a73f76654dec769c7ccbc6284}} 
+\index{maths.h@{maths.h}!FIX16\_SQRT\_3\_DIV\_2@{FIX16\_SQRT\_3\_DIV\_2}}
+\index{FIX16\_SQRT\_3\_DIV\_2@{FIX16\_SQRT\_3\_DIV\_2}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX16\_SQRT\_3\_DIV\_2}{FIX16\_SQRT\_3\_DIV\_2}}
+{\footnotesize\ttfamily \#define F\+I\+X16\+\_\+\+S\+Q\+R\+T\+\_\+3\+\_\+\+D\+I\+V\+\_\+2~0x0000\+D\+D\+B3}
+
+
+
+Definition at line 67 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_af7e4c572e5a2e0e1ed91f1a7e88f57be}\label{maths_8h_af7e4c572e5a2e0e1ed91f1a7e88f57be}} 
+\index{maths.h@{maths.h}!FIX1Q14\_1P0\_DIV\_SQRT\_3@{FIX1Q14\_1P0\_DIV\_SQRT\_3}}
+\index{FIX1Q14\_1P0\_DIV\_SQRT\_3@{FIX1Q14\_1P0\_DIV\_SQRT\_3}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIX1Q14\_1P0\_DIV\_SQRT\_3}{FIX1Q14\_1P0\_DIV\_SQRT\_3}}
+{\footnotesize\ttfamily \#define F\+I\+X1\+Q14\+\_\+1\+P0\+\_\+\+D\+I\+V\+\_\+\+S\+Q\+R\+T\+\_\+3~0x49\+E6}
+
+
+
+Definition at line 72 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a4503730a7017b25549232fea431df102}\label{maths_8h_a4503730a7017b25549232fea431df102}} 
+\index{maths.h@{maths.h}!FIXQ1P14\_0P9@{FIXQ1P14\_0P9}}
+\index{FIXQ1P14\_0P9@{FIXQ1P14\_0P9}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIXQ1P14\_0P9}{FIXQ1P14\_0P9}}
+{\footnotesize\ttfamily \#define F\+I\+X\+Q1\+P14\+\_\+0\+P9~(0x0000\+E666 $>$$>$ 2)}
+
+
+
+Definition at line 74 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a0084faa35b0497abc289485b938bd5ee}\label{maths_8h_a0084faa35b0497abc289485b938bd5ee}} 
+\index{maths.h@{maths.h}!FIXQ1P14\_1P5@{FIXQ1P14\_1P5}}
+\index{FIXQ1P14\_1P5@{FIXQ1P14\_1P5}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIXQ1P14\_1P5}{FIXQ1P14\_1P5}}
+{\footnotesize\ttfamily \#define F\+I\+X\+Q1\+P14\+\_\+1\+P5~(0x00018000 $>$$>$ 2)}
+
+
+
+Definition at line 73 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a53c6fe47ae6b6790e44ad96bf01156c8}\label{maths_8h_a53c6fe47ae6b6790e44ad96bf01156c8}} 
+\index{maths.h@{maths.h}!FIXQ1P14\_SQRT\_3@{FIXQ1P14\_SQRT\_3}}
+\index{FIXQ1P14\_SQRT\_3@{FIXQ1P14\_SQRT\_3}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIXQ1P14\_SQRT\_3}{FIXQ1P14\_SQRT\_3}}
+{\footnotesize\ttfamily \#define F\+I\+X\+Q1\+P14\+\_\+\+S\+Q\+R\+T\+\_\+3~(0x0001\+B\+B67 $>$$>$ 2)}
+
+
+
+Definition at line 75 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a9b8d8344ce24a40fa0a89c75fe470d1a}\label{maths_8h_a9b8d8344ce24a40fa0a89c75fe470d1a}} 
+\index{maths.h@{maths.h}!FIXQ1P14\_SQRT\_3\_DIV\_2@{FIXQ1P14\_SQRT\_3\_DIV\_2}}
+\index{FIXQ1P14\_SQRT\_3\_DIV\_2@{FIXQ1P14\_SQRT\_3\_DIV\_2}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FIXQ1P14\_SQRT\_3\_DIV\_2}{FIXQ1P14\_SQRT\_3\_DIV\_2}}
+{\footnotesize\ttfamily \#define F\+I\+X\+Q1\+P14\+\_\+\+S\+Q\+R\+T\+\_\+3\+\_\+\+D\+I\+V\+\_\+2~(0x0000\+D\+D\+B3 $>$$>$ 2)}
+
+
+
+Definition at line 76 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_af96e608f74972ef17d6e153ad264ce8b}\label{maths_8h_af96e608f74972ef17d6e153ad264ce8b}} 
+\index{maths.h@{maths.h}!FLT\_2PI@{FLT\_2PI}}
+\index{FLT\_2PI@{FLT\_2PI}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FLT\_2PI}{FLT\_2PI}}
+{\footnotesize\ttfamily \#define F\+L\+T\+\_\+2\+PI~(2.\+0f $\ast$ \mbox{\hyperlink{maths_8h_a07c04979755c6599aa1035a2538ceefd}{F\+L\+T\+\_\+\+PI}})}
+
+
+
+Definition at line 40 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a07c04979755c6599aa1035a2538ceefd}\label{maths_8h_a07c04979755c6599aa1035a2538ceefd}} 
+\index{maths.h@{maths.h}!FLT\_PI@{FLT\_PI}}
+\index{FLT\_PI@{FLT\_PI}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FLT\_PI}{FLT\_PI}}
+{\footnotesize\ttfamily \#define F\+L\+T\+\_\+\+PI~3.\+14159f}
+
+
+
+Definition at line 39 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aed16f49b31688edb0fa539e603f04d3e}\label{maths_8h_aed16f49b31688edb0fa539e603f04d3e}} 
+\index{maths.h@{maths.h}!FLT\_SQRT\_3@{FLT\_SQRT\_3}}
+\index{FLT\_SQRT\_3@{FLT\_SQRT\_3}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{FLT\_SQRT\_3}{FLT\_SQRT\_3}}
+{\footnotesize\ttfamily \#define F\+L\+T\+\_\+\+S\+Q\+R\+T\+\_\+3~1.\+732051f}
+
+
+
+Definition at line 41 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}\label{maths_8h_ad8019c7b6d9997d7923d14116da3db6a}} 
+\index{maths.h@{maths.h}!HZ2RAD\_FIX16@{HZ2RAD\_FIX16}}
+\index{HZ2RAD\_FIX16@{HZ2RAD\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{HZ2RAD\_FIX16}{HZ2RAD\_FIX16}}
+{\footnotesize\ttfamily \#define H\+Z2\+R\+A\+D\+\_\+\+F\+I\+X16~411775}
+
+
+
+Definition at line 145 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ae71449b1cc6e6250b91f539153a7a0d3}\label{maths_8h_ae71449b1cc6e6250b91f539153a7a0d3}} 
+\index{maths.h@{maths.h}!M\_PI@{M\_PI}}
+\index{M\_PI@{M\_PI}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{M\_PI}{M\_PI}}
+{\footnotesize\ttfamily \#define M\+\_\+\+PI~3.\+14159265358979323846}
+
+
+
+Definition at line 37 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_acdb46ba54bc0db170119ce87378d28f8}\label{maths_8h_acdb46ba54bc0db170119ce87378d28f8}} 
+\index{maths.h@{maths.h}!ONE\_DIVIDE\_BY\_5\_FIX16@{ONE\_DIVIDE\_BY\_5\_FIX16}}
+\index{ONE\_DIVIDE\_BY\_5\_FIX16@{ONE\_DIVIDE\_BY\_5\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{ONE\_DIVIDE\_BY\_5\_FIX16}{ONE\_DIVIDE\_BY\_5\_FIX16}}
+{\footnotesize\ttfamily \#define O\+N\+E\+\_\+\+D\+I\+V\+I\+D\+E\+\_\+\+B\+Y\+\_\+5\+\_\+\+F\+I\+X16~0x00003333}
+
+
+
+Definition at line 81 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a3bbfa7506d5eafa60dcdb79614cfdb84}\label{maths_8h_a3bbfa7506d5eafa60dcdb79614cfdb84}} 
+\index{maths.h@{maths.h}!ONE\_THIRD\_IN\_FIX16@{ONE\_THIRD\_IN\_FIX16}}
+\index{ONE\_THIRD\_IN\_FIX16@{ONE\_THIRD\_IN\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{ONE\_THIRD\_IN\_FIX16}{ONE\_THIRD\_IN\_FIX16}}
+{\footnotesize\ttfamily \#define O\+N\+E\+\_\+\+T\+H\+I\+R\+D\+\_\+\+I\+N\+\_\+\+F\+I\+X16~0x00005555}
+
+
+
+Definition at line 288 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aa070611aceceab6976d41423e092da9f}\label{maths_8h_aa070611aceceab6976d41423e092da9f}} 
+\index{maths.h@{maths.h}!Q00@{Q00}}
+\index{Q00@{Q00}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q00}{Q00}}
+{\footnotesize\ttfamily \#define Q00~0}
+
+
+
+Definition at line 86 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ada4630d1056a70b2e8e0b5efa86f3c5e}\label{maths_8h_ada4630d1056a70b2e8e0b5efa86f3c5e}} 
+\index{maths.h@{maths.h}!Q01@{Q01}}
+\index{Q01@{Q01}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q01}{Q01}}
+{\footnotesize\ttfamily \#define Q01~1}
+
+
+
+Definition at line 87 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a68e8c3b92d1880e54905caf103e93236}\label{maths_8h_a68e8c3b92d1880e54905caf103e93236}} 
+\index{maths.h@{maths.h}!Q02@{Q02}}
+\index{Q02@{Q02}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q02}{Q02}}
+{\footnotesize\ttfamily \#define Q02~2}
+
+
+
+Definition at line 88 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a54fb581a36519790bdb7042f10f27fb5}\label{maths_8h_a54fb581a36519790bdb7042f10f27fb5}} 
+\index{maths.h@{maths.h}!Q03@{Q03}}
+\index{Q03@{Q03}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q03}{Q03}}
+{\footnotesize\ttfamily \#define Q03~3}
+
+
+
+Definition at line 89 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_af0f28bc21cf1c5127c001e0d53519f00}\label{maths_8h_af0f28bc21cf1c5127c001e0d53519f00}} 
+\index{maths.h@{maths.h}!Q04@{Q04}}
+\index{Q04@{Q04}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q04}{Q04}}
+{\footnotesize\ttfamily \#define Q04~4}
+
+
+
+Definition at line 90 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aeb17b4eacd9b651ea67b28359e99dc83}\label{maths_8h_aeb17b4eacd9b651ea67b28359e99dc83}} 
+\index{maths.h@{maths.h}!Q05@{Q05}}
+\index{Q05@{Q05}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q05}{Q05}}
+{\footnotesize\ttfamily \#define Q05~5}
+
+
+
+Definition at line 91 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_adeb492ed1697f26f028e6c058b5a2604}\label{maths_8h_adeb492ed1697f26f028e6c058b5a2604}} 
+\index{maths.h@{maths.h}!Q06@{Q06}}
+\index{Q06@{Q06}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q06}{Q06}}
+{\footnotesize\ttfamily \#define Q06~6}
+
+
+
+Definition at line 92 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a5502297532d68b83a60121d6c76ad560}\label{maths_8h_a5502297532d68b83a60121d6c76ad560}} 
+\index{maths.h@{maths.h}!Q07@{Q07}}
+\index{Q07@{Q07}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q07}{Q07}}
+{\footnotesize\ttfamily \#define Q07~7}
+
+
+
+Definition at line 93 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a4f07c617dbab90bd1df7a63204b4bfff}\label{maths_8h_a4f07c617dbab90bd1df7a63204b4bfff}} 
+\index{maths.h@{maths.h}!Q08@{Q08}}
+\index{Q08@{Q08}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q08}{Q08}}
+{\footnotesize\ttfamily \#define Q08~8}
+
+
+
+Definition at line 94 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a756b012714b50704d51550eee64977f9}\label{maths_8h_a756b012714b50704d51550eee64977f9}} 
+\index{maths.h@{maths.h}!Q09@{Q09}}
+\index{Q09@{Q09}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q09}{Q09}}
+{\footnotesize\ttfamily \#define Q09~9}
+
+
+
+Definition at line 95 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a693e3a9063a1e7582e682ffd4fe06f46}\label{maths_8h_a693e3a9063a1e7582e682ffd4fe06f46}} 
+\index{maths.h@{maths.h}!Q10@{Q10}}
+\index{Q10@{Q10}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q10}{Q10}}
+{\footnotesize\ttfamily \#define Q10~10}
+
+
+
+Definition at line 96 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a2667934cffb93b5b656fbb9b11495d52}\label{maths_8h_a2667934cffb93b5b656fbb9b11495d52}} 
+\index{maths.h@{maths.h}!Q11@{Q11}}
+\index{Q11@{Q11}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q11}{Q11}}
+{\footnotesize\ttfamily \#define Q11~11}
+
+
+
+Definition at line 97 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aa17f3fc65627eb4768c42c6b3c0e45c2}\label{maths_8h_aa17f3fc65627eb4768c42c6b3c0e45c2}} 
+\index{maths.h@{maths.h}!Q12@{Q12}}
+\index{Q12@{Q12}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q12}{Q12}}
+{\footnotesize\ttfamily \#define Q12~12}
+
+
+
+Definition at line 98 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a20b103b2d99d52937c5c8bbb782fe1ed}\label{maths_8h_a20b103b2d99d52937c5c8bbb782fe1ed}} 
+\index{maths.h@{maths.h}!Q13@{Q13}}
+\index{Q13@{Q13}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q13}{Q13}}
+{\footnotesize\ttfamily \#define Q13~13}
+
+
+
+Definition at line 99 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a6370c4689c722566a3d1dde750b854f6}\label{maths_8h_a6370c4689c722566a3d1dde750b854f6}} 
+\index{maths.h@{maths.h}!Q14@{Q14}}
+\index{Q14@{Q14}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q14}{Q14}}
+{\footnotesize\ttfamily \#define Q14~14}
+
+
+
+Definition at line 100 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a7dd1d04e91fb1909e02ade73cb0121b1}\label{maths_8h_a7dd1d04e91fb1909e02ade73cb0121b1}} 
+\index{maths.h@{maths.h}!Q14\_0P5@{Q14\_0P5}}
+\index{Q14\_0P5@{Q14\_0P5}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q14\_0P5}{Q14\_0P5}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define Q14\+\_\+0\+P5~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+5f, \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})}
+
+
+
+Definition at line 295 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a7dd1d04e91fb1909e02ade73cb0121b1}\label{maths_8h_a7dd1d04e91fb1909e02ade73cb0121b1}} 
+\index{maths.h@{maths.h}!Q14\_0P5@{Q14\_0P5}}
+\index{Q14\_0P5@{Q14\_0P5}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q14\_0P5}{Q14\_0P5}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define Q14\+\_\+0\+P5~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+5f, \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})}
+
+
+
+Definition at line 295 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a622b48c3d750471a77285acc0baa51e5}\label{maths_8h_a622b48c3d750471a77285acc0baa51e5}} 
+\index{maths.h@{maths.h}!Q14\_1\_DIV\_3@{Q14\_1\_DIV\_3}}
+\index{Q14\_1\_DIV\_3@{Q14\_1\_DIV\_3}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q14\_1\_DIV\_3}{Q14\_1\_DIV\_3}}
+{\footnotesize\ttfamily \#define Q14\+\_\+1\+\_\+\+D\+I\+V\+\_\+3~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+33333333f, \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})}
+
+
+
+Definition at line 124 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a7e52a2f4f2c431887f08be3250ead650}\label{maths_8h_a7e52a2f4f2c431887f08be3250ead650}} 
+\index{maths.h@{maths.h}!Q14\_1\_DIV\_SQRT2@{Q14\_1\_DIV\_SQRT2}}
+\index{Q14\_1\_DIV\_SQRT2@{Q14\_1\_DIV\_SQRT2}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q14\_1\_DIV\_SQRT2}{Q14\_1\_DIV\_SQRT2}}
+{\footnotesize\ttfamily \#define Q14\+\_\+1\+\_\+\+D\+I\+V\+\_\+\+S\+Q\+R\+T2~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+70710678f, \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})}
+
+
+
+Definition at line 126 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a2761f1b86e5f1aec55a8b366e072707b}\label{maths_8h_a2761f1b86e5f1aec55a8b366e072707b}} 
+\index{maths.h@{maths.h}!Q14\_1P0@{Q14\_1P0}}
+\index{Q14\_1P0@{Q14\_1P0}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q14\_1P0}{Q14\_1P0}}
+{\footnotesize\ttfamily \#define Q14\+\_\+1\+P0~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+0f, \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})}
+
+
+
+Definition at line 122 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a6761ef52cfe1162095147eab0df4314d}\label{maths_8h_a6761ef52cfe1162095147eab0df4314d}} 
+\index{maths.h@{maths.h}!Q14\_1P5@{Q14\_1P5}}
+\index{Q14\_1P5@{Q14\_1P5}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q14\_1P5}{Q14\_1P5}}
+{\footnotesize\ttfamily \#define Q14\+\_\+1\+P5~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+5f, \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})}
+
+
+
+Definition at line 123 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a29e7a86b0c0348dfee5d593cec2856d8}\label{maths_8h_a29e7a86b0c0348dfee5d593cec2856d8}} 
+\index{maths.h@{maths.h}!Q14\_ONE@{Q14\_ONE}}
+\index{Q14\_ONE@{Q14\_ONE}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q14\_ONE}{Q14\_ONE}}
+{\footnotesize\ttfamily \#define Q14\+\_\+\+O\+NE~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+0f, \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})}
+
+
+
+Definition at line 294 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a42c5135915c1146ee298068bda0a8750}\label{maths_8h_a42c5135915c1146ee298068bda0a8750}} 
+\index{maths.h@{maths.h}!Q14\_SQRT3\_DIV\_SQRT2@{Q14\_SQRT3\_DIV\_SQRT2}}
+\index{Q14\_SQRT3\_DIV\_SQRT2@{Q14\_SQRT3\_DIV\_SQRT2}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q14\_SQRT3\_DIV\_SQRT2}{Q14\_SQRT3\_DIV\_SQRT2}}
+{\footnotesize\ttfamily \#define Q14\+\_\+\+S\+Q\+R\+T3\+\_\+\+D\+I\+V\+\_\+\+S\+Q\+R\+T2~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+22474487f, \mbox{\hyperlink{maths_8h_a6370c4689c722566a3d1dde750b854f6}{Q14}})}
+
+
+
+Definition at line 125 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a8a984e001751722078ccdb9e4e6e04e9}\label{maths_8h_a8a984e001751722078ccdb9e4e6e04e9}} 
+\index{maths.h@{maths.h}!Q15@{Q15}}
+\index{Q15@{Q15}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q15}{Q15}}
+{\footnotesize\ttfamily \#define Q15~15}
+
+
+
+Definition at line 101 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}\label{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}} 
+\index{maths.h@{maths.h}!Q16@{Q16}}
+\index{Q16@{Q16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q16}{Q16}}
+{\footnotesize\ttfamily \#define Q16~16}
+
+
+
+Definition at line 102 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a937296ccb349ec731a4445d8763d223d}\label{maths_8h_a937296ccb349ec731a4445d8763d223d}} 
+\index{maths.h@{maths.h}!Q16\_0P5@{Q16\_0P5}}
+\index{Q16\_0P5@{Q16\_0P5}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q16\_0P5}{Q16\_0P5}}
+{\footnotesize\ttfamily \#define Q16\+\_\+0\+P5~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+5f, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 130 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a772a958b7cb140a8bd3049ceeedfbbc4}\label{maths_8h_a772a958b7cb140a8bd3049ceeedfbbc4}} 
+\index{maths.h@{maths.h}!Q16\_100@{Q16\_100}}
+\index{Q16\_100@{Q16\_100}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q16\_100}{Q16\_100}}
+{\footnotesize\ttfamily \#define Q16\+\_\+100~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(100.\+0f, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 138 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a24f027525235b719444176b37ffa9bd2}\label{maths_8h_a24f027525235b719444176b37ffa9bd2}} 
+\index{maths.h@{maths.h}!Q16\_1000@{Q16\_1000}}
+\index{Q16\_1000@{Q16\_1000}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q16\_1000}{Q16\_1000}}
+{\footnotesize\ttfamily \#define Q16\+\_\+1000~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1000.\+0f, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 137 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a4fce3c86876aa43a3512bd03505c0f65}\label{maths_8h_a4fce3c86876aa43a3512bd03505c0f65}} 
+\index{maths.h@{maths.h}!Q16\_1P0@{Q16\_1P0}}
+\index{Q16\_1P0@{Q16\_1P0}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q16\_1P0}{Q16\_1P0}}
+{\footnotesize\ttfamily \#define Q16\+\_\+1\+P0~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+0f, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 131 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a0e6ba2ec74b22485764a19d7575db455}\label{maths_8h_a0e6ba2ec74b22485764a19d7575db455}} 
+\index{maths.h@{maths.h}!Q16\_1P5@{Q16\_1P5}}
+\index{Q16\_1P5@{Q16\_1P5}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q16\_1P5}{Q16\_1P5}}
+{\footnotesize\ttfamily \#define Q16\+\_\+1\+P5~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+5f, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 132 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a171a1c9c546e43c472f3afe55b60f3f9}\label{maths_8h_a171a1c9c546e43c472f3afe55b60f3f9}} 
+\index{maths.h@{maths.h}!Q16\_mV\_PER\_ADC\_COUNT@{Q16\_mV\_PER\_ADC\_COUNT}}
+\index{Q16\_mV\_PER\_ADC\_COUNT@{Q16\_mV\_PER\_ADC\_COUNT}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q16\_mV\_PER\_ADC\_COUNT}{Q16\_mV\_PER\_ADC\_COUNT}}
+{\footnotesize\ttfamily \#define Q16\+\_\+m\+V\+\_\+\+P\+E\+R\+\_\+\+A\+D\+C\+\_\+\+C\+O\+U\+NT~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(2500.\+0/1023.\+0, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 286 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ac0c2ff0654ba727de495346191911da1}\label{maths_8h_ac0c2ff0654ba727de495346191911da1}} 
+\index{maths.h@{maths.h}!Q16\_ONE\_DIV\_SQRT3@{Q16\_ONE\_DIV\_SQRT3}}
+\index{Q16\_ONE\_DIV\_SQRT3@{Q16\_ONE\_DIV\_SQRT3}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q16\_ONE\_DIV\_SQRT3}{Q16\_ONE\_DIV\_SQRT3}}
+{\footnotesize\ttfamily \#define Q16\+\_\+\+O\+N\+E\+\_\+\+D\+I\+V\+\_\+\+S\+Q\+R\+T3~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+57735027f, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 136 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a8cad0ae4dae166a58ef6b01a8cbf9f42}\label{maths_8h_a8cad0ae4dae166a58ef6b01a8cbf9f42}} 
+\index{maths.h@{maths.h}!Q16\_SQRT\_2@{Q16\_SQRT\_2}}
+\index{Q16\_SQRT\_2@{Q16\_SQRT\_2}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q16\_SQRT\_2}{Q16\_SQRT\_2}}
+{\footnotesize\ttfamily \#define Q16\+\_\+\+S\+Q\+R\+T\+\_\+2~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+41421356f, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 133 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a8053423c12e73f56942893134d703faf}\label{maths_8h_a8053423c12e73f56942893134d703faf}} 
+\index{maths.h@{maths.h}!Q17@{Q17}}
+\index{Q17@{Q17}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q17}{Q17}}
+{\footnotesize\ttfamily \#define Q17~17}
+
+
+
+Definition at line 103 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aa6e43cbf7460a91a94c8699b2cb1d13a}\label{maths_8h_aa6e43cbf7460a91a94c8699b2cb1d13a}} 
+\index{maths.h@{maths.h}!Q18@{Q18}}
+\index{Q18@{Q18}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q18}{Q18}}
+{\footnotesize\ttfamily \#define Q18~18}
+
+
+
+Definition at line 104 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ae7f78b59c54071af0018c5c71b22217d}\label{maths_8h_ae7f78b59c54071af0018c5c71b22217d}} 
+\index{maths.h@{maths.h}!Q19@{Q19}}
+\index{Q19@{Q19}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q19}{Q19}}
+{\footnotesize\ttfamily \#define Q19~19}
+
+
+
+Definition at line 105 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a81b513e8af18f9217399d0806cbdfb0e}\label{maths_8h_a81b513e8af18f9217399d0806cbdfb0e}} 
+\index{maths.h@{maths.h}!Q20@{Q20}}
+\index{Q20@{Q20}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q20}{Q20}}
+{\footnotesize\ttfamily \#define Q20~20}
+
+
+
+Definition at line 106 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a99bb24769f4834ade22b53029ef59fea}\label{maths_8h_a99bb24769f4834ade22b53029ef59fea}} 
+\index{maths.h@{maths.h}!Q21@{Q21}}
+\index{Q21@{Q21}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q21}{Q21}}
+{\footnotesize\ttfamily \#define Q21~21}
+
+
+
+Definition at line 107 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ae92799bea6457224d138516adeeb30c1}\label{maths_8h_ae92799bea6457224d138516adeeb30c1}} 
+\index{maths.h@{maths.h}!Q22@{Q22}}
+\index{Q22@{Q22}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q22}{Q22}}
+{\footnotesize\ttfamily \#define Q22~22}
+
+
+
+Definition at line 108 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_af1870e7f9916220d3ce188fdd2b046e6}\label{maths_8h_af1870e7f9916220d3ce188fdd2b046e6}} 
+\index{maths.h@{maths.h}!Q23@{Q23}}
+\index{Q23@{Q23}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q23}{Q23}}
+{\footnotesize\ttfamily \#define Q23~23}
+
+
+
+Definition at line 109 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ab62dc43778c04bc5057e145bbfb258dd}\label{maths_8h_ab62dc43778c04bc5057e145bbfb258dd}} 
+\index{maths.h@{maths.h}!Q24@{Q24}}
+\index{Q24@{Q24}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q24}{Q24}}
+{\footnotesize\ttfamily \#define Q24~24}
+
+
+
+Definition at line 110 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a62183f0d7c0c45069938411e92e21c84}\label{maths_8h_a62183f0d7c0c45069938411e92e21c84}} 
+\index{maths.h@{maths.h}!Q25@{Q25}}
+\index{Q25@{Q25}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q25}{Q25}}
+{\footnotesize\ttfamily \#define Q25~25}
+
+
+
+Definition at line 111 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a6b6408dd9fe19d0d285d4617ae200b40}\label{maths_8h_a6b6408dd9fe19d0d285d4617ae200b40}} 
+\index{maths.h@{maths.h}!Q26@{Q26}}
+\index{Q26@{Q26}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q26}{Q26}}
+{\footnotesize\ttfamily \#define Q26~26}
+
+
+
+Definition at line 112 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aee76fe84a6dab8fdcae5408f7ecd1b4d}\label{maths_8h_aee76fe84a6dab8fdcae5408f7ecd1b4d}} 
+\index{maths.h@{maths.h}!Q27@{Q27}}
+\index{Q27@{Q27}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q27}{Q27}}
+{\footnotesize\ttfamily \#define Q27~27}
+
+
+
+Definition at line 113 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a3f29485fcccd5245cf870d42fa6b8992}\label{maths_8h_a3f29485fcccd5245cf870d42fa6b8992}} 
+\index{maths.h@{maths.h}!Q28@{Q28}}
+\index{Q28@{Q28}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q28}{Q28}}
+{\footnotesize\ttfamily \#define Q28~28}
+
+
+
+Definition at line 114 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ac0bdf61483c6393d7c99c7dd07139320}\label{maths_8h_ac0bdf61483c6393d7c99c7dd07139320}} 
+\index{maths.h@{maths.h}!Q28\_ONE@{Q28\_ONE}}
+\index{Q28\_ONE@{Q28\_ONE}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q28\_ONE}{Q28\_ONE}}
+{\footnotesize\ttfamily \#define Q28\+\_\+\+O\+NE~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+0f, \mbox{\hyperlink{maths_8h_a3f29485fcccd5245cf870d42fa6b8992}{Q28}})}
+
+
+
+Definition at line 296 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a8e38eacf810bdf0b504e426250b6108f}\label{maths_8h_a8e38eacf810bdf0b504e426250b6108f}} 
+\index{maths.h@{maths.h}!Q29@{Q29}}
+\index{Q29@{Q29}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q29}{Q29}}
+{\footnotesize\ttfamily \#define Q29~29}
+
+
+
+Definition at line 115 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a5f365bc9e368baf2239b6aae26a4f128}\label{maths_8h_a5f365bc9e368baf2239b6aae26a4f128}} 
+\index{maths.h@{maths.h}!Q30@{Q30}}
+\index{Q30@{Q30}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q30}{Q30}}
+{\footnotesize\ttfamily \#define Q30~30}
+
+
+
+Definition at line 116 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ae67f063daae846c2405aaa8e0647986b}\label{maths_8h_ae67f063daae846c2405aaa8e0647986b}} 
+\index{maths.h@{maths.h}!Q3\_0P000@{Q3\_0P000}}
+\index{Q3\_0P000@{Q3\_0P000}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q3\_0P000}{Q3\_0P000}}
+{\footnotesize\ttfamily \#define Q3\+\_\+0\+P000~0}
+
+
+
+Definition at line 222 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aaca61ceded6567b395ea2c2cc92afffd}\label{maths_8h_aaca61ceded6567b395ea2c2cc92afffd}} 
+\index{maths.h@{maths.h}!Q3\_0P125@{Q3\_0P125}}
+\index{Q3\_0P125@{Q3\_0P125}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q3\_0P125}{Q3\_0P125}}
+{\footnotesize\ttfamily \#define Q3\+\_\+0\+P125~1}
+
+
+
+Definition at line 223 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ae86133988fa0824329607577b1a8d683}\label{maths_8h_ae86133988fa0824329607577b1a8d683}} 
+\index{maths.h@{maths.h}!Q3\_0P250@{Q3\_0P250}}
+\index{Q3\_0P250@{Q3\_0P250}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q3\_0P250}{Q3\_0P250}}
+{\footnotesize\ttfamily \#define Q3\+\_\+0\+P250~2}
+
+
+
+Definition at line 224 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a5e7b7bc7d43fda217fd880156aef5441}\label{maths_8h_a5e7b7bc7d43fda217fd880156aef5441}} 
+\index{maths.h@{maths.h}!Q3\_0P375@{Q3\_0P375}}
+\index{Q3\_0P375@{Q3\_0P375}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q3\_0P375}{Q3\_0P375}}
+{\footnotesize\ttfamily \#define Q3\+\_\+0\+P375~3}
+
+
+
+Definition at line 225 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ad83705460bda2b2ac73f412f06e80632}\label{maths_8h_ad83705460bda2b2ac73f412f06e80632}} 
+\index{maths.h@{maths.h}!Q3\_0P500@{Q3\_0P500}}
+\index{Q3\_0P500@{Q3\_0P500}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q3\_0P500}{Q3\_0P500}}
+{\footnotesize\ttfamily \#define Q3\+\_\+0\+P500~4}
+
+
+
+Definition at line 226 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a0f4a7aacb894457310aa1a72682c9837}\label{maths_8h_a0f4a7aacb894457310aa1a72682c9837}} 
+\index{maths.h@{maths.h}!Q3\_0P625@{Q3\_0P625}}
+\index{Q3\_0P625@{Q3\_0P625}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q3\_0P625}{Q3\_0P625}}
+{\footnotesize\ttfamily \#define Q3\+\_\+0\+P625~5}
+
+
+
+Definition at line 227 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a738c1181f1e250c74aed102ec9543b2e}\label{maths_8h_a738c1181f1e250c74aed102ec9543b2e}} 
+\index{maths.h@{maths.h}!Q3\_0P750@{Q3\_0P750}}
+\index{Q3\_0P750@{Q3\_0P750}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q3\_0P750}{Q3\_0P750}}
+{\footnotesize\ttfamily \#define Q3\+\_\+0\+P750~6}
+
+
+
+Definition at line 228 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a547cb109e92c43c236618a9b7f1bb82d}\label{maths_8h_a547cb109e92c43c236618a9b7f1bb82d}} 
+\index{maths.h@{maths.h}!Q3\_0P875@{Q3\_0P875}}
+\index{Q3\_0P875@{Q3\_0P875}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{Q3\_0P875}{Q3\_0P875}}
+{\footnotesize\ttfamily \#define Q3\+\_\+0\+P875~7}
+
+
+
+Definition at line 229 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a5594e9873a700e4eb2350ae66e357a39}\label{maths_8h_a5594e9873a700e4eb2350ae66e357a39}} 
+\index{maths.h@{maths.h}!QCONST@{QCONST}}
+\index{QCONST@{QCONST}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{QCONST}{QCONST}}
+{\footnotesize\ttfamily \#define Q\+C\+O\+N\+ST(\begin{DoxyParamCaption}\item[{}]{const\+\_\+val,  }\item[{}]{q\+\_\+num }\end{DoxyParamCaption})~( ((int32\+\_\+t) ((const\+\_\+val) $\ast$ (1 $<$$<$ (q\+\_\+num)))) )}
+
+
+
+Definition at line 117 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ad6d4d2d5dbf27aceb37bf86038b36328}\label{maths_8h_ad6d4d2d5dbf27aceb37bf86038b36328}} 
+\index{maths.h@{maths.h}!RAD2HZ\_FIX16@{RAD2HZ\_FIX16}}
+\index{RAD2HZ\_FIX16@{RAD2HZ\_FIX16}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{RAD2HZ\_FIX16}{RAD2HZ\_FIX16}}
+{\footnotesize\ttfamily \#define R\+A\+D2\+H\+Z\+\_\+\+F\+I\+X16~10430}
+
+
+
+Definition at line 146 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aa8cecfc5c5c054d2875c03e77b7be15d}\label{maths_8h_aa8cecfc5c5c054d2875c03e77b7be15d}} 
+\index{maths.h@{maths.h}!TRUE@{TRUE}}
+\index{TRUE@{TRUE}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{TRUE}{TRUE}}
+{\footnotesize\ttfamily \#define T\+R\+UE~1}
+
+
+
+Definition at line 33 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aab2791bbacda90ff3ff80ec049c84628}\label{maths_8h_aab2791bbacda90ff3ff80ec049c84628}} 
+\index{maths.h@{maths.h}!VDC\_100V@{VDC\_100V}}
+\index{VDC\_100V@{VDC\_100V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_100V}{VDC\_100V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+100V~(100$\ast$65536)}
+
+
+
+Definition at line 205 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a0737365ca5ba2b188f8eec1f2971632f}\label{maths_8h_a0737365ca5ba2b188f8eec1f2971632f}} 
+\index{maths.h@{maths.h}!VDC\_10V@{VDC\_10V}}
+\index{VDC\_10V@{VDC\_10V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_10V}{VDC\_10V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+10V~(10$\ast$65536)}
+
+
+
+Definition at line 186 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ab45a332e7431a734967f907d019a1859}\label{maths_8h_ab45a332e7431a734967f907d019a1859}} 
+\index{maths.h@{maths.h}!VDC\_11V@{VDC\_11V}}
+\index{VDC\_11V@{VDC\_11V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_11V}{VDC\_11V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+11V~(11$\ast$65536)}
+
+
+
+Definition at line 187 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a038df4bcc79d54e607cae813b2ba1e67}\label{maths_8h_a038df4bcc79d54e607cae813b2ba1e67}} 
+\index{maths.h@{maths.h}!VDC\_12V@{VDC\_12V}}
+\index{VDC\_12V@{VDC\_12V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_12V}{VDC\_12V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+12V~(12$\ast$65536)}
+
+
+
+Definition at line 188 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a0aa27ed2911ad91001e8d6538271aaf6}\label{maths_8h_a0aa27ed2911ad91001e8d6538271aaf6}} 
+\index{maths.h@{maths.h}!VDC\_13V@{VDC\_13V}}
+\index{VDC\_13V@{VDC\_13V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_13V}{VDC\_13V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+13V~(13$\ast$65536)}
+
+
+
+Definition at line 189 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ad1c83d793b239545a64df5a374237aff}\label{maths_8h_ad1c83d793b239545a64df5a374237aff}} 
+\index{maths.h@{maths.h}!VDC\_14V@{VDC\_14V}}
+\index{VDC\_14V@{VDC\_14V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_14V}{VDC\_14V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+14V~(14$\ast$65536)}
+
+
+
+Definition at line 190 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a2e9b7ec12c022147a5b98045728819a3}\label{maths_8h_a2e9b7ec12c022147a5b98045728819a3}} 
+\index{maths.h@{maths.h}!VDC\_150V@{VDC\_150V}}
+\index{VDC\_150V@{VDC\_150V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_150V}{VDC\_150V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+150V~(150$\ast$65536)}
+
+
+
+Definition at line 206 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aa9f81785c098c00125d559d6d3087e71}\label{maths_8h_aa9f81785c098c00125d559d6d3087e71}} 
+\index{maths.h@{maths.h}!VDC\_15V@{VDC\_15V}}
+\index{VDC\_15V@{VDC\_15V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_15V}{VDC\_15V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+15V~(15$\ast$65536)}
+
+
+
+Definition at line 191 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ac2dcaafabad3b4f3efa0b884ae33e57f}\label{maths_8h_ac2dcaafabad3b4f3efa0b884ae33e57f}} 
+\index{maths.h@{maths.h}!VDC\_16V@{VDC\_16V}}
+\index{VDC\_16V@{VDC\_16V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_16V}{VDC\_16V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+16V~(16$\ast$65536)}
+
+
+
+Definition at line 192 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a919fcc09088b4f9920c9b2b14bb43fc0}\label{maths_8h_a919fcc09088b4f9920c9b2b14bb43fc0}} 
+\index{maths.h@{maths.h}!VDC\_17V@{VDC\_17V}}
+\index{VDC\_17V@{VDC\_17V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_17V}{VDC\_17V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+17V~(17$\ast$65536)}
+
+
+
+Definition at line 193 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ae08bd7ea84cc2abb790a35fac0c60766}\label{maths_8h_ae08bd7ea84cc2abb790a35fac0c60766}} 
+\index{maths.h@{maths.h}!VDC\_18V@{VDC\_18V}}
+\index{VDC\_18V@{VDC\_18V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_18V}{VDC\_18V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+18V~(18$\ast$65536)}
+
+
+
+Definition at line 194 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a565cf38ed76cb79491c15a91634b9ff2}\label{maths_8h_a565cf38ed76cb79491c15a91634b9ff2}} 
+\index{maths.h@{maths.h}!VDC\_19V@{VDC\_19V}}
+\index{VDC\_19V@{VDC\_19V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_19V}{VDC\_19V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+19V~(19$\ast$65536)}
+
+
+
+Definition at line 195 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a0b7798a2320fda330aa559bce060d447}\label{maths_8h_a0b7798a2320fda330aa559bce060d447}} 
+\index{maths.h@{maths.h}!VDC\_1V@{VDC\_1V}}
+\index{VDC\_1V@{VDC\_1V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_1V}{VDC\_1V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+1V~(1$\ast$65536)}
+
+
+
+Definition at line 180 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a04c28c9cdf27cafc3824ef24014dd686}\label{maths_8h_a04c28c9cdf27cafc3824ef24014dd686}} 
+\index{maths.h@{maths.h}!VDC\_200V@{VDC\_200V}}
+\index{VDC\_200V@{VDC\_200V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_200V}{VDC\_200V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+200V~(200$\ast$65536)}
+
+
+
+Definition at line 207 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a5f1de1c8502d0bec6222169729c2724f}\label{maths_8h_a5f1de1c8502d0bec6222169729c2724f}} 
+\index{maths.h@{maths.h}!VDC\_20V@{VDC\_20V}}
+\index{VDC\_20V@{VDC\_20V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_20V}{VDC\_20V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+20V~(20$\ast$65536)}
+
+
+
+Definition at line 196 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_af21f552756440800c6ac0002abf71101}\label{maths_8h_af21f552756440800c6ac0002abf71101}} 
+\index{maths.h@{maths.h}!VDC\_24V@{VDC\_24V}}
+\index{VDC\_24V@{VDC\_24V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_24V}{VDC\_24V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+24V~(24$\ast$65536)}
+
+
+
+Definition at line 197 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a46eefbc224b115f9f3d23f71783b8085}\label{maths_8h_a46eefbc224b115f9f3d23f71783b8085}} 
+\index{maths.h@{maths.h}!VDC\_250V@{VDC\_250V}}
+\index{VDC\_250V@{VDC\_250V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_250V}{VDC\_250V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+250V~(250$\ast$65536)}
+
+
+
+Definition at line 208 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a2764517e8379b7dceac8040ec807bacd}\label{maths_8h_a2764517e8379b7dceac8040ec807bacd}} 
+\index{maths.h@{maths.h}!VDC\_25V@{VDC\_25V}}
+\index{VDC\_25V@{VDC\_25V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_25V}{VDC\_25V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+25V~(25$\ast$65536)}
+
+
+
+Definition at line 198 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a47f8212fbb02030e570633ff71a4d87d}\label{maths_8h_a47f8212fbb02030e570633ff71a4d87d}} 
+\index{maths.h@{maths.h}!VDC\_300V@{VDC\_300V}}
+\index{VDC\_300V@{VDC\_300V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_300V}{VDC\_300V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+300V~(300$\ast$65536)}
+
+
+
+Definition at line 209 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a3fd9331b943af37a7a1164c71b6af615}\label{maths_8h_a3fd9331b943af37a7a1164c71b6af615}} 
+\index{maths.h@{maths.h}!VDC\_30V@{VDC\_30V}}
+\index{VDC\_30V@{VDC\_30V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_30V}{VDC\_30V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+30V~(30$\ast$65536)}
+
+
+
+Definition at line 199 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ae84974946a50a1cf1ca25870dbccf2a7}\label{maths_8h_ae84974946a50a1cf1ca25870dbccf2a7}} 
+\index{maths.h@{maths.h}!VDC\_350V@{VDC\_350V}}
+\index{VDC\_350V@{VDC\_350V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_350V}{VDC\_350V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+350V~(350$\ast$65536)}
+
+
+
+Definition at line 210 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_aa669602005678fd66070161a658ecb91}\label{maths_8h_aa669602005678fd66070161a658ecb91}} 
+\index{maths.h@{maths.h}!VDC\_400V@{VDC\_400V}}
+\index{VDC\_400V@{VDC\_400V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_400V}{VDC\_400V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+400V~(350$\ast$65536)}
+
+
+
+Definition at line 211 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a59a3a51404da31439f147bd00f81f979}\label{maths_8h_a59a3a51404da31439f147bd00f81f979}} 
+\index{maths.h@{maths.h}!VDC\_450V@{VDC\_450V}}
+\index{VDC\_450V@{VDC\_450V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_450V}{VDC\_450V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+450V~(450$\ast$65536)}
+
+
+
+Definition at line 212 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a62b44a5ecf46baa233f3d45fe6277a25}\label{maths_8h_a62b44a5ecf46baa233f3d45fe6277a25}} 
+\index{maths.h@{maths.h}!VDC\_45V@{VDC\_45V}}
+\index{VDC\_45V@{VDC\_45V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_45V}{VDC\_45V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+45V~(45$\ast$65536)}
+
+
+
+Definition at line 200 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a01bf9ca3b2a6783a99aa85e023afe017}\label{maths_8h_a01bf9ca3b2a6783a99aa85e023afe017}} 
+\index{maths.h@{maths.h}!VDC\_50V@{VDC\_50V}}
+\index{VDC\_50V@{VDC\_50V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_50V}{VDC\_50V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+50V~(50$\ast$65536)}
+
+
+
+Definition at line 201 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a847f1b383ac861976497a77373afe57b}\label{maths_8h_a847f1b383ac861976497a77373afe57b}} 
+\index{maths.h@{maths.h}!VDC\_5V@{VDC\_5V}}
+\index{VDC\_5V@{VDC\_5V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_5V}{VDC\_5V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+5V~(5$\ast$65536)}
+
+
+
+Definition at line 181 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a1596b2270dd2e6226b56a215ecd30540}\label{maths_8h_a1596b2270dd2e6226b56a215ecd30540}} 
+\index{maths.h@{maths.h}!VDC\_60V@{VDC\_60V}}
+\index{VDC\_60V@{VDC\_60V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_60V}{VDC\_60V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+60V~(60$\ast$65536)}
+
+
+
+Definition at line 202 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a18a8e9b4af395906f54eb8446559a287}\label{maths_8h_a18a8e9b4af395906f54eb8446559a287}} 
+\index{maths.h@{maths.h}!VDC\_6V@{VDC\_6V}}
+\index{VDC\_6V@{VDC\_6V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_6V}{VDC\_6V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+6V~(6$\ast$65536)}
+
+
+
+Definition at line 182 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a010930f0573d39ac5f77c91f66508392}\label{maths_8h_a010930f0573d39ac5f77c91f66508392}} 
+\index{maths.h@{maths.h}!VDC\_70V@{VDC\_70V}}
+\index{VDC\_70V@{VDC\_70V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_70V}{VDC\_70V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+70V~(70$\ast$65536)}
+
+
+
+Definition at line 203 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a0bbd05e668613f75555ebde0b0de75c1}\label{maths_8h_a0bbd05e668613f75555ebde0b0de75c1}} 
+\index{maths.h@{maths.h}!VDC\_75V@{VDC\_75V}}
+\index{VDC\_75V@{VDC\_75V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_75V}{VDC\_75V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+75V~(75$\ast$65536)}
+
+
+
+Definition at line 204 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_ae607b6422a329a233dc6e3a278fa52cc}\label{maths_8h_ae607b6422a329a233dc6e3a278fa52cc}} 
+\index{maths.h@{maths.h}!VDC\_7V@{VDC\_7V}}
+\index{VDC\_7V@{VDC\_7V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_7V}{VDC\_7V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+7V~(7$\ast$65536)}
+
+
+
+Definition at line 183 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a83a561fa29bfa3e75f436ccb5ce1bc7b}\label{maths_8h_a83a561fa29bfa3e75f436ccb5ce1bc7b}} 
+\index{maths.h@{maths.h}!VDC\_8V@{VDC\_8V}}
+\index{VDC\_8V@{VDC\_8V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_8V}{VDC\_8V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+8V~(8$\ast$65536)}
+
+
+
+Definition at line 184 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a0c3970b82aaae919e155f37481ef1f1e}\label{maths_8h_a0c3970b82aaae919e155f37481ef1f1e}} 
+\index{maths.h@{maths.h}!VDC\_9V@{VDC\_9V}}
+\index{VDC\_9V@{VDC\_9V}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_9V}{VDC\_9V}}
+{\footnotesize\ttfamily \#define V\+D\+C\+\_\+9V~(9$\ast$65536)}
+
+
+
+Definition at line 185 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a980b704eec5758bfb853fc8db700c9b9}\label{maths_8h_a980b704eec5758bfb853fc8db700c9b9}} 
+\index{maths.h@{maths.h}!ZERO\_POINT\_5773\_IN\_Q14@{ZERO\_POINT\_5773\_IN\_Q14}}
+\index{ZERO\_POINT\_5773\_IN\_Q14@{ZERO\_POINT\_5773\_IN\_Q14}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{ZERO\_POINT\_5773\_IN\_Q14}{ZERO\_POINT\_5773\_IN\_Q14}}
+{\footnotesize\ttfamily \#define Z\+E\+R\+O\+\_\+\+P\+O\+I\+N\+T\+\_\+5773\+\_\+\+I\+N\+\_\+\+Q14~0x24\+F2}
+
+
+
+Definition at line 78 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_acc2006bdefd9baf49f7c988704d7110f}\label{maths_8h_acc2006bdefd9baf49f7c988704d7110f}} 
+\index{maths.h@{maths.h}!ZERO\_POINT\_866\_IN\_Q14@{ZERO\_POINT\_866\_IN\_Q14}}
+\index{ZERO\_POINT\_866\_IN\_Q14@{ZERO\_POINT\_866\_IN\_Q14}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{ZERO\_POINT\_866\_IN\_Q14}{ZERO\_POINT\_866\_IN\_Q14}}
+{\footnotesize\ttfamily \#define Z\+E\+R\+O\+\_\+\+P\+O\+I\+N\+T\+\_\+866\+\_\+\+I\+N\+\_\+\+Q14~0x376C}
+
+
+
+Definition at line 79 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a27df169486fdd9e315986d3aea7cf958}\label{maths_8h_a27df169486fdd9e315986d3aea7cf958}} 
+\index{maths.h@{maths.h}!ZERO\_POINT\_FIVE@{ZERO\_POINT\_FIVE}}
+\index{ZERO\_POINT\_FIVE@{ZERO\_POINT\_FIVE}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{ZERO\_POINT\_FIVE}{ZERO\_POINT\_FIVE}}
+{\footnotesize\ttfamily \#define Z\+E\+R\+O\+\_\+\+P\+O\+I\+N\+T\+\_\+\+F\+I\+VE~0x00008000}
+
+
+
+Definition at line 285 of file maths.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{maths_8h_a292cc6836a9316ee646c918689614774}\label{maths_8h_a292cc6836a9316ee646c918689614774}} 
+\index{maths.h@{maths.h}!q1p14\_t@{q1p14\_t}}
+\index{q1p14\_t@{q1p14\_t}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{q1p14\_t}{q1p14\_t}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{maths_8h_a292cc6836a9316ee646c918689614774}{q1p14\+\_\+t}}}
+
+
+
+Definition at line 141 of file maths.\+h.
+
+\mbox{\Hypertarget{maths_8h_a4ac4ba7fab3ca94847eb277e1359390f}\label{maths_8h_a4ac4ba7fab3ca94847eb277e1359390f}} 
+\index{maths.h@{maths.h}!q1p30\_t@{q1p30\_t}}
+\index{q1p30\_t@{q1p30\_t}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{q1p30\_t}{q1p30\_t}}
+{\footnotesize\ttfamily typedef long int \mbox{\hyperlink{maths_8h_a4ac4ba7fab3ca94847eb277e1359390f}{q1p30\+\_\+t}}}
+
+
+
+Definition at line 142 of file maths.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{maths_8h_a98ed19b058a85283208af79c048973cb}\label{maths_8h_a98ed19b058a85283208af79c048973cb}} 
+\index{maths.h@{maths.h}!bubble\_sort\_array@{bubble\_sort\_array}}
+\index{bubble\_sort\_array@{bubble\_sort\_array}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{bubble\_sort\_array()}{bubble\_sort\_array()}}
+{\footnotesize\ttfamily void bubble\+\_\+sort\+\_\+array (\begin{DoxyParamCaption}\item[{int32\+\_\+t $\ast$}]{sort\+\_\+array,  }\item[{uint32\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Bubble sort an array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sort\+\_\+array} & pointer to array \\
+\hline
+{\em size} & length of array \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 25 of file maths.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27     \textcolor{keyword}{volatile} int32\_t temp;}
+\DoxyCodeLine{28     \textcolor{keyword}{volatile} uint32\_t i,j;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{comment}{// Sort array with max at the end}}
+\DoxyCodeLine{31     \textcolor{comment}{// Sort array in ascending order, Min to Max values}}
+\DoxyCodeLine{32     \textcolor{keywordflow}{for}(i = 0 ; i < size ; i++)}
+\DoxyCodeLine{33     \{}
+\DoxyCodeLine{34         \textcolor{keywordflow}{for}(j = 0 ; j < size-\/i-\/1 ; j++)}
+\DoxyCodeLine{35         \{}
+\DoxyCodeLine{36             \textcolor{keywordflow}{if}(sort\_array[j] > sort\_array[j+1])}
+\DoxyCodeLine{37             \{}
+\DoxyCodeLine{38                 temp = sort\_array[j];}
+\DoxyCodeLine{39                 sort\_array[j] = sort\_array[j+1];}
+\DoxyCodeLine{40                 sort\_array[j+1] = temp;}
+\DoxyCodeLine{41             \}}
+\DoxyCodeLine{42         \}}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44 \}}
+
+\end{DoxyCode}
+
+
+Referenced by hall\+\_\+sort\+\_\+create\+\_\+next\+\_\+state\+\_\+array().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{maths_8h_a98ed19b058a85283208af79c048973cb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{maths_8h_a09413eae8cd0a64db3eb97727cdc481a}\label{maths_8h_a09413eae8cd0a64db3eb97727cdc481a}} 
+\index{maths.h@{maths.h}!bubble\_sort\_array\_descending@{bubble\_sort\_array\_descending}}
+\index{bubble\_sort\_array\_descending@{bubble\_sort\_array\_descending}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{bubble\_sort\_array\_descending()}{bubble\_sort\_array\_descending()}}
+{\footnotesize\ttfamily void bubble\+\_\+sort\+\_\+array\+\_\+descending (\begin{DoxyParamCaption}\item[{int32\+\_\+t $\ast$}]{sort\+\_\+array,  }\item[{uint32\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Bubble sort an array in descending order. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sort\+\_\+array} & pointer to array \\
+\hline
+{\em size} & length of array \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 48 of file maths.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{49 \{}
+\DoxyCodeLine{50     \textcolor{keyword}{volatile} int32\_t temp;}
+\DoxyCodeLine{51     \textcolor{keyword}{volatile} uint32\_t i,j;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{comment}{// Sort array with max at the end}}
+\DoxyCodeLine{54     \textcolor{comment}{// Sort array in ascending order, Min to Max values}}
+\DoxyCodeLine{55     \textcolor{keywordflow}{for}(i = 0 ; i < size ; i++)}
+\DoxyCodeLine{56     \{}
+\DoxyCodeLine{57         \textcolor{keywordflow}{for}(j = 0 ; j < size-\/i-\/1 ; j++)}
+\DoxyCodeLine{58         \{}
+\DoxyCodeLine{59             \textcolor{keywordflow}{if}(sort\_array[j] < sort\_array[j+1])}
+\DoxyCodeLine{60             \{}
+\DoxyCodeLine{61                 temp = sort\_array[j];}
+\DoxyCodeLine{62                 sort\_array[j] = sort\_array[j+1];}
+\DoxyCodeLine{63                 sort\_array[j+1] = temp;}
+\DoxyCodeLine{64             \}}
+\DoxyCodeLine{65         \}}
+\DoxyCodeLine{66     \}}
+\DoxyCodeLine{67 \}}
+
+\end{DoxyCode}
+
+
+Referenced by hall\+\_\+sort\+\_\+create\+\_\+prev\+\_\+state\+\_\+array().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{maths_8h_a09413eae8cd0a64db3eb97727cdc481a_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{maths_8h_a9fdebd08c1633c998994e5da08ecd7b9}\label{maths_8h_a9fdebd08c1633c998994e5da08ecd7b9}} 
+\index{maths.h@{maths.h}!foc\_circle\_tbl@{foc\_circle\_tbl}}
+\index{foc\_circle\_tbl@{foc\_circle\_tbl}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{foc\_circle\_tbl}{foc\_circle\_tbl}}
+{\footnotesize\ttfamily const uint16\+\_\+t foc\+\_\+circle\+\_\+tbl\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Fixed point circle table for F\+OC controller. 
+
+
+
+Definition at line 32 of file circle\+\_\+table.\+c.
+
+\mbox{\Hypertarget{maths_8h_ab5323ff4a0360144b4b45dc12fe0d929}\label{maths_8h_ab5323ff4a0360144b4b45dc12fe0d929}} 
+\index{maths.h@{maths.h}!foc\_sin\_tbl@{foc\_sin\_tbl}}
+\index{foc\_sin\_tbl@{foc\_sin\_tbl}!maths.h@{maths.h}}
+\doxysubsubsection{\texorpdfstring{foc\_sin\_tbl}{foc\_sin\_tbl}}
+{\footnotesize\ttfamily const uint16\+\_\+t foc\+\_\+sin\+\_\+tbl\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Fixed point sine table for F\+OC controller. 
+
+360 degrees, from -\/1 to 1 
+
+Definition at line 30 of file sin\+\_\+table.\+c.
+

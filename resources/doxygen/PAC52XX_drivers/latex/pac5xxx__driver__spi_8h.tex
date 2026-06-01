@@ -1,0 +1,70 @@
+\hypertarget{pac5xxx__driver__spi_8h}{}\doxysection{pac\+\_\+foc/pac52xx/pac5xxx\+\_\+sdk/pac5xxx\+\_\+drivers/pac5xxx\+\_\+driver\+\_\+spi.h File Reference}
+\label{pac5xxx__driver__spi_8h}\index{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_drivers/pac5xxx\_driver\_spi.h@{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_drivers/pac5xxx\_driver\_spi.h}}
+
+
+Firmware driver for the P\+A\+C5\+X\+XX S\+PI Peripheral.  
+
+
+{\ttfamily \#include \char`\"{}pac52\+X\+X.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+config.\+h\char`\"{}}\newline
+Include dependency graph for pac5xxx\+\_\+driver\+\_\+spi.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__driver__spi_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__driver__spi_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaf9b98fc68dadf0e0514f9996ab4b77e3}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+PI}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaf9b98fc68dadf0e0514f9996ab4b77e3}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+PI}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gad06ff08d154827f65b6dc7b94e5c31a9}{pac5xxx\+\_\+spi\+\_\+master\+\_\+config}} (int int\+\_\+enable, int loopback, int mtrans, int mtrans\+\_\+rearm, int single\+\_\+master, int rtrans)
+\begin{DoxyCompactList}\small\item\em This function configures the S\+PI peripheral for master mode. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaf9b98fc68dadf0e0514f9996ab4b77e3}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+PI}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gacddb7ca6b6f3cb7c18ae02eac89597a9}{pac5xxx\+\_\+spi\+\_\+master\+\_\+config2}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga6e027e955a3a2597c5b8d789658fe424}{S\+P\+I\+S\+C\+F\+G\+\_\+\+Word\+Length\+\_\+\+Type}} wl\+\_\+select, int reset, int lsb\+\_\+first, \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaa157d616835a814c9931f478964942c2}{S\+P\+I\+S\+C\+F\+G\+\_\+\+Clock\+Polarity\+\_\+\+Type}} clock\+\_\+polarity, \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gab26093b18d3d0d74df9db02c3e54dc26}{S\+P\+I\+S\+C\+F\+G\+\_\+\+Clock\+Phase\+\_\+\+Type}} clock\+\_\+phase, \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga71f17122e10eda169accfe94c5292ca0}{S\+P\+I\+C\+F\+G\+\_\+\+Early\+Xmit\+Data\+Phase\+\_\+\+Type}} xmit\+\_\+data\+\_\+phase)
+\begin{DoxyCompactList}\small\item\em This function configures additional parameters for the S\+PI for master mode operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaf9b98fc68dadf0e0514f9996ab4b77e3}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+PI}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_ga230a7b39fbf130f69c3970c90e02b287}{pac5xxx\+\_\+spi\+\_\+master\+\_\+config\+\_\+chip\+\_\+select}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga7068d89b464ce13596bee04cccdfc627}{S\+P\+I\+C\+S\+\_\+\+Chip\+Select\+Number\+\_\+\+Type}} cs\+\_\+num, \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gadc46d977ea4f7dd55362acff8c53f9fe}{S\+P\+I\+C\+S\+\_\+\+Chip\+Select\+Polarity\+\_\+\+Type}} cs\+\_\+polarity, uint8\+\_\+t cs\+\_\+setup, uint8\+\_\+t cs\+\_\+hold, uint8\+\_\+t cs\+\_\+wait, uint8\+\_\+t spi\+\_\+clock\+\_\+wait)
+\begin{DoxyCompactList}\small\item\em This function configures the behavior of the S\+PI chip select signals, when configured for master mode. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaf9b98fc68dadf0e0514f9996ab4b77e3}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+PI}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaac14afe1f23d0d2839110dc6eaecfb2e}{pac5xxx\+\_\+spi\+\_\+slave\+\_\+config}} (int int\+\_\+enable, int loopback)
+\begin{DoxyCompactList}\small\item\em This function configures the S\+PI peripheral for slave mode. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaf9b98fc68dadf0e0514f9996ab4b77e3}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+PI}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_ga55a53ac4c8fa18c907612d52f46d3536}{pac5xxx\+\_\+spi\+\_\+slave\+\_\+config2}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga6e027e955a3a2597c5b8d789658fe424}{S\+P\+I\+S\+C\+F\+G\+\_\+\+Word\+Length\+\_\+\+Type}} wl\+\_\+select, int reset, int lsb\+\_\+first, \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gaa157d616835a814c9931f478964942c2}{S\+P\+I\+S\+C\+F\+G\+\_\+\+Clock\+Polarity\+\_\+\+Type}} clock\+\_\+polarity, \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gab26093b18d3d0d74df9db02c3e54dc26}{S\+P\+I\+S\+C\+F\+G\+\_\+\+Clock\+Phase\+\_\+\+Type}} clock\+\_\+phase, \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga71f17122e10eda169accfe94c5292ca0}{S\+P\+I\+C\+F\+G\+\_\+\+Early\+Xmit\+Data\+Phase\+\_\+\+Type}} xmit\+\_\+data\+\_\+phase)
+\begin{DoxyCompactList}\small\item\em This function configures additional parameters for the S\+PI for slave mode operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaf9b98fc68dadf0e0514f9996ab4b77e3}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+PI}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_ga5111c51f99ea745551590d862f8a83d1}{pac5xxx\+\_\+spi\+\_\+slave\+\_\+config\+\_\+chip\+\_\+select}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_ga7068d89b464ce13596bee04cccdfc627}{S\+P\+I\+C\+S\+\_\+\+Chip\+Select\+Number\+\_\+\+Type}} cs\+\_\+num, \mbox{\hyperlink{group___p_a_c5_x_x_x___s_p_i_gadc46d977ea4f7dd55362acff8c53f9fe}{S\+P\+I\+C\+S\+\_\+\+Chip\+Select\+Polarity\+\_\+\+Type}} chip\+\_\+select\+\_\+polarity)
+\begin{DoxyCompactList}\small\item\em This function configures the behavior of the S\+PI chip select signals, when configured for slave mode. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaf9b98fc68dadf0e0514f9996ab4b77e3}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+PI}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_ga159a7ad34ac8743891855c16588da314}{pac5xxx\+\_\+spi\+\_\+config\+\_\+io}} (int master, unsigned char cs\+\_\+mask)
+\begin{DoxyCompactList}\small\item\em This function configures the IO ports on the device for S\+PI master or slave operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaf9b98fc68dadf0e0514f9996ab4b77e3}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+PI}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_ga2f4ac5db1cab9517c67f62c46386fab8}{pac5xxx\+\_\+spi\+\_\+int\+\_\+enable}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function configures S\+PI interrupts to the given state. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaf9b98fc68dadf0e0514f9996ab4b77e3}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+PI}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaa10bfb6b94a31a2a1bd9b49d245d52ce}{pac5xxx\+\_\+spi\+\_\+int\+\_\+enable\+\_\+\+R\+D\+O\+FL}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function configures the state of the Read Buffer Overflow (R\+D\+O\+FL) interrupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaf9b98fc68dadf0e0514f9996ab4b77e3}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+PI}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_ga47bfea593d28cde0feb36ab9a3acb5a6}{pac5xxx\+\_\+spi\+\_\+int\+\_\+enable\+\_\+\+LE}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function configures the state of the Chip Select Leading Edge Detect (LE) interupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaf9b98fc68dadf0e0514f9996ab4b77e3}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+PI}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_ga0183d1dc6e2976286c049ff5df72f10e}{pac5xxx\+\_\+spi\+\_\+int\+\_\+enable\+\_\+\+U\+C\+LK}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function configures the state of the Underclock Condition (U\+C\+LK) interupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaf9b98fc68dadf0e0514f9996ab4b77e3}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+PI}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_ga8b257cbed6d326cbfaa3cd2ea40069a3}{pac5xxx\+\_\+spi\+\_\+int\+\_\+enable\+\_\+\+C\+Y\+C\+\_\+\+D\+O\+NE}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function configures the state of the Cycle Done (C\+Y\+C\+\_\+\+D\+O\+NE) interrupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaf9b98fc68dadf0e0514f9996ab4b77e3}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+PI}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaf81c706dfa534bae814ce5ecaec6103c}{pac5xxx\+\_\+spi\+\_\+int\+\_\+enable\+\_\+\+TE}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function configures the state of the Chip Select Trailing Edge Detect (TE) interupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaf9b98fc68dadf0e0514f9996ab4b77e3}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+PI}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___s_p_i_gaed2a21f142394e2c4ed84953b57824f2}{pac5xxx\+\_\+spi\+\_\+int\+\_\+enable\+\_\+\+W\+R\+U\+FL}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function configures the state of the Write Buffer Underflow (W\+R\+U\+FL) interupt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Firmware driver for the P\+A\+C5\+X\+XX S\+PI Peripheral. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2015-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 

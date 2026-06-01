@@ -1,0 +1,351 @@
+.TH "pac_foc/pac52xx/device/family_52xx.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/device/family_52xx.h \- Use for 52xx family hardware resources initialization\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'device_options\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_gpio\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_timer\&.h'\fP
+.br
+\fC#include 'config_debug\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBFAMILY_52XX\fP"
+.br
+.ti -1c
+.RI "#define \fBVMS100_ADDRESS\fP   0x0010003C"
+.br
+.ti -1c
+.RI "#define \fBVMS200_ADDRESS\fP   0x0010003E"
+.br
+.ti -1c
+.RI "#define \fBADC_CHANNEL_MASK\fP   (1L << \fBADCCTL_ADMUX_AD0\fP)"
+.br
+.ti -1c
+.RI "#define \fBNIRQ1_PIN\fP   0"
+.br
+.ti -1c
+.RI "#define \fBNIRQ1_PIN_MASK\fP   (1 << \fBNIRQ1_PIN\fP)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinit_system\fP (void)"
+.br
+.RI "init_system, use to setup PLL, system clock and flash wait state "
+.ti -1c
+.RI "void \fBconfigure_cafe_fault_interrupt\fP (void)"
+.br
+.RI "configure_cafe_fault_interrupt, configure over current interrupt from AFE "
+.ti -1c
+.RI "void \fBconfigure_foc_timer\fP (void)"
+.br
+.RI "configure_foc_timer, configure main FOC PWM timer "
+.ti -1c
+.RI "void \fBconfigure_adc_emux_engine\fP (void)"
+.br
+.RI "configure_adc_emux_engine, configure ADC EMUX for sending channel selection data "
+.ti -1c
+.RI "void \fBconfigure_pwm_dac\fP (void)"
+.br
+.RI "configure_pwm_dac, configure PWM timer for DAC outputs "
+.ti -1c
+.RI "void \fBuart_scratch_write\fP (int32_t value)"
+.br
+.RI "uart_scratch_write, function to write to UART scratch register "
+.ti -1c
+.RI "int32_t \fBuart_scratch_read\fP (void)"
+.br
+.RI "uart_scratch_read, function use to read data from UART scratch register "
+.ti -1c
+.RI "void \fBinitialize_foc_timer_seq_trigger_value\fP (int32_t ccr_trig_value)"
+.br
+.RI "initialize_foc_timer_seq_trigger_value, use to initialize sequencer0 and 1 triggers "
+.ti -1c
+.RI "void \fBinitialize_foc_timer_seq_trigger_value_ccr0_ccr1\fP (int32_t ccr_trig_value)"
+.br
+.RI "initialize_foc_timer_seq_trigger_value_ccr0_ccr1, use to initialize sequencer0 and sequencer1 trigger "
+.ti -1c
+.RI "void \fBinitialize_socbridge_clk_divider\fP (void)"
+.br
+.RI "initialize_socbridge_clk_divider, use to set clock divider of SOC bridge "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for 52xx family hardware resources initialization\&. 
+
+
+.PP
+Definition in file \fBfamily_52xx\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ADC_CHANNEL_MASK   (1L << \fBADCCTL_ADMUX_AD0\fP)"
+
+.PP
+Definition at line 36 of file family_52xx\&.h\&.
+.SS "#define FAMILY_52XX"
+
+.PP
+Definition at line 23 of file family_52xx\&.h\&.
+.SS "#define NIRQ1_PIN   0"
+
+.PP
+Definition at line 39 of file family_52xx\&.h\&.
+.SS "#define NIRQ1_PIN_MASK   (1 << \fBNIRQ1_PIN\fP)"
+
+.PP
+Definition at line 40 of file family_52xx\&.h\&.
+.SS "#define VMS100_ADDRESS   0x0010003C"
+
+.PP
+Definition at line 32 of file family_52xx\&.h\&.
+.SS "#define VMS200_ADDRESS   0x0010003E"
+
+.PP
+Definition at line 33 of file family_52xx\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void configure_adc_emux_engine (void)"
+
+.PP
+configure_adc_emux_engine, configure ADC EMUX for sending channel selection data 
+.PP
+Definition at line 128 of file family_52xx\&.c\&.
+.PP
+.nf
+129 {
+130     // EMUX configuration
+131     // ADCEMUXCTRL DIVIDER is coming from config_app\&.h
+132     pac5xxx_adc_emux_config(ADCEMUXCTL_EMUXC_SEQ, ADCEMUXCTRL_EMUXDIV);                 // Configure EMUX to do conversions from ADC sequencer, /2 EMUX divider (HCLK=50MHz/2 = 25MHz)
+133     pac5xxx_adc_config_emux_io();                                                       // Configure device IO for EMUX
+134 
+135     // ADC Configuration
+136     pac5xxx_adc_config_io(ADC_CHANNEL_MASK);                                            // Configure device IO for ADC conversions (as Analog inputs)
+137 }
+.fi
+.PP
+References ADC_CHANNEL_MASK, ADCEMUXCTL_EMUXC_SEQ, pac5xxx_adc_config_emux_io(), pac5xxx_adc_config_io(), and pac5xxx_adc_emux_config()\&.
+.SS "void configure_cafe_fault_interrupt (void)"
+
+.PP
+configure_cafe_fault_interrupt, configure over current interrupt from AFE 
+.PP
+Definition at line 70 of file family_52xx\&.c\&.
+.PP
+.nf
+71 {    
+72     // Configure nIRQ1, CAFE fault interrupt, as digital input - active low
+73     pac5xxx_gpio_configure_interrupt_b(NIRQ1_PIN_MASK, 0);
+74     #ifdef ENABLE_CBC_CURRENT_LIMIT
+75         NVIC_SetPriority(GpioB_IRQn,0);
+76     #else
+77         NVIC_SetPriority(GpioB_IRQn,3);
+78     #endif
+79 }
+.fi
+.PP
+References NIRQ1_PIN_MASK, and pac5xxx_gpio_configure_interrupt_b()\&.
+.SS "void configure_foc_timer (void)"
+
+.PP
+configure_foc_timer, configure main FOC PWM timer 
+.PP
+Definition at line 84 of file family_52xx\&.c\&.
+.PP
+.nf
+85 {
+86     pac5xxx_timer_a_clear_assert();                                                         // Hold timer clear signal, so timer slaves do not count
+87 
+88     // Configure Timer A Base
+89     pac5xxx_timer_clock_config(TimerA, TxCTL_CS_ACLK, TxCTL_PS_DIV1);                       // Configure timer clock input for ACLK (50MHz), /1 divider
+90     PAC5XXX_TIMERA->CTL\&.PRDL = 1;                                                           // 07102015, Latch new TAPRD value when timerA counting down, TACTR value = 0x01
+91     pac5xxx_timer_base_config(TimerA, motor\&.control\&.motor_period_ticks, 0, TxCTL_MODE_UPDOWN, 0);  // Enable base timer
+92 
+93 
+94    //Configure Dead Time Generators
+95     pac5xxx_dtg_config(DTGA0, MOTOR1_LED_TICKS, MOTOR1_TED_TICKS, 0, 0, 0, 0);              // Configure DTGA0 for phase U
+96     pac5xxx_dtg_config(DTGA1, MOTOR1_LED_TICKS, MOTOR1_TED_TICKS, 0, 0, 0, 0);              // Configure DTGA1 for phase V
+97     pac5xxx_dtg_config(DTGA2, MOTOR1_LED_TICKS, MOTOR1_TED_TICKS, 0, 0, 0, 0);              // Configure DTGA2 for phase W
+98 
+99     pac5xxx_timer_a_clear_deassert();                                                       // Release timer clear signal, all timers now in sync and start counting
+100 
+101     // Enable TACCR0 interrupt
+102 #if 0
+103     pac5xxx_timer_cctrl_int_enable(TimerA, 0, 1);                                           // Enable interrupts on TACCR0
+104 #endif
+105 }
+.fi
+.SS "void configure_pwm_dac (void)"
+
+.PP
+configure_pwm_dac, configure PWM timer for DAC outputs 
+.PP
+Definition at line 110 of file family_52xx\&.c\&.
+.PP
+.nf
+111 {
+112 #ifdef ENABLE_DEBUG_PWMDAC 
+113     pac5xxx_timer_clock_config(TimerB, TxCTL_CS_ACLK, TxCTL_PS_DIV1);                       // Configure timer clock input for ACLK (100MHz), /1 divider
+114     pac5xxx_timer_clock_config(TimerC, TxCTL_CS_ACLK, TxCTL_PS_DIV1);                       // Configure timer clock input for ACLK (100MHz), /1 divider (must match timer B)
+115     pac5xxx_timer_clock_config(TimerD, TxCTL_CS_ACLK, TxCTL_PS_DIV1);                       // Configure timer clock input for ACLK (100MHz), /1 divider (must match timer B)
+116 
+117     pac5xxx_timer_base_config(TimerB, PWMDAC_PERIOD_TICKS, 0, TxCTL_MODE_UPDOWN, 1);        // Configure Timer B as sync slave
+118     pac5xxx_timer_base_config(TimerC, PWMDAC_PERIOD_TICKS, 0, TxCTL_MODE_UPDOWN, 1);        // Configure Timer C as sync slave
+119     pac5xxx_timer_base_config(TimerD, PWMDAC_PERIOD_TICKS, 0, TxCTL_MODE_UPDOWN, 1);        // Configure Timer D as sync slave
+120 
+121     pwmdac_disable();
+122 #endif
+123 }
+.fi
+.PP
+References pac5xxx_timer_base_config(), pac5xxx_timer_clock_config(), TimerB, TimerC, TimerD, TxCTL_CS_ACLK, TxCTL_MODE_UPDOWN, and TxCTL_PS_DIV1\&.
+.SS "void init_system (void)"
+
+.PP
+init_system, use to setup PLL, system clock and flash wait state 
+.PP
+Definition at line 58 of file family_52xx\&.c\&.
+.PP
+.nf
+59 {
+60     // PLL 50MHZ, FCLK: 50MHz, PLLCLK: 50MHz, ACLK: 50MHz (/1), HCLK: 50MHz (/1)
+61     // PLL CLK and FLASH wait state is coming from config_app\&.h
+62     pac5xxx_sys_pll_config(HCLK_FREQ_HZ/1000000);
+63     pac5xxx_sys_ccs_config(CCSCTL_CLKIN_CLKREF, CCSCTL_ACLKDIV_DIV1, CCSCTL_HCLKDIV_DIV1);
+64     pac5xxx_memctl_wait_state(FLASH_WAIT_STATE);
+65 }
+.fi
+.PP
+References CCSCTL_ACLKDIV_DIV1, CCSCTL_CLKIN_CLKREF, CCSCTL_HCLKDIV_DIV1, pac5xxx_memctl_wait_state(), pac5xxx_sys_ccs_config(), and pac5xxx_sys_pll_config()\&.
+.SS "void initialize_foc_timer_seq_trigger_value (int32_t ccr_trig_value)"
+
+.PP
+initialize_foc_timer_seq_trigger_value, use to initialize sequencer0 and 1 triggers 
+.PP
+\fBParameters\fP
+.RS 4
+\fIint32_t\fP ccr_trig_value 
+.RE
+.PP
+
+.PP
+Definition at line 274 of file family_52xx\&.c\&.
+.PP
+.nf
+275 {
+276 #if (CONFIG_SHUNT == CONFIG_SHUNT_1SHUNT)
+277     extern Struct_Motor motor;
+278 #endif
+279 
+280 #if (CONFIG_SHUNT == CONFIG_SHUNT_3SHUNT) || (CONFIG_SHUNT == CONFIG_SHUNT_2SHUNT)
+281     pac5xxx_timer_a_ccctr0_value_set(ccr_trig_value - 4);                        // Set value for AS0 trigger at triangle peak (PWM center)
+282 #elif (CONFIG_SHUNT == CONFIG_SHUNT_1SHUNT)
+283     motor\&.oneshunt\&.taccr0_value = (ccr_trig_value >> 1);
+284     motor\&.oneshunt\&.taccr1_value = (ccr_trig_value >> 1);
+285     pac5xxx_timer_a_ccctr0_value_set(ccr_trig_value >> 1);                        // Set value for AS0 trigger at triangle peak (PWM center)
+286     pac5xxx_timer_a_ccctr1_value_set(ccr_trig_value >> 1);                        // Set value for AS0 trigger at triangle peak (PWM center)
+287 #endif
+288 }
+.fi
+.SS "void initialize_foc_timer_seq_trigger_value_ccr0_ccr1 (int32_t ccr_trig_value)"
+
+.PP
+initialize_foc_timer_seq_trigger_value_ccr0_ccr1, use to initialize sequencer0 and sequencer1 trigger 
+.PP
+\fBParameters\fP
+.RS 4
+\fIint32_t\fP ccr_trig_value 
+.RE
+.PP
+
+.PP
+Definition at line 294 of file family_52xx\&.c\&.
+.PP
+.nf
+295 {
+296     pac5xxx_timer_a_ccctr0_value_set(ccr_trig_value);                                                                         // Set value for AS0 trigger at triangle peak (PWM center)
+297     pac5xxx_timer_a_ccctr1_value_set(ccr_trig_value);                                                                         // Set value for AS0 trigger at triangle peak (PWM center)
+298 }
+.fi
+.SS "void initialize_socbridge_clk_divider (void)"
+
+.PP
+initialize_socbridge_clk_divider, use to set clock divider of SOC bridge 
+.PP
+\fBParameters\fP
+.RS 4
+\fIint32_t\fP valuee 
+.RE
+.PP
+
+.PP
+Definition at line 315 of file family_52xx\&.c\&.
+.PP
+.nf
+316 {
+317     PAC5XXX_SOCBRIDGE->SOCBCLKDIV\&.VAL = SOC_BRIDGE_CLK_DIVIDER;    // SPI CLK = 12\&.5 MHz = HCLK_FREQ_HZ/ ((CLKDIV + 1) * 2)
+318 }
+.fi
+.PP
+References PAC5XXX_SOCBRIDGE\&.
+.SS "int32_t uart_scratch_read (void)"
+
+.PP
+uart_scratch_read, function use to read data from UART scratch register 
+.PP
+\fBReturns\fP
+.RS 4
+int32_t 32 bit data 
+.RE
+.PP
+
+.PP
+Definition at line 255 of file family_52xx\&.c\&.
+.PP
+.nf
+256 {
+257     // Return the value stored in the UART Scratch Pad Register
+258     return PAC5XXX_UART->SP\&.VAL;
+259 }
+.fi
+.PP
+References PAC5XXX_UART\&.
+.SS "void uart_scratch_write (int32_t value)"
+
+.PP
+uart_scratch_write, function to write to UART scratch register 
+.PP
+\fBParameters\fP
+.RS 4
+\fIint32_t\fP value 
+.RE
+.PP
+
+.PP
+Definition at line 244 of file family_52xx\&.c\&.
+.PP
+.nf
+245 {
+246     // Set the UART Scratch Pad Register value
+247     PAC5XXX_UART->SP\&.VAL = value;  // CRC Passed-value=0; CRC Failed-value=1 (i\&.e\&. non zero)
+248 }
+.fi
+.PP
+References PAC5XXX_UART\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

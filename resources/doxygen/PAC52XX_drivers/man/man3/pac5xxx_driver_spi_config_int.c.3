@@ -1,0 +1,61 @@
+.TH "pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_spi_config_int.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_spi_config_int.c \- Firmware driver for the PAC5XXX SPI Peripheral\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx_driver_spi\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_int_enable\fP (int enable)"
+.br
+.RI "This function configures SPI interrupts to the given state\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_int_enable_RDOFL\fP (int enable)"
+.br
+.RI "This function configures the state of the Read Buffer Overflow (RDOFL) interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_int_enable_LE\fP (int enable)"
+.br
+.RI "This function configures the state of the Chip Select Leading Edge Detect (LE) interupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_int_enable_UCLK\fP (int enable)"
+.br
+.RI "This function configures the state of the Underclock Condition (UCLK) interupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_int_enable_CYC_DONE\fP (int enable)"
+.br
+.RI "This function configures the state of the Cycle Done (CYC_DONE) interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_int_enable_TE\fP (int enable)"
+.br
+.RI "This function configures the state of the Chip Select Trailing Edge Detect (TE) interupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_int_enable_WRUFL\fP (int enable)"
+.br
+.RI "This function configures the state of the Write Buffer Underflow (WRUFL) interupt\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Firmware driver for the PAC5XXX SPI Peripheral\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_driver_spi_config_int\&.c\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

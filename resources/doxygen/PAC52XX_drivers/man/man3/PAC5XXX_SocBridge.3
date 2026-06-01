@@ -1,0 +1,1559 @@
+.TH "PAC5XXX_SocBridge" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_SocBridge \- PAC5XXX SOC Bridge
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPAC5XXX_SocBridge_TypeDef\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBSocBridge_State_Type\fP { \fBSOCBSTAT_CURSTATE_IDLE\fP = 0, \fBSOCBSTAT_CURSTATE_CSSETUP\fP = 1, \fBSOCBSTAT_CURSTATE_TRANSFER\fP = 2, \fBSOCBSTAT_CURSTATE_CSHOLD\fP = 3, \fBSOCBSTAT_CURSTATE_CSWAIT\fP = 4, \fBSOCBSTAT_CURSTATE_CKWAIT\fP = 5, \fBSOCBSTAT_CURSTATE_MTRANS\fP = 6, \fBSOCBSTAT_CURSTATE_CSBEGIN\fP = 7 }"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::SSEN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::SIE\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::MTRARM\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::SETTO3\fP: 2"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::SSEN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::SIE\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::MTRARM\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::SETTO3\fP: 2"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::SSEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::SIE\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::MTRARM\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::SETTO3\fP: 2"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_SocBridge_TypeDef::SOCBCTL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::WL\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::MRST\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 6"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::SETTO0\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::SETTO3\fP: 2"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad1__\fP: 20"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::WL\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::MRST\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 6"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::SETTO0\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::SETTO3\fP: 2"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad1__\fP: 20"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::WL\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::MRST\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 6"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::SETTO0\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::SETTO3\fP: 2"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad1__\fP: 20"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_SocBridge_TypeDef::SOCBCFG\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::VAL\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::VAL\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_SocBridge_TypeDef::SOCBCLKDIV\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::RESERVED10\fP [2]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::SOCB_INT\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::RDOFL\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad2__\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CYC_DONE\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad3__\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::WRUFL\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::TXFULL\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::RXFULL\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad4__\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CURSTATE\fP: 2"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad5__\fP: 18"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::SOCB_INT\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::RDOFL\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad2__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CYC_DONE\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad3__\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::WRUFL\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::TXFULL\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::RXFULL\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad4__\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CURSTATE\fP: 2"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad5__\fP: 18"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::SOCB_INT\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::RDOFL\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad1__\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad2__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CYC_DONE\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad3__\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::WRUFL\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::TXFULL\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::RXFULL\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad4__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CURSTATE\fP: 2"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad5__\fP: 18"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_SocBridge_TypeDef::SOCBSTAT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CSSETUP\fP: 4"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CSHOLD\fP: 4"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CSWAIT\fP: 4"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CKWAIT\fP: 4"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad1__\fP: 8"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CSSETUP\fP: 4"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CSHOLD\fP: 4"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CSWAIT\fP: 4"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CKWAIT\fP: 4"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad1__\fP: 8"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CSSETUP\fP: 4"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CSHOLD\fP: 4"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CSWAIT\fP: 4"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CKWAIT\fP: 4"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad1__\fP: 8"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_SocBridge_TypeDef::SOCBCSSTR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::DATA\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::DATA\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::DATA\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_SocBridge_TypeDef::SOCBD\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::RDOFL_EN\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad1__\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CYC_DONE_EN\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad2__\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::WRUFL_EN\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad3__\fP: 23"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::RDOFL_EN\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad1__\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CYC_DONE_EN\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad2__\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::WRUFL_EN\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad3__\fP: 23"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::RDOFL_EN\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad1__\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::CYC_DONE_EN\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad2__\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_SocBridge_TypeDef::WRUFL_EN\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_SocBridge_TypeDef::__pad3__\fP: 23"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_SocBridge_TypeDef::SOCBINT_EN\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBSocBridge_State_Type\fP"
+SPI Status State Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISOCBSTAT_CURSTATE_IDLE \fP\fP
+SOC Bridge State: Idle 
+.br
+ 
+.TP
+\fB\fISOCBSTAT_CURSTATE_CSSETUP \fP\fP
+SOC Bridge State: Chip Select Setup 
+.br
+ 
+.TP
+\fB\fISOCBSTAT_CURSTATE_TRANSFER \fP\fP
+SOC Bridge State: Transfer Data 
+.br
+ 
+.TP
+\fB\fISOCBSTAT_CURSTATE_CSHOLD \fP\fP
+SOC Bridge State: Chip Select Hold 
+.br
+ 
+.TP
+\fB\fISOCBSTAT_CURSTATE_CSWAIT \fP\fP
+SOC Bridge State: Chip Select Wait 
+.br
+ 
+.TP
+\fB\fISOCBSTAT_CURSTATE_CKWAIT \fP\fP
+SOC Bridge State: Clock Wait 
+.br
+ 
+.TP
+\fB\fISOCBSTAT_CURSTATE_MTRANS \fP\fP
+SOC Bridge State: Master Transfer 
+.br
+ 
+.TP
+\fB\fISOCBSTAT_CURSTATE_CSBEGIN \fP\fP
+SOC Bridge State: Chip Select begin 
+.br
+ 
+.PP
+Definition at line 27 of file pac5xxx_SocBridge\&.h\&.
+.PP
+.nf
+27              {
+28     SOCBSTAT_CURSTATE_IDLE = 0,                 
+29     SOCBSTAT_CURSTATE_CSSETUP = 1,              
+30     SOCBSTAT_CURSTATE_TRANSFER = 2,             
+31     SOCBSTAT_CURSTATE_CSHOLD = 3,               
+32     SOCBSTAT_CURSTATE_CSWAIT = 4,               
+33     SOCBSTAT_CURSTATE_CKWAIT = 5,               
+34     SOCBSTAT_CURSTATE_MTRANS = 6,               
+35     SOCBSTAT_CURSTATE_CSBEGIN = 7               
+36 } SocBridge_State_Type;
+.fi
+.SH "Variable Documentation"
+.PP 
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 45 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t PAC5XXX_SocBridge_TypeDef::__pad0__"
+
+.PP
+Definition at line 45 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 49 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 54 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 66 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 70 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 75 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 85 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 95 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 99 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 103 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 123 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 127 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 130 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 144 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 148 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 152 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 161 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 165 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 168 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t PAC5XXX_SocBridge_TypeDef::__pad1__"
+Must write as 0 
+.br
+.PP
+Enable UCLK Interrupt 
+.br
+ 
+.PP
+Definition at line 57 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 57 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+Must write as 0 
+.br
+ 
+.PP
+Definition at line 78 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 105 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 135 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+Enable UCLK Interrupt 
+.br
+ 
+.PP
+Definition at line 170 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t PAC5XXX_SocBridge_TypeDef::__pad2__"
+
+.PP
+Definition at line 106 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad2__"
+
+.PP
+Definition at line 106 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad2__"
+
+.PP
+Definition at line 172 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t PAC5XXX_SocBridge_TypeDef::__pad3__"
+
+.PP
+Definition at line 108 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad3__"
+
+.PP
+Definition at line 108 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad3__"
+
+.PP
+Definition at line 174 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t PAC5XXX_SocBridge_TypeDef::__pad4__"
+
+.PP
+Definition at line 112 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad4__"
+
+.PP
+Definition at line 112 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t PAC5XXX_SocBridge_TypeDef::__pad5__"
+
+.PP
+Definition at line 114 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad5__"
+
+.PP
+Definition at line 114 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 48 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::b"
+
+.PP
+Definition at line 48 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 69 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 98 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 126 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 147 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 164 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::CKWAIT"
+SOC Bus Bridge Clock Wait 
+.br
+ 
+.PP
+Definition at line 134 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CKWAIT"
+SOC Bus Bridge Clock Wait 
+.br
+ 
+.PP
+Definition at line 134 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::CSHOLD"
+Chip Select Hold 
+.br
+ 
+.PP
+Definition at line 132 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CSHOLD"
+Chip Select Hold 
+.br
+ 
+.PP
+Definition at line 132 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::CSSETUP"
+Chip Select Setup 
+.br
+ 
+.PP
+Definition at line 131 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CSSETUP"
+Chip Select Setup 
+.br
+ 
+.PP
+Definition at line 131 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::CSWAIT"
+Chip Select Wait 
+.br
+ 
+.PP
+Definition at line 133 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CSWAIT"
+Chip Select Wait 
+.br
+ 
+.PP
+Definition at line 133 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_SocBridge_TypeDef::CURSTATE"
+Current state of the SOC Bus Bridge state machine 
+.br
+ 
+.PP
+Definition at line 113 of file pac5xxx_SocBridge\&.h\&.
+.SS "__I { \&.\&.\&. } ::CURSTATE"
+Current state of the SOC Bus Bridge state machine 
+.br
+ 
+.PP
+Definition at line 113 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CYC_DONE"
+Cycle Done 
+.br
+ 
+.PP
+Definition at line 107 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::CYC_DONE"
+Cycle Done 
+.br
+ 
+.PP
+Definition at line 107 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::CYC_DONE_EN"
+Enable CYC_DONE Interrupt 
+.br
+ 
+.PP
+Definition at line 171 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::CYC_DONE_EN"
+Enable CYC_DONE Interrupt 
+.br
+ 
+.PP
+Definition at line 171 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::DATA"
+
+.PP
+Definition at line 151 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DATA"
+
+.PP
+Definition at line 151 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::MRST"
+Module Reset 
+.br
+ 
+.PP
+Definition at line 74 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MRST"
+Module Reset 
+.br
+ 
+.PP
+Definition at line 74 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::MTRARM"
+MTRANS re-arm, de-asserts CS, return to idle 
+.br
+ 
+.PP
+Definition at line 55 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MTRARM"
+MTRANS re-arm, de-asserts CS, return to idle 
+.br
+ 
+.PP
+Definition at line 55 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::RDOFL"
+Read Buffer Overflow 
+.br
+ 
+.PP
+Definition at line 104 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::RDOFL"
+Read Buffer Overflow 
+.br
+ 
+.PP
+Definition at line 104 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::RDOFL_EN"
+Enable FDOFL Interrupt 
+.br
+ 
+.PP
+Definition at line 169 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::RDOFL_EN"
+Enable FDOFL Interrupt 
+.br
+ 
+.PP
+Definition at line 169 of file pac5xxx_SocBridge\&.h\&.
+.SS "uint32_t PAC5XXX_SocBridge_TypeDef::RESERVED10[2]"
+SOCBSTAT: Offset: 0x0014 SOC bus bridge status register 
+.br
+ 
+.PP
+Definition at line 88 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_SocBridge_TypeDef::RXFULL"
+Raw indicator that the receiving incoming holding reg is full 
+.br
+ 
+.PP
+Definition at line 111 of file pac5xxx_SocBridge\&.h\&.
+.SS "__I { \&.\&.\&. } ::RXFULL"
+Raw indicator that the receiving incoming holding reg is full 
+.br
+ 
+.PP
+Definition at line 111 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::s"
+
+.PP
+Definition at line 44 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 44 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 65 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 94 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 122 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 143 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 160 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::SETTO0"
+Must write as 0 
+.br
+ 
+.PP
+Definition at line 76 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SETTO0"
+Must write as 0 
+.br
+ 
+.PP
+Definition at line 76 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SETTO3"
+Must write to 3 (11b) 
+.br
+ 
+.PP
+Definition at line 56 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::SETTO3"
+Must write to 3 (11b) 
+.br
+.PP
+Must write as 3 (11b) 
+.br
+ 
+.PP
+Definition at line 56 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SETTO3"
+Must write as 3 (11b) 
+.br
+ 
+.PP
+Definition at line 77 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::SIE"
+SocBridge Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 53 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SIE"
+SocBridge Interrupt Enable 
+.br
+ 
+.PP
+Definition at line 53 of file pac5xxx_SocBridge\&.h\&.
+.SS "__I { \&.\&.\&. } ::SOCB_INT"
+SOC Bus Bridge Interrupt 
+.br
+ 
+.PP
+Definition at line 102 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_SocBridge_TypeDef::SOCB_INT"
+SOC Bus Bridge Interrupt 
+.br
+ 
+.PP
+Definition at line 102 of file pac5xxx_SocBridge\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_SocBridge_TypeDef::SOCBCFG"
+SOCBCLKDIV: Offset: 0x0008 SOC bus bridge Input Clock Divisor Register 
+.br
+ 
+.SS "struct { \&.\&.\&. }  PAC5XXX_SocBridge_TypeDef::SOCBCLKDIV"
+
+.SS "union { \&.\&.\&. }  PAC5XXX_SocBridge_TypeDef::SOCBCSSTR"
+SOCBD: Offset: 0x001C SOC Bus Bridge Data Register 
+.br
+ 
+.SS "union { \&.\&.\&. }  PAC5XXX_SocBridge_TypeDef::SOCBCTL"
+< SOCBCTL: Offset: 0x0000 SOC bus bridge control register 
+.br
+ SOCBCFG: Offset: 0x0004 SOC bus bridge configuration register 
+.br
+ 
+.SS "union { \&.\&.\&. }  PAC5XXX_SocBridge_TypeDef::SOCBD"
+SOCBINT_EN: Offset: 0x0020 SOC Bus Bridge Interrupt Enable Register 
+.br
+ 
+.SS "union { \&.\&.\&. }  PAC5XXX_SocBridge_TypeDef::SOCBINT_EN"
+
+.SS "union { \&.\&.\&. }  PAC5XXX_SocBridge_TypeDef::SOCBSTAT"
+SOCBCSSTR: Offset: 0x0018 SOC Bus Bridge Steering Register 
+.br
+ 
+.SS "__IO { \&.\&.\&. } ::SSEN"
+SocBridge Enable 
+.br
+ 
+.PP
+Definition at line 52 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::SSEN"
+SocBridge Enable 
+.br
+ 
+.PP
+Definition at line 52 of file pac5xxx_SocBridge\&.h\&.
+.SS "__I { \&.\&.\&. } ::TXFULL"
+Raw indicator that the transmit outgoing register is still in use 
+.PP
+Definition at line 110 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_SocBridge_TypeDef::TXFULL"
+Raw indicator that the transmit outgoing register is still in use 
+.PP
+Definition at line 110 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::VAL"
+Input clock divisor 
+.br
+ 
+.PP
+Definition at line 84 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::VAL"
+Input clock divisor 
+.br
+ 
+.PP
+Definition at line 84 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 42 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::w"
+
+.PP
+Definition at line 42 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 63 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 92 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 120 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 141 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 158 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::WL"
+
+.PP
+Definition at line 73 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::WL"
+
+.PP
+Definition at line 73 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::WRUFL"
+Write Buffer underflow 
+.br
+ 
+.PP
+Definition at line 109 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::WRUFL"
+Write Buffer underflow 
+.br
+ 
+.PP
+Definition at line 109 of file pac5xxx_SocBridge\&.h\&.
+.SS "__IO { \&.\&.\&. } ::WRUFL_EN"
+Enable WRUFL Interrupt 
+.br
+ 
+.PP
+Definition at line 173 of file pac5xxx_SocBridge\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_SocBridge_TypeDef::WRUFL_EN"
+Enable WRUFL Interrupt 
+.br
+ 
+.PP
+Definition at line 173 of file pac5xxx_SocBridge\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

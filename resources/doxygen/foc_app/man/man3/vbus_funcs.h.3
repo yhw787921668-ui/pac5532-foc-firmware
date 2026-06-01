@@ -1,0 +1,106 @@
+.TH "pac_foc/src/app/vbus_funcs.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/app/vbus_funcs.h \- Use to calculate internal and external vbus and slope factor from flash and duty cycle execlusion\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx_driver_timer\&.h'\fP
+.br
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'fault\&.h'\fP
+.br
+\fC#include 'control_funcs\&.h'\fP
+.br
+\fC#include 'parameter_process\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsample_dcbus\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "This function use to calculate average value of dc bus voltage\&. "
+.ti -1c
+.RI "\fBfix16_t\fP \fBcalc_vm\fP (\fBStruct_Motor\fP *motor_ptr, unsigned int adc_counts)"
+.br
+.ti -1c
+.RI "void \fBcal_vm_const\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "This function use to calculate vms constant\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use to calculate internal and external vbus and slope factor from flash and duty cycle execlusion\&. 
+
+
+.PP
+Definition in file \fBvbus_funcs\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void cal_vm_const (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+This function use to calculate vms constant\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr pointer to motor structure 
+.RE
+.PP
+
+.PP
+Definition at line 149 of file vbus_funcs\&.c\&.
+.PP
+.nf
+150 {
+151     // Convert VMS100 and VMS200 in mV to q16
+152     motor_ptr->vms_v100 = READ_UINT16(VMS100_ADDRESS) << 16;
+153     motor_ptr->vms_v200 = READ_UINT16(VMS200_ADDRESS) << 16;
+154     motor_ptr->one_div_vms200_minus_vms100 = fix16_div(FIX16_ONE, fix16_sub(motor_ptr->vms_v200, motor_ptr->vms_v100));
+155 }
+.fi
+.PP
+References fix16_div(), FIX16_ONE, Struct_Motor::one_div_vms200_minus_vms100, READ_UINT16, Struct_Motor::vms_v100, and Struct_Motor::vms_v200\&.
+.SS "\fBfix16_t\fP calc_vm (\fBStruct_Motor\fP * motor_ptr, unsigned int adc_counts)"
+
+.SS "void sample_dcbus (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+This function use to calculate average value of dc bus voltage\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr pointer to motor structure 
+.RE
+.PP
+
+.PP
+Definition at line 164 of file vbus_funcs\&.c\&.
+.PP
+.nf
+165 {
+166     long int vbus_vms;
+167 
+168 #if (INTERNAL_VMS == TRUE)
+169     vbus_vms = calc_vbus_internal(motor_ptr, motor_ptr->vms_adc_vlaue);
+170 #else
+171     vbus_vms = calc_vbus_external(motor_ptr, readseq_vbus());
+172 #endif
+173 
+174     // Filter bus voltage
+175     filter_shift2(vbus_vms, &motor_ptr->app\&.dcbus_voltage, 2);
+176 
+177     // Calculate voltage factors
+178     vbus_calc_vfactors(motor_ptr);
+179 }
+.fi
+.PP
+References calc_vbus_external(), calc_vbus_internal(), and Struct_Motor::vms_adc_vlaue\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

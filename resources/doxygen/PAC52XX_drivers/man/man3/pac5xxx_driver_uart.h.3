@@ -1,0 +1,66 @@
+.TH "pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_uart.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_uart.h \- Firmware driver for the PAC5XXX UART\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac52XX\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_config\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_UART\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_UART\fP void \fBpac5xxx_uart_io_config\fP (void)"
+.br
+.RI "This function configures IO for use with the UART peripheral\&. "
+.ti -1c
+.RI "\fBRAMFUNC_UART\fP void \fBpac5xxx_uart_config_LCR\fP (\fBUART_BitsPerChar_Type\fP bpc, \fBUART_StopBits_Type\fP stop_bits, int parity_enabled, \fBUART_Parity_Type\fP parity, int stick_parity, \fBUART_BreakControl_Type\fP break_control, \fBUART_DivLatchAccess_Type\fP div_latch_access)"
+.br
+.RI "This function configures the UART LCR (Line Control Register) "
+.ti -1c
+.RI "\fBRAMFUNC_UART\fP void \fBpac5xxx_uart_config_MCR\fP (int DTR_asserted, int RTS_asserted, int BIT1_asserted, int BIT2_asserted, int loopback_mode)"
+.br
+.RI "This function configures the UART MCR (Modem Control Register) "
+.ti -1c
+.RI "\fBRAMFUNC_UART\fP void \fBpac5xxx_uart_config_divisor_latch\fP (uint16_t latch_value)"
+.br
+.RI "This function configures the divisor latch\&. "
+.ti -1c
+.RI "\fBRAMFUNC_UART\fP void \fBpac5xxx_uart_config_divisor_latch_remapped\fP (uint16_t latch_value)"
+.br
+.RI "This function configures the divisor latch using the remapped DL_L2 and DL_H2 registers\&. "
+.ti -1c
+.RI "\fBRAMFUNC_UART\fP void \fBpac5xxx_uart_config_fractional_divisor\fP (uint8_t divisor_value)"
+.br
+.RI "This function configures the Fractional Divisor and UART clock source\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Firmware driver for the PAC5XXX UART\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_driver_uart\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

@@ -1,0 +1,70 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_tile_driver_manager.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_tile_driver_manager.h \- CMSIS Header File for the PAC5XXX System Manager Tile\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBCFGDRV0\fP"
+.br
+.ti -1c
+.RI "union \fBCFGDRV1\fP"
+.br
+.ti -1c
+.RI "union \fBCFGDRQ6\fP"
+.br
+.ti -1c
+.RI "union \fBCFGDRQ7\fP"
+.br
+.ti -1c
+.RI "union \fBCFGDOUTDRV\fP"
+.br
+.ti -1c
+.RI "union \fBDINDRV\fP"
+.br
+.ti -1c
+.RI "union \fBENDRV\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBDriver_Manager_Reg_Addr\fP { \fBADDR_CFGDRV0\fP = 0x60, \fBADDR_CFGDRV1\fP = 0x61, \fBADDR_CFGDRQ6\fP = 0x62, \fBADDR_CFGDRQ7\fP = 0x63, \fBADDR_DOUTDRV\fP = 0x64, \fBADDR_DINDRV\fP = 0x65, \fBADDR_ENDRV\fP = 0x66, \fBADDR_PROTCTL\fP = 0x67 }"
+.br
+.ti -1c
+.RI "enum \fBPAC5XXX_PropDelay_Type\fP { \fBPAC5XXX_PROP_DEL_0ns\fP = 0, \fBPAC5XXX_PROP_DEL_50ns\fP = 1, \fBPAC5XXX_PROP_DEL_100ns\fP = 2, \fBPAC5XXX_PROP_DEL_200ns\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBPAC5XXX_DriverOption_Type\fP { \fBPAC5XXX_DRVOPT_IN\fP = 0, \fBPAC5XXX_DRVOPT_ODSTRONG\fP = 1, \fBPAC5XXX_DRVOPT_OD\fP = 2 }"
+.br
+.ti -1c
+.RI "enum \fBPAC5XXX_DriverPolarity_Type\fP { \fBPAC5XXX_POLARITY_PAC5XXXHIGH\fP = 0, \fBPAC5XXX_POLARITY_PAC5XXXLOW\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBPAC5XXX_DriverMux_Type\fP { \fBPAC5XXX_DRVMUX_DRQnIN\fP = 0, \fBPAC5XXX_DRVMUX_DB1\fP = 1, \fBPAC5XXX_DRVMUX_DB2\fP = 2, \fBPAC5XXX_DRVMUX_DB3\fP = 3, \fBPAC5XXX_DRVMUX_DB4\fP = 4, \fBPAC5XXX_DRVMUX_DB5\fP = 5, \fBPAC5XXX_DRVMUX_DB6\fP = 6, \fBPAC5XXX_DRVMUX_DB7\fP = 7 }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CMSIS Header File for the PAC5XXX System Manager Tile\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2017-2020, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_tile_driver_manager\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

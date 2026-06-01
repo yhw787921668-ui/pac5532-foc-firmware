@@ -1,0 +1,683 @@
+\hypertarget{group___p_a_c5_x_x_x___driver___i2_c}{}\doxysection{P\+A\+C5\+X\+XX I2C Peripheral Driver Functions}
+\label{group___p_a_c5_x_x_x___driver___i2_c}\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+Collaboration diagram for P\+A\+C5\+X\+XX I2C Peripheral Driver Functions\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{group___p_a_c5_x_x_x___driver___i2_c}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga715b96f63bc255c2c8b375b2953b2c99}{pac5xxx\+\_\+i2c\+\_\+master\+\_\+config}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___i2_c_ga9f3aaaae596b0fff29cf483f0483948e}{I2\+C\+\_\+\+Addr\+Mode\+\_\+\+Type}} addr\+\_\+type, int disable\+\_\+pulse\+\_\+filter)
+\begin{DoxyCompactList}\small\item\em This function configures I2C peripheral for master mode. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga49709b46516adaaf84dc60ae8adba355}{pac5xxx\+\_\+i2c\+\_\+io\+\_\+config}} (int master)
+\begin{DoxyCompactList}\small\item\em This function configures the IO for use with the I2C peripheral. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga43dfb791a6913d75c60942f3d24ee35c}{pac5xxx\+\_\+i2c\+\_\+set\+\_\+baud}} (int scl\+\_\+low\+\_\+clocks, int scl\+\_\+high\+\_\+clocks)
+\begin{DoxyCompactList}\small\item\em This function sets the I2C baud rate when configured for master mode. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} int \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga6a0821dca8bb3f0e641f3781c6b6f98d}{pac5xxx\+\_\+i2c\+\_\+master\+\_\+write}} (uint8\+\_\+t address, uint8\+\_\+t $\ast$write\+\_\+data, int bytes\+\_\+to\+\_\+write)
+\begin{DoxyCompactList}\small\item\em This function writes multiple bytes of data to the I2C slave. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} int \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa3d9fdcd8cf9e4aa5d5470cb40c300cd}{pac5xxx\+\_\+i2c\+\_\+master\+\_\+write\+\_\+byte}} (uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em This function writes one byte to the I2C slave. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} int \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga39ca75fa50d76bbe3a075bce5b09da17}{act02\+\_\+i2c\+\_\+master\+\_\+read}} (uint8\+\_\+t $\ast$write\+\_\+data, int bytes\+\_\+to\+\_\+write, uint8\+\_\+t $\ast$read\+\_\+data, int bytes\+\_\+to\+\_\+read)
+\begin{DoxyCompactList}\small\item\em This function performs and I2C read to the slave by writing a set of bytes, then reading the given number of bytes back from the slave. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaf168fb0781fc83e9a32a9864272920ee}{pac5xxx\+\_\+i2c\+\_\+slave\+\_\+config}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___i2_c_ga9f3aaaae596b0fff29cf483f0483948e}{I2\+C\+\_\+\+Addr\+Mode\+\_\+\+Type}} addr\+\_\+type, int disable\+\_\+pulse\+\_\+filter)
+\begin{DoxyCompactList}\small\item\em This function configures the I2C bus for slave mode. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga30521905013a792f5b8b4df4eb33540b}{pac5xxx\+\_\+i2c\+\_\+disable}} (void)
+\begin{DoxyCompactList}\small\item\em This function disables the I2C bus controller. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga43293c80f8d18366a707b6847c8f659a}{pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+M\+S\+T\+\_\+\+T\+X\+\_\+\+E\+M\+P\+T\+I\+ED}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function enables or disables the M\+S\+T\+\_\+\+T\+X\+\_\+\+E\+M\+P\+T\+I\+ED interrupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga8d3346f6103d0db5babe272316cce4db}{pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+M\+S\+T\+\_\+\+A\+C\+C\+\_\+\+C\+T\+L\+\_\+\+E\+MP}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function enables or disables the M\+S\+T\+\_\+\+A\+C\+C\+\_\+\+C\+T\+L\+\_\+\+E\+MP interrupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga0d7eb88c28c530b82a548fb387030e50}{pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+M\+S\+T\+\_\+\+R\+X\+\_\+\+F\+I\+L\+L\+ED}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function enables or disables the M\+S\+T\+\_\+\+R\+X\+\_\+\+F\+I\+L\+L\+ED interrupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gad1d60fead31384f0336d5b75bc7da10a}{pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+M\+S\+T\+\_\+\+X\+F\+E\+R\+\_\+\+D\+O\+NE}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function enables or disables the M\+S\+T\+\_\+\+X\+F\+E\+R\+\_\+\+D\+O\+NE interrupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga1579a224e33ac85f79d2eddd3f90706d}{pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+M\+S\+T\+\_\+\+L\+O\+S\+T\+\_\+\+A\+RB}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function enables or disables the M\+S\+T\+\_\+\+L\+O\+S\+T\+\_\+\+A\+RB interrupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gac6ea4410aa384918700175e7c1aa4d48}{pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+S\+L\+V\+\_\+\+A\+D\+D\+R\+\_\+\+M\+A\+T\+CH}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function enables or disables the S\+L\+V\+\_\+\+A\+D\+D\+R\+\_\+\+M\+A\+T\+CH interrupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gae4571b45f24843d342a26b8dc25a266a}{pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+S\+L\+V\+\_\+\+T\+X\+\_\+\+E\+M\+P\+T\+I\+ED}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function enables or disables the S\+L\+V\+\_\+\+T\+X\+\_\+\+E\+M\+P\+T\+I\+ED interrupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gad3d9692f97180eca6d3051c8e90594f1}{pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+S\+L\+V\+\_\+\+R\+X\+\_\+\+F\+I\+L\+L\+ED}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function enables or disables the S\+L\+V\+\_\+\+R\+X\+\_\+\+F\+I\+L\+L\+ED interrupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga83efff28f77cc63e1e7e63108bcc552e}{pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+S\+L\+V\+\_\+\+X\+F\+E\+R\+\_\+\+D\+O\+NE}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function enables or disables the S\+L\+V\+\_\+\+X\+F\+E\+R\+\_\+\+D\+O\+NE interrupt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}\label{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}} 
+\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}!RAMFUNC\_I2C@{RAMFUNC\_I2C}}
+\index{RAMFUNC\_I2C@{RAMFUNC\_I2C}!PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+\doxysubsubsection{\texorpdfstring{RAMFUNC\_I2C}{RAMFUNC\_I2C}}
+{\footnotesize\ttfamily \#define R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}
+
+
+
+Definition at line 31 of file pac5xxx\+\_\+driver\+\_\+i2c.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___i2_c_ga39ca75fa50d76bbe3a075bce5b09da17}\label{group___p_a_c5_x_x_x___driver___i2_c_ga39ca75fa50d76bbe3a075bce5b09da17}} 
+\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}!act02\_i2c\_master\_read@{act02\_i2c\_master\_read}}
+\index{act02\_i2c\_master\_read@{act02\_i2c\_master\_read}!PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+\doxysubsubsection{\texorpdfstring{act02\_i2c\_master\_read()}{act02\_i2c\_master\_read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} int act02\+\_\+i2c\+\_\+master\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{write\+\_\+data,  }\item[{int}]{bytes\+\_\+to\+\_\+write,  }\item[{uint8\+\_\+t $\ast$}]{read\+\_\+data,  }\item[{int}]{bytes\+\_\+to\+\_\+read }\end{DoxyParamCaption})}
+
+
+
+This function performs and I2C read to the slave by writing a set of bytes, then reading the given number of bytes back from the slave. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em write\+\_\+data} & Pointer to data to write \\
+\hline
+{\em bytes\+\_\+to\+\_\+write} & Number of bytes to write \\
+\hline
+{\em read\+\_\+data} & Pointer to storage for data read from I2C bus \\
+\hline
+{\em Number} & of bytes to read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: Success; non-\/zero\+: failure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___i2_c_ga30521905013a792f5b8b4df4eb33540b}\label{group___p_a_c5_x_x_x___driver___i2_c_ga30521905013a792f5b8b4df4eb33540b}} 
+\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}!pac5xxx\_i2c\_disable@{pac5xxx\_i2c\_disable}}
+\index{pac5xxx\_i2c\_disable@{pac5xxx\_i2c\_disable}!PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_i2c\_disable()}{pac5xxx\_i2c\_disable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void pac5xxx\+\_\+i2c\+\_\+disable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function disables the I2C bus controller. 
+
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 42 of file pac5xxx\+\_\+driver\+\_\+i2c\+\_\+config.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43 \{}
+\DoxyCodeLine{44     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>CFG.SLV\_ENBL = 0;}
+\DoxyCodeLine{45     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>CFG.MST\_ENBL = 0;}
+\DoxyCodeLine{46 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+I2C.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___i2_c_ga8d3346f6103d0db5babe272316cce4db}\label{group___p_a_c5_x_x_x___driver___i2_c_ga8d3346f6103d0db5babe272316cce4db}} 
+\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}!pac5xxx\_i2c\_int\_enable\_MST\_ACC\_CTL\_EMP@{pac5xxx\_i2c\_int\_enable\_MST\_ACC\_CTL\_EMP}}
+\index{pac5xxx\_i2c\_int\_enable\_MST\_ACC\_CTL\_EMP@{pac5xxx\_i2c\_int\_enable\_MST\_ACC\_CTL\_EMP}!PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_i2c\_int\_enable\_MST\_ACC\_CTL\_EMP()}{pac5xxx\_i2c\_int\_enable\_MST\_ACC\_CTL\_EMP()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+M\+S\+T\+\_\+\+A\+C\+C\+\_\+\+C\+T\+L\+\_\+\+E\+MP (\begin{DoxyParamCaption}\item[{int}]{enable }\end{DoxyParamCaption})}
+
+
+
+This function enables or disables the M\+S\+T\+\_\+\+A\+C\+C\+\_\+\+C\+T\+L\+\_\+\+E\+MP interrupt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enable} & Set to 1 to enable interrupt, 0 to disable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 26 of file pac5xxx\+\_\+driver\+\_\+i2c\+\_\+int.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28     \textcolor{keyword}{volatile} \textcolor{keywordtype}{int} dummy = \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>STATUS.MST\_ACC\_CTL\_EMP;   \textcolor{comment}{// Force read (RTC)}}
+\DoxyCodeLine{29     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>IE.MST\_ACC\_CTL\_EMP\_IE = enable;}
+\DoxyCodeLine{30 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+I2C.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___i2_c_ga1579a224e33ac85f79d2eddd3f90706d}\label{group___p_a_c5_x_x_x___driver___i2_c_ga1579a224e33ac85f79d2eddd3f90706d}} 
+\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}!pac5xxx\_i2c\_int\_enable\_MST\_LOST\_ARB@{pac5xxx\_i2c\_int\_enable\_MST\_LOST\_ARB}}
+\index{pac5xxx\_i2c\_int\_enable\_MST\_LOST\_ARB@{pac5xxx\_i2c\_int\_enable\_MST\_LOST\_ARB}!PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_i2c\_int\_enable\_MST\_LOST\_ARB()}{pac5xxx\_i2c\_int\_enable\_MST\_LOST\_ARB()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+M\+S\+T\+\_\+\+L\+O\+S\+T\+\_\+\+A\+RB (\begin{DoxyParamCaption}\item[{int}]{enable }\end{DoxyParamCaption})}
+
+
+
+This function enables or disables the M\+S\+T\+\_\+\+L\+O\+S\+T\+\_\+\+A\+RB interrupt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enable} & Set to 1 to enable interrupt, 0 to disable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___i2_c_ga0d7eb88c28c530b82a548fb387030e50}\label{group___p_a_c5_x_x_x___driver___i2_c_ga0d7eb88c28c530b82a548fb387030e50}} 
+\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}!pac5xxx\_i2c\_int\_enable\_MST\_RX\_FILLED@{pac5xxx\_i2c\_int\_enable\_MST\_RX\_FILLED}}
+\index{pac5xxx\_i2c\_int\_enable\_MST\_RX\_FILLED@{pac5xxx\_i2c\_int\_enable\_MST\_RX\_FILLED}!PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_i2c\_int\_enable\_MST\_RX\_FILLED()}{pac5xxx\_i2c\_int\_enable\_MST\_RX\_FILLED()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+M\+S\+T\+\_\+\+R\+X\+\_\+\+F\+I\+L\+L\+ED (\begin{DoxyParamCaption}\item[{int}]{enable }\end{DoxyParamCaption})}
+
+
+
+This function enables or disables the M\+S\+T\+\_\+\+R\+X\+\_\+\+F\+I\+L\+L\+ED interrupt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enable} & Set to 1 to enable interrupt, 0 to disable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 32 of file pac5xxx\+\_\+driver\+\_\+i2c\+\_\+int.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33 \{}
+\DoxyCodeLine{34     \textcolor{keyword}{volatile} \textcolor{keywordtype}{int} dummy = \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>STATUS.MST\_RX\_FILLED;   \textcolor{comment}{// Force read (RTC)}}
+\DoxyCodeLine{35     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>IE.MST\_RX\_FILLED\_IE = enable;}
+\DoxyCodeLine{36 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+I2C.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___i2_c_ga43293c80f8d18366a707b6847c8f659a}\label{group___p_a_c5_x_x_x___driver___i2_c_ga43293c80f8d18366a707b6847c8f659a}} 
+\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}!pac5xxx\_i2c\_int\_enable\_MST\_TX\_EMPTIED@{pac5xxx\_i2c\_int\_enable\_MST\_TX\_EMPTIED}}
+\index{pac5xxx\_i2c\_int\_enable\_MST\_TX\_EMPTIED@{pac5xxx\_i2c\_int\_enable\_MST\_TX\_EMPTIED}!PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_i2c\_int\_enable\_MST\_TX\_EMPTIED()}{pac5xxx\_i2c\_int\_enable\_MST\_TX\_EMPTIED()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+M\+S\+T\+\_\+\+T\+X\+\_\+\+E\+M\+P\+T\+I\+ED (\begin{DoxyParamCaption}\item[{int}]{enable }\end{DoxyParamCaption})}
+
+
+
+This function enables or disables the M\+S\+T\+\_\+\+T\+X\+\_\+\+E\+M\+P\+T\+I\+ED interrupt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enable} & Set to 1 to enable interrupt, 0 to disable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+i2c\+\_\+int.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     \textcolor{keyword}{volatile} \textcolor{keywordtype}{int} dummy = \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>STATUS.MST\_TX\_EMPTIED;   \textcolor{comment}{// Force read (RTC)}}
+\DoxyCodeLine{23     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>IE.MST\_TX\_EMP\_IE = enable;}
+\DoxyCodeLine{24 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+I2C.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___i2_c_gad1d60fead31384f0336d5b75bc7da10a}\label{group___p_a_c5_x_x_x___driver___i2_c_gad1d60fead31384f0336d5b75bc7da10a}} 
+\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}!pac5xxx\_i2c\_int\_enable\_MST\_XFER\_DONE@{pac5xxx\_i2c\_int\_enable\_MST\_XFER\_DONE}}
+\index{pac5xxx\_i2c\_int\_enable\_MST\_XFER\_DONE@{pac5xxx\_i2c\_int\_enable\_MST\_XFER\_DONE}!PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_i2c\_int\_enable\_MST\_XFER\_DONE()}{pac5xxx\_i2c\_int\_enable\_MST\_XFER\_DONE()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+M\+S\+T\+\_\+\+X\+F\+E\+R\+\_\+\+D\+O\+NE (\begin{DoxyParamCaption}\item[{int}]{enable }\end{DoxyParamCaption})}
+
+
+
+This function enables or disables the M\+S\+T\+\_\+\+X\+F\+E\+R\+\_\+\+D\+O\+NE interrupt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enable} & Set to 1 to enable interrupt, 0 to disable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 38 of file pac5xxx\+\_\+driver\+\_\+i2c\+\_\+int.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40     \textcolor{keyword}{volatile} \textcolor{keywordtype}{int} dummy = \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>STATUS.MST\_XFER\_DONE;   \textcolor{comment}{// Force read (RTC)}}
+\DoxyCodeLine{41     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>IE.MST\_XFER\_DONE\_IE = enable;}
+\DoxyCodeLine{42 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+I2C.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___i2_c_gac6ea4410aa384918700175e7c1aa4d48}\label{group___p_a_c5_x_x_x___driver___i2_c_gac6ea4410aa384918700175e7c1aa4d48}} 
+\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}!pac5xxx\_i2c\_int\_enable\_SLV\_ADDR\_MATCH@{pac5xxx\_i2c\_int\_enable\_SLV\_ADDR\_MATCH}}
+\index{pac5xxx\_i2c\_int\_enable\_SLV\_ADDR\_MATCH@{pac5xxx\_i2c\_int\_enable\_SLV\_ADDR\_MATCH}!PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_i2c\_int\_enable\_SLV\_ADDR\_MATCH()}{pac5xxx\_i2c\_int\_enable\_SLV\_ADDR\_MATCH()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+S\+L\+V\+\_\+\+A\+D\+D\+R\+\_\+\+M\+A\+T\+CH (\begin{DoxyParamCaption}\item[{int}]{enable }\end{DoxyParamCaption})}
+
+
+
+This function enables or disables the S\+L\+V\+\_\+\+A\+D\+D\+R\+\_\+\+M\+A\+T\+CH interrupt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enable} & Set to 1 to enable interrupt, 0 to disable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 44 of file pac5xxx\+\_\+driver\+\_\+i2c\+\_\+int.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45 \{}
+\DoxyCodeLine{46     \textcolor{keyword}{volatile} \textcolor{keywordtype}{int} dummy = \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>STATUS.SLV\_ADDR\_MATCH;   \textcolor{comment}{// Force read (RTC)}}
+\DoxyCodeLine{47     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>IE.SLV\_ADDR\_MATCH\_IE = enable;}
+\DoxyCodeLine{48 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+I2C.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___i2_c_gad3d9692f97180eca6d3051c8e90594f1}\label{group___p_a_c5_x_x_x___driver___i2_c_gad3d9692f97180eca6d3051c8e90594f1}} 
+\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}!pac5xxx\_i2c\_int\_enable\_SLV\_RX\_FILLED@{pac5xxx\_i2c\_int\_enable\_SLV\_RX\_FILLED}}
+\index{pac5xxx\_i2c\_int\_enable\_SLV\_RX\_FILLED@{pac5xxx\_i2c\_int\_enable\_SLV\_RX\_FILLED}!PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_i2c\_int\_enable\_SLV\_RX\_FILLED()}{pac5xxx\_i2c\_int\_enable\_SLV\_RX\_FILLED()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+S\+L\+V\+\_\+\+R\+X\+\_\+\+F\+I\+L\+L\+ED (\begin{DoxyParamCaption}\item[{int}]{enable }\end{DoxyParamCaption})}
+
+
+
+This function enables or disables the S\+L\+V\+\_\+\+R\+X\+\_\+\+F\+I\+L\+L\+ED interrupt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enable} & Set to 1 to enable interrupt, 0 to disable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 56 of file pac5xxx\+\_\+driver\+\_\+i2c\+\_\+int.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57 \{}
+\DoxyCodeLine{58     \textcolor{keyword}{volatile} \textcolor{keywordtype}{int} dummy = \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>STATUS.SLV\_RX\_FILLED;   \textcolor{comment}{// Force read (RTC)}}
+\DoxyCodeLine{59     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>IE.SLV\_RX\_FILLED\_IE = enable;}
+\DoxyCodeLine{60 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+I2C.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___i2_c_gae4571b45f24843d342a26b8dc25a266a}\label{group___p_a_c5_x_x_x___driver___i2_c_gae4571b45f24843d342a26b8dc25a266a}} 
+\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}!pac5xxx\_i2c\_int\_enable\_SLV\_TX\_EMPTIED@{pac5xxx\_i2c\_int\_enable\_SLV\_TX\_EMPTIED}}
+\index{pac5xxx\_i2c\_int\_enable\_SLV\_TX\_EMPTIED@{pac5xxx\_i2c\_int\_enable\_SLV\_TX\_EMPTIED}!PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_i2c\_int\_enable\_SLV\_TX\_EMPTIED()}{pac5xxx\_i2c\_int\_enable\_SLV\_TX\_EMPTIED()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+S\+L\+V\+\_\+\+T\+X\+\_\+\+E\+M\+P\+T\+I\+ED (\begin{DoxyParamCaption}\item[{int}]{enable }\end{DoxyParamCaption})}
+
+
+
+This function enables or disables the S\+L\+V\+\_\+\+T\+X\+\_\+\+E\+M\+P\+T\+I\+ED interrupt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enable} & Set to 1 to enable interrupt, 0 to disable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file pac5xxx\+\_\+driver\+\_\+i2c\+\_\+int.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51 \{}
+\DoxyCodeLine{52     \textcolor{keyword}{volatile} \textcolor{keywordtype}{int} dummy = \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>STATUS.SLV\_TX\_EMPTIED;   \textcolor{comment}{// Force read (RTC)}}
+\DoxyCodeLine{53     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>IE.SLV\_TX\_EMP\_IE = enable;}
+\DoxyCodeLine{54 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+I2C.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___i2_c_ga83efff28f77cc63e1e7e63108bcc552e}\label{group___p_a_c5_x_x_x___driver___i2_c_ga83efff28f77cc63e1e7e63108bcc552e}} 
+\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}!pac5xxx\_i2c\_int\_enable\_SLV\_XFER\_DONE@{pac5xxx\_i2c\_int\_enable\_SLV\_XFER\_DONE}}
+\index{pac5xxx\_i2c\_int\_enable\_SLV\_XFER\_DONE@{pac5xxx\_i2c\_int\_enable\_SLV\_XFER\_DONE}!PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_i2c\_int\_enable\_SLV\_XFER\_DONE()}{pac5xxx\_i2c\_int\_enable\_SLV\_XFER\_DONE()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+S\+L\+V\+\_\+\+X\+F\+E\+R\+\_\+\+D\+O\+NE (\begin{DoxyParamCaption}\item[{int}]{enable }\end{DoxyParamCaption})}
+
+
+
+This function enables or disables the S\+L\+V\+\_\+\+X\+F\+E\+R\+\_\+\+D\+O\+NE interrupt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enable} & Set to 1 to enable interrupt, 0 to disable \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 62 of file pac5xxx\+\_\+driver\+\_\+i2c\+\_\+int.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63 \{}
+\DoxyCodeLine{64     \textcolor{keyword}{volatile} \textcolor{keywordtype}{int} dummy = \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>STATUS.SLV\_XFER\_DONE;   \textcolor{comment}{// Force read (RTC)}}
+\DoxyCodeLine{65     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>IE.SLV\_XFER\_DONE\_IE = enable;}
+\DoxyCodeLine{66 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+I2C.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___i2_c_ga49709b46516adaaf84dc60ae8adba355}\label{group___p_a_c5_x_x_x___driver___i2_c_ga49709b46516adaaf84dc60ae8adba355}} 
+\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}!pac5xxx\_i2c\_io\_config@{pac5xxx\_i2c\_io\_config}}
+\index{pac5xxx\_i2c\_io\_config@{pac5xxx\_i2c\_io\_config}!PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_i2c\_io\_config()}{pac5xxx\_i2c\_io\_config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void pac5xxx\+\_\+i2c\+\_\+io\+\_\+config (\begin{DoxyParamCaption}\item[{int}]{master }\end{DoxyParamCaption})}
+
+
+
+This function configures the IO for use with the I2C peripheral. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em master} & Set to 1 if this is an I2C master, 0 for I2C slave \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 48 of file pac5xxx\+\_\+driver\+\_\+i2c\+\_\+config.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{49 \{}
+\DoxyCodeLine{50   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_gad78cc83b594e9306e4027ef035791bc2}{PAC5XXX\_GPIOE}}-\/>PSEL.P4 = 2;       \textcolor{comment}{// I2CSCL}}
+\DoxyCodeLine{51   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_gad78cc83b594e9306e4027ef035791bc2}{PAC5XXX\_GPIOE}}-\/>PSEL.P5 = 2;       \textcolor{comment}{// I2CSDA}}
+\DoxyCodeLine{52   }
+\DoxyCodeLine{53   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_gad78cc83b594e9306e4027ef035791bc2}{PAC5XXX\_GPIOE}}-\/>OUTEN.P5 = 1;      \textcolor{comment}{// I2CSDA output, even for slave mode}}
+\DoxyCodeLine{54   }
+\DoxyCodeLine{55   \textcolor{keywordflow}{if} (master)}
+\DoxyCodeLine{56     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_gad78cc83b594e9306e4027ef035791bc2}{PAC5XXX\_GPIOE}}-\/>OUTEN.P4 = 1;    \textcolor{comment}{// I2CSCL (master)}}
+\DoxyCodeLine{57   \textcolor{keywordflow}{else}}
+\DoxyCodeLine{58     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_gad78cc83b594e9306e4027ef035791bc2}{PAC5XXX\_GPIOE}}-\/>OUTEN.P4 = 0;    \textcolor{comment}{// I2CSCL (slave)}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_gad78cc83b594e9306e4027ef035791bc2}{PAC5XXX\_GPIOE}}-\/>PU.P4 = 1;            \textcolor{comment}{// I2CSCL internal pull-\/up on}}
+\DoxyCodeLine{61   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_gad78cc83b594e9306e4027ef035791bc2}{PAC5XXX\_GPIOE}}-\/>PU.P5 = 1;            \textcolor{comment}{// I2CSDA internal pull-\/up on}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+G\+P\+I\+OE.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___i2_c_ga715b96f63bc255c2c8b375b2953b2c99}\label{group___p_a_c5_x_x_x___driver___i2_c_ga715b96f63bc255c2c8b375b2953b2c99}} 
+\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}!pac5xxx\_i2c\_master\_config@{pac5xxx\_i2c\_master\_config}}
+\index{pac5xxx\_i2c\_master\_config@{pac5xxx\_i2c\_master\_config}!PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_i2c\_master\_config()}{pac5xxx\_i2c\_master\_config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void pac5xxx\+\_\+i2c\+\_\+master\+\_\+config (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___i2_c_ga9f3aaaae596b0fff29cf483f0483948e}{I2\+C\+\_\+\+Addr\+Mode\+\_\+\+Type}}}]{addr\+\_\+type,  }\item[{int}]{disable\+\_\+pulse\+\_\+filter }\end{DoxyParamCaption})}
+
+
+
+This function configures I2C peripheral for master mode. 
+
+Master Configuration
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr\+\_\+type} & The type of addressing used (7b or 10b) \\
+\hline
+{\em disable\+\_\+pulse\+\_\+filter} & When set to 1, disables the pulse filter. When set to 0 the pulse filter is active. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+i2c\+\_\+config.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>CFG.ADDR\_MODE = addr\_type;}
+\DoxyCodeLine{23     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>CFG.DSBL\_PULSE\_FILTER = disable\_pulse\_filter;}
+\DoxyCodeLine{24     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>CFG.SLV\_ENBL = 0;}
+\DoxyCodeLine{25     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>CFG.MST\_ENBL = 1;}
+\DoxyCodeLine{26     \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+I2C.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___i2_c_ga6a0821dca8bb3f0e641f3781c6b6f98d}\label{group___p_a_c5_x_x_x___driver___i2_c_ga6a0821dca8bb3f0e641f3781c6b6f98d}} 
+\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}!pac5xxx\_i2c\_master\_write@{pac5xxx\_i2c\_master\_write}}
+\index{pac5xxx\_i2c\_master\_write@{pac5xxx\_i2c\_master\_write}!PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_i2c\_master\_write()}{pac5xxx\_i2c\_master\_write()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} int pac5xxx\+\_\+i2c\+\_\+master\+\_\+write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address,  }\item[{uint8\+\_\+t $\ast$}]{write\+\_\+data,  }\item[{int}]{bytes\+\_\+to\+\_\+write }\end{DoxyParamCaption})}
+
+
+
+This function writes multiple bytes of data to the I2C slave. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to data to write to the bus \\
+\hline
+{\em num\+\_\+bytes} & Number of bytes to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: success; non-\/zero\+: failure 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+i2c\+\_\+write.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     \textcolor{keywordtype}{int} i;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordflow}{for} (i = 0; i < bytes\_to\_write; i++)}
+\DoxyCodeLine{25     \{}
+\DoxyCodeLine{26         \textcolor{comment}{/* Verify that the full flag for the MCTRL register is clear */}}
+\DoxyCodeLine{27     }
+\DoxyCodeLine{28         \textcolor{keywordflow}{while} (\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>MCTRL.REG\_FULL\_FLAG);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30         \textcolor{comment}{/* Write first data byte to transmit in MTXDATA register */}}
+\DoxyCodeLine{31     }
+\DoxyCodeLine{32         \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>MTXDATA.VAL = *write\_data++;}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34         \textcolor{comment}{/* See if last byte of transfer, and write MCTRL accordingly. This will start transfer */}}
+\DoxyCodeLine{35     }
+\DoxyCodeLine{36         \textcolor{keywordflow}{if} (i == (bytes\_to\_write -\/ 1))}
+\DoxyCodeLine{37             \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>MCTRL.w = (address | 0xC00);      \textcolor{comment}{/* XFER\_TYPE = write, AUTONO\_XFER = 1 [stop] */}}
+\DoxyCodeLine{38         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{39             \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>MCTRL.w = (address | 0x400);      \textcolor{comment}{/* XFER\_TYPE = write */}}
+\DoxyCodeLine{40     \}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{comment}{/* Check for bad status */}}
+\DoxyCodeLine{43   }
+\DoxyCodeLine{44     \textcolor{keywordflow}{if} (\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>STATUS.w \& 0xFFFF)                      \textcolor{comment}{/* Any I2C master status bit set */}}
+\DoxyCodeLine{45         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{48 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+I2C.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___i2_c_gaa3d9fdcd8cf9e4aa5d5470cb40c300cd}\label{group___p_a_c5_x_x_x___driver___i2_c_gaa3d9fdcd8cf9e4aa5d5470cb40c300cd}} 
+\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}!pac5xxx\_i2c\_master\_write\_byte@{pac5xxx\_i2c\_master\_write\_byte}}
+\index{pac5xxx\_i2c\_master\_write\_byte@{pac5xxx\_i2c\_master\_write\_byte}!PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_i2c\_master\_write\_byte()}{pac5xxx\_i2c\_master\_write\_byte()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} int pac5xxx\+\_\+i2c\+\_\+master\+\_\+write\+\_\+byte (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+This function writes one byte to the I2C slave. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & 8b data to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0\+: success; non-\/zero\+: failure 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file pac5xxx\+\_\+driver\+\_\+i2c\+\_\+write.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51 \{}
+\DoxyCodeLine{52     \textcolor{comment}{/* Verify that the full flag for the MCTRL register is clear */}}
+\DoxyCodeLine{53   }
+\DoxyCodeLine{54     \textcolor{keywordflow}{while} (\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>MCTRL.REG\_FULL\_FLAG);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{comment}{/* Write first data byte to transmit in MTXDATA register */}}
+\DoxyCodeLine{57   }
+\DoxyCodeLine{58     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>MTXDATA.VAL = data;}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{comment}{/* See if last byte of transfer, and write MCTRL accordingly. This will start transfer */}}
+\DoxyCodeLine{61   }
+\DoxyCodeLine{62     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>MCTRL.w = 0xC00;           \textcolor{comment}{/* XFER\_TYPE = write, AUTONO\_XFER = 1 [stop] */}}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{comment}{/* Check for bad status */}}
+\DoxyCodeLine{65   }
+\DoxyCodeLine{66     \textcolor{keywordflow}{if} (\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>STATUS.w \& 0xFFFF)      \textcolor{comment}{/* Any I2C master status bit set */}}
+\DoxyCodeLine{67         \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{70 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+I2C.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___i2_c_ga43dfb791a6913d75c60942f3d24ee35c}\label{group___p_a_c5_x_x_x___driver___i2_c_ga43dfb791a6913d75c60942f3d24ee35c}} 
+\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}!pac5xxx\_i2c\_set\_baud@{pac5xxx\_i2c\_set\_baud}}
+\index{pac5xxx\_i2c\_set\_baud@{pac5xxx\_i2c\_set\_baud}!PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_i2c\_set\_baud()}{pac5xxx\_i2c\_set\_baud()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void pac5xxx\+\_\+i2c\+\_\+set\+\_\+baud (\begin{DoxyParamCaption}\item[{int}]{scl\+\_\+low\+\_\+clocks,  }\item[{int}]{scl\+\_\+high\+\_\+clocks }\end{DoxyParamCaption})}
+
+
+
+This function sets the I2C baud rate when configured for master mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scl\+\_\+high\+\_\+clocks} & The number of clock periods that the S\+CL will stay high when mastering the bus \\
+\hline
+{\em scl\+\_\+low\+\_\+clocks} & The number of clock periods that the S\+CL will stay low when mastering the bus \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 28 of file pac5xxx\+\_\+driver\+\_\+i2c\+\_\+config.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>BAUD.SCL\_LOW\_CLOCKS = scl\_low\_clocks;}
+\DoxyCodeLine{31     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>BAUD.SCL\_HIGH\_CLOCKS = scl\_high\_clocks;}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+I2C.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___i2_c_gaf168fb0781fc83e9a32a9864272920ee}\label{group___p_a_c5_x_x_x___driver___i2_c_gaf168fb0781fc83e9a32a9864272920ee}} 
+\index{PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}!pac5xxx\_i2c\_slave\_config@{pac5xxx\_i2c\_slave\_config}}
+\index{pac5xxx\_i2c\_slave\_config@{pac5xxx\_i2c\_slave\_config}!PAC5XXX I2C Peripheral Driver Functions@{PAC5XXX I2C Peripheral Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_i2c\_slave\_config()}{pac5xxx\_i2c\_slave\_config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void pac5xxx\+\_\+i2c\+\_\+slave\+\_\+config (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___i2_c_ga9f3aaaae596b0fff29cf483f0483948e}{I2\+C\+\_\+\+Addr\+Mode\+\_\+\+Type}}}]{addr\+\_\+type,  }\item[{int}]{disable\+\_\+pulse\+\_\+filter }\end{DoxyParamCaption})}
+
+
+
+This function configures the I2C bus for slave mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr\+\_\+type} & The address type (7b or 10b) \\
+\hline
+{\em disable\+\_\+pulse\+\_\+filter} & When set to 1, disables the pulse filter. When set to 0, the pulse filter is active. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Non-\/zero if the last byte has been received, 0 if not. 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file pac5xxx\+\_\+driver\+\_\+i2c\+\_\+config.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>CFG.SLV\_ENBL = 1;}
+\DoxyCodeLine{37     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>CFG.MST\_ENBL = 0;}
+\DoxyCodeLine{38     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>CFG.ADDR\_MODE = addr\_type;}
+\DoxyCodeLine{39     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga510260f6b1c691c7ec897c21ff7941cf}{PAC5XXX\_I2C}}-\/>CFG.DSBL\_PULSE\_FILTER = disable\_pulse\_filter;}
+\DoxyCodeLine{40 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+I2C.
+

@@ -1,0 +1,227 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/boot_gcc/startup_pac55xx_gcc.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/boot_gcc/startup_pac55xx_gcc.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_system\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSTACK_SIZE\fP   0x000000C0"
+.br
+.ti -1c
+.RI "#define \fBWEAK\fP   \fB__attribute__\fP ((weak))"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBpac_recovery\fP (void)"
+.br
+.ti -1c
+.RI "\fB__attribute__\fP ((section('\&.co_stack')))"
+.br
+.ti -1c
+.RI "void \fBDefault_Reset_Handler\fP (void)"
+.br
+.ti -1c
+.RI "\fB__attribute__\fP ((noinline))"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fB__StackTop\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define STACK_SIZE   0x000000C0"
+
+.PP
+Definition at line 22 of file startup_pac55xx_gcc\&.c\&.
+.SS "#define WEAK   \fB__attribute__\fP ((weak))"
+
+.SH "Function Documentation"
+.PP 
+.SS "\fBPAC5XXX_RAMFUNC\fP __attribute__ ((noinline))"
+
+.PP
+Definition at line 210 of file startup_pac55xx_gcc\&.c\&.
+.PP
+.nf
+211 {
+212     __ASM
+213     (
+214         "       push {r1}               \n\t"
+215         "       movs r1, #1             \n\t"
+216         "delay_loop1:                   \n\t"
+217         "       sub  r0,r0,r1           \n\t"   // Decrement r0=counts by r1=decrement value
+218         "       cmp r0, #0              \n\t"
+219         "       bne delay_loop1         \n\t"   // Keep looping until counts == 0
+220         "       pop {r1}                \n\t"
+221     );
+222 }
+.fi
+.SS "__attribute__ ((section('\&.co_stack')))"
+
+.PP
+Definition at line 23 of file startup_pac55xx_gcc\&.c\&.
+.PP
+.nf
+99 {
+100     //=========================================================================
+101     // Core Exceptions
+102     //=========================================================================
+103     (void *)&pulStack[STACK_SIZE],      // Initial stack pointer
+104     Reset_Handler,                      // Reset handler
+105     NMI_Handler,                        // NMI handler
+106     HardFault_Handler,                  // Hard Fault handler
+107     MemManageFault_Handler,             // MemManage fault Handler
+108     BusFault_Handler,                   // BusFault Handler
+109     UsageFault_Handler,                 // Usage Fault Handler
+110     0,0,0,0,                            // Reserved
+111     SVC_Handler,                        // SVCall handler
+112     0, 0,                               // Reserved
+113     PendSV_Handler,                     // PendSV handler
+114     SysTick_Handler,                    // SysTick handler
+115 
+116     //=========================================================================
+117     // External Exceptions
+118     //=========================================================================
+119     //0-2
+120     MemCtl_IRQHandler,
+121     Wdt_IRQHandler,
+122     RTC_IRQHandler,
+123 
+124     //3-6
+125     ADC_IRQHandler,
+126     ADC1_IRQHandler,
+127     ADC2_IRQHandler,
+128     ADC3_IRQHandler,
+129 
+130     //7-10
+131     TimerA_IRQHandler,
+132     TimerB_IRQHandler,
+133     TimerC_IRQHandler,
+134     TimerD_IRQHandler,
+135 
+136     //11-14
+137     QEPA_IRQHandler,
+138     QEPB_IRQHandler,
+139     QEPC_IRQHandler,
+140     QEPD_IRQHandler,
+141 
+142     //15-21
+143     GpioA_IRQHandler,
+144     GpioB_IRQHandler,
+145     GpioC_IRQHandler,
+146     GpioD_IRQHandler,
+147     GpioE_IRQHandler,
+148     GpioF_IRQHandler,
+149     GpioG_IRQHandler,
+150 
+151     //22-27
+152     I2C_IRQHandler,
+153     USARTA_IRQHandler,
+154     USARTB_IRQHandler,
+155     USARTC_IRQHandler,
+156     USARTD_IRQHandler,
+157     CAN_IRQHandler,
+158 
+159     //28-31
+160     GPTimerA_IRQHandler,
+161     GPTimerB_IRQHandler,
+162     SYSCTRL_IRQHandler
+163 };
+.fi
+.SS "void Default_Reset_Handler (void)"
+
+.PP
+Definition at line 173 of file startup_pac55xx_gcc\&.c\&.
+.PP
+.nf
+174 {
+175     // Call pac_recovery function to allow recovery of mis-configured device
+176     pac_recovery();
+177 
+178     // Initialize data and bss
+179     unsigned long *pulSrc, *pulDest;
+180 
+181     // Copy the data segment initializers from flash to SRAM
+182     pulSrc = &_sidata;
+183 
+184     for(pulDest = &_sdata; pulDest < &_edata; )
+185     {
+186         *(pulDest++) = *(pulSrc++);
+187     }
+188 
+189     // Zero fill the bss segment
+190     for(pulDest = &_sbss; pulDest < &_ebss; )
+191     {
+192         *(pulDest++) = 0;
+193     }
+194 
+195     // enable FPU 
+196     SCB->CPACR |= ((3UL << 10*2) |         // set CP10 Full Access
+197                   (3UL << 11*2)  );        // set CP11 Full Access
+198   
+199     // Call the application's entry point\&.
+200     main();
+201 }
+.fi
+.PP
+References pac_recovery(), and SCB\&.
+.SS "void pac_recovery (void)"
+
+.PP
+Definition at line 48 of file pac5xxx_driver_system\&.c\&.
+.PP
+.nf
+49 {
+50     volatile uint32_t i;
+51     uint32_t perform_delay = 1;
+52 
+53     // PE3 is already an input, just need to Enable Pull Up
+54     PAC55XX_SCC->PEPUEN\&.P3 = 1;                         // Enable Pull Up
+55 
+56     // If PE3 is high a delay is not needed
+57     // Must check over the length of a full UART packet at 115kbps in case UART is talking and making PE3 low for short durations
+58     for (i=0; i < 40; i++)  // Value of 40 = at least 145 uS, which is enough for 1 UART packet (78uS)
+59     {
+60         // If PE3 is high at any time, then a delay is not needed
+61         if (PAC55XX_GPIOE->IN\&.P3 == 1)
+62         {
+63             perform_delay = 0;
+64         }
+65     }
+66 
+67     // If PE3 was low, delay required, add 6 second delay
+68     if(perform_delay)
+69     {
+70         pac_delay_asm(2800000);
+71     }
+72 
+73     // Restore PE3 to reset state
+74     PAC55XX_SCC->PEPUEN\&.P3 = 0;                         // Disable Pull Up
+75 }
+.fi
+.PP
+Referenced by Default_Reset_Handler()\&.
+.SH "Variable Documentation"
+.PP 
+.SS "uint32_t __StackTop\fC [extern]\fP"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

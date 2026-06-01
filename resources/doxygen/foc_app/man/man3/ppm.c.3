@@ -1,0 +1,81 @@
+.TH "pac_foc/src/comm/ppm/ppm.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/comm/ppm/ppm.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'ppm\&.h'\fP
+.br
+\fC#include 'pac5xxx_timers\&.h'\fP
+.br
+\fC#include 'motor_struct\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBconfig_ppm\fP (TimerInstance timer)"
+.br
+.ti -1c
+.RI "void \fBppm_init\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void config_ppm (TimerInstance timer)"
+
+.PP
+Definition at line 22 of file ppm\&.c\&.
+.PP
+.nf
+23 {
+24     pac5xxx_timer_clock_config(timer, TXCTL_CS_ACLK, TXCTL_PS_DIV2);            // Configure timer clock input for ACLK (100MHz), /1 divider
+25       //Set Timer frequency and mode
+26     pac5xxx_timer_base_config(timer,PPM_TIMER_TIME_PERIOD,0,TxCTL_MODE_UP,0);    // 1 count = 1\&.28usec,  19531 * 1\&.28usec = 25 msec = 40 Hz
+27       PPM_Timer_Ptr->CTL\&.MODE = 1;
+28       PPM_Timer_Ptr->CTL\&.BASEIE = 1;
+29       PPM_Timer_Ptr->CTL\&.CLKSRC = 1;
+30       PPM_Timer_Ptr->CTL\&.CLKDIV = TXCTL_PS_DIV128;
+31       PPM_Timer_Ptr->INT\&.w = 0;
+32     
+33       // Configure GPIO pin for PPM input
+34     PAC55XX_SCC->PPM_IO_MUXSEL\&.PPM_INPUT_PORTNUM = 2;
+35       // configuration as input
+36     PAC5XXX_GPIO_PPM_IN->MODE\&.PPM_INPUT_PORTNUM = 3;
+37       // configuration pull up
+38     PAC55XX_SCC->PFPUEN\&.PPM_INPUT_PORTNUM = 1;
+39     
+40       PPM_Timer_Ptr->PPM_CC_CONTROL\&.CCINTEDGE = 2;
+41       PPM_Timer_Ptr->PPM_CC_CONTROL\&.CCINTEN = 1;
+42       PPM_Timer_Ptr->PPM_CC_CONTROL\&.CCMODE = 1;
+43       PPM_Timer_Ptr->PPM_CC_CONTROL\&.CCLATCH = 2;
+44 
+45       PPM_Timer_Ptr->INT\&.w = 0;
+46         
+47         NVIC_SetPriority(PPM_Timer_IRQn,4);
+48     NVIC_EnableIRQ(PPM_Timer_IRQn);
+49 }
+.fi
+.PP
+References PPM_TIMER_TIME_PERIOD\&.
+.SS "void ppm_init (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Definition at line 52 of file ppm\&.c\&.
+.PP
+.nf
+53 {
+54     motor_ptr->ppm\&.valid_motor_on_pulse_detect = 0;
+55     motor_ptr->ppm\&.invalid_pulse_detect_count = 0;
+56 }
+.fi
+.PP
+References Struct_PPM::invalid_pulse_detect_count, Struct_Motor::ppm, and Struct_PPM::valid_motor_on_pulse_detect\&.
+.PP
+Referenced by motor_reset()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

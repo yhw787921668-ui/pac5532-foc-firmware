@@ -1,0 +1,640 @@
+.TH "pac_foc/pac52xx/board/board_pac5256evk1.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/board/board_pac5256evk1.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'board_options\&.h'\fP
+.br
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'config_debug\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBHIB_BIT_DEFAULT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPBEN_BIT_DEFAULT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBVREFSET_BIT_DEFAULT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBCLKOUTEN_BIT_DEFAULT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBMCUALIVE_BIT_DEFAULT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBTPBD_BIT_DEFAULT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBRFU_BIT_DEFAULT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBENSIG_BIT_DEFAULT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMODULE_MISC_BITS_DEFAULT\fP   ((\fBHIB_BIT_DEFAULT\fP << 7) + (\fBPBEN_BIT_DEFAULT\fP << 6) + (\fBVREFSET_BIT_DEFAULT\fP << 5) + (\fBCLKOUTEN_BIT_DEFAULT\fP << 4) + (\fBMCUALIVE_BIT_DEFAULT\fP << 3) + (\fBTPBD_BIT_DEFAULT\fP << 2) + (\fBRFU_BIT_DEFAULT\fP << 1) + (\fBENSIG_BIT_DEFAULT\fP << 0))"
+.br
+.ti -1c
+.RI "#define \fBDEVICE_SELECT\fP   \fBDEVICE_5256\fP"
+.br
+.ti -1c
+.RI "#define \fBCAPABLE_VSIM\fP   TRUE"
+.br
+.ti -1c
+.RI "#define \fBCAPABLE_IPD\fP   TRUE"
+.br
+.ti -1c
+.RI "#define \fBCONFIG_SHUNT\fP   \fBCONFIG_SHUNT_3SHUNT\fP"
+.br
+.ti -1c
+.RI "#define \fBCAPABLE_POWERMETHOD2\fP   FALSE"
+.br
+.ti -1c
+.RI "#define \fBINTERNAL_VMS\fP   TRUE"
+.br
+.ti -1c
+.RI "#define \fBMIN_VBUS\fP   VDC_45V"
+.br
+.ti -1c
+.RI "#define \fBMAX_VBUS\fP   VDC_350V"
+.br
+.ti -1c
+.RI "#define \fBVMS_VALUE_EXCLUDE_BAND_LIMIT_3SHUNT\fP   QCONST(0\&.60f, 16)"
+.br
+.ti -1c
+.RI "#define \fBPCB_RSENSE_OC_OHMS\fP   0\&.050f"
+.br
+.ti -1c
+.RI "#define \fBPCB_RSENSE_IUVW_OHMS\fP   0\&.050f"
+.br
+.ti -1c
+.RI "#define \fBR1_PLUS_R2_BY_R2_RATIO_VBUS\fP   204\&.0f"
+.br
+.ti -1c
+.RI "#define \fBR1_PLUS_R2_BY_R2_RATIO_SIM\fP   168\&.0f"
+.br
+.ti -1c
+.RI "#define \fBAIORES_VALUE\fP   100\&.0f"
+.br
+.ti -1c
+.RI "#define \fBMOTOR1_LED_NSEC\fP   400"
+.br
+.ti -1c
+.RI "#define \fBMOTOR1_TED_NSEC\fP   400"
+.br
+.ti -1c
+.RI "#define \fBSIM_BEMF_DET_THRESHOLD_ADCCNT_V\fP   10"
+.br
+.ti -1c
+.RI "#define \fBSIM_BEMF_DET_THRESHOLD_ADCCNT_I\fP   30"
+.br
+.ti -1c
+.RI "#define \fBINVERTER_TYPE_SEL\fP   \fBINVERTER_TYPE_IGBT\fP"
+.br
+.ti -1c
+.RI "#define \fBINVERTER_IGBT_VCE_VOLTS_FLT\fP   1\&.70f"
+.br
+.ti -1c
+.RI "#define \fBINVERTER_IGBT_VDIODE_VOLTS_FLT\fP   1\&.77f"
+.br
+.ti -1c
+.RI "#define \fBCONFIG_OFFSET\fP   (\fBCHANNEL_AIO10\fP | \fBCHANNEL_AIO32\fP | \fBCHANNEL_AIO54\fP)"
+.br
+.ti -1c
+.RI "#define \fBENABLE_ADCCAL_AIO10\fP"
+.br
+.ti -1c
+.RI "#define \fBENABLE_ADCCAL_AIO32\fP"
+.br
+.ti -1c
+.RI "#define \fBENABLE_ADCCAL_AIO54\fP"
+.br
+.ti -1c
+.RI "#define \fBADC_OFFSET_DEFAULT_DIFFAMP\fP   512"
+.br
+.ti -1c
+.RI "#define \fBADC_OFFSET_MIN_DIFFAMP\fP   500"
+.br
+.ti -1c
+.RI "#define \fBADC_OFFSET_MAX_DIFFAMP\fP   524"
+.br
+.ti -1c
+.RI "#define \fBHALLA_PORT\fP   \fBPORT_PD2\fP"
+.br
+.ti -1c
+.RI "#define \fBHALLB_PORT\fP   \fBPORT_PD3\fP"
+.br
+.ti -1c
+.RI "#define \fBHALLC_PORT\fP   \fBPORT_PD4\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_HALLA\fP   \fBPAC5XXX_GPIOD\fP"
+.br
+.ti -1c
+.RI "#define \fBHALLA_PORTNUM\fP   P2"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_HALLB\fP   \fBPAC5XXX_GPIOD\fP"
+.br
+.ti -1c
+.RI "#define \fBHALLB_PORTNUM\fP   P3"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_HALLC\fP   \fBPAC5XXX_GPIOD\fP"
+.br
+.ti -1c
+.RI "#define \fBHALLC_PORTNUM\fP   P4"
+.br
+.ti -1c
+.RI "#define \fBHALLA_PORT_BIT\fP   BIT_02"
+.br
+.ti -1c
+.RI "#define \fBHALLB_PORT_BIT\fP   BIT_03"
+.br
+.ti -1c
+.RI "#define \fBHALLC_PORT_BIT\fP   BIT_04"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_HALLA_POLARITY\fP   \fBPAC5XXX_GPIO_HALLA\fP\->\fBINTP\&.HALLA_PORTNUM\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_HALLB_POLARITY\fP   \fBPAC5XXX_GPIO_HALLB\fP\->\fBINTP\&.HALLB_PORTNUM\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_HALLC_POLARITY\fP   \fBPAC5XXX_GPIO_HALLC\fP\->\fBINTP\&.HALLC_PORTNUM\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_HALL\fP   \fBPAC5XXX_GPIO_HALLA\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_INT_FLAG\fP   \fBPAC5XXX_GPIO_HALL\fP\->INTF\&.b"
+.br
+.ti -1c
+.RI "#define \fBHall_Gpio_IRQn\fP   \fBGpioD_IRQn\fP"
+.br
+.ti -1c
+.RI "#define \fBDEBUGIO1_PORT\fP   \fBPORT_PE0\fP"
+.br
+.ti -1c
+.RI "#define \fBDEBUGIO2_PORT\fP   \fBPORT_PE3\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_PUSH_BUTTON\fP   \fBPAC5XXX_GPIOE\fP"
+.br
+.ti -1c
+.RI "#define \fBPUSH_BUTTON_PORTNUM\fP   P5"
+.br
+.ti -1c
+.RI "#define \fBPWMDAC1_PORT\fP   \fBPORT_PD2\fP"
+.br
+.ti -1c
+.RI "#define \fBPWMDAC2_PORT\fP   \fBPORT_PD3\fP"
+.br
+.ti -1c
+.RI "#define \fBPWMDAC3_PORT\fP   \fBPORT_PD4\fP"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_DAC1\fP   \fBPAC5XXX_GPIOD\fP"
+.br
+.ti -1c
+.RI "#define \fBPWMDAC1_PORTNUM\fP   P2"
+.br
+.ti -1c
+.RI "#define \fBPWMDAC1_PSEL\fP   3"
+.br
+.ti -1c
+.RI "#define \fBPWMDAC1_TIMER\fP   \fBPAC5XXX_TIMERB\fP"
+.br
+.ti -1c
+.RI "#define \fBPWMDAC1_CTR\fP   CTR0"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_DAC2\fP   \fBPAC5XXX_GPIOD\fP"
+.br
+.ti -1c
+.RI "#define \fBPWMDAC2_PORTNUM\fP   P3"
+.br
+.ti -1c
+.RI "#define \fBPWMDAC2_PSEL\fP   3"
+.br
+.ti -1c
+.RI "#define \fBPWMDAC2_TIMER\fP   \fBPAC5XXX_TIMERB\fP"
+.br
+.ti -1c
+.RI "#define \fBPWMDAC2_CTR\fP   CTR1"
+.br
+.ti -1c
+.RI "#define \fBPAC5XXX_GPIO_DAC3\fP   \fBPAC5XXX_GPIOD\fP"
+.br
+.ti -1c
+.RI "#define \fBPWMDAC3_PORTNUM\fP   P4"
+.br
+.ti -1c
+.RI "#define \fBPWMDAC3_PSEL\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPWMDAC3_TIMER\fP   \fBPAC5XXX_TIMERD\fP"
+.br
+.ti -1c
+.RI "#define \fBPWMDAC3_CTR\fP   CTR1"
+.br
+.ti -1c
+.RI "#define \fBDEBUGDASIO_PORT\fP   \fBPORT_PE4\fP"
+.br
+.ti -1c
+.RI "#define \fBDEBUGDASIO_PORTNAME\fP   \fBPAC5XXX_GPIOE\fP"
+.br
+.ti -1c
+.RI "#define \fBDEBUGDASIO_PORTNUM\fP   P4"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBconfig_seq_foc\fP (void)"
+.br
+.ti -1c
+.RI "void \fBconfig_seq_sim\fP (void)"
+.br
+.ti -1c
+.RI "void \fBconfig_seq_simbrake\fP (void)"
+.br
+.ti -1c
+.RI "void \fBinit_emux\fP (void)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ADC_OFFSET_DEFAULT_DIFFAMP   512"
+
+.PP
+Definition at line 167 of file board_pac5256evk1\&.h\&.
+.SS "#define ADC_OFFSET_MAX_DIFFAMP   524"
+
+.PP
+Definition at line 169 of file board_pac5256evk1\&.h\&.
+.SS "#define ADC_OFFSET_MIN_DIFFAMP   500"
+
+.PP
+Definition at line 168 of file board_pac5256evk1\&.h\&.
+.SS "#define AIORES_VALUE   100\&.0f"
+
+.PP
+Definition at line 125 of file board_pac5256evk1\&.h\&.
+.SS "#define CAPABLE_IPD   TRUE"
+
+.PP
+Definition at line 95 of file board_pac5256evk1\&.h\&.
+.SS "#define CAPABLE_POWERMETHOD2   FALSE"
+
+.PP
+Definition at line 97 of file board_pac5256evk1\&.h\&.
+.SS "#define CAPABLE_VSIM   TRUE"
+
+.PP
+Definition at line 94 of file board_pac5256evk1\&.h\&.
+.SS "#define CLKOUTEN_BIT_DEFAULT   0"
+
+.PP
+Definition at line 77 of file board_pac5256evk1\&.h\&.
+.SS "#define CONFIG_OFFSET   (\fBCHANNEL_AIO10\fP | \fBCHANNEL_AIO32\fP | \fBCHANNEL_AIO54\fP)"
+
+.PP
+Definition at line 159 of file board_pac5256evk1\&.h\&.
+.SS "#define CONFIG_SHUNT   \fBCONFIG_SHUNT_3SHUNT\fP"
+
+.PP
+Definition at line 96 of file board_pac5256evk1\&.h\&.
+.SS "#define DEBUGDASIO_PORT   \fBPORT_PE4\fP"
+
+.PP
+Definition at line 248 of file board_pac5256evk1\&.h\&.
+.SS "#define DEBUGDASIO_PORTNAME   \fBPAC5XXX_GPIOE\fP"
+
+.PP
+Definition at line 249 of file board_pac5256evk1\&.h\&.
+.SS "#define DEBUGDASIO_PORTNUM   P4"
+
+.PP
+Definition at line 250 of file board_pac5256evk1\&.h\&.
+.SS "#define DEBUGIO1_PORT   \fBPORT_PE0\fP"
+
+.PP
+Definition at line 206 of file board_pac5256evk1\&.h\&.
+.SS "#define DEBUGIO2_PORT   \fBPORT_PE3\fP"
+
+.PP
+Definition at line 207 of file board_pac5256evk1\&.h\&.
+.SS "#define DEVICE_SELECT   \fBDEVICE_5256\fP"
+
+.PP
+Definition at line 93 of file board_pac5256evk1\&.h\&.
+.SS "#define ENABLE_ADCCAL_AIO10"
+
+.PP
+Definition at line 160 of file board_pac5256evk1\&.h\&.
+.SS "#define ENABLE_ADCCAL_AIO32"
+
+.PP
+Definition at line 161 of file board_pac5256evk1\&.h\&.
+.SS "#define ENABLE_ADCCAL_AIO54"
+
+.PP
+Definition at line 162 of file board_pac5256evk1\&.h\&.
+.SS "#define ENSIG_BIT_DEFAULT   1"
+
+.PP
+Definition at line 81 of file board_pac5256evk1\&.h\&.
+.SS "#define Hall_Gpio_IRQn   \fBGpioD_IRQn\fP"
+
+.PP
+Definition at line 201 of file board_pac5256evk1\&.h\&.
+.SS "#define HALLA_PORT   \fBPORT_PD2\fP"
+
+.PP
+Definition at line 180 of file board_pac5256evk1\&.h\&.
+.SS "#define HALLA_PORT_BIT   BIT_02"
+
+.PP
+Definition at line 193 of file board_pac5256evk1\&.h\&.
+.SS "#define HALLA_PORTNUM   P2"
+
+.PP
+Definition at line 185 of file board_pac5256evk1\&.h\&.
+.SS "#define HALLB_PORT   \fBPORT_PD3\fP"
+
+.PP
+Definition at line 181 of file board_pac5256evk1\&.h\&.
+.SS "#define HALLB_PORT_BIT   BIT_03"
+
+.PP
+Definition at line 194 of file board_pac5256evk1\&.h\&.
+.SS "#define HALLB_PORTNUM   P3"
+
+.PP
+Definition at line 188 of file board_pac5256evk1\&.h\&.
+.SS "#define HALLC_PORT   \fBPORT_PD4\fP"
+
+.PP
+Definition at line 182 of file board_pac5256evk1\&.h\&.
+.SS "#define HALLC_PORT_BIT   BIT_04"
+
+.PP
+Definition at line 195 of file board_pac5256evk1\&.h\&.
+.SS "#define HALLC_PORTNUM   P4"
+
+.PP
+Definition at line 191 of file board_pac5256evk1\&.h\&.
+.SS "#define HIB_BIT_DEFAULT   0"
+
+.PP
+Definition at line 74 of file board_pac5256evk1\&.h\&.
+.SS "#define INTERNAL_VMS   TRUE"
+
+.PP
+Definition at line 98 of file board_pac5256evk1\&.h\&.
+.SS "#define INVERTER_IGBT_VCE_VOLTS_FLT   1\&.70f"
+
+.PP
+Definition at line 146 of file board_pac5256evk1\&.h\&.
+.SS "#define INVERTER_IGBT_VDIODE_VOLTS_FLT   1\&.77f"
+
+.PP
+Definition at line 147 of file board_pac5256evk1\&.h\&.
+.SS "#define INVERTER_TYPE_SEL   \fBINVERTER_TYPE_IGBT\fP"
+
+.PP
+Definition at line 145 of file board_pac5256evk1\&.h\&.
+.SS "#define MAX_VBUS   VDC_350V"
+
+.PP
+Definition at line 104 of file board_pac5256evk1\&.h\&.
+.SS "#define MCUALIVE_BIT_DEFAULT   1"
+
+.PP
+Definition at line 78 of file board_pac5256evk1\&.h\&.
+.SS "#define MIN_VBUS   VDC_45V"
+
+.PP
+Definition at line 103 of file board_pac5256evk1\&.h\&.
+.SS "#define MODULE_MISC_BITS_DEFAULT   ((\fBHIB_BIT_DEFAULT\fP << 7) + (\fBPBEN_BIT_DEFAULT\fP << 6) + (\fBVREFSET_BIT_DEFAULT\fP << 5) + (\fBCLKOUTEN_BIT_DEFAULT\fP << 4) + (\fBMCUALIVE_BIT_DEFAULT\fP << 3) + (\fBTPBD_BIT_DEFAULT\fP << 2) + (\fBRFU_BIT_DEFAULT\fP << 1) + (\fBENSIG_BIT_DEFAULT\fP << 0))"
+
+.PP
+Definition at line 82 of file board_pac5256evk1\&.h\&.
+.SS "#define MOTOR1_LED_NSEC   400"
+
+.PP
+Definition at line 130 of file board_pac5256evk1\&.h\&.
+.SS "#define MOTOR1_TED_NSEC   400"
+
+.PP
+Definition at line 131 of file board_pac5256evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_DAC1   \fBPAC5XXX_GPIOD\fP"
+
+.PP
+Definition at line 227 of file board_pac5256evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_DAC2   \fBPAC5XXX_GPIOD\fP"
+
+.PP
+Definition at line 233 of file board_pac5256evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_DAC3   \fBPAC5XXX_GPIOD\fP"
+
+.PP
+Definition at line 239 of file board_pac5256evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_HALL   \fBPAC5XXX_GPIO_HALLA\fP"
+
+.PP
+Definition at line 199 of file board_pac5256evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_HALLA   \fBPAC5XXX_GPIOD\fP"
+
+.PP
+Definition at line 184 of file board_pac5256evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_HALLA_POLARITY   \fBPAC5XXX_GPIO_HALLA\fP\->\fBINTP\&.HALLA_PORTNUM\fP"
+
+.PP
+Definition at line 196 of file board_pac5256evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_HALLB   \fBPAC5XXX_GPIOD\fP"
+
+.PP
+Definition at line 187 of file board_pac5256evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_HALLB_POLARITY   \fBPAC5XXX_GPIO_HALLB\fP\->\fBINTP\&.HALLB_PORTNUM\fP"
+
+.PP
+Definition at line 197 of file board_pac5256evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_HALLC   \fBPAC5XXX_GPIOD\fP"
+
+.PP
+Definition at line 190 of file board_pac5256evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_HALLC_POLARITY   \fBPAC5XXX_GPIO_HALLC\fP\->\fBINTP\&.HALLC_PORTNUM\fP"
+
+.PP
+Definition at line 198 of file board_pac5256evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_INT_FLAG   \fBPAC5XXX_GPIO_HALL\fP\->INTF\&.b"
+
+.PP
+Definition at line 200 of file board_pac5256evk1\&.h\&.
+.SS "#define PAC5XXX_GPIO_PUSH_BUTTON   \fBPAC5XXX_GPIOE\fP"
+
+.PP
+Definition at line 217 of file board_pac5256evk1\&.h\&.
+.SS "#define PBEN_BIT_DEFAULT   0"
+
+.PP
+Definition at line 75 of file board_pac5256evk1\&.h\&.
+.SS "#define PCB_RSENSE_IUVW_OHMS   0\&.050f"
+
+.PP
+Definition at line 114 of file board_pac5256evk1\&.h\&.
+.SS "#define PCB_RSENSE_OC_OHMS   0\&.050f"
+
+.PP
+Definition at line 113 of file board_pac5256evk1\&.h\&.
+.SS "#define PUSH_BUTTON_PORTNUM   P5"
+
+.PP
+Definition at line 218 of file board_pac5256evk1\&.h\&.
+.SS "#define PWMDAC1_CTR   CTR0"
+
+.PP
+Definition at line 231 of file board_pac5256evk1\&.h\&.
+.SS "#define PWMDAC1_PORT   \fBPORT_PD2\fP"
+
+.PP
+Definition at line 223 of file board_pac5256evk1\&.h\&.
+.SS "#define PWMDAC1_PORTNUM   P2"
+
+.PP
+Definition at line 228 of file board_pac5256evk1\&.h\&.
+.SS "#define PWMDAC1_PSEL   3"
+
+.PP
+Definition at line 229 of file board_pac5256evk1\&.h\&.
+.SS "#define PWMDAC1_TIMER   \fBPAC5XXX_TIMERB\fP"
+
+.PP
+Definition at line 230 of file board_pac5256evk1\&.h\&.
+.SS "#define PWMDAC2_CTR   CTR1"
+
+.PP
+Definition at line 237 of file board_pac5256evk1\&.h\&.
+.SS "#define PWMDAC2_PORT   \fBPORT_PD3\fP"
+
+.PP
+Definition at line 224 of file board_pac5256evk1\&.h\&.
+.SS "#define PWMDAC2_PORTNUM   P3"
+
+.PP
+Definition at line 234 of file board_pac5256evk1\&.h\&.
+.SS "#define PWMDAC2_PSEL   3"
+
+.PP
+Definition at line 235 of file board_pac5256evk1\&.h\&.
+.SS "#define PWMDAC2_TIMER   \fBPAC5XXX_TIMERB\fP"
+
+.PP
+Definition at line 236 of file board_pac5256evk1\&.h\&.
+.SS "#define PWMDAC3_CTR   CTR1"
+
+.PP
+Definition at line 243 of file board_pac5256evk1\&.h\&.
+.SS "#define PWMDAC3_PORT   \fBPORT_PD4\fP"
+
+.PP
+Definition at line 225 of file board_pac5256evk1\&.h\&.
+.SS "#define PWMDAC3_PORTNUM   P4"
+
+.PP
+Definition at line 240 of file board_pac5256evk1\&.h\&.
+.SS "#define PWMDAC3_PSEL   1"
+
+.PP
+Definition at line 241 of file board_pac5256evk1\&.h\&.
+.SS "#define PWMDAC3_TIMER   \fBPAC5XXX_TIMERD\fP"
+
+.PP
+Definition at line 242 of file board_pac5256evk1\&.h\&.
+.SS "#define R1_PLUS_R2_BY_R2_RATIO_SIM   168\&.0f"
+
+.PP
+Definition at line 120 of file board_pac5256evk1\&.h\&.
+.SS "#define R1_PLUS_R2_BY_R2_RATIO_VBUS   204\&.0f"
+
+.PP
+Definition at line 119 of file board_pac5256evk1\&.h\&.
+.SS "#define RFU_BIT_DEFAULT   0"
+
+.PP
+Definition at line 80 of file board_pac5256evk1\&.h\&.
+.SS "#define SIM_BEMF_DET_THRESHOLD_ADCCNT_I   30"
+
+.PP
+Definition at line 137 of file board_pac5256evk1\&.h\&.
+.SS "#define SIM_BEMF_DET_THRESHOLD_ADCCNT_V   10"
+
+.PP
+Definition at line 136 of file board_pac5256evk1\&.h\&.
+.SS "#define TPBD_BIT_DEFAULT   0"
+
+.PP
+Definition at line 79 of file board_pac5256evk1\&.h\&.
+.SS "#define VMS_VALUE_EXCLUDE_BAND_LIMIT_3SHUNT   QCONST(0\&.60f, 16)"
+
+.PP
+Definition at line 107 of file board_pac5256evk1\&.h\&.
+.SS "#define VREFSET_BIT_DEFAULT   0"
+
+.PP
+Definition at line 76 of file board_pac5256evk1\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void config_seq_foc (void)"
+
+.PP
+Definition at line 54 of file board_custom_1\&.c\&.
+.PP
+.nf
+55 {
+56     Struct_Motor* motor_ptr = &motor;
+57 
+58     // Configure sequencers and ADC
+59     pac5xxx_adc_config(ADCCTL_ADSTART_AUTO_01_CHAIN_TRIG, ADCCTL_ADCDIV_DIV4, 1);           // Configure sequencers for AS0 chained triggers, /4 divider, repeat mode
+60 
+61     // AS0 configuration
+62     pac5xxx_adc_as0_config_pwm(ADCCTLX_AS1D_DEPTH3, ADCCTLX_TRIGEDGE_LOWTOHI, ADCCTLX_TRIGPWM_PWMA0);
+63     pac5xxx_adc_as0_sequence_config(0, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_MSPI(SIGMGR_AIO32) | SIGMGR_MSPI_SH_DIFFAMP, ASSEQ_DELAY_0);   // Convert M1-Iu, then change CAFE EMUX to M1-Iv
+64     pac5xxx_adc_as0_sequence_config(1, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_MSPI(SIGMGR_AIO54) | SIGMGR_MSPI_SH_DIFFAMP, ASSEQ_DELAY_0);   // Convert M1-Iv, then change CAFE MUX to M1-Iw
+65     pac5xxx_adc_as0_sequence_config(2, ADCCTL_ADMUX_AD0, ASSEQ_MSPI_AFTER_SH, SIGMGR_MSPI(SIGMGR_AB4), ASSEQ_DELAY_0);                              // Convert M1-Iw, then change CAFE MUX to M1-Vu
+66     
+67     // AS1 configuration
+68     pac5xxx_adc_as1_config_pwm(ADCCTLX_AS1D_DEPTH1, ADCCTLX_TRIGEDGE_LOWTOHI, ADCCTLX_TRIGPWM_PWMA0);
+69     pac5xxx_adc_as1_sequence_config(0, ADCCTL_ADMUX_AD4, ASSEQ_MSPI_AFTER_SH, SIGMGR_MSPI(SIGMGR_AIO10), ASSEQ_DELAY_0);                            // Convert Vout, then change CAFE MUX to M1-Vu
+70 }
+.fi
+.SS "void config_seq_sim (void)"
+
+.SS "void config_seq_simbrake (void)"
+
+.SS "void init_emux (void)"
+
+.PP
+Definition at line 146 of file board_custom_1\&.c\&.
+.PP
+.nf
+147 {
+148     // Manually set ADC EMUX so that first sequencer conversion is correct
+149     pac5xxx_tile_register_write(ADDR_ADCIN1, 0);        // Set to EMUX to AIO10
+150 }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

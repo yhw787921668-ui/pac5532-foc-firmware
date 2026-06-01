@@ -1,0 +1,242 @@
+.TH "pac_foc/src/config_options.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/config_options.h \- Use for different FOC hardware and firmware option selection\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPARAM_DEFAULT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPARAM_USER_1\fP   2"
+.br
+.ti -1c
+.RI "#define \fBCOMM_UART\fP   1"
+.br
+.ti -1c
+.RI "#define \fBCOMM_PPM\fP   2"
+.br
+.ti -1c
+.RI "#define \fBCOMM_COMBO_PPM_UART\fP   3"
+.br
+.ti -1c
+.RI "#define \fBCOMM_PUSH_BUTTON\fP   4"
+.br
+.ti -1c
+.RI "#define \fBCOMM_COMBO_PUSH_BUTTON_UART\fP   5"
+.br
+.ti -1c
+.RI "#define \fBMPOS_LBG1_START_ALIGNGO\fP   0"
+.br
+.ti -1c
+.RI "#define \fBMPOS_LBG1_START_HALL\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMPOS_HALL_ONLY\fP   2"
+.br
+.ti -1c
+.RI "#define \fBMPOS_QEP_START_ALIGNGO\fP   3"
+.br
+.ti -1c
+.RI "#define \fBDISABLED\fP   0"
+.br
+.ti -1c
+.RI "#define \fBENABLED\fP   1"
+.br
+.ti -1c
+.RI "#define \fBANGLEDIFF_AUTORANGE_METHOD_1\fP   1"
+.br
+.ti -1c
+.RI "#define \fBANGLEDIFF_AUTORANGE_METHOD_2\fP   2"
+.br
+.ti -1c
+.RI "#define \fBOUTERLOOP_CONTROL_SPEED\fP   1"
+.br
+.ti -1c
+.RI "#define \fBOUTERLOOP_CONTROL_POWER\fP   2"
+.br
+.ti -1c
+.RI "#define \fBHALL_METHOD_POLLING\fP   0"
+.br
+.ti -1c
+.RI "#define \fBHALL_METHOD_INTERRUPT\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMODE_1SHUNT_EXTENSION\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMODE_1SHUNT_ASYMMETRIC\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSIM_METHOD_VOLTAGE_BEMF\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSIM_METHOD_VOLTAGE_KE\fP   2"
+.br
+.ti -1c
+.RI "#define \fBSIM_METHOD_CURRENT\fP   3"
+.br
+.ti -1c
+.RI "#define \fBSIM_METHOD_HALL\fP   4"
+.br
+.ti -1c
+.RI "#define \fBMODULATION_SVM_STANDARD\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMODULATION_SVM_OVERMOD\fP   2"
+.br
+.ti -1c
+.RI "#define \fBMODULATION_SVM_HARMONICINJ\fP   3"
+.br
+.ti -1c
+.RI "#define \fBREAD_INT32\fP(x)   (*((int32_t *)x))"
+.br
+.ti -1c
+.RI "#define \fBREAD_UINT16\fP(x)   (*((uint16_t *)x))"
+.br
+.ti -1c
+.RI "#define \fBREAD_UINT8\fP(x)   (*((uint8_t *)x))"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for different FOC hardware and firmware option selection\&. 
+
+
+.PP
+Definition in file \fBconfig_options\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ANGLEDIFF_AUTORANGE_METHOD_1   1"
+
+.PP
+Definition at line 55 of file config_options\&.h\&.
+.SS "#define ANGLEDIFF_AUTORANGE_METHOD_2   2"
+
+.PP
+Definition at line 56 of file config_options\&.h\&.
+.SS "#define COMM_COMBO_PPM_UART   3"
+
+.PP
+Definition at line 34 of file config_options\&.h\&.
+.SS "#define COMM_COMBO_PUSH_BUTTON_UART   5"
+
+.PP
+Definition at line 36 of file config_options\&.h\&.
+.SS "#define COMM_PPM   2"
+
+.PP
+Definition at line 33 of file config_options\&.h\&.
+.SS "#define COMM_PUSH_BUTTON   4"
+
+.PP
+Definition at line 35 of file config_options\&.h\&.
+.SS "#define COMM_UART   1"
+
+.PP
+Definition at line 32 of file config_options\&.h\&.
+.SS "#define DISABLED   0"
+
+.PP
+Definition at line 49 of file config_options\&.h\&.
+.SS "#define ENABLED   1"
+
+.PP
+Definition at line 50 of file config_options\&.h\&.
+.SS "#define HALL_METHOD_INTERRUPT   1"
+
+.PP
+Definition at line 68 of file config_options\&.h\&.
+.SS "#define HALL_METHOD_POLLING   0"
+
+.PP
+Definition at line 67 of file config_options\&.h\&.
+.SS "#define MODE_1SHUNT_ASYMMETRIC   2"
+
+.PP
+Definition at line 74 of file config_options\&.h\&.
+.SS "#define MODE_1SHUNT_EXTENSION   1"
+
+.PP
+Definition at line 73 of file config_options\&.h\&.
+.SS "#define MODULATION_SVM_HARMONICINJ   3"
+
+.PP
+Definition at line 90 of file config_options\&.h\&.
+.SS "#define MODULATION_SVM_OVERMOD   2"
+
+.PP
+Definition at line 89 of file config_options\&.h\&.
+.SS "#define MODULATION_SVM_STANDARD   1"
+
+.PP
+Definition at line 88 of file config_options\&.h\&.
+.SS "#define MPOS_HALL_ONLY   2"
+
+.PP
+Definition at line 43 of file config_options\&.h\&.
+.SS "#define MPOS_LBG1_START_ALIGNGO   0"
+
+.PP
+Definition at line 41 of file config_options\&.h\&.
+.SS "#define MPOS_LBG1_START_HALL   1"
+
+.PP
+Definition at line 42 of file config_options\&.h\&.
+.SS "#define MPOS_QEP_START_ALIGNGO   3"
+
+.PP
+Definition at line 44 of file config_options\&.h\&.
+.SS "#define OUTERLOOP_CONTROL_POWER   2"
+
+.PP
+Definition at line 62 of file config_options\&.h\&.
+.SS "#define OUTERLOOP_CONTROL_SPEED   1"
+
+.PP
+Definition at line 61 of file config_options\&.h\&.
+.SS "#define PARAM_DEFAULT   1"
+
+.PP
+Definition at line 26 of file config_options\&.h\&.
+.SS "#define PARAM_USER_1   2"
+
+.PP
+Definition at line 27 of file config_options\&.h\&.
+.SS "#define READ_INT32(x)   (*((int32_t *)x))"
+
+.PP
+Definition at line 93 of file config_options\&.h\&.
+.SS "#define READ_UINT16(x)   (*((uint16_t *)x))"
+
+.PP
+Definition at line 94 of file config_options\&.h\&.
+.SS "#define READ_UINT8(x)   (*((uint8_t *)x))"
+
+.PP
+Definition at line 95 of file config_options\&.h\&.
+.SS "#define SIM_METHOD_CURRENT   3"
+
+.PP
+Definition at line 81 of file config_options\&.h\&.
+.SS "#define SIM_METHOD_HALL   4"
+
+.PP
+Definition at line 82 of file config_options\&.h\&.
+.SS "#define SIM_METHOD_VOLTAGE_BEMF   1"
+
+.PP
+Definition at line 79 of file config_options\&.h\&.
+.SS "#define SIM_METHOD_VOLTAGE_KE   2"
+
+.PP
+Definition at line 80 of file config_options\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

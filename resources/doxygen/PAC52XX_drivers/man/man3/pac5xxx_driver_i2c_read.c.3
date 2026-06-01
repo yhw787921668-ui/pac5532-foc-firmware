@@ -1,0 +1,89 @@
+.TH "pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_i2c_read.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_i2c_read.c \- Perform I2C read\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx_driver_i2c\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_I2C\fP int \fBpac5xxx_i2c_master_read\fP (uint8_t address, uint8_t *write_data, int bytes_to_write, uint8_t *read_data, int bytes_to_read)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Perform I2C read\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_driver_i2c_read\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_I2C\fP int pac5xxx_i2c_master_read (uint8_t address, uint8_t * write_data, int bytes_to_write, uint8_t * read_data, int bytes_to_read)"
+
+.PP
+Definition at line 20 of file pac5xxx_driver_i2c_read\&.c\&.
+.PP
+.nf
+21 {
+22     int i;
+23 
+24     /* Write bytes first */
+25 
+26     for (i = 0; i < bytes_to_write; i++)
+27     {
+28         /* Wait for bus TX register to be free */
+29         while (PAC5XXX_I2C->MTXDATA\&.REG_FULL_FLAG == 1);
+30 
+31         /* Send next byte of I2C data */
+32         PAC5XXX_I2C->MTXDATA\&.VAL = *write_data++;            /* Data to write */
+33 
+34         /* Write control register to initiate transfer */
+35         PAC5XXX_I2C->MCTRL\&.b = address;                      /* XFER_TYPE = I2C Read */
+36 
+37         /* Test for register to be empty (indicating transfer is done) */
+38         while (PAC5XXX_I2C->MTXDATA\&.REG_FULL_FLAG == 1);
+39 
+40         /* Read status register for status of transfer */
+41         if (PAC5XXX_I2C->STATUS\&.w & 0xFFFF)
+42         {
+43             PAC5XXX_I2C->MCTRL\&.w = 0x400;
+44             return 1;
+45         }
+46     }
+47 
+48     // Read bytes
+49 
+50     /* Read bytes */
+51 
+52     for (i = 0; i < bytes_to_read; i++)
+53     {
+54         /* Wait for RX data register to be empty */
+55         while (!PAC5XXX_I2C->MRXDATA\&.REG_FULL_FLAG);
+56 
+57         /* Store byte */
+58         *read_data++ = PAC5XXX_I2C->MRXDATA\&.VAL;
+59     }
+60 
+61     return 0;
+62 }
+.fi
+.PP
+References PAC5XXX_I2C\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

@@ -1,0 +1,163 @@
+\hypertarget{group___p_a_c5_x_x_x___driver___rtc}{}\doxysection{P\+A\+C5\+X\+XX Real-\/\+Time Clock Driver Functions\`{}}
+\label{group___p_a_c5_x_x_x___driver___rtc}\index{PAC5XXX Real-\/Time Clock Driver Functions\`{}@{PAC5XXX Real-\/Time Clock Driver Functions\`{}}}
+Collaboration diagram for P\+A\+C5\+X\+XX Real-\/\+Time Clock Driver Functions\`{}\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___p_a_c5_x_x_x___driver___rtc}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___rtc_gad060ce187b7c9d0375e7fac297b2fdfc}{R\+A\+M\+F\+U\+N\+C\+\_\+\+R\+TC}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___rtc_gad060ce187b7c9d0375e7fac297b2fdfc}{R\+A\+M\+F\+U\+N\+C\+\_\+\+R\+TC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___rtc_gafbdc3beea1158403971214b09f800cfc}{pac5xxx\+\_\+rtc\+\_\+config}} (int ie\+\_\+en, uint32\+\_\+t cdv, \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga09880c28c1af54c70f44b4a9ec3fda16}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+Type}} prescale)
+\begin{DoxyCompactList}\small\item\em This function configures Real-\/time Clock. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___rtc_gad060ce187b7c9d0375e7fac297b2fdfc}{R\+A\+M\+F\+U\+N\+C\+\_\+\+R\+TC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___rtc_gabe632ba15f148d3f67a63f06779b7ce5}{pac5xxx\+\_\+rtc\+\_\+reset}} (void)
+\begin{DoxyCompactList}\small\item\em This function resets the watchdog timer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___rtc_gad060ce187b7c9d0375e7fac297b2fdfc}{R\+A\+M\+F\+U\+N\+C\+\_\+\+R\+TC}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___rtc_ga5d2169efb9a101d43e471c4e534af9e3}{pac5xxx\+\_\+rtc\+\_\+clear\+\_\+if}} (void)
+\begin{DoxyCompactList}\small\item\em This function clears the Real-\/\+Time Clock interrupt flag. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___rtc_gad060ce187b7c9d0375e7fac297b2fdfc}\label{group___p_a_c5_x_x_x___driver___rtc_gad060ce187b7c9d0375e7fac297b2fdfc}} 
+\index{PAC5XXX Real-\/Time Clock Driver Functions\`{}@{PAC5XXX Real-\/Time Clock Driver Functions\`{}}!RAMFUNC\_RTC@{RAMFUNC\_RTC}}
+\index{RAMFUNC\_RTC@{RAMFUNC\_RTC}!PAC5XXX Real-\/Time Clock Driver Functions\`{}@{PAC5XXX Real-\/Time Clock Driver Functions\`{}}}
+\doxysubsubsection{\texorpdfstring{RAMFUNC\_RTC}{RAMFUNC\_RTC}}
+{\footnotesize\ttfamily \#define R\+A\+M\+F\+U\+N\+C\+\_\+\+R\+TC}
+
+
+
+Definition at line 31 of file pac5xxx\+\_\+driver\+\_\+rtc.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___rtc_ga5d2169efb9a101d43e471c4e534af9e3}\label{group___p_a_c5_x_x_x___driver___rtc_ga5d2169efb9a101d43e471c4e534af9e3}} 
+\index{PAC5XXX Real-\/Time Clock Driver Functions\`{}@{PAC5XXX Real-\/Time Clock Driver Functions\`{}}!pac5xxx\_rtc\_clear\_if@{pac5xxx\_rtc\_clear\_if}}
+\index{pac5xxx\_rtc\_clear\_if@{pac5xxx\_rtc\_clear\_if}!PAC5XXX Real-\/Time Clock Driver Functions\`{}@{PAC5XXX Real-\/Time Clock Driver Functions\`{}}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_rtc\_clear\_if()}{pac5xxx\_rtc\_clear\_if()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___rtc_gad060ce187b7c9d0375e7fac297b2fdfc}{R\+A\+M\+F\+U\+N\+C\+\_\+\+R\+TC}} void pac5xxx\+\_\+rtc\+\_\+clear\+\_\+if (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function clears the Real-\/\+Time Clock interrupt flag. 
+
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+rtc\+\_\+clear\+\_\+if.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     uint32\_t word;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     word = (\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga322622d9a0013be5efdcc3149fddfb03}{PAC5XXX\_RTC}}-\/>RTCCTL \& 0x0000FFF8) | (\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga376bdf10032ee115b3989424cee8e110}{RTCCTL\_PASS\_WRITE}} | \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga55696b47ced16cadc64863b3c5de235a}{RTCCTL\_IF\_MASK}} | \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gad4f814d5d36943eea3c8358c3cad34fa}{RTCCTL\_RST\_VAL}});}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gaddd3bf6bfb23992ffec34c573aee7c06}{RTC\_WAIT\_WRITE\_BLOCK}};   \textcolor{comment}{// Blocking wait for register write}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga322622d9a0013be5efdcc3149fddfb03}{PAC5XXX\_RTC}}-\/>RTCCTL = word;}
+\DoxyCodeLine{29 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+R\+TC, R\+T\+C\+\_\+\+W\+A\+I\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+B\+L\+O\+CK, R\+T\+C\+C\+T\+L\+\_\+\+I\+F\+\_\+\+M\+A\+SK, R\+T\+C\+C\+T\+L\+\_\+\+P\+A\+S\+S\+\_\+\+W\+R\+I\+TE, and R\+T\+C\+C\+T\+L\+\_\+\+R\+S\+T\+\_\+\+V\+AL.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___rtc_gafbdc3beea1158403971214b09f800cfc}\label{group___p_a_c5_x_x_x___driver___rtc_gafbdc3beea1158403971214b09f800cfc}} 
+\index{PAC5XXX Real-\/Time Clock Driver Functions\`{}@{PAC5XXX Real-\/Time Clock Driver Functions\`{}}!pac5xxx\_rtc\_config@{pac5xxx\_rtc\_config}}
+\index{pac5xxx\_rtc\_config@{pac5xxx\_rtc\_config}!PAC5XXX Real-\/Time Clock Driver Functions\`{}@{PAC5XXX Real-\/Time Clock Driver Functions\`{}}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_rtc\_config()}{pac5xxx\_rtc\_config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___rtc_gad060ce187b7c9d0375e7fac297b2fdfc}{R\+A\+M\+F\+U\+N\+C\+\_\+\+R\+TC}} void pac5xxx\+\_\+rtc\+\_\+config (\begin{DoxyParamCaption}\item[{int}]{ie\+\_\+en,  }\item[{uint32\+\_\+t}]{cdv,  }\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga09880c28c1af54c70f44b4a9ec3fda16}{R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+Type}}}]{prescale }\end{DoxyParamCaption})}
+
+
+
+This function configures Real-\/time Clock. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ie\+\_\+en} & Set to non-\/zero to enable Watchdog Timer interval interrupt \\
+\hline
+{\em cdv} & The Real-\/time clock count-\/down value in clock ticks \\
+\hline
+{\em prescale} & The input clock pre-\/scaler for the R\+TC \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+rtc\+\_\+config.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22   \textcolor{comment}{// Read CTL word, clear interrupt bits, set write password and correct reset value}}
+\DoxyCodeLine{23   uint32\_t word = (\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga322622d9a0013be5efdcc3149fddfb03}{PAC5XXX\_RTC}}-\/>RTCCTL \& 0x00FFFC00) | \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga376bdf10032ee115b3989424cee8e110}{RTCCTL\_PASS\_WRITE}} | \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gad4f814d5d36943eea3c8358c3cad34fa}{RTCCTL\_RST\_VAL}};}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25   word |= (pre\_scaler << \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga5fe0ebd1cbd77cd2f23643e6a30d0685}{RTCCTL\_PS\_SHIFT}}); \textcolor{comment}{// Add pre-\/scale bits}}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27   \textcolor{keywordflow}{if} (ie\_en)}
+\DoxyCodeLine{28      word |= (\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga5fefe3de7e3e7f6074692008e8ad1e32}{RTCCTL\_IE\_MASK}}); \textcolor{comment}{//  | 0x20); // TODO: Add POR bit to IE mask}}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gaddd3bf6bfb23992ffec34c573aee7c06}{RTC\_WAIT\_WRITE\_BLOCK}};   \textcolor{comment}{// Blocking wait for register write}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga322622d9a0013be5efdcc3149fddfb03}{PAC5XXX\_RTC}}-\/>RTCCDV = (\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga376bdf10032ee115b3989424cee8e110}{RTCCTL\_PASS\_WRITE}} | (cdv \& 0x00FFFFFF));}
+\DoxyCodeLine{33   }
+\DoxyCodeLine{34   \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gaddd3bf6bfb23992ffec34c573aee7c06}{RTC\_WAIT\_WRITE\_BLOCK}};   \textcolor{comment}{// Blocking wait for register write}}
+\DoxyCodeLine{35   }
+\DoxyCodeLine{36   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga322622d9a0013be5efdcc3149fddfb03}{PAC5XXX\_RTC}}-\/>RTCCTL = word;}
+\DoxyCodeLine{37   }
+\DoxyCodeLine{38 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+R\+TC, R\+T\+C\+\_\+\+W\+A\+I\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+B\+L\+O\+CK, R\+T\+C\+C\+T\+L\+\_\+\+I\+E\+\_\+\+M\+A\+SK, R\+T\+C\+C\+T\+L\+\_\+\+P\+A\+S\+S\+\_\+\+W\+R\+I\+TE, R\+T\+C\+C\+T\+L\+\_\+\+P\+S\+\_\+\+S\+H\+I\+FT, and R\+T\+C\+C\+T\+L\+\_\+\+R\+S\+T\+\_\+\+V\+AL.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___rtc_gabe632ba15f148d3f67a63f06779b7ce5}\label{group___p_a_c5_x_x_x___driver___rtc_gabe632ba15f148d3f67a63f06779b7ce5}} 
+\index{PAC5XXX Real-\/Time Clock Driver Functions\`{}@{PAC5XXX Real-\/Time Clock Driver Functions\`{}}!pac5xxx\_rtc\_reset@{pac5xxx\_rtc\_reset}}
+\index{pac5xxx\_rtc\_reset@{pac5xxx\_rtc\_reset}!PAC5XXX Real-\/Time Clock Driver Functions\`{}@{PAC5XXX Real-\/Time Clock Driver Functions\`{}}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_rtc\_reset()}{pac5xxx\_rtc\_reset()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___rtc_gad060ce187b7c9d0375e7fac297b2fdfc}{R\+A\+M\+F\+U\+N\+C\+\_\+\+R\+TC}} void pac5xxx\+\_\+rtc\+\_\+reset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function resets the watchdog timer. 
+
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+rtc\+\_\+reset.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     uint32\_t word;}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     word = (\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga322622d9a0013be5efdcc3149fddfb03}{PAC5XXX\_RTC}}-\/>RTCCTL \& 0x00FFFFF8) | (\mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_ga376bdf10032ee115b3989424cee8e110}{RTCCTL\_PASS\_WRITE}} | \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gad4f814d5d36943eea3c8358c3cad34fa}{RTCCTL\_RST\_VAL}});}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \mbox{\hyperlink{group___p_a_c5_x_x_x___r_t_c_gaddd3bf6bfb23992ffec34c573aee7c06}{RTC\_WAIT\_WRITE\_BLOCK}};   \textcolor{comment}{// Blocking wait for register write}}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga322622d9a0013be5efdcc3149fddfb03}{PAC5XXX\_RTC}}-\/>RTCCTL = word;}
+\DoxyCodeLine{29 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C5\+X\+X\+X\+\_\+\+R\+TC, R\+T\+C\+\_\+\+W\+A\+I\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+B\+L\+O\+CK, R\+T\+C\+C\+T\+L\+\_\+\+P\+A\+S\+S\+\_\+\+W\+R\+I\+TE, and R\+T\+C\+C\+T\+L\+\_\+\+R\+S\+T\+\_\+\+V\+AL.
+

@@ -1,0 +1,58 @@
+.TH "pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_peripheral/pac5xxx_SPI.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_peripheral/pac5xxx_SPI.h \- CMSIS Cortex-M Header File for the PAC5XXX SPI Controller\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPAC5XXX_SPI_TypeDef\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBSPICFG_EarlyXmitDataPhase_Type\fP { \fBSPISCFG_TDAT_PH_NORMAL\fP = 0, \fBSPISCFG_TDAT_PH_HALF\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBSPISCFG_ClockPolarity_Type\fP { \fBSPISCFG_SCLK_ACTHIGH\fP = 0, \fBSPISCFG_SCLK_ACTLOW\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBSPISCFG_ClockPhase_Type\fP { \fBSPISCFG_SMP_SETUP\fP = 0, \fBSPISCFG_SETUP_SMP\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBSPISCFG_WordLength_Type\fP { \fBSPISCFG_WL_8B\fP = 0, \fBSPISCFG_WL_16B\fP = 1, \fBSPISCFG_WL_24B\fP = 2, \fBSPISCFG_WL_32B\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBSPISTAT_State_Type\fP { \fBSPISTAT_CURSTATE_IDLE\fP = 0, \fBSPISTAT_CURSTATE_CSSETUP\fP = 1, \fBSPISTAT_CURSTATE_TRANSFER\fP = 2, \fBSPISTAT_CURSTATE_CSHOLD\fP = 3, \fBSPISTAT_CURSTATE_CSWAIT\fP = 4, \fBSPISTAT_CURSTATE_CKWAIT\fP = 5, \fBSPISTAT_CURSTATE_MTRANS\fP = 6, \fBSPISTAT_CURSTATE_CSBEGIN\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBSPICS_ChipSelectPolarity_Type\fP { \fBSPICS_CS_ACTLOW\fP = 0, \fBSPICS_CS_ACTHIGH\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBSPICS_ChipSelectNumber_Type\fP { \fBSPICS_SELECT_CS0\fP, \fBSPICS_SELECT_CS1\fP, \fBSPICS_SELECT_CS2\fP, \fBSPICS_SELECT_CS3\fP }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CMSIS Cortex-M Header File for the PAC5XXX SPI Controller\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_SPI\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

@@ -1,0 +1,3576 @@
+.TH "PAC5XXX_UART" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_UART \- PAC5XXX UART Controller (UART)
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPAC5XXX_UART_TypeDef\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBUART_IID_Type\fP { \fBUARTIIR_IID_MODEM_STATUS\fP = 0, \fBUARTIIR_IID_TX_HOLD_EMPTY\fP = 1, \fBUARTIIR_IID_RX_DATA_AVAIL\fP = 2, \fBUARTIIR_IID_RX_LINE_STATUS\fP = 3, \fBUARTIIR_IID_TIMEOUT\fP = 6 }"
+.br
+.ti -1c
+.RI "enum \fBUART_FIFO_Depth_Type\fP { \fBUARTFCTL_RT_1B\fP = 0, \fBUARTFCTL_RT_4B\fP = 1, \fBUARTFCTL_RT_8B\fP = 2, \fBUARTFCTL_RT_14B\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBUART_BitsPerChar_Type\fP { \fBUART_BPC_5\fP = 0, \fBUART_BPC_6\fP = 1, \fBUART_BPC_7\fP = 2, \fBUART_BPC_8\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBUART_StopBits_Type\fP { \fBUART_STOP_BITS_1\fP = 0, \fBUART_STOP_BITS_2\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBUART_Parity_Type\fP { \fBUART_PARITY_ODD\fP = 0, \fBUART_PARITY_EVEN\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBUART_BreakControl_Type\fP { \fBUART_BRKCTL_NORMAL\fP = 0, \fBUART_BRKCTL_FORCE_0\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBUART_DivLatchAccess_Type\fP { \fBUART_DIVLACCESS_FIFO_IER\fP = 0, \fBUART_DIVLACCESS_DIV_LATCH\fP = 1 }"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_UART_TypeDef::RXTX\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_UART_TypeDef::DL_L\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBPAC5XXX_UART_TypeDef::RXTX\fP"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBPAC5XXX_UART_TypeDef::DL_L\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RDAI\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::THREI\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RLSI\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::MSI\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 28"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RDAI\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::THREI\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RLSI\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::MSI\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 28"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RDAI\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::THREI\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RLSI\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::MSI\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 28"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_UART_TypeDef::IER\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_UART_TypeDef::DL_H\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RDAI\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::THREI\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RLSI\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::MSI\fP: 1"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 28"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBPAC5XXX_UART_TypeDef::IER\fP"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBPAC5XXX_UART_TypeDef::DL_H\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::PI\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::IID\fP: 3"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::TXFEN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::RXFEN\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::PI\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::IID\fP: 3"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::TXFEN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::RXFEN\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::PI\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::IID\fP: 3"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::TXFEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::RXFEN\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_UART_TypeDef::IIR\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::EN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::RR\fP: 1"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::TR\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 3"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::RT\fP: 2"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::EN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::RR\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::TR\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::RT\fP: 2"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::EN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::RR\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::TR\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::RT\fP: 2"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_UART_TypeDef::FCTL\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::PI\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::IID\fP: 3"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 2"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::TXFEN\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::RXFEN\fP: 1"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBPAC5XXX_UART_TypeDef::IIR\fP"
+.br
+.ti -1c
+.RI "   union {"
+.br
+.ti -1c
+.RI "      \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "      struct {"
+.br
+.ti -1c
+.RI "         \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::EN\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::RR\fP: 1"
+.br
+.ti -1c
+.RI "         \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::TR\fP: 1"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 3"
+.br
+.ti -1c
+.RI "         \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::RT\fP: 2"
+.br
+.ti -1c
+.RI "         uint32_t \fBPAC5XXX_UART_TypeDef::__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "      } "
+.br
+.ti -1c
+.RI "   } \fBPAC5XXX_UART_TypeDef::FCTL\fP"
+.br
+.ti -1c
+.RI "}; "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::BPC\fP: 2"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::STB\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::PEN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::EPS\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::SP\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::SB\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::DLAB\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::BPC\fP: 2"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::STB\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::PEN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::EPS\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::SP\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::SB\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::DLAB\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::BPC\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::STB\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::PEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::EPS\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::SP\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::SB\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::DLAB\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_UART_TypeDef::LCR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::DTR\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RTS\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::BIT1\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::BIT2\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::LP\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 27"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::DTR\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RTS\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::BIT1\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::BIT2\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::LP\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 27"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::DTR\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RTS\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::BIT1\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::BIT2\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::LP\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 27"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_UART_TypeDef::MCR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::DR\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::OE\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::PE\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::FE\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::BI\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::THR\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::TE\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::RFE\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::DR\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::OE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::PE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::FE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::BI\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::THR\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::TE\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::RFE\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::DR\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::OE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::PE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::FE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::BI\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::THR\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::TE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::RFE\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_UART_TypeDef::LSR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::DCTS\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::DDSR\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::TERI\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::DDCD\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::CTS\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::DSR\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::RI\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::DCD\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::DCTS\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::DDSR\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::TERI\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::DDCD\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::CTS\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::DSR\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::RI\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::DCD\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::DCTS\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::DDSR\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::TERI\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::DDCD\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::CTS\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::DSR\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::RI\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::DCD\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_UART_TypeDef::MSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_UART_TypeDef::SP\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::EN\fP: 1"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::RR\fP: 1"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::TR\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 3"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RT\fP: 2"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::EN\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::RR\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::TR\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 3"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RT\fP: 2"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::EN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::RR\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__O\fP uint32_t \fBPAC5XXX_UART_TypeDef::TR\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RT\fP: 2"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad1__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_UART_TypeDef::FCTL2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RDAI\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::THREI\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RLSI\fP: 1"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::MSI\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 28"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RDAI\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::THREI\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RLSI\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::MSI\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 28"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RDAI\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::THREI\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::RLSI\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::MSI\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 28"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_UART_TypeDef::IER2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_UART_TypeDef::DL_L2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_UART_TypeDef::DL_H2\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::RESERVED\fP [2]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::VAL\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_UART_TypeDef::FD_F\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::TODO\fP"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::TODO\fP"
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_UART_TypeDef::FD_CTL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::TXEMPTY\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::TXFULL\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::RXEMPTY\fP: 1"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::RXFULL\fP: 1"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 28"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::TXEMPTY\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::TXFULL\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::RXEMPTY\fP: 1"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::RXFULL\fP: 1"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 28"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_UART_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::TXEMPTY\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::TXFULL\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::RXEMPTY\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_UART_TypeDef::RXFULL\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_UART_TypeDef::__pad0__\fP: 28"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_UART_TypeDef::STAT\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBUART_BitsPerChar_Type\fP"
+UART Bits per Character Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUART_BPC_5 \fP\fP
+5 bits per character 
+.br
+ 
+.TP
+\fB\fIUART_BPC_6 \fP\fP
+6 bits per character 
+.br
+ 
+.TP
+\fB\fIUART_BPC_7 \fP\fP
+7 bits per character 
+.br
+ 
+.TP
+\fB\fIUART_BPC_8 \fP\fP
+8 bits per character 
+.br
+ 
+.PP
+Definition at line 44 of file pac5xxx_UART\&.h\&.
+.PP
+.nf
+44              {
+45     UART_BPC_5 = 0,                         
+46     UART_BPC_6 = 1,                         
+47     UART_BPC_7 = 2,                         
+48     UART_BPC_8 = 3                          
+49 } UART_BitsPerChar_Type;
+.fi
+.SS "enum \fBUART_BreakControl_Type\fP"
+UART Break Control Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUART_BRKCTL_NORMAL \fP\fP
+Normal TX Operation 
+.br
+ 
+.TP
+\fB\fIUART_BRKCTL_FORCE_0 \fP\fP
+Force serial_out to 0 
+.br
+ 
+.PP
+Definition at line 64 of file pac5xxx_UART\&.h\&.
+.PP
+.nf
+64              {
+65     UART_BRKCTL_NORMAL = 0,                 
+66     UART_BRKCTL_FORCE_0 = 1                 
+67 } UART_BreakControl_Type;
+.fi
+.SS "enum \fBUART_DivLatchAccess_Type\fP"
+UART Divisor Latch Access Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUART_DIVLACCESS_FIFO_IER \fP\fP
+Access FIFO, IER 
+.br
+ 
+.TP
+\fB\fIUART_DIVLACCESS_DIV_LATCH \fP\fP
+Access divisor latch 
+.br
+ 
+.PP
+Definition at line 70 of file pac5xxx_UART\&.h\&.
+.PP
+.nf
+70              {
+71     UART_DIVLACCESS_FIFO_IER = 0,           
+72     UART_DIVLACCESS_DIV_LATCH = 1           
+73 } UART_DivLatchAccess_Type;
+.fi
+.SS "enum \fBUART_FIFO_Depth_Type\fP"
+UART FIFO Depth Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUARTFCTL_RT_1B \fP\fP
+UART FIFO Control: 1 byte in FIFO 
+.br
+ 
+.TP
+\fB\fIUARTFCTL_RT_4B \fP\fP
+UART FIFO Control: 4 bytes in FIFO 
+.br
+ 
+.TP
+\fB\fIUARTFCTL_RT_8B \fP\fP
+UART FIFO Control: 8 bytes in FIFO 
+.br
+ 
+.TP
+\fB\fIUARTFCTL_RT_14B \fP\fP
+UART FIFO Control: 14B bytes in FIFO 
+.br
+ 
+.PP
+Definition at line 36 of file pac5xxx_UART\&.h\&.
+.PP
+.nf
+36              {
+37     UARTFCTL_RT_1B =                0,      
+38     UARTFCTL_RT_4B =                1,      
+39     UARTFCTL_RT_8B =                2,      
+40     UARTFCTL_RT_14B =               3       
+41 } UART_FIFO_Depth_Type;
+.fi
+.SS "enum \fBUART_IID_Type\fP"
+UART Interrupt ID Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUARTIIR_IID_MODEM_STATUS \fP\fP
+UART Interrupt ID: Modem Status 
+.br
+ 
+.TP
+\fB\fIUARTIIR_IID_TX_HOLD_EMPTY \fP\fP
+UART Interrupt ID: Transmit Hold Register Empty 
+.br
+ 
+.TP
+\fB\fIUARTIIR_IID_RX_DATA_AVAIL \fP\fP
+UART Interrupt ID: Receive Data Available 
+.br
+ 
+.TP
+\fB\fIUARTIIR_IID_RX_LINE_STATUS \fP\fP
+UART Interrupt ID: Receive Line Status 
+.br
+ 
+.TP
+\fB\fIUARTIIR_IID_TIMEOUT \fP\fP
+UART Interrupt ID: Timeout 
+.br
+ 
+.PP
+Definition at line 27 of file pac5xxx_UART\&.h\&.
+.PP
+.nf
+27              {
+28     UARTIIR_IID_MODEM_STATUS =      0,     
+29     UARTIIR_IID_TX_HOLD_EMPTY =     1,     
+30     UARTIIR_IID_RX_DATA_AVAIL =     2,     
+31     UARTIIR_IID_RX_LINE_STATUS =    3,     
+32     UARTIIR_IID_TIMEOUT =           6      
+33 } UART_IID_Type;
+.fi
+.SS "enum \fBUART_Parity_Type\fP"
+UART Parity Select Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUART_PARITY_ODD \fP\fP
+Generate ODD parity 
+.br
+ 
+.TP
+\fB\fIUART_PARITY_EVEN \fP\fP
+Generate EVEN parity 
+.br
+ 
+.PP
+Definition at line 58 of file pac5xxx_UART\&.h\&.
+.PP
+.nf
+58              {
+59     UART_PARITY_ODD = 0,                    
+60     UART_PARITY_EVEN = 1                    
+61 } UART_Parity_Type;
+.fi
+.SS "enum \fBUART_StopBits_Type\fP"
+UART Stop Bits Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIUART_STOP_BITS_1 \fP\fP
+1 stop bit 
+.br
+ 
+.TP
+\fB\fIUART_STOP_BITS_2 \fP\fP
+2 stops bits (1\&.5 if WLS = 00b) 
+.br
+ 
+.PP
+Definition at line 52 of file pac5xxx_UART\&.h\&.
+.PP
+.nf
+52              {
+53     UART_STOP_BITS_1 = 0,                   
+54     UART_STOP_BITS_2 = 1                    
+55 } UART_StopBits_Type;
+.fi
+.SH "Variable Documentation"
+.PP 
+.SS "union { \&.\&.\&. } "
+< RXTX: Offset: 0x0000 Receive/Transmit FIFO Register (LCR\&.DLAB = 0) 
+.br
+.PP
+< DL_L: Offset: 0x0000 Divisor Latch, LO byte Register (LCR\&.DLAB = 1) 
+.br
+ IER: Offset: 0x0004 Interrupt Enable Register (LCR\&.DLAB = 0) 
+.br
+ DL_H: Offset: 0x0004 Divisor Latch, LO byte Register (LCR\&.DLAB = 1) 
+.br
+ 
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+IIR: Offset: 0x0008 Interrupt ID Register (READ-ONLY) 
+.br
+ FCTL: Offset: 0x0008 FIFO Control Register (WRITE-ONLY) 
+.br
+ 
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "union { \&.\&.\&. } "
+Offset: 0x000C Line Control Register (LCR) 
+.br
+ 
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 84 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t PAC5XXX_UART_TypeDef::__pad0__"
+
+.PP
+Definition at line 84 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 88 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 92 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 99 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 103 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 107 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 119 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 123 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 130 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 137 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 141 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 145 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 157 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 161 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 166 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 176 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 180 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 186 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 197 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 201 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 212 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 221 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 225 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 233 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 242 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 246 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 257 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 266 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 270 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 281 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 288 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 296 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 300 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 306 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 317 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 321 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 328 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 335 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 341 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 349 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 361 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 368 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t PAC5XXX_UART_TypeDef::__pad1__"
+
+.PP
+Definition at line 169 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 169 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 188 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad1__"
+
+.PP
+Definition at line 308 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 87 of file pac5xxx_UART\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::b"
+
+.PP
+Definition at line 87 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 102 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 122 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 140 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::b"
+
+.PP
+Definition at line 160 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 160 of file pac5xxx_UART\&.h\&.
+.SS "\fB__O\fP uint32_t PAC5XXX_UART_TypeDef::b"
+
+.PP
+Definition at line 179 of file pac5xxx_UART\&.h\&.
+.SS "__O { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 179 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 202 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 224 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 245 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 269 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 299 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 320 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 360 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::BI"
+Break Indicator 
+.br
+ 
+.PP
+Definition at line 253 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::BI"
+Break Indicator 
+.br
+ 
+.PP
+Definition at line 253 of file pac5xxx_UART\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::BIT1"
+BIT_OUT1_N asserted 
+.br
+ 
+.PP
+Definition at line 230 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::BIT1"
+BIT_OUT1_N asserted 
+.br
+ 
+.PP
+Definition at line 230 of file pac5xxx_UART\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::BIT2"
+BIT_OUT2_N asserted 
+.br
+ 
+.PP
+Definition at line 231 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::BIT2"
+BIT_OUT2_N asserted 
+.br
+ 
+.PP
+Definition at line 231 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::BPC"
+Bits per Character 
+.br
+ 
+.PP
+Definition at line 205 of file pac5xxx_UART\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::BPC"
+Bits per Character 
+.br
+ 
+.PP
+Definition at line 205 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::CTS"
+Clear to Send 
+.br
+ 
+.PP
+Definition at line 277 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::CTS"
+Clear to Send 
+.br
+ 
+.PP
+Definition at line 277 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::DCD"
+Data Carrier Detect 
+.br
+ 
+.PP
+Definition at line 280 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::DCD"
+Data Carrier Detect 
+.br
+ 
+.PP
+Definition at line 280 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::DCTS"
+Delta CTS Detect 
+.br
+ 
+.PP
+Definition at line 273 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::DCTS"
+Delta CTS Detect 
+.br
+ 
+.PP
+Definition at line 273 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::DDCD"
+Delta DCD detect 
+.br
+ 
+.PP
+Definition at line 276 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::DDCD"
+Delta DCD detect 
+.br
+ 
+.PP
+Definition at line 276 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::DDSR"
+Delta DSR Detect 
+.br
+ 
+.PP
+Definition at line 274 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::DDSR"
+Delta DSR Detect 
+.br
+ 
+.PP
+Definition at line 274 of file pac5xxx_UART\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_UART_TypeDef::DL_H"
+
+.SS "union { \&.\&.\&. } ::DL_H"
+
+.SS "struct { \&.\&.\&. }  PAC5XXX_UART_TypeDef::DL_H2"
+
+.SS "union { \&.\&.\&. }  PAC5XXX_UART_TypeDef::DL_L"
+
+.SS "union { \&.\&.\&. } ::DL_L"
+
+.SS "struct { \&.\&.\&. }  PAC5XXX_UART_TypeDef::DL_L2"
+DL_H2: Offset: 0x002C Divisor Latch HI byte Register (remapped) 
+.br
+ 
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::DLAB"
+Divisor Latch Access 
+.br
+ 
+.PP
+Definition at line 211 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DLAB"
+Divisor Latch Access 
+.br
+ 
+.PP
+Definition at line 211 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::DR"
+Data Ready 
+.br
+ 
+.PP
+Definition at line 249 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::DR"
+Data Ready 
+.br
+ 
+.PP
+Definition at line 249 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::DSR"
+Data Set Ready 
+.br
+ 
+.PP
+Definition at line 278 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::DSR"
+Data Set Ready 
+.br
+ 
+.PP
+Definition at line 278 of file pac5xxx_UART\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::DTR"
+Data Ready asserted 
+.br
+ 
+.PP
+Definition at line 228 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::DTR"
+Data Ready asserted 
+.br
+ 
+.PP
+Definition at line 228 of file pac5xxx_UART\&.h\&.
+.SS "\fB__O\fP uint32_t PAC5XXX_UART_TypeDef::EN"
+FIFO Enable 
+.br
+ 
+.PP
+Definition at line 183 of file pac5xxx_UART\&.h\&.
+.SS "__O { \&.\&.\&. } ::EN"
+FIFO Enable 
+.br
+ 
+.PP
+Definition at line 183 of file pac5xxx_UART\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::EN"
+FIFO Enable 
+.br
+ 
+.PP
+Definition at line 303 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::EN"
+FIFO Enable 
+.br
+ 
+.PP
+Definition at line 303 of file pac5xxx_UART\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::EPS"
+Even Parity Select 
+.br
+ 
+.PP
+Definition at line 208 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::EPS"
+Even Parity Select 
+.br
+ 
+.PP
+Definition at line 208 of file pac5xxx_UART\&.h\&.
+.SS "union { \&.\&.\&. } ::FCTL"
+
+.SS "union { \&.\&.\&. }  PAC5XXX_UART_TypeDef::FCTL"
+
+.SS "union { \&.\&.\&. }  PAC5XXX_UART_TypeDef::FCTL2"
+IER2: Offset: 0x0024 Interrupt Enable Register (remapped) 
+.br
+ 
+.SS "struct { \&.\&.\&. }  PAC5XXX_UART_TypeDef::FD_CTL"
+STAT: Offset: 0x0040 Supplemental Status Register 
+.br
+ 
+.SS "struct { \&.\&.\&. }  PAC5XXX_UART_TypeDef::FD_F"
+FD_CTL: Offset: 0x003C Fractional Divisor control Register 
+.SS "__I { \&.\&.\&. } ::FE"
+Framing Error 
+.br
+ 
+.PP
+Definition at line 252 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::FE"
+Framing Error 
+.br
+ 
+.PP
+Definition at line 252 of file pac5xxx_UART\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_UART_TypeDef::IER"
+
+.SS "union { \&.\&.\&. } ::IER"
+
+.SS "union { \&.\&.\&. }  PAC5XXX_UART_TypeDef::IER2"
+DL_L2: Offset: 0x0028 Divisor Latch LO byte Register (remapped) 
+.br
+ 
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::IID"
+Interrupt ID 
+.br
+ 
+.PP
+Definition at line 165 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::IID"
+Interrupt ID 
+.br
+ 
+.PP
+Definition at line 165 of file pac5xxx_UART\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_UART_TypeDef::IIR"
+
+.SS "union { \&.\&.\&. } ::IIR"
+
+.SS "union { \&.\&.\&. }  PAC5XXX_UART_TypeDef::LCR"
+Offset: 0x0010 Modem Control Register (MCR) 
+.br
+ 
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::LP"
+Loopback 
+.br
+ 
+.PP
+Definition at line 232 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::LP"
+Loopback 
+.br
+ 
+.PP
+Definition at line 232 of file pac5xxx_UART\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_UART_TypeDef::LSR"
+Offset: 0x0018 Modem Status Register (MSR) 
+.br
+ 
+.SS "union { \&.\&.\&. }  PAC5XXX_UART_TypeDef::MCR"
+Offset: 0x0014 Line Status Register (LSR) 
+.br
+ 
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::MSI"
+Modem Status Interrupt 
+.br
+ 
+.PP
+Definition at line 129 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MSI"
+Modem Status Interrupt 
+.br
+ 
+.PP
+Definition at line 129 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::MSI"
+Modem Status Interrupt 
+.br
+ 
+.PP
+Definition at line 327 of file pac5xxx_UART\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_UART_TypeDef::MSR"
+SP: Offset: 0x001C Scratchpad Register (remapped) 
+.br
+ 
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::OE"
+Overrun Error 
+.br
+ 
+.PP
+Definition at line 250 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::OE"
+Overrun Error 
+.br
+ 
+.PP
+Definition at line 250 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::PE"
+Parity Error 
+.br
+ 
+.PP
+Definition at line 251 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::PE"
+Parity Error 
+.br
+ 
+.PP
+Definition at line 251 of file pac5xxx_UART\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::PEN"
+Parity Enable 
+.br
+ 
+.PP
+Definition at line 207 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::PEN"
+Parity Enable 
+.br
+ 
+.PP
+Definition at line 207 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::PI"
+Pending Interrupt 
+.br
+ 
+.PP
+Definition at line 164 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::PI"
+Pending Interrupt 
+.br
+ 
+.PP
+Definition at line 164 of file pac5xxx_UART\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::RDAI"
+RX Data Available Interrupt 
+.br
+.PP
+Receive Data Available Interrupt 
+.br
+ 
+.PP
+Definition at line 126 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::RDAI"
+RX Data Available Interrupt 
+.br
+ 
+.PP
+Definition at line 126 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::RDAI"
+Receive Data Available Interrupt 
+.br
+ 
+.PP
+Definition at line 324 of file pac5xxx_UART\&.h\&.
+.SS "uint32_t PAC5XXX_UART_TypeDef::RESERVED[2]"
+FD_F: Offset: 0x0038 Fractional Divisor/Value Register 
+.br
+ 
+.PP
+Definition at line 344 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::RFE"
+Receive FIFO Error 
+.br
+ 
+.PP
+Definition at line 256 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::RFE"
+Receive FIFO Error 
+.br
+ 
+.PP
+Definition at line 256 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::RI"
+Ring Indicator 
+.br
+ 
+.PP
+Definition at line 279 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::RI"
+Ring Indicator 
+.br
+ 
+.PP
+Definition at line 279 of file pac5xxx_UART\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::RLSI"
+Receive Line Status Interrupt 
+.br
+ 
+.PP
+Definition at line 128 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::RLSI"
+Receive Line Status Interrupt 
+.br
+ 
+.PP
+Definition at line 128 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::RLSI"
+Receive Line Status Interrupt 
+.br
+ 
+.PP
+Definition at line 326 of file pac5xxx_UART\&.h\&.
+.SS "\fB__O\fP uint32_t PAC5XXX_UART_TypeDef::RR"
+Receive FIFO Reset (WTC) 
+.br
+ 
+.PP
+Definition at line 184 of file pac5xxx_UART\&.h\&.
+.SS "__O { \&.\&.\&. } ::RR"
+Receive FIFO Reset (WTC) 
+.br
+ 
+.PP
+Definition at line 184 of file pac5xxx_UART\&.h\&.
+.SS "__O { \&.\&.\&. } ::RR"
+Receive FIFO Reset (WTC) 
+.br
+ 
+.PP
+Definition at line 304 of file pac5xxx_UART\&.h\&.
+.SS "\fB__O\fP uint32_t PAC5XXX_UART_TypeDef::RT"
+Receive FIFO Threshold 
+.br
+ 
+.PP
+Definition at line 187 of file pac5xxx_UART\&.h\&.
+.SS "__O { \&.\&.\&. } ::RT"
+Receive FIFO Threshold 
+.br
+ 
+.PP
+Definition at line 187 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::RT"
+Receive FIFO Threshold 
+.br
+ 
+.PP
+Definition at line 307 of file pac5xxx_UART\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::RT"
+Receive FIFO Threshold 
+.br
+ 
+.PP
+Definition at line 307 of file pac5xxx_UART\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::RTS"
+Ready to Send asserted 
+.br
+ 
+.PP
+Definition at line 229 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::RTS"
+Ready to Send asserted 
+.br
+ 
+.PP
+Definition at line 229 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::RXEMPTY"
+Receive FIFO Empty 
+.br
+ 
+.PP
+Definition at line 366 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::RXEMPTY"
+Receive FIFO Empty 
+.br
+ 
+.PP
+Definition at line 366 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::RXFEN"
+Receive FIFO enable indicator 
+.br
+ 
+.PP
+Definition at line 168 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::RXFEN"
+Receive FIFO enable indicator 
+.br
+ 
+.PP
+Definition at line 168 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::RXFULL"
+Receive FIFO Full 
+.br
+ 
+.PP
+Definition at line 367 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::RXFULL"
+Receive FIFO Full 
+.br
+ 
+.PP
+Definition at line 367 of file pac5xxx_UART\&.h\&.
+.SS "union { \&.\&.\&. } ::RXTX"
+
+.SS "union { \&.\&.\&. }  PAC5XXX_UART_TypeDef::RXTX"
+
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::s"
+
+.PP
+Definition at line 83 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 83 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 98 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 118 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 136 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::s"
+
+.PP
+Definition at line 156 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 156 of file pac5xxx_UART\&.h\&.
+.SS "\fB__O\fP uint32_t PAC5XXX_UART_TypeDef::s"
+
+.PP
+Definition at line 175 of file pac5xxx_UART\&.h\&.
+.SS "__O { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 175 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 198 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 220 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 241 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 265 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 295 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 316 of file pac5xxx_UART\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::SB"
+Break Control 
+.br
+ 
+.PP
+Definition at line 210 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SB"
+Break Control 
+.br
+ 
+.PP
+Definition at line 210 of file pac5xxx_UART\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::SP"
+Stick Parity 
+.br
+ 
+.PP
+Definition at line 209 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::SP"
+Stick Parity 
+.br
+ 
+.PP
+Definition at line 209 of file pac5xxx_UART\&.h\&.
+.SS "struct { \&.\&.\&. }  PAC5XXX_UART_TypeDef::SP"
+FCTL2: OFfset: 0x0020 FIFO Control Register (remapped) 
+.br
+ 
+.SS "union { \&.\&.\&. }  PAC5XXX_UART_TypeDef::STAT"
+
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::STB"
+Stop Bits 
+.br
+ 
+.PP
+Definition at line 206 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::STB"
+Stop Bits 
+.br
+ 
+.PP
+Definition at line 206 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::TE"
+Transmit Empty 
+.br
+ 
+.PP
+Definition at line 255 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::TE"
+Transmit Empty 
+.br
+ 
+.PP
+Definition at line 255 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::TERI"
+Trailing Edge RI Detect 
+.br
+ 
+.PP
+Definition at line 275 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::TERI"
+Trailing Edge RI Detect 
+.br
+ 
+.PP
+Definition at line 275 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::THR"
+Transmit FIFO Empty 
+.br
+ 
+.PP
+Definition at line 254 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::THR"
+Transmit FIFO Empty 
+.br
+ 
+.PP
+Definition at line 254 of file pac5xxx_UART\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::THREI"
+TX Holding Register Empty Interrupt 
+.br
+.PP
+Transmit Holding Register Empty Interrupt 
+.br
+ 
+.PP
+Definition at line 127 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::THREI"
+TX Holding Register Empty Interrupt 
+.br
+ 
+.PP
+Definition at line 127 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::THREI"
+Transmit Holding Register Empty Interrupt 
+.br
+ 
+.PP
+Definition at line 325 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::TODO"
+
+.PP
+Definition at line 354 of file pac5xxx_UART\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::TODO"
+
+.PP
+Definition at line 354 of file pac5xxx_UART\&.h\&.
+.SS "\fB__O\fP uint32_t PAC5XXX_UART_TypeDef::TR"
+Transmit FIFO Reset (WTC) 
+.br
+ 
+.PP
+Definition at line 185 of file pac5xxx_UART\&.h\&.
+.SS "__O { \&.\&.\&. } ::TR"
+Transmit FIFO Reset (WTC) 
+.br
+ 
+.PP
+Definition at line 185 of file pac5xxx_UART\&.h\&.
+.SS "__O { \&.\&.\&. } ::TR"
+Transmit FIFO Reset (WTC) 
+.br
+ 
+.PP
+Definition at line 305 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::TXEMPTY"
+Transmit FIFO Empty 
+.br
+ 
+.PP
+Definition at line 364 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::TXEMPTY"
+Transmit FIFO Empty 
+.br
+ 
+.PP
+Definition at line 364 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::TXFEN"
+Transmit FIFO enable indicator 
+.br
+ 
+.PP
+Definition at line 167 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::TXFEN"
+Transmit FIFO enable indicator 
+.br
+ 
+.PP
+Definition at line 167 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::TXFULL"
+Transmit FIFO Full 
+.br
+ 
+.PP
+Definition at line 365 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::TXFULL"
+Transmit FIFO Full 
+.br
+ 
+.PP
+Definition at line 365 of file pac5xxx_UART\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::VAL"
+Rx/Tx Data value 
+.br
+.PP
+Divisor latch, LO byte 
+.br
+.PP
+Divisor latch, HI byte 
+.br
+.PP
+Scratch pad value 
+.br
+.PP
+Divisor Latch, LO byte 
+.br
+.PP
+Divisor Latch, HI byte 
+.br
+.PP
+Fractional Portion of Divisor Value 
+.br
+ 
+.PP
+Definition at line 91 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::VAL"
+Rx/Tx Data value 
+.br
+ 
+.PP
+Definition at line 91 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::VAL"
+Divisor latch, LO byte 
+.br
+ 
+.PP
+Definition at line 106 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::VAL"
+Divisor latch, HI byte 
+.br
+ 
+.PP
+Definition at line 144 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::VAL"
+Scratch pad value 
+.br
+ 
+.PP
+Definition at line 287 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::VAL"
+Divisor Latch, LO byte 
+.br
+ 
+.PP
+Definition at line 334 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::VAL"
+Divisor Latch, HI byte 
+.br
+ 
+.PP
+Definition at line 340 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::VAL"
+Fractional Portion of Divisor Value 
+.br
+ 
+.PP
+Definition at line 348 of file pac5xxx_UART\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_UART_TypeDef::w"
+
+.PP
+Definition at line 81 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 81 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 96 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 116 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 134 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 154 of file pac5xxx_UART\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_UART_TypeDef::w"
+
+.PP
+Definition at line 154 of file pac5xxx_UART\&.h\&.
+.SS "\fB__O\fP uint32_t PAC5XXX_UART_TypeDef::w"
+
+.PP
+Definition at line 173 of file pac5xxx_UART\&.h\&.
+.SS "__O { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 173 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 195 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 218 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 239 of file pac5xxx_UART\&.h\&.
+.SS "__I { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 263 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 293 of file pac5xxx_UART\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 314 of file pac5xxx_UART\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

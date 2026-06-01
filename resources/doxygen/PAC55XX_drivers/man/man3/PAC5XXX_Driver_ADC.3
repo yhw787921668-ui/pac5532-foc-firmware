@@ -1,0 +1,175 @@
+.TH "PAC5XXX_Driver_ADC" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_ADC \- PAC5XXX ADC
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_ADC\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_config_emux_io\fP (void)"
+.br
+.RI "This function configures the EMUX IO ports on the device for EMUX output\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_config_io\fP (uint8_t channel_mask)"
+.br
+.RI "This function configures the IO ports on the device for the given ADC channels\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_emux_config\fP (\fBADC_EMUX_CTL_TYPE\fP control_type, \fBADCEMUXCTL_DIV_TYPE\fP divider)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_config\fP (\fBADCCTL_MODE_TYPE\fP adc_mode, \fBADCCTL_CLKDIV_Type\fP clock_divider, int repeat)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_dtse_seq_config\fP (uint32_t entry_num, uint32_t adc_chan, uint32_t emux_data, uint32_t irq_num_en, uint32_t seq_done)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_dtse_seq_config_table\fP (\fBDTSE_SEQ_CFG_TYPEDEF\fP *ptr_seq_config_table, uint32_t emuxc, uint32_t channel, uint32_t reserved1, uint32_t seq_done, uint32_t emux_data, uint32_t irq_number, uint32_t irq_enable, uint32_t reserved2)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_ADC"
+
+.PP
+Definition at line 31 of file pac5xxx_driver_adc\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_ADC\fP void pac5xxx_adc_config (\fBADCCTL_MODE_TYPE\fP adc_mode, \fBADCCTL_CLKDIV_Type\fP clock_divider, int repeat)"
+
+.PP
+Definition at line 94 of file pac5xxx_driver_adc\&.c\&.
+.PP
+.nf
+95 {
+96     PAC55XX_ADC->ADCCTL\&.MODE = adc_mode;
+97     PAC55XX_ADC->ADCCTL\&.ADCDIV = clock_divider;
+98     PAC55XX_ADC->ADCCTL\&.REPEAT = repeat;
+99 }
+.fi
+.PP
+References PAC55XX_ADC\&.
+.PP
+Referenced by configure_adc_emux_engine()\&.
+.SS "\fBRAMFUNC_ADC\fP void pac5xxx_adc_config_emux_io (void)"
+
+.PP
+This function configures the EMUX IO ports on the device for EMUX output\&. 
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_adc\&.c\&.
+.PP
+.nf
+21 {
+22     PAC55XX_SCC->PAMUXSEL\&.P1 = 1;       // EMUX Data   EMUXD
+23     PAC55XX_SCC->PAMUXSEL\&.P2 = 1;       // EMUX Clock  EMUXC
+24     PAC55XX_GPIOA->MODE\&.P1 = 1;         // GPIOA1 Push and Pull output
+25     PAC55XX_GPIOA->MODE\&.P2 = 1;         // GPIOA2 Push and Pull output  
+26 }
+.fi
+.PP
+References PAC55XX_GPIOA, and PAC55XX_SCC\&.
+.PP
+Referenced by configure_adc_emux_engine()\&.
+.SS "\fBRAMFUNC_ADC\fP void pac5xxx_adc_config_io (uint8_t channel_mask)"
+
+.PP
+This function configures the IO ports on the device for the given ADC channels\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIchannel_mask\fP Bit-mask of the ADC channels to enable or disable IOs for 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.SS "\fBRAMFUNC_ADC\fP void pac5xxx_adc_emux_config (\fBADC_EMUX_CTL_TYPE\fP control_type, \fBADCEMUXCTL_DIV_TYPE\fP divider)"
+
+.PP
+Definition at line 88 of file pac5xxx_driver_adc\&.c\&.
+.PP
+.nf
+89 {
+90     PAC55XX_ADC->EMUXCTL\&.EMUXMODE = control_type;
+91     PAC55XX_ADC->EMUXCTL\&.EMUXDIV = divider;
+92 }
+.fi
+.PP
+References PAC55XX_ADC\&.
+.PP
+Referenced by configure_adc_emux_engine()\&.
+.SS "\fBRAMFUNC_ADC\fP void pac5xxx_dtse_seq_config (uint32_t entry_num, uint32_t adc_chan, uint32_t emux_data, uint32_t irq_num_en, uint32_t seq_done)"
+
+.PP
+Definition at line 102 of file pac5xxx_driver_adc\&.c\&.
+.PP
+.nf
+103 {
+104     DTSE_SEQ_CFG_TYPEDEF *p_seq_entry;
+105     uint32_t irq_num=0;
+106 
+107     //p_seq_entry = &PAC55XX_ADC->DTSESEQCFG0 + (entry_num * sizeof(DTSE_SEQ_CFG_TYPEDEF));
+108     p_seq_entry = &PAC55XX_ADC->DTSESEQCFG0 + entry_num;
+109 
+110     p_seq_entry->w = 0;                         // Initialize whole entry to 0 before assigning other values
+111     p_seq_entry->CHANNEL = adc_chan;
+112     p_seq_entry->EMUXC = 1;                     // Always write to 1
+113     p_seq_entry->EMUXD = emux_data;
+114     if(irq_num_en & ADC_IRQ_EN)                 // If irq_num_en contains ADC_IRQ_EN bit, then set the IRQEN and the IRQ Num
+115     {
+116         p_seq_entry->IRQEN = 1;
+117         irq_num = irq_num_en - ADC_IRQ_EN;      // Remove ADC_IRQ_EN bit before setting the IRQ Num
+118     }
+119     p_seq_entry->IRQNUM = irq_num;
+120     p_seq_entry->SEQDONE = seq_done;
+121 }
+.fi
+.PP
+References ADC_IRQ_EN, DTSE_SEQ_CFG_TYPEDEF::CHANNEL, DTSE_SEQ_CFG_TYPEDEF::EMUXC, DTSE_SEQ_CFG_TYPEDEF::EMUXD, DTSE_SEQ_CFG_TYPEDEF::IRQEN, DTSE_SEQ_CFG_TYPEDEF::IRQNUM, PAC55XX_ADC, DTSE_SEQ_CFG_TYPEDEF::SEQDONE, and DTSE_SEQ_CFG_TYPEDEF::w\&.
+.PP
+Referenced by config_seq_foc(), and config_seq_foc_vref()\&.
+.SS "\fBRAMFUNC_ADC\fP void pac5xxx_dtse_seq_config_table (\fBDTSE_SEQ_CFG_TYPEDEF\fP * ptr_seq_config_table, uint32_t emuxc, uint32_t channel, uint32_t reserved1, uint32_t seq_done, uint32_t emux_data, uint32_t irq_number, uint32_t irq_enable, uint32_t reserved2)"
+
+.PP
+Definition at line 124 of file pac5xxx_driver_adc\&.c\&.
+.PP
+.nf
+127 {
+128 
+129     ptr_seq_config_table->w = 0;                //Initialize whole entry to 0 before assigning other values
+130     ptr_seq_config_table->EMUXC = emuxc;
+131     ptr_seq_config_table->CHANNEL = channel;
+132     ptr_seq_config_table->SEQDONE = seq_done;
+133     ptr_seq_config_table->EMUXD = emux_data;
+134     ptr_seq_config_table->IRQNUM = irq_number;
+135     ptr_seq_config_table->IRQEN = irq_enable;
+136 }
+.fi
+.PP
+References DTSE_SEQ_CFG_TYPEDEF::CHANNEL, DTSE_SEQ_CFG_TYPEDEF::EMUXC, DTSE_SEQ_CFG_TYPEDEF::EMUXD, DTSE_SEQ_CFG_TYPEDEF::IRQEN, DTSE_SEQ_CFG_TYPEDEF::IRQNUM, DTSE_SEQ_CFG_TYPEDEF::SEQDONE, and DTSE_SEQ_CFG_TYPEDEF::w\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

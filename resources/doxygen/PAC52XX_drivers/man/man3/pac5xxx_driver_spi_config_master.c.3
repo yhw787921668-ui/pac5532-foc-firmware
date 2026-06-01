@@ -1,0 +1,63 @@
+.TH "pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_spi_config_master.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_spi_config_master.c \- Firmware driver for the PAC5XXX SPI Peripheral\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx_driver_spi\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_master_config\fP (int int_enable, int loopback, int mtrans, int mtrans_rearm, int single_master, int rtrans)"
+.br
+.RI "This function configures the SPI peripheral for master mode\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_master_config2\fP (\fBSPISCFG_WordLength_Type\fP wl_select, int reset, int lsb_first, \fBSPISCFG_ClockPolarity_Type\fP clock_polarity, \fBSPISCFG_ClockPhase_Type\fP clock_phase, \fBSPICFG_EarlyXmitDataPhase_Type\fP xmit_data_phase)"
+.br
+.RI "This function configures additional parameters for the SPI for master mode operation\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_master_config_chip_select\fP (\fBSPICS_ChipSelectNumber_Type\fP cs_num, \fBSPICS_ChipSelectPolarity_Type\fP cs_polarity, unsigned char chip_select_setup, unsigned char chip_select_hold, unsigned char chip_select_wait, unsigned char spi_clock_wait)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Firmware driver for the PAC5XXX SPI Peripheral\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_driver_spi_config_master\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_SPI\fP void pac5xxx_spi_master_config_chip_select (\fBSPICS_ChipSelectNumber_Type\fP cs_num, \fBSPICS_ChipSelectPolarity_Type\fP cs_polarity, unsigned char chip_select_setup, unsigned char chip_select_hold, unsigned char chip_select_wait, unsigned char spi_clock_wait)"
+
+.PP
+Definition at line 54 of file pac5xxx_driver_spi_config_master\&.c\&.
+.PP
+.nf
+60 {
+61     PAC5XXX_SPI->SPICCSTR\&.CSNUM = cs_num;
+62     PAC5XXX_SPI->SPICCSTR\&.CSL = cs_polarity;
+63     PAC5XXX_SPI->SPICCSTR\&.CSSETUP = chip_select_setup;
+64     PAC5XXX_SPI->SPICCSTR\&.CSHOLD = chip_select_hold;
+65     PAC5XXX_SPI->SPICCSTR\&.CSWAIT = chip_select_wait;
+66     PAC5XXX_SPI->SPICCSTR\&.CKWAIT = spi_clock_wait;
+67 }
+.fi
+.PP
+References PAC5XXX_SPI\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

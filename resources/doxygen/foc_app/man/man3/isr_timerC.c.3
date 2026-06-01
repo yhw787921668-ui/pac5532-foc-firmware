@@ -1,0 +1,48 @@
+.TH "pac_foc/src/isr/isr_timerC.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/isr/isr_timerC.c \- Use for timerC timer interrupt handler to run critical FOC functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'comm\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBTimerC_IRQHandler\fP (void)"
+.br
+.RI "Process interrupt for TimerC_IRQHandler to run critical FOC functions\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for timerC timer interrupt handler to run critical FOC functions\&. 
+
+
+.PP
+Definition in file \fBisr_timerC\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "PAC5XXX_RAMFUNC void TimerC_IRQHandler (void)"
+
+.PP
+Process interrupt for TimerC_IRQHandler to run critical FOC functions\&. 
+.PP
+Definition at line 27 of file isr_timerC\&.c\&.
+.PP
+.nf
+28 {
+29 #if (COMMSEL_PPM == TRUE) && (PPM_TIMER_SELECT == PPM_TIMER_C)
+30     ppm_process_capture_timer_events();
+31 #endif
+32 }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

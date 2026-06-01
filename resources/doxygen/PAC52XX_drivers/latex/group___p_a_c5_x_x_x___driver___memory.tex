@@ -1,0 +1,199 @@
+\hypertarget{group___p_a_c5_x_x_x___driver___memory}{}\doxysection{P\+A\+C5\+X\+XX Memory Controller Driver Functions}
+\label{group___p_a_c5_x_x_x___driver___memory}\index{PAC5XXX Memory Controller Driver Functions@{PAC5XXX Memory Controller Driver Functions}}
+Collaboration diagram for P\+A\+C5\+X\+XX Memory Controller Driver Functions\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___p_a_c5_x_x_x___driver___memory}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga35e200b6bca4860ae72c8a4fedf153fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+M\+E\+M\+O\+RY}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga35e200b6bca4860ae72c8a4fedf153fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+M\+E\+M\+O\+RY}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga9d64bcb54f2170f1d83582b3eaec6eec}{pac5xxx\+\_\+memctl\+\_\+flash\+\_\+page\+\_\+erase}} (int page)
+\begin{DoxyCompactList}\small\item\em This function performs an erase of the given F\+L\+A\+SH page. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga35e200b6bca4860ae72c8a4fedf153fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+M\+E\+M\+O\+RY}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_gacf07122c0b914a797e8d44ff1362540b}{pac5xxx\+\_\+memctl\+\_\+flash\+\_\+swr\+\_\+enable\+\_\+por}} (int enabled)
+\begin{DoxyCompactList}\small\item\em This function configures S\+WR access during a power-\/on reset. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga35e200b6bca4860ae72c8a4fedf153fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+M\+E\+M\+O\+RY}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga16ee5690c503874efdabefd3626788fa}{pac5xxx\+\_\+memctl\+\_\+wait\+\_\+state}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaeae65fb32265e471df7aefe824d0a2a9}{M\+E\+M\+C\+T\+L\+\_\+\+Wait\+State}} wait\+\_\+states)
+\begin{DoxyCompactList}\small\item\em This function configures the number of F\+L\+A\+SH controller wait states. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga35e200b6bca4860ae72c8a4fedf153fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+M\+E\+M\+O\+RY}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga1947a037e6fa59b92a0bb6e00b9c4823}{pac5xxx\+\_\+memctl\+\_\+buffered\+\_\+write}} (int segment, int address\+\_\+offset, uint16\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em This function starts a buffered write operation with the given data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___memory_ga35e200b6bca4860ae72c8a4fedf153fd}\label{group___p_a_c5_x_x_x___driver___memory_ga35e200b6bca4860ae72c8a4fedf153fd}} 
+\index{PAC5XXX Memory Controller Driver Functions@{PAC5XXX Memory Controller Driver Functions}!RAMFUNC\_MEMORY@{RAMFUNC\_MEMORY}}
+\index{RAMFUNC\_MEMORY@{RAMFUNC\_MEMORY}!PAC5XXX Memory Controller Driver Functions@{PAC5XXX Memory Controller Driver Functions}}
+\doxysubsubsection{\texorpdfstring{RAMFUNC\_MEMORY}{RAMFUNC\_MEMORY}}
+{\footnotesize\ttfamily \#define R\+A\+M\+F\+U\+N\+C\+\_\+\+M\+E\+M\+O\+RY}
+
+
+
+Definition at line 31 of file pac5xxx\+\_\+driver\+\_\+memory.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___memory_ga1947a037e6fa59b92a0bb6e00b9c4823}\label{group___p_a_c5_x_x_x___driver___memory_ga1947a037e6fa59b92a0bb6e00b9c4823}} 
+\index{PAC5XXX Memory Controller Driver Functions@{PAC5XXX Memory Controller Driver Functions}!pac5xxx\_memctl\_buffered\_write@{pac5xxx\_memctl\_buffered\_write}}
+\index{pac5xxx\_memctl\_buffered\_write@{pac5xxx\_memctl\_buffered\_write}!PAC5XXX Memory Controller Driver Functions@{PAC5XXX Memory Controller Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_memctl\_buffered\_write()}{pac5xxx\_memctl\_buffered\_write()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga35e200b6bca4860ae72c8a4fedf153fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+M\+E\+M\+O\+RY}} void pac5xxx\+\_\+memctl\+\_\+buffered\+\_\+write (\begin{DoxyParamCaption}\item[{int}]{segment,  }\item[{int}]{address\+\_\+offset,  }\item[{uint16\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+This function starts a buffered write operation with the given data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em segment} & F\+L\+A\+SH segment that contains the data to write \\
+\hline
+{\em address\+\_\+offset} & The address offset of the data \\
+\hline
+{\em data} & The data to write\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 38 of file pac5xxx\+\_\+driver\+\_\+memctl\+\_\+config.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{39 \{}
+\DoxyCodeLine{40     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga1477c28dd830b088ce257a820c77d99f}{PAC5XXX\_MEMCTL}}-\/>FLASHBWRITE = \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga35c6ac54ddfc627bf1bdab4d7af3ad17}{FLASH\_LOCK\_ALLOW\_BWRITE\_KEY}};}
+\DoxyCodeLine{41     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga1477c28dd830b088ce257a820c77d99f}{PAC5XXX\_MEMCTL}}-\/>FLASHBWRITEDATA.PAGE = segment;}
+\DoxyCodeLine{42     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga1477c28dd830b088ce257a820c77d99f}{PAC5XXX\_MEMCTL}}-\/>FLASHBWRITEDATA.ADDRESS = address\_offset;}
+\DoxyCodeLine{43     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga1477c28dd830b088ce257a820c77d99f}{PAC5XXX\_MEMCTL}}-\/>FLASHBWRITEDATA.DATA = data;}
+\DoxyCodeLine{44 \}}
+
+\end{DoxyCode}
+
+
+References F\+L\+A\+S\+H\+\_\+\+L\+O\+C\+K\+\_\+\+A\+L\+L\+O\+W\+\_\+\+B\+W\+R\+I\+T\+E\+\_\+\+K\+EY, and P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+TL.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___memory_ga9d64bcb54f2170f1d83582b3eaec6eec}\label{group___p_a_c5_x_x_x___driver___memory_ga9d64bcb54f2170f1d83582b3eaec6eec}} 
+\index{PAC5XXX Memory Controller Driver Functions@{PAC5XXX Memory Controller Driver Functions}!pac5xxx\_memctl\_flash\_page\_erase@{pac5xxx\_memctl\_flash\_page\_erase}}
+\index{pac5xxx\_memctl\_flash\_page\_erase@{pac5xxx\_memctl\_flash\_page\_erase}!PAC5XXX Memory Controller Driver Functions@{PAC5XXX Memory Controller Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_memctl\_flash\_page\_erase()}{pac5xxx\_memctl\_flash\_page\_erase()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga35e200b6bca4860ae72c8a4fedf153fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+M\+E\+M\+O\+RY}} void pac5xxx\+\_\+memctl\+\_\+flash\+\_\+page\+\_\+erase (\begin{DoxyParamCaption}\item[{int}]{page }\end{DoxyParamCaption})}
+
+
+
+This function performs an erase of the given F\+L\+A\+SH page. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em page} & Flash page to erase (0-\/31) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+memctl\+\_\+config.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga1477c28dd830b088ce257a820c77d99f}{PAC5XXX\_MEMCTL}}-\/>FLASHPAGE.PAGE = segment;}
+\DoxyCodeLine{23   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga1477c28dd830b088ce257a820c77d99f}{PAC5XXX\_MEMCTL}}-\/>FLASHPERASE = \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga955fecd0a0eea7f5bd0ca26c10a6c106}{FLASH\_LOCK\_ALLOW\_PERASE\_KEY}};}
+\DoxyCodeLine{24 \}}
+
+\end{DoxyCode}
+
+
+References F\+L\+A\+S\+H\+\_\+\+L\+O\+C\+K\+\_\+\+A\+L\+L\+O\+W\+\_\+\+P\+E\+R\+A\+S\+E\+\_\+\+K\+EY, and P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+TL.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___memory_gacf07122c0b914a797e8d44ff1362540b}\label{group___p_a_c5_x_x_x___driver___memory_gacf07122c0b914a797e8d44ff1362540b}} 
+\index{PAC5XXX Memory Controller Driver Functions@{PAC5XXX Memory Controller Driver Functions}!pac5xxx\_memctl\_flash\_swr\_enable\_por@{pac5xxx\_memctl\_flash\_swr\_enable\_por}}
+\index{pac5xxx\_memctl\_flash\_swr\_enable\_por@{pac5xxx\_memctl\_flash\_swr\_enable\_por}!PAC5XXX Memory Controller Driver Functions@{PAC5XXX Memory Controller Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_memctl\_flash\_swr\_enable\_por()}{pac5xxx\_memctl\_flash\_swr\_enable\_por()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga35e200b6bca4860ae72c8a4fedf153fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+M\+E\+M\+O\+RY}} void pac5xxx\+\_\+memctl\+\_\+flash\+\_\+swr\+\_\+enable\+\_\+por (\begin{DoxyParamCaption}\item[{int}]{enabled }\end{DoxyParamCaption})}
+
+
+
+This function configures S\+WR access during a power-\/on reset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enabled} & 1\+: S\+WR access at reset; 0\+: No S\+WR access at P\+OR \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 26 of file pac5xxx\+\_\+driver\+\_\+memctl\+\_\+config.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga1477c28dd830b088ce257a820c77d99f}{PAC5XXX\_MEMCTL}}-\/>FLASHLOCK = \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gad743ef7e825da60bfd1940b5751d3537}{FLASH\_LOCK\_ALLOW\_FLASHDBG\_KEY}};}
+\DoxyCodeLine{29   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga1477c28dd830b088ce257a820c77d99f}{PAC5XXX\_MEMCTL}}-\/>SWDACCESS.VAL = enabled;}
+\DoxyCodeLine{30 \}}
+
+\end{DoxyCode}
+
+
+References F\+L\+A\+S\+H\+\_\+\+L\+O\+C\+K\+\_\+\+A\+L\+L\+O\+W\+\_\+\+F\+L\+A\+S\+H\+D\+B\+G\+\_\+\+K\+EY, and P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+TL.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___memory_ga16ee5690c503874efdabefd3626788fa}\label{group___p_a_c5_x_x_x___driver___memory_ga16ee5690c503874efdabefd3626788fa}} 
+\index{PAC5XXX Memory Controller Driver Functions@{PAC5XXX Memory Controller Driver Functions}!pac5xxx\_memctl\_wait\_state@{pac5xxx\_memctl\_wait\_state}}
+\index{pac5xxx\_memctl\_wait\_state@{pac5xxx\_memctl\_wait\_state}!PAC5XXX Memory Controller Driver Functions@{PAC5XXX Memory Controller Driver Functions}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_memctl\_wait\_state()}{pac5xxx\_memctl\_wait\_state()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___memory_ga35e200b6bca4860ae72c8a4fedf153fd}{R\+A\+M\+F\+U\+N\+C\+\_\+\+M\+E\+M\+O\+RY}} void pac5xxx\+\_\+memctl\+\_\+wait\+\_\+state (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_gaeae65fb32265e471df7aefe824d0a2a9}{M\+E\+M\+C\+T\+L\+\_\+\+Wait\+State}}}]{wait\+\_\+states }\end{DoxyParamCaption})}
+
+
+
+This function configures the number of F\+L\+A\+SH controller wait states. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em wait\+\_\+states} & The number of wait states (0-\/3)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 32 of file pac5xxx\+\_\+driver\+\_\+memctl\+\_\+config.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33 \{}
+\DoxyCodeLine{34   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga1477c28dd830b088ce257a820c77d99f}{PAC5XXX\_MEMCTL}}-\/>FLASHLOCK = \mbox{\hyperlink{group___p_a_c5_x_x_x___m_e_m_c_t_l_ga0310e5c61e488c0ad24bf0b02ccf3853}{FLASH\_LOCK\_ALLOW\_FLASHWSTATE\_KEY}};}
+\DoxyCodeLine{35   \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga1477c28dd830b088ce257a820c77d99f}{PAC5XXX\_MEMCTL}}-\/>FLASHWSTATE.VAL = wait\_states;}
+\DoxyCodeLine{36 \}}
+
+\end{DoxyCode}
+
+
+References F\+L\+A\+S\+H\+\_\+\+L\+O\+C\+K\+\_\+\+A\+L\+L\+O\+W\+\_\+\+F\+L\+A\+S\+H\+W\+S\+T\+A\+T\+E\+\_\+\+K\+EY, and P\+A\+C5\+X\+X\+X\+\_\+\+M\+E\+M\+C\+TL.
+
+
+
+Referenced by init\+\_\+system().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=296pt]{group___p_a_c5_x_x_x___driver___memory_ga16ee5690c503874efdabefd3626788fa_icgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,155 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/driver/pac5xxx_driver_timer.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/driver/pac5xxx_driver_timer.c \- Firmware driver for the PAC5XXX timer\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx_driver_timer\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_dtg_config2\fP (\fBDTGCTL_TYPEDEF\fP *p_dtg, uint16_t red, uint16_t fed)"
+.br
+.RI "This function configures and enables the given Dead-Time Generator (DTG) "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_clock_config\fP (\fBTimerInstance\fP timer, \fBTXCTRL_CLKIN_Type\fP source, \fBTXCTRL_PS_Type\fP prescale)"
+.br
+.RI "This function configures the clock source and pre-scaler for the given timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP void \fBpac5xxx_timer_base_config\fP (\fBTimerInstance\fP timer, uint16_t period, int single_shot, \fBTXCTRL_MODE_Type\fP mode, int slave_sync)"
+.br
+.RI "This function configures the base timer period, mode and single-use mode for the given timer\&. "
+.ti -1c
+.RI "\fBRAMFUNC_TIMER\fP volatile \fBCCTL_TYPEDEF\fP * \fBtimer_ccr_to_handle2\fP (\fBTimerInstance\fP timer, int cc_num)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Firmware driver for the PAC5XXX timer\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_driver_timer\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_TIMER\fP volatile \fBCCTL_TYPEDEF\fP* timer_ccr_to_handle2 (\fBTimerInstance\fP timer, int cc_num)"
+
+.PP
+Definition at line 78 of file pac5xxx_driver_timer\&.c\&.
+.PP
+.nf
+79 {
+80   volatile CCTL_TYPEDEF* pCC = &PAC55XX_TIMERD->CCTL1;
+81   
+82   switch (timer)
+83   {
+84   case TimerA:
+85       switch (cc_num)
+86       {
+87       case 0:
+88           pCC = &PAC55XX_TIMERA->CCTL0;
+89           PAC55XX_TIMERA->INT\&.CCR0IF = 1;    // write to clear
+90           break;
+91       case 1:
+92           pCC = &PAC55XX_TIMERA->CCTL1;
+93           PAC55XX_TIMERA->INT\&.CCR1IF = 1;    // write to clear
+94           break;
+95       case 2:
+96           pCC = &PAC55XX_TIMERA->CCTL2;
+97           PAC55XX_TIMERA->INT\&.CCR2IF = 1;    // write to clear
+98           break;
+99       case 3:
+100           pCC = &PAC55XX_TIMERA->CCTL3;
+101           PAC55XX_TIMERA->INT\&.CCR3IF = 1;    // write to clear
+102           break;
+103       case 4:
+104           pCC = &PAC55XX_TIMERA->CCTL4;
+105           PAC55XX_TIMERA->INT\&.CCR4IF = 1;    // write to clear
+106           break;
+107       case 5:
+108           pCC = &PAC55XX_TIMERA->CCTL5;
+109           PAC55XX_TIMERA->INT\&.CCR5IF = 1;    // write to clear
+110           break;
+111       case 6:
+112           pCC = &PAC55XX_TIMERA->CCTL6;
+113           PAC55XX_TIMERA->INT\&.CCR6IF = 1;    // write to clear
+114           break;
+115       case 7:
+116           pCC = &PAC55XX_TIMERA->CCTL7;
+117           PAC55XX_TIMERA->INT\&.CCR7IF = 1;    // write to clear
+118           break;
+119     }
+120     break;
+121     
+122   case TimerB:
+123     switch (cc_num)
+124     {
+125     case 0:
+126         pCC = &PAC55XX_TIMERB->CCTL0;
+127         PAC55XX_TIMERB->INT\&.CCR0IF = 1;    // write to clear
+128         break;
+129     case 1:
+130         pCC = &PAC55XX_TIMERB->CCTL1;
+131         PAC55XX_TIMERB->INT\&.CCR1IF = 1;    // write to clear
+132         break;
+133     case 2:
+134         pCC = &PAC55XX_TIMERB->CCTL2;
+135         PAC55XX_TIMERB->INT\&.CCR2IF = 1;    // write to clear
+136         break;
+137     case 3:
+138         pCC = &PAC55XX_TIMERB->CCTL3;
+139         PAC55XX_TIMERB->INT\&.CCR3IF = 1;    // write to clear
+140         break;
+141     }
+142     break;
+143     
+144   case TimerC:
+145     switch (cc_num)
+146     {
+147     case 0:
+148         pCC = &PAC55XX_TIMERC->CCTL0;
+149         PAC55XX_TIMERC->INT\&.CCR0IF = 1;    // write to clear
+150         break;
+151     case 1:
+152         pCC = &PAC55XX_TIMERC->CCTL1;
+153         PAC55XX_TIMERC->INT\&.CCR1IF = 1;    // write to clear
+154         break;
+155     }
+156     break;
+157 
+158   case TimerD:
+159     switch (cc_num)
+160     {
+161     case 0:
+162         pCC = &PAC55XX_TIMERD->CCTL0;
+163         PAC55XX_TIMERD->INT\&.CCR0IF = 1;    // write to clear
+164         break;
+165     case 1:
+166         pCC = &PAC55XX_TIMERD->CCTL1;
+167         PAC55XX_TIMERD->INT\&.CCR1IF = 1;   // write to clear
+168         break;
+169     }
+170     break;
+171   } 
+172   
+173   return pCC;
+174 }
+.fi
+.PP
+References PAC55XX_TIMERA, PAC55XX_TIMERB, PAC55XX_TIMERC, PAC55XX_TIMERD, TimerA, TimerB, TimerC, and TimerD\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

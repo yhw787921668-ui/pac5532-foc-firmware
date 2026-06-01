@@ -1,0 +1,76 @@
+.TH "pac_foc/src/main.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/main.c \- Use for motor control hardware and software initialization\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'app_funcs\&.h'\fP
+.br
+\fC#include 'pac_init\&.h'\fP
+.br
+\fC#include 'fault\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_adc\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBmain\fP (void)"
+.br
+.RI "This function use for initializing hardware and motor control FOC firmware\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for motor control hardware and software initialization\&. 
+
+
+.PP
+Definition in file \fBmain\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "int main (void)"
+
+.PP
+This function use for initializing hardware and motor control FOC firmware\&. 
+.PP
+Definition at line 29 of file main\&.c\&.
+.PP
+.nf
+30 {
+31     // Disable global interrupts until initialization is complete
+32     __disable_irq();
+33      
+34     // Set pointers to data structure for current motor
+35     Struct_Motor* motor_ptr = &motor;
+36     
+37     // Initialize main - FOC state machines and system variables
+38     systemvar_init(motor_ptr);
+39 
+40     // Initialize all MCU peripherals
+41     peripheral_init();
+42 
+43     // Initialize CAFE
+44     cafe_init();
+45 
+46     // Start ADC sequencer
+47     pac5xxx_adc_start();
+48              
+49     // Enable global interrupts
+50     __enable_irq();
+51 
+52     // All the processing is interrupt driven
+53     while(1) {}
+54 }
+.fi
+.PP
+References cafe_init(), motor, peripheral_init(), and systemvar_init()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

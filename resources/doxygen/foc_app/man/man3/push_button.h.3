@@ -1,0 +1,215 @@
+.TH "pac_foc/src/comm/push_button/push_button.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/comm/push_button/push_button.h \- Use to configure push button as GPIO input, button status and state initialization\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBpush_button_config\fP (void)"
+.br
+.RI "This function use configure push button, use GPIO as input\&. "
+.ti -1c
+.RI "void \fBpush_button_init_state\fP (void)"
+.br
+.RI "This function use initialize push button state machine state\&. "
+.ti -1c
+.RI "void \fBstatemachine_buttoncontrol\fP (void)"
+.br
+.RI "This function as push button detection state machine\&. "
+.ti -1c
+.RI "uint32_t \fBget_push_button_gpio_status\fP (void)"
+.br
+.RI "This function use get status of push button\&. "
+.ti -1c
+.RI "uint32_t \fBget_push_button_status\fP (void)"
+.br
+.RI "This function use get status of push button\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use to configure push button as GPIO input, button status and state initialization\&. 
+
+
+.PP
+Definition in file \fBpush_button\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "uint32_t get_push_button_gpio_status (void)"
+
+.PP
+This function use get status of push button\&. 
+.PP
+\fBReturns\fP
+.RS 4
+1 or 0, low means button pressed 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file push_button\&.c\&.
+.PP
+.nf
+62 {
+63 #if defined(FAMILY_55XX)
+64     return (PAC55XX_GPIOF->IN\&.PUSH_BUTTON_PORTNUM);    // Return port status, if low means button pressed
+65 #elif defined(FAMILY_52XX)
+66     return (PAC5XXX_GPIO_PUSH_BUTTON->IN\&.PUSH_BUTTON_PORTNUM);    // Return port status, if low means button pressed
+67 #else
+68     return 1;
+69 #endif
+70 }
+.fi
+.PP
+Referenced by statemachine_buttoncontrol()\&.
+.SS "uint32_t get_push_button_status (void)"
+
+.PP
+This function use get status of push button\&. 
+.PP
+\fBReturns\fP
+.RS 4
+status, 1 or 0 
+.RE
+.PP
+
+.PP
+Definition at line 94 of file push_button\&.c\&.
+.PP
+.nf
+95 {
+96     return (on_off_button\&.button_status);
+97 }
+.fi
+.PP
+References on_off_button\&.
+.SS "void push_button_config (void)"
+
+.PP
+This function use configure push button, use GPIO as input\&. 
+.PP
+Definition at line 34 of file push_button\&.c\&.
+.PP
+.nf
+35 {
+36 #if defined(FAMILY_55XX)
+37     PAC5XXX_GPIO_PUSH_BUTTON->MODE\&.P2 = 3;    // High-Impedance Digital Input
+38     PAC55XX_SCC->PUSH_BUTTON_PULLUP_PORT\&.PUSH_BUTTON_PORTNUM = 1;    // Enable the weak 60k pull-up to VCCIO
+39     PAC55XX_SCC->PUSH_BUTTON_SCHMITT_TRIG_PORT\&.PUSH_BUTTON_SCHMITT_ENABLE = 1;    // Enable Schmitt Trigger
+40     PAC55XX_SCC->PUSH_BUTTON_PORT_MUX\&.PUSH_BUTTON_PORTNUM = 0;  // MUX GPIO Mode
+41     PAC5XXX_GPIO_PUSH_BUTTON->INTEN\&.PUSH_BUTTON_PORTNUM = 0;   // Disable Interrupt
+42     PAC5XXX_GPIO_PUSH_BUTTON->CLKSYNC\&.PUSH_BUTTON_PORTNUM = 1; // Enable De-bounce
+43 #endif
+44 
+45 #if defined(FAMILY_52XX)
+46     PAC5XXX_GPIO_PUSH_BUTTON->OUTEN\&.PUSH_BUTTON_PORTNUM = 0;    // Disable the output
+47     PAC5XXX_GPIO_PUSH_BUTTON->DS\&.PUSH_BUTTON_PORTNUM = 0;       // Disable output Strength   
+48     PAC5XXX_GPIO_PUSH_BUTTON->PU\&.PUSH_BUTTON_PORTNUM = 1;       // Enable weak pull-up
+49     PAC5XXX_GPIO_PUSH_BUTTON->PD\&.PUSH_BUTTON_PORTNUM = 0;       // Diasable weak pull-down
+50     PAC5XXX_GPIO_PUSH_BUTTON->PSEL\&.PUSH_BUTTON_PORTNUM = 0;     // Port GPIO Mode
+51     PAC5XXX_GPIO_PUSH_BUTTON->INTE\&.PUSH_BUTTON_PORTNUM = 0;     // Port Pin Interrupt Disable
+52     PAC5XXX_GPIO_PUSH_BUTTON->INE\&.PUSH_BUTTON_PORTNUM = 1;      // Port Pin Input Enable
+53 #endif
+54 }
+.fi
+.SS "void push_button_init_state (void)"
+
+.PP
+This function use initialize push button state machine state\&. 
+.PP
+Definition at line 102 of file push_button\&.c\&.
+.PP
+.nf
+103 {
+104     on_off_button\&.button_state = STATE_PUSH_BUTTON_INIT;
+105 }
+.fi
+.PP
+References on_off_button, and STATE_PUSH_BUTTON_INIT\&.
+.SS "void statemachine_buttoncontrol (void)"
+
+.PP
+This function as push button detection state machine\&. 
+.PP
+Definition at line 114 of file push_button\&.c\&.
+.PP
+.nf
+115 {
+116     static Struct_Button* button_ptr = &on_off_button;
+117     static Struct_Motor* motor_ptr = &motor;
+118 
+119     switch (button_ptr->button_state)
+120     {
+121         case STATE_PUSH_BUTTON_INIT:
+122             button_ptr->de_bounce_counter = 0;
+123             button_ptr->button_status = 0;
+124             motor_ptr->app\&.motor_enable_cmd = 0;
+125             // It will stay in init state until switch released, active low
+126             if (get_push_button_gpio_status())
+127             {
+128                 button_ptr->button_state = STATE_PUSH_BUTTON_CHECK_PRESSED;
+129             }
+130             break;
+131 
+132         case STATE_PUSH_BUTTON_CHECK_PRESSED:
+133             // Switch not pressed
+134             if(get_push_button_gpio_status())
+135             {
+136                 if (button_ptr->de_bounce_counter > 0)
+137                     button_ptr->de_bounce_counter--;
+138             }
+139             // Switch pressed
+140             else
+141             {
+142                 button_ptr->de_bounce_counter++;
+143             }
+144 
+145             if (button_ptr->de_bounce_counter >= DEBOUNCE_OFF_TO_ON_COUNT_THRD)
+146             {
+147                   button_ptr->de_bounce_counter = 0;
+148                   button_ptr->button_status = 1;
+149                   if (!motor_ptr->app\&.motor_enable_cmd)
+150                       motor_ptr->app\&.motor_enable_cmd = 1;
+151                   button_ptr->button_state = STATE_PUSH_BUTTON_CHECK_RELEASED;
+152             }
+153             break;
+154 
+155         case STATE_PUSH_BUTTON_CHECK_RELEASED:
+156             // Switch pressed, active low
+157             if(!get_push_button_gpio_status())
+158             {
+159                 if (button_ptr->de_bounce_counter > 0)
+160                     button_ptr->de_bounce_counter--;
+161             }
+162             // Switch released (active high)
+163             else
+164             {
+165                 button_ptr->de_bounce_counter++;
+166             }
+167 
+168             if (button_ptr->de_bounce_counter >= DEBOUNCE_ON_TO_OFF_COUNT_THRD)
+169             {
+170                 button_ptr->de_bounce_counter = 0;
+171                 button_ptr->button_status = 0;
+172                 if (motor_ptr->app\&.motor_enable_cmd)
+173                     motor_ptr->app\&.motor_enable_cmd = 0;
+174                 button_ptr->button_state = STATE_PUSH_BUTTON_CHECK_PRESSED;
+175             }
+176             break;
+177 
+178         default:
+179             button_ptr->button_state = STATE_PUSH_BUTTON_INIT;
+180             break;
+181     }
+182 }
+.fi
+.PP
+References Struct_Motor::app, DEBOUNCE_OFF_TO_ON_COUNT_THRD, DEBOUNCE_ON_TO_OFF_COUNT_THRD, get_push_button_gpio_status(), motor, Struct_App::motor_enable_cmd, on_off_button, STATE_PUSH_BUTTON_CHECK_PRESSED, STATE_PUSH_BUTTON_CHECK_RELEASED, and STATE_PUSH_BUTTON_INIT\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

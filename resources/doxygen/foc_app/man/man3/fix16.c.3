@@ -1,0 +1,631 @@
+.TH "pac_foc/src/math/fix16.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/math/fix16.c \- Fixed math library functions (fix16_t)  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'fix16\&.h'\fP
+.br
+\fC#include 'int64\&.h'\fP
+.br
+\fC#include 'pac5xxx\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBFIXMATH_NO_64BIT\fP"
+.br
+.ti -1c
+.RI "#define \fBFIXMATH_OPTIMIZE_8BIT\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP \fBfix16_mul\fP (\fBfix16_t\fP inArg0, \fBfix16_t\fP inArg1)"
+.br
+.RI "Multiplies two fix16_t values\&. "
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP uint32_t \fBfix16_mul_uint\fP (uint32_t inArg0, uint32_t inArg1)"
+.br
+.RI "Multiplies two integers and returns a fix16_t\&. "
+.ti -1c
+.RI "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP \fBfix16_div\fP (\fBfix16_t\fP a, \fBfix16_t\fP b)"
+.br
+.RI "Divides two fix16_t numbers (a / b) "
+.ti -1c
+.RI "\fBlfm_int64\fP \fBint64_add\fP (\fBlfm_int64\fP x, \fBlfm_int64\fP y)"
+.br
+.RI "Adds two 64-bit numbers\&. "
+.ti -1c
+.RI "\fBlfm_int64\fP \fBint64_sub\fP (\fBlfm_int64\fP x, \fBlfm_int64\fP y)"
+.br
+.RI "Subtract two 64-bit numbers (x - y) "
+.ti -1c
+.RI "\fBlfm_int64\fP \fBint64_shift\fP (\fBlfm_int64\fP x, int8_t y)"
+.br
+.RI "Shift a 64-bit number by the given number of bits\&. "
+.ti -1c
+.RI "\fBlfm_int64\fP \fBint64_neg\fP (\fBlfm_int64\fP x)"
+.br
+.RI "Negate a 64-bit number\&. "
+.ti -1c
+.RI "\fBlfm_int64\fP \fBint64_mul_i32_i32\fP (int32_t x, int32_t y)"
+.br
+.RI "Multiply two 32-bit numbers into a 64-bit number\&. "
+.ti -1c
+.RI "\fBlfm_int64\fP \fBint64_mul_i64_i32\fP (\fBlfm_int64\fP x, int32_t y)"
+.br
+.RI "Multiply a 64-bit and 32-bit number\&. "
+.ti -1c
+.RI "\fBlfm_int64\fP \fBint64_div_i64_i32\fP (\fBlfm_int64\fP x, int32_t y)"
+.br
+.RI "Divide a 64-bit number by a 32-bit number (x / y) "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Fixed math library functions (fix16_t) 
+
+
+.PP
+Definition in file \fBfix16\&.c\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define FIXMATH_NO_64BIT"
+
+.PP
+Definition at line 35 of file fix16\&.c\&.
+.SS "#define FIXMATH_OPTIMIZE_8BIT"
+
+.PP
+Definition at line 36 of file fix16\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP fix16_div (\fBfix16_t\fP inArg0, \fBfix16_t\fP inArg1)"
+
+.PP
+Divides two fix16_t numbers (a / b) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP Value a 
+.br
+\fIb\fP Value b 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Result (a / b) 
+.RE
+.PP
+
+.PP
+Definition at line 653 of file fix16\&.c\&.
+.PP
+.nf
+654 {
+655   // This uses the basic binary restoring division algorithm\&.
+656   // It appears to be faster to do the whole division manually than
+657   // trying to compose a 64-bit divide out of 32-bit divisions on
+658   // platforms without hardware divide\&.
+659   
+660   if (b == 0)
+661   {
+662 #ifdef FIX16_OVERFLOW_DETECT
+663     fault_mask |= FAULT_FIX16_OVERFLOW;
+664     fault(0);
+665     return fix16_overflow;
+666 #else
+667     if ((a >= 0) == (b >= 0))
+668         return fix16_max;
+669     else
+670         return fix16_min;
+671 #endif
+672   }
+673   
+674   uint32_t remainder = (a >= 0) ? a : (-a);
+675   uint32_t divider = (b >= 0) ? b : (-b);
+676 
+677   uint32_t quotient = 0;
+678   uint32_t bit = 0x10000;
+679   
+680   // The algorithm requires D >= R
+681   while (divider < remainder)
+682   {
+683     divider <<= 1;
+684     bit <<= 1;
+685   }
+686   
+687   #ifndef FIXMATH_NO_OVERFLOW
+688   if (!bit)
+689   {
+690 #ifdef FIX16_OVERFLOW_DETECT
+691     fault_mask |= FAULT_FIX16_OVERFLOW;
+692     fault(0);
+693     return fix16_overflow;
+694 #else
+695     if ((a >= 0) == (b >= 0))
+696         return fix16_max;
+697     else
+698         return fix16_min;
+699 #endif
+700   }
+701   #endif
+702   
+703   if (divider & 0x80000000)
+704   {
+705     // Perform one step manually to avoid overflows later\&.
+706     // We know that divider's bottom bit is 0 here\&.
+707     if (remainder >= divider)
+708     {
+709         quotient |= bit;
+710         remainder -= divider;
+711     }
+712     divider >>= 1;
+713     bit >>= 1;
+714   }
+715   
+716   // Main division loop
+717   while (bit && remainder)
+718   {
+719     if (remainder >= divider)
+720     {
+721         quotient |= bit;
+722         remainder -= divider;
+723     }
+724     
+725     remainder <<= 1;
+726     bit >>= 1;
+727   }   
+728       
+729   #ifndef FIXMATH_NO_ROUNDING
+730   if (remainder >= divider)
+731   {
+732     quotient++;
+733   }
+734   #endif
+735   
+736   fix16_t result = quotient;
+737   
+738   // Figure out the sign of result
+739   if ((a ^ b) & 0x80000000)
+740   {
+741     #ifndef FIXMATH_NO_OVERFLOW
+742     if (result == fix16_min)
+743     {
+744 #ifdef FIX16_OVERFLOW_DETECT
+745     fault_mask |= FAULT_FIX16_OVERFLOW;
+746     fault(0);
+747     return fix16_overflow;
+748 #else
+749     if ((a >= 0) == (b >= 0))
+750         return fix16_max;
+751     else
+752         return fix16_min;
+753 #endif
+754     }
+755     #endif
+756     
+757     result = -result;
+758   }
+759   
+760   return result;
+761 }
+.fi
+.PP
+References fault(), fix16_max, fix16_min, and fix16_overflow\&.
+.PP
+Referenced by cal_vm_const(), calc_vbus_internal(), config_control_dt(), foc_calc_pwmtimer(), foc_config(), foc_reset(), init_over_current_limit(), picon_convert_gain(), trig_arctan_90deg_q16(), and write_itotstart_target()\&.
+.SS "\fBFIX16_RAMFUNC\fP \fBfix16_t\fP fix16_mul (\fBfix16_t\fP inArg0, \fBfix16_t\fP inArg1)"
+
+.PP
+Multiplies two fix16_t values\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinArg0\fP Value a 
+.br
+\fIinArg1\fP Value b 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Result (a * b) 
+.RE
+.PP
+
+.PP
+Definition at line 227 of file fix16\&.c\&.
+.PP
+.nf
+228 {
+229   // Each argument is divided to 16-bit parts\&.
+230   // AB
+231   // * CD
+232   // -----------
+233   // BD 16 * 16 -> 32 bit products
+234   // CB
+235   // AD
+236   // AC
+237   // |----| 64 bit product
+238   int32_t A = (inArg0 >> 16), C = (inArg1 >> 16);
+239   uint32_t B = (inArg0 & 0xFFFF), D = (inArg1 & 0xFFFF);
+240 
+241   int32_t AC = A*C;
+242   int32_t AD_CB = A*D + C*B;
+243   uint32_t BD = B*D;
+244 
+245   int32_t product_hi = AC + (AD_CB >> 16);
+246 
+247   // Handle carry from lower 32 bits to upper part of result\&.
+248   uint32_t ad_cb_temp = AD_CB << 16;
+249   uint32_t product_lo = BD + ad_cb_temp;
+250   if (product_lo < BD)
+251     product_hi++;
+252 
+253 #ifndef FIXMATH_NO_OVERFLOW
+254   // The upper 17 bits should all be the same (the sign)\&.
+255   if (product_hi >> 31 != product_hi >> 15)
+256     return fix16_overflow;
+257 #endif
+258 
+259 #ifdef FIXMATH_NO_ROUNDING
+260   return (product_hi << 16) | (product_lo >> 16);
+261 #else
+262   // Subtracting 0x8000 (= 0\&.5) and then using signed right shift
+263   // achieves proper rounding to result-1, except in the corner
+264   // case of negative numbers and lowest word = 0x8000\&.
+265   // To handle that, we also have to subtract 1 for negative numbers\&.
+266   uint32_t product_lo_tmp = product_lo;
+267   product_lo -= 0x8000;
+268   product_lo -= (uint32_t)product_hi >> 31;
+269   if (product_lo > product_lo_tmp)
+270     product_hi--;
+271 
+272   // Discard the lowest 16 bits\&. Note that this is not exactly the same
+273   // as dividing by 0x10000\&. For example if product = -1, result will
+274   // also be -1 and not 0\&. This is compensated by adding +1 to the result
+275   // and compensating this in turn in the rounding above\&.
+276   fix16_t result = (product_hi << 16) | (product_lo >> 16);
+277   result += 1;
+278   return result;
+279 #endif
+280 }
+.fi
+.PP
+References fix16_overflow\&.
+.PP
+Referenced by calc_vbus_internal(), est_anglediff_check(), foc_calc_pwmtimer(), hall_param_write(), init_over_current_limit(), parameters_write_foc(), and picon_convert_gain()\&.
+.SS "\fBFIX16_RAMFUNC\fP uint32_t fix16_mul_uint (uint32_t inArg0, uint32_t inArg1)"
+
+.PP
+Multiplies two integers and returns a fix16_t\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinArg0\fP Value a 
+.br
+\fIinArg1\fP Value b 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Result (a * b) in fix16_t format 
+.RE
+.PP
+
+.PP
+Definition at line 282 of file fix16\&.c\&.
+.PP
+.nf
+283 {
+284   // Each argument is divided to 16-bit parts\&.
+285   // AB
+286   // * CD
+287   // -----------
+288   // BD 16 * 16 -> 32 bit products
+289   // CB
+290   // AD
+291   // AC
+292   // |----| 64 bit product
+293   uint32_t A = (inArg0 >> 16), C = (inArg1 >> 16);
+294   uint32_t B = (inArg0 & 0xFFFF), D = (inArg1 & 0xFFFF);
+295 
+296   uint32_t AC = A*C;
+297   uint32_t AD_CB = A*D + C*B;
+298   uint32_t BD = B*D;
+299 
+300   uint32_t product_hi = AC + (AD_CB >> 16);
+301 
+302   // Handle carry from lower 32 bits to upper part of result\&.
+303   uint32_t ad_cb_temp = AD_CB << 16;
+304   uint32_t product_lo = BD + ad_cb_temp;
+305   if (product_lo < BD)
+306     product_hi++;
+307 
+308   return (product_hi << 16) | (product_lo >> 16);
+309 }
+.fi
+.PP
+Referenced by picon_convert_gain()\&.
+.SS "\fBlfm_int64\fP int64_add (\fBlfm_int64\fP x, \fBlfm_int64\fP y)"
+
+.PP
+Adds two 64-bit numbers\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP 64-bit number 
+.br
+\fIy\fP 64-bit number 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+64-bit sum 
+.RE
+.PP
+
+.PP
+Definition at line 782 of file fix16\&.c\&.
+.PP
+.nf
+783 {
+784         lfm_int64 ret;
+785         ret\&.hi = x\&.hi + y\&.hi;
+786         ret\&.lo = x\&.lo + y\&.lo;
+787         if((ret\&.lo < x\&.lo) || (ret\&.hi < y\&.hi))
+788                 ret\&.hi++;
+789         return ret;
+790 }
+.fi
+.PP
+References lfm_int64::hi, and lfm_int64::lo\&.
+.PP
+Referenced by int64_sub()\&.
+.SS "\fBlfm_int64\fP int64_div_i64_i32 (\fBlfm_int64\fP x, int32_t y)"
+
+.PP
+Divide a 64-bit number by a 32-bit number (x / y) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP 64-bit number 
+.br
+\fIy\fP 32-bit number 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+64-bit result (x / y) 
+.RE
+.PP
+
+.PP
+Definition at line 859 of file fix16\&.c\&.
+.PP
+.nf
+859                                                     {
+860         int neg = ((x\&.hi ^ y) < 0);
+861         if(x\&.hi < 0)
+862                 x = int64_neg(x);
+863         if(y < 0)
+864                 y = -y;
+865 
+866         lfm_int64 ret = { (x\&.hi / y) , (x\&.lo / y) };
+867         x\&.hi = x\&.hi % y;
+868         x\&.lo = x\&.lo % y;
+869 
+870         lfm_int64 _y = int64_from_int32(y);
+871 
+872         lfm_int64 i;
+873         for(i = int64_from_int32(1); int64_cmp_lt(_y, x); _y = int64_shift(_y, 1), i = int64_shift(i, 1));
+874 
+875         while(x\&.hi) {
+876                 _y = int64_shift(_y, -1);
+877                  i = int64_shift(i, -1);
+878                 if(int64_cmp_ge(x, _y)) {
+879                         x = int64_sub(x, _y);
+880                         ret = int64_add(ret, i);
+881                 }
+882         }
+883 
+884         ret = int64_add(ret, int64_from_int32(x\&.lo / y));
+885         return (neg ? int64_neg(ret) : ret);
+886 }
+.fi
+.PP
+References lfm_int64::hi, int64_neg(), and lfm_int64::lo\&.
+.SS "\fBlfm_int64\fP int64_mul_i32_i32 (int32_t x, int32_t y)"
+
+.PP
+Multiply two 32-bit numbers into a 64-bit number\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP 32-bit number 
+.br
+\fIy\fP 32-bit number 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+64-bit product 
+.RE
+.PP
+
+.PP
+Definition at line 823 of file fix16\&.c\&.
+.PP
+.nf
+823                                                   {
+824          int16_t hi[2] = { (x >> 16), (y >> 16) };
+825         uint16_t lo[2] = { (x & 0xFFFF), (y & 0xFFFF) };
+826 
+827          int32_t r_hi = hi[0] * hi[1];
+828          int32_t r_md = (hi[0] * lo[1]) + (hi[1] * lo[0]);
+829         uint32_t r_lo = lo[0] * lo[1];
+830 
+831         r_hi += (r_md >> 16);
+832         r_lo += (r_md << 16);
+833 
+834         return (lfm_int64){ r_hi, r_lo };
+835 }
+.fi
+.SS "\fBlfm_int64\fP int64_mul_i64_i32 (\fBlfm_int64\fP x, int32_t y)"
+
+.PP
+Multiply a 64-bit and 32-bit number\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP 64-bit number 
+.br
+\fIy\fP 32-bit number 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+64-bit product 
+.RE
+.PP
+
+.PP
+Definition at line 837 of file fix16\&.c\&.
+.PP
+.nf
+837                                                     {
+838         int neg = ((x\&.hi ^ y) < 0);
+839         if(x\&.hi < 0)
+840                 x = int64_neg(x);
+841         if(y < 0)
+842                 y = -y;
+843 
+844         uint32_t _x[4] = { (x\&.hi >> 16), (x\&.hi & 0xFFFF), (x\&.lo >> 16), (x\&.lo & 0xFFFF) };
+845         uint32_t _y[2] = { (y >> 16), (y & 0xFFFF) };
+846 
+847         uint32_t r[4];
+848         r[0] = (_x[0] * _y[0]);
+849         r[1] = (_x[1] * _y[0]) + (_x[0] * _y[1]);
+850         r[2] = (_x[1] * _y[1]) + (_x[2] * _y[0]);
+851         r[3] = (_x[2] * _y[0]) + (_x[1] * _y[1]);
+852 
+853         lfm_int64 ret;
+854         ret\&.lo = r[0] + (r[1] << 16);
+855         ret\&.hi = (r[3] << 16) + r[2] + (r[1] >> 16);
+856         return (neg ? int64_neg(ret) : ret);
+857 }
+.fi
+.PP
+References lfm_int64::hi, int64_neg(), and lfm_int64::lo\&.
+.SS "\fBlfm_int64\fP int64_neg (\fBlfm_int64\fP x)"
+
+.PP
+Negate a 64-bit number\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP 64-bit number 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+negated 64-bit number 
+.RE
+.PP
+
+.PP
+Definition at line 814 of file fix16\&.c\&.
+.PP
+.nf
+814                                  {
+815         lfm_int64 ret;
+816         ret\&.hi = ~x\&.hi;
+817         ret\&.lo = ~x\&.lo + 1;
+818         if(ret\&.lo == 0)
+819                 ret\&.hi++;
+820         return ret;
+821 }
+.fi
+.PP
+References lfm_int64::hi, and lfm_int64::lo\&.
+.PP
+Referenced by int64_div_i64_i32(), int64_mul_i64_i32(), and int64_sub()\&.
+.SS "\fBlfm_int64\fP int64_shift (\fBlfm_int64\fP x, int8_t y)"
+
+.PP
+Shift a 64-bit number by the given number of bits\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP 64-bit number 
+.br
+\fIy\fP number of bits to shift 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+64-bit shifted number 
+.RE
+.PP
+
+.PP
+Definition at line 797 of file fix16\&.c\&.
+.PP
+.nf
+797                                              {
+798         lfm_int64 ret;
+799         if(y > 0) {
+800                 if(y >= 32)
+801                         return (lfm_int64){ 0, 0 };
+802                 ret\&.hi = (x\&.hi << y) | (x\&.lo >> (32 - y));
+803                 ret\&.lo = (x\&.lo << y);
+804         } else {
+805                 y = -y;
+806                 if(y >= 32)
+807                         return (lfm_int64){ 0, 0 };
+808                 ret\&.lo = (x\&.lo >> y) | (x\&.hi << (32 - y));
+809                 ret\&.hi = (x\&.hi >> y);
+810         }
+811         return ret;
+812 }
+.fi
+.PP
+References lfm_int64::hi, and lfm_int64::lo\&.
+.SS "\fBlfm_int64\fP int64_sub (\fBlfm_int64\fP x, \fBlfm_int64\fP y)"
+
+.PP
+Subtract two 64-bit numbers (x - y) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP 64-bit number 
+.br
+\fIy\fP 64-bit number 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+64-bit difference (x - y ) 
+.RE
+.PP
+
+.PP
+Definition at line 792 of file fix16\&.c\&.
+.PP
+.nf
+792                                               {
+793         return int64_add(x, int64_neg(y));
+794 }
+.fi
+.PP
+References int64_add(), and int64_neg()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

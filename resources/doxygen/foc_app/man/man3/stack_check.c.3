@@ -1,0 +1,76 @@
+.TH "pac_foc/src/debug/stack_check.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/debug/stack_check.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'stack_check\&.h'\fP
+.br
+\fC#include 'fault\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSTACK_MAGIC_VALUE\fP   0x1abe11ed"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinit_stack_vars\fP (void)"
+.br
+.ti -1c
+.RI "void \fBstack_test\fP (void)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define STACK_MAGIC_VALUE   0x1abe11ed"
+
+.PP
+Definition at line 20 of file stack_check\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "void init_stack_vars (void)"
+
+.PP
+Definition at line 48 of file stack_check\&.c\&.
+.PP
+.nf
+49 {
+50     stack_start_reserved = STACK_MAGIC_VALUE;
+51     stack_end_reserved = STACK_MAGIC_VALUE;
+52 }
+.fi
+.PP
+References STACK_MAGIC_VALUE\&.
+.SS "void stack_test (void)"
+
+.PP
+Definition at line 54 of file stack_check\&.c\&.
+.PP
+.nf
+55 {
+56     //===== Check for underflow; If Stack Top value has changed, then set warning =====
+57    if (stack_start_reserved != STACK_MAGIC_VALUE)
+58    {
+59        set_warning(WARNING_STACK_OOR);
+60    }
+61 
+62    //===== Check for overflow; If Stack Bottom value has changed, then set warning =====
+63    if (stack_end_reserved  != STACK_MAGIC_VALUE)
+64    {
+65        set_warning(WARNING_STACK_OOR);
+66    }
+67 }
+.fi
+.PP
+References set_warning(), STACK_MAGIC_VALUE, and WARNING_STACK_OOR\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

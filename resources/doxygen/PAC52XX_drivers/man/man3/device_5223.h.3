@@ -1,0 +1,103 @@
+.TH "pac_foc/pac52xx/device/device_5223.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/device/device_5223.h \- Use for 5223 device definition\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5223\&.h'\fP
+.br
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'device_options\&.h'\fP
+.br
+\fC#include 'family_52xx\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_timer\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_tile\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_socbridge\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBFOC_PWM_Timer\fP   \fBTimerA\fP"
+.br
+.ti -1c
+.RI "#define \fBFOC_PWM_Timer_Ptr\fP   \fBPAC5XXX_TIMERA\fP"
+.br
+.ti -1c
+.RI "#define \fBFOC_PWM_Timer_IRQn\fP   \fBTimerA_IRQn\fP"
+.br
+.ti -1c
+.RI "#define \fBADC_IRQn\fP   ADC_IRQn"
+.br
+.ti -1c
+.RI "#define \fBMOTOR1_PWM_HS_PIN_PORT_A\fP   0x38"
+.br
+.ti -1c
+.RI "#define \fBMOTOR1_PWM_LS_PIN_PORT_A\fP   0x07"
+.br
+.ti -1c
+.RI "#define \fBMOTOR1_PWM_PIN_PORT_A\fP   (\fBMOTOR1_PWM_HS_PIN_PORT_A\fP | \fBMOTOR1_PWM_LS_PIN_PORT_A\fP)"
+.br
+.ti -1c
+.RI "#define \fBMOTOR1_PASEL_MASK\fP   0x0595"
+.br
+.ti -1c
+.RI "#define \fBMOTOR1_PASEL_LS_MASK\fP   0x0015"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for 5223 device definition\&. 
+
+
+.PP
+Definition in file \fBdevice_5223\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ADC_IRQn   ADC_IRQn"
+
+.PP
+Definition at line 37 of file device_5223\&.h\&.
+.SS "#define FOC_PWM_Timer   \fBTimerA\fP"
+
+.PP
+Definition at line 34 of file device_5223\&.h\&.
+.SS "#define FOC_PWM_Timer_IRQn   \fBTimerA_IRQn\fP"
+
+.PP
+Definition at line 36 of file device_5223\&.h\&.
+.SS "#define FOC_PWM_Timer_Ptr   \fBPAC5XXX_TIMERA\fP"
+
+.PP
+Definition at line 35 of file device_5223\&.h\&.
+.SS "#define MOTOR1_PASEL_LS_MASK   0x0015"
+
+.PP
+Definition at line 47 of file device_5223\&.h\&.
+.SS "#define MOTOR1_PASEL_MASK   0x0595"
+
+.PP
+Definition at line 46 of file device_5223\&.h\&.
+.SS "#define MOTOR1_PWM_HS_PIN_PORT_A   0x38"
+
+.PP
+Definition at line 43 of file device_5223\&.h\&.
+.SS "#define MOTOR1_PWM_LS_PIN_PORT_A   0x07"
+
+.PP
+Definition at line 44 of file device_5223\&.h\&.
+.SS "#define MOTOR1_PWM_PIN_PORT_A   (\fBMOTOR1_PWM_HS_PIN_PORT_A\fP | \fBMOTOR1_PWM_LS_PIN_PORT_A\fP)"
+
+.PP
+Definition at line 45 of file device_5223\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

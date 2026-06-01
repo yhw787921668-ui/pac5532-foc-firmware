@@ -1,0 +1,63 @@
+.TH "NVIC_Type" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+NVIC_Type \- Structure type to access the Nested Vectored Interrupt Controller (NVIC)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <core_cm4\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBISER\fP [8]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED0\fP [24]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBICER\fP [8]"
+.br
+.ti -1c
+.RI "uint32_t \fBRSERVED1\fP [24]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBISPR\fP [8]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED2\fP [24]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBICPR\fP [8]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED3\fP [24]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBIABR\fP [8]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED4\fP [56]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBIP\fP [240]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED5\fP [644]"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBSTIR\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Structure type to access the Nested Vectored Interrupt Controller (NVIC)\&. 
+.PP
+Definition at line 321 of file core_cm4\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

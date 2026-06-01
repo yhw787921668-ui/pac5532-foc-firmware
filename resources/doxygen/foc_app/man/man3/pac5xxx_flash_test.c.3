@@ -1,0 +1,239 @@
+.TH "pac_foc/src/features/flash_crc_test/pac5xxx_flash_test.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/features/flash_crc_test/pac5xxx_flash_test.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'config_app\&.h'\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_system\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_memory\&.h'\fP
+.br
+\fC#include 'pac5xxx_flash_test\&.h'\fP
+.br
+\fC#include 'checksum\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBtest_flash_crc\fP (void)"
+.br
+.ti -1c
+.RI "int32_t \fBpac5xxx_flash_crc_test\fP (uint8_t *p_start_addr, uint32_t size_bytes, uint16_t checksum)"
+.br
+.RI "This function performs a test of the flash using a 16-bit CRC\&. "
+.ti -1c
+.RI "int32_t \fBpac5xxx_fast_flash_crc_test\fP (uint16_t *p_table, uint8_t *p_start_addr, uint32_t size_bytes, uint16_t checksum)"
+.br
+.RI "This function performs a fast flash test using a CRC Table\&. "
+.ti -1c
+.RI "void \fBmake_crc16_table\fP (uint16_t *p_crctable)"
+.br
+.RI "This function makes a 256 entry 16-bit CRC table on the fly in RAM\&. "
+.ti -1c
+.RI "int32_t \fBget_initial_sp_addr\fP (void)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int32_t get_initial_sp_addr (void)"
+
+.PP
+Definition at line 237 of file pac5xxx_flash_test\&.c\&.
+.PP
+.nf
+238 {
+239     return 0;
+240 }
+.fi
+.SS "void make_crc16_table (uint16_t * p_crctable)"
+
+.PP
+This function makes a 256 entry 16-bit CRC table on the fly in RAM\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIp_crctable\fP - pointer to the CRC table
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 215 of file pac5xxx_flash_test\&.c\&.
+.PP
+.nf
+216 {
+217     int32_t value;
+218     int32_t i;
+219     int32_t j;
+220 
+221     for(i=0; i < 256; i++)
+222     {
+223         value = i << 8;
+224 
+225         for(j=0; j < 8; j++)
+226         {
+227            if(value & (1 << 15))
+228                value = (value << 1)^0x1021;
+229            else
+230                value = value << 1;
+231         }
+232 
+233         p_crctable[i]= value;
+234     }
+235 }
+.fi
+.PP
+Referenced by test_flash_crc()\&.
+.SS "int32_t pac5xxx_fast_flash_crc_test (uint16_t * p_table, uint8_t * p_start_addr, uint32_t size_bytes, uint16_t checksum)"
+
+.PP
+This function performs a fast flash test using a CRC Table\&. 
+.PP
+.nf
+    The test computes a 16-bit CRC checksum over the contents of the
+    flash used by the application.  The CRC calculation makes use of
+    a 256 entry CRC table to speed up the calculation.  If the results
+    don't match the checksum parameter passed in, then a 1 is returned.
+
+.fi
+.PP
+.PP
+\fBParameters\fP
+.RS 4
+\fIp_table\fP - pointer to the CRC table 
+.br
+\fIp_start_addr\fP - starting address for the CRC calculation 
+.br
+\fIsize_bytes\fP - size in bytes of the flash to be tested 
+.br
+\fIchecksum\fP - CRC checksum to compare the test results against
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int32_t 0= pass; 1=fail 
+.RE
+.PP
+
+.PP
+Definition at line 101 of file pac5xxx_flash_test\&.c\&.
+.PP
+.nf
+102 {
+103     uint16_t sum = 0;
+104     
+105     sum = crc16_table_256(sum, p_start_addr, size_bytes, p_table);
+106 
+107     if (sum != checksum)
+108         return 1;
+109     else
+110         return 0;
+111 
+112 }
+.fi
+.PP
+References crc16_table_256()\&.
+.PP
+Referenced by test_flash_crc()\&.
+.SS "int32_t pac5xxx_flash_crc_test (uint8_t * p_start_addr, uint32_t size_bytes, uint16_t checksum)"
+
+.PP
+This function performs a test of the flash using a 16-bit CRC\&. 
+.PP
+.nf
+    The test computes a 16-bit CRC checksum over the contents of the
+    specified memory.  If the results don't match the
+    checksum parameter passed in, then a 1 is returned.
+
+.fi
+.PP
+.PP
+\fBParameters\fP
+.RS 4
+\fIp_start_addr\fP - starting address for the CRC calculation 
+.br
+\fIsize_bytes\fP - size in bytes of the flash to be tested 
+.br
+\fIchecksum\fP - CRC checksum to compare the test results against
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int32_t 0= pass; 1=fail 
+.RE
+.PP
+
+.PP
+Definition at line 64 of file pac5xxx_flash_test\&.c\&.
+.PP
+.nf
+65 {
+66     uint16_t sum=0;
+67     const uint32_t zero=0;
+68     
+69     //===== Calculate the CRC using the previous sum and the remainder of the bytes =====
+70     sum = crc16(sum, p_start_addr, size_bytes);    
+71 
+72     //===== Push 16 more bits through to get the final sum =====
+73     sum = crc16(sum, (uint8_t *)&zero, 2);
+74 
+75     //===== Verify the final CRC against the stored CRC =====
+76     if (sum != checksum)
+77         return 1;
+78     else
+79         return 0;
+80 
+81 }
+.fi
+.PP
+References crc16()\&.
+.SS "void test_flash_crc (void)"
+
+.PP
+Definition at line 23 of file pac5xxx_flash_test\&.c\&.
+.PP
+.nf
+24 {
+25     uint32_t ret;
+26 
+27 #ifdef FAMILY_55XX
+28     // Call flash test using HW CRC Module
+29     ret = pac5xxx_hw_flash_crc_test(  (uint8_t *) VECTOR_TABLE_ADDR,                                // Start Address
+30                                       (uint32_t) &__crc16_checksum - (uint32_t)VECTOR_TABLE_ADDR,   // Size in bytes
+31                                       __crc16_checksum);                                            // Expected CRC Value
+32 #else
+33     // Create 16-bit crc16 table in RAM at RAM Base Address, The memory will be reclaimed by the application
+34     // Note: The stack pointer should be at the top of RAM so there is no conflict
+35     make_crc16_table(RAM_BASE_ADDRESS_PTR);
+36 
+37     // Call fast flash test using generated RAM table
+38     ret = pac5xxx_fast_flash_crc_test(RAM_BASE_ADDRESS_PTR,                                         // Pointer to CRC Table
+39                                       (uint8_t *) VECTOR_TABLE_ADDR,                                // Start Address
+40                                       (uint32_t) &__crc16_checksum - (uint32_t)VECTOR_TABLE_ADDR,   // Size in bytes
+41                                       __crc16_checksum);                                            // Expected CRC Value
+42 #endif // FAMILY_55XX
+43 
+44     // Store the results of the Flash CRC Test so the application can handle the CRC Failure
+45     uart_scratch_write(ret);  // CRC Passed-ret=0; CRC Failed-ret=1 (i\&.e\&. non zero)
+46 
+47 }
+.fi
+.PP
+References __crc16_checksum, make_crc16_table(), pac5xxx_fast_flash_crc_test(), and pac5xxx_hw_flash_crc_test()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

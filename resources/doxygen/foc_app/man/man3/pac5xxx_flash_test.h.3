@@ -1,0 +1,226 @@
+.TH "pac_foc/src/features/flash_crc_test/pac5xxx_flash_test.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/features/flash_crc_test/pac5xxx_flash_test.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'config_features\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBset_reset_flash_crc_test_results\fP (int32_t value)"
+.br
+.ti -1c
+.RI "int32_t \fBget_reset_flash_crc_test_results\fP (void)"
+.br
+.ti -1c
+.RI "int32_t \fBpac5xxx_flash_crc_test\fP (uint8_t *p_start_addr, uint32_t size_bytes, uint16_t checksum)"
+.br
+.RI "This function performs a test of the flash using a 16-bit CRC\&. "
+.ti -1c
+.RI "int32_t \fBpac5xxx_fast_flash_crc_test\fP (uint16_t *p_table, uint8_t *p_start_addr, uint32_t size_bytes, uint16_t checksum)"
+.br
+.RI "This function performs a fast flash test using a CRC Table\&. "
+.ti -1c
+.RI "void \fBmake_crc16_table\fP (uint16_t *p_crctable)"
+.br
+.RI "This function makes a 256 entry 16-bit CRC table on the fly in RAM\&. "
+.ti -1c
+.RI "int32_t \fBpac5xxx_hw_flash_crc_test\fP (uint8_t *p_start_addr, uint32_t size_bytes, uint16_t checksum)"
+.br
+.ti -1c
+.RI "uint16_t \fBcrc16_hw\fP (uint16_t sum, uint8_t *p, uint32_t len)"
+.br
+.ti -1c
+.RI "int32_t \fBget_initial_sp_addr\fP (void)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "uint16_t \fB__crc16_checksum\fP"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "uint16_t crc16_hw (uint16_t sum, uint8_t * p, uint32_t len)"
+
+.SS "int32_t get_initial_sp_addr (void)"
+
+.PP
+Definition at line 237 of file pac5xxx_flash_test\&.c\&.
+.PP
+.nf
+238 {
+239     return 0;
+240 }
+.fi
+.SS "int32_t get_reset_flash_crc_test_results (void)"
+
+.SS "void make_crc16_table (uint16_t * p_crctable)"
+
+.PP
+This function makes a 256 entry 16-bit CRC table on the fly in RAM\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIp_crctable\fP - pointer to the CRC table
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 215 of file pac5xxx_flash_test\&.c\&.
+.PP
+.nf
+216 {
+217     int32_t value;
+218     int32_t i;
+219     int32_t j;
+220 
+221     for(i=0; i < 256; i++)
+222     {
+223         value = i << 8;
+224 
+225         for(j=0; j < 8; j++)
+226         {
+227            if(value & (1 << 15))
+228                value = (value << 1)^0x1021;
+229            else
+230                value = value << 1;
+231         }
+232 
+233         p_crctable[i]= value;
+234     }
+235 }
+.fi
+.PP
+Referenced by test_flash_crc()\&.
+.SS "int32_t pac5xxx_fast_flash_crc_test (uint16_t * p_table, uint8_t * p_start_addr, uint32_t size_bytes, uint16_t checksum)"
+
+.PP
+This function performs a fast flash test using a CRC Table\&. 
+.PP
+.nf
+    The test computes a 16-bit CRC checksum over the contents of the
+    flash used by the application.  The CRC calculation makes use of
+    a 256 entry CRC table to speed up the calculation.  If the results
+    don't match the checksum parameter passed in, then a 1 is returned.
+
+.fi
+.PP
+.PP
+\fBParameters\fP
+.RS 4
+\fIp_table\fP - pointer to the CRC table 
+.br
+\fIp_start_addr\fP - starting address for the CRC calculation 
+.br
+\fIsize_bytes\fP - size in bytes of the flash to be tested 
+.br
+\fIchecksum\fP - CRC checksum to compare the test results against
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int32_t 0= pass; 1=fail 
+.RE
+.PP
+
+.PP
+Definition at line 101 of file pac5xxx_flash_test\&.c\&.
+.PP
+.nf
+102 {
+103     uint16_t sum = 0;
+104     
+105     sum = crc16_table_256(sum, p_start_addr, size_bytes, p_table);
+106 
+107     if (sum != checksum)
+108         return 1;
+109     else
+110         return 0;
+111 
+112 }
+.fi
+.PP
+References crc16_table_256()\&.
+.PP
+Referenced by test_flash_crc()\&.
+.SS "int32_t pac5xxx_flash_crc_test (uint8_t * p_start_addr, uint32_t size_bytes, uint16_t checksum)"
+
+.PP
+This function performs a test of the flash using a 16-bit CRC\&. 
+.PP
+.nf
+    The test computes a 16-bit CRC checksum over the contents of the
+    specified memory.  If the results don't match the
+    checksum parameter passed in, then a 1 is returned.
+
+.fi
+.PP
+.PP
+\fBParameters\fP
+.RS 4
+\fIp_start_addr\fP - starting address for the CRC calculation 
+.br
+\fIsize_bytes\fP - size in bytes of the flash to be tested 
+.br
+\fIchecksum\fP - CRC checksum to compare the test results against
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int32_t 0= pass; 1=fail 
+.RE
+.PP
+
+.PP
+Definition at line 64 of file pac5xxx_flash_test\&.c\&.
+.PP
+.nf
+65 {
+66     uint16_t sum=0;
+67     const uint32_t zero=0;
+68     
+69     //===== Calculate the CRC using the previous sum and the remainder of the bytes =====
+70     sum = crc16(sum, p_start_addr, size_bytes);    
+71 
+72     //===== Push 16 more bits through to get the final sum =====
+73     sum = crc16(sum, (uint8_t *)&zero, 2);
+74 
+75     //===== Verify the final CRC against the stored CRC =====
+76     if (sum != checksum)
+77         return 1;
+78     else
+79         return 0;
+80 
+81 }
+.fi
+.PP
+References crc16()\&.
+.SS "int32_t pac5xxx_hw_flash_crc_test (uint8_t * p_start_addr, uint32_t size_bytes, uint16_t checksum)"
+
+.PP
+Referenced by test_flash_crc()\&.
+.SS "void set_reset_flash_crc_test_results (int32_t value)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "uint16_t __crc16_checksum\fC [extern]\fP"
+
+.PP
+Referenced by test_flash_crc()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

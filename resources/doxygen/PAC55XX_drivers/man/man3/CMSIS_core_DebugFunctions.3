@@ -1,0 +1,1691 @@
+.TH "CMSIS_core_DebugFunctions" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CMSIS_core_DebugFunctions \- ITM Functions
+.PP
+ \- Functions that access the ITM debug interface\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBAPSR_Type::_reserved0\fP:16"
+.br
+.ti -1c
+.RI "uint32_t \fBAPSR_Type::GE\fP:4"
+.br
+.ti -1c
+.RI "uint32_t \fBAPSR_Type::_reserved1\fP:7"
+.br
+.ti -1c
+.RI "uint32_t \fBAPSR_Type::Q\fP:1"
+.br
+.ti -1c
+.RI "uint32_t \fBAPSR_Type::V\fP:1"
+.br
+.ti -1c
+.RI "uint32_t \fBAPSR_Type::C\fP:1"
+.br
+.ti -1c
+.RI "uint32_t \fBAPSR_Type::Z\fP:1"
+.br
+.ti -1c
+.RI "uint32_t \fBAPSR_Type::N\fP:1"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint32_t \fBAPSR_Type::_reserved0\fP:16"
+.br
+.ti -1c
+.RI "   uint32_t \fBAPSR_Type::GE\fP:4"
+.br
+.ti -1c
+.RI "   uint32_t \fBAPSR_Type::_reserved1\fP:7"
+.br
+.ti -1c
+.RI "   uint32_t \fBAPSR_Type::Q\fP:1"
+.br
+.ti -1c
+.RI "   uint32_t \fBAPSR_Type::V\fP:1"
+.br
+.ti -1c
+.RI "   uint32_t \fBAPSR_Type::C\fP:1"
+.br
+.ti -1c
+.RI "   uint32_t \fBAPSR_Type::Z\fP:1"
+.br
+.ti -1c
+.RI "   uint32_t \fBAPSR_Type::N\fP:1"
+.br
+.ti -1c
+.RI "} \fBAPSR_Type::b\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBAPSR_Type::w\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBIPSR_Type::ISR\fP:9"
+.br
+.ti -1c
+.RI "uint32_t \fBIPSR_Type::_reserved0\fP:23"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint32_t \fBIPSR_Type::ISR\fP:9"
+.br
+.ti -1c
+.RI "   uint32_t \fBIPSR_Type::_reserved0\fP:23"
+.br
+.ti -1c
+.RI "} \fBIPSR_Type::b\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBIPSR_Type::w\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBxPSR_Type::ISR\fP:9"
+.br
+.ti -1c
+.RI "uint32_t \fBxPSR_Type::_reserved0\fP:7"
+.br
+.ti -1c
+.RI "uint32_t \fBxPSR_Type::GE\fP:4"
+.br
+.ti -1c
+.RI "uint32_t \fBxPSR_Type::_reserved1\fP:4"
+.br
+.ti -1c
+.RI "uint32_t \fBxPSR_Type::T\fP:1"
+.br
+.ti -1c
+.RI "uint32_t \fBxPSR_Type::IT\fP:2"
+.br
+.ti -1c
+.RI "uint32_t \fBxPSR_Type::Q\fP:1"
+.br
+.ti -1c
+.RI "uint32_t \fBxPSR_Type::V\fP:1"
+.br
+.ti -1c
+.RI "uint32_t \fBxPSR_Type::C\fP:1"
+.br
+.ti -1c
+.RI "uint32_t \fBxPSR_Type::Z\fP:1"
+.br
+.ti -1c
+.RI "uint32_t \fBxPSR_Type::N\fP:1"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::ISR\fP:9"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::_reserved0\fP:7"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::GE\fP:4"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::_reserved1\fP:4"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::T\fP:1"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::IT\fP:2"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::Q\fP:1"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::V\fP:1"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::C\fP:1"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::Z\fP:1"
+.br
+.ti -1c
+.RI "   uint32_t \fBxPSR_Type::N\fP:1"
+.br
+.ti -1c
+.RI "} \fBxPSR_Type::b\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBxPSR_Type::w\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBCONTROL_Type::nPRIV\fP:1"
+.br
+.ti -1c
+.RI "uint32_t \fBCONTROL_Type::SPSEL\fP:1"
+.br
+.ti -1c
+.RI "uint32_t \fBCONTROL_Type::FPCA\fP:1"
+.br
+.ti -1c
+.RI "uint32_t \fBCONTROL_Type::_reserved0\fP:29"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint32_t \fBCONTROL_Type::nPRIV\fP:1"
+.br
+.ti -1c
+.RI "   uint32_t \fBCONTROL_Type::SPSEL\fP:1"
+.br
+.ti -1c
+.RI "   uint32_t \fBCONTROL_Type::FPCA\fP:1"
+.br
+.ti -1c
+.RI "   uint32_t \fBCONTROL_Type::_reserved0\fP:29"
+.br
+.ti -1c
+.RI "} \fBCONTROL_Type::b\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBCONTROL_Type::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBNVIC_Type::ISER\fP [8]"
+.br
+.ti -1c
+.RI "uint32_t \fBNVIC_Type::RESERVED0\fP [24]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBNVIC_Type::ICER\fP [8]"
+.br
+.ti -1c
+.RI "uint32_t \fBNVIC_Type::RSERVED1\fP [24]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBNVIC_Type::ISPR\fP [8]"
+.br
+.ti -1c
+.RI "uint32_t \fBNVIC_Type::RESERVED2\fP [24]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBNVIC_Type::ICPR\fP [8]"
+.br
+.ti -1c
+.RI "uint32_t \fBNVIC_Type::RESERVED3\fP [24]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBNVIC_Type::IABR\fP [8]"
+.br
+.ti -1c
+.RI "uint32_t \fBNVIC_Type::RESERVED4\fP [56]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBNVIC_Type::IP\fP [240]"
+.br
+.ti -1c
+.RI "uint32_t \fBNVIC_Type::RESERVED5\fP [644]"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBNVIC_Type::STIR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSCB_Type::CPUID\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::ICSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::VTOR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::AIRCR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::SCR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::CCR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSCB_Type::SHP\fP [12]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::SHCSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::CFSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::HFSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::DFSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::MMFAR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::BFAR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::AFSR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSCB_Type::PFR\fP [2]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSCB_Type::DFR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSCB_Type::ADR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSCB_Type::MMFR\fP [4]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSCB_Type::ISAR\fP [5]"
+.br
+.ti -1c
+.RI "uint32_t \fBSCB_Type::RESERVED0\fP [5]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCB_Type::CPACR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBSCnSCB_Type::RESERVED0\fP [1]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSCnSCB_Type::ICTR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCnSCB_Type::ACTLR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSysTick_Type::CTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSysTick_Type::LOAD\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSysTick_Type::VAL\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBSysTick_Type::CALIB\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint8_t \fBITM_Type::u8\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint16_t \fBITM_Type::u16\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBITM_Type::u32\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint8_t \fBITM_Type::u8\fP"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint16_t \fBITM_Type::u16\fP"
+.br
+.ti -1c
+.RI "   \fB__O\fP uint32_t \fBITM_Type::u32\fP"
+.br
+.ti -1c
+.RI "} \fBITM_Type::PORT\fP [32]"
+.br
+.ti -1c
+.RI "uint32_t \fBITM_Type::RESERVED0\fP [864]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBITM_Type::TER\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBITM_Type::RESERVED1\fP [15]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBITM_Type::TPR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBITM_Type::RESERVED2\fP [15]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBITM_Type::TCR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBITM_Type::RESERVED3\fP [29]"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBITM_Type::IWR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBITM_Type::IRR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBITM_Type::IMCR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBITM_Type::RESERVED4\fP [43]"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBITM_Type::LAR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBITM_Type::LSR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBITM_Type::RESERVED5\fP [6]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBITM_Type::PID4\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBITM_Type::PID5\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBITM_Type::PID6\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBITM_Type::PID7\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBITM_Type::PID0\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBITM_Type::PID1\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBITM_Type::PID2\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBITM_Type::PID3\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBITM_Type::CID0\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBITM_Type::CID1\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBITM_Type::CID2\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBITM_Type::CID3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::CTRL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::CYCCNT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::CPICNT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::EXCCNT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::SLEEPCNT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::LSUCNT\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::FOLDCNT\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBDWT_Type::PCSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::COMP0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::MASK0\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::FUNCTION0\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBDWT_Type::RESERVED0\fP [1]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::COMP1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::MASK1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::FUNCTION1\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBDWT_Type::RESERVED1\fP [1]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::COMP2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::MASK2\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::FUNCTION2\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBDWT_Type::RESERVED2\fP [1]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::COMP3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::MASK3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDWT_Type::FUNCTION3\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTPI_Type::SSPSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTPI_Type::CSPSR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBTPI_Type::RESERVED0\fP [2]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTPI_Type::ACPR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBTPI_Type::RESERVED1\fP [55]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTPI_Type::SPPR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBTPI_Type::RESERVED2\fP [131]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBTPI_Type::FFSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTPI_Type::FFCR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBTPI_Type::FSCR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBTPI_Type::RESERVED3\fP [759]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBTPI_Type::TRIGGER\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBTPI_Type::FIFO0\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBTPI_Type::ITATBCTR2\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBTPI_Type::RESERVED4\fP [1]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBTPI_Type::ITATBCTR0\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBTPI_Type::FIFO1\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTPI_Type::ITCTRL\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBTPI_Type::RESERVED5\fP [39]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTPI_Type::CLAIMSET\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBTPI_Type::CLAIMCLR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBTPI_Type::RESERVED7\fP [8]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBTPI_Type::DEVID\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBTPI_Type::DEVTYPE\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCoreDebug_Type::DHCSR\fP"
+.br
+.ti -1c
+.RI "\fB__O\fP uint32_t \fBCoreDebug_Type::DCRSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCoreDebug_Type::DCRDR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCoreDebug_Type::DEMCR\fP"
+.br
+.in -1c
+.in +1c
+.ti -1c
+.RI "volatile int32_t \fBITM_RxBuffer\fP"
+.br
+.ti -1c
+.RI "__STATIC_INLINE uint32_t \fBITM_SendChar\fP (uint32_t ch)"
+.br
+.RI "ITM Send Character\&. "
+.ti -1c
+.RI "__STATIC_INLINE int32_t \fBITM_ReceiveChar\fP (void)"
+.br
+.RI "ITM Receive Character\&. "
+.ti -1c
+.RI "__STATIC_INLINE int32_t \fBITM_CheckChar\fP (void)"
+.br
+.RI "ITM Check Character\&. "
+.ti -1c
+.RI "#define \fBITM_RXBUFFER_EMPTY\fP   0x5AA55AA5"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Functions that access the ITM debug interface\&. 
+
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ITM_RXBUFFER_EMPTY   0x5AA55AA5"
+Value identifying \fBITM_RxBuffer\fP is ready for next character\&. 
+.PP
+Definition at line 1689 of file core_cm4\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "__STATIC_INLINE int32_t ITM_CheckChar (void)"
+
+.PP
+ITM Check Character\&. The function checks whether a character is pending for reading in the variable \fBITM_RxBuffer\fP\&.
+.PP
+\fBReturns\fP
+.RS 4
+0 No character available\&. 
+.PP
+1 Character available\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1740 of file core_cm4\&.h\&.
+.PP
+.nf
+1740                                              {
+1741 
+1742   if (ITM_RxBuffer == ITM_RXBUFFER_EMPTY) {
+1743     return (0);                                 /* no character available */
+1744   } else {
+1745     return (1);                                 /*    character available */
+1746   }
+1747 }
+.fi
+.PP
+References ITM_RxBuffer, and ITM_RXBUFFER_EMPTY\&.
+.SS "__STATIC_INLINE int32_t ITM_ReceiveChar (void)"
+
+.PP
+ITM Receive Character\&. The function inputs a character via the external variable \fBITM_RxBuffer\fP\&.
+.PP
+\fBReturns\fP
+.RS 4
+Received character\&. 
+.PP
+-1 No character pending\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1721 of file core_cm4\&.h\&.
+.PP
+.nf
+1721                                                {
+1722   int32_t ch = -1;                           /* no character available */
+1723 
+1724   if (ITM_RxBuffer != ITM_RXBUFFER_EMPTY) {
+1725     ch = ITM_RxBuffer;
+1726     ITM_RxBuffer = ITM_RXBUFFER_EMPTY;       /* ready for next character */
+1727   }
+1728 
+1729   return (ch);
+1730 }
+.fi
+.PP
+References ITM_RxBuffer, and ITM_RXBUFFER_EMPTY\&.
+.SS "__STATIC_INLINE uint32_t ITM_SendChar (uint32_t ch)"
+
+.PP
+ITM Send Character\&. The function transmits a character via the ITM channel 0, and 
+.PD 0
+
+.IP "\(bu" 2
+Just returns when no debugger is connected that has booked the output\&. 
+.IP "\(bu" 2
+Is blocking when a debugger is connected, but the previous character sent has not been transmitted\&.
+.PP
+\fBParameters\fP
+.RS 4
+\fIch\fP Character to transmit\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Character to transmit\&. 
+.RE
+.PP
+
+.PP
+Definition at line 1702 of file core_cm4\&.h\&.
+.PP
+.nf
+1703 {
+1704   if ((ITM->TCR & ITM_TCR_ITMENA_Msk)                  &&      /* ITM enabled */
+1705       (ITM->TER & (1UL << 0)        )                    )     /* ITM Port #0 enabled */
+1706   {
+1707     while (ITM->PORT[0]\&.u32 == 0);
+1708     ITM->PORT[0]\&.u8 = (uint8_t) ch;
+1709   }
+1710   return (ch);
+1711 }
+.fi
+.PP
+References ITM, and ITM_TCR_ITMENA_Msk\&.
+.SH "Variable Documentation"
+.PP 
+.SS "uint32_t APSR_Type::_reserved0"
+bit: 0\&.\&.15 Reserved 
+.br
+ 
+.PP
+Definition at line 243 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::_reserved0"
+bit: 0\&.\&.15 Reserved 
+.br
+ 
+.PP
+Definition at line 243 of file core_cm4\&.h\&.
+.SS "uint32_t IPSR_Type::_reserved0"
+bit: 9\&.\&.31 Reserved 
+.br
+ 
+.PP
+Definition at line 264 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::_reserved0"
+bit: 9\&.\&.31 Reserved 
+.br
+ 
+.PP
+Definition at line 264 of file core_cm4\&.h\&.
+.SS "uint32_t xPSR_Type::_reserved0"
+bit: 9\&.\&.15 Reserved 
+.br
+ 
+.PP
+Definition at line 280 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::_reserved0"
+bit: 9\&.\&.15 Reserved 
+.br
+ 
+.PP
+Definition at line 280 of file core_cm4\&.h\&.
+.SS "uint32_t CONTROL_Type::_reserved0"
+bit: 3\&.\&.31 Reserved 
+.br
+ 
+.PP
+Definition at line 305 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::_reserved0"
+bit: 3\&.\&.31 Reserved 
+.br
+ 
+.PP
+Definition at line 305 of file core_cm4\&.h\&.
+.SS "uint32_t APSR_Type::_reserved1"
+bit: 20\&.\&.26 Reserved 
+.br
+ 
+.PP
+Definition at line 245 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::_reserved1"
+bit: 20\&.\&.26 Reserved 
+.br
+ 
+.PP
+Definition at line 245 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::_reserved1"
+bit: 20\&.\&.23 Reserved 
+.br
+ 
+.PP
+Definition at line 282 of file core_cm4\&.h\&.
+.SS "uint32_t xPSR_Type::_reserved1"
+bit: 20\&.\&.23 Reserved 
+.br
+ 
+.PP
+Definition at line 282 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t TPI_Type::ACPR"
+Offset: 0x010 (R/W) Asynchronous Clock Prescaler Register 
+.PP
+Definition at line 909 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t SCnSCB_Type::ACTLR"
+Offset: 0x008 (R/W) Auxiliary Control Register 
+.br
+ 
+.PP
+Definition at line 574 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t SCB_Type::ADR"
+Offset: 0x04C (R/ ) Auxiliary Feature Register 
+.br
+ 
+.PP
+Definition at line 371 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t SCB_Type::AFSR"
+Offset: 0x03C (R/W) Auxiliary Fault Status Register 
+.br
+ 
+.PP
+Definition at line 368 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t SCB_Type::AIRCR"
+Offset: 0x00C (R/W) Application Interrupt and Reset Control Register 
+.br
+ 
+.PP
+Definition at line 358 of file core_cm4\&.h\&.
+.SS "struct { \&.\&.\&. }  APSR_Type::b"
+Structure used for bit access 
+.br
+ 
+.SS "struct { \&.\&.\&. }  IPSR_Type::b"
+Structure used for bit access 
+.br
+ 
+.SS "struct { \&.\&.\&. }  xPSR_Type::b"
+Structure used for bit access 
+.br
+ 
+.SS "struct { \&.\&.\&. }  CONTROL_Type::b"
+Structure used for bit access 
+.br
+ 
+.SS "\fB__IO\fP uint32_t SCB_Type::BFAR"
+Offset: 0x038 (R/W) BusFault Address Register 
+.br
+ 
+.PP
+Definition at line 367 of file core_cm4\&.h\&.
+.SS "uint32_t APSR_Type::C"
+bit: 29 Carry condition code flag 
+.br
+ 
+.PP
+Definition at line 249 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::C"
+bit: 29 Carry condition code flag 
+.br
+ 
+.PP
+Definition at line 249 of file core_cm4\&.h\&.
+.SS "uint32_t xPSR_Type::C"
+bit: 29 Carry condition code flag 
+.br
+ 
+.PP
+Definition at line 288 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::C"
+bit: 29 Carry condition code flag 
+.br
+ 
+.PP
+Definition at line 288 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t SysTick_Type::CALIB"
+Offset: 0x00C (R/ ) SysTick Calibration Register 
+.br
+ 
+.PP
+Definition at line 613 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t SCB_Type::CCR"
+Offset: 0x014 (R/W) Configuration Control Register 
+.br
+ 
+.PP
+Definition at line 360 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t SCB_Type::CFSR"
+Offset: 0x028 (R/W) Configurable Fault Status Register 
+.br
+ 
+.PP
+Definition at line 363 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t ITM_Type::CID0"
+Offset: 0xFF0 (R/ ) ITM Component Identification Register #0 
+.PP
+Definition at line 688 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t ITM_Type::CID1"
+Offset: 0xFF4 (R/ ) ITM Component Identification Register #1 
+.PP
+Definition at line 689 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t ITM_Type::CID2"
+Offset: 0xFF8 (R/ ) ITM Component Identification Register #2 
+.PP
+Definition at line 690 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t ITM_Type::CID3"
+Offset: 0xFFC (R/ ) ITM Component Identification Register #3 
+.PP
+Definition at line 691 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t TPI_Type::CLAIMCLR"
+Offset: 0xFA4 (R/W) Claim tag clear 
+.PP
+Definition at line 926 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t TPI_Type::CLAIMSET"
+Offset: 0xFA0 (R/W) Claim tag set 
+.PP
+Definition at line 925 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::COMP0"
+Offset: 0x020 (R/W) Comparator Register 0 
+.br
+ 
+.PP
+Definition at line 769 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::COMP1"
+Offset: 0x030 (R/W) Comparator Register 1 
+.br
+ 
+.PP
+Definition at line 773 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::COMP2"
+Offset: 0x040 (R/W) Comparator Register 2 
+.br
+ 
+.PP
+Definition at line 777 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::COMP3"
+Offset: 0x050 (R/W) Comparator Register 3 
+.br
+ 
+.PP
+Definition at line 781 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t SCB_Type::CPACR"
+Offset: 0x088 (R/W) Coprocessor Access Control Register 
+.br
+ 
+.PP
+Definition at line 375 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::CPICNT"
+Offset: 0x008 (R/W) CPI Count Register 
+.br
+ 
+.PP
+Definition at line 763 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t SCB_Type::CPUID"
+Offset: 0x000 (R/ ) CPUID Base Register 
+.br
+ 
+.PP
+Definition at line 355 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t TPI_Type::CSPSR"
+Offset: 0x004 (R/W) Current Parallel Port Size Register 
+.PP
+Definition at line 907 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t SysTick_Type::CTRL"
+Offset: 0x000 (R/W) SysTick Control and Status Register 
+.PP
+Definition at line 610 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::CTRL"
+Offset: 0x000 (R/W) Control Register 
+.br
+ 
+.PP
+Definition at line 761 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::CYCCNT"
+Offset: 0x004 (R/W) Cycle Count Register 
+.br
+ 
+.PP
+Definition at line 762 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t CoreDebug_Type::DCRDR"
+Offset: 0x008 (R/W) Debug Core Register Data Register 
+.br
+ 
+.PP
+Definition at line 1260 of file core_cm4\&.h\&.
+.SS "\fB__O\fP uint32_t CoreDebug_Type::DCRSR"
+Offset: 0x004 ( /W) Debug Core Register Selector Register 
+.br
+ 
+.PP
+Definition at line 1259 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t CoreDebug_Type::DEMCR"
+Offset: 0x00C (R/W) Debug Exception and Monitor Control Register 
+.PP
+Definition at line 1261 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t TPI_Type::DEVID"
+Offset: 0xFC8 (R/ ) TPIU_DEVID 
+.PP
+Definition at line 928 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t TPI_Type::DEVTYPE"
+Offset: 0xFCC (R/ ) TPIU_DEVTYPE 
+.PP
+Definition at line 929 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t SCB_Type::DFR"
+Offset: 0x048 (R/ ) Debug Feature Register 
+.br
+ 
+.PP
+Definition at line 370 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t SCB_Type::DFSR"
+Offset: 0x030 (R/W) Debug Fault Status Register 
+.br
+ 
+.PP
+Definition at line 365 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t CoreDebug_Type::DHCSR"
+Offset: 0x000 (R/W) Debug Halting Control and Status Register 
+.br
+ 
+.PP
+Definition at line 1258 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::EXCCNT"
+Offset: 0x00C (R/W) Exception Overhead Count Register 
+.br
+ 
+.PP
+Definition at line 764 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t TPI_Type::FFCR"
+Offset: 0x304 (R/W) Formatter and Flush Control Register 
+.PP
+Definition at line 914 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t TPI_Type::FFSR"
+Offset: 0x300 (R/ ) Formatter and Flush Status Register 
+.PP
+Definition at line 913 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t TPI_Type::FIFO0"
+Offset: 0xEEC (R/ ) Integration ETM Data 
+.PP
+Definition at line 918 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t TPI_Type::FIFO1"
+Offset: 0xEFC (R/ ) Integration ITM Data 
+.PP
+Definition at line 922 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::FOLDCNT"
+Offset: 0x018 (R/W) Folded-instruction Count Register 
+.br
+ 
+.PP
+Definition at line 767 of file core_cm4\&.h\&.
+.SS "uint32_t CONTROL_Type::FPCA"
+bit: 2 FP extension active flag 
+.br
+ 
+.PP
+Definition at line 304 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::FPCA"
+bit: 2 FP extension active flag 
+.br
+ 
+.PP
+Definition at line 304 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t TPI_Type::FSCR"
+Offset: 0x308 (R/ ) Formatter Synchronization Counter Register 
+.PP
+Definition at line 915 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::FUNCTION0"
+Offset: 0x028 (R/W) Function Register 0 
+.br
+ 
+.PP
+Definition at line 771 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::FUNCTION1"
+Offset: 0x038 (R/W) Function Register 1 
+.br
+ 
+.PP
+Definition at line 775 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::FUNCTION2"
+Offset: 0x048 (R/W) Function Register 2 
+.br
+ 
+.PP
+Definition at line 779 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::FUNCTION3"
+Offset: 0x058 (R/W) Function Register 3 
+.br
+ 
+.PP
+Definition at line 783 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::GE"
+bit: 16\&.\&.19 Greater than or Equal flags 
+.br
+ 
+.PP
+Definition at line 244 of file core_cm4\&.h\&.
+.SS "uint32_t APSR_Type::GE"
+bit: 16\&.\&.19 Greater than or Equal flags 
+.br
+ 
+.PP
+Definition at line 244 of file core_cm4\&.h\&.
+.SS "uint32_t xPSR_Type::GE"
+bit: 16\&.\&.19 Greater than or Equal flags 
+.br
+ 
+.PP
+Definition at line 281 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::GE"
+bit: 16\&.\&.19 Greater than or Equal flags 
+.br
+ 
+.PP
+Definition at line 281 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t SCB_Type::HFSR"
+Offset: 0x02C (R/W) HardFault Status Register 
+.br
+ 
+.PP
+Definition at line 364 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t NVIC_Type::IABR[8]"
+Offset: 0x200 (R/W) Interrupt Active bit Register 
+.br
+ 
+.PP
+Definition at line 331 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t NVIC_Type::ICER[8]"
+Offset: 0x080 (R/W) Interrupt Clear Enable Register 
+.br
+ 
+.PP
+Definition at line 325 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t NVIC_Type::ICPR[8]"
+Offset: 0x180 (R/W) Interrupt Clear Pending Register 
+.br
+ 
+.PP
+Definition at line 329 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t SCB_Type::ICSR"
+Offset: 0x004 (R/W) Interrupt Control and State Register 
+.br
+ 
+.PP
+Definition at line 356 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t SCnSCB_Type::ICTR"
+Offset: 0x004 (R/ ) Interrupt Controller Type Register 
+.br
+ 
+.PP
+Definition at line 573 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t ITM_Type::IMCR"
+Offset: 0xF00 (R/W) ITM Integration Mode Control Register 
+.br
+ 
+.PP
+Definition at line 675 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint8_t NVIC_Type::IP[240]"
+Offset: 0x300 (R/W) Interrupt Priority Register (8Bit wide) 
+.PP
+Definition at line 333 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t ITM_Type::IRR"
+Offset: 0xEFC (R/ ) ITM Integration Read Register 
+.br
+ 
+.PP
+Definition at line 674 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t SCB_Type::ISAR[5]"
+Offset: 0x060 (R/ ) Instruction Set Attributes Register 
+.br
+ 
+.PP
+Definition at line 373 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t NVIC_Type::ISER[8]"
+Offset: 0x000 (R/W) Interrupt Set Enable Register 
+.br
+ 
+.PP
+Definition at line 323 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t NVIC_Type::ISPR[8]"
+Offset: 0x100 (R/W) Interrupt Set Pending Register 
+.br
+ 
+.PP
+Definition at line 327 of file core_cm4\&.h\&.
+.SS "uint32_t IPSR_Type::ISR"
+bit: 0\&.\&. 8 Exception number 
+.br
+ 
+.PP
+Definition at line 263 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::ISR"
+bit: 0\&.\&. 8 Exception number 
+.br
+ 
+.PP
+Definition at line 263 of file core_cm4\&.h\&.
+.SS "uint32_t xPSR_Type::ISR"
+bit: 0\&.\&. 8 Exception number 
+.br
+ 
+.PP
+Definition at line 276 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::ISR"
+bit: 0\&.\&. 8 Exception number 
+.br
+ 
+.PP
+Definition at line 276 of file core_cm4\&.h\&.
+.SS "uint32_t xPSR_Type::IT"
+bit: 25\&.\&.26 saved IT state (read 0) 
+.br
+ 
+.PP
+Definition at line 285 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::IT"
+bit: 25\&.\&.26 saved IT state (read 0) 
+.br
+ 
+.PP
+Definition at line 285 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t TPI_Type::ITATBCTR0"
+Offset: 0xEF8 (R/ ) ITATBCTR0 
+.PP
+Definition at line 921 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t TPI_Type::ITATBCTR2"
+Offset: 0xEF0 (R/ ) ITATBCTR2 
+.PP
+Definition at line 919 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t TPI_Type::ITCTRL"
+Offset: 0xF00 (R/W) Integration Mode Control 
+.PP
+Definition at line 923 of file core_cm4\&.h\&.
+.SS "volatile int32_t ITM_RxBuffer\fC [extern]\fP"
+External variable to receive characters\&. 
+.br
+ 
+.PP
+Referenced by ITM_CheckChar(), and ITM_ReceiveChar()\&.
+.SS "\fB__O\fP uint32_t ITM_Type::IWR"
+Offset: 0xEF8 ( /W) ITM Integration Write Register 
+.br
+ 
+.PP
+Definition at line 673 of file core_cm4\&.h\&.
+.SS "\fB__O\fP uint32_t ITM_Type::LAR"
+Offset: 0xFB0 ( /W) ITM Lock Access Register 
+.br
+ 
+.PP
+Definition at line 677 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t SysTick_Type::LOAD"
+Offset: 0x004 (R/W) SysTick Reload Value Register 
+.br
+ 
+.PP
+Definition at line 611 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t ITM_Type::LSR"
+Offset: 0xFB4 (R/ ) ITM Lock Status Register 
+.br
+ 
+.PP
+Definition at line 678 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::LSUCNT"
+Offset: 0x014 (R/W) LSU Count Register 
+.br
+ 
+.PP
+Definition at line 766 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::MASK0"
+Offset: 0x024 (R/W) Mask Register 0 
+.br
+ 
+.PP
+Definition at line 770 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::MASK1"
+Offset: 0x034 (R/W) Mask Register 1 
+.br
+ 
+.PP
+Definition at line 774 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::MASK2"
+Offset: 0x044 (R/W) Mask Register 2 
+.br
+ 
+.PP
+Definition at line 778 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::MASK3"
+Offset: 0x054 (R/W) Mask Register 3 
+.br
+ 
+.PP
+Definition at line 782 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t SCB_Type::MMFAR"
+Offset: 0x034 (R/W) MemManage Fault Address Register 
+.br
+ 
+.PP
+Definition at line 366 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t SCB_Type::MMFR[4]"
+Offset: 0x050 (R/ ) Memory Model Feature Register 
+.br
+ 
+.PP
+Definition at line 372 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::N"
+bit: 31 Negative condition code flag 
+.br
+ 
+.PP
+Definition at line 251 of file core_cm4\&.h\&.
+.SS "uint32_t APSR_Type::N"
+bit: 31 Negative condition code flag 
+.br
+ 
+.PP
+Definition at line 251 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::N"
+bit: 31 Negative condition code flag 
+.br
+ 
+.PP
+Definition at line 290 of file core_cm4\&.h\&.
+.SS "uint32_t xPSR_Type::N"
+bit: 31 Negative condition code flag 
+.br
+ 
+.PP
+Definition at line 290 of file core_cm4\&.h\&.
+.SS "uint32_t CONTROL_Type::nPRIV"
+bit: 0 Execution privilege in Thread mode 
+.PP
+Definition at line 302 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::nPRIV"
+bit: 0 Execution privilege in Thread mode 
+.PP
+Definition at line 302 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t DWT_Type::PCSR"
+Offset: 0x01C (R/ ) Program Counter Sample Register 
+.br
+ 
+.PP
+Definition at line 768 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t SCB_Type::PFR[2]"
+Offset: 0x040 (R/ ) Processor Feature Register 
+.br
+ 
+.PP
+Definition at line 369 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t ITM_Type::PID0"
+Offset: 0xFE0 (R/ ) ITM Peripheral Identification Register #0 
+.PP
+Definition at line 684 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t ITM_Type::PID1"
+Offset: 0xFE4 (R/ ) ITM Peripheral Identification Register #1 
+.PP
+Definition at line 685 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t ITM_Type::PID2"
+Offset: 0xFE8 (R/ ) ITM Peripheral Identification Register #2 
+.PP
+Definition at line 686 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t ITM_Type::PID3"
+Offset: 0xFEC (R/ ) ITM Peripheral Identification Register #3 
+.PP
+Definition at line 687 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t ITM_Type::PID4"
+Offset: 0xFD0 (R/ ) ITM Peripheral Identification Register #4 
+.PP
+Definition at line 680 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t ITM_Type::PID5"
+Offset: 0xFD4 (R/ ) ITM Peripheral Identification Register #5 
+.PP
+Definition at line 681 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t ITM_Type::PID6"
+Offset: 0xFD8 (R/ ) ITM Peripheral Identification Register #6 
+.PP
+Definition at line 682 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t ITM_Type::PID7"
+Offset: 0xFDC (R/ ) ITM Peripheral Identification Register #7 
+.PP
+Definition at line 683 of file core_cm4\&.h\&.
+.SS "__O { \&.\&.\&. }  ITM_Type::PORT[32]"
+Offset: 0x000 ( /W) ITM Stimulus Port Registers 
+.br
+ 
+.SS "uint32_t { \&.\&.\&. } ::Q"
+bit: 27 Saturation condition flag 
+.br
+ 
+.PP
+Definition at line 247 of file core_cm4\&.h\&.
+.SS "uint32_t APSR_Type::Q"
+bit: 27 Saturation condition flag 
+.br
+ 
+.PP
+Definition at line 247 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::Q"
+bit: 27 Saturation condition flag 
+.br
+ 
+.PP
+Definition at line 286 of file core_cm4\&.h\&.
+.SS "uint32_t xPSR_Type::Q"
+bit: 27 Saturation condition flag 
+.br
+ 
+.PP
+Definition at line 286 of file core_cm4\&.h\&.
+.SS "uint32_t SCnSCB_Type::RESERVED0[1]"
+
+.PP
+Definition at line 572 of file core_cm4\&.h\&.
+.SS "uint32_t DWT_Type::RESERVED0[1]"
+
+.PP
+Definition at line 772 of file core_cm4\&.h\&.
+.SS "uint32_t NVIC_Type::RESERVED0[24]"
+
+.PP
+Definition at line 324 of file core_cm4\&.h\&.
+.SS "uint32_t TPI_Type::RESERVED0[2]"
+
+.PP
+Definition at line 908 of file core_cm4\&.h\&.
+.SS "uint32_t SCB_Type::RESERVED0[5]"
+
+.PP
+Definition at line 374 of file core_cm4\&.h\&.
+.SS "uint32_t ITM_Type::RESERVED0[864]"
+
+.PP
+Definition at line 666 of file core_cm4\&.h\&.
+.SS "uint32_t ITM_Type::RESERVED1[15]"
+
+.PP
+Definition at line 668 of file core_cm4\&.h\&.
+.SS "uint32_t DWT_Type::RESERVED1[1]"
+
+.PP
+Definition at line 776 of file core_cm4\&.h\&.
+.SS "uint32_t TPI_Type::RESERVED1[55]"
+
+.PP
+Definition at line 910 of file core_cm4\&.h\&.
+.SS "uint32_t TPI_Type::RESERVED2[131]"
+
+.PP
+Definition at line 912 of file core_cm4\&.h\&.
+.SS "uint32_t ITM_Type::RESERVED2[15]"
+
+.PP
+Definition at line 670 of file core_cm4\&.h\&.
+.SS "uint32_t DWT_Type::RESERVED2[1]"
+
+.PP
+Definition at line 780 of file core_cm4\&.h\&.
+.SS "uint32_t NVIC_Type::RESERVED2[24]"
+
+.PP
+Definition at line 328 of file core_cm4\&.h\&.
+.SS "uint32_t NVIC_Type::RESERVED3[24]"
+
+.PP
+Definition at line 330 of file core_cm4\&.h\&.
+.SS "uint32_t ITM_Type::RESERVED3[29]"
+
+.PP
+Definition at line 672 of file core_cm4\&.h\&.
+.SS "uint32_t TPI_Type::RESERVED3[759]"
+
+.PP
+Definition at line 916 of file core_cm4\&.h\&.
+.SS "uint32_t TPI_Type::RESERVED4[1]"
+
+.PP
+Definition at line 920 of file core_cm4\&.h\&.
+.SS "uint32_t ITM_Type::RESERVED4[43]"
+
+.PP
+Definition at line 676 of file core_cm4\&.h\&.
+.SS "uint32_t NVIC_Type::RESERVED4[56]"
+
+.PP
+Definition at line 332 of file core_cm4\&.h\&.
+.SS "uint32_t TPI_Type::RESERVED5[39]"
+
+.PP
+Definition at line 924 of file core_cm4\&.h\&.
+.SS "uint32_t NVIC_Type::RESERVED5[644]"
+
+.PP
+Definition at line 334 of file core_cm4\&.h\&.
+.SS "uint32_t ITM_Type::RESERVED5[6]"
+
+.PP
+Definition at line 679 of file core_cm4\&.h\&.
+.SS "uint32_t TPI_Type::RESERVED7[8]"
+
+.PP
+Definition at line 927 of file core_cm4\&.h\&.
+.SS "uint32_t NVIC_Type::RSERVED1[24]"
+
+.PP
+Definition at line 326 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t SCB_Type::SCR"
+Offset: 0x010 (R/W) System Control Register 
+.br
+ 
+.PP
+Definition at line 359 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t SCB_Type::SHCSR"
+Offset: 0x024 (R/W) System Handler Control and State Register 
+.br
+ 
+.PP
+Definition at line 362 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint8_t SCB_Type::SHP[12]"
+Offset: 0x018 (R/W) System Handlers Priority Registers (4-7, 8-11, 12-15) 
+.PP
+Definition at line 361 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t DWT_Type::SLEEPCNT"
+Offset: 0x010 (R/W) Sleep Count Register 
+.br
+ 
+.PP
+Definition at line 765 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t TPI_Type::SPPR"
+Offset: 0x0F0 (R/W) Selected Pin Protocol Register 
+.PP
+Definition at line 911 of file core_cm4\&.h\&.
+.SS "uint32_t CONTROL_Type::SPSEL"
+bit: 1 Stack to be used 
+.br
+ 
+.PP
+Definition at line 303 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::SPSEL"
+bit: 1 Stack to be used 
+.br
+ 
+.PP
+Definition at line 303 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t TPI_Type::SSPSR"
+Offset: 0x000 (R/ ) Supported Parallel Port Size Register 
+.br
+ 
+.PP
+Definition at line 906 of file core_cm4\&.h\&.
+.SS "\fB__O\fP uint32_t NVIC_Type::STIR"
+Offset: 0xE00 ( /W) Software Trigger Interrupt Register 
+.br
+ 
+.PP
+Definition at line 335 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::T"
+bit: 24 Thumb bit (read 0) 
+.br
+ 
+.PP
+Definition at line 284 of file core_cm4\&.h\&.
+.SS "uint32_t xPSR_Type::T"
+bit: 24 Thumb bit (read 0) 
+.br
+ 
+.PP
+Definition at line 284 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t ITM_Type::TCR"
+Offset: 0xE80 (R/W) ITM Trace Control Register 
+.br
+ 
+.PP
+Definition at line 671 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t ITM_Type::TER"
+Offset: 0xE00 (R/W) ITM Trace Enable Register 
+.br
+ 
+.PP
+Definition at line 667 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t ITM_Type::TPR"
+Offset: 0xE40 (R/W) ITM Trace Privilege Register 
+.br
+ 
+.PP
+Definition at line 669 of file core_cm4\&.h\&.
+.SS "\fB__I\fP uint32_t TPI_Type::TRIGGER"
+Offset: 0xEE8 (R/ ) TRIGGER 
+.PP
+Definition at line 917 of file core_cm4\&.h\&.
+.SS "\fB__O\fP uint16_t ITM_Type::u16"
+Offset: 0x000 ( /W) ITM Stimulus Port 16-bit 
+.br
+ 
+.PP
+Definition at line 663 of file core_cm4\&.h\&.
+.SS "__O { \&.\&.\&. } ::u16"
+Offset: 0x000 ( /W) ITM Stimulus Port 16-bit 
+.br
+ 
+.PP
+Definition at line 663 of file core_cm4\&.h\&.
+.SS "\fB__O\fP uint32_t ITM_Type::u32"
+Offset: 0x000 ( /W) ITM Stimulus Port 32-bit 
+.br
+ 
+.PP
+Definition at line 664 of file core_cm4\&.h\&.
+.SS "__O { \&.\&.\&. } ::u32"
+Offset: 0x000 ( /W) ITM Stimulus Port 32-bit 
+.br
+ 
+.PP
+Definition at line 664 of file core_cm4\&.h\&.
+.SS "__O { \&.\&.\&. } ::u8"
+Offset: 0x000 ( /W) ITM Stimulus Port 8-bit 
+.br
+ 
+.PP
+Definition at line 662 of file core_cm4\&.h\&.
+.SS "\fB__O\fP uint8_t ITM_Type::u8"
+Offset: 0x000 ( /W) ITM Stimulus Port 8-bit 
+.br
+ 
+.PP
+Definition at line 662 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::V"
+bit: 28 Overflow condition code flag 
+.br
+ 
+.PP
+Definition at line 248 of file core_cm4\&.h\&.
+.SS "uint32_t APSR_Type::V"
+bit: 28 Overflow condition code flag 
+.br
+ 
+.PP
+Definition at line 248 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::V"
+bit: 28 Overflow condition code flag 
+.br
+ 
+.PP
+Definition at line 287 of file core_cm4\&.h\&.
+.SS "uint32_t xPSR_Type::V"
+bit: 28 Overflow condition code flag 
+.br
+ 
+.PP
+Definition at line 287 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t SysTick_Type::VAL"
+Offset: 0x008 (R/W) SysTick Current Value Register 
+.br
+ 
+.PP
+Definition at line 612 of file core_cm4\&.h\&.
+.SS "\fB__IO\fP uint32_t SCB_Type::VTOR"
+Offset: 0x008 (R/W) Vector Table Offset Register 
+.br
+ 
+.PP
+Definition at line 357 of file core_cm4\&.h\&.
+.SS "uint32_t APSR_Type::w"
+Type used for word access 
+.br
+ 
+.PP
+Definition at line 253 of file core_cm4\&.h\&.
+.SS "uint32_t IPSR_Type::w"
+Type used for word access 
+.br
+ 
+.PP
+Definition at line 266 of file core_cm4\&.h\&.
+.SS "uint32_t xPSR_Type::w"
+Type used for word access 
+.br
+ 
+.PP
+Definition at line 292 of file core_cm4\&.h\&.
+.SS "uint32_t CONTROL_Type::w"
+Type used for word access 
+.br
+ 
+.PP
+Definition at line 307 of file core_cm4\&.h\&.
+.SS "uint32_t APSR_Type::Z"
+bit: 30 Zero condition code flag 
+.br
+ 
+.PP
+Definition at line 250 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::Z"
+bit: 30 Zero condition code flag 
+.br
+ 
+.PP
+Definition at line 250 of file core_cm4\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::Z"
+bit: 30 Zero condition code flag 
+.br
+ 
+.PP
+Definition at line 289 of file core_cm4\&.h\&.
+.SS "uint32_t xPSR_Type::Z"
+bit: 30 Zero condition code flag 
+.br
+ 
+.PP
+Definition at line 289 of file core_cm4\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

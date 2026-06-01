@@ -1,0 +1,173 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/boot_keil/system_pac5xxx.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/boot_keil/system_pac5xxx.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'system_pac5xxx\&.h'\fP
+.br
+\fC#include 'pac5xxx\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCCSCTL\fP   (*((volatile unsigned long *) 0x400D0400))"
+.br
+.ti -1c
+.RI "#define \fBCCSPLLCTL\fP   (*((volatile unsigned long *) 0x400D0404))"
+.br
+.ti -1c
+.RI "#define \fB__SYS_CLKREF_CLK\fP   (4000000UL)"
+.br
+.ti -1c
+.RI "#define \fB__SYS_ROSC_CLK\fP   (16000000UL)"
+.br
+.ti -1c
+.RI "#define \fB__SYS_DEFAULT_CLK\fP   (\fB__SYS_ROSC_CLK\fP)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBSystemInit\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSystemCoreClockUpdate\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSystemExternalClockUpdate\fP (uint32_t external_clock_freq)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBSystemCoreClock\fP = \fB__SYS_DEFAULT_CLK\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBSystemExternalClock\fP = 0"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define __SYS_CLKREF_CLK   (4000000UL)"
+
+.PP
+Definition at line 23 of file system_pac5xxx\&.c\&.
+.SS "#define __SYS_DEFAULT_CLK   (\fB__SYS_ROSC_CLK\fP)"
+
+.PP
+Definition at line 25 of file system_pac5xxx\&.c\&.
+.SS "#define __SYS_ROSC_CLK   (16000000UL)"
+
+.PP
+Definition at line 24 of file system_pac5xxx\&.c\&.
+.SS "#define CCSCTL   (*((volatile unsigned long *) 0x400D0400))"
+
+.PP
+Definition at line 20 of file system_pac5xxx\&.c\&.
+.SS "#define CCSPLLCTL   (*((volatile unsigned long *) 0x400D0404))"
+
+.PP
+Definition at line 21 of file system_pac5xxx\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "void SystemCoreClockUpdate (void)"
+
+.PP
+Definition at line 41 of file system_pac5xxx\&.c\&.
+.PP
+.nf
+42 {
+43     uint32_t CCSCTL_reg = CCSCTL;
+44     uint32_t CCSPLLCTL_reg = CCSPLLCTL;
+45     
+46     uint32_t FRCLK_MUX_sel = (CCSCTL_reg & 0x00000003);
+47     uint32_t SCLK_MUX_sel = (CCSCTL_reg & 0x00000010) >> 4;
+48 
+49     uint32_t HCLK_div = ((CCSCTL_reg & 0x0F000000) >> 24) + 1;
+50     uint32_t PLL_FB_div = (CCSPLLCTL_reg & 0x003FFF00) >> 8;
+51     uint32_t PLL_IN_div = (CCSPLLCTL_reg & 0x000000F0) >> 4;
+52     uint32_t PLL_OUT_div = ((CCSPLLCTL_reg & 0x00000006) >> 2) + 1;
+53 
+54     uint32_t frclk_freq = 0;
+55     
+56     switch (FRCLK_MUX_sel)
+57     {
+58         case 0:     // ROSC
+59             frclk_freq = __SYS_ROSC_CLK;
+60             break;
+61         case 1:     // CLKREF
+62             frclk_freq = __SYS_CLKREF_CLK;
+63             break;
+64         case 2:     // XTALCLK
+65         case 3:     // EXTCLK
+66             frclk_freq = SystemExternalClock;
+67             break;
+68     }
+69 
+70     switch (SCLK_MUX_sel)
+71     {
+72         case 0:     // FRCLK
+73             SystemCoreClock = frclk_freq / HCLK_div;
+74             break;
+75         case 1:     // PLLCLK
+76             SystemCoreClock = frclk_freq * PLL_FB_div / PLL_OUT_div / PLL_IN_div / HCLK_div;
+77             break;
+78     }
+79 }
+.fi
+.PP
+References __SYS_CLKREF_CLK, __SYS_ROSC_CLK, CCSCTL, CCSPLLCTL, SystemCoreClock, and SystemExternalClock\&.
+.SS "void SystemExternalClockUpdate (uint32_t external_clock_freq)"
+
+.PP
+Definition at line 81 of file system_pac5xxx\&.c\&.
+.PP
+.nf
+82 {
+83     SystemExternalClock = external_clock_freq;
+84 }
+.fi
+.PP
+References SystemExternalClock\&.
+.SS "void SystemInit (void)"
+
+.PP
+Definition at line 30 of file system_pac5xxx\&.c\&.
+.PP
+.nf
+31 {
+32     SystemCoreClock = __SYS_DEFAULT_CLK;        // Default to ROSC on startup
+33 
+34 #if (__FPU_USED == 1)                           // Keil
+35     // enable FPU if available and used
+36     SCB->CPACR |= ( (3UL << 10*2)               // set CP10 Full Access
+37                   | (3UL << 11*2) );            // set CP11 Full Access
+38 #endif
+39 }
+.fi
+.PP
+References __SYS_DEFAULT_CLK, SCB, and SystemCoreClock\&.
+.SH "Variable Documentation"
+.PP 
+.SS "uint32_t SystemCoreClock = \fB__SYS_DEFAULT_CLK\fP"
+
+.PP
+Definition at line 27 of file system_pac5xxx\&.c\&.
+.PP
+Referenced by SystemCoreClockUpdate(), and SystemInit()\&.
+.SS "uint32_t SystemExternalClock = 0"
+
+.PP
+Definition at line 28 of file system_pac5xxx\&.c\&.
+.PP
+Referenced by SystemCoreClockUpdate(), and SystemExternalClockUpdate()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

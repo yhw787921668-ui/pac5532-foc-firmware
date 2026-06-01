@@ -1,0 +1,1235 @@
+\hypertarget{group___p_a_c5_x_x_x___tile___driver_manager}{}\doxysection{P\+A\+C5\+X\+XX Driver Manager Tile}
+\label{group___p_a_c5_x_x_x___tile___driver_manager}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{union_c_f_g_d_r_v0}{C\+F\+G\+D\+R\+V0}}
+\item 
+union \mbox{\hyperlink{union_c_f_g_d_r_v1}{C\+F\+G\+D\+R\+V1}}
+\item 
+union \mbox{\hyperlink{union_c_f_g_d_r_q6}{C\+F\+G\+D\+R\+Q6}}
+\item 
+union \mbox{\hyperlink{union_c_f_g_d_r_q7}{C\+F\+G\+D\+R\+Q7}}
+\item 
+union \mbox{\hyperlink{union_c_f_g_d_o_u_t_d_r_v}{C\+F\+G\+D\+O\+U\+T\+D\+RV}}
+\item 
+union \mbox{\hyperlink{union_d_i_n_d_r_v}{D\+I\+N\+D\+RV}}
+\item 
+union \mbox{\hyperlink{union_e_n_d_r_v}{E\+N\+D\+RV}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga2b299b47614ced2f8194d5c586470063}{Driver\+\_\+\+Manager\+\_\+\+Reg\+\_\+\+Addr}} \{ \newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063abc2ecaac502ade8c2359a2c176548168}{A\+D\+D\+R\+\_\+\+C\+F\+G\+D\+R\+V0}} = 0x60, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063aefadbbad3cf48d44e0a2c08d088c8715}{A\+D\+D\+R\+\_\+\+C\+F\+G\+D\+R\+V1}} = 0x61, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a93fa272a096f40ed2bf6e6dcf2a8a509}{A\+D\+D\+R\+\_\+\+C\+F\+G\+D\+R\+Q6}} = 0x62, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a6a74919eb60f68ebee11c29c7b40192e}{A\+D\+D\+R\+\_\+\+C\+F\+G\+D\+R\+Q7}} = 0x63, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a2d7fb28465376a71886c6e754ba80c1d}{A\+D\+D\+R\+\_\+\+D\+O\+U\+T\+D\+RV}} = 0x64, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063aed4875a9853d40afcdbd1158feaf7f00}{A\+D\+D\+R\+\_\+\+D\+I\+N\+D\+RV}} = 0x65, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a21669e2e420e33a549673f3c25c0302d}{A\+D\+D\+R\+\_\+\+E\+N\+D\+RV}} = 0x66, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a2c0dba7bfd052d19d9c9619fb26e5470}{A\+D\+D\+R\+\_\+\+P\+R\+O\+T\+C\+TL}} = 0x67
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga2fa05f62c0dd40073b65e26b8162a324}{P\+A\+C5\+X\+X\+X\+\_\+\+Prop\+Delay\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2fa05f62c0dd40073b65e26b8162a324a0ec9e8084d152a0f28e9675be9dccac3}{P\+A\+C5\+X\+X\+X\+\_\+\+P\+R\+O\+P\+\_\+\+D\+E\+L\+\_\+0ns}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2fa05f62c0dd40073b65e26b8162a324a53ba5e3c20cfcac11fdbb9967578725b}{P\+A\+C5\+X\+X\+X\+\_\+\+P\+R\+O\+P\+\_\+\+D\+E\+L\+\_\+50ns}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2fa05f62c0dd40073b65e26b8162a324a9722892c7e82704d8755c7dfd2358df7}{P\+A\+C5\+X\+X\+X\+\_\+\+P\+R\+O\+P\+\_\+\+D\+E\+L\+\_\+100ns}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2fa05f62c0dd40073b65e26b8162a324ad0477c7059df3c2c890afcd9de547100}{P\+A\+C5\+X\+X\+X\+\_\+\+P\+R\+O\+P\+\_\+\+D\+E\+L\+\_\+200ns}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga74e9cf9108748d33937aabb0af6cc9ae}{P\+A\+C5\+X\+X\+X\+\_\+\+Driver\+Option\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga74e9cf9108748d33937aabb0af6cc9aea55fd00fb6e95e6630c9a0543406aa329}{P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+O\+P\+T\+\_\+\+IN}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga74e9cf9108748d33937aabb0af6cc9aea1bd874322e6a191af6ab2074dad0adc7}{P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+O\+P\+T\+\_\+\+O\+D\+S\+T\+R\+O\+NG}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga74e9cf9108748d33937aabb0af6cc9aeae0f784cbab4c033e7ffdea00a16e35a2}{P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+O\+P\+T\+\_\+\+OD}} = 2
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga719f03fd0bd39a1db7627510c14e6426}{P\+A\+C5\+X\+X\+X\+\_\+\+Driver\+Polarity\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga719f03fd0bd39a1db7627510c14e6426ab31b34e5b1aae67179d4bf9b0d6c6291}{P\+A\+C5\+X\+X\+X\+\_\+\+P\+O\+L\+A\+R\+I\+T\+Y\+\_\+\+P\+A\+C5\+X\+X\+X\+H\+I\+GH}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga719f03fd0bd39a1db7627510c14e6426ab74040a403676002ad057a8afba69b1a}{P\+A\+C5\+X\+X\+X\+\_\+\+P\+O\+L\+A\+R\+I\+T\+Y\+\_\+\+P\+A\+C5\+X\+X\+X\+L\+OW}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga742f6327b09be68bb76c9616935fca81}{P\+A\+C5\+X\+X\+X\+\_\+\+Driver\+Mux\+\_\+\+Type}} \{ \newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81ab863ce14613b64b15ac1675f53b50d8f}{P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+M\+U\+X\+\_\+\+D\+R\+Qn\+IN}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81adc85271adb13f86f2b37dbf75f491558}{P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+M\+U\+X\+\_\+\+D\+B1}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81a921c9009e51fc20368216b0be333288f}{P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+M\+U\+X\+\_\+\+D\+B2}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81a06a787cf3faa604149bf017996e17b1f}{P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+M\+U\+X\+\_\+\+D\+B3}} = 3, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81a08d342ddccb2e5138345ea893801eda1}{P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+M\+U\+X\+\_\+\+D\+B4}} = 4, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81ac2f80e25f9b5826acdca08940f14a99b}{P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+M\+U\+X\+\_\+\+D\+B5}} = 5, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81a234421a9a288e853aa09aba119a4df90}{P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+M\+U\+X\+\_\+\+D\+B6}} = 6, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81ac1b8a9c5e70c28df89bea0d39027f718}{P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+M\+U\+X\+\_\+\+D\+B7}} = 7
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gaf62613fb45ec33a1b274cfce71c047ca}{C\+F\+G\+D\+R\+V0\+::b}}
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga0ca8d019c385d1525f4c0fe3db3c1e35}{C\+F\+G\+D\+R\+V0\+::\+P\+R\+O\+P0}}\+: 2
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga962bdcb52da14bcc5f6e34634b948f39}{C\+F\+G\+D\+R\+V0\+::\+P\+R\+O\+P1}}\+: 2
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga19836bb11725965ee4b7c10f9ab3cdd6}{C\+F\+G\+D\+R\+V0\+::\+P\+R\+O\+P2}}\+: 2
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gac36bd51747b990e042412f2017272f1c}{C\+F\+G\+D\+R\+V0\+::\+P\+R\+O\+P3}}\+: 2
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga0ca8d019c385d1525f4c0fe3db3c1e35}{CFGDRV0::PROP0}}: 2\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga962bdcb52da14bcc5f6e34634b948f39}{CFGDRV0::PROP1}}: 2\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga19836bb11725965ee4b7c10f9ab3cdd6}{CFGDRV0::PROP2}}: 2\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gac36bd51747b990e042412f2017272f1c}{CFGDRV0::PROP3}}: 2\\
+\}; \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga29d0ea1bf06e65bc9b2d010c3fca4400}{C\+F\+G\+D\+R\+V1\+::b}}
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gad7702e3c5e30402b6a9544fb69bc02a7}{C\+F\+G\+D\+R\+V1\+::\+P\+R\+O\+P4}}\+: 2
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga70a7d3388988c5016c63179424f111ce}{C\+F\+G\+D\+R\+V1\+::\+P\+R\+O\+P5}}\+: 2
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga8cdab5e7f83d64c938c73eca26a63756}{C\+F\+G\+D\+R\+V1\+::n\+L\+S\+P\+R2M}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gac507a56277c70114c0a1bd05c720c33b}{C\+F\+G\+D\+R\+V1\+::n\+L\+S\+P\+R1M}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga2c0ca3326c26f9262995d3de8db77217}{C\+F\+G\+D\+R\+V1\+::n\+H\+S\+P\+R2M}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga73a4e0c07cd2d5027ab80385d154127c}{C\+F\+G\+D\+R\+V1\+::n\+H\+S\+P\+R1M}}\+: 1
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gad7702e3c5e30402b6a9544fb69bc02a7}{CFGDRV1::PROP4}}: 2\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga70a7d3388988c5016c63179424f111ce}{CFGDRV1::PROP5}}: 2\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga8cdab5e7f83d64c938c73eca26a63756}{CFGDRV1::nLSPR2M}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gac507a56277c70114c0a1bd05c720c33b}{CFGDRV1::nLSPR1M}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga2c0ca3326c26f9262995d3de8db77217}{CFGDRV1::nHSPR2M}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga73a4e0c07cd2d5027ab80385d154127c}{CFGDRV1::nHSPR1M}}: 1\\
+\}; \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga9c21a202eb117ee0f7e4ece627f2759d}{C\+F\+G\+D\+R\+Q6\+::b}}
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga0e9b282fe227b90f2a3cf58b4039a326}{C\+F\+G\+D\+R\+Q6\+::\+M\+U\+X6}}\+: 3
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gac249f4c02b2449500b53fcc8200bdb20}{C\+F\+G\+D\+R\+Q6\+::\+P\+O\+L6}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gaf84a77cf30860b8dff7b39db8d405494}{C\+F\+G\+D\+R\+Q6\+::\+O\+P\+T6}}\+: 2
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga81749e48b25cd424d9089548abb2b4d5}{C\+F\+G\+D\+R\+Q6\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 2
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga0e9b282fe227b90f2a3cf58b4039a326}{CFGDRQ6::MUX6}}: 3\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gac249f4c02b2449500b53fcc8200bdb20}{CFGDRQ6::POL6}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gaf84a77cf30860b8dff7b39db8d405494}{CFGDRQ6::OPT6}}: 2\\
+\>uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga81749e48b25cd424d9089548abb2b4d5}{CFGDRQ6::\_\_pad0\_\_}}: 2\\
+\}; \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga34f41adb5ec2c281c7b93836eecf5aa6}{C\+F\+G\+D\+R\+Q7\+::b}}
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga85b8de02814a11c24de14791d17d174e}{C\+F\+G\+D\+R\+Q7\+::\+M\+U\+X7}}\+: 3
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga3c9c2d89bda5c4450f9c4688b9f5d7bd}{C\+F\+G\+D\+R\+Q7\+::\+P\+O\+L7}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga5357d2bf34b267f218fd47c2488f12d9}{C\+F\+G\+D\+R\+Q7\+::\+O\+P\+T7}}\+: 2
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gacdac4d8cdc7a4a59a18b0f44b05753e9}{C\+F\+G\+D\+R\+Q7\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 2
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga85b8de02814a11c24de14791d17d174e}{CFGDRQ7::MUX7}}: 3\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga3c9c2d89bda5c4450f9c4688b9f5d7bd}{CFGDRQ7::POL7}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga5357d2bf34b267f218fd47c2488f12d9}{CFGDRQ7::OPT7}}: 2\\
+\>uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gacdac4d8cdc7a4a59a18b0f44b05753e9}{CFGDRQ7::\_\_pad0\_\_}}: 2\\
+\}; \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga4e7fd368f886ffa5cba8f6131d6c20cd}{C\+F\+G\+D\+O\+U\+T\+D\+R\+V\+::b}}
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gaae6ef059f31c856cd144f2943824b323}{C\+F\+G\+D\+O\+U\+T\+D\+R\+V\+::\+D\+O\+U\+T\+S3}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga74f92b45335a236da9c42765e5ec1be7}{C\+F\+G\+D\+O\+U\+T\+D\+R\+V\+::\+D\+O\+U\+T\+B3}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga6cfd38eaba4d9ff90da7ebe2eb469373}{C\+F\+G\+D\+O\+U\+T\+D\+R\+V\+::\+D\+O\+U\+T\+S4}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga32ca0894864eda13f86be4cdb556234a}{C\+F\+G\+D\+O\+U\+T\+D\+R\+V\+::\+D\+O\+U\+T\+B4}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga70e5a997e2e300b44c31965b53fb7e2f}{C\+F\+G\+D\+O\+U\+T\+D\+R\+V\+::\+D\+O\+U\+T\+S5}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga96320de0301b23f45e1a15838c353375}{C\+F\+G\+D\+O\+U\+T\+D\+R\+V\+::\+D\+O\+U\+T\+B5}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gadaabf779f53e1e10643a42af3e5b7d25}{C\+F\+G\+D\+O\+U\+T\+D\+R\+V\+::\+D\+O\+U\+T\+Q6}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga1f14aa4c00cb5dce38504a5e6195c736}{C\+F\+G\+D\+O\+U\+T\+D\+R\+V\+::\+D\+O\+U\+T\+Q7}}\+: 1
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gaae6ef059f31c856cd144f2943824b323}{CFGDOUTDRV::DOUTS3}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga74f92b45335a236da9c42765e5ec1be7}{CFGDOUTDRV::DOUTB3}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga6cfd38eaba4d9ff90da7ebe2eb469373}{CFGDOUTDRV::DOUTS4}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga32ca0894864eda13f86be4cdb556234a}{CFGDOUTDRV::DOUTB4}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga70e5a997e2e300b44c31965b53fb7e2f}{CFGDOUTDRV::DOUTS5}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga96320de0301b23f45e1a15838c353375}{CFGDOUTDRV::DOUTB5}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gadaabf779f53e1e10643a42af3e5b7d25}{CFGDOUTDRV::DOUTQ6}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga1f14aa4c00cb5dce38504a5e6195c736}{CFGDOUTDRV::DOUTQ7}}: 1\\
+\}; \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gab8af08dabb85f344d623fc91a893a4c6}{D\+I\+N\+D\+R\+V\+::b}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga6b668c99e39247914e22584194b86580}{D\+I\+N\+D\+R\+V\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 6
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga473f6423e7564aa94f242d5ededd65fc}{D\+I\+N\+D\+R\+V\+::\+D\+I\+N\+Q6}}\+: 1
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gabcb8d3218e9ab59b973a50e8f67c9070}{D\+I\+N\+D\+R\+V\+::\+D\+I\+N\+Q7}}\+: 1
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga6b668c99e39247914e22584194b86580}{DINDRV::\_\_pad0\_\_}}: 6\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga473f6423e7564aa94f242d5ededd65fc}{DINDRV::DINQ6}}: 1\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gabcb8d3218e9ab59b973a50e8f67c9070}{DINDRV::DINQ7}}: 1\\
+\}; \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga23c05662167c6ad1ac80a9e465e2ff25}{E\+N\+D\+R\+V\+::b}}
+\item 
+\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gacf87672793a1cb8733b06ac5aa561414}{E\+N\+D\+R\+V\+::\+EN}}\+: 1
+\item 
+uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga23270bfb048de2042c42ecc9ed4ec5f2}{E\+N\+D\+R\+V\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 7
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gacf87672793a1cb8733b06ac5aa561414}{ENDRV::EN}}: 1\\
+\>uint8\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga23270bfb048de2042c42ecc9ed4ec5f2}{ENDRV::\_\_pad0\_\_}}: 7\\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga2b299b47614ced2f8194d5c586470063}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga2b299b47614ced2f8194d5c586470063}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!Driver\_Manager\_Reg\_Addr@{Driver\_Manager\_Reg\_Addr}}
+\index{Driver\_Manager\_Reg\_Addr@{Driver\_Manager\_Reg\_Addr}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{Driver\_Manager\_Reg\_Addr}{Driver\_Manager\_Reg\_Addr}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga2b299b47614ced2f8194d5c586470063}{Driver\+\_\+\+Manager\+\_\+\+Reg\+\_\+\+Addr}}}
+
+$<$ Driver Manager Register Addresses \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADDR\_CFGDRV0@{ADDR\_CFGDRV0}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!ADDR\_CFGDRV0@{ADDR\_CFGDRV0}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063abc2ecaac502ade8c2359a2c176548168}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063abc2ecaac502ade8c2359a2c176548168}} 
+A\+D\+D\+R\+\_\+\+C\+F\+G\+D\+R\+V0&Driver Manager Configuration 0 Register ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADDR\_CFGDRV1@{ADDR\_CFGDRV1}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!ADDR\_CFGDRV1@{ADDR\_CFGDRV1}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063aefadbbad3cf48d44e0a2c08d088c8715}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063aefadbbad3cf48d44e0a2c08d088c8715}} 
+A\+D\+D\+R\+\_\+\+C\+F\+G\+D\+R\+V1&Driver Manager Configuration 1 Register ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADDR\_CFGDRQ6@{ADDR\_CFGDRQ6}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!ADDR\_CFGDRQ6@{ADDR\_CFGDRQ6}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a93fa272a096f40ed2bf6e6dcf2a8a509}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a93fa272a096f40ed2bf6e6dcf2a8a509}} 
+A\+D\+D\+R\+\_\+\+C\+F\+G\+D\+R\+Q6&D\+R\+Q6 Configuration ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADDR\_CFGDRQ7@{ADDR\_CFGDRQ7}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!ADDR\_CFGDRQ7@{ADDR\_CFGDRQ7}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a6a74919eb60f68ebee11c29c7b40192e}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a6a74919eb60f68ebee11c29c7b40192e}} 
+A\+D\+D\+R\+\_\+\+C\+F\+G\+D\+R\+Q7&D\+R\+Q7 Configuration ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADDR\_DOUTDRV@{ADDR\_DOUTDRV}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!ADDR\_DOUTDRV@{ADDR\_DOUTDRV}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a2d7fb28465376a71886c6e754ba80c1d}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a2d7fb28465376a71886c6e754ba80c1d}} 
+A\+D\+D\+R\+\_\+\+D\+O\+U\+T\+D\+RV&Driver Manager Data output ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADDR\_DINDRV@{ADDR\_DINDRV}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!ADDR\_DINDRV@{ADDR\_DINDRV}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063aed4875a9853d40afcdbd1158feaf7f00}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063aed4875a9853d40afcdbd1158feaf7f00}} 
+A\+D\+D\+R\+\_\+\+D\+I\+N\+D\+RV&Driver Manager Data input ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADDR\_ENDRV@{ADDR\_ENDRV}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!ADDR\_ENDRV@{ADDR\_ENDRV}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a21669e2e420e33a549673f3c25c0302d}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a21669e2e420e33a549673f3c25c0302d}} 
+A\+D\+D\+R\+\_\+\+E\+N\+D\+RV&Enable Driver Manager Tile ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ADDR\_PROTCTL@{ADDR\_PROTCTL}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!ADDR\_PROTCTL@{ADDR\_PROTCTL}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a2c0dba7bfd052d19d9c9619fb26e5470}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a2c0dba7bfd052d19d9c9619fb26e5470}} 
+A\+D\+D\+R\+\_\+\+P\+R\+O\+T\+C\+TL&Over Current Protection Control Signal Register ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 69 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{69              \{}
+\DoxyCodeLine{70     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063abc2ecaac502ade8c2359a2c176548168}{ADDR\_CFGDRV0}} = 0x60,                    }
+\DoxyCodeLine{71     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063aefadbbad3cf48d44e0a2c08d088c8715}{ADDR\_CFGDRV1}} = 0x61,                    }
+\DoxyCodeLine{72     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a93fa272a096f40ed2bf6e6dcf2a8a509}{ADDR\_CFGDRQ6}} = 0x62,                    }
+\DoxyCodeLine{73     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a6a74919eb60f68ebee11c29c7b40192e}{ADDR\_CFGDRQ7}} = 0x63,                    }
+\DoxyCodeLine{74     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a2d7fb28465376a71886c6e754ba80c1d}{ADDR\_DOUTDRV}} = 0x64,                    }
+\DoxyCodeLine{75     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063aed4875a9853d40afcdbd1158feaf7f00}{ADDR\_DINDRV}} = 0x65,                     }
+\DoxyCodeLine{76     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a21669e2e420e33a549673f3c25c0302d}{ADDR\_ENDRV}} = 0x66,                      }
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#if defined(PAC5523) || defined(PAC5524)}}
+\DoxyCodeLine{78     ADDR\_ENBBM = 0x67,                      }
+\DoxyCodeLine{79     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a2c0dba7bfd052d19d9c9619fb26e5470}{ADDR\_PROTCTL}} = 0x68                     }
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{81     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2b299b47614ced2f8194d5c586470063a2c0dba7bfd052d19d9c9619fb26e5470}{ADDR\_PROTCTL}} = 0x67                     }
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{83 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga2b299b47614ced2f8194d5c586470063}{Driver\_Manager\_Reg\_Addr}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga742f6327b09be68bb76c9616935fca81}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga742f6327b09be68bb76c9616935fca81}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_DriverMux\_Type@{PAC5XXX\_DriverMux\_Type}}
+\index{PAC5XXX\_DriverMux\_Type@{PAC5XXX\_DriverMux\_Type}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PAC5XXX\_DriverMux\_Type}{PAC5XXX\_DriverMux\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga742f6327b09be68bb76c9616935fca81}{P\+A\+C5\+X\+X\+X\+\_\+\+Driver\+Mux\+\_\+\+Type}}}
+
+P\+A\+C5\+X\+XX Driver M\+UX Setting Type Enumeration \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAC5XXX\_DRVMUX\_DRQnIN@{PAC5XXX\_DRVMUX\_DRQnIN}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_DRVMUX\_DRQnIN@{PAC5XXX\_DRVMUX\_DRQnIN}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81ab863ce14613b64b15ac1675f53b50d8f}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81ab863ce14613b64b15ac1675f53b50d8f}} 
+P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+M\+U\+X\+\_\+\+D\+R\+Qn\+IN&Driver M\+UX Setting\+: D\+R\+Q$<$n$>$IN ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAC5XXX\_DRVMUX\_DB1@{PAC5XXX\_DRVMUX\_DB1}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_DRVMUX\_DB1@{PAC5XXX\_DRVMUX\_DB1}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81adc85271adb13f86f2b37dbf75f491558}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81adc85271adb13f86f2b37dbf75f491558}} 
+P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+M\+U\+X\+\_\+\+D\+B1&Driver M\+UX Setting\+: DB\mbox{[}1\mbox{]} ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAC5XXX\_DRVMUX\_DB2@{PAC5XXX\_DRVMUX\_DB2}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_DRVMUX\_DB2@{PAC5XXX\_DRVMUX\_DB2}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81a921c9009e51fc20368216b0be333288f}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81a921c9009e51fc20368216b0be333288f}} 
+P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+M\+U\+X\+\_\+\+D\+B2&Driver M\+UX Setting\+: DB\mbox{[}2\mbox{]} ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAC5XXX\_DRVMUX\_DB3@{PAC5XXX\_DRVMUX\_DB3}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_DRVMUX\_DB3@{PAC5XXX\_DRVMUX\_DB3}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81a06a787cf3faa604149bf017996e17b1f}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81a06a787cf3faa604149bf017996e17b1f}} 
+P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+M\+U\+X\+\_\+\+D\+B3&Driver M\+UX Setting\+: DB\mbox{[}3\mbox{]} ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAC5XXX\_DRVMUX\_DB4@{PAC5XXX\_DRVMUX\_DB4}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_DRVMUX\_DB4@{PAC5XXX\_DRVMUX\_DB4}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81a08d342ddccb2e5138345ea893801eda1}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81a08d342ddccb2e5138345ea893801eda1}} 
+P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+M\+U\+X\+\_\+\+D\+B4&Driver M\+UX Setting\+: DB\mbox{[}4\mbox{]} ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAC5XXX\_DRVMUX\_DB5@{PAC5XXX\_DRVMUX\_DB5}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_DRVMUX\_DB5@{PAC5XXX\_DRVMUX\_DB5}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81ac2f80e25f9b5826acdca08940f14a99b}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81ac2f80e25f9b5826acdca08940f14a99b}} 
+P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+M\+U\+X\+\_\+\+D\+B5&Driver M\+UX Setting\+: DB\mbox{[}5\mbox{]} ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAC5XXX\_DRVMUX\_DB6@{PAC5XXX\_DRVMUX\_DB6}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_DRVMUX\_DB6@{PAC5XXX\_DRVMUX\_DB6}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81a234421a9a288e853aa09aba119a4df90}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81a234421a9a288e853aa09aba119a4df90}} 
+P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+M\+U\+X\+\_\+\+D\+B6&Driver M\+UX Setting\+: DB\mbox{[}6\mbox{]} ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAC5XXX\_DRVMUX\_DB7@{PAC5XXX\_DRVMUX\_DB7}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_DRVMUX\_DB7@{PAC5XXX\_DRVMUX\_DB7}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81ac1b8a9c5e70c28df89bea0d39027f718}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81ac1b8a9c5e70c28df89bea0d39027f718}} 
+P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+M\+U\+X\+\_\+\+D\+B7&Driver M\+UX Setting\+: DB\mbox{[}7\mbox{]} ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 114 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{115 \{}
+\DoxyCodeLine{116     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81ab863ce14613b64b15ac1675f53b50d8f}{PAC5XXX\_DRVMUX\_DRQnIN}} = 0,              }
+\DoxyCodeLine{117     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81adc85271adb13f86f2b37dbf75f491558}{PAC5XXX\_DRVMUX\_DB1}} = 1,                 }
+\DoxyCodeLine{118     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81a921c9009e51fc20368216b0be333288f}{PAC5XXX\_DRVMUX\_DB2}} = 2,                 }
+\DoxyCodeLine{119     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81a06a787cf3faa604149bf017996e17b1f}{PAC5XXX\_DRVMUX\_DB3}} = 3,                 }
+\DoxyCodeLine{120     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81a08d342ddccb2e5138345ea893801eda1}{PAC5XXX\_DRVMUX\_DB4}} = 4,                 }
+\DoxyCodeLine{121     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81ac2f80e25f9b5826acdca08940f14a99b}{PAC5XXX\_DRVMUX\_DB5}} = 5,                 }
+\DoxyCodeLine{122     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81a234421a9a288e853aa09aba119a4df90}{PAC5XXX\_DRVMUX\_DB6}} = 6,                 }
+\DoxyCodeLine{123     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga742f6327b09be68bb76c9616935fca81ac1b8a9c5e70c28df89bea0d39027f718}{PAC5XXX\_DRVMUX\_DB7}} = 7                  }
+\DoxyCodeLine{124 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga742f6327b09be68bb76c9616935fca81}{PAC5XXX\_DriverMux\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga74e9cf9108748d33937aabb0af6cc9ae}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga74e9cf9108748d33937aabb0af6cc9ae}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_DriverOption\_Type@{PAC5XXX\_DriverOption\_Type}}
+\index{PAC5XXX\_DriverOption\_Type@{PAC5XXX\_DriverOption\_Type}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PAC5XXX\_DriverOption\_Type}{PAC5XXX\_DriverOption\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga74e9cf9108748d33937aabb0af6cc9ae}{P\+A\+C5\+X\+X\+X\+\_\+\+Driver\+Option\+\_\+\+Type}}}
+
+P\+A\+C5\+X\+XX Driver Option Setting Type Enumeration \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAC5XXX\_DRVOPT\_IN@{PAC5XXX\_DRVOPT\_IN}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_DRVOPT\_IN@{PAC5XXX\_DRVOPT\_IN}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga74e9cf9108748d33937aabb0af6cc9aea55fd00fb6e95e6630c9a0543406aa329}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga74e9cf9108748d33937aabb0af6cc9aea55fd00fb6e95e6630c9a0543406aa329}} 
+P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+O\+P\+T\+\_\+\+IN&Driver Option\+: Input ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAC5XXX\_DRVOPT\_ODSTRONG@{PAC5XXX\_DRVOPT\_ODSTRONG}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_DRVOPT\_ODSTRONG@{PAC5XXX\_DRVOPT\_ODSTRONG}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga74e9cf9108748d33937aabb0af6cc9aea1bd874322e6a191af6ab2074dad0adc7}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga74e9cf9108748d33937aabb0af6cc9aea1bd874322e6a191af6ab2074dad0adc7}} 
+P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+O\+P\+T\+\_\+\+O\+D\+S\+T\+R\+O\+NG&Driver Option\+: Open-\/\+Drain Strong Driver ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAC5XXX\_DRVOPT\_OD@{PAC5XXX\_DRVOPT\_OD}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_DRVOPT\_OD@{PAC5XXX\_DRVOPT\_OD}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga74e9cf9108748d33937aabb0af6cc9aeae0f784cbab4c033e7ffdea00a16e35a2}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga74e9cf9108748d33937aabb0af6cc9aeae0f784cbab4c033e7ffdea00a16e35a2}} 
+P\+A\+C5\+X\+X\+X\+\_\+\+D\+R\+V\+O\+P\+T\+\_\+\+OD&Driver Option\+: Open-\/\+Drain Output ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 99 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{100 \{}
+\DoxyCodeLine{101     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga74e9cf9108748d33937aabb0af6cc9aea55fd00fb6e95e6630c9a0543406aa329}{PAC5XXX\_DRVOPT\_IN}} = 0,                  }
+\DoxyCodeLine{102     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga74e9cf9108748d33937aabb0af6cc9aea1bd874322e6a191af6ab2074dad0adc7}{PAC5XXX\_DRVOPT\_ODSTRONG}} = 1,            }
+\DoxyCodeLine{103     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga74e9cf9108748d33937aabb0af6cc9aeae0f784cbab4c033e7ffdea00a16e35a2}{PAC5XXX\_DRVOPT\_OD}} = 2                   }
+\DoxyCodeLine{104 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga74e9cf9108748d33937aabb0af6cc9ae}{PAC5XXX\_DriverOption\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga719f03fd0bd39a1db7627510c14e6426}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga719f03fd0bd39a1db7627510c14e6426}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_DriverPolarity\_Type@{PAC5XXX\_DriverPolarity\_Type}}
+\index{PAC5XXX\_DriverPolarity\_Type@{PAC5XXX\_DriverPolarity\_Type}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PAC5XXX\_DriverPolarity\_Type}{PAC5XXX\_DriverPolarity\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga719f03fd0bd39a1db7627510c14e6426}{P\+A\+C5\+X\+X\+X\+\_\+\+Driver\+Polarity\+\_\+\+Type}}}
+
+P\+A\+C5\+X\+XX Driver Polarity Setting Type Enumeration \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAC5XXX\_POLARITY\_PAC5XXXHIGH@{PAC5XXX\_POLARITY\_PAC5XXXHIGH}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_POLARITY\_PAC5XXXHIGH@{PAC5XXX\_POLARITY\_PAC5XXXHIGH}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga719f03fd0bd39a1db7627510c14e6426ab31b34e5b1aae67179d4bf9b0d6c6291}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga719f03fd0bd39a1db7627510c14e6426ab31b34e5b1aae67179d4bf9b0d6c6291}} 
+P\+A\+C5\+X\+X\+X\+\_\+\+P\+O\+L\+A\+R\+I\+T\+Y\+\_\+\+P\+A\+C5\+X\+X\+X\+H\+I\+GH&Driver Polarity Setting\+: active high ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAC5XXX\_POLARITY\_PAC5XXXLOW@{PAC5XXX\_POLARITY\_PAC5XXXLOW}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_POLARITY\_PAC5XXXLOW@{PAC5XXX\_POLARITY\_PAC5XXXLOW}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga719f03fd0bd39a1db7627510c14e6426ab74040a403676002ad057a8afba69b1a}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga719f03fd0bd39a1db7627510c14e6426ab74040a403676002ad057a8afba69b1a}} 
+P\+A\+C5\+X\+X\+X\+\_\+\+P\+O\+L\+A\+R\+I\+T\+Y\+\_\+\+P\+A\+C5\+X\+X\+X\+L\+OW&Driver Polarity Setting\+: active low ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 107 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{108 \{}
+\DoxyCodeLine{109     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga719f03fd0bd39a1db7627510c14e6426ab31b34e5b1aae67179d4bf9b0d6c6291}{PAC5XXX\_POLARITY\_PAC5XXXHIGH}} = 0,       }
+\DoxyCodeLine{110     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga719f03fd0bd39a1db7627510c14e6426ab74040a403676002ad057a8afba69b1a}{PAC5XXX\_POLARITY\_PAC5XXXLOW}} = 1         }
+\DoxyCodeLine{111 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga719f03fd0bd39a1db7627510c14e6426}{PAC5XXX\_DriverPolarity\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga2fa05f62c0dd40073b65e26b8162a324}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga2fa05f62c0dd40073b65e26b8162a324}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_PropDelay\_Type@{PAC5XXX\_PropDelay\_Type}}
+\index{PAC5XXX\_PropDelay\_Type@{PAC5XXX\_PropDelay\_Type}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PAC5XXX\_PropDelay\_Type}{PAC5XXX\_PropDelay\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga2fa05f62c0dd40073b65e26b8162a324}{P\+A\+C5\+X\+X\+X\+\_\+\+Prop\+Delay\+\_\+\+Type}}}
+
+P\+A\+C5\+X\+XX Propogation Delay Type Enumeration \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAC5XXX\_PROP\_DEL\_0ns@{PAC5XXX\_PROP\_DEL\_0ns}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_PROP\_DEL\_0ns@{PAC5XXX\_PROP\_DEL\_0ns}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga2fa05f62c0dd40073b65e26b8162a324a0ec9e8084d152a0f28e9675be9dccac3}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga2fa05f62c0dd40073b65e26b8162a324a0ec9e8084d152a0f28e9675be9dccac3}} 
+P\+A\+C5\+X\+X\+X\+\_\+\+P\+R\+O\+P\+\_\+\+D\+E\+L\+\_\+0ns&Propagation Delay\+: 0ns ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAC5XXX\_PROP\_DEL\_50ns@{PAC5XXX\_PROP\_DEL\_50ns}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_PROP\_DEL\_50ns@{PAC5XXX\_PROP\_DEL\_50ns}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga2fa05f62c0dd40073b65e26b8162a324a53ba5e3c20cfcac11fdbb9967578725b}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga2fa05f62c0dd40073b65e26b8162a324a53ba5e3c20cfcac11fdbb9967578725b}} 
+P\+A\+C5\+X\+X\+X\+\_\+\+P\+R\+O\+P\+\_\+\+D\+E\+L\+\_\+50ns&Propagation Delay\+: 50ns ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAC5XXX\_PROP\_DEL\_100ns@{PAC5XXX\_PROP\_DEL\_100ns}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_PROP\_DEL\_100ns@{PAC5XXX\_PROP\_DEL\_100ns}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga2fa05f62c0dd40073b65e26b8162a324a9722892c7e82704d8755c7dfd2358df7}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga2fa05f62c0dd40073b65e26b8162a324a9722892c7e82704d8755c7dfd2358df7}} 
+P\+A\+C5\+X\+X\+X\+\_\+\+P\+R\+O\+P\+\_\+\+D\+E\+L\+\_\+100ns&Propagation Delay\+: 100ns ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PAC5XXX\_PROP\_DEL\_200ns@{PAC5XXX\_PROP\_DEL\_200ns}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PAC5XXX\_PROP\_DEL\_200ns@{PAC5XXX\_PROP\_DEL\_200ns}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gga2fa05f62c0dd40073b65e26b8162a324ad0477c7059df3c2c890afcd9de547100}\label{group___p_a_c5_x_x_x___tile___driver_manager_gga2fa05f62c0dd40073b65e26b8162a324ad0477c7059df3c2c890afcd9de547100}} 
+P\+A\+C5\+X\+X\+X\+\_\+\+P\+R\+O\+P\+\_\+\+D\+E\+L\+\_\+200ns&Propagation Delay\+: 200ns ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 90 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{91 \{}
+\DoxyCodeLine{92     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2fa05f62c0dd40073b65e26b8162a324a0ec9e8084d152a0f28e9675be9dccac3}{PAC5XXX\_PROP\_DEL\_0ns}} = 0,               }
+\DoxyCodeLine{93     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2fa05f62c0dd40073b65e26b8162a324a53ba5e3c20cfcac11fdbb9967578725b}{PAC5XXX\_PROP\_DEL\_50ns}} = 1,              }
+\DoxyCodeLine{94     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2fa05f62c0dd40073b65e26b8162a324a9722892c7e82704d8755c7dfd2358df7}{PAC5XXX\_PROP\_DEL\_100ns}} = 2,             }
+\DoxyCodeLine{95     \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_gga2fa05f62c0dd40073b65e26b8162a324ad0477c7059df3c2c890afcd9de547100}{PAC5XXX\_PROP\_DEL\_200ns}} = 3              }
+\DoxyCodeLine{96 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___driver_manager_ga2fa05f62c0dd40073b65e26b8162a324}{PAC5XXX\_PropDelay\_Type}};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gac9d2354c6bbfbd8c2461d783fec0d564}\label{group___p_a_c5_x_x_x___tile___driver_manager_gac9d2354c6bbfbd8c2461d783fec0d564}} 
+\doxysubsubsection{\texorpdfstring{"@1}{@1}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gad8ff7cef922f90b4e9e324238b4e60d7}\label{group___p_a_c5_x_x_x___tile___driver_manager_gad8ff7cef922f90b4e9e324238b4e60d7}} 
+\doxysubsubsection{\texorpdfstring{"@11}{@11}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gadc894811bf4e46e36fdea6b24fada440}\label{group___p_a_c5_x_x_x___tile___driver_manager_gadc894811bf4e46e36fdea6b24fada440}} 
+\doxysubsubsection{\texorpdfstring{"@13}{@13}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga38a316d60285f10b439b8c8661ffca56}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga38a316d60285f10b439b8c8661ffca56}} 
+\doxysubsubsection{\texorpdfstring{"@3}{@3}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga09d58fa9d4bb2c925554ab77ddc9bbb4}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga09d58fa9d4bb2c925554ab77ddc9bbb4}} 
+\doxysubsubsection{\texorpdfstring{"@5}{@5}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga056810817b4cd14fbaaf265f974c8383}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga056810817b4cd14fbaaf265f974c8383}} 
+\doxysubsubsection{\texorpdfstring{"@7}{@7}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga3c0f35099e93573bc998cdfed4ea4ff1}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga3c0f35099e93573bc998cdfed4ea4ff1}} 
+\doxysubsubsection{\texorpdfstring{"@9}{@9}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga81749e48b25cd424d9089548abb2b4d5}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga81749e48b25cd424d9089548abb2b4d5}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [1/8]}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+F\+G\+D\+R\+Q6\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 167 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga8a82382b3f34acd0156d3523a9e56a8f}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga8a82382b3f34acd0156d3523a9e56a8f}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [2/8]}}
+{\footnotesize\ttfamily uint8\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 167 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga2d77dbd517fa52a36db65ed8b74c4fb2}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga2d77dbd517fa52a36db65ed8b74c4fb2}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [3/8]}}
+{\footnotesize\ttfamily uint8\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 179 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gacdac4d8cdc7a4a59a18b0f44b05753e9}\label{group___p_a_c5_x_x_x___tile___driver_manager_gacdac4d8cdc7a4a59a18b0f44b05753e9}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [4/8]}}
+{\footnotesize\ttfamily uint8\+\_\+t C\+F\+G\+D\+R\+Q7\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 179 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga6b668c99e39247914e22584194b86580}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga6b668c99e39247914e22584194b86580}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [5/8]}}
+{\footnotesize\ttfamily uint8\+\_\+t D\+I\+N\+D\+R\+V\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 204 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga1f802afc1343cc4da0b24bef942eb449}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga1f802afc1343cc4da0b24bef942eb449}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [6/8]}}
+{\footnotesize\ttfamily uint8\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 204 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gac868eaba6e9c5237a80a0e2852261f07}\label{group___p_a_c5_x_x_x___tile___driver_manager_gac868eaba6e9c5237a80a0e2852261f07}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [7/8]}}
+{\footnotesize\ttfamily uint8\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 216 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga23270bfb048de2042c42ecc9ed4ec5f2}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga23270bfb048de2042c42ecc9ed4ec5f2}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [8/8]}}
+{\footnotesize\ttfamily uint8\+\_\+t E\+N\+D\+R\+V\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 216 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gaf62613fb45ec33a1b274cfce71c047ca}\label{group___p_a_c5_x_x_x___tile___driver_manager_gaf62613fb45ec33a1b274cfce71c047ca}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!b@{b}}
+\index{b@{b}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+V0\+::b}
+
+
+
+Definition at line 136 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga29d0ea1bf06e65bc9b2d010c3fca4400}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga29d0ea1bf06e65bc9b2d010c3fca4400}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!b@{b}}
+\index{b@{b}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+V1\+::b}
+
+
+
+Definition at line 148 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga9c21a202eb117ee0f7e4ece627f2759d}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga9c21a202eb117ee0f7e4ece627f2759d}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!b@{b}}
+\index{b@{b}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+Q6\+::b}
+
+
+
+Definition at line 162 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga34f41adb5ec2c281c7b93836eecf5aa6}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga34f41adb5ec2c281c7b93836eecf5aa6}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!b@{b}}
+\index{b@{b}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+Q7\+::b}
+
+
+
+Definition at line 174 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga4e7fd368f886ffa5cba8f6131d6c20cd}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga4e7fd368f886ffa5cba8f6131d6c20cd}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!b@{b}}
+\index{b@{b}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+O\+U\+T\+D\+R\+V\+::b}
+
+
+
+Definition at line 186 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gab8af08dabb85f344d623fc91a893a4c6}\label{group___p_a_c5_x_x_x___tile___driver_manager_gab8af08dabb85f344d623fc91a893a4c6}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!b@{b}}
+\index{b@{b}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t D\+I\+N\+D\+R\+V\+::b}
+
+
+
+Definition at line 202 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga23c05662167c6ad1ac80a9e465e2ff25}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga23c05662167c6ad1ac80a9e465e2ff25}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!b@{b}}
+\index{b@{b}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t E\+N\+D\+R\+V\+::b}
+
+
+
+Definition at line 213 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga473f6423e7564aa94f242d5ededd65fc}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga473f6423e7564aa94f242d5ededd65fc}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DINQ6@{DINQ6}}
+\index{DINQ6@{DINQ6}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DINQ6}{DINQ6}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t D\+I\+N\+D\+R\+V\+::\+D\+I\+N\+Q6}
+
+Input data from D\+R\+Q7 in input mode ~\newline
+ 
+
+Definition at line 205 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga41d4860013db5129a64462fe20d3fc27}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga41d4860013db5129a64462fe20d3fc27}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DINQ6@{DINQ6}}
+\index{DINQ6@{DINQ6}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DINQ6}{DINQ6}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::D\+I\+N\+Q6}
+
+Input data from D\+R\+Q7 in input mode ~\newline
+ 
+
+Definition at line 205 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gabcb8d3218e9ab59b973a50e8f67c9070}\label{group___p_a_c5_x_x_x___tile___driver_manager_gabcb8d3218e9ab59b973a50e8f67c9070}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DINQ7@{DINQ7}}
+\index{DINQ7@{DINQ7}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DINQ7}{DINQ7}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t D\+I\+N\+D\+R\+V\+::\+D\+I\+N\+Q7}
+
+Input data from D\+R\+Q6 in input mode ~\newline
+ 
+
+Definition at line 206 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga2663369c8b0a4b330f01a43b208dc71e}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga2663369c8b0a4b330f01a43b208dc71e}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DINQ7@{DINQ7}}
+\index{DINQ7@{DINQ7}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DINQ7}{DINQ7}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::D\+I\+N\+Q7}
+
+Input data from D\+R\+Q6 in input mode ~\newline
+ 
+
+Definition at line 206 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga74f92b45335a236da9c42765e5ec1be7}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga74f92b45335a236da9c42765e5ec1be7}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DOUTB3@{DOUTB3}}
+\index{DOUTB3@{DOUTB3}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DOUTB3}{DOUTB3}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+O\+U\+T\+D\+R\+V\+::\+D\+O\+U\+T\+B3}
+
+Output data for D\+R\+B3 open-\/drain driver ~\newline
+ 
+
+Definition at line 189 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga243814cf43a5e82b50a034aeba9afa5f}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga243814cf43a5e82b50a034aeba9afa5f}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DOUTB3@{DOUTB3}}
+\index{DOUTB3@{DOUTB3}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DOUTB3}{DOUTB3}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::D\+O\+U\+T\+B3}
+
+Output data for D\+R\+B3 open-\/drain driver ~\newline
+ 
+
+Definition at line 189 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga32ca0894864eda13f86be4cdb556234a}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga32ca0894864eda13f86be4cdb556234a}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DOUTB4@{DOUTB4}}
+\index{DOUTB4@{DOUTB4}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DOUTB4}{DOUTB4}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+O\+U\+T\+D\+R\+V\+::\+D\+O\+U\+T\+B4}
+
+Output data for D\+R\+B4 open-\/drain driver ~\newline
+ 
+
+Definition at line 191 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gad7ada2e001b7e84819b0d40439b4a967}\label{group___p_a_c5_x_x_x___tile___driver_manager_gad7ada2e001b7e84819b0d40439b4a967}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DOUTB4@{DOUTB4}}
+\index{DOUTB4@{DOUTB4}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DOUTB4}{DOUTB4}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::D\+O\+U\+T\+B4}
+
+Output data for D\+R\+B4 open-\/drain driver ~\newline
+ 
+
+Definition at line 191 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gabff7754d807bfaa32d2e5d19fbcc45cd}\label{group___p_a_c5_x_x_x___tile___driver_manager_gabff7754d807bfaa32d2e5d19fbcc45cd}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DOUTB5@{DOUTB5}}
+\index{DOUTB5@{DOUTB5}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DOUTB5}{DOUTB5}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::D\+O\+U\+T\+B5}
+
+Output data for D\+R\+B5 open-\/drain driver ~\newline
+ 
+
+Definition at line 193 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga96320de0301b23f45e1a15838c353375}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga96320de0301b23f45e1a15838c353375}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DOUTB5@{DOUTB5}}
+\index{DOUTB5@{DOUTB5}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DOUTB5}{DOUTB5}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+O\+U\+T\+D\+R\+V\+::\+D\+O\+U\+T\+B5}
+
+Output data for D\+R\+B5 open-\/drain driver ~\newline
+ 
+
+Definition at line 193 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gadaabf779f53e1e10643a42af3e5b7d25}\label{group___p_a_c5_x_x_x___tile___driver_manager_gadaabf779f53e1e10643a42af3e5b7d25}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DOUTQ6@{DOUTQ6}}
+\index{DOUTQ6@{DOUTQ6}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DOUTQ6}{DOUTQ6}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+O\+U\+T\+D\+R\+V\+::\+D\+O\+U\+T\+Q6}
+
+Output data for D\+R\+Q6 in open-\/drain mode ~\newline
+ 
+
+Definition at line 194 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga4d80c93225ac1275440470c7267fc951}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga4d80c93225ac1275440470c7267fc951}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DOUTQ6@{DOUTQ6}}
+\index{DOUTQ6@{DOUTQ6}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DOUTQ6}{DOUTQ6}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::D\+O\+U\+T\+Q6}
+
+Output data for D\+R\+Q6 in open-\/drain mode ~\newline
+ 
+
+Definition at line 194 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga28ed3b08957fc4c51e55fd16b0c7711f}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga28ed3b08957fc4c51e55fd16b0c7711f}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DOUTQ7@{DOUTQ7}}
+\index{DOUTQ7@{DOUTQ7}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DOUTQ7}{DOUTQ7}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::D\+O\+U\+T\+Q7}
+
+Output data for D\+R\+Q7 in open-\/drain mode ~\newline
+ 
+
+Definition at line 195 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga1f14aa4c00cb5dce38504a5e6195c736}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga1f14aa4c00cb5dce38504a5e6195c736}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DOUTQ7@{DOUTQ7}}
+\index{DOUTQ7@{DOUTQ7}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DOUTQ7}{DOUTQ7}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+O\+U\+T\+D\+R\+V\+::\+D\+O\+U\+T\+Q7}
+
+Output data for D\+R\+Q7 in open-\/drain mode ~\newline
+ 
+
+Definition at line 195 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gaae6ef059f31c856cd144f2943824b323}\label{group___p_a_c5_x_x_x___tile___driver_manager_gaae6ef059f31c856cd144f2943824b323}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DOUTS3@{DOUTS3}}
+\index{DOUTS3@{DOUTS3}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DOUTS3}{DOUTS3}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+O\+U\+T\+D\+R\+V\+::\+D\+O\+U\+T\+S3}
+
+Output data for D\+R\+S3 open-\/drain driver ~\newline
+ 
+
+Definition at line 188 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga6e78bd0f37ef75422b62d0311201322e}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga6e78bd0f37ef75422b62d0311201322e}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DOUTS3@{DOUTS3}}
+\index{DOUTS3@{DOUTS3}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DOUTS3}{DOUTS3}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::D\+O\+U\+T\+S3}
+
+Output data for D\+R\+S3 open-\/drain driver ~\newline
+ 
+
+Definition at line 188 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga6cfd38eaba4d9ff90da7ebe2eb469373}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga6cfd38eaba4d9ff90da7ebe2eb469373}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DOUTS4@{DOUTS4}}
+\index{DOUTS4@{DOUTS4}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DOUTS4}{DOUTS4}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+O\+U\+T\+D\+R\+V\+::\+D\+O\+U\+T\+S4}
+
+Output data for D\+R\+S4 open-\/drain driver ~\newline
+ 
+
+Definition at line 190 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gacb701078d4a52391fd6195317e1c9b8d}\label{group___p_a_c5_x_x_x___tile___driver_manager_gacb701078d4a52391fd6195317e1c9b8d}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DOUTS4@{DOUTS4}}
+\index{DOUTS4@{DOUTS4}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DOUTS4}{DOUTS4}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::D\+O\+U\+T\+S4}
+
+Output data for D\+R\+S4 open-\/drain driver ~\newline
+ 
+
+Definition at line 190 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga01ba78f8cc4f02c49945f9b172fd63d1}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga01ba78f8cc4f02c49945f9b172fd63d1}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DOUTS5@{DOUTS5}}
+\index{DOUTS5@{DOUTS5}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DOUTS5}{DOUTS5}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::D\+O\+U\+T\+S5}
+
+Output data for D\+R\+S5 open-\/drain driver ~\newline
+ 
+
+Definition at line 192 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga70e5a997e2e300b44c31965b53fb7e2f}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga70e5a997e2e300b44c31965b53fb7e2f}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!DOUTS5@{DOUTS5}}
+\index{DOUTS5@{DOUTS5}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{DOUTS5}{DOUTS5}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+O\+U\+T\+D\+R\+V\+::\+D\+O\+U\+T\+S5}
+
+Output data for D\+R\+S5 open-\/drain driver ~\newline
+ 
+
+Definition at line 192 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gacf87672793a1cb8733b06ac5aa561414}\label{group___p_a_c5_x_x_x___tile___driver_manager_gacf87672793a1cb8733b06ac5aa561414}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!EN@{EN}}
+\index{EN@{EN}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{EN}{EN}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t E\+N\+D\+R\+V\+::\+EN}
+
+0\+: Disable; 1\+: Enable ~\newline
+ 
+
+Definition at line 215 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga529c941c8bb80d73a785716a44b6a2d4}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga529c941c8bb80d73a785716a44b6a2d4}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!EN@{EN}}
+\index{EN@{EN}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{EN}{EN}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::EN}
+
+0\+: Disable; 1\+: Enable ~\newline
+ 
+
+Definition at line 215 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga7aeeda572332e82db5590e7bb01cedbf}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga7aeeda572332e82db5590e7bb01cedbf}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!MUX6@{MUX6}}
+\index{MUX6@{MUX6}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{MUX6}{MUX6}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::M\+U\+X6}
+
+D\+R\+Q6 M\+UX ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Driver\+Mux\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 164 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga0e9b282fe227b90f2a3cf58b4039a326}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga0e9b282fe227b90f2a3cf58b4039a326}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!MUX6@{MUX6}}
+\index{MUX6@{MUX6}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{MUX6}{MUX6}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+Q6\+::\+M\+U\+X6}
+
+D\+R\+Q6 M\+UX ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Driver\+Mux\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 164 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga85b8de02814a11c24de14791d17d174e}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga85b8de02814a11c24de14791d17d174e}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!MUX7@{MUX7}}
+\index{MUX7@{MUX7}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{MUX7}{MUX7}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+Q7\+::\+M\+U\+X7}
+
+D\+R\+Q7 M\+UX ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Driver\+Mux\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 176 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga2223baaff543f2f1688d0fc87f284d28}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga2223baaff543f2f1688d0fc87f284d28}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!MUX7@{MUX7}}
+\index{MUX7@{MUX7}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{MUX7}{MUX7}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::M\+U\+X7}
+
+D\+R\+Q7 M\+UX ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Driver\+Mux\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 176 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga73a4e0c07cd2d5027ab80385d154127c}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga73a4e0c07cd2d5027ab80385d154127c}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!nHSPR1M@{nHSPR1M}}
+\index{nHSPR1M@{nHSPR1M}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{nHSPR1M}{nHSPR1M}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+V1\+::n\+H\+S\+P\+R1M}
+
+High-\/\+Side P\+R1 Protection Mask (act low) ~\newline
+ 
+
+Definition at line 155 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga428b58a4f9affecd6c1a36bfb4a7c3e3}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga428b58a4f9affecd6c1a36bfb4a7c3e3}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!nHSPR1M@{nHSPR1M}}
+\index{nHSPR1M@{nHSPR1M}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{nHSPR1M}{nHSPR1M}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::n\+H\+S\+P\+R1M}
+
+High-\/\+Side P\+R1 Protection Mask (act low) ~\newline
+ 
+
+Definition at line 155 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga1fdaf7340ccff6fdf8dc8dbe9a3895d6}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga1fdaf7340ccff6fdf8dc8dbe9a3895d6}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!nHSPR2M@{nHSPR2M}}
+\index{nHSPR2M@{nHSPR2M}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{nHSPR2M}{nHSPR2M}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::n\+H\+S\+P\+R2M}
+
+High-\/\+Side P\+R2 Protection Mask (act low) ~\newline
+ 
+
+Definition at line 154 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga2c0ca3326c26f9262995d3de8db77217}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga2c0ca3326c26f9262995d3de8db77217}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!nHSPR2M@{nHSPR2M}}
+\index{nHSPR2M@{nHSPR2M}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{nHSPR2M}{nHSPR2M}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+V1\+::n\+H\+S\+P\+R2M}
+
+High-\/\+Side P\+R2 Protection Mask (act low) ~\newline
+ 
+
+Definition at line 154 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gac507a56277c70114c0a1bd05c720c33b}\label{group___p_a_c5_x_x_x___tile___driver_manager_gac507a56277c70114c0a1bd05c720c33b}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!nLSPR1M@{nLSPR1M}}
+\index{nLSPR1M@{nLSPR1M}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{nLSPR1M}{nLSPR1M}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+V1\+::n\+L\+S\+P\+R1M}
+
+Low-\/\+Side P\+R1 Protection Mask (act low) ~\newline
+ 
+
+Definition at line 153 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gac3a37704ba207357c9735a6deeda88b7}\label{group___p_a_c5_x_x_x___tile___driver_manager_gac3a37704ba207357c9735a6deeda88b7}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!nLSPR1M@{nLSPR1M}}
+\index{nLSPR1M@{nLSPR1M}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{nLSPR1M}{nLSPR1M}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::n\+L\+S\+P\+R1M}
+
+Low-\/\+Side P\+R1 Protection Mask (act low) ~\newline
+ 
+
+Definition at line 153 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga0b8be2b7724fb692edf7d4f70e7a45fa}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga0b8be2b7724fb692edf7d4f70e7a45fa}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!nLSPR2M@{nLSPR2M}}
+\index{nLSPR2M@{nLSPR2M}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{nLSPR2M}{nLSPR2M}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::n\+L\+S\+P\+R2M}
+
+Low-\/\+Side P\+R2 Protection Mask (act low) ~\newline
+ 
+
+Definition at line 152 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga8cdab5e7f83d64c938c73eca26a63756}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga8cdab5e7f83d64c938c73eca26a63756}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!nLSPR2M@{nLSPR2M}}
+\index{nLSPR2M@{nLSPR2M}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{nLSPR2M}{nLSPR2M}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+V1\+::n\+L\+S\+P\+R2M}
+
+Low-\/\+Side P\+R2 Protection Mask (act low) ~\newline
+ 
+
+Definition at line 152 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga4bac0cb8fdb6b92ff7722fc729bcc6f4}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga4bac0cb8fdb6b92ff7722fc729bcc6f4}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!OPT6@{OPT6}}
+\index{OPT6@{OPT6}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{OPT6}{OPT6}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::O\+P\+T6}
+
+D\+R\+Q6 Option ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Driver\+Option\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 166 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gaf84a77cf30860b8dff7b39db8d405494}\label{group___p_a_c5_x_x_x___tile___driver_manager_gaf84a77cf30860b8dff7b39db8d405494}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!OPT6@{OPT6}}
+\index{OPT6@{OPT6}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{OPT6}{OPT6}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+Q6\+::\+O\+P\+T6}
+
+D\+R\+Q6 Option ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Driver\+Option\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 166 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga5357d2bf34b267f218fd47c2488f12d9}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga5357d2bf34b267f218fd47c2488f12d9}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!OPT7@{OPT7}}
+\index{OPT7@{OPT7}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{OPT7}{OPT7}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+Q7\+::\+O\+P\+T7}
+
+D\+R\+Q7 Option ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Driver\+Option\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 178 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga8a6001740bbe9bcde300fbde655759ed}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga8a6001740bbe9bcde300fbde655759ed}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!OPT7@{OPT7}}
+\index{OPT7@{OPT7}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{OPT7}{OPT7}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::O\+P\+T7}
+
+D\+R\+Q7 Option ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Driver\+Option\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 178 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga302f9d1465bd58038b6b19a40925d3bb}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga302f9d1465bd58038b6b19a40925d3bb}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!POL6@{POL6}}
+\index{POL6@{POL6}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{POL6}{POL6}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::P\+O\+L6}
+
+D\+R\+Q6 Polarity ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Driver\+Polarity\+\_\+\+Type}) 
+
+Definition at line 165 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gac249f4c02b2449500b53fcc8200bdb20}\label{group___p_a_c5_x_x_x___tile___driver_manager_gac249f4c02b2449500b53fcc8200bdb20}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!POL6@{POL6}}
+\index{POL6@{POL6}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{POL6}{POL6}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+Q6\+::\+P\+O\+L6}
+
+D\+R\+Q6 Polarity ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Driver\+Polarity\+\_\+\+Type}) 
+
+Definition at line 165 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga3c9c2d89bda5c4450f9c4688b9f5d7bd}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga3c9c2d89bda5c4450f9c4688b9f5d7bd}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!POL7@{POL7}}
+\index{POL7@{POL7}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{POL7}{POL7}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+Q7\+::\+P\+O\+L7}
+
+D\+R\+Q7 Polarity ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Driver\+Polarity\+\_\+\+Type}) 
+
+Definition at line 177 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gac3702ad77edfabd4c9d9009b15fe8b3d}\label{group___p_a_c5_x_x_x___tile___driver_manager_gac3702ad77edfabd4c9d9009b15fe8b3d}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!POL7@{POL7}}
+\index{POL7@{POL7}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{POL7}{POL7}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::P\+O\+L7}
+
+D\+R\+Q7 Polarity ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Driver\+Polarity\+\_\+\+Type}) 
+
+Definition at line 177 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga0ca8d019c385d1525f4c0fe3db3c1e35}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga0ca8d019c385d1525f4c0fe3db3c1e35}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PROP0@{PROP0}}
+\index{PROP0@{PROP0}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PROP0}{PROP0}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+V0\+::\+P\+R\+O\+P0}
+
+Prop Delay 0 ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Prop\+Delay\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 138 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gae7cc5b379cccb09d01be9a23b6569074}\label{group___p_a_c5_x_x_x___tile___driver_manager_gae7cc5b379cccb09d01be9a23b6569074}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PROP0@{PROP0}}
+\index{PROP0@{PROP0}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PROP0}{PROP0}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::P\+R\+O\+P0}
+
+Prop Delay 0 ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Prop\+Delay\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 138 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga962bdcb52da14bcc5f6e34634b948f39}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga962bdcb52da14bcc5f6e34634b948f39}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PROP1@{PROP1}}
+\index{PROP1@{PROP1}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PROP1}{PROP1}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+V0\+::\+P\+R\+O\+P1}
+
+Prop Delay 1 ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Prop\+Delay\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 139 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga71efe21d3a92a40bcf2476625217f567}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga71efe21d3a92a40bcf2476625217f567}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PROP1@{PROP1}}
+\index{PROP1@{PROP1}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PROP1}{PROP1}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::P\+R\+O\+P1}
+
+Prop Delay 1 ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Prop\+Delay\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 139 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga041a4c819525ab5a8d818c1028c58f04}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga041a4c819525ab5a8d818c1028c58f04}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PROP2@{PROP2}}
+\index{PROP2@{PROP2}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PROP2}{PROP2}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::P\+R\+O\+P2}
+
+Prop Delay 2 ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Prop\+Delay\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 140 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga19836bb11725965ee4b7c10f9ab3cdd6}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga19836bb11725965ee4b7c10f9ab3cdd6}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PROP2@{PROP2}}
+\index{PROP2@{PROP2}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PROP2}{PROP2}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+V0\+::\+P\+R\+O\+P2}
+
+Prop Delay 2 ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Prop\+Delay\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 140 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gac36bd51747b990e042412f2017272f1c}\label{group___p_a_c5_x_x_x___tile___driver_manager_gac36bd51747b990e042412f2017272f1c}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PROP3@{PROP3}}
+\index{PROP3@{PROP3}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PROP3}{PROP3}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+V0\+::\+P\+R\+O\+P3}
+
+Prop Delay 3 ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Prop\+Delay\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 141 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga9669dde039a0444b14c061e784c5d47d}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga9669dde039a0444b14c061e784c5d47d}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PROP3@{PROP3}}
+\index{PROP3@{PROP3}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PROP3}{PROP3}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::P\+R\+O\+P3}
+
+Prop Delay 3 ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Prop\+Delay\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 141 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_gad7702e3c5e30402b6a9544fb69bc02a7}\label{group___p_a_c5_x_x_x___tile___driver_manager_gad7702e3c5e30402b6a9544fb69bc02a7}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PROP4@{PROP4}}
+\index{PROP4@{PROP4}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PROP4}{PROP4}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+V1\+::\+P\+R\+O\+P4}
+
+Prop Delay 4 ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Prop\+Delay\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 150 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga97c8cb099ba2c9f7f10a31640f03a28e}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga97c8cb099ba2c9f7f10a31640f03a28e}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PROP4@{PROP4}}
+\index{PROP4@{PROP4}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PROP4}{PROP4}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::P\+R\+O\+P4}
+
+Prop Delay 4 ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Prop\+Delay\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 150 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga70a7d3388988c5016c63179424f111ce}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga70a7d3388988c5016c63179424f111ce}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PROP5@{PROP5}}
+\index{PROP5@{PROP5}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PROP5}{PROP5}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{core__cm4_8h_aec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint8\+\_\+t C\+F\+G\+D\+R\+V1\+::\+P\+R\+O\+P5}
+
+Prop Delay 5 ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Prop\+Delay\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 151 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___tile___driver_manager_ga5e4adc3b91b6d65886ddd544ab360dd1}\label{group___p_a_c5_x_x_x___tile___driver_manager_ga5e4adc3b91b6d65886ddd544ab360dd1}} 
+\index{PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}!PROP5@{PROP5}}
+\index{PROP5@{PROP5}!PAC5XXX Driver Manager Tile@{PAC5XXX Driver Manager Tile}}
+\doxysubsubsection{\texorpdfstring{PROP5}{PROP5}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::P\+R\+O\+P5}
+
+Prop Delay 5 ({\itshape P\+A\+C5\+X\+X\+X\+\_\+\+Prop\+Delay\+\_\+\+Type}) ~\newline
+ 
+
+Definition at line 151 of file pac5xxx\+\_\+tile\+\_\+driver\+\_\+manager.\+h.
+

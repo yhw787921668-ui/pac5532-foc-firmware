@@ -1,0 +1,133 @@
+.TH "pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_adc_seq.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_adc_seq.c \- Firmware driver for the PAC5XXX ADC\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx_driver_adc\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_as0_config_timer\fP (\fBADCCTLX_SDEPTH_Type\fP sample_depth, \fBADCCTLX_TRIGTIMER_Type\fP trig_timer_source)"
+.br
+.RI "This function configures the ASC0 unit for use with a timer trigger\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_as0_config_pwm\fP (\fBADCCTLX_SDEPTH_Type\fP sample_depth, \fBADCCTLX_TRIGEDGE_Type\fP trig_edge, \fBADCCTLX_TRIGPWM_Type\fP trig_pwm_source)"
+.br
+.RI "This function configures the ASC0 unit for use with a PWM trigger\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_as1_config_timer\fP (\fBADCCTLX_SDEPTH_Type\fP sample_depth, \fBADCCTLX_TRIGTIMER_Type\fP trig_timer_source)"
+.br
+.RI "This function configures the ASC1 unit for use with a timer trigger\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_as1_config_pwm\fP (\fBADCCTLX_SDEPTH_Type\fP sample_depth, \fBADCCTLX_TRIGEDGE_Type\fP trig_edge, \fBADCCTLX_TRIGPWM_Type\fP trig_pwm_source)"
+.br
+.RI "This function configures the ASC1 unit for use with a PWM trigger\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_as0_sequence_config\fP (int seq_num, \fBADCCTL_ADMUX_Type\fP mux_select, \fBASSEQ_MSPI_Type\fP emux_control, unsigned char emux_data, \fBASSEQ_DELAY_Type\fP seq_delay)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP void \fBpac5xxx_adc_as1_sequence_config\fP (int seq_num, \fBADCCTL_ADMUX_Type\fP mux_select, \fBASSEQ_MSPI_Type\fP emux_control, unsigned char emux_data, \fBASSEQ_DELAY_Type\fP seq_delay)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP uint16_t \fBpac5xxx_adc_as0_seq_get_result\fP (int seq_num)"
+.br
+.RI "This function returns the ADC result for the given sequence number for the ASC0 unit\&. "
+.ti -1c
+.RI "\fBRAMFUNC_ADC\fP uint16_t \fBpac5xxx_adc_as1_seq_get_result\fP (int seq_num)"
+.br
+.RI "This function returns the ADC result for the given sequence number for the ASC1 unit\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Firmware driver for the PAC5XXX ADC\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_driver_adc_seq\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_ADC\fP void pac5xxx_adc_as0_sequence_config (int seq_num, \fBADCCTL_ADMUX_Type\fP mux_select, \fBASSEQ_MSPI_Type\fP emux_control, unsigned char emux_data, \fBASSEQ_DELAY_Type\fP seq_delay)"
+
+.PP
+Definition at line 62 of file pac5xxx_driver_adc_seq\&.c\&.
+.PP
+.nf
+67 {
+68     volatile PAC5XXX_ADCSEQCTL_Type* pSeq;
+69 
+70     if (seq_num == 0)
+71         pSeq = &PAC5XXX_ADC->AS0S0;
+72     else if (seq_num == 1)
+73         pSeq = &PAC5XXX_ADC->AS0S1;
+74     else if (seq_num == 2)
+75         pSeq = &PAC5XXX_ADC->AS0S2;
+76     else if (seq_num == 3)
+77         pSeq = &PAC5XXX_ADC->AS0S3;
+78     else if (seq_num == 4)
+79         pSeq = &PAC5XXX_ADC->AS0S4;
+80     else if (seq_num == 5)
+81         pSeq = &PAC5XXX_ADC->AS0S5;
+82     else if (seq_num == 6)
+83         pSeq = &PAC5XXX_ADC->AS0S6;
+84     else if (seq_num == 7)
+85         pSeq = &PAC5XXX_ADC->AS0S7;
+86     
+87     pSeq->ADCMUX = mux_select;
+88     pSeq->EMUXS = emux_control;
+89     pSeq->EMUXD = emux_data;
+90     pSeq->DELAY = seq_delay;
+91 }
+.fi
+.PP
+References PAC5XXX_ADCSEQCTL_Type::ADCMUX, PAC5XXX_ADCSEQCTL_Type::DELAY, PAC5XXX_ADCSEQCTL_Type::EMUXD, PAC5XXX_ADCSEQCTL_Type::EMUXS, and PAC5XXX_ADC\&.
+.SS "\fBRAMFUNC_ADC\fP void pac5xxx_adc_as1_sequence_config (int seq_num, \fBADCCTL_ADMUX_Type\fP mux_select, \fBASSEQ_MSPI_Type\fP emux_control, unsigned char emux_data, \fBASSEQ_DELAY_Type\fP seq_delay)"
+
+.PP
+Definition at line 93 of file pac5xxx_driver_adc_seq\&.c\&.
+.PP
+.nf
+98 {
+99     volatile PAC5XXX_ADCSEQCTL_Type* pSeq;
+100 
+101     if (seq_num == 0)
+102         pSeq = &PAC5XXX_ADC->AS1S0;
+103     else if (seq_num == 1)
+104         pSeq = &PAC5XXX_ADC->AS1S1;
+105     else if (seq_num == 2)
+106         pSeq = &PAC5XXX_ADC->AS1S2;
+107     else if (seq_num == 3)
+108         pSeq = &PAC5XXX_ADC->AS1S3;
+109     else if (seq_num == 4)
+110         pSeq = &PAC5XXX_ADC->AS1S4;
+111     else if (seq_num == 5)
+112         pSeq = &PAC5XXX_ADC->AS1S5;
+113     else if (seq_num == 6)
+114         pSeq = &PAC5XXX_ADC->AS1S6;
+115     else if (seq_num == 7)
+116         pSeq = &PAC5XXX_ADC->AS1S7;
+117     
+118     pSeq->ADCMUX = mux_select;
+119     pSeq->EMUXS = emux_control;
+120     pSeq->EMUXD = emux_data;
+121     pSeq->DELAY = seq_delay;
+122 }
+.fi
+.PP
+References PAC5XXX_ADCSEQCTL_Type::ADCMUX, PAC5XXX_ADCSEQCTL_Type::DELAY, PAC5XXX_ADCSEQCTL_Type::EMUXD, PAC5XXX_ADCSEQCTL_Type::EMUXS, and PAC5XXX_ADC\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

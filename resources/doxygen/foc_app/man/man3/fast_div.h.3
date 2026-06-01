@@ -1,0 +1,74 @@
+.TH "pac_foc/src/math/fast_div.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/math/fast_div.h \- Fast divider definitions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'maths\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBX0A_Q14\fP   (0x0002D2D2 >> 2)"
+.br
+.ti -1c
+.RI "#define \fBX0B_Q14\fP   (0x0001E1E1 >> 2)"
+.br
+.ti -1c
+.RI "#define \fBONE_Q14\fP   (0x00010000 >> 2)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_RAMFUNC uint32_t \fBdiv_fast\fP (int32_t dividend, int32_t divisor)"
+.br
+.RI "Fast Q-Math Divider\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Fast divider definitions\&. 
+
+
+.PP
+Definition in file \fBfast_div\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ONE_Q14   (0x00010000 >> 2)"
+
+.PP
+Definition at line 28 of file fast_div\&.h\&.
+.SS "#define X0A_Q14   (0x0002D2D2 >> 2)"
+
+.PP
+Definition at line 26 of file fast_div\&.h\&.
+.SS "#define X0B_Q14   (0x0001E1E1 >> 2)"
+
+.PP
+Definition at line 27 of file fast_div\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "PAC5XXX_RAMFUNC uint32_t div_fast (int32_t dividend, int32_t divisor)"
+
+.PP
+Fast Q-Math Divider\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdividend\fP Dividend 
+.br
+\fIdivisor\fP Divisor 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

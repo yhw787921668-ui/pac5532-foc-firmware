@@ -1,0 +1,144 @@
+.TH "PAC55XX_CRC_TYPEDEF" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC55XX_CRC_TYPEDEF
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pac5xxx_crc\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPOLYSEL\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBDATAWIDTH\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBOUTREF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINREF\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 27"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBCTL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDATAIN\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCRCSEED\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBSEED\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBCRCOUT\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBOUT\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 33 of file pac5xxx_crc\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t PAC55XX_CRC_TYPEDEF::__pad0__"
+
+.PP
+Definition at line 43 of file pac5xxx_crc\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_CRC_TYPEDEF::CRCOUT"
+
+.PP
+Definition at line 64 of file pac5xxx_crc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CRC_TYPEDEF::CRCSEED"
+
+.PP
+Definition at line 55 of file pac5xxx_crc\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_CRC_TYPEDEF::CTL"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_CRC_TYPEDEF::DATAIN"
+
+.PP
+Definition at line 48 of file pac5xxx_crc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CRC_TYPEDEF::DATAWIDTH"
+
+.PP
+Definition at line 40 of file pac5xxx_crc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CRC_TYPEDEF::INREF"
+
+.PP
+Definition at line 42 of file pac5xxx_crc\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_CRC_TYPEDEF::OUT"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_CRC_TYPEDEF::OUTREF"
+
+.PP
+Definition at line 41 of file pac5xxx_crc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_CRC_TYPEDEF::POLYSEL"
+
+.PP
+Definition at line 39 of file pac5xxx_crc\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_CRC_TYPEDEF::SEED"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_CRC_TYPEDEF::w"
+
+.PP
+Definition at line 37 of file pac5xxx_crc\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_CRC_TYPEDEF::w"
+
+.PP
+Definition at line 62 of file pac5xxx_crc\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

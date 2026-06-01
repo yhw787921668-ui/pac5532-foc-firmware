@@ -1,0 +1,62 @@
+.TH "pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_peripheral/pac5xxx_SYS.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_peripheral/pac5xxx_SYS.h \- CMSIS Cortex-M Header File for the PAC5XXX System and Clock Controller\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPAC5XXX_SYSCLKCTL_TypeDef\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPLLCTL_INPUT_DIV\fP(x)   ((x \- 2) & 0x001F)"
+.br
+.ti -1c
+.RI "#define \fBPLLCTL_FDBK_DIV\fP(x)   ((x \- 2) & 0x01FF)"
+.br
+.ti -1c
+.RI "#define \fBPLLCTL_OUTPUT_DIV\fP(x)   ((x)     & 0x000F)"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCCSCTL_CLKIN_Type\fP { \fBCCSCTL_CLKIN_INTOSC\fP = 0, \fBCCSCTL_CLKIN_CLKREF\fP = 1, \fBCCSCTL_CLKIN_EXTCLK\fP = 2, \fBCCSCTL_CLKIN_XTAL\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBCCSCTL_HCLKDIV_Type\fP { \fBCCSCTL_HCLKDIV_DIV1\fP = 0, \fBCCSCTL_HCLKDIV_DIV2\fP = 1, \fBCCSCTL_HCLKDIV_DIV4\fP = 2, \fBCCSCTL_HCLKDIV_DIV8\fP = 3 }"
+.br
+.ti -1c
+.RI "enum \fBCCSCTL_ACLKDIV_Type\fP { \fBCCSCTL_ACLKDIV_DIV1\fP = 0, \fBCCSCTL_ACLKDIV_DIV2\fP = 1, \fBCCSCTL_ACLKDIV_DIV4\fP = 2, \fBCCSCTL_ACLKDIV_DIV8\fP = 3, \fBCCSCTL_ACLKDIV_DIV16\fP = 4, \fBCCSCTL_ACLKDIV_DIV32\fP = 5, \fBCCSCTL_ACLKDIV_DIV64\fP = 6, \fBCCSCTL_ACLKDIV_DIV128\fP = 7 }"
+.br
+.ti -1c
+.RI "enum \fBOSCCTL_FREQSEL_Type\fP { \fBOSCCTL_OSCP_28P17MHZ\fP = 0, \fBOSCCTL_OSCP_15P29MHZ\fP = 1, \fBOSCCTL_OSCP_10P68MHZ\fP = 2, \fBOSCCTL_OSCP_8P31MHZ\fP = 3 }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CMSIS Cortex-M Header File for the PAC5XXX System and Clock Controller\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_SYS\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

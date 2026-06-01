@@ -1,0 +1,203 @@
+.TH "pac_foc/src/mpos/qep/qep_funcs.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/mpos/qep/qep_funcs.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'parameter_process\&.h'\fP
+.br
+\fC#include 'qep_io_config\&.h'\fP
+.br
+\fC#include 'qep_timer_config\&.h'\fP
+.br
+\fC#include 'utils\&.h'\fP
+.br
+\fC#include 'mpos_misc\&.h'\fP
+.br
+\fC#include 'calc_speed\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBqep_init\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.ti -1c
+.RI "void \fBqep_reset\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.ti -1c
+.RI "void \fBqep_param_calc\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.ti -1c
+.RI "void \fBqep_param_write\fP (\fBStruct_Motor\fP *motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+.br
+.ti -1c
+.RI "void \fBqep_param_process\fP (\fBStruct_Motor\fP *motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+.br
+.ti -1c
+.RI "void \fBqep_isr\fP (void)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void qep_init (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Definition at line 23 of file qep_funcs\&.c\&.
+.PP
+.nf
+24 {
+25 }
+.fi
+.SS "void qep_isr (void)"
+
+.PP
+Definition at line 121 of file qep_funcs\&.c\&.
+.PP
+.nf
+122 {
+123 #if defined(FAMILY_55XX)
+124     static Struct_Motor* motor_ptr = &motor;
+125 
+126     if (qep_check_index_event_interrupt_flag())
+127     {
+128         motor_ptr->mpos\&.qep\&.index_counter++;
+129         NVIC_DisableIRQ(QEP_TIMER_IRQn);
+130     }
+131 #endif
+132 }
+.fi
+.PP
+References Struct_QEP::index_counter, motor, Struct_Motor::mpos, and Struct_MPos::qep\&.
+.PP
+Referenced by QEPC_IRQHandler(), and QEPD_IRQHandler()\&.
+.SS "void qep_param_calc (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Definition at line 60 of file qep_funcs\&.c\&.
+.PP
+.nf
+61 {
+62     // Calculate speed filter alpha gain
+63     motor_ptr->mpos\&.qep\&.filter_alpha_speed_q16 = calc_filter_alpha(motor_ptr->mpos\&.qep\&.filter_fc_speed_q16, motor_ptr->control\&.dt_control_q26);
+64 
+65     // Calculate speed conversion factors
+66     calculate_speed_coefficients(motor_ptr->control\&.dt_control_q26, motor_ptr->app\&.speed_scale_shift, &motor_ptr->mpos\&.qep\&.kspd_radps_q6, &motor_ptr->mpos\&.qep\&.kspd_scaled_q14);
+67 
+68     // Calculate conversion factor from QEP counter to mechanical angle
+69 #if defined(ENABLE_QEP_QUAD_MODE)
+70     motor_ptr->mpos\&.qep\&.conv_qep2mech_q24 = fix16_div((FIX16_2PI * motor_ptr->mparam\&.pole_pairs), (motor_ptr->mpos\&.qep\&.qep_resolution << (8 + 2)));     // q24 = div(((q16*q0)=q16), (q0<<8)=q8)=q24
+71 #else
+72     motor_ptr->mpos\&.qep\&.conv_qep2mech_q24 = fix16_div((FIX16_2PI * motor_ptr->mparam\&.pole_pairs), (motor_ptr->mpos\&.qep\&.qep_resolution << 8));           // q24 = div(((q16*q0)=q16), (q0<<8)=q8)=q24
+73 #endif
+74 
+75 #if defined(ENABLE_OLSPEED_ANGLEDIFF_TIMEOUT)
+76     // Calculate num of electrical cycles required for AngleDiff Timeout in QEP Mechanical Rotation terms
+77     motor_ptr->startup\&.qep_elec_angle_counts_threshold = motor_ptr->mparam\&.pole_pairs * NUM_QEP_MECH_ROTATION;
+78 #endif
+79 }
+.fi
+.PP
+References Struct_QEP::filter_alpha_speed_q16, Struct_Motor::mpos, and Struct_MPos::qep\&.
+.PP
+Referenced by qep_param_process()\&.
+.SS "void qep_param_process (\fBStruct_Motor\fP * motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+
+.PP
+Definition at line 104 of file qep_funcs\&.c\&.
+.PP
+.nf
+105 {
+106     switch(param_code)
+107     {
+108     case dt:
+109     case num_pole_pairs:
+110     case max_cl_speed_limit:
+111     case QEP_Resolution:
+112     case QEP_Fc:
+113         qep_param_calc(motor_ptr);
+114         break;
+115     default:
+116         break;
+117     }
+118 }
+.fi
+.PP
+References dt, max_cl_speed_limit, num_pole_pairs, QEP_Fc, qep_param_calc(), and QEP_Resolution\&.
+.SS "void qep_param_write (\fBStruct_Motor\fP * motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+
+.PP
+Definition at line 82 of file qep_funcs\&.c\&.
+.PP
+.nf
+83 {
+84     switch(param_code)
+85     {
+86     case QEP_Resolution:
+87         motor_ptr->mpos\&.qep\&.qep_resolution = rx_data;
+88         break;
+89     case QEP_Offset_Angle_Fwd:
+90         motor_ptr->mpos\&.qep\&.angcorr_offset_fwd = rx_data;
+91         break;
+92     case QEP_Offset_Angle_Rev:
+93         motor_ptr->mpos\&.qep\&.angcorr_offset_rev = rx_data;
+94         break;
+95     case QEP_Fc:
+96         motor_ptr->mpos\&.qep\&.filter_fc_speed_q16 = rx_data;
+97         break;
+98     default:
+99         break;
+100     }
+101 }
+.fi
+.PP
+References Struct_QEP::angcorr_offset_fwd, Struct_QEP::angcorr_offset_rev, Struct_QEP::filter_fc_speed_q16, Struct_Motor::mpos, Struct_MPos::qep, QEP_Fc, QEP_Offset_Angle_Fwd, QEP_Offset_Angle_Rev, Struct_QEP::qep_resolution, and QEP_Resolution\&.
+.SS "void qep_reset (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Definition at line 28 of file qep_funcs\&.c\&.
+.PP
+.nf
+29 {
+30     // Status
+31 
+32     // Outputs
+33     motor_ptr->mpos\&.qep\&.qep_spd_radps = 0;
+34     motor_ptr->mpos\&.qep\&.qep_spd_scaled_q14 = 0;
+35     motor_ptr->mpos\&.qep\&.qep_spd_scaled_q28 = 0;
+36     motor_ptr->mpos\&.qep\&.qep_spd_prefilt_scaled_q14 = 0;
+37     motor_ptr->mpos\&.qep\&.qep_angle = 0;
+38 
+39     // Running Variables
+40     motor_ptr->mpos\&.qep\&.qep_calculated_angle = 0;
+41     motor_ptr->mpos\&.qep\&.qep_previous_angle = 0;
+42     motor_ptr->mpos\&.qep\&.counter_counts = 0;
+43     motor_ptr->mpos\&.qep\&.index_counter = 0;
+44     motor_ptr->startup\&.elec_angle_wrap_around_counts = 0;
+45 
+46     if(motor_ptr->app\&.direction_reverse_cmd == 0)
+47         motor_ptr->mpos\&.qep\&.ptr_angcorr_offset = &motor_ptr->mpos\&.qep\&.angcorr_offset_fwd;
+48     else
+49         motor_ptr->mpos\&.qep\&.ptr_angcorr_offset = &motor_ptr->mpos\&.qep\&.angcorr_offset_rev;
+50 
+51 
+52     // Enable QEP timer
+53 #if defined(FAMILY_55XX)
+54     qep_timer_enabled();
+55     qep_index_event_clr_interrupt();
+56     NVIC_EnableIRQ(QEP_TIMER_IRQn);
+57 #endif
+58 }
+.fi
+.PP
+References Struct_QEP::angcorr_offset_fwd, Struct_QEP::angcorr_offset_rev, Struct_Motor::app, Struct_QEP::counter_counts, Struct_App::direction_reverse_cmd, Struct_QEP::index_counter, Struct_Motor::mpos, Struct_QEP::ptr_angcorr_offset, Struct_MPos::qep, Struct_QEP::qep_angle, Struct_QEP::qep_calculated_angle, Struct_QEP::qep_previous_angle, Struct_QEP::qep_spd_prefilt_scaled_q14, Struct_QEP::qep_spd_radps, Struct_QEP::qep_spd_scaled_q14, Struct_QEP::qep_spd_scaled_q28, and Struct_Motor::startup\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

@@ -1,0 +1,1598 @@
+.TH "PAC55XX_ADC_TYPEDEF" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC55XX_ADC_TYPEDEF
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pac5xxx_adc\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBEMUXDIV\fP: 4"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBEMUXBUSY\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBEMUXMODE\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 26"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBEMUXCTL\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBVAL\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBEMUXDATA\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBADCDIV\fP: 4"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCHANNEL\fP: 3"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBADBUSY\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBMODE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBREPEAT\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSTART\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBENABLE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTENMAN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTENEMUX\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTENCOL\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBADCCTL\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBADCRES\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF0\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF1\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF2\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF3\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF4\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF5\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF6\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF7\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF8\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF9\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF10\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF11\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF12\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF13\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF14\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF15\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF16\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF17\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF18\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF19\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF20\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF21\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF22\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTF23\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTFMAN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTFEMUX\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBINTFCOL\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBADCIRQ0IF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBADCIRQ1IF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBADCIRQ2IF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBADCIRQ3IF\fP: 1"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBADCINT\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED0\fP [11]"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG0CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG0EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE0\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG1CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG1EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE1\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG2CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG2EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE2\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG3CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG3EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE3\fP: 1"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBDTSETRIGENT0TO3\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG4CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG4EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE4\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG5CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG5EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE5\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG6CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG6EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE6\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG7CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG7EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE7\fP: 1"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBDTSETRIGENT4TO7\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG8CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG8EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE8\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG9CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG9EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE9\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG10CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG10EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE10\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG11CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG11EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE11\fP: 1"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBDTSETRIGENT8TO11\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG12CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG12EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE12\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG13CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG13EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE13\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG14CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG14EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE14\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG15CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG15EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE15\fP: 1"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBDTSETRIGENT12TO15\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG16CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG16EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE16\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG17CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG17EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE17\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG18CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG18EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE18\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG19CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG19EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE19\fP: 1"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBDTSETRIGENT16TO19\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG20CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG20EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE20\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG21CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG21EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE21\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG22CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG22EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE22\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG23CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG23EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE23\fP: 1"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBDTSETRIGENT20TO23\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG24CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG24EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE24\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG25CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG25EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE25\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG26CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG26EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE26\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG27CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG27EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE27\fP: 1"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBDTSETRIGENT24TO27\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG28CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG28EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE28\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG29CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG29EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE29\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG30CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG30EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE30\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG31CFGIDX\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTRIG31EDGE\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFORCE31\fP: 1"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBDTSETRIGENT28TO31\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED1\fP [8]"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG0\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG1\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG2\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG3\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG4\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG5\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG6\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG7\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG8\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG9\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG10\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG11\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG12\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG13\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG14\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG15\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG16\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG17\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG18\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG19\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG20\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG21\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG22\fP"
+.br
+.ti -1c
+.RI "\fBDTSE_SEQ_CFG_TYPEDEF\fP \fBDTSESEQCFG23\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED2\fP [8]"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES0\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES1\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES2\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES3\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES4\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES5\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES6\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES7\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES8\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES9\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES10\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES11\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES12\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES13\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES14\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES15\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES16\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES17\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES18\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES19\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES20\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES21\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES22\fP"
+.br
+.ti -1c
+.RI "\fBADC_RESULT_TYPEDEF\fP \fBDTSERES23\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 180 of file pac5xxx_adc\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t PAC55XX_ADC_TYPEDEF::__pad0__"
+
+.PP
+Definition at line 190 of file pac5xxx_adc\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_ADC_TYPEDEF::ADBUSY"
+
+.PP
+Definition at line 211 of file pac5xxx_adc\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_ADC_TYPEDEF::ADCCTL"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::ADCDIV"
+
+.PP
+Definition at line 209 of file pac5xxx_adc\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_ADC_TYPEDEF::ADCINT"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::ADCIRQ0IF"
+
+.PP
+Definition at line 259 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::ADCIRQ1IF"
+
+.PP
+Definition at line 260 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::ADCIRQ2IF"
+
+.PP
+Definition at line 261 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::ADCIRQ3IF"
+
+.PP
+Definition at line 262 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::ADCRES"
+
+.PP
+Definition at line 224 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::CHANNEL"
+
+.PP
+Definition at line 210 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES0"
+
+.PP
+Definition at line 460 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES1"
+
+.PP
+Definition at line 461 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES10"
+
+.PP
+Definition at line 470 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES11"
+
+.PP
+Definition at line 471 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES12"
+
+.PP
+Definition at line 472 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES13"
+
+.PP
+Definition at line 473 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES14"
+
+.PP
+Definition at line 474 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES15"
+
+.PP
+Definition at line 475 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES16"
+
+.PP
+Definition at line 476 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES17"
+
+.PP
+Definition at line 477 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES18"
+
+.PP
+Definition at line 478 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES19"
+
+.PP
+Definition at line 479 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES2"
+
+.PP
+Definition at line 462 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES20"
+
+.PP
+Definition at line 480 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES21"
+
+.PP
+Definition at line 481 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES22"
+
+.PP
+Definition at line 482 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES23"
+
+.PP
+Definition at line 483 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES3"
+
+.PP
+Definition at line 463 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES4"
+
+.PP
+Definition at line 464 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES5"
+
+.PP
+Definition at line 465 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES6"
+
+.PP
+Definition at line 466 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES7"
+
+.PP
+Definition at line 467 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES8"
+
+.PP
+Definition at line 468 of file pac5xxx_adc\&.h\&.
+.SS "\fBADC_RESULT_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSERES9"
+
+.PP
+Definition at line 469 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG0"
+
+.PP
+Definition at line 431 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG1"
+
+.PP
+Definition at line 432 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG10"
+
+.PP
+Definition at line 441 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG11"
+
+.PP
+Definition at line 442 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG12"
+
+.PP
+Definition at line 443 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG13"
+
+.PP
+Definition at line 444 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG14"
+
+.PP
+Definition at line 445 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG15"
+
+.PP
+Definition at line 446 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG16"
+
+.PP
+Definition at line 447 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG17"
+
+.PP
+Definition at line 448 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG18"
+
+.PP
+Definition at line 449 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG19"
+
+.PP
+Definition at line 450 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG2"
+
+.PP
+Definition at line 433 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG20"
+
+.PP
+Definition at line 451 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG21"
+
+.PP
+Definition at line 452 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG22"
+
+.PP
+Definition at line 453 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG23"
+
+.PP
+Definition at line 454 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG3"
+
+.PP
+Definition at line 434 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG4"
+
+.PP
+Definition at line 435 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG5"
+
+.PP
+Definition at line 436 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG6"
+
+.PP
+Definition at line 437 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG7"
+
+.PP
+Definition at line 438 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG8"
+
+.PP
+Definition at line 439 of file pac5xxx_adc\&.h\&.
+.SS "\fBDTSE_SEQ_CFG_TYPEDEF\fP PAC55XX_ADC_TYPEDEF::DTSESEQCFG9"
+
+.PP
+Definition at line 440 of file pac5xxx_adc\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_ADC_TYPEDEF::DTSETRIGENT0TO3"
+
+.SS "union { \&.\&.\&. }  PAC55XX_ADC_TYPEDEF::DTSETRIGENT12TO15"
+
+.SS "union { \&.\&.\&. }  PAC55XX_ADC_TYPEDEF::DTSETRIGENT16TO19"
+
+.SS "union { \&.\&.\&. }  PAC55XX_ADC_TYPEDEF::DTSETRIGENT20TO23"
+
+.SS "union { \&.\&.\&. }  PAC55XX_ADC_TYPEDEF::DTSETRIGENT24TO27"
+
+.SS "union { \&.\&.\&. }  PAC55XX_ADC_TYPEDEF::DTSETRIGENT28TO31"
+
+.SS "union { \&.\&.\&. }  PAC55XX_ADC_TYPEDEF::DTSETRIGENT4TO7"
+
+.SS "union { \&.\&.\&. }  PAC55XX_ADC_TYPEDEF::DTSETRIGENT8TO11"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::EMUXBUSY"
+
+.PP
+Definition at line 188 of file pac5xxx_adc\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_ADC_TYPEDEF::EMUXCTL"
+
+.SS "union { \&.\&.\&. }  PAC55XX_ADC_TYPEDEF::EMUXDATA"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::EMUXDIV"
+
+.PP
+Definition at line 187 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::EMUXMODE"
+
+.PP
+Definition at line 189 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::ENABLE"
+
+.PP
+Definition at line 215 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE0"
+
+.PP
+Definition at line 275 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE1"
+
+.PP
+Definition at line 278 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE10"
+
+.PP
+Definition at line 321 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE11"
+
+.PP
+Definition at line 324 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE12"
+
+.PP
+Definition at line 335 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE13"
+
+.PP
+Definition at line 338 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE14"
+
+.PP
+Definition at line 341 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE15"
+
+.PP
+Definition at line 344 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE16"
+
+.PP
+Definition at line 355 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE17"
+
+.PP
+Definition at line 358 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE18"
+
+.PP
+Definition at line 361 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE19"
+
+.PP
+Definition at line 364 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE2"
+
+.PP
+Definition at line 281 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE20"
+
+.PP
+Definition at line 375 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE21"
+
+.PP
+Definition at line 378 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE22"
+
+.PP
+Definition at line 381 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE23"
+
+.PP
+Definition at line 384 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE24"
+
+.PP
+Definition at line 395 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE25"
+
+.PP
+Definition at line 398 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE26"
+
+.PP
+Definition at line 401 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE27"
+
+.PP
+Definition at line 404 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE28"
+
+.PP
+Definition at line 415 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE29"
+
+.PP
+Definition at line 418 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE3"
+
+.PP
+Definition at line 284 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE30"
+
+.PP
+Definition at line 421 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE31"
+
+.PP
+Definition at line 424 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE4"
+
+.PP
+Definition at line 295 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE5"
+
+.PP
+Definition at line 298 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE6"
+
+.PP
+Definition at line 301 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE7"
+
+.PP
+Definition at line 304 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE8"
+
+.PP
+Definition at line 315 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::FORCE9"
+
+.PP
+Definition at line 318 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTENCOL"
+
+.PP
+Definition at line 218 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTENEMUX"
+
+.PP
+Definition at line 217 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTENMAN"
+
+.PP
+Definition at line 216 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF0"
+
+.PP
+Definition at line 231 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF1"
+
+.PP
+Definition at line 232 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF10"
+
+.PP
+Definition at line 241 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF11"
+
+.PP
+Definition at line 242 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF12"
+
+.PP
+Definition at line 243 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF13"
+
+.PP
+Definition at line 244 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF14"
+
+.PP
+Definition at line 245 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF15"
+
+.PP
+Definition at line 246 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF16"
+
+.PP
+Definition at line 247 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF17"
+
+.PP
+Definition at line 248 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF18"
+
+.PP
+Definition at line 249 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF19"
+
+.PP
+Definition at line 250 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF2"
+
+.PP
+Definition at line 233 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF20"
+
+.PP
+Definition at line 251 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF21"
+
+.PP
+Definition at line 252 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF22"
+
+.PP
+Definition at line 253 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF23"
+
+.PP
+Definition at line 254 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF3"
+
+.PP
+Definition at line 234 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF4"
+
+.PP
+Definition at line 235 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF5"
+
+.PP
+Definition at line 236 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF6"
+
+.PP
+Definition at line 237 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF7"
+
+.PP
+Definition at line 238 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF8"
+
+.PP
+Definition at line 239 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTF9"
+
+.PP
+Definition at line 240 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTFCOL"
+
+.PP
+Definition at line 257 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTFEMUX"
+
+.PP
+Definition at line 256 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::INTFMAN"
+
+.PP
+Definition at line 255 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::MODE"
+
+.PP
+Definition at line 212 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::REPEAT"
+
+.PP
+Definition at line 213 of file pac5xxx_adc\&.h\&.
+.SS "uint32_t PAC55XX_ADC_TYPEDEF::RESERVED0[11]"
+
+.PP
+Definition at line 266 of file pac5xxx_adc\&.h\&.
+.SS "uint32_t PAC55XX_ADC_TYPEDEF::RESERVED1[8]"
+
+.PP
+Definition at line 428 of file pac5xxx_adc\&.h\&.
+.SS "uint32_t PAC55XX_ADC_TYPEDEF::RESERVED2[8]"
+
+.PP
+Definition at line 457 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::START"
+
+.PP
+Definition at line 214 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG0CFGIDX"
+
+.PP
+Definition at line 273 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG0EDGE"
+
+.PP
+Definition at line 274 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG10CFGIDX"
+
+.PP
+Definition at line 319 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG10EDGE"
+
+.PP
+Definition at line 320 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG11CFGIDX"
+
+.PP
+Definition at line 322 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG11EDGE"
+
+.PP
+Definition at line 323 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG12CFGIDX"
+
+.PP
+Definition at line 333 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG12EDGE"
+
+.PP
+Definition at line 334 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG13CFGIDX"
+
+.PP
+Definition at line 336 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG13EDGE"
+
+.PP
+Definition at line 337 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG14CFGIDX"
+
+.PP
+Definition at line 339 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG14EDGE"
+
+.PP
+Definition at line 340 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG15CFGIDX"
+
+.PP
+Definition at line 342 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG15EDGE"
+
+.PP
+Definition at line 343 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG16CFGIDX"
+
+.PP
+Definition at line 353 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG16EDGE"
+
+.PP
+Definition at line 354 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG17CFGIDX"
+
+.PP
+Definition at line 356 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG17EDGE"
+
+.PP
+Definition at line 357 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG18CFGIDX"
+
+.PP
+Definition at line 359 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG18EDGE"
+
+.PP
+Definition at line 360 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG19CFGIDX"
+
+.PP
+Definition at line 362 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG19EDGE"
+
+.PP
+Definition at line 363 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG1CFGIDX"
+
+.PP
+Definition at line 276 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG1EDGE"
+
+.PP
+Definition at line 277 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG20CFGIDX"
+
+.PP
+Definition at line 373 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG20EDGE"
+
+.PP
+Definition at line 374 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG21CFGIDX"
+
+.PP
+Definition at line 376 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG21EDGE"
+
+.PP
+Definition at line 377 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG22CFGIDX"
+
+.PP
+Definition at line 379 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG22EDGE"
+
+.PP
+Definition at line 380 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG23CFGIDX"
+
+.PP
+Definition at line 382 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG23EDGE"
+
+.PP
+Definition at line 383 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG24CFGIDX"
+
+.PP
+Definition at line 393 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG24EDGE"
+
+.PP
+Definition at line 394 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG25CFGIDX"
+
+.PP
+Definition at line 396 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG25EDGE"
+
+.PP
+Definition at line 397 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG26CFGIDX"
+
+.PP
+Definition at line 399 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG26EDGE"
+
+.PP
+Definition at line 400 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG27CFGIDX"
+
+.PP
+Definition at line 402 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG27EDGE"
+
+.PP
+Definition at line 403 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG28CFGIDX"
+
+.PP
+Definition at line 413 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG28EDGE"
+
+.PP
+Definition at line 414 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG29CFGIDX"
+
+.PP
+Definition at line 416 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG29EDGE"
+
+.PP
+Definition at line 417 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG2CFGIDX"
+
+.PP
+Definition at line 279 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG2EDGE"
+
+.PP
+Definition at line 280 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG30CFGIDX"
+
+.PP
+Definition at line 419 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG30EDGE"
+
+.PP
+Definition at line 420 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG31CFGIDX"
+
+.PP
+Definition at line 422 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG31EDGE"
+
+.PP
+Definition at line 423 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG3CFGIDX"
+
+.PP
+Definition at line 282 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG3EDGE"
+
+.PP
+Definition at line 283 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG4CFGIDX"
+
+.PP
+Definition at line 293 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG4EDGE"
+
+.PP
+Definition at line 294 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG5CFGIDX"
+
+.PP
+Definition at line 296 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG5EDGE"
+
+.PP
+Definition at line 297 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG6CFGIDX"
+
+.PP
+Definition at line 299 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG6EDGE"
+
+.PP
+Definition at line 300 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG7CFGIDX"
+
+.PP
+Definition at line 302 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG7EDGE"
+
+.PP
+Definition at line 303 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG8CFGIDX"
+
+.PP
+Definition at line 313 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG8EDGE"
+
+.PP
+Definition at line 314 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG9CFGIDX"
+
+.PP
+Definition at line 316 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::TRIG9EDGE"
+
+.PP
+Definition at line 317 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::VAL"
+
+.PP
+Definition at line 199 of file pac5xxx_adc\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_ADC_TYPEDEF::w"
+
+.PP
+Definition at line 185 of file pac5xxx_adc\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

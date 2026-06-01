@@ -1,0 +1,185 @@
+.TH "pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_gpio_io_enable.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_gpio_io_enable.c \- Firmware driver for the PAC5XXX GPIO IO Enable\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx_driver_gpio\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_io_enable_a\fP (unsigned char port_mask)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_io_enable_b\fP (unsigned char port_mask)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_io_enable_c\fP (unsigned char port_mask)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_io_enable_d\fP (unsigned char port_mask)"
+.br
+.ti -1c
+.RI "\fBRAMFUNC_GPIO\fP void \fBpac5xxx_gpio_io_enable_e\fP (unsigned char port_mask)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Firmware driver for the PAC5XXX GPIO IO Enable\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_driver_gpio_io_enable\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_io_enable_a (unsigned char port_mask)"
+
+.PP
+Definition at line 20 of file pac5xxx_driver_gpio_io_enable\&.c\&.
+.PP
+.nf
+21 {
+22   if (port_mask & 0x01)
+23     PAC5XXX_GPIOA->PSEL\&.P0 = 0;
+24   if (port_mask & 0x02)
+25       PAC5XXX_GPIOA->PSEL\&.P1 = 0;
+26   if (port_mask & 0x04)
+27       PAC5XXX_GPIOA->PSEL\&.P2 = 0;
+28   if (port_mask & 0x08)
+29       PAC5XXX_GPIOA->PSEL\&.P3 = 0;
+30   if (port_mask & 0x10)
+31       PAC5XXX_GPIOA->PSEL\&.P4 = 0;
+32   if (port_mask & 0x20)
+33       PAC5XXX_GPIOA->PSEL\&.P5 = 0;
+34   if (port_mask & 0x40)
+35       PAC5XXX_GPIOA->PSEL\&.P6 = 0;
+36   if (port_mask & 0x80)
+37       PAC5XXX_GPIOA->PSEL\&.P7 = 0;
+38 }
+.fi
+.PP
+References PAC5XXX_GPIOA\&.
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_io_enable_b (unsigned char port_mask)"
+
+.PP
+Definition at line 40 of file pac5xxx_driver_gpio_io_enable\&.c\&.
+.PP
+.nf
+41 {
+42   if (port_mask & 0x01)
+43     PAC5XXX_GPIOB->PSEL\&.P0 = 0;
+44   if (port_mask & 0x02)
+45     PAC5XXX_GPIOB->PSEL\&.P1 = 0;
+46   if (port_mask & 0x04)
+47     PAC5XXX_GPIOB->PSEL\&.P2 = 0;
+48   if (port_mask & 0x08)
+49     PAC5XXX_GPIOB->PSEL\&.P3 = 0;
+50   if (port_mask & 0x10)
+51     PAC5XXX_GPIOB->PSEL\&.P4 = 0;
+52   if (port_mask & 0x20)
+53     PAC5XXX_GPIOB->PSEL\&.P5 = 0;
+54   if (port_mask & 0x40)
+55     PAC5XXX_GPIOB->PSEL\&.P6 = 0;
+56   if (port_mask & 0x80)
+57     PAC5XXX_GPIOB->PSEL\&.P7 = 0;
+58 }
+.fi
+.PP
+References PAC5XXX_GPIOB\&.
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_io_enable_c (unsigned char port_mask)"
+
+.PP
+Definition at line 60 of file pac5xxx_driver_gpio_io_enable\&.c\&.
+.PP
+.nf
+61 {
+62   if (port_mask & 0x01)
+63     PAC5XXX_GPIOC->PSEL\&.P0 = 0;
+64   if (port_mask & 0x02)
+65     PAC5XXX_GPIOC->PSEL\&.P1 = 0;
+66   if (port_mask & 0x04)
+67     PAC5XXX_GPIOC->PSEL\&.P2 = 0;
+68   if (port_mask & 0x08)
+69     PAC5XXX_GPIOC->PSEL\&.P3 = 0;
+70   if (port_mask & 0x10)
+71     PAC5XXX_GPIOC->PSEL\&.P4 = 0;
+72   if (port_mask & 0x20)
+73     PAC5XXX_GPIOC->PSEL\&.P5 = 0;
+74   if (port_mask & 0x40)
+75     PAC5XXX_GPIOC->PSEL\&.P6 = 0;
+76   if (port_mask & 0x80)
+77     PAC5XXX_GPIOC->PSEL\&.P7 = 0;
+78 }
+.fi
+.PP
+References PAC5XXX_GPIOC\&.
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_io_enable_d (unsigned char port_mask)"
+
+.PP
+Definition at line 80 of file pac5xxx_driver_gpio_io_enable\&.c\&.
+.PP
+.nf
+81 {
+82   if (port_mask & 0x01)
+83     PAC5XXX_GPIOD->PSEL\&.P0 = 0;
+84   if (port_mask & 0x02)
+85     PAC5XXX_GPIOD->PSEL\&.P1 = 0;
+86   if (port_mask & 0x04)
+87     PAC5XXX_GPIOD->PSEL\&.P2 = 0;
+88   if (port_mask & 0x08)
+89     PAC5XXX_GPIOD->PSEL\&.P3 = 0;
+90   if (port_mask & 0x10)
+91     PAC5XXX_GPIOD->PSEL\&.P4 = 0;
+92   if (port_mask & 0x20)
+93     PAC5XXX_GPIOD->PSEL\&.P5 = 0;
+94   if (port_mask & 0x40)
+95     PAC5XXX_GPIOD->PSEL\&.P6 = 0;
+96   if (port_mask & 0x80)
+97     PAC5XXX_GPIOD->PSEL\&.P7 = 0;
+98 }
+.fi
+.PP
+References PAC5XXX_GPIOD\&.
+.SS "\fBRAMFUNC_GPIO\fP void pac5xxx_gpio_io_enable_e (unsigned char port_mask)"
+
+.PP
+Definition at line 100 of file pac5xxx_driver_gpio_io_enable\&.c\&.
+.PP
+.nf
+101 {
+102   if (port_mask & 0x01)
+103     PAC5XXX_GPIOE->PSEL\&.P0 = 0;
+104   if (port_mask & 0x02)
+105     PAC5XXX_GPIOE->PSEL\&.P1 = 0;
+106   if (port_mask & 0x04)
+107     PAC5XXX_GPIOE->PSEL\&.P2 = 0;
+108   if (port_mask & 0x08)
+109     PAC5XXX_GPIOE->PSEL\&.P3 = 0;
+110   if (port_mask & 0x10)
+111     PAC5XXX_GPIOE->PSEL\&.P4 = 0;
+112   if (port_mask & 0x20)
+113     PAC5XXX_GPIOE->PSEL\&.P5 = 0;
+114   if (port_mask & 0x40)
+115     PAC5XXX_GPIOE->PSEL\&.P6 = 0;
+116   if (port_mask & 0x80)
+117     PAC5XXX_GPIOE->PSEL\&.P7 = 0;
+118 }
+.fi
+.PP
+References PAC5XXX_GPIOE\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

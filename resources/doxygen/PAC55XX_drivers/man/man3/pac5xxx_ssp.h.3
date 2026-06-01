@@ -1,0 +1,327 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_ssp.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_ssp.h \- CMSIS Cortex-M Header File for the PAC55XX SSP Controller\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPAC55XX_SSP_TYPEDEF\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBSSP_ENDIAN_TYPE\fP { \fBSSP_ENDIAN_MSB\fP = 0, \fBSSP_ENDIAN_LSB\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBSSP_LOOPBACK_TYPE\fP { \fBSSP_LP_NORMAL\fP = 0, \fBSSP_LP_LOOPBACK\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBSSP_CONTROL_TYPE\fP { \fBSSP_CONTROL_DISABLE\fP = 0, \fBSSP_CONTROL_ENABLE\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBSSP_MS_TYPE\fP { \fBSSP_MS_MASTER\fP = 0, \fBSSP_MS_SLAVE\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBSSP_OUTPUT_TYPE\fP { \fBSSP_OUTPUT_DRIVE\fP = 0, \fBSSP_OUTPUT_NOT_DRIVE\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBSSP_PUT_PHASE_TYPE\fP { \fBSSP_PUT_PHASE_1\fP = 0, \fBSSP_PUT_PHASE_2\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBSSP_CLK_POLARITY_TYPE\fP { \fBSSP_CLK_POLARITY_LOW\fP = 0, \fBSSP_CLK_POLARITY_HIGH\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBSSP_FRAME_FORMAT_TYPE\fP { \fBSSP_FRAME_FORMAT_SPI\fP = 0, \fBSSP_FRAME_FORMAT_TI\fP = 1, \fBSSP_FRAME_FORMAT_MICROWIRE\fP = 2 }"
+.br
+.ti -1c
+.RI "enum \fBSSP_DATA_SIZE_TYPE\fP { \fBSSP_DATA_SIZE_4\fP = 3, \fBSSP_DATA_SIZE_5\fP = 4, \fBSSP_DATA_SIZE_6\fP = 5, \fBSSP_DATA_SIZE_7\fP = 6, \fBSSP_DATA_SIZE_8\fP = 7, \fBSSP_DATA_SIZE_9\fP = 8, \fBSSP_DATA_SIZE_10\fP = 9, \fBSSP_DATA_SIZE_11\fP = 10, \fBSSP_DATA_SIZE_12\fP = 11, \fBSSP_DATA_SIZE_13\fP = 12, \fBSSP_DATA_SIZE_14\fP = 13, \fBSSP_DATA_SIZE_15\fP = 14, \fBSSP_DATA_SIZE_16\fP = 15 }"
+.br
+.ti -1c
+.RI "enum \fBSSP_CS_PULL_HIGH_TYPE\fP { \fBSSP_CS_PULL_HIGH_NONE\fP = 0, \fBSSP_CS_PULL_HIGH_MUST\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBSSP_CS_STATE_TYPE\fP { \fBSSP_CS_STATE_LOW\fP = 0, \fBSSP_CS_STATE_HIGH\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBSSP_CS_SWSEL_TYPE\fP { \fBSSP_CS_SWSEL_AUTO\fP = 0, \fBSSP_CS_SWSEL_SOFT\fP = 1 }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CMSIS Cortex-M Header File for the PAC55XX SSP Controller\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2017-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_ssp\&.h\fP\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBSSP_CLK_POLARITY_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISSP_CLK_POLARITY_LOW \fP\fP
+.TP
+\fB\fISSP_CLK_POLARITY_HIGH \fP\fP
+.PP
+Definition at line 58 of file pac5xxx_ssp\&.h\&.
+.PP
+.nf
+58              {
+59     SSP_CLK_POLARITY_LOW   = 0,             //The SSP controller maintains the bus clock low between frames
+60     SSP_CLK_POLARITY_HIGH  = 1              //The SSP controller maintains the bus clock hight between frames
+61 } SSP_CLK_POLARITY_TYPE;
+.fi
+.SS "enum \fBSSP_CONTROL_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISSP_CONTROL_DISABLE \fP\fP
+.TP
+\fB\fISSP_CONTROL_ENABLE \fP\fP
+.PP
+Definition at line 34 of file pac5xxx_ssp\&.h\&.
+.PP
+.nf
+34              {
+35     SSP_CONTROL_DISABLE = 0,
+36     SSP_CONTROL_ENABLE  = 1
+37 } SSP_CONTROL_TYPE;
+.fi
+.SS "enum \fBSSP_CS_PULL_HIGH_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISSP_CS_PULL_HIGH_NONE \fP\fP
+.TP
+\fB\fISSP_CS_PULL_HIGH_MUST \fP\fP
+.PP
+Definition at line 88 of file pac5xxx_ssp\&.h\&.
+.PP
+.nf
+88              {
+89     SSP_CS_PULL_HIGH_NONE = 0,              // SS cannot pull high after frame transfer
+90     SSP_CS_PULL_HIGH_MUST = 1               // SS must pull high after frame transfer
+91 } SSP_CS_PULL_HIGH_TYPE;
+.fi
+.SS "enum \fBSSP_CS_STATE_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISSP_CS_STATE_LOW \fP\fP
+.TP
+\fB\fISSP_CS_STATE_HIGH \fP\fP
+.PP
+Definition at line 94 of file pac5xxx_ssp\&.h\&.
+.PP
+.nf
+94              {
+95     SSP_CS_STATE_LOW  = 0,                  // SS is low
+96     SSP_CS_STATE_HIGH = 1                   // SS is high
+97 } SSP_CS_STATE_TYPE;
+.fi
+.SS "enum \fBSSP_CS_SWSEL_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISSP_CS_SWSEL_AUTO \fP\fP
+.TP
+\fB\fISSP_CS_SWSEL_SOFT \fP\fP
+.PP
+Definition at line 100 of file pac5xxx_ssp\&.h\&.
+.PP
+.nf
+100              {
+101     SSP_CS_SWSEL_AUTO = 0,                  // SS is automatically controlled by the SPI module
+102     SSP_CS_SWSEL_SOFT = 1                   // SS is software controlled by SSPACSCR\&.SWCS
+103 } SSP_CS_SWSEL_TYPE;
+.fi
+.SS "enum \fBSSP_DATA_SIZE_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISSP_DATA_SIZE_4 \fP\fP
+.TP
+\fB\fISSP_DATA_SIZE_5 \fP\fP
+.TP
+\fB\fISSP_DATA_SIZE_6 \fP\fP
+.TP
+\fB\fISSP_DATA_SIZE_7 \fP\fP
+.TP
+\fB\fISSP_DATA_SIZE_8 \fP\fP
+.TP
+\fB\fISSP_DATA_SIZE_9 \fP\fP
+.TP
+\fB\fISSP_DATA_SIZE_10 \fP\fP
+.TP
+\fB\fISSP_DATA_SIZE_11 \fP\fP
+.TP
+\fB\fISSP_DATA_SIZE_12 \fP\fP
+.TP
+\fB\fISSP_DATA_SIZE_13 \fP\fP
+.TP
+\fB\fISSP_DATA_SIZE_14 \fP\fP
+.TP
+\fB\fISSP_DATA_SIZE_15 \fP\fP
+.TP
+\fB\fISSP_DATA_SIZE_16 \fP\fP
+.PP
+Definition at line 71 of file pac5xxx_ssp\&.h\&.
+.PP
+.nf
+71              {
+72     SSP_DATA_SIZE_4  = 3,                   // 4-bit transfer
+73     SSP_DATA_SIZE_5  = 4,                   // 5-bit transfer
+74     SSP_DATA_SIZE_6  = 5,                   // 6-bit transfer
+75     SSP_DATA_SIZE_7  = 6,                   // 7-bit transfer
+76     SSP_DATA_SIZE_8  = 7,                   // 8-bit transfer
+77     SSP_DATA_SIZE_9  = 8,                   // 9-bit transfer
+78     SSP_DATA_SIZE_10 = 9,                   // 10-bit transfer
+79     SSP_DATA_SIZE_11 = 10,                  // 11-bit transfer
+80     SSP_DATA_SIZE_12 = 11,                  // 12-bit transfer
+81     SSP_DATA_SIZE_13 = 12,                  // 13-bit transfer
+82     SSP_DATA_SIZE_14 = 13,                  // 14-bit transfer
+83     SSP_DATA_SIZE_15 = 14,                  // 15-bit transfer
+84     SSP_DATA_SIZE_16 = 15                   // 16-bit transfer
+85 } SSP_DATA_SIZE_TYPE;
+.fi
+.SS "enum \fBSSP_ENDIAN_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISSP_ENDIAN_MSB \fP\fP
+.TP
+\fB\fISSP_ENDIAN_LSB \fP\fP
+.PP
+Definition at line 22 of file pac5xxx_ssp\&.h\&.
+.PP
+.nf
+22              {
+23     SSP_ENDIAN_MSB = 0,                     // MSB transmit / receive first
+24     SSP_ENDIAN_LSB = 1                      // LSB transmit / receive first
+25 } SSP_ENDIAN_TYPE;
+.fi
+.SS "enum \fBSSP_FRAME_FORMAT_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISSP_FRAME_FORMAT_SPI \fP\fP
+.TP
+\fB\fISSP_FRAME_FORMAT_TI \fP\fP
+.TP
+\fB\fISSP_FRAME_FORMAT_MICROWIRE \fP\fP
+.PP
+Definition at line 64 of file pac5xxx_ssp\&.h\&.
+.PP
+.nf
+64              {
+65     SSP_FRAME_FORMAT_SPI        = 0,
+66     SSP_FRAME_FORMAT_TI         = 1,
+67     SSP_FRAME_FORMAT_MICROWIRE  = 2 
+68 } SSP_FRAME_FORMAT_TYPE;
+.fi
+.SS "enum \fBSSP_LOOPBACK_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISSP_LP_NORMAL \fP\fP
+.TP
+\fB\fISSP_LP_LOOPBACK \fP\fP
+.PP
+Definition at line 28 of file pac5xxx_ssp\&.h\&.
+.PP
+.nf
+28              {
+29     SSP_LP_NORMAL   = 0,                    // Normal mode
+30     SSP_LP_LOOPBACK = 1                     // Loopback mode
+31 } SSP_LOOPBACK_TYPE;
+.fi
+.SS "enum \fBSSP_MS_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISSP_MS_MASTER \fP\fP
+.TP
+\fB\fISSP_MS_SLAVE \fP\fP
+.PP
+Definition at line 40 of file pac5xxx_ssp\&.h\&.
+.PP
+.nf
+40              {
+41     SSP_MS_MASTER = 0,                      // The SSP controller acts as a bus master, driving the SCLK, MOSI, and SS signals and receiving MISO
+42     SSP_MS_SLAVE  = 1                       // The SSP controller acts as a bus slave, driving the MISO and receiving SCLK, MOSI, and SS
+43 } SSP_MS_TYPE;
+.fi
+.SS "enum \fBSSP_OUTPUT_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISSP_OUTPUT_DRIVE \fP\fP
+.TP
+\fB\fISSP_OUTPUT_NOT_DRIVE \fP\fP
+.PP
+Definition at line 46 of file pac5xxx_ssp\&.h\&.
+.PP
+.nf
+46              {
+47     SSP_OUTPUT_DRIVE     = 0,               // The SSP can drive the MISO output in slave mode
+48     SSP_OUTPUT_NOT_DRIVE = 1                // The SSP must not drive the MISO output in slave mode
+49 } SSP_OUTPUT_TYPE;
+.fi
+.SS "enum \fBSSP_PUT_PHASE_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fISSP_PUT_PHASE_1 \fP\fP
+.TP
+\fB\fISSP_PUT_PHASE_2 \fP\fP
+.PP
+Definition at line 52 of file pac5xxx_ssp\&.h\&.
+.PP
+.nf
+52              {
+53     SSP_PUT_PHASE_1 = 0,                    // The SSP controller captures serial data on the first edge transition of the frame\&.
+54     SSP_PUT_PHASE_2 = 1                     // The SSP controller captures serial data on the second edge transition of the frame\&.
+55 } SSP_PUT_PHASE_TYPE;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

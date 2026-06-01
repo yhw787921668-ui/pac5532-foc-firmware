@@ -1,0 +1,74 @@
+\hypertarget{isr__timer_a_8c}{}\doxysection{pac\+\_\+foc/src/isr/isr\+\_\+timerA.c File Reference}
+\label{isr__timer_a_8c}\index{pac\_foc/src/isr/isr\_timerA.c@{pac\_foc/src/isr/isr\_timerA.c}}
+
+
+Use for timerA timer interrupt handler to run critical F\+OC functions.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}control\+\_\+1shunt\+\_\+funcs.\+h\char`\"{}}\newline
+Include dependency graph for isr\+\_\+timer\+A.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{isr__timer_a_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{isr__timer_a_8c_a128f247472700253b8b296777991cbff}{Timer\+A\+\_\+\+I\+R\+Q\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Process interrupt for Timer\+A\+\_\+\+I\+R\+Q\+Handler to run critical F\+OC functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for timerA timer interrupt handler to run critical F\+OC functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{isr__timer_a_8c_a128f247472700253b8b296777991cbff}\label{isr__timer_a_8c_a128f247472700253b8b296777991cbff}} 
+\index{isr\_timerA.c@{isr\_timerA.c}!TimerA\_IRQHandler@{TimerA\_IRQHandler}}
+\index{TimerA\_IRQHandler@{TimerA\_IRQHandler}!isr\_timerA.c@{isr\_timerA.c}}
+\doxysubsubsection{\texorpdfstring{TimerA\_IRQHandler()}{TimerA\_IRQHandler()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void Timer\+A\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Process interrupt for Timer\+A\+\_\+\+I\+R\+Q\+Handler to run critical F\+OC functions. 
+
+
+
+Definition at line 29 of file isr\+\_\+timer\+A.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#if (CONFIG\_SHUNT == CONFIG\_SHUNT\_1SHUNT) \&\& (MODE\_1SHUNT\_SELECT == MODE\_1SHUNT\_ASYMMETRIC)}}
+\DoxyCodeLine{32     \textcolor{keyword}{static} \mbox{\hyperlink{struct_struct___motor}{Struct\_Motor}}* motor\_ptr = \&\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{comment}{//    debugio2\_on();}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{comment}{// Call 1-\/Shunt Asymmetric Mode TimerA ISR Process}}
+\DoxyCodeLine{37     control\_1shunt\_asym\_timera\_isr(motor\_ptr);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{comment}{//    debugio2\_off();}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{comment}{// Clear base interrupt}}
+\DoxyCodeLine{42     PAC5XXX\_TIMERA-\/>CTL.INT = 1;}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#if (DEVICE\_SELECT != DEVICE\_5556)}}
+\DoxyCodeLine{46     \textcolor{keyword}{static} \mbox{\hyperlink{struct_struct___motor}{Struct\_Motor}}* motor\_ptr = \&\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}};}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     clear\_timer\_a\_interrupt\_flag\_inc\_isr\_counter(\&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a2fadc739c92fb4d145db8e7eee2673f4}{ctrl\_counter}});}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{51 \}}
+
+\end{DoxyCode}
+
+
+References motor.
+

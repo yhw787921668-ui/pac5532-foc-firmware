@@ -1,0 +1,149 @@
+\hypertarget{pac5xxx__boot___i_a_r_2system__pac5xxx_8c}{}\doxysection{pac\+\_\+foc/pac52xx/pac5xxx\+\_\+sdk/pac5xxx\+\_\+boot\+\_\+\+I\+A\+R/system\+\_\+pac5xxx.c File Reference}
+\label{pac5xxx__boot___i_a_r_2system__pac5xxx_8c}\index{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_boot\_IAR/system\_pac5xxx.c@{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_boot\_IAR/system\_pac5xxx.c}}
+
+
+C\+M\+S\+IS Cortex-\/\+M0 Device Peripheral Access Layer Source File for the P\+A\+C52\+XX Device Series.  
+
+
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+system.\+h\char`\"{}}\newline
+Include dependency graph for system\+\_\+pac5xxx.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__boot___i_a_r_2system__pac5xxx_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{pac5xxx__boot___i_a_r_2system__pac5xxx_8c_ab759225f52a45a9f898ec8c4a5dfecc8}{\+\_\+\+\_\+\+S\+Y\+S\+\_\+\+O\+S\+C\+\_\+\+C\+LK}}~(    4000000\+UL)    /$\ast$ Main oscillator frequency      $\ast$/
+\item 
+\#define \mbox{\hyperlink{pac5xxx__boot___i_a_r_2system__pac5xxx_8c_a16323f44d2b5b11ef3972f71339cbd39}{\+\_\+\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+L\+O\+CK}}~(\mbox{\hyperlink{pac5xxx__boot___k_e_i_l_2system__pac5xxx_8c_ab759225f52a45a9f898ec8c4a5dfecc8}{\+\_\+\+\_\+\+S\+Y\+S\+\_\+\+O\+S\+C\+\_\+\+C\+LK}})	 /$\ast$ System clock uses internal osc $\ast$/
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gaf342bdfd5e5a63868452ecd1c19eb69e}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+Y\+S\+T\+EM}} void \mbox{\hyperlink{pac5xxx__boot___i_a_r_2system__pac5xxx_8c_a563eeed301a9b2649a1db5768320b92c}{System\+Core\+Clock\+Update}} (void)
+\begin{DoxyCompactList}\small\item\em Updates the System\+Core\+Clock with current core Clock retrieved from cpu registers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gaf342bdfd5e5a63868452ecd1c19eb69e}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+Y\+S\+T\+EM}} void \mbox{\hyperlink{pac5xxx__boot___i_a_r_2system__pac5xxx_8c_ae8d5544c14f3b4c6d8e932641a11ed14}{System\+Init}} (void)
+\begin{DoxyCompactList}\small\item\em Setup the micro-\/controller system. Initialize the System. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{pac5xxx__boot___i_a_r_2system__pac5xxx_8c_aa3cd3e43291e81e795d642b79b6088e6}{System\+Core\+Clock}} = \mbox{\hyperlink{pac5xxx__boot___k_e_i_l_2system__pac5xxx_8c_a16323f44d2b5b11ef3972f71339cbd39}{\+\_\+\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+L\+O\+CK}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+M\+S\+IS Cortex-\/\+M0 Device Peripheral Access Layer Source File for the P\+A\+C52\+XX Device Series. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2015-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{pac5xxx__boot___i_a_r_2system__pac5xxx_8c_ab759225f52a45a9f898ec8c4a5dfecc8}\label{pac5xxx__boot___i_a_r_2system__pac5xxx_8c_ab759225f52a45a9f898ec8c4a5dfecc8}} 
+\index{system\_pac5xxx.c@{system\_pac5xxx.c}!\_\_SYS\_OSC\_CLK@{\_\_SYS\_OSC\_CLK}}
+\index{\_\_SYS\_OSC\_CLK@{\_\_SYS\_OSC\_CLK}!system\_pac5xxx.c@{system\_pac5xxx.c}}
+\doxysubsubsection{\texorpdfstring{\_\_SYS\_OSC\_CLK}{\_\_SYS\_OSC\_CLK}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+S\+Y\+S\+\_\+\+O\+S\+C\+\_\+\+C\+LK~(    4000000\+UL)    /$\ast$ Main oscillator frequency      $\ast$/}
+
+
+
+Definition at line 28 of file system\+\_\+pac5xxx.\+c.
+
+\mbox{\Hypertarget{pac5xxx__boot___i_a_r_2system__pac5xxx_8c_a16323f44d2b5b11ef3972f71339cbd39}\label{pac5xxx__boot___i_a_r_2system__pac5xxx_8c_a16323f44d2b5b11ef3972f71339cbd39}} 
+\index{system\_pac5xxx.c@{system\_pac5xxx.c}!\_\_SYSTEM\_CLOCK@{\_\_SYSTEM\_CLOCK}}
+\index{\_\_SYSTEM\_CLOCK@{\_\_SYSTEM\_CLOCK}!system\_pac5xxx.c@{system\_pac5xxx.c}}
+\doxysubsubsection{\texorpdfstring{\_\_SYSTEM\_CLOCK}{\_\_SYSTEM\_CLOCK}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+L\+O\+CK~(\mbox{\hyperlink{pac5xxx__boot___k_e_i_l_2system__pac5xxx_8c_ab759225f52a45a9f898ec8c4a5dfecc8}{\+\_\+\+\_\+\+S\+Y\+S\+\_\+\+O\+S\+C\+\_\+\+C\+LK}})	 /$\ast$ System clock uses internal osc $\ast$/}
+
+
+
+Definition at line 29 of file system\+\_\+pac5xxx.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pac5xxx__boot___i_a_r_2system__pac5xxx_8c_a563eeed301a9b2649a1db5768320b92c}\label{pac5xxx__boot___i_a_r_2system__pac5xxx_8c_a563eeed301a9b2649a1db5768320b92c}} 
+\index{system\_pac5xxx.c@{system\_pac5xxx.c}!SystemCoreClockUpdate@{SystemCoreClockUpdate}}
+\index{SystemCoreClockUpdate@{SystemCoreClockUpdate}!system\_pac5xxx.c@{system\_pac5xxx.c}}
+\doxysubsubsection{\texorpdfstring{SystemCoreClockUpdate()}{SystemCoreClockUpdate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gaf342bdfd5e5a63868452ecd1c19eb69e}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+Y\+S\+T\+EM}} void System\+Core\+Clock\+Update (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Updates the System\+Core\+Clock with current core Clock retrieved from cpu registers. 
+
+Update System\+Core\+Clock variable
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 40 of file system\+\_\+pac5xxx.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41 \{}
+\DoxyCodeLine{42   \mbox{\hyperlink{pac5xxx__boot___c_o_i_d_e_2system__pac5xxx_8c_aa3cd3e43291e81e795d642b79b6088e6}{SystemCoreClock}} = \mbox{\hyperlink{pac5xxx__boot___i_a_r_2system__pac5xxx_8c_a16323f44d2b5b11ef3972f71339cbd39}{\_\_SYSTEM\_CLOCK}};}
+\DoxyCodeLine{43 \}}
+
+\end{DoxyCode}
+
+
+References \+\_\+\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+L\+O\+CK, and System\+Core\+Clock.
+
+\mbox{\Hypertarget{pac5xxx__boot___i_a_r_2system__pac5xxx_8c_ae8d5544c14f3b4c6d8e932641a11ed14}\label{pac5xxx__boot___i_a_r_2system__pac5xxx_8c_ae8d5544c14f3b4c6d8e932641a11ed14}} 
+\index{system\_pac5xxx.c@{system\_pac5xxx.c}!SystemInit@{SystemInit}}
+\index{SystemInit@{SystemInit}!system\_pac5xxx.c@{system\_pac5xxx.c}}
+\doxysubsubsection{\texorpdfstring{SystemInit()}{SystemInit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gaf342bdfd5e5a63868452ecd1c19eb69e}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+Y\+S\+T\+EM}} void System\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Setup the micro-\/controller system. Initialize the System. 
+
+Setup the microcontroller system. Initialize the System and update the System\+Core\+Clock variable.
+
+Initialize the system
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file system\+\_\+pac5xxx.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55 \{}
+\DoxyCodeLine{56     \mbox{\hyperlink{pac5xxx__boot___c_o_i_d_e_2system__pac5xxx_8c_aa3cd3e43291e81e795d642b79b6088e6}{SystemCoreClock}} = \mbox{\hyperlink{pac5xxx__boot___i_a_r_2system__pac5xxx_8c_a16323f44d2b5b11ef3972f71339cbd39}{\_\_SYSTEM\_CLOCK}};}
+\DoxyCodeLine{57 \}}
+
+\end{DoxyCode}
+
+
+References \+\_\+\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+L\+O\+CK, and System\+Core\+Clock.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{pac5xxx__boot___i_a_r_2system__pac5xxx_8c_aa3cd3e43291e81e795d642b79b6088e6}\label{pac5xxx__boot___i_a_r_2system__pac5xxx_8c_aa3cd3e43291e81e795d642b79b6088e6}} 
+\index{system\_pac5xxx.c@{system\_pac5xxx.c}!SystemCoreClock@{SystemCoreClock}}
+\index{SystemCoreClock@{SystemCoreClock}!system\_pac5xxx.c@{system\_pac5xxx.c}}
+\doxysubsubsection{\texorpdfstring{SystemCoreClock}{SystemCoreClock}}
+{\footnotesize\ttfamily uint32\+\_\+t System\+Core\+Clock = \mbox{\hyperlink{pac5xxx__boot___k_e_i_l_2system__pac5xxx_8c_a16323f44d2b5b11ef3972f71339cbd39}{\+\_\+\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+C\+L\+O\+CK}}}
+
+System Clock Frequency (Core Clock) 
+
+Definition at line 34 of file system\+\_\+pac5xxx.\+c.
+

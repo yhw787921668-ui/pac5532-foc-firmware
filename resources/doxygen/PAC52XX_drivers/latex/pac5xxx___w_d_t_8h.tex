@@ -1,0 +1,91 @@
+\hypertarget{pac5xxx___w_d_t_8h}{}\doxysection{pac\+\_\+foc/pac52xx/pac5xxx\+\_\+sdk/pac5xxx\+\_\+peripheral/pac5xxx\+\_\+\+W\+DT.h File Reference}
+\label{pac5xxx___w_d_t_8h}\index{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_peripheral/pac5xxx\_WDT.h@{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_peripheral/pac5xxx\_WDT.h}}
+
+
+C\+M\+S\+IS Cortex-\/M Header File for the P\+A\+C5\+X\+XX Watchdog Timer.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx___w_d_t_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_p_a_c5_x_x_x___w_d_t___type_def}{P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac93dee4d007d0961db514e75f6235c1a}{W\+D\+T\+C\+T\+L\+\_\+\+P\+A\+S\+S\+\_\+\+W\+R\+I\+TE}}~0x4\+A000000
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gab23507e267de26a073aa0ca2d09b9a6f}{W\+D\+T\+C\+T\+L\+\_\+\+P\+A\+S\+S\+\_\+\+R\+E\+AD}}~0x63000000
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga59b5dfc10b50988a854dd68a1ed85e12}{W\+D\+T\+C\+T\+L\+\_\+\+I\+F\+\_\+\+S\+H\+I\+FT}}~4
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga5d7376885230bd7b685788dc49491db1}{W\+D\+T\+C\+T\+L\+\_\+\+I\+F\+\_\+\+M\+A\+SK}}~0x00000010
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga98f90fe7c4701ffa44252d4aac759f09}{W\+D\+T\+C\+T\+L\+\_\+\+R\+S\+T\+\_\+\+S\+H\+I\+FT}}~0
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga31fcf4b246934e1fd4763456a3d75188}{W\+D\+T\+C\+T\+L\+\_\+\+R\+S\+T\+\_\+\+V\+AL}}~0x00000005
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gaa3016224f7659866b99b3c79af7b9556}{W\+D\+T\+C\+T\+L\+\_\+\+I\+E\+\_\+\+S\+H\+I\+FT}}~3
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga7b0bfe4b5ce68759589c03668ff532aa}{W\+D\+T\+C\+T\+L\+\_\+\+I\+E\+\_\+\+M\+A\+SK}}~0x00000008
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga79cb17352ff2279d6c5f313aacc6fb12}{W\+D\+T\+C\+T\+L\+\_\+\+P\+O\+R\+E\+N\+\_\+\+S\+H\+I\+FT}}~5
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac835dd80b8b187fc6ee9abe110bcfec2}{W\+D\+T\+C\+T\+L\+\_\+\+P\+O\+R\+E\+N\+\_\+\+M\+A\+SK}}~0x00000020
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga45e6037c67818db9c09faa8945998786}{W\+D\+T\+C\+T\+L\+\_\+\+W\+R\+B\+U\+S\+Y\+\_\+\+S\+H\+I\+FT}}~11
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga61602f2e0ee886ebd9a2800007357523}{W\+D\+T\+C\+T\+L\+\_\+\+W\+R\+B\+U\+S\+Y\+\_\+\+M\+A\+SK}}~0x00000800
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga1cf05fa2cb59fa6a4a00e56bbf3f374b}{W\+D\+T\+\_\+\+W\+A\+I\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+B\+L\+O\+CK}}~while ((\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga3082175172de9fed5f1aa8dee41c37b5}{P\+A\+C5\+X\+X\+X\+\_\+\+W\+DT}}-\/$>$W\+D\+T\+C\+TL \& \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga61602f2e0ee886ebd9a2800007357523}{W\+D\+T\+C\+T\+L\+\_\+\+W\+R\+B\+U\+S\+Y\+\_\+\+M\+A\+SK}}) != 0);
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gaf2e5f09e84b6fe2acbb408655ed701ac}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+S\+H\+I\+FT}}~6
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga6eb8fc00debe5bb6b92b444703356037}{W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+S\+H\+I\+FT}}~10
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gaa00713baf2d47e6d0b8d85bf4acda187}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+Type}} \{ \newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a4190a144aa55c3af39702c6407be25dd}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V2}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a37c4a8fd4f9ef0046dfe1eb3b373edc3}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V4}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187aad8d0b1a403b42c210c95dbd99d8f9bd}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V8}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a6e461cc6afbd38e63098396c0ebf2222}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V16}} = 3, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a5002bcac6b92b5c2b9887b65b0170e4e}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V32}} = 4, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a21625adad9b4b88f70d062f39adaf5cb}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V64}} = 5, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a885e46f03bfa2c5c9e51836863a573ee}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V128}} = 6, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187aabe1bc30c95f383b3abf76334dddb2d8}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V256}} = 7, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a54e348be7127af29a5418b439938d94e}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V512}} = 8, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187ab9279711fdd29edeee822c1a6c320bf1}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V1024}} = 9, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187ae01518332f349c225c34ab3995ae2d2e}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V2048}} = 10, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a505e829f802bfab2d609c90997944497}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V4096}} = 11, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a79c8d495e417269cdf4691a159147e9f}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V8192}} = 12, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a15e2a2efd9289863a2eced6389707023}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V16384}} = 13, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187ae8a0cac6c39db970db9e46ff5d2dced7}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V32767}} = 14, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187aceb4d50ffa0cafab3dff8e052afc6094}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V65536}} = 15
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gad192221f140f88fed295ffada6aa9266}{W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggad192221f140f88fed295ffada6aa9266a54bcbbad53acce307a2c3ec55b2c86e7}{W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+F\+R\+C\+LK}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggad192221f140f88fed295ffada6aa9266a7fcfcb56a2d37ce1e22a1ca18d061590}{W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+P\+L\+L\+C\+LK}} = 1
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+M\+S\+IS Cortex-\/M Header File for the P\+A\+C5\+X\+XX Watchdog Timer. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2015-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 

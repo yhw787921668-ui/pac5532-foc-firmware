@@ -1,0 +1,103 @@
+\hypertarget{foc__math_8h}{}\doxysection{pac\+\_\+foc/src/control/foc\+\_\+math.h File Reference}
+\label{foc__math_8h}\index{pac\_foc/src/control/foc\_math.h@{pac\_foc/src/control/foc\_math.h}}
+
+
+Use for basic F\+OC math functions, like park, clarke, inverse park, S\+VM.  
+
+
+{\ttfamily \#include \char`\"{}pac5xxx.\+h\char`\"{}}\newline
+Include dependency graph for foc\+\_\+math.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=179pt]{foc__math_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{foc__math_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{foc__math_8h_a2c794223b90212c9381b124ea9f96395}{S\+V\+Sector}} \{ \newline
+\mbox{\hyperlink{foc__math_8h_a2c794223b90212c9381b124ea9f96395a3001c51b6a685080ab507033618742a6}{S\+V\+M\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+N\+O\+T\+\_\+\+V\+A\+L\+ID}} = -\/1, 
+\mbox{\hyperlink{foc__math_8h_a2c794223b90212c9381b124ea9f96395a8903ba968eecdcb5febbbbd51119ea6e}{S\+V\+M\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+1}} = 1, 
+\mbox{\hyperlink{foc__math_8h_a2c794223b90212c9381b124ea9f96395ad66cb7b36abb1cea49156f2bd8985f43}{S\+V\+M\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+2}} = 2, 
+\mbox{\hyperlink{foc__math_8h_a2c794223b90212c9381b124ea9f96395a5e5cfb939924d8d9c5d7de3326299d9b}{S\+V\+M\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+3}} = 3, 
+\newline
+\mbox{\hyperlink{foc__math_8h_a2c794223b90212c9381b124ea9f96395af38973239b9759ebe8019443228877b3}{S\+V\+M\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+4}} = 4, 
+\mbox{\hyperlink{foc__math_8h_a2c794223b90212c9381b124ea9f96395ae89da60ff3c23b4d0f2e7fe0c122d3cc}{S\+V\+M\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+5}} = 5, 
+\mbox{\hyperlink{foc__math_8h_a2c794223b90212c9381b124ea9f96395af89819a3218e04bf254dc2a463c445b1}{S\+V\+M\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+6}} = 6
+ \}
+\begin{DoxyCompactList}\small\item\em S\+VM Enum. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for basic F\+OC math functions, like park, clarke, inverse park, S\+VM. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{foc__math_8h_a2c794223b90212c9381b124ea9f96395}\label{foc__math_8h_a2c794223b90212c9381b124ea9f96395}} 
+\index{foc\_math.h@{foc\_math.h}!SVSector@{SVSector}}
+\index{SVSector@{SVSector}!foc\_math.h@{foc\_math.h}}
+\doxysubsubsection{\texorpdfstring{SVSector}{SVSector}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{foc__math_8h_a2c794223b90212c9381b124ea9f96395}{S\+V\+Sector}}}
+
+
+
+S\+VM Enum. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SVM\_SECTOR\_NOT\_VALID@{SVM\_SECTOR\_NOT\_VALID}!foc\_math.h@{foc\_math.h}}\index{foc\_math.h@{foc\_math.h}!SVM\_SECTOR\_NOT\_VALID@{SVM\_SECTOR\_NOT\_VALID}}}\mbox{\Hypertarget{foc__math_8h_a2c794223b90212c9381b124ea9f96395a3001c51b6a685080ab507033618742a6}\label{foc__math_8h_a2c794223b90212c9381b124ea9f96395a3001c51b6a685080ab507033618742a6}} 
+S\+V\+M\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+\+N\+O\+T\+\_\+\+V\+A\+L\+ID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SVM\_SECTOR\_1@{SVM\_SECTOR\_1}!foc\_math.h@{foc\_math.h}}\index{foc\_math.h@{foc\_math.h}!SVM\_SECTOR\_1@{SVM\_SECTOR\_1}}}\mbox{\Hypertarget{foc__math_8h_a2c794223b90212c9381b124ea9f96395a8903ba968eecdcb5febbbbd51119ea6e}\label{foc__math_8h_a2c794223b90212c9381b124ea9f96395a8903ba968eecdcb5febbbbd51119ea6e}} 
+S\+V\+M\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SVM\_SECTOR\_2@{SVM\_SECTOR\_2}!foc\_math.h@{foc\_math.h}}\index{foc\_math.h@{foc\_math.h}!SVM\_SECTOR\_2@{SVM\_SECTOR\_2}}}\mbox{\Hypertarget{foc__math_8h_a2c794223b90212c9381b124ea9f96395ad66cb7b36abb1cea49156f2bd8985f43}\label{foc__math_8h_a2c794223b90212c9381b124ea9f96395ad66cb7b36abb1cea49156f2bd8985f43}} 
+S\+V\+M\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SVM\_SECTOR\_3@{SVM\_SECTOR\_3}!foc\_math.h@{foc\_math.h}}\index{foc\_math.h@{foc\_math.h}!SVM\_SECTOR\_3@{SVM\_SECTOR\_3}}}\mbox{\Hypertarget{foc__math_8h_a2c794223b90212c9381b124ea9f96395a5e5cfb939924d8d9c5d7de3326299d9b}\label{foc__math_8h_a2c794223b90212c9381b124ea9f96395a5e5cfb939924d8d9c5d7de3326299d9b}} 
+S\+V\+M\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SVM\_SECTOR\_4@{SVM\_SECTOR\_4}!foc\_math.h@{foc\_math.h}}\index{foc\_math.h@{foc\_math.h}!SVM\_SECTOR\_4@{SVM\_SECTOR\_4}}}\mbox{\Hypertarget{foc__math_8h_a2c794223b90212c9381b124ea9f96395af38973239b9759ebe8019443228877b3}\label{foc__math_8h_a2c794223b90212c9381b124ea9f96395af38973239b9759ebe8019443228877b3}} 
+S\+V\+M\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SVM\_SECTOR\_5@{SVM\_SECTOR\_5}!foc\_math.h@{foc\_math.h}}\index{foc\_math.h@{foc\_math.h}!SVM\_SECTOR\_5@{SVM\_SECTOR\_5}}}\mbox{\Hypertarget{foc__math_8h_a2c794223b90212c9381b124ea9f96395ae89da60ff3c23b4d0f2e7fe0c122d3cc}\label{foc__math_8h_a2c794223b90212c9381b124ea9f96395ae89da60ff3c23b4d0f2e7fe0c122d3cc}} 
+S\+V\+M\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SVM\_SECTOR\_6@{SVM\_SECTOR\_6}!foc\_math.h@{foc\_math.h}}\index{foc\_math.h@{foc\_math.h}!SVM\_SECTOR\_6@{SVM\_SECTOR\_6}}}\mbox{\Hypertarget{foc__math_8h_a2c794223b90212c9381b124ea9f96395af89819a3218e04bf254dc2a463c445b1}\label{foc__math_8h_a2c794223b90212c9381b124ea9f96395af89819a3218e04bf254dc2a463c445b1}} 
+S\+V\+M\+\_\+\+S\+E\+C\+T\+O\+R\+\_\+6&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 28 of file foc\+\_\+math.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \mbox{\hyperlink{foc__math_8h_a2c794223b90212c9381b124ea9f96395a3001c51b6a685080ab507033618742a6}{SVM\_SECTOR\_NOT\_VALID}} = -\/1,}
+\DoxyCodeLine{31     \mbox{\hyperlink{foc__math_8h_a2c794223b90212c9381b124ea9f96395a8903ba968eecdcb5febbbbd51119ea6e}{SVM\_SECTOR\_1}} = 1,}
+\DoxyCodeLine{32     \mbox{\hyperlink{foc__math_8h_a2c794223b90212c9381b124ea9f96395ad66cb7b36abb1cea49156f2bd8985f43}{SVM\_SECTOR\_2}} = 2,}
+\DoxyCodeLine{33     \mbox{\hyperlink{foc__math_8h_a2c794223b90212c9381b124ea9f96395a5e5cfb939924d8d9c5d7de3326299d9b}{SVM\_SECTOR\_3}} = 3,}
+\DoxyCodeLine{34     \mbox{\hyperlink{foc__math_8h_a2c794223b90212c9381b124ea9f96395af38973239b9759ebe8019443228877b3}{SVM\_SECTOR\_4}} = 4,}
+\DoxyCodeLine{35     \mbox{\hyperlink{foc__math_8h_a2c794223b90212c9381b124ea9f96395ae89da60ff3c23b4d0f2e7fe0c122d3cc}{SVM\_SECTOR\_5}} = 5,}
+\DoxyCodeLine{36     \mbox{\hyperlink{foc__math_8h_a2c794223b90212c9381b124ea9f96395af89819a3218e04bf254dc2a463c445b1}{SVM\_SECTOR\_6}} = 6,}
+\DoxyCodeLine{37 \}\mbox{\hyperlink{foc__math_8h_a2c794223b90212c9381b124ea9f96395}{SVSector}};}
+
+\end{DoxyCode}

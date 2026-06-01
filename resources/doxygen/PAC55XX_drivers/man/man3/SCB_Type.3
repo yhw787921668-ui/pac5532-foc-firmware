@@ -1,0 +1,87 @@
+.TH "SCB_Type" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SCB_Type \- Structure type to access the System Control Block (SCB)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <core_cm4\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBCPUID\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBICSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBVTOR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBAIRCR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSCR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCCR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint8_t \fBSHP\fP [12]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBSHCSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCFSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBHFSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBDFSR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBMMFAR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBBFAR\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBAFSR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPFR\fP [2]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBDFR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBADR\fP"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBMMFR\fP [4]"
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBISAR\fP [5]"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED0\fP [5]"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBCPACR\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Structure type to access the System Control Block (SCB)\&. 
+.PP
+Definition at line 353 of file core_cm4\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

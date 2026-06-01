@@ -1,0 +1,176 @@
+.TH "CMSIS_core_base" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CMSIS_core_base \- Core Definitions
+.PP
+ \- Definitions for base addresses, unions, and structures\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBFunctions and Instructions Reference\fP"
+.br
+.ti -1c
+.RI "\fBNVIC Functions\fP"
+.br
+.RI "Functions that manage interrupts and exceptions via the NVIC\&. "
+.in -1c
+.in +1c
+.ti -1c
+.RI "#define \fBSCS_BASE\fP   (0xE000E000UL)"
+.br
+.ti -1c
+.RI "#define \fBITM_BASE\fP   (0xE0000000UL)"
+.br
+.ti -1c
+.RI "#define \fBDWT_BASE\fP   (0xE0001000UL)"
+.br
+.ti -1c
+.RI "#define \fBTPI_BASE\fP   (0xE0040000UL)"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug_BASE\fP   (0xE000EDF0UL)"
+.br
+.ti -1c
+.RI "#define \fBSysTick_BASE\fP   (\fBSCS_BASE\fP +  0x0010UL)"
+.br
+.ti -1c
+.RI "#define \fBNVIC_BASE\fP   (\fBSCS_BASE\fP +  0x0100UL)"
+.br
+.ti -1c
+.RI "#define \fBSCB_BASE\fP   (\fBSCS_BASE\fP +  0x0D00UL)"
+.br
+.ti -1c
+.RI "#define \fBSCnSCB\fP   ((\fBSCnSCB_Type\fP    *)     \fBSCS_BASE\fP      )"
+.br
+.ti -1c
+.RI "#define \fBSCB\fP   ((\fBSCB_Type\fP       *)     \fBSCB_BASE\fP      )"
+.br
+.ti -1c
+.RI "#define \fBSysTick\fP   ((\fBSysTick_Type\fP   *)     \fBSysTick_BASE\fP  )"
+.br
+.ti -1c
+.RI "#define \fBNVIC\fP   ((\fBNVIC_Type\fP      *)     \fBNVIC_BASE\fP     )"
+.br
+.ti -1c
+.RI "#define \fBITM\fP   ((\fBITM_Type\fP       *)     \fBITM_BASE\fP      )"
+.br
+.ti -1c
+.RI "#define \fBDWT\fP   ((\fBDWT_Type\fP       *)     \fBDWT_BASE\fP      )"
+.br
+.ti -1c
+.RI "#define \fBTPI\fP   ((\fBTPI_Type\fP       *)     \fBTPI_BASE\fP      )"
+.br
+.ti -1c
+.RI "#define \fBCoreDebug\fP   ((\fBCoreDebug_Type\fP *)     \fBCoreDebug_BASE\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definitions for base addresses, unions, and structures\&. 
+
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define CoreDebug   ((\fBCoreDebug_Type\fP *)     \fBCoreDebug_BASE\fP)"
+Core Debug configuration struct 
+.br
+ 
+.PP
+Definition at line 1374 of file core_cm4\&.h\&.
+.SS "#define CoreDebug_BASE   (0xE000EDF0UL)"
+Core Debug Base Address 
+.br
+ 
+.PP
+Definition at line 1362 of file core_cm4\&.h\&.
+.SS "#define DWT   ((\fBDWT_Type\fP       *)     \fBDWT_BASE\fP      )"
+DWT configuration struct 
+.br
+ 
+.PP
+Definition at line 1372 of file core_cm4\&.h\&.
+.SS "#define DWT_BASE   (0xE0001000UL)"
+DWT Base Address 
+.br
+ 
+.PP
+Definition at line 1360 of file core_cm4\&.h\&.
+.SS "#define ITM   ((\fBITM_Type\fP       *)     \fBITM_BASE\fP      )"
+ITM configuration struct 
+.br
+ 
+.PP
+Definition at line 1371 of file core_cm4\&.h\&.
+.SS "#define ITM_BASE   (0xE0000000UL)"
+ITM Base Address 
+.br
+ 
+.PP
+Definition at line 1359 of file core_cm4\&.h\&.
+.SS "#define NVIC   ((\fBNVIC_Type\fP      *)     \fBNVIC_BASE\fP     )"
+NVIC configuration struct 
+.br
+ 
+.PP
+Definition at line 1370 of file core_cm4\&.h\&.
+.SS "#define NVIC_BASE   (\fBSCS_BASE\fP +  0x0100UL)"
+NVIC Base Address 
+.br
+ 
+.PP
+Definition at line 1364 of file core_cm4\&.h\&.
+.SS "#define SCB   ((\fBSCB_Type\fP       *)     \fBSCB_BASE\fP      )"
+SCB configuration struct 
+.br
+ 
+.PP
+Definition at line 1368 of file core_cm4\&.h\&.
+.SS "#define SCB_BASE   (\fBSCS_BASE\fP +  0x0D00UL)"
+System Control Block Base Address 
+.br
+ 
+.PP
+Definition at line 1365 of file core_cm4\&.h\&.
+.SS "#define SCnSCB   ((\fBSCnSCB_Type\fP    *)     \fBSCS_BASE\fP      )"
+System control Register not in SCB 
+.PP
+Definition at line 1367 of file core_cm4\&.h\&.
+.SS "#define SCS_BASE   (0xE000E000UL)"
+System Control Space Base Address 
+.br
+ 
+.PP
+Definition at line 1358 of file core_cm4\&.h\&.
+.SS "#define SysTick   ((\fBSysTick_Type\fP   *)     \fBSysTick_BASE\fP  )"
+SysTick configuration struct 
+.br
+ 
+.PP
+Definition at line 1369 of file core_cm4\&.h\&.
+.SS "#define SysTick_BASE   (\fBSCS_BASE\fP +  0x0010UL)"
+SysTick Base Address 
+.br
+ 
+.PP
+Definition at line 1363 of file core_cm4\&.h\&.
+.SS "#define TPI   ((\fBTPI_Type\fP       *)     \fBTPI_BASE\fP      )"
+TPI configuration struct 
+.br
+ 
+.PP
+Definition at line 1373 of file core_cm4\&.h\&.
+.SS "#define TPI_BASE   (0xE0040000UL)"
+TPI Base Address 
+.br
+ 
+.PP
+Definition at line 1361 of file core_cm4\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

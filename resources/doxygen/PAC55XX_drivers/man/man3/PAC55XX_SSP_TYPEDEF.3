@@ -1,0 +1,464 @@
+.TH "PAC55XX_SSP_TYPEDEF" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC55XX_SSP_TYPEDEF
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <pac5xxx_ssp\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBDSS\fP: 5"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBFRF\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCPO\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBCPH\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSOD\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBMS\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSSPEN\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBLBM\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBLSBFIRST\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 18"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBCON\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBTFE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBTNF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBRNE\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBRFF\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBBSY\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 27"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBSTAT\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBDATA\fP: 32"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBDAT\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBN\fP: 8"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBM\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBCLK\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBROIM\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBRTIM\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBRXIM\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBTXIM\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 28"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBIMSC\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBRORIS\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBRTRIS\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBRXRIS\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBTXRIS\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 28"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBRIS\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBROMIS\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBRTMIS\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBRXMIS\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBTXMIS\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 28"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBMIS\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBROIC\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBRTIC\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 30"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBICLR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBRESERVED1\fP [2]"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBw\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSELSS\fP: 2"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSWSEL\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSWSS\fP: 1"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBSPHDONTCARE\fP: 1"
+.br
+.ti -1c
+.RI "      uint32_t \fB__pad0__\fP: 27"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBSSCR\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 105 of file pac5xxx_ssp\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint32_t PAC55XX_SSP_TYPEDEF::__pad0__"
+
+.PP
+Definition at line 120 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_SSP_TYPEDEF::BSY"
+
+.PP
+Definition at line 132 of file pac5xxx_ssp\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_SSP_TYPEDEF::CLK"
+
+.SS "union { \&.\&.\&. }  PAC55XX_SSP_TYPEDEF::CON"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::CPH"
+
+.PP
+Definition at line 114 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::CPO"
+
+.PP
+Definition at line 113 of file pac5xxx_ssp\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_SSP_TYPEDEF::DAT"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::DATA"
+
+.PP
+Definition at line 141 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::DSS"
+
+.PP
+Definition at line 111 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::FRF"
+
+.PP
+Definition at line 112 of file pac5xxx_ssp\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_SSP_TYPEDEF::ICLR"
+
+.SS "union { \&.\&.\&. }  PAC55XX_SSP_TYPEDEF::IMSC"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::LBM"
+
+.PP
+Definition at line 118 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::LSBFIRST"
+
+.PP
+Definition at line 119 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::M"
+
+.PP
+Definition at line 150 of file pac5xxx_ssp\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_SSP_TYPEDEF::MIS"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::MS"
+
+.PP
+Definition at line 116 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::N"
+
+.PP
+Definition at line 149 of file pac5xxx_ssp\&.h\&.
+.SS "uint32_t PAC55XX_SSP_TYPEDEF::RESERVED1[2]"
+
+.PP
+Definition at line 202 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_SSP_TYPEDEF::RFF"
+
+.PP
+Definition at line 131 of file pac5xxx_ssp\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_SSP_TYPEDEF::RIS"
+
+.SS "\fB__I\fP uint32_t PAC55XX_SSP_TYPEDEF::RNE"
+
+.PP
+Definition at line 130 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::ROIC"
+
+.PP
+Definition at line 195 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::ROIM"
+
+.PP
+Definition at line 159 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_SSP_TYPEDEF::ROMIS"
+
+.PP
+Definition at line 183 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_SSP_TYPEDEF::RORIS"
+
+.PP
+Definition at line 171 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::RTIC"
+
+.PP
+Definition at line 196 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::RTIM"
+
+.PP
+Definition at line 160 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_SSP_TYPEDEF::RTMIS"
+
+.PP
+Definition at line 184 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_SSP_TYPEDEF::RTRIS"
+
+.PP
+Definition at line 172 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::RXIM"
+
+.PP
+Definition at line 161 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_SSP_TYPEDEF::RXMIS"
+
+.PP
+Definition at line 185 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_SSP_TYPEDEF::RXRIS"
+
+.PP
+Definition at line 173 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::SELSS"
+
+.PP
+Definition at line 208 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::SOD"
+
+.PP
+Definition at line 115 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::SPHDONTCARE"
+
+.PP
+Definition at line 211 of file pac5xxx_ssp\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_SSP_TYPEDEF::SSCR"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::SSPEN"
+
+.PP
+Definition at line 117 of file pac5xxx_ssp\&.h\&.
+.SS "union { \&.\&.\&. }  PAC55XX_SSP_TYPEDEF::STAT"
+
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::SWSEL"
+
+.PP
+Definition at line 209 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::SWSS"
+
+.PP
+Definition at line 210 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_SSP_TYPEDEF::TFE"
+
+.PP
+Definition at line 128 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_SSP_TYPEDEF::TNF"
+
+.PP
+Definition at line 129 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::TXIM"
+
+.PP
+Definition at line 162 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_SSP_TYPEDEF::TXMIS"
+
+.PP
+Definition at line 186 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_SSP_TYPEDEF::TXRIS"
+
+.PP
+Definition at line 174 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC55XX_SSP_TYPEDEF::w"
+
+.PP
+Definition at line 109 of file pac5xxx_ssp\&.h\&.
+.SS "\fB__I\fP uint32_t PAC55XX_SSP_TYPEDEF::w"
+
+.PP
+Definition at line 126 of file pac5xxx_ssp\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

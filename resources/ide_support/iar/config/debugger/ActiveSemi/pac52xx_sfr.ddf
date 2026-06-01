@@ -1,0 +1,1716 @@
+;-----------------------------------------------------------------------------------
+;       Definition of Peripheral I/O registers,
+;       Interrupt/Exception vectors
+;       for microcontroller PAC52XX.
+;       
+;       This definition file can be used by the C-SPY debugger,
+;       all flavours (simulator, emulator and ROM-monitor).
+;       
+;       This definitionfile is generated 2013-04-08   
+;        from the device file:   pac52xx.h
+;       
+;------------------------------------------------------------------------------------
+
+;
+; Start of SFR definition.
+;
+[Sfr]
+
+
+;
+;               NVIC
+;
+;     Name                              Zone      Address     Bytesize  Displaybase Bitrange
+;     ----                              ----      -------     --------  ----------- --------
+
+sfr = "ISER"                          , "Memory", 0xE000E100,        4, base=16
+sfr = "ISER.SETENA0"                  , "Memory", 0xE000E100,        4, base=16,    bitRange=0-0
+sfr = "ISER.SETENA1"                  , "Memory", 0xE000E100,        4, base=16,    bitRange=1-1
+sfr = "ISER.SETENA2"                  , "Memory", 0xE000E100,        4, base=16,    bitRange=2-2
+sfr = "ISER.SETENA3"                  , "Memory", 0xE000E100,        4, base=16,    bitRange=3-3
+sfr = "ISER.SETENA4"                  , "Memory", 0xE000E100,        4, base=16,    bitRange=4-4
+sfr = "ISER.SETENA5"                  , "Memory", 0xE000E100,        4, base=16,    bitRange=5-5
+sfr = "ISER.SETENA6"                  , "Memory", 0xE000E100,        4, base=16,    bitRange=6-6
+sfr = "ISER.SETENA7"                  , "Memory", 0xE000E100,        4, base=16,    bitRange=7-7
+sfr = "ISER.SETENA8"                  , "Memory", 0xE000E100,        4, base=16,    bitRange=8-8
+sfr = "ISER.SETENA9"                  , "Memory", 0xE000E100,        4, base=16,    bitRange=9-9
+sfr = "ISER.SETENA10"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=10-10
+sfr = "ISER.SETENA11"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=11-11
+sfr = "ISER.SETENA12"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=12-12
+sfr = "ISER.SETENA13"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=13-13
+sfr = "ISER.SETENA14"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=14-14
+sfr = "ISER.SETENA15"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=15-15
+sfr = "ISER.SETENA16"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=16-16
+sfr = "ISER.SETENA17"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=17-17
+sfr = "ISER.SETENA18"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=18-18
+sfr = "ISER.SETENA19"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=19-19
+sfr = "ISER.SETENA20"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=20-20
+sfr = "ISER.SETENA21"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=21-21
+sfr = "ISER.SETENA22"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=22-22
+sfr = "ISER.SETENA23"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=23-23
+sfr = "ISER.SETENA24"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=24-24
+sfr = "ISER.SETENA25"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=25-25
+sfr = "ISER.SETENA26"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=26-26
+sfr = "ISER.SETENA27"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=27-27
+sfr = "ISER.SETENA28"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=28-28
+sfr = "ISER.SETENA29"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=29-29
+sfr = "ISER.SETENA30"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=30-30
+sfr = "ISER.SETENA31"                 , "Memory", 0xE000E100,        4, base=16,    bitRange=31-31
+
+sfr = "ICER"                          , "Memory", 0xE000E180,        4, base=16
+sfr = "ICER.CLRENA0"                  , "Memory", 0xE000E180,        4, base=16,    bitRange=0-0
+sfr = "ICER.CLRENA1"                  , "Memory", 0xE000E180,        4, base=16,    bitRange=1-1
+sfr = "ICER.CLRENA2"                  , "Memory", 0xE000E180,        4, base=16,    bitRange=2-2
+sfr = "ICER.CLRENA3"                  , "Memory", 0xE000E180,        4, base=16,    bitRange=3-3
+sfr = "ICER.CLRENA4"                  , "Memory", 0xE000E180,        4, base=16,    bitRange=4-4
+sfr = "ICER.CLRENA5"                  , "Memory", 0xE000E180,        4, base=16,    bitRange=5-5
+sfr = "ICER.CLRENA6"                  , "Memory", 0xE000E180,        4, base=16,    bitRange=6-6
+sfr = "ICER.CLRENA7"                  , "Memory", 0xE000E180,        4, base=16,    bitRange=7-7
+sfr = "ICER.CLRENA8"                  , "Memory", 0xE000E180,        4, base=16,    bitRange=8-8
+sfr = "ICER.CLRENA9"                  , "Memory", 0xE000E180,        4, base=16,    bitRange=9-9
+sfr = "ICER.CLRENA10"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=10-10
+sfr = "ICER.CLRENA11"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=11-11
+sfr = "ICER.CLRENA12"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=12-12
+sfr = "ICER.CLRENA13"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=13-13
+sfr = "ICER.CLRENA14"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=14-14
+sfr = "ICER.CLRENA15"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=15-15
+sfr = "ICER.CLRENA16"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=16-16
+sfr = "ICER.CLRENA17"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=17-17
+sfr = "ICER.CLRENA18"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=18-18
+sfr = "ICER.CLRENA19"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=19-19
+sfr = "ICER.CLRENA20"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=20-20
+sfr = "ICER.CLRENA21"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=21-21
+sfr = "ICER.CLRENA22"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=22-22
+sfr = "ICER.CLRENA23"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=23-23
+sfr = "ICER.CLRENA24"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=24-24
+sfr = "ICER.CLRENA25"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=25-25
+sfr = "ICER.CLRENA26"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=26-26
+sfr = "ICER.CLRENA27"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=27-27
+sfr = "ICER.CLRENA28"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=28-28
+sfr = "ICER.CLRENA29"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=29-29
+sfr = "ICER.CLRENA30"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=30-30
+sfr = "ICER.CLRENA31"                 , "Memory", 0xE000E180,        4, base=16,    bitRange=31-31
+
+sfr = "ISPR"                          , "Memory", 0xE000E200,        4, base=16
+sfr = "ISPR.SETPEND0"                 , "Memory", 0xE000E200,        4, base=16,    bitRange=0-0
+sfr = "ISPR.SETPEND1"                 , "Memory", 0xE000E200,        4, base=16,    bitRange=1-1
+sfr = "ISPR.SETPEND2"                 , "Memory", 0xE000E200,        4, base=16,    bitRange=2-2
+sfr = "ISPR.SETPEND3"                 , "Memory", 0xE000E200,        4, base=16,    bitRange=3-3
+sfr = "ISPR.SETPEND4"                 , "Memory", 0xE000E200,        4, base=16,    bitRange=4-4
+sfr = "ISPR.SETPEND5"                 , "Memory", 0xE000E200,        4, base=16,    bitRange=5-5
+sfr = "ISPR.SETPEND6"                 , "Memory", 0xE000E200,        4, base=16,    bitRange=6-6
+sfr = "ISPR.SETPEND7"                 , "Memory", 0xE000E200,        4, base=16,    bitRange=7-7
+sfr = "ISPR.SETPEND8"                 , "Memory", 0xE000E200,        4, base=16,    bitRange=8-8
+sfr = "ISPR.SETPEND9"                 , "Memory", 0xE000E200,        4, base=16,    bitRange=9-9
+sfr = "ISPR.SETPEND10"                , "Memory", 0xE000E200,        4, base=16,    bitRange=10-10
+sfr = "ISPR.SETPEND11"                , "Memory", 0xE000E200,        4, base=16,    bitRange=11-11
+sfr = "ISPR.SETPEND12"                , "Memory", 0xE000E200,        4, base=16,    bitRange=12-12
+sfr = "ISPR.SETPEND13"                , "Memory", 0xE000E200,        4, base=16,    bitRange=13-13
+sfr = "ISPR.SETPEND14"                , "Memory", 0xE000E200,        4, base=16,    bitRange=14-14
+sfr = "ISPR.SETPEND15"                , "Memory", 0xE000E200,        4, base=16,    bitRange=15-15
+sfr = "ISPR.SETPEND16"                , "Memory", 0xE000E200,        4, base=16,    bitRange=16-16
+sfr = "ISPR.SETPEND17"                , "Memory", 0xE000E200,        4, base=16,    bitRange=17-17
+sfr = "ISPR.SETPEND18"                , "Memory", 0xE000E200,        4, base=16,    bitRange=18-18
+sfr = "ISPR.SETPEND19"                , "Memory", 0xE000E200,        4, base=16,    bitRange=19-19
+sfr = "ISPR.SETPEND20"                , "Memory", 0xE000E200,        4, base=16,    bitRange=20-20
+sfr = "ISPR.SETPEND21"                , "Memory", 0xE000E200,        4, base=16,    bitRange=21-21
+sfr = "ISPR.SETPEND22"                , "Memory", 0xE000E200,        4, base=16,    bitRange=22-22
+sfr = "ISPR.SETPEND23"                , "Memory", 0xE000E200,        4, base=16,    bitRange=23-23
+sfr = "ISPR.SETPEND24"                , "Memory", 0xE000E200,        4, base=16,    bitRange=24-24
+sfr = "ISPR.SETPEND25"                , "Memory", 0xE000E200,        4, base=16,    bitRange=25-25
+sfr = "ISPR.SETPEND26"                , "Memory", 0xE000E200,        4, base=16,    bitRange=26-26
+sfr = "ISPR.SETPEND27"                , "Memory", 0xE000E200,        4, base=16,    bitRange=27-27
+sfr = "ISPR.SETPEND28"                , "Memory", 0xE000E200,        4, base=16,    bitRange=28-28
+sfr = "ISPR.SETPEND29"                , "Memory", 0xE000E200,        4, base=16,    bitRange=29-29
+sfr = "ISPR.SETPEND30"                , "Memory", 0xE000E200,        4, base=16,    bitRange=30-30
+sfr = "ISPR.SETPEND31"                , "Memory", 0xE000E200,        4, base=16,    bitRange=31-31
+
+sfr = "ICPR"                          , "Memory", 0xE000E280,        4, base=16
+sfr = "ICPR.CLRPEND0"                 , "Memory", 0xE000E280,        4, base=16,    bitRange=0-0
+sfr = "ICPR.CLRPEND1"                 , "Memory", 0xE000E280,        4, base=16,    bitRange=1-1
+sfr = "ICPR.CLRPEND2"                 , "Memory", 0xE000E280,        4, base=16,    bitRange=2-2
+sfr = "ICPR.CLRPEND3"                 , "Memory", 0xE000E280,        4, base=16,    bitRange=3-3
+sfr = "ICPR.CLRPEND4"                 , "Memory", 0xE000E280,        4, base=16,    bitRange=4-4
+sfr = "ICPR.CLRPEND5"                 , "Memory", 0xE000E280,        4, base=16,    bitRange=5-5
+sfr = "ICPR.CLRPEND6"                 , "Memory", 0xE000E280,        4, base=16,    bitRange=6-6
+sfr = "ICPR.CLRPEND7"                 , "Memory", 0xE000E280,        4, base=16,    bitRange=7-7
+sfr = "ICPR.CLRPEND8"                 , "Memory", 0xE000E280,        4, base=16,    bitRange=8-8
+sfr = "ICPR.CLRPEND9"                 , "Memory", 0xE000E280,        4, base=16,    bitRange=9-9
+sfr = "ICPR.CLRPEND10"                , "Memory", 0xE000E280,        4, base=16,    bitRange=10-10
+sfr = "ICPR.CLRPEND11"                , "Memory", 0xE000E280,        4, base=16,    bitRange=11-11
+sfr = "ICPR.CLRPEND12"                , "Memory", 0xE000E280,        4, base=16,    bitRange=12-12
+sfr = "ICPR.CLRPEND13"                , "Memory", 0xE000E280,        4, base=16,    bitRange=13-13
+sfr = "ICPR.CLRPEND14"                , "Memory", 0xE000E280,        4, base=16,    bitRange=14-14
+sfr = "ICPR.CLRPEND15"                , "Memory", 0xE000E280,        4, base=16,    bitRange=15-15
+sfr = "ICPR.CLRPEND16"                , "Memory", 0xE000E280,        4, base=16,    bitRange=16-16
+sfr = "ICPR.CLRPEND17"                , "Memory", 0xE000E280,        4, base=16,    bitRange=17-17
+sfr = "ICPR.CLRPEND18"                , "Memory", 0xE000E280,        4, base=16,    bitRange=18-18
+sfr = "ICPR.CLRPEND19"                , "Memory", 0xE000E280,        4, base=16,    bitRange=19-19
+sfr = "ICPR.CLRPEND20"                , "Memory", 0xE000E280,        4, base=16,    bitRange=20-20
+sfr = "ICPR.CLRPEND21"                , "Memory", 0xE000E280,        4, base=16,    bitRange=21-21
+sfr = "ICPR.CLRPEND22"                , "Memory", 0xE000E280,        4, base=16,    bitRange=22-22
+sfr = "ICPR.CLRPEND23"                , "Memory", 0xE000E280,        4, base=16,    bitRange=23-23
+sfr = "ICPR.CLRPEND24"                , "Memory", 0xE000E280,        4, base=16,    bitRange=24-24
+sfr = "ICPR.CLRPEND25"                , "Memory", 0xE000E280,        4, base=16,    bitRange=25-25
+sfr = "ICPR.CLRPEND26"                , "Memory", 0xE000E280,        4, base=16,    bitRange=26-26
+sfr = "ICPR.CLRPEND27"                , "Memory", 0xE000E280,        4, base=16,    bitRange=27-27
+sfr = "ICPR.CLRPEND28"                , "Memory", 0xE000E280,        4, base=16,    bitRange=28-28
+sfr = "ICPR.CLRPEND29"                , "Memory", 0xE000E280,        4, base=16,    bitRange=29-29
+sfr = "ICPR.CLRPEND30"                , "Memory", 0xE000E280,        4, base=16,    bitRange=30-30
+sfr = "ICPR.CLRPEND31"                , "Memory", 0xE000E280,        4, base=16,    bitRange=31-31
+
+sfr = "IPR0"                          , "Memory", 0xE000E400,        4, base=16
+sfr = "IPR0.PRI_0"                    , "Memory", 0xE000E400,        4, base=16,    bitRange=0-7
+sfr = "IPR0.PRI_1"                    , "Memory", 0xE000E400,        4, base=16,    bitRange=8-15
+sfr = "IPR0.PRI_2"                    , "Memory", 0xE000E400,        4, base=16,    bitRange=16-23
+sfr = "IPR0.PRI_3"                    , "Memory", 0xE000E400,        4, base=16,    bitRange=24-31
+
+sfr = "IPR1"                          , "Memory", 0xE000E404,        4, base=16
+sfr = "IPR1.PRI_4"                    , "Memory", 0xE000E404,        4, base=16,    bitRange=0-7
+sfr = "IPR1.PRI_5"                    , "Memory", 0xE000E404,        4, base=16,    bitRange=8-15
+sfr = "IPR1.PRI_6"                    , "Memory", 0xE000E404,        4, base=16,    bitRange=16-23
+sfr = "IPR1.PRI_7"                    , "Memory", 0xE000E404,        4, base=16,    bitRange=24-31
+
+sfr = "IPR2"                          , "Memory", 0xE000E408,        4, base=16
+sfr = "IPR2.PRI_8"                    , "Memory", 0xE000E408,        4, base=16,    bitRange=0-7
+sfr = "IPR2.PRI_9"                    , "Memory", 0xE000E408,        4, base=16,    bitRange=8-15
+sfr = "IPR2.PRI_10"                   , "Memory", 0xE000E408,        4, base=16,    bitRange=16-23
+sfr = "IPR2.PRI_11"                   , "Memory", 0xE000E408,        4, base=16,    bitRange=24-31
+
+sfr = "IPR3"                          , "Memory", 0xE000E40C,        4, base=16
+sfr = "IPR3.PRI_12"                   , "Memory", 0xE000E40C,        4, base=16,    bitRange=0-7
+sfr = "IPR3.PRI_13"                   , "Memory", 0xE000E40C,        4, base=16,    bitRange=8-15
+sfr = "IPR3.PRI_14"                   , "Memory", 0xE000E40C,        4, base=16,    bitRange=16-23
+sfr = "IPR3.PRI_15"                   , "Memory", 0xE000E40C,        4, base=16,    bitRange=24-31
+
+sfr = "IPR4"                          , "Memory", 0xE000E410,        4, base=16
+sfr = "IPR4.PRI_16"                   , "Memory", 0xE000E410,        4, base=16,    bitRange=0-7
+sfr = "IPR4.PRI_17"                   , "Memory", 0xE000E410,        4, base=16,    bitRange=8-15
+sfr = "IPR4.PRI_18"                   , "Memory", 0xE000E410,        4, base=16,    bitRange=16-23
+sfr = "IPR4.PRI_19"                   , "Memory", 0xE000E410,        4, base=16,    bitRange=24-31
+
+sfr = "IPR5"                          , "Memory", 0xE000E414,        4, base=16
+sfr = "IPR5.PRI_20"                   , "Memory", 0xE000E414,        4, base=16,    bitRange=0-7
+sfr = "IPR5.PRI_21"                   , "Memory", 0xE000E414,        4, base=16,    bitRange=8-15
+sfr = "IPR5.PRI_22"                   , "Memory", 0xE000E414,        4, base=16,    bitRange=16-23
+sfr = "IPR5.PRI_23"                   , "Memory", 0xE000E414,        4, base=16,    bitRange=24-31
+
+sfr = "IPR6"                          , "Memory", 0xE000E418,        4, base=16
+sfr = "IPR6.PRI_24"                   , "Memory", 0xE000E418,        4, base=16,    bitRange=0-7
+sfr = "IPR6.PRI_25"                   , "Memory", 0xE000E418,        4, base=16,    bitRange=8-15
+sfr = "IPR6.PRI_26"                   , "Memory", 0xE000E418,        4, base=16,    bitRange=16-23
+sfr = "IPR6.PRI_27"                   , "Memory", 0xE000E418,        4, base=16,    bitRange=24-31
+
+sfr = "IPR7"                          , "Memory", 0xE000E41C,        4, base=16
+sfr = "IPR7.PRI_20"                   , "Memory", 0xE000E41C,        4, base=16,    bitRange=0-7
+sfr = "IPR7.PRI_29"                   , "Memory", 0xE000E41C,        4, base=16,    bitRange=8-15
+sfr = "IPR7.PRI_30"                   , "Memory", 0xE000E41C,        4, base=16,    bitRange=16-23
+sfr = "IPR7.PRI_31"                   , "Memory", 0xE000E41C,        4, base=16,    bitRange=24-31
+
+sfr = "CPUIDBR"                       , "Memory", 0xE000ED00,        4, base=16
+sfr = "CPUIDBR.REVISION"              , "Memory", 0xE000ED00,        4, base=16,    bitRange=0-3
+sfr = "CPUIDBR.PARTNO"                , "Memory", 0xE000ED00,        4, base=16,    bitRange=4-15
+sfr = "CPUIDBR.CONSTANT"              , "Memory", 0xE000ED00,        4, base=16,    bitRange=16-19
+sfr = "CPUIDBR.VARIANT"               , "Memory", 0xE000ED00,        4, base=16,    bitRange=20-23
+sfr = "CPUIDBR.IMPLEMENTER"           , "Memory", 0xE000ED00,        4, base=16,    bitRange=24-31
+
+sfr = "CPUID"                         , "Memory", 0xE000ED00,        4, base=16
+sfr = "CPUID.REVISION"                , "Memory", 0xE000ED00,        4, base=16,    bitRange=0-3
+sfr = "CPUID.PARTNO"                  , "Memory", 0xE000ED00,        4, base=16,    bitRange=4-15
+sfr = "CPUID.CONSTANT"                , "Memory", 0xE000ED00,        4, base=16,    bitRange=16-19
+sfr = "CPUID.VARIANT"                 , "Memory", 0xE000ED00,        4, base=16,    bitRange=20-23
+sfr = "CPUID.IMPLEMENTER"             , "Memory", 0xE000ED00,        4, base=16,    bitRange=24-31
+
+sfr = "ICSR"                          , "Memory", 0xE000ED04,        4, base=16
+sfr = "ICSR.VECTACTIVE"               , "Memory", 0xE000ED04,        4, base=16,    bitRange=0-5
+sfr = "ICSR.VECTPENDING"              , "Memory", 0xE000ED04,        4, base=16,    bitRange=12-17
+sfr = "ICSR.ISRPENDING"               , "Memory", 0xE000ED04,        4, base=16,    bitRange=22-22
+sfr = "ICSR.PENDSTCLR"                , "Memory", 0xE000ED04,        4, base=16,    bitRange=25-25
+sfr = "ICSR.PENDSTSET"                , "Memory", 0xE000ED04,        4, base=16,    bitRange=26-26
+sfr = "ICSR.PENDSVCLR"                , "Memory", 0xE000ED04,        4, base=16,    bitRange=27-27
+sfr = "ICSR.PENDSVSET"                , "Memory", 0xE000ED04,        4, base=16,    bitRange=28-28
+sfr = "ICSR.NMIPENDSET"               , "Memory", 0xE000ED04,        4, base=16,    bitRange=31-31
+
+sfr = "AIRCR"                         , "Memory", 0xE000ED0C,        4, base=16
+sfr = "AIRCR.VECTCLRACTIVE"           , "Memory", 0xE000ED0C,        4, base=16,    bitRange=1-1
+sfr = "AIRCR.SYSRESETREQ"             , "Memory", 0xE000ED0C,        4, base=16,    bitRange=2-2
+sfr = "AIRCR.ENDIANESS"               , "Memory", 0xE000ED0C,        4, base=16,    bitRange=15-15
+sfr = "AIRCR.VECTKEY"                 , "Memory", 0xE000ED0C,        4, base=16,    bitRange=16-31
+
+sfr = "SCR"                           , "Memory", 0xE000ED10,        4, base=16
+sfr = "SCR.SLEEPONEXIT"               , "Memory", 0xE000ED10,        4, base=16,    bitRange=1-1
+sfr = "SCR.SLEEPDEEP"                 , "Memory", 0xE000ED10,        4, base=16,    bitRange=2-2
+sfr = "SCR.SEVONPEND"                 , "Memory", 0xE000ED10,        4, base=16,    bitRange=4-4
+
+sfr = "CCR"                           , "Memory", 0xE000ED14,        4, base=16
+sfr = "CCR.UNALIGN_TRP"               , "Memory", 0xE000ED14,        4, base=16,    bitRange=3-3
+sfr = "CCR.STKALIGN"                  , "Memory", 0xE000ED14,        4, base=16,    bitRange=8-8
+
+sfr = "SHPR2"                         , "Memory", 0xE000ED1C,        4, base=16
+sfr = "SHPR2.PRI_11"                  , "Memory", 0xE000ED1C,        4, base=16,    bitRange=24-31
+
+sfr = "SHPR3"                         , "Memory", 0xE000ED20,        4, base=16
+sfr = "SHPR3.PRI_14"                  , "Memory", 0xE000ED20,        4, base=16,    bitRange=16-23
+sfr = "SHPR3.PRI_15"                  , "Memory", 0xE000ED20,        4, base=16,    bitRange=24-31
+
+;
+;               System Clock Control
+;
+;     Name                          Zone      	Address     	Bytesize	Displaybase	Bitrange
+;     ----                          ----      	-------     	--------  	----------- --------
+;
+
+sfr = "SCCTL",						"Memory",	0x40000000,		4, 			base=16
+sfr = "SCCTL.CLKIN",				"Memory", 	0x40000000,		4, 			base=16,    bitRange=0-1
+sfr = "SCCTL.ACLKDIV", 				"Memory", 	0x40000000,		4, 			base=16,	bitRange=2-4
+sfr = "SCCTL.HCLKDIV",				"Memory",	0x40000000,		4,			base=16,	bitRange=5-6
+sfr = "SCCTL.FCLK",					"Memory", 	0x40000000,		4,			base=16,	bitRange=7-7
+
+sfr = "PLLCTL",						"Memory",	0x40000004,		4,			base=16
+sfr = "PLLCTL.PLLEN",				"Memory", 	0x40000004,		4,			base=16,	bitRange=0-0
+sfr = "PLLCTL.PLLINDIV",			"Memory", 	0x40000004,		4,			base=16,	bitRange=2-6
+sfr = "PLLCTL.PLLFBDIV",			"Memory",	0x40000004,		4,			base=16,	bitRange=7-15
+sfr = "PLLCTL.PLLOUTDIV",			"Memory", 	0x40000004,		4,			base=16,	bitRange=6-19
+
+sfr = "ROSCCTL",					"Memory",	0x40000008,		4,			base=16
+sfr = "ROSCCTL.ROSCEN",				"Memory", 	0x40000008,		4,			base=16,	bitRange=0-0
+sfr = "ROSCCTL.ROSCP",				"Memory",	0x40000008,		4,			base=16,	bitRange=1-2
+
+sfr = "XTALCTL",					"Memory",	0x4000000C,		4,			base=16
+sfr = "XTALCTL.XTALEN",				"Memory",	0x4000000C,		4,			base=16
+
+;
+;               Watchdog Timer (WDT)
+;
+;     Name                          Zone      	Address     	Bytesize	Displaybase	Bitrange
+;     ----                          ----      	-------     	--------  	----------- --------
+;
+
+sfr = "WDTCTL",						"Memory",	0x40030000,		4, 			base=16
+sfr = "WDTCTL.WDTCTRRST",			"Memory", 	0x40030000,		4, 			base=16,    bitRange=0-2
+sfr = "WDTCTL.WDTINTEN",			"Memory",	0x40030000,		4,			base=16,	bitRange=3-3
+sfr = "WDTCTL.WDTINT",				"Memory",	0x40030000,		4,			base=16,	bitRange=4-4
+sfr = "WDTCTL.WDTRESETEN",			"Memory", 	0x40030000,		4,			base=16,	bitRange=5-5
+sfr = "WDTCTL.WDTCLKDIV",			"Memory",	0x40030000,		4,			base=16,	bitRange=6-9
+sfr = "WDTCTL.WDTCLKSEL",			"Memory",	0x40030000,		4,			base=16,	bitRange=10-10
+sfr = "WDTCTL.WRBUSY",				"Memory",	0x40030000,		4,			base=16,	bitRange=11-11
+sfr = "WDTCTL.KEY",					"Memory",	0x40030000,		4,			base=16,	bitRange=24-31
+
+sfr = "WDTCDV",						"Memory",	0x40030004,		4,			base=16
+sfr = "WDTCDV.RSTVALUE",			"Memory",	0x40030004,		4,			base=16,	bitRange=0-23
+sfr = "WDTCDV.KEY",					"Memory", 	0x40030004,		4,			base=16,	bitRange=24-31
+
+sfr = "WDTCTR",						"Memory", 	0x40030008,		4,			base=16
+sfr = "WDTCTR.CTR",					"Memory",	0x40030008,		4,			base=16,	bitRange=0-23
+
+;
+;               Real-Time Clock (RTC)
+;
+;     Name                          Zone      	Address     	Bytesize	Displaybase	Bitrange
+;     ----                          ----      	-------     	--------  	----------- --------
+;
+
+sfr = "RTCCTL",						"Memory",	0x40040000,		4, 			base=16
+sfr = "RTCCTL.RTCCTRRST",			"Memory", 	0x40040000,		4, 			base=16,    bitRange=0-2
+sfr = "RTCCTL.RTCINTEN",			"Memory",	0x40040000,		4,			base=16,	bitRange=3-3
+sfr = "RTCCTL.RTCTINT",				"Memory",	0x40040000,		4,			base=16,	bitRange=4-4
+sfr = "RTCCTL.RTCCLKDIV",			"Memory",	0x40040000,		4,			base=16,	bitRange=6-9
+sfr = "RTCCTL.RTCCLKSEL",			"Memory",	0x40040000,		4,			base=16,	bitRange=10-10
+sfr = "RTCCTL.WRBUSY",				"Memory",	0x40040000,		4,			base=16,	bitRange=11-11
+sfr = "RTCCTL.KEY",					"Memory",	0x40040000,		4,			base=16,	bitRange=24-31
+
+sfr = "RTCCDV",						"Memory",	0x40040004,		4,			base=16
+sfr = "RTCCDV.RSTVALUE",			"Memory",	0x40040004,		4,			base=16,	bitRange=0-23
+sfr = "RTCCDV.KEY",					"Memory", 	0x40040004,		4,			base=16,	bitRange=24-31
+
+sfr = "RTCCTR",						"Memory", 	0x40040008,		4,			base=16
+sfr = "RTCCTR.CTR",					"Memory",	0x40040008,		4,			base=16,	bitRange=0-23
+
+;
+;               General-Purpose Input/Output A (GPIOA)
+;
+;     Name                          Zone      	Address     	Bytesize	Displaybase	Bitrange
+;     ----                          ----      	-------     	--------  	----------- --------
+;
+
+sfr = "GPIOAO",						"Memory",	0x40070000,		4, 			base=16
+sfr = "GPIOAO.PA0O",				"Memory", 	0x40070000,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOAO.PA1O",				"Memory", 	0x40070000,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOAO.PA2O",				"Memory", 	0x40070000,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOAO.PA3O",				"Memory", 	0x40070000,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOAO.PA4O",				"Memory", 	0x40070000,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOAO.PA5O",				"Memory", 	0x40070000,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOAO.PA6O",				"Memory", 	0x40070000,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOAO.PA7O",				"Memory", 	0x40070000,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOAOE",					"Memory",	0x40070004,		4, 			base=16
+sfr = "GPIOAOE.PA0OE",				"Memory", 	0x40070004,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOAOE.PA1OE",				"Memory", 	0x40070004,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOAOE.PA2OE",				"Memory", 	0x40070004,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOAOE.PA3OE",				"Memory", 	0x40070004,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOAOE.PA4OE",				"Memory", 	0x40070004,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOAOE.PA5OE",				"Memory", 	0x40070004,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOAOE.PA6OE",				"Memory", 	0x40070004,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOAOE.PA7OE",				"Memory", 	0x40070004,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOAODS",					"Memory",	0x40070008,		4, 			base=16
+sfr = "GPIOAODS.PA0ODS",			"Memory", 	0x40070008,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOAODS.PA1ODS",			"Memory", 	0x40070008,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOAODS.PA2ODS",			"Memory", 	0x40070008,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOAODS.PA3ODS",			"Memory", 	0x40070008,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOAODS.PA4ODS",			"Memory", 	0x40070008,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOAODS.PA5ODS",			"Memory", 	0x40070008,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOAODS.PA6ODS",			"Memory", 	0x40070008,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOAODS.PA7ODS",			"Memory", 	0x40070008,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOARUP",					"Memory",	0x4007000C,		4, 			base=16
+sfr = "GPIOARUP.PAO0RUP",			"Memory", 	0x4007000C,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOARUP.PAO1RUP",			"Memory", 	0x4007000C,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOARUP.PAO2RUP",			"Memory", 	0x4007000C,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOARUP.PAO3RUP",			"Memory", 	0x4007000C,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOARUP.PAO4RUP",			"Memory", 	0x4007000C,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOARUP.PAO5RUP",			"Memory", 	0x4007000C,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOARUP.PAO6RUP",			"Memory", 	0x4007000C,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOARUP.PAO7RUP",			"Memory", 	0x4007000C,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOARDN",					"Memory",	0x40070010,		4, 			base=16
+sfr = "GPIOARDN.PA0RDN",			"Memory", 	0x40070010,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOARDN.PA1RDN",			"Memory", 	0x40070010,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOARDN.PA2RDN",			"Memory", 	0x40070010,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOARDN.PA3RDN",			"Memory", 	0x40070010,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOARDN.PA4RDN",			"Memory", 	0x40070010,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOARDN.PA5RDN",			"Memory", 	0x40070010,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOARDN.PA6RDN",			"Memory", 	0x40070010,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOARDN.PA7RDN",			"Memory", 	0x40070010,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOAI",						"Memory",	0x40070014,		4, 			base=16
+sfr = "GPIOAI.PA0I",				"Memory", 	0x40070014,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOAI.PA1I",				"Memory", 	0x40070014,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOAI.PA2I",				"Memory", 	0x40070014,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOAI.PA3I",				"Memory", 	0x40070014,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOAI.PA4I",				"Memory", 	0x40070014,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOAI.PA5I",				"Memory", 	0x40070014,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOAI.PA6I",				"Memory", 	0x40070014,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOAI.PA7I",				"Memory", 	0x40070014,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOAPSEL",					"Memory",	0x4007001C,		4,			base=16
+sfr = "GPIOAPSEL.PA0PSEL",			"Memory",	0x4007001C,		4,			base=16,	bitRange=0-1
+sfr = "GPIOAPSEL.PA1PSEL",			"Memory",	0x4007001C,		4,			base=16,	bitRange=2-3
+sfr = "GPIOAPSEL.PA2PSEL",			"Memory",	0x4007001C,		4,			base=16,	bitRange=4-5
+sfr = "GPIOAPSEL.PA3PSEL",			"Memory",	0x4007001C,		4,			base=16,	bitRange=6-7
+sfr = "GPIOAPSEL.PA4PSEL",			"Memory",	0x4007001C,		4,			base=16,	bitRange=8-9
+sfr = "GPIOAPSEL.PA5PSEL",			"Memory",	0x4007001C,		4,			base=16,	bitRange=10-11
+sfr = "GPIOAPSEL.PA6PSEL",			"Memory",	0x4007001C,		4,			base=16,	bitRange=12-13
+sfr = "GPIOAPSEL.PA7PSEL",			"Memory",	0x4007001C,		4,			base=16,	bitRange=14-15
+
+sfr = "GPIOAINTP",					"Memory",	0x40070020,		4,			base=16
+sfr = "GPIOAINTP.PA0INTP",			"Memory",	0x40070020,		4,			base=16,	bitRange=0-0
+sfr = "GPIOAINTP.PA1INTP",			"Memory",	0x40070020,		4,			base=16,	bitRange=1-1
+sfr = "GPIOAINTP.PA2INTP",			"Memory",	0x40070020,		4,			base=16,	bitRange=2-2
+sfr = "GPIOAINTP.PA3INTP",			"Memory",	0x40070020,		4,			base=16,	bitRange=3-3
+sfr = "GPIOAINTP.PA4INTP",			"Memory",	0x40070020,		4,			base=16,	bitRange=4-4
+sfr = "GPIOAINTP.PA5INTP",			"Memory",	0x40070020,		4,			base=16,	bitRange=5-5
+sfr = "GPIOAINTP.PA6INTP",			"Memory",	0x40070020,		4,			base=16,	bitRange=6-6
+sfr = "GPIOAINTP.PA7INTP",			"Memory",	0x40070020,		4,			base=16,	bitRange=7-7
+
+sfr = "GPIOAINTEN",					"Memory",	0x40070024,		4,			base=16
+sfr = "GPIOAINTEN.PA0INTEN",		"Memory",	0x40070024,		4,			base=16,	bitRange=0-0
+sfr = "GPIOAINTEN.PA1INTEN",		"Memory",	0x40070024,		4,			base=16,	bitRange=1-1
+sfr = "GPIOAINTEN.PA2INTEN",		"Memory",	0x40070024,		4,			base=16,	bitRange=2-2
+sfr = "GPIOAINTEN.PA3INTEN",		"Memory",	0x40070024,		4,			base=16,	bitRange=3-3
+sfr = "GPIOAINTEN.PA4INTEN",		"Memory",	0x40070024,		4,			base=16,	bitRange=4-4
+sfr = "GPIOAINTEN.PA5INTEN",		"Memory",	0x40070024,		4,			base=16,	bitRange=5-5
+sfr = "GPIOAINTEN.PA6INTEN",		"Memory",	0x40070024,		4,			base=16,	bitRange=6-6
+sfr = "GPIOAINTEN.PA7INTEN",		"Memory",	0x40070024,		4,			base=16,	bitRange=7-7
+
+sfr = "GPIOAINT",					"Memory",	0x40070028,		4,			base=16
+sfr = "GPIOAINT.PA0INT",			"Memory",	0x40070028,		4,			base=16,	bitRange=0-0
+sfr = "GPIOAINT.PA1INT",			"Memory",	0x40070028,		4,			base=16,	bitRange=1-1
+sfr = "GPIOAINT.PA2INT",			"Memory",	0x40070028,		4,			base=16,	bitRange=2-2
+sfr = "GPIOAINT.PA3INT",			"Memory",	0x40070028,		4,			base=16,	bitRange=3-3
+sfr = "GPIOAINT.PA4INT",			"Memory",	0x40070028,		4,			base=16,	bitRange=4-4
+sfr = "GPIOAINT.PA5INT",			"Memory",	0x40070028,		4,			base=16,	bitRange=5-5
+sfr = "GPIOAINT.PA6INT",			"Memory",	0x40070028,		4,			base=16,	bitRange=6-6
+sfr = "GPIOAINT.PA7INT",			"Memory",	0x40070028,		4,			base=16,	bitRange=7-7
+
+sfr = "GPIOAINTM",					"Memory",	0x4007002C,		4,			base=16
+sfr = "GPIOAINTM.PA0INTM",			"Memory",	0x4007002C,		4,			base=16,	bitRange=0-0
+sfr = "GPIOAINTM.PA1INTM",			"Memory",	0x4007002C,		4,			base=16,	bitRange=1-1
+sfr = "GPIOAINTM.PA2INTM",			"Memory",	0x4007002C,		4,			base=16,	bitRange=2-2
+sfr = "GPIOAINTM.PA3INTM",			"Memory",	0x4007002C,		4,			base=16,	bitRange=3-3
+sfr = "GPIOAINTM.PA4INTM",			"Memory",	0x4007002C,		4,			base=16,	bitRange=4-4
+sfr = "GPIOAINTM.PA5INTM",			"Memory",	0x4007002C,		4,			base=16,	bitRange=5-5
+sfr = "GPIOAINTM.PA6INTM",			"Memory",	0x4007002C,		4,			base=16,	bitRange=6-6
+sfr = "GPIOAINTM.PA7INTM",			"Memory",	0x4007002C,		4,			base=16,	bitRange=7-7
+
+
+;
+;               General-Purpose Input/Output B (GPIOB)
+;
+;     Name                          Zone      	Address     	Bytesize	Displaybase	Bitrange
+;     ----                          ----      	-------     	--------  	----------- --------
+;
+
+sfr = "GPIOBO",						"Memory",	0x40070040,		4, 			base=16
+sfr = "GPIOBO.PA0O",				"Memory", 	0x40070040,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOBO.PA1O",				"Memory", 	0x40070040,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOBO.PA2O",				"Memory", 	0x40070040,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOBO.PA3O",				"Memory", 	0x40070040,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOBO.PA4O",				"Memory", 	0x40070040,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOBO.PA5O",				"Memory", 	0x40070040,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOBO.PA6O",				"Memory", 	0x40070040,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOBO.PA7O",				"Memory", 	0x40070040,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOBOE",					"Memory",	0x40070044,		4, 			base=16
+sfr = "GPIOBOE.PA0OE",				"Memory", 	0x40070044,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOBOE.PA1OE",				"Memory", 	0x40070044,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOBOE.PA2OE",				"Memory", 	0x40070044,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOBOE.PA3OE",				"Memory", 	0x40070044,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOBOE.PA4OE",				"Memory", 	0x40070044,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOBOE.PA5OE",				"Memory", 	0x40070044,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOBOE.PA6OE",				"Memory", 	0x40070044,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOBOE.PA7OE",				"Memory", 	0x40070044,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOBODS",					"Memory",	0x40070048,		4, 			base=16
+sfr = "GPIOBODS.PA0ODS",			"Memory", 	0x40070048,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOBODS.PA1ODS",			"Memory", 	0x40070048,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOBODS.PA2ODS",			"Memory", 	0x40070048,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOBODS.PA3ODS",			"Memory", 	0x40070048,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOBODS.PA4ODS",			"Memory", 	0x40070048,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOBODS.PA5ODS",			"Memory", 	0x40070048,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOBODS.PA6ODS",			"Memory", 	0x40070048,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOBODS.PA7ODS",			"Memory", 	0x40070048,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOBRUP",					"Memory",	0x4007004C,		4, 			base=16
+sfr = "GPIOBRUP.PAO0RUP",			"Memory", 	0x4007004C,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOBRUP.PAO1RUP",			"Memory", 	0x4007004C,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOBRUP.PAO2RUP",			"Memory", 	0x4007004C,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOBRUP.PAO3RUP",			"Memory", 	0x4007004C,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOBRUP.PAO4RUP",			"Memory", 	0x4007004C,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOBRUP.PAO5RUP",			"Memory", 	0x4007004C,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOBRUP.PAO6RUP",			"Memory", 	0x4007004C,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOBRUP.PAO7RUP",			"Memory", 	0x4007004C,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOBRDN",					"Memory",	0x40070050,		4, 			base=16
+sfr = "GPIOBRDN.PA0RDN",			"Memory", 	0x40070050,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOBRDN.PA1RDN",			"Memory", 	0x40070050,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOBRDN.PA2RDN",			"Memory", 	0x40070050,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOBRDN.PA3RDN",			"Memory", 	0x40070050,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOBRDN.PA4RDN",			"Memory", 	0x40070050,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOBRDN.PA5RDN",			"Memory", 	0x40070050,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOBRDN.PA6RDN",			"Memory", 	0x40070050,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOBRDN.PA7RDN",			"Memory", 	0x40070050,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOBI",						"Memory",	0x40070054,		4, 			base=16
+sfr = "GPIOBI.PA0I",				"Memory", 	0x40070054,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOBI.PA1I",				"Memory", 	0x40070054,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOBI.PA2I",				"Memory", 	0x40070054,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOBI.PA3I",				"Memory", 	0x40070054,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOBI.PA4I",				"Memory", 	0x40070054,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOBI.PA5I",				"Memory", 	0x40070054,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOBI.PA6I",				"Memory", 	0x40070054,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOBI.PA7I",				"Memory", 	0x40070054,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOBPSEL",					"Memory",	0x4007005C,		4,			base=16
+sfr = "GPIOBPSEL.PA0PSEL",			"Memory",	0x4007005C,		4,			base=16,	bitRange=0-1
+sfr = "GPIOBPSEL.PA1PSEL",			"Memory",	0x4007005C,		4,			base=16,	bitRange=2-3
+sfr = "GPIOBPSEL.PA2PSEL",			"Memory",	0x4007005C,		4,			base=16,	bitRange=4-5
+sfr = "GPIOBPSEL.PA3PSEL",			"Memory",	0x4007005C,		4,			base=16,	bitRange=6-7
+sfr = "GPIOBPSEL.PA4PSEL",			"Memory",	0x4007005C,		4,			base=16,	bitRange=8-9
+sfr = "GPIOBPSEL.PA5PSEL",			"Memory",	0x4007005C,		4,			base=16,	bitRange=10-11
+sfr = "GPIOBPSEL.PA6PSEL",			"Memory",	0x4007005C,		4,			base=16,	bitRange=12-13
+sfr = "GPIOBPSEL.PA7PSEL",			"Memory",	0x4007005C,		4,			base=16,	bitRange=14-15
+
+sfr = "GPIOBINTP",					"Memory",	0x40070060,		4,			base=16
+sfr = "GPIOBINTP.PA0INTP",			"Memory",	0x40070060,		4,			base=16,	bitRange=0-0
+sfr = "GPIOBINTP.PA1INTP",			"Memory",	0x40070060,		4,			base=16,	bitRange=1-1
+sfr = "GPIOBINTP.PA2INTP",			"Memory",	0x40070060,		4,			base=16,	bitRange=2-2
+sfr = "GPIOBINTP.PA3INTP",			"Memory",	0x40070060,		4,			base=16,	bitRange=3-3
+sfr = "GPIOBINTP.PA4INTP",			"Memory",	0x40070060,		4,			base=16,	bitRange=4-4
+sfr = "GPIOBINTP.PA5INTP",			"Memory",	0x40070060,		4,			base=16,	bitRange=5-5
+sfr = "GPIOBINTP.PA6INTP",			"Memory",	0x40070060,		4,			base=16,	bitRange=6-6
+sfr = "GPIOBINTP.PA7INTP",			"Memory",	0x40070060,		4,			base=16,	bitRange=7-7
+
+sfr = "GPIOBINTEN",					"Memory",	0x40070064,		4,			base=16
+sfr = "GPIOBINTEN.PA0INTEN",		"Memory",	0x40070064,		4,			base=16,	bitRange=0-0
+sfr = "GPIOBINTEN.PA1INTEN",		"Memory",	0x40070064,		4,			base=16,	bitRange=1-1
+sfr = "GPIOBINTEN.PA2INTEN",		"Memory",	0x40070064,		4,			base=16,	bitRange=2-2
+sfr = "GPIOBINTEN.PA3INTEN",		"Memory",	0x40070064,		4,			base=16,	bitRange=3-3
+sfr = "GPIOBINTEN.PA4INTEN",		"Memory",	0x40070064,		4,			base=16,	bitRange=4-4
+sfr = "GPIOBINTEN.PA5INTEN",		"Memory",	0x40070064,		4,			base=16,	bitRange=5-5
+sfr = "GPIOBINTEN.PA6INTEN",		"Memory",	0x40070064,		4,			base=16,	bitRange=6-6
+sfr = "GPIOBINTEN.PA7INTEN",		"Memory",	0x40070064,		4,			base=16,	bitRange=7-7
+
+sfr = "GPIOBINT",					"Memory",	0x40070068,		4,			base=16
+sfr = "GPIOBINT.PA0INT",			"Memory",	0x40070068,		4,			base=16,	bitRange=0-0
+sfr = "GPIOBINT.PA1INT",			"Memory",	0x40070068,		4,			base=16,	bitRange=1-1
+sfr = "GPIOBINT.PA2INT",			"Memory",	0x40070068,		4,			base=16,	bitRange=2-2
+sfr = "GPIOBINT.PA3INT",			"Memory",	0x40070068,		4,			base=16,	bitRange=3-3
+sfr = "GPIOBINT.PA4INT",			"Memory",	0x40070068,		4,			base=16,	bitRange=4-4
+sfr = "GPIOBINT.PA5INT",			"Memory",	0x40070068,		4,			base=16,	bitRange=5-5
+sfr = "GPIOBINT.PA6INT",			"Memory",	0x40070068,		4,			base=16,	bitRange=6-6
+sfr = "GPIOBINT.PA7INT",			"Memory",	0x40070068,		4,			base=16,	bitRange=7-7
+
+sfr = "GPIOBINTM",					"Memory",	0x4007006C,		4,			base=16
+sfr = "GPIOBINTM.PA0INTM",			"Memory",	0x4007006C,		4,			base=16,	bitRange=0-0
+sfr = "GPIOBINTM.PA1INTM",			"Memory",	0x4007006C,		4,			base=16,	bitRange=1-1
+sfr = "GPIOBINTM.PA2INTM",			"Memory",	0x4007006C,		4,			base=16,	bitRange=2-2
+sfr = "GPIOBINTM.PA3INTM",			"Memory",	0x4007006C,		4,			base=16,	bitRange=3-3
+sfr = "GPIOBINTM.PA4INTM",			"Memory",	0x4007006C,		4,			base=16,	bitRange=4-4
+sfr = "GPIOBINTM.PA5INTM",			"Memory",	0x4007006C,		4,			base=16,	bitRange=5-5
+sfr = "GPIOBINTM.PA6INTM",			"Memory",	0x4007006C,		4,			base=16,	bitRange=6-6
+sfr = "GPIOBINTM.PA7INTM",			"Memory",	0x4007006C,		4,			base=16,	bitRange=7-7
+
+;
+;               General-Purpose Input/Output C (GPIOC)
+;
+;     Name                          Zone      	Address     	Bytesize	Displaybase	Bitrange
+;     ----                          ----      	-------     	--------  	----------- --------
+;
+
+sfr = "GPIOCO",						"Memory",	0x40080000,		4, 			base=16
+sfr = "GPIOCO.PA0O",				"Memory", 	0x40080000,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOCO.PA1O",				"Memory", 	0x40080000,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOCO.PA2O",				"Memory", 	0x40080000,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOCO.PA3O",				"Memory", 	0x40080000,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOCO.PA4O",				"Memory", 	0x40080000,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOCO.PA5O",				"Memory", 	0x40080000,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOCO.PA6O",				"Memory", 	0x40080000,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOCO.PA7O",				"Memory", 	0x40080000,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOCOE",					"Memory",	0x40080004,		4, 			base=16
+sfr = "GPIOCOE.PA0OE",				"Memory", 	0x40080004,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOCOE.PA1OE",				"Memory", 	0x40080004,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOCOE.PA2OE",				"Memory", 	0x40080004,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOCOE.PA3OE",				"Memory", 	0x40080004,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOCOE.PA4OE",				"Memory", 	0x40080004,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOCOE.PA5OE",				"Memory", 	0x40080004,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOCOE.PA6OE",				"Memory", 	0x40080004,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOCOE.PA7OE",				"Memory", 	0x40080004,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOCI",						"Memory",	0x40080014,		4, 			base=16
+sfr = "GPIOCI.PA0I",				"Memory", 	0x40080014,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOCI.PA1I",				"Memory", 	0x40080014,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOCI.PA2I",				"Memory", 	0x40080014,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOCI.PA3I",				"Memory", 	0x40080014,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOCI.PA4I",				"Memory", 	0x40080014,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOCI.PA5I",				"Memory", 	0x40080014,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOCI.PA6I",				"Memory", 	0x40080014,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOCI.PA7I",				"Memory", 	0x40080014,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOCIE",					"Memory",	0x40080018,		4, 			base=16
+sfr = "GPIOCIE.PA0IE",				"Memory", 	0x40080018,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOCIE.PA1IE",				"Memory", 	0x40080018,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOCIE.PA2IE",				"Memory", 	0x40080018,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOCIE.PA3IE",				"Memory", 	0x40080018,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOCIE.PA4IE",				"Memory", 	0x40080018,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOCIE.PA5IE",				"Memory", 	0x40080018,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOCIE.PA6IE",				"Memory", 	0x40080018,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOCIE.PA7IE",				"Memory", 	0x40080018,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOCINTP",					"Memory",	0x40080020,		4,			base=16
+sfr = "GPIOCINTP.PA0INTP",			"Memory",	0x40080020,		4,			base=16,	bitRange=0-0
+sfr = "GPIOCINTP.PA1INTP",			"Memory",	0x40080020,		4,			base=16,	bitRange=1-1
+sfr = "GPIOCINTP.PA2INTP",			"Memory",	0x40080020,		4,			base=16,	bitRange=2-2
+sfr = "GPIOCINTP.PA3INTP",			"Memory",	0x40080020,		4,			base=16,	bitRange=3-3
+sfr = "GPIOCINTP.PA4INTP",			"Memory",	0x40080020,		4,			base=16,	bitRange=4-4
+sfr = "GPIOCINTP.PA5INTP",			"Memory",	0x40080020,		4,			base=16,	bitRange=5-5
+sfr = "GPIOCINTP.PA6INTP",			"Memory",	0x40080020,		4,			base=16,	bitRange=6-6
+sfr = "GPIOCINTP.PA7INTP",			"Memory",	0x40080020,		4,			base=16,	bitRange=7-7
+
+sfr = "GPIOCINTEN",					"Memory",	0x40080024,		4,			base=16
+sfr = "GPIOCINTEN.PA0INTEN",		"Memory",	0x40080024,		4,			base=16,	bitRange=0-0
+sfr = "GPIOCINTEN.PA1INTEN",		"Memory",	0x40080024,		4,			base=16,	bitRange=1-1
+sfr = "GPIOCINTEN.PA2INTEN",		"Memory",	0x40080024,		4,			base=16,	bitRange=2-2
+sfr = "GPIOCINTEN.PA3INTEN",		"Memory",	0x40080024,		4,			base=16,	bitRange=3-3
+sfr = "GPIOCINTEN.PA4INTEN",		"Memory",	0x40080024,		4,			base=16,	bitRange=4-4
+sfr = "GPIOCINTEN.PA5INTEN",		"Memory",	0x40080024,		4,			base=16,	bitRange=5-5
+sfr = "GPIOCINTEN.PA6INTEN",		"Memory",	0x40080024,		4,			base=16,	bitRange=6-6
+sfr = "GPIOCINTEN.PA7INTEN",		"Memory",	0x40080024,		4,			base=16,	bitRange=7-7
+
+sfr = "GPIOCINT",					"Memory",	0x40080028,		4,			base=16
+sfr = "GPIOCINT.PA0INT",			"Memory",	0x40080028,		4,			base=16,	bitRange=0-0
+sfr = "GPIOCINT.PA1INT",			"Memory",	0x40080028,		4,			base=16,	bitRange=1-1
+sfr = "GPIOCINT.PA2INT",			"Memory",	0x40080028,		4,			base=16,	bitRange=2-2
+sfr = "GPIOCINT.PA3INT",			"Memory",	0x40080028,		4,			base=16,	bitRange=3-3
+sfr = "GPIOCINT.PA4INT",			"Memory",	0x40080028,		4,			base=16,	bitRange=4-4
+sfr = "GPIOCINT.PA5INT",			"Memory",	0x40080028,		4,			base=16,	bitRange=5-5
+sfr = "GPIOCINT.PA6INT",			"Memory",	0x40080028,		4,			base=16,	bitRange=6-6
+sfr = "GPIOCINT.PA7INT",			"Memory",	0x40080028,		4,			base=16,	bitRange=7-7
+
+sfr = "GPIOCINTM",					"Memory",	0x4008002C,		4,			base=16
+sfr = "GPIOCINTM.PA0INTM",			"Memory",	0x4008002C,		4,			base=16,	bitRange=0-0
+sfr = "GPIOCINTM.PA1INTM",			"Memory",	0x4008002C,		4,			base=16,	bitRange=1-1
+sfr = "GPIOCINTM.PA2INTM",			"Memory",	0x4008002C,		4,			base=16,	bitRange=2-2
+sfr = "GPIOCINTM.PA3INTM",			"Memory",	0x4008002C,		4,			base=16,	bitRange=3-3
+sfr = "GPIOCINTM.PA4INTM",			"Memory",	0x4008002C,		4,			base=16,	bitRange=4-4
+sfr = "GPIOCINTM.PA5INTM",			"Memory",	0x4008002C,		4,			base=16,	bitRange=5-5
+sfr = "GPIOCINTM.PA6INTM",			"Memory",	0x4008002C,		4,			base=16,	bitRange=6-6
+sfr = "GPIOCINTM.PA7INTM",			"Memory",	0x4008002C,		4,			base=16,	bitRange=7-7
+
+;
+;               General-Purpose Input/Output D (GPIOD)
+;
+;     Name                          Zone      	Address     	Bytesize	Displaybase	Bitrange
+;     ----                          ----      	-------     	--------  	----------- --------
+;
+
+sfr = "GPIODO",						"Memory",	0x40080040,		4, 			base=16
+sfr = "GPIODO.PA0O",				"Memory", 	0x40080040,		4, 			base=16,    bitRange=0-0
+sfr = "GPIODO.PA1O",				"Memory", 	0x40080040,		4, 			base=16,    bitRange=1-1
+sfr = "GPIODO.PA2O",				"Memory", 	0x40080040,		4, 			base=16,    bitRange=2-2
+sfr = "GPIODO.PA3O",				"Memory", 	0x40080040,		4, 			base=16,    bitRange=3-3
+sfr = "GPIODO.PA4O",				"Memory", 	0x40080040,		4, 			base=16,    bitRange=4-4
+sfr = "GPIODO.PA5O",				"Memory", 	0x40080040,		4, 			base=16,    bitRange=5-5
+sfr = "GPIODO.PA6O",				"Memory", 	0x40080040,		4, 			base=16,    bitRange=6-6
+sfr = "GPIODO.PA7O",				"Memory", 	0x40080040,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIODOE",					"Memory",	0x40080044,		4, 			base=16
+sfr = "GPIODOE.PA0OE",				"Memory", 	0x40080044,		4, 			base=16,    bitRange=0-0
+sfr = "GPIODOE.PA1OE",				"Memory", 	0x40080044,		4, 			base=16,    bitRange=1-1
+sfr = "GPIODOE.PA2OE",				"Memory", 	0x40080044,		4, 			base=16,    bitRange=2-2
+sfr = "GPIODOE.PA3OE",				"Memory", 	0x40080044,		4, 			base=16,    bitRange=3-3
+sfr = "GPIODOE.PA4OE",				"Memory", 	0x40080044,		4, 			base=16,    bitRange=4-4
+sfr = "GPIODOE.PA5OE",				"Memory", 	0x40080044,		4, 			base=16,    bitRange=5-5
+sfr = "GPIODOE.PA6OE",				"Memory", 	0x40080044,		4, 			base=16,    bitRange=6-6
+sfr = "GPIODOE.PA7OE",				"Memory", 	0x40080044,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIODODS",					"Memory",	0x40080048,		4, 			base=16
+sfr = "GPIODODS.PA0ODS",			"Memory", 	0x40080048,		4, 			base=16,    bitRange=0-0
+sfr = "GPIODODS.PA1ODS",			"Memory", 	0x40080048,		4, 			base=16,    bitRange=1-1
+sfr = "GPIODODS.PA2ODS",			"Memory", 	0x40080048,		4, 			base=16,    bitRange=2-2
+sfr = "GPIODODS.PA3ODS",			"Memory", 	0x40080048,		4, 			base=16,    bitRange=3-3
+sfr = "GPIODODS.PA4ODS",			"Memory", 	0x40080048,		4, 			base=16,    bitRange=4-4
+sfr = "GPIODODS.PA5ODS",			"Memory", 	0x40080048,		4, 			base=16,    bitRange=5-5
+sfr = "GPIODODS.PA6ODS",			"Memory", 	0x40080048,		4, 			base=16,    bitRange=6-6
+sfr = "GPIODODS.PA7ODS",			"Memory", 	0x40080048,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIODRUP",					"Memory",	0x4008004C,		4, 			base=16
+sfr = "GPIODRUP.PAO0RUP",			"Memory", 	0x4008004C,		4, 			base=16,    bitRange=0-0
+sfr = "GPIODRUP.PAO1RUP",			"Memory", 	0x4008004C,		4, 			base=16,    bitRange=1-1
+sfr = "GPIODRUP.PAO2RUP",			"Memory", 	0x4008004C,		4, 			base=16,    bitRange=2-2
+sfr = "GPIODRUP.PAO3RUP",			"Memory", 	0x4008004C,		4, 			base=16,    bitRange=3-3
+sfr = "GPIODRUP.PAO4RUP",			"Memory", 	0x4008004C,		4, 			base=16,    bitRange=4-4
+sfr = "GPIODRUP.PAO5RUP",			"Memory", 	0x4008004C,		4, 			base=16,    bitRange=5-5
+sfr = "GPIODRUP.PAO6RUP",			"Memory", 	0x4008004C,		4, 			base=16,    bitRange=6-6
+sfr = "GPIODRUP.PAO7RUP",			"Memory", 	0x4008004C,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIODRDN",					"Memory",	0x40080050,		4, 			base=16
+sfr = "GPIODRDN.PA0RDN",			"Memory", 	0x40080050,		4, 			base=16,    bitRange=0-0
+sfr = "GPIODRDN.PA1RDN",			"Memory", 	0x40080050,		4, 			base=16,    bitRange=1-1
+sfr = "GPIODRDN.PA2RDN",			"Memory", 	0x40080050,		4, 			base=16,    bitRange=2-2
+sfr = "GPIODRDN.PA3RDN",			"Memory", 	0x40080050,		4, 			base=16,    bitRange=3-3
+sfr = "GPIODRDN.PA4RDN",			"Memory", 	0x40080050,		4, 			base=16,    bitRange=4-4
+sfr = "GPIODRDN.PA5RDN",			"Memory", 	0x40080050,		4, 			base=16,    bitRange=5-5
+sfr = "GPIODRDN.PA6RDN",			"Memory", 	0x40080050,		4, 			base=16,    bitRange=6-6
+sfr = "GPIODRDN.PA7RDN",			"Memory", 	0x40080050,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIODI",						"Memory",	0x40080054,		4, 			base=16
+sfr = "GPIODI.PA0I",				"Memory", 	0x40080054,		4, 			base=16,    bitRange=0-0
+sfr = "GPIODI.PA1I",				"Memory", 	0x40080054,		4, 			base=16,    bitRange=1-1
+sfr = "GPIODI.PA2I",				"Memory", 	0x40080054,		4, 			base=16,    bitRange=2-2
+sfr = "GPIODI.PA3I",				"Memory", 	0x40080054,		4, 			base=16,    bitRange=3-3
+sfr = "GPIODI.PA4I",				"Memory", 	0x40080054,		4, 			base=16,    bitRange=4-4
+sfr = "GPIODI.PA5I",				"Memory", 	0x40080054,		4, 			base=16,    bitRange=5-5
+sfr = "GPIODI.PA6I",				"Memory", 	0x40080054,		4, 			base=16,    bitRange=6-6
+sfr = "GPIODI.PA7I",				"Memory", 	0x40080054,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIODPSEL",					"Memory",	0x4008005C,		4,			base=16
+sfr = "GPIODPSEL.PA0PSEL",			"Memory",	0x4008005C,		4,			base=16,	bitRange=0-1
+sfr = "GPIODPSEL.PA1PSEL",			"Memory",	0x4008005C,		4,			base=16,	bitRange=2-3
+sfr = "GPIODPSEL.PA2PSEL",			"Memory",	0x4008005C,		4,			base=16,	bitRange=4-5
+sfr = "GPIODPSEL.PA3PSEL",			"Memory",	0x4008005C,		4,			base=16,	bitRange=6-7
+sfr = "GPIODPSEL.PA4PSEL",			"Memory",	0x4008005C,		4,			base=16,	bitRange=8-9
+sfr = "GPIODPSEL.PA5PSEL",			"Memory",	0x4008005C,		4,			base=16,	bitRange=10-11
+sfr = "GPIODPSEL.PA6PSEL",			"Memory",	0x4008005C,		4,			base=16,	bitRange=12-13
+sfr = "GPIODPSEL.PA7PSEL",			"Memory",	0x4008005C,		4,			base=16,	bitRange=14-15
+
+sfr = "GPIODINTP",					"Memory",	0x40080060,		4,			base=16
+sfr = "GPIODINTP.PA0INTP",			"Memory",	0x40080060,		4,			base=16,	bitRange=0-0
+sfr = "GPIODINTP.PA1INTP",			"Memory",	0x40080060,		4,			base=16,	bitRange=1-1
+sfr = "GPIODINTP.PA2INTP",			"Memory",	0x40080060,		4,			base=16,	bitRange=2-2
+sfr = "GPIODINTP.PA3INTP",			"Memory",	0x40080060,		4,			base=16,	bitRange=3-3
+sfr = "GPIODINTP.PA4INTP",			"Memory",	0x40080060,		4,			base=16,	bitRange=4-4
+sfr = "GPIODINTP.PA5INTP",			"Memory",	0x40080060,		4,			base=16,	bitRange=5-5
+sfr = "GPIODINTP.PA6INTP",			"Memory",	0x40080060,		4,			base=16,	bitRange=6-6
+sfr = "GPIODINTP.PA7INTP",			"Memory",	0x40080060,		4,			base=16,	bitRange=7-7
+
+sfr = "GPIODINTEN",					"Memory",	0x40080064,		4,			base=16
+sfr = "GPIODINTEN.PA0INTEN",		"Memory",	0x40080064,		4,			base=16,	bitRange=0-0
+sfr = "GPIODINTEN.PA1INTEN",		"Memory",	0x40080064,		4,			base=16,	bitRange=1-1
+sfr = "GPIODINTEN.PA2INTEN",		"Memory",	0x40080064,		4,			base=16,	bitRange=2-2
+sfr = "GPIODINTEN.PA3INTEN",		"Memory",	0x40080064,		4,			base=16,	bitRange=3-3
+sfr = "GPIODINTEN.PA4INTEN",		"Memory",	0x40080064,		4,			base=16,	bitRange=4-4
+sfr = "GPIODINTEN.PA5INTEN",		"Memory",	0x40080064,		4,			base=16,	bitRange=5-5
+sfr = "GPIODINTEN.PA6INTEN",		"Memory",	0x40080064,		4,			base=16,	bitRange=6-6
+sfr = "GPIODINTEN.PA7INTEN",		"Memory",	0x40080064,		4,			base=16,	bitRange=7-7
+
+sfr = "GPIODINT",					"Memory",	0x40080068,		4,			base=16
+sfr = "GPIODINT.PA0INT",			"Memory",	0x40080068,		4,			base=16,	bitRange=0-0
+sfr = "GPIODINT.PA1INT",			"Memory",	0x40080068,		4,			base=16,	bitRange=1-1
+sfr = "GPIODINT.PA2INT",			"Memory",	0x40080068,		4,			base=16,	bitRange=2-2
+sfr = "GPIODINT.PA3INT",			"Memory",	0x40080068,		4,			base=16,	bitRange=3-3
+sfr = "GPIODINT.PA4INT",			"Memory",	0x40080068,		4,			base=16,	bitRange=4-4
+sfr = "GPIODINT.PA5INT",			"Memory",	0x40080068,		4,			base=16,	bitRange=5-5
+sfr = "GPIODINT.PA6INT",			"Memory",	0x40080068,		4,			base=16,	bitRange=6-6
+sfr = "GPIODINT.PA7INT",			"Memory",	0x40080068,		4,			base=16,	bitRange=7-7
+
+sfr = "GPIODINTM",					"Memory",	0x4008006C,		4,			base=16
+sfr = "GPIODINTM.PA0INTM",			"Memory",	0x4008006C,		4,			base=16,	bitRange=0-0
+sfr = "GPIODINTM.PA1INTM",			"Memory",	0x4008006C,		4,			base=16,	bitRange=1-1
+sfr = "GPIODINTM.PA2INTM",			"Memory",	0x4008006C,		4,			base=16,	bitRange=2-2
+sfr = "GPIODINTM.PA3INTM",			"Memory",	0x4008006C,		4,			base=16,	bitRange=3-3
+sfr = "GPIODINTM.PA4INTM",			"Memory",	0x4008006C,		4,			base=16,	bitRange=4-4
+sfr = "GPIODINTM.PA5INTM",			"Memory",	0x4008006C,		4,			base=16,	bitRange=5-5
+sfr = "GPIODINTM.PA6INTM",			"Memory",	0x4008006C,		4,			base=16,	bitRange=6-6
+sfr = "GPIODINTM.PA7INTM",			"Memory",	0x4008006C,		4,			base=16,	bitRange=7-7
+
+;
+;               General-Purpose Input/Output E (GPIOE)
+;
+;     Name                          Zone      	Address     	Bytesize	Displaybase	Bitrange
+;     ----                          ----      	-------     	--------  	----------- --------
+;
+
+sfr = "GPIOEO",						"Memory",	0x40090000,		4, 			base=16
+sfr = "GPIOEO.PA0O",				"Memory", 	0x40090000,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOEO.PA1O",				"Memory", 	0x40090000,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOEO.PA2O",				"Memory", 	0x40090000,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOEO.PA3O",				"Memory", 	0x40090000,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOEO.PA4O",				"Memory", 	0x40090000,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOEO.PA5O",				"Memory", 	0x40090000,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOEO.PA6O",				"Memory", 	0x40090000,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOEO.PA7O",				"Memory", 	0x40090000,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOEOE",					"Memory",	0x40090004,		4, 			base=16
+sfr = "GPIOEOE.PA0OE",				"Memory", 	0x40090004,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOEOE.PA1OE",				"Memory", 	0x40090004,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOEOE.PA2OE",				"Memory", 	0x40090004,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOEOE.PA3OE",				"Memory", 	0x40090004,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOEOE.PA4OE",				"Memory", 	0x40090004,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOEOE.PA5OE",				"Memory", 	0x40090004,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOEOE.PA6OE",				"Memory", 	0x40090004,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOEOE.PA7OE",				"Memory", 	0x40090004,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOEODS",					"Memory",	0x40090008,		4, 			base=16
+sfr = "GPIOEODS.PA0ODS",			"Memory", 	0x40090008,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOEODS.PA1ODS",			"Memory", 	0x40090008,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOEODS.PA2ODS",			"Memory", 	0x40090008,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOEODS.PA3ODS",			"Memory", 	0x40090008,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOEODS.PA4ODS",			"Memory", 	0x40090008,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOEODS.PA5ODS",			"Memory", 	0x40090008,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOEODS.PA6ODS",			"Memory", 	0x40090008,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOEODS.PA7ODS",			"Memory", 	0x40090008,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOERUP",					"Memory",	0x4009000C,		4, 			base=16
+sfr = "GPIOERUP.PAO0RUP",			"Memory", 	0x4009000C,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOERUP.PAO1RUP",			"Memory", 	0x4009000C,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOERUP.PAO2RUP",			"Memory", 	0x4009000C,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOERUP.PAO3RUP",			"Memory", 	0x4009000C,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOERUP.PAO4RUP",			"Memory", 	0x4009000C,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOERUP.PAO5RUP",			"Memory", 	0x4009000C,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOERUP.PAO6RUP",			"Memory", 	0x4009000C,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOERUP.PAO7RUP",			"Memory", 	0x4009000C,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOERDN",					"Memory",	0x40090010,		4, 			base=16
+sfr = "GPIOERDN.PA0RDN",			"Memory", 	0x40090010,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOERDN.PA1RDN",			"Memory", 	0x40090010,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOERDN.PA2RDN",			"Memory", 	0x40090010,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOERDN.PA3RDN",			"Memory", 	0x40090010,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOERDN.PA4RDN",			"Memory", 	0x40090010,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOERDN.PA5RDN",			"Memory", 	0x40090010,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOERDN.PA6RDN",			"Memory", 	0x40090010,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOERDN.PA7RDN",			"Memory", 	0x40090010,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOEI",						"Memory",	0x40090014,		4, 			base=16
+sfr = "GPIOEI.PA0I",				"Memory", 	0x40090014,		4, 			base=16,    bitRange=0-0
+sfr = "GPIOEI.PA1I",				"Memory", 	0x40090014,		4, 			base=16,    bitRange=1-1
+sfr = "GPIOEI.PA2I",				"Memory", 	0x40090014,		4, 			base=16,    bitRange=2-2
+sfr = "GPIOEI.PA3I",				"Memory", 	0x40090014,		4, 			base=16,    bitRange=3-3
+sfr = "GPIOEI.PA4I",				"Memory", 	0x40090014,		4, 			base=16,    bitRange=4-4
+sfr = "GPIOEI.PA5I",				"Memory", 	0x40090014,		4, 			base=16,    bitRange=5-5
+sfr = "GPIOEI.PA6I",				"Memory", 	0x40090014,		4, 			base=16,    bitRange=6-6
+sfr = "GPIOEI.PA7I",				"Memory", 	0x40090014,		4, 			base=16,    bitRange=7-7
+
+sfr = "GPIOEPSEL",					"Memory",	0x4009001C,		4,			base=16
+sfr = "GPIOEPSEL.PA0PSEL",			"Memory",	0x4009001C,		4,			base=16,	bitRange=0-1
+sfr = "GPIOEPSEL.PA1PSEL",			"Memory",	0x4009001C,		4,			base=16,	bitRange=2-3
+sfr = "GPIOEPSEL.PA2PSEL",			"Memory",	0x4009001C,		4,			base=16,	bitRange=4-5
+sfr = "GPIOEPSEL.PA3PSEL",			"Memory",	0x4009001C,		4,			base=16,	bitRange=6-7
+sfr = "GPIOEPSEL.PA4PSEL",			"Memory",	0x4009001C,		4,			base=16,	bitRange=8-9
+sfr = "GPIOEPSEL.PA5PSEL",			"Memory",	0x4009001C,		4,			base=16,	bitRange=10-11
+sfr = "GPIOEPSEL.PA6PSEL",			"Memory",	0x4009001C,		4,			base=16,	bitRange=12-13
+sfr = "GPIOEPSEL.PA7PSEL",			"Memory",	0x4009001C,		4,			base=16,	bitRange=14-15
+
+sfr = "GPIOEINTP",					"Memory",	0x40090020,		4,			base=16
+sfr = "GPIOEINTP.PA0INTP",			"Memory",	0x40090020,		4,			base=16,	bitRange=0-0
+sfr = "GPIOEINTP.PA1INTP",			"Memory",	0x40090020,		4,			base=16,	bitRange=1-1
+sfr = "GPIOEINTP.PA2INTP",			"Memory",	0x40090020,		4,			base=16,	bitRange=2-2
+sfr = "GPIOEINTP.PA3INTP",			"Memory",	0x40090020,		4,			base=16,	bitRange=3-3
+sfr = "GPIOEINTP.PA4INTP",			"Memory",	0x40090020,		4,			base=16,	bitRange=4-4
+sfr = "GPIOEINTP.PA5INTP",			"Memory",	0x40090020,		4,			base=16,	bitRange=5-5
+sfr = "GPIOEINTP.PA6INTP",			"Memory",	0x40090020,		4,			base=16,	bitRange=6-6
+sfr = "GPIOEINTP.PA7INTP",			"Memory",	0x40090020,		4,			base=16,	bitRange=7-7
+
+sfr = "GPIOEINTEN",					"Memory",	0x40090024,		4,			base=16
+sfr = "GPIOEINTEN.PA0INTEN",		"Memory",	0x40090024,		4,			base=16,	bitRange=0-0
+sfr = "GPIOEINTEN.PA1INTEN",		"Memory",	0x40090024,		4,			base=16,	bitRange=1-1
+sfr = "GPIOEINTEN.PA2INTEN",		"Memory",	0x40090024,		4,			base=16,	bitRange=2-2
+sfr = "GPIOEINTEN.PA3INTEN",		"Memory",	0x40090024,		4,			base=16,	bitRange=3-3
+sfr = "GPIOEINTEN.PA4INTEN",		"Memory",	0x40090024,		4,			base=16,	bitRange=4-4
+sfr = "GPIOEINTEN.PA5INTEN",		"Memory",	0x40090024,		4,			base=16,	bitRange=5-5
+sfr = "GPIOEINTEN.PA6INTEN",		"Memory",	0x40090024,		4,			base=16,	bitRange=6-6
+sfr = "GPIOEINTEN.PA7INTEN",		"Memory",	0x40090024,		4,			base=16,	bitRange=7-7
+
+sfr = "GPIOEINT",					"Memory",	0x40090028,		4,			base=16
+sfr = "GPIOEINT.PA0INT",			"Memory",	0x40090028,		4,			base=16,	bitRange=0-0
+sfr = "GPIOEINT.PA1INT",			"Memory",	0x40090028,		4,			base=16,	bitRange=1-1
+sfr = "GPIOEINT.PA2INT",			"Memory",	0x40090028,		4,			base=16,	bitRange=2-2
+sfr = "GPIOEINT.PA3INT",			"Memory",	0x40090028,		4,			base=16,	bitRange=3-3
+sfr = "GPIOEINT.PA4INT",			"Memory",	0x40090028,		4,			base=16,	bitRange=4-4
+sfr = "GPIOEINT.PA5INT",			"Memory",	0x40090028,		4,			base=16,	bitRange=5-5
+sfr = "GPIOEINT.PA6INT",			"Memory",	0x40090028,		4,			base=16,	bitRange=6-6
+sfr = "GPIOEINT.PA7INT",			"Memory",	0x40090028,		4,			base=16,	bitRange=7-7
+
+sfr = "GPIOEINTM",					"Memory",	0x4009002C,		4,			base=16
+sfr = "GPIOEINTM.PA0INTM",			"Memory",	0x4009002C,		4,			base=16,	bitRange=0-0
+sfr = "GPIOEINTM.PA1INTM",			"Memory",	0x4009002C,		4,			base=16,	bitRange=1-1
+sfr = "GPIOEINTM.PA2INTM",			"Memory",	0x4009002C,		4,			base=16,	bitRange=2-2
+sfr = "GPIOEINTM.PA3INTM",			"Memory",	0x4009002C,		4,			base=16,	bitRange=3-3
+sfr = "GPIOEINTM.PA4INTM",			"Memory",	0x4009002C,		4,			base=16,	bitRange=4-4
+sfr = "GPIOEINTM.PA5INTM",			"Memory",	0x4009002C,		4,			base=16,	bitRange=5-5
+sfr = "GPIOEINTM.PA6INTM",			"Memory",	0x4009002C,		4,			base=16,	bitRange=6-6
+sfr = "GPIOEINTM.PA7INTM",			"Memory",	0x4009002C,		4,			base=16,	bitRange=7-7
+
+;
+;               Timer A
+;
+;     Name                          Zone      	Address     	Bytesize	Displaybase	Bitrange
+;     ----                          ----      	-------     	--------  	----------- --------
+;
+
+sfr = "TACTL",						"Memory",	0x400D0000,		4, 			base=16
+sfr = "TACTL.PRDL",					"Memory",	0x400D0000,		4,			base=16,	bitRange=0-0
+sfr = "TACTL.CLR",					"Memory",	0x400D0000,		4,			base=16,	bitRange=2-2
+sfr = "TACTL.SS",					"Memory",	0x400D0000,		4,			base=16,	bitRange=3-3
+sfr = "TACTL.INT",					"Memory",	0x400D0000,		4,			base=16,	bitRange=4-4
+sfr = "TACTL.INTEN",				"Memory",	0x400D0000,		4,			base=16,	bitRange=5-5
+sfr = "TACTL.CLKDIV",				"Memory",	0x400D0000,		4,			base=16,	bitRange=6-8
+sfr = "TACTL.CLK",					"Memory",	0x400D0000,		4,			base=16,	bitRange=9-9
+sfr = "TACTL.MODE",					"Memory",	0x400D0000,		4,			base=16,	bitRange=10-11
+sfr = "TACTL.DTGCLK",				"Memory",	0x400D0000,		4,			base=16,	bitRange=13-13
+
+sfr = "TAPRD",						"Memory",	0x400D0004,		4,			base=16
+sfr = "TAPRD.PERIOD",				"Memory",	0x400D0004,		4,			base=16,	bitRange=0-15
+
+sfr = "TACTR",						"Memory",	0x400D0008,		4,			base=16
+sfr = "TACTR.CTR",					"Memory",	0x400D0008,		4,			base=16,	bitRange=0-15
+
+sfr = "TACC0CTL",					"Memory",	0x400D0040,		4,			base=16
+sfr = "TACC0CTL.CCEDG",				"Memory",	0x400D0040,		4,			base=16,	bitRange=0-1
+sfr = "TACC0CTL.CCINT",				"Memory",	0x400D0040,		4,			base=16,	bitRange=2-2
+sfr = "TACC0CTL.CCINTEN",			"Memory",	0x400D0040,		4,			base=16,	bitRange=3-3
+sfr = "TACC0CTL.CCMODE",			"Memory",	0x400D0040,		4,			base=16,	bitRange=4-4
+
+sfr = "TACC0CTR",					"Memory",	0x400D0044,		4,			base=16
+sfr = "TACC0CTR.CCCTR",				"Memory",	0x400D0044,		4,			base=16,	bitRange=0-15
+
+sfr = "TACC1CTL",					"Memory",	0x400D0048,		4,			base=16
+sfr = "TACC1CTL.CCEDG",				"Memory",	0x400D0048,		4,			base=16,	bitRange=0-1
+sfr = "TACC1CTL.CCINT",				"Memory",	0x400D0048,		4,			base=16,	bitRange=2-2
+sfr = "TACC1CTL.CCINTEN",			"Memory",	0x400D0048,		4,			base=16,	bitRange=3-3
+sfr = "TACC1CTL.CCMODE",			"Memory",	0x400D0048,		4,			base=16,	bitRange=4-4
+
+sfr = "TACC1CTR",					"Memory",	0x400D004C,		4,			base=16
+sfr = "TACC1CTR.CCCTR",				"Memory",	0x400D004C,		4,			base=16,	bitRange=0-15
+
+sfr = "TACC2CTL",					"Memory",	0x400D0050,		4,			base=16
+sfr = "TACC2CTL.CCEDG",				"Memory",	0x400D0050,		4,			base=16,	bitRange=0-1
+sfr = "TACC2CTL.CCINT",				"Memory",	0x400D0050,		4,			base=16,	bitRange=2-2
+sfr = "TACC2CTL.CCINTEN",			"Memory",	0x400D0050,		4,			base=16,	bitRange=3-3
+sfr = "TACC2CTL.CCMODE",			"Memory",	0x400D0050,		4,			base=16,	bitRange=4-4
+
+sfr = "TACC2CTR",					"Memory",	0x400D0054,		4,			base=16
+sfr = "TACC2CTR.CCCTR",				"Memory",	0x400D0054,		4,			base=16,	bitRange=0-15
+
+sfr = "TACC3CTL",					"Memory",	0x400D0058,		4,			base=16
+sfr = "TACC3CTL.CCEDG",				"Memory",	0x400D0058,		4,			base=16,	bitRange=0-1
+sfr = "TACC3CTL.CCINT",				"Memory",	0x400D0058,		4,			base=16,	bitRange=2-2
+sfr = "TACC3CTL.CCINTEN",			"Memory",	0x400D0058,		4,			base=16,	bitRange=3-3
+sfr = "TACC3CTL.CCMODE",			"Memory",	0x400D0058,		4,			base=16,	bitRange=4-4
+
+sfr = "TACC3CTR",					"Memory",	0x400D005C,		4,			base=16
+sfr = "TACC3CTR.CCCTR",				"Memory",	0x400D005C,		4,			base=16,	bitRange=0-15
+
+sfr = "TACC4CTL",					"Memory",	0x400D0060,		4,			base=16
+sfr = "TACC4CTL.CCEDG",				"Memory",	0x400D0060,		4,			base=16,	bitRange=0-1
+sfr = "TACC4CTL.CCINT",				"Memory",	0x400D0060,		4,			base=16,	bitRange=2-2
+sfr = "TACC4CTL.CCINTEN",			"Memory",	0x400D0060,		4,			base=16,	bitRange=3-3
+sfr = "TACC4CTL.CCMODE",			"Memory",	0x400D0060,		4,			base=16,	bitRange=4-4
+
+sfr = "TACC4CTR",					"Memory",	0x400D0064,		4,			base=16
+sfr = "TACC4CTR.CCCTR",				"Memory",	0x400D0064,		4,			base=16,	bitRange=0-15
+
+sfr = "TACC5CTL",					"Memory",	0x400D0068,		4,			base=16
+sfr = "TACC5CTL.CCEDG",				"Memory",	0x400D0068,		4,			base=16,	bitRange=0-1
+sfr = "TACC5CTL.CCINT",				"Memory",	0x400D0068,		4,			base=16,	bitRange=2-2
+sfr = "TACC5CTL.CCINTEN",			"Memory",	0x400D0068,		4,			base=16,	bitRange=3-3
+sfr = "TACC5CTL.CCMODE",			"Memory",	0x400D0068,		4,			base=16,	bitRange=4-4
+
+sfr = "TACC5CTR",					"Memory",	0x400D006C,		4,			base=16
+sfr = "TACC5CTR.CCCTR",				"Memory",	0x400D006C,		4,			base=16,	bitRange=0-15
+
+sfr = "TACC6CTL",					"Memory",	0x400D0070,		4,			base=16
+sfr = "TACC6CTL.CCEDG",				"Memory",	0x400D0070,		4,			base=16,	bitRange=0-1
+sfr = "TACC6CTL.CCINT",				"Memory",	0x400D0070,		4,			base=16,	bitRange=2-2
+sfr = "TACC6CTL.CCINTEN",			"Memory",	0x400D0070,		4,			base=16,	bitRange=3-3
+sfr = "TACC6CTL.CCMODE",			"Memory",	0x400D0070,		4,			base=16,	bitRange=4-4
+
+sfr = "TACC6CTR",					"Memory",	0x400D0074,		4,			base=16
+sfr = "TACC6CTR.CCCTR",				"Memory",	0x400D0074,		4,			base=16,	bitRange=0-15
+
+sfr = "TACC7CTL",					"Memory",	0x400D0078,		4,			base=16
+sfr = "TACC7CTL.CCEDG",				"Memory",	0x400D0078,		4,			base=16,	bitRange=0-1
+sfr = "TACC7CTL.CCINT",				"Memory",	0x400D0078,		4,			base=16,	bitRange=2-2
+sfr = "TACC7CTL.CCINTEN",			"Memory",	0x400D0078,		4,			base=16,	bitRange=3-3
+sfr = "TACC7CTL.CCMODE",			"Memory",	0x400D0078,		4,			base=16,	bitRange=4-4
+
+sfr = "TACC7CTR",					"Memory",	0x400D007C,		4,			base=16
+sfr = "TACC7CTR.CCCTR",				"Memory",	0x400D007C,		4,			base=16,	bitRange=0-15
+
+sfr = "DTGA0CTL",					"Memory",	0x400D00A0,		4,			base=16
+sfr = "DTGA0CTL.INVLS",				"Memory",	0x400D00A0,		4,			base=16,	bitRange=4-4
+sfr = "DTGA0CTL.INVHS",				"Memory",	0x400D00A0,		4,			base=16,	bitRange=5-5
+sfr = "DTGA0CTL.OTP",				"Memory",	0x400D00A0,		4,			base=16,	bitRange=6-6
+sfr = "DTGA0CTL.BYPASS",			"Memory",	0x400D00A0,		4,			base=16,	bitRange=7-7
+
+sfr = "DTGA0LED",					"Memory",	0x400D00A4,		4,			base=16
+sfr = "DTGA0LED.LED",				"Memory",	0x400D00A4,		4,			base=16,	bitRange=0-11
+
+sfr = "DTGA0TED",					"Memory",	0x400D00A8,		4,			base=16
+sfr = "DTGA0TED.TED",				"Memory",	0x400D00A8,		4,			base=16,	bitRange=0-11
+
+sfr = "DTGA1CTL",					"Memory",	0x400D00B0,		4,			base=16
+sfr = "DTGA1CTL.INVLS",				"Memory",	0x400D00B0,		4,			base=16,	bitRange=4-4
+sfr = "DTGA1CTL.INVHS",				"Memory",	0x400D00B0,		4,			base=16,	bitRange=5-5
+sfr = "DTGA1CTL.OTP",				"Memory",	0x400D00B0,		4,			base=16,	bitRange=6-6
+sfr = "DTGA1CTL.BYPASS",			"Memory",	0x400D00B0,		4,			base=16,	bitRange=7-7
+
+sfr = "DTGA1LED",					"Memory",	0x400D00B4,		4,			base=16
+sfr = "DTGA1LED.LED",				"Memory",	0x400D00B4,		4,			base=16,	bitRange=0-11
+
+sfr = "DTGA1TED",					"Memory",	0x400D00B8,		4,			base=16
+sfr = "DTGA1TED.TED",				"Memory",	0x400D00B8,		4,			base=16,	bitRange=0-11
+
+sfr = "DTGA2CTL",					"Memory",	0x400D00C0,		4,			base=16
+sfr = "DTGA2CTL.INVLS",				"Memory",	0x400D00C0,		4,			base=16,	bitRange=4-4
+sfr = "DTGA2CTL.INVHS",				"Memory",	0x400D00C0,		4,			base=16,	bitRange=5-5
+sfr = "DTGA2CTL.OTP",				"Memory",	0x400D00C0,		4,			base=16,	bitRange=6-6
+sfr = "DTGA2CTL.BYPASS",			"Memory",	0x400D00C0,		4,			base=16,	bitRange=7-7
+
+sfr = "DTGA2LED",					"Memory",	0x400D00C4,		4,			base=16
+sfr = "DTGA2LED.LED",				"Memory",	0x400D00C4,		4,			base=16,	bitRange=0-11
+
+sfr = "DTGA2TED",					"Memory",	0x400D00C8,		4,			base=16
+sfr = "DTGA2TED.TED",				"Memory",	0x400D00C8,		4,			base=16,	bitRange=0-11
+
+sfr = "DTGA3CTL",					"Memory",	0x400D00D0,		4,			base=16
+sfr = "DTGA3CTL.INVLS",				"Memory",	0x400D00D0,		4,			base=16,	bitRange=4-4
+sfr = "DTGA3CTL.INVHS",				"Memory",	0x400D00D0,		4,			base=16,	bitRange=5-5
+sfr = "DTGA3CTL.OTP",				"Memory",	0x400D00D0,		4,			base=16,	bitRange=6-6
+sfr = "DTGA3CTL.BYPASS",			"Memory",	0x400D00D0,		4,			base=16,	bitRange=7-7
+
+sfr = "DTGA3LED",					"Memory",	0x400D00D4,		4,			base=16
+sfr = "DTGA3LED.LED",				"Memory",	0x400D00D4,		4,			base=16,	bitRange=0-11
+
+sfr = "DTGA3TED",					"Memory",	0x400D00D8,		4,			base=16
+sfr = "DTGA3TED.TED",				"Memory",	0x400D00D8,		4,			base=16,	bitRange=0-11
+
+;
+;               Timer B
+;
+;     Name                          Zone      	Address     	Bytesize	Displaybase	Bitrange
+;     ----                          ----      	-------     	--------  	----------- --------
+;
+
+sfr = "TBCTL",						"Memory",	0x400E0000,		4, 			base=16
+sfr = "TBCTL.PRDL",					"Memory",	0x400E0000,		4,			base=16,	bitRange=0-0
+sfr = "TBCTL.CLR",					"Memory",	0x400E0000,		4,			base=16,	bitRange=2-2
+sfr = "TBCTL.SS",					"Memory",	0x400E0000,		4,			base=16,	bitRange=3-3
+sfr = "TBCTL.INT",					"Memory",	0x400E0000,		4,			base=16,	bitRange=4-4
+sfr = "TBCTL.INTEN",				"Memory",	0x400E0000,		4,			base=16,	bitRange=5-5
+sfr = "TBCTL.CLKDIV",				"Memory",	0x400E0000,		4,			base=16,	bitRange=6-8
+sfr = "TBCTL.CLK",					"Memory",	0x400E0000,		4,			base=16,	bitRange=9-9
+sfr = "TBCTL.MODE",					"Memory",	0x400E0000,		4,			base=16,	bitRange=10-11
+sfr = "TBCTL.DTGCLK",				"Memory",	0x400E0000,		4,			base=16,	bitRange=13-13
+
+sfr = "TBPRD",						"Memory",	0x400E0004,		4,			base=16
+sfr = "TBPRD.PERIOD",				"Memory",	0x400E0004,		4,			base=16,	bitRange=0-15
+
+sfr = "TBCTR",						"Memory",	0x400E0008,		4,			base=16
+sfr = "TBCTR.CTR",					"Memory",	0x400E0008,		4,			base=16,	bitRange=0-15
+
+sfr = "TBCC0CTL",					"Memory",	0x400E0040,		4,			base=16
+sfr = "TBCC0CTL.CCEDG",				"Memory",	0x400E0040,		4,			base=16,	bitRange=0-1
+sfr = "TBCC0CTL.CCINT",				"Memory",	0x400E0040,		4,			base=16,	bitRange=2-2
+sfr = "TBCC0CTL.CCINTEN",			"Memory",	0x400E0040,		4,			base=16,	bitRange=3-3
+sfr = "TBCC0CTL.CCMODE",			"Memory",	0x400E0040,		4,			base=16,	bitRange=4-4
+
+sfr = "TBCC0CTR",					"Memory",	0x400E0044,		4,			base=16
+sfr = "TBCC0CTR.CCCTR",				"Memory",	0x400E0044,		4,			base=16,	bitRange=0-15
+
+sfr = "TBCC1CTL",					"Memory",	0x400E0048,		4,			base=16
+sfr = "TBCC1CTL.CCEDG",				"Memory",	0x400E0048,		4,			base=16,	bitRange=0-1
+sfr = "TBCC1CTL.CCINT",				"Memory",	0x400E0048,		4,			base=16,	bitRange=2-2
+sfr = "TBCC1CTL.CCINTEN",			"Memory",	0x400E0048,		4,			base=16,	bitRange=3-3
+sfr = "TBCC1CTL.CCMODE",			"Memory",	0x400E0048,		4,			base=16,	bitRange=4-4
+
+sfr = "TBCC1CTR",					"Memory",	0x400E004C,		4,			base=16
+sfr = "TBCC1CTR.CCCTR",				"Memory",	0x400E004C,		4,			base=16,	bitRange=0-15
+
+sfr = "TBCC2CTL",					"Memory",	0x400E0050,		4,			base=16
+sfr = "TBCC2CTL.CCEDG",				"Memory",	0x400E0050,		4,			base=16,	bitRange=0-1
+sfr = "TBCC2CTL.CCINT",				"Memory",	0x400E0050,		4,			base=16,	bitRange=2-2
+sfr = "TBCC2CTL.CCINTEN",			"Memory",	0x400E0050,		4,			base=16,	bitRange=3-3
+sfr = "TBCC2CTL.CCMODE",			"Memory",	0x400E0050,		4,			base=16,	bitRange=4-4
+
+sfr = "TBCC2CTR",					"Memory",	0x400E0054,		4,			base=16
+sfr = "TBCC2CTR.CCCTR",				"Memory",	0x400E0054,		4,			base=16,	bitRange=0-15
+
+sfr = "TBCC3CTL",					"Memory",	0x400E0058,		4,			base=16
+sfr = "TBCC3CTL.CCEDG",				"Memory",	0x400E0058,		4,			base=16,	bitRange=0-1
+sfr = "TBCC3CTL.CCINT",				"Memory",	0x400E0058,		4,			base=16,	bitRange=2-2
+sfr = "TBCC3CTL.CCINTEN",			"Memory",	0x400E0058,		4,			base=16,	bitRange=3-3
+sfr = "TBCC3CTL.CCMODE",			"Memory",	0x400E0058,		4,			base=16,	bitRange=4-4
+
+sfr = "TBCC3CTR",					"Memory",	0x400E005C,		4,			base=16
+sfr = "TBCC3CTR.CCCTR",				"Memory",	0x400E005C,		4,			base=16,	bitRange=0-15
+
+sfr = "DTGB0CTL",					"Memory",	0x400E00A0,		4,			base=16
+sfr = "DTGB0CTL.INVLS",				"Memory",	0x400E00A0,		4,			base=16,	bitRange=4-4
+sfr = "DTGB0CTL.INVHS",				"Memory",	0x400E00A0,		4,			base=16,	bitRange=5-5
+sfr = "DTGB0CTL.OTP",				"Memory",	0x400E00A0,		4,			base=16,	bitRange=6-6
+sfr = "DTGB0CTL.BYPASS",			"Memory",	0x400E00A0,		4,			base=16,	bitRange=7-7
+
+sfr = "DTGB0LED",					"Memory",	0x400E00A4,		4,			base=16
+sfr = "DTGB0LED.LED",				"Memory",	0x400E00A4,		4,			base=16,	bitRange=0-11
+
+sfr = "DTGB0TED",					"Memory",	0x400E00A8,		4,			base=16
+sfr = "DTGB0TED.TED",				"Memory",	0x400E00A8,		4,			base=16,	bitRange=0-11
+
+;
+;               Timer C
+;
+;     Name                          Zone      	Address     	Bytesize	Displaybase	Bitrange
+;     ----                          ----      	-------     	--------  	----------- --------
+;
+
+sfr = "TCCTL",						"Memory",	0x400F0000,		4, 			base=16
+sfr = "TCCTL.PRDL",					"Memory",	0x400F0000,		4,			base=16,	bitRange=0-0
+sfr = "TCCTL.CLR",					"Memory",	0x400F0000,		4,			base=16,	bitRange=2-2
+sfr = "TCCTL.SS",					"Memory",	0x400F0000,		4,			base=16,	bitRange=3-3
+sfr = "TCCTL.INT",					"Memory",	0x400F0000,		4,			base=16,	bitRange=4-4
+sfr = "TCCTL.INTEN",				"Memory",	0x400F0000,		4,			base=16,	bitRange=5-5
+sfr = "TCCTL.CLKDIV",				"Memory",	0x400F0000,		4,			base=16,	bitRange=6-8
+sfr = "TCCTL.CLK",					"Memory",	0x400F0000,		4,			base=16,	bitRange=9-9
+sfr = "TCCTL.MODE",					"Memory",	0x400F0000,		4,			base=16,	bitRange=10-11
+sfr = "TCCTL.DTGCLK",				"Memory",	0x400F0000,		4,			base=16,	bitRange=13-13
+
+sfr = "TCPRD",						"Memory",	0x400F0004,		4,			base=16
+sfr = "TCPRD.PERIOD",				"Memory",	0x400F0004,		4,			base=16,	bitRange=0-15
+
+sfr = "TCCTR",						"Memory",	0x400F0008,		4,			base=16
+sfr = "TCCTR.CTR",					"Memory",	0x400F0008,		4,			base=16,	bitRange=0-15
+
+sfr = "TCCC0CTL",					"Memory",	0x400F0040,		4,			base=16
+sfr = "TCCC0CTL.CCEDG",				"Memory",	0x400F0040,		4,			base=16,	bitRange=0-1
+sfr = "TCCC0CTL.CCINT",				"Memory",	0x400F0040,		4,			base=16,	bitRange=2-2
+sfr = "TCCC0CTL.CCINTEN",			"Memory",	0x400F0040,		4,			base=16,	bitRange=3-3
+sfr = "TCCC0CTL.CCMODE",			"Memory",	0x400F0040,		4,			base=16,	bitRange=4-4
+
+sfr = "TCCC0CTR",					"Memory",	0x400F0044,		4,			base=16
+sfr = "TCCC0CTR.CCCTR",				"Memory",	0x400F0044,		4,			base=16,	bitRange=0-15
+
+sfr = "TCCC1CTL",					"Memory",	0x400F0048,		4,			base=16
+sfr = "TCCC1CTL.CCEDG",				"Memory",	0x400F0048,		4,			base=16,	bitRange=0-1
+sfr = "TCCC1CTL.CCINT",				"Memory",	0x400F0048,		4,			base=16,	bitRange=2-2
+sfr = "TCCC1CTL.CCINTEN",			"Memory",	0x400F0048,		4,			base=16,	bitRange=3-3
+sfr = "TCCC1CTL.CCMODE",			"Memory",	0x400F0048,		4,			base=16,	bitRange=4-4
+
+sfr = "TCCC1CTR",					"Memory",	0x400F004C,		4,			base=16
+sfr = "TCCC1CTR.CCCTR",				"Memory",	0x400F004C,		4,			base=16,	bitRange=0-15
+
+sfr = "DTGC0CTL",					"Memory",	0x400F00A0,		4,			base=16
+sfr = "DTGC0CTL.INVLS",				"Memory",	0x400F00A0,		4,			base=16,	bitRange=4-4
+sfr = "DTGC0CTL.INVHS",				"Memory",	0x400F00A0,		4,			base=16,	bitRange=5-5
+sfr = "DTGC0CTL.OTP",				"Memory",	0x400F00A0,		4,			base=16,	bitRange=6-6
+sfr = "DTGC0CTL.BYPASS",			"Memory",	0x400F00A0,		4,			base=16,	bitRange=7-7
+
+sfr = "DTGC0LED",					"Memory",	0x400F00A4,		4,			base=16
+sfr = "DTGC0LED.LED",				"Memory",	0x400F00A4,		4,			base=16,	bitRange=0-11
+
+sfr = "DTGC0TED",					"Memory",	0x400F00A8,		4,			base=16
+sfr = "DTGC0TED.TED",				"Memory",	0x400F00A8,		4,			base=16,	bitRange=0-11
+
+;
+;               Timer D
+;
+;     Name                          Zone      	Address     	Bytesize	Displaybase	Bitrange
+;     ----                          ----      	-------     	--------  	----------- --------
+;
+
+sfr = "TDCTL",						"Memory",	0x40100000,		4, 			base=16
+sfr = "TDCTL.PRDL",					"Memory",	0x40100000,		4,			base=16,	bitRange=0-0
+sfr = "TDCTL.CLR",					"Memory",	0x40100000,		4,			base=16,	bitRange=2-2
+sfr = "TDCTL.SS",					"Memory",	0x40100000,		4,			base=16,	bitRange=3-3
+sfr = "TDCTL.INT",					"Memory",	0x40100000,		4,			base=16,	bitRange=4-4
+sfr = "TDCTL.INTEN",				"Memory",	0x40100000,		4,			base=16,	bitRange=5-5
+sfr = "TDCTL.CLKDIV",				"Memory",	0x40100000,		4,			base=16,	bitRange=6-8
+sfr = "TDCTL.CLK",					"Memory",	0x40100000,		4,			base=16,	bitRange=9-9
+sfr = "TDCTL.MODE",					"Memory",	0x40100000,		4,			base=16,	bitRange=10-11
+sfr = "TDCTL.DTGCLK",				"Memory",	0x40100000,		4,			base=16,	bitRange=13-13
+
+sfr = "TDPRD",						"Memory",	0x40100004,		4,			base=16
+sfr = "TDPRD.PERIOD",				"Memory",	0x40100004,		4,			base=16,	bitRange=0-15
+
+sfr = "TDCTR",						"Memory",	0x40100008,		4,			base=16
+sfr = "TDCTR.CTR",					"Memory",	0x40100008,		4,			base=16,	bitRange=0-15
+
+sfr = "TDCC0CTL",					"Memory",	0x40100040,		4,			base=16
+sfr = "TDCC0CTL.CCEDG",				"Memory",	0x40100040,		4,			base=16,	bitRange=0-1
+sfr = "TDCC0CTL.CCINT",				"Memory",	0x40100040,		4,			base=16,	bitRange=2-2
+sfr = "TDCC0CTL.CCINTEN",			"Memory",	0x40100040,		4,			base=16,	bitRange=3-3
+sfr = "TDCC0CTL.CCMODE",			"Memory",	0x40100040,		4,			base=16,	bitRange=4-4
+
+sfr = "TDCC0CTR",					"Memory",	0x40100044,		4,			base=16
+sfr = "TDCC0CTR.CCCTR",				"Memory",	0x40100044,		4,			base=16,	bitRange=0-15
+
+sfr = "TDCC1CTL",					"Memory",	0x40100048,		4,			base=16
+sfr = "TDCC1CTL.CCEDG",				"Memory",	0x40100048,		4,			base=16,	bitRange=0-1
+sfr = "TDCC1CTL.CCINT",				"Memory",	0x40100048,		4,			base=16,	bitRange=2-2
+sfr = "TDCC1CTL.CCINTEN",			"Memory",	0x40100048,		4,			base=16,	bitRange=3-3
+sfr = "TDCC1CTL.CCMODE",			"Memory",	0x40100048,		4,			base=16,	bitRange=4-4
+
+sfr = "TDCC1CTR",					"Memory",	0x4010004C,		4,			base=16
+sfr = "TDCC1CTR.CCCTR",				"Memory",	0x4010004C,		4,			base=16,	bitRange=0-15
+
+sfr = "DTGD0CTL",					"Memory",	0x401000A0,		4,			base=16
+sfr = "DTGD0CTL.INVLS",				"Memory",	0x401000A0,		4,			base=16,	bitRange=4-4
+sfr = "DTGD0CTL.INVHS",				"Memory",	0x401000A0,		4,			base=16,	bitRange=5-5
+sfr = "DTGD0CTL.OTP",				"Memory",	0x401000A0,		4,			base=16,	bitRange=6-6
+sfr = "DTGD0CTL.BYPASS",			"Memory",	0x401000A0,		4,			base=16,	bitRange=7-7
+
+sfr = "DTGD0LED",					"Memory",	0x401000A4,		4,			base=16
+sfr = "DTGD0LED.LED",				"Memory",	0x401000A4,		4,			base=16,	bitRange=0-11
+
+sfr = "DTGD0TED",					"Memory",	0x401000A8,		4,			base=16
+sfr = "DTGD0TED.TED",				"Memory",	0x401000A8,		4,			base=16,	bitRange=0-11
+
+
+;
+;               FLASH Memory controller
+;
+;     Name                          Zone      	Address     	Bytesize	Displaybase	Bitrange
+;     ----                          ----      	-------     	--------  	----------- --------
+;
+
+sfr = "FLASHLOCK",					"Memory",	0x40020000,		4, 			base=16
+sfr = "FLASHLOCK.LOCK",				"Memory",	0x40020000,		4,			base=16,	bitRange=0-31
+
+sfr = "FLASHSTATUS",				"Memory",	0x40020004,		4,			base=16
+sfr = "FLASHSTATUS.WRITE",			"Memory",	0x40020004,		4,			base=16,	bitRange=0-0
+sfr = "FLASHSTATUS.PERASE",			"Memory",	0x40020004,		4,			base=16,	bitRange=1-1
+
+sfr = "FLASHPAGE",					"Memory",	0x40020008,		4,			base=16
+sfr = "FLASHPAGE.PAGE",				"Memory",	0x40020008,		4,			base=16,	bitRange=0-4
+
+sfr = "FLASHPERASE",				"Memory",	0x40020014,		4,			base=16
+sfr = "FLASHPERASE.PERASE",			"Memory",	0x40020014,		4,			base=16,	bitRange=0-31
+
+sfr = "SWDACCESS",					"Memory",	0x40020024,		4,			base=16
+sfr = "SWDACCESS.DEBUG",			"Memory",	0x40020024,		4,			base=16,	bitRange=0-16
+
+sfr = "FLASHWSTATE",				"Memory",	0x40020028,		4,			base=16
+sfr = "FLASHWSTATE.WSTATE",			"Memory",	0x40020028,		4,			base=16,	bitRange=0-1
+
+sfr = "FLASHBWRITE",				"Memory",	0x4002002C,		4,			base=16
+sfr = "FLASHBWRITE.BWRITE",			"Memory",	0x4002002C,		4,			base=16,	bitRange=0-31
+
+sfr = "FLASHBWDATA",				"Memory",	0x40020030,		4,			base=16
+sfr = "FLASHBWDATA.DATA",			"Memory",	0x40020030,		4,			base=16,	bitRange=0-15
+sfr = "FLASHBWDATA.ADDRESS",		"Memory",	0x40020030,		4,			base=16,	bitRange=16-24
+sfr = "FLASHBWDATA.PAGE",			"Memory",	0x40020030,		4,			base=16,	bitRange=25-29
+
+;
+;               Analog to Digital Controller (ADC)
+;
+;     Name                          Zone      	Address     	Bytesize	Displaybase	Bitrange
+;     ----                          ----      	-------     	--------  	----------- --------
+;
+
+sfr = "EMUXCTL",					"Memory",	0x40150000,		4, 			base=16
+sfr = "EMUXCTL.CMUXCDIV",			"Memory",	0x40150000,		4,			base=16,	bitRange=0-2
+sfr = "EMUXCTL.EMUXDONE",			"Memory",	0x40150000,		4,			base=16,	bitRange=3-3
+sfr = "EMUXCTL.EMUXBUSY",			"Memory",	0x40150000,		4,			base=16,	bitRange=4-4
+sfr = "EMUXCTL.EMUXC",				"Memory",	0x40150000,		4,			base=16,	bitRange=5-5
+
+sfr = "EMUXDATA",					"Memory",	0x40150004,		4,			base=16
+sfr = "EMUXDATA.DATA",				"Memory",	0x40150004,		4,			base=16,	bitRange=0-7
+
+sfr = "ADCCTL",						"Memory",	0x40150008,		4,			base=16
+sfr = "ADCCTL.ADCCDIV",				"Memory",	0x40150008,		4,			base=16,	bitRange=0-2
+sfr = "ADCCTL.ADCDONE",				"Memory",	0x40150008,		4,			base=16,	bitRange=3-3
+sfr = "ADCCTL.ADCMUX",				"Memory",	0x40150008,		4,			base=16,	bitRange=4-6
+sfr = "ADCCTL.ADCBUSY",				"Memory",	0x40150008,		4,			base=16,	bitRange=7-7
+sfr = "ADCCTL.ADCMODE",				"Memory",	0x40150008,		4,			base=16,	bitRange=10-12
+sfr = "ADCCTL.ADCREPEAT",			"Memory",	0x40150008,		4,			base=16,	bitRange=13-13
+sfr = "ADCCTL.ADCSTART",			"Memory",	0x40150008,		4,			base=16,	bitRange=14-14
+sfr = "ADCCTL.ADCEN",				"Memory",	0x40150008,		4,			base=16,	bitRange=15-15
+
+sfr = "ADCCR",						"Memory",	0x4015000C,		4,			base=16
+sfr = "ADCCR.ADCRESULT",			"Memory",	0x4015000C,		4,			base=16,	bitRange=0-9
+
+sfr = "ADCINT",						"Memory",	0x40150010,		4,			base=16
+sfr = "ADCINT.ADCINT",				"Memory",	0x40150010,		4,			base=16,	bitRange=0-0
+sfr = "ADCINT.EMUXINT",				"Memory",	0x40150010,		4,			base=16,	bitRange=1-1
+sfr = "ADCINT.AS0INT",				"Memory",	0x40150010,		4,			base=16,	bitRange=2-2
+sfr = "ADCINT.AS1INT",				"Memory",	0x40150010,		4,			base=16,	bitRange=3-3
+sfr = "ADCINT.ASCINT",				"Memory",	0x40150010,		4,			base=16,	bitRange=4-4
+sfr = "ADCINT.ADCINT_EN",			"Memory",	0x40150010,		4,			base=16,	bitRange=8-8
+sfr = "ADCINT.EMUXINT_EN",			"Memory",	0x40150010,		4,			base=16,	bitRange=9-9
+sfr = "ADCINT.AS0INT_EN",			"Memory",	0x40150010,		4,			base=16,	bitRange=10-10
+sfr = "ADCINT.AS1INT_EN",			"Memory",	0x40150010,		4,			base=16,	bitRange=11-11
+sfr = "ADCINT.ASCINT_EN",			"Memory",	0x40150010,		4,			base=16,	bitRange=12-12
+sfr = "ADCINT.ASCINTSEQ",			"Memory",	0x40150010,		4,			base=16,	bitRange=16-17
+sfr = "ADCINT.ASCINTTR",			"Memory",	0x40150010,		4,			base=16,	bitRange=18-19
+
+sfr = "AS0CTL",						"Memory",	0x40150040,		4,			base=16
+sfr = "AS0CTL.ASA0TRPWM",			"Memory",	0x40150040,		4,			base=16,	bitRange=0-3
+sfr = "AS0CTL.AS0TRTMR",			"Memory",	0x40150040,		4,			base=16,	bitRange=4-5
+sfr = "AS0CTL.AS0TRE",				"Memory",	0x40150040,		4,			base=16,	bitRange=6-6
+sfr = "AS0CTL.AS0TR",				"Memory",	0x40150040,		4,			base=16,	bitRange=7-7
+sfr = "AS0CTL.AS0D",				"Memory",	0x40150040,		4,			base=16,	bitRange=8-10
+sfr = "AS0CTL.AS0EN",				"Memory",	0x40150040,		4,			base=16,	bitRange=11-11
+sfr = "AS0CTL.AS0BUSY",				"Memory",	0x40150040,		4,			base=16,	bitRange=12-12
+
+sfr = "AS0S0",						"Memory",	0x40150044,		4,			base=16
+sfr = "AS0S0.EMUXD",				"Memory",	0x40150044,		4,			base=16,	bitRange=0-7
+sfr = "AS0S0.EMUXS",				"Memory",	0x40150044,		4,			base=16,	bitRange=8-9
+sfr = "AS0S0.DELAY",				"Memory",	0x40150044,		4,			base=16,	bitRange=10-11
+sfr = "AS0S0.ADCMUX",				"Memory",	0x40150044,		4,			base=16,	bitRange=12-14
+
+sfr = "AS0R0",						"Memory",	0x40150048,		4,			base=16
+sfr = "AS0R0.ADCRESULT",			"Memory",	0x40150048,		4,			base=16,	bitRange=0-9
+
+sfr = "AS0S1",						"Memory",	0x4015004C,		4,			base=16
+sfr = "AS0S1.EMUXD",				"Memory",	0x4015004C,		4,			base=16,	bitRange=0-7
+sfr = "AS0S1.EMUXS",				"Memory",	0x4015004C,		4,			base=16,	bitRange=8-9
+sfr = "AS0S1.DELAY",				"Memory",	0x4015004C,		4,			base=16,	bitRange=10-11
+sfr = "AS0S1.ADCMUX",				"Memory",	0x4015004C,		4,			base=16,	bitRange=12-14
+
+sfr = "AS0R1",						"Memory",	0x40150050,		4,			base=16
+sfr = "AS0R1.ADCRESULT",			"Memory",	0x40150050,		4,			base=16,	bitRange=0-9
+
+sfr = "AS0S2",						"Memory",	0x40150054,		4,			base=16
+sfr = "AS0S2.EMUXD",				"Memory",	0x40150054,		4,			base=16,	bitRange=0-7
+sfr = "AS0S2.EMUXS",				"Memory",	0x40150054,		4,			base=16,	bitRange=8-9
+sfr = "AS0S2.DELAY",				"Memory",	0x40150054,		4,			base=16,	bitRange=10-11
+sfr = "AS0S2.ADCMUX",				"Memory",	0x40150054,		4,			base=16,	bitRange=12-14
+
+sfr = "AS0R2",						"Memory",	0x40150058,		4,			base=16
+sfr = "AS0R2.ADCRESULT",			"Memory",	0x40150058,		4,			base=16,	bitRange=0-9
+
+sfr = "AS0S3",						"Memory",	0x4015005C,		4,			base=16
+sfr = "AS0S3.EMUXD",				"Memory",	0x4015005C,		4,			base=16,	bitRange=0-7
+sfr = "AS0S3.EMUXS",				"Memory",	0x4015005C,		4,			base=16,	bitRange=8-9
+sfr = "AS0S3.DELAY",				"Memory",	0x4015005C,		4,			base=16,	bitRange=10-11
+sfr = "AS0S3.ADCMUX",				"Memory",	0x4015005C,		4,			base=16,	bitRange=12-14
+
+sfr = "AS0R3",						"Memory",	0x40150060,		4,			base=16
+sfr = "AS0R3.ADCRESULT",			"Memory",	0x40150060,		4,			base=16,	bitRange=0-9
+
+sfr = "AS0S4",						"Memory",	0x40150064,		4,			base=16
+sfr = "AS0S4.EMUXD",				"Memory",	0x40150064,		4,			base=16,	bitRange=0-7
+sfr = "AS0S4.EMUXS",				"Memory",	0x40150064,		4,			base=16,	bitRange=8-9
+sfr = "AS0S4.DELAY",				"Memory",	0x40150064,		4,			base=16,	bitRange=10-11
+sfr = "AS0S4.ADCMUX",				"Memory",	0x40150064,		4,			base=16,	bitRange=12-14
+
+sfr = "AS0R4",						"Memory",	0x40150068,		4,			base=16
+sfr = "AS0R4.ADCRESULT",			"Memory",	0x40150068,		4,			base=16,	bitRange=0-9
+
+sfr = "AS0S5",						"Memory",	0x4015006C,		4,			base=16
+sfr = "AS0S5.EMUXD",				"Memory",	0x4015006C,		4,			base=16,	bitRange=0-7
+sfr = "AS0S5.EMUXS",				"Memory",	0x4015006C,		4,			base=16,	bitRange=8-9
+sfr = "AS0S5.DELAY",				"Memory",	0x4015006C,		4,			base=16,	bitRange=10-11
+sfr = "AS0S5.ADCMUX",				"Memory",	0x4015006C,		4,			base=16,	bitRange=12-14
+
+sfr = "AS0R5",						"Memory",	0x40150070,		4,			base=16
+sfr = "AS0R5.ADCRESULT",			"Memory",	0x40150070,		4,			base=16,	bitRange=0-9
+
+sfr = "AS0S6",						"Memory",	0x40150074,		4,			base=16
+sfr = "AS0S6.EMUXD",				"Memory",	0x40150074,		4,			base=16,	bitRange=0-7
+sfr = "AS0S6.EMUXS",				"Memory",	0x40150074,		4,			base=16,	bitRange=8-9
+sfr = "AS0S6.DELAY",				"Memory",	0x40150074,		4,			base=16,	bitRange=10-11
+sfr = "AS0S6.ADCMUX",				"Memory",	0x40150074,		4,			base=16,	bitRange=12-14
+
+sfr = "AS0R6",						"Memory",	0x40150078,		4,			base=16
+sfr = "AS0R6.ADCRESULT",			"Memory",	0x40150078,		4,			base=16,	bitRange=0-9
+
+sfr = "AS0S7",						"Memory",	0x4015007C,		4,			base=16
+sfr = "AS0S7.EMUXD",				"Memory",	0x4015007C,		4,			base=16,	bitRange=0-7
+sfr = "AS0S7.EMUXS",				"Memory",	0x4015007C,		4,			base=16,	bitRange=8-9
+sfr = "AS0S7.DELAY",				"Memory",	0x4015007C,		4,			base=16,	bitRange=10-11
+sfr = "AS0S7.ADCMUX",				"Memory",	0x4015007C,		4,			base=16,	bitRange=12-14
+
+sfr = "AS0R7",						"Memory",	0x40150080,		4,			base=16
+sfr = "AS0R7.ADCRESULT",			"Memory",	0x40150080,		4,			base=16,	bitRange=0-9
+
+sfr = "AS1CTL",						"Memory",	0x40150100,		4,			base=16
+sfr = "AS1CTL.ASA0TRPWM",			"Memory",	0x40150100,		4,			base=16,	bitRange=0-3
+sfr = "AS1CTL.AS1TRTMR",			"Memory",	0x40150100,		4,			base=16,	bitRange=4-5
+sfr = "AS1CTL.AS1TRE",				"Memory",	0x40150100,		4,			base=16,	bitRange=6-6
+sfr = "AS1CTL.AS1TR",				"Memory",	0x40150100,		4,			base=16,	bitRange=7-7
+sfr = "AS1CTL.AS1D",				"Memory",	0x40150100,		4,			base=16,	bitRange=8-10
+sfr = "AS1CTL.AS1EN",				"Memory",	0x40150100,		4,			base=16,	bitRange=11-11
+sfr = "AS1CTL.AS1BUSY",				"Memory",	0x40150100,		4,			base=16,	bitRange=12-12
+
+sfr = "AS1S0",						"Memory",	0x40150104,		4,			base=16
+sfr = "AS1S0.EMUXD",				"Memory",	0x40150104,		4,			base=16,	bitRange=0-7
+sfr = "AS1S0.EMUXS",				"Memory",	0x40150104,		4,			base=16,	bitRange=8-9
+sfr = "AS1S0.DELAY",				"Memory",	0x40150104,		4,			base=16,	bitRange=10-11
+sfr = "AS1S0.ADCMUX",				"Memory",	0x40150104,		4,			base=16,	bitRange=12-14
+
+sfr = "AS1R0",						"Memory",	0x40150108,		4,			base=16
+sfr = "AS1R0.ADCRESULT",			"Memory",	0x40150108,		4,			base=16,	bitRange=0-9
+
+sfr = "AS1S1",						"Memory",	0x4015010C,		4,			base=16
+sfr = "AS1S1.EMUXD",				"Memory",	0x4015010C,		4,			base=16,	bitRange=0-7
+sfr = "AS1S1.EMUXS",				"Memory",	0x4015010C,		4,			base=16,	bitRange=8-9
+sfr = "AS1S1.DELAY",				"Memory",	0x4015010C,		4,			base=16,	bitRange=10-11
+sfr = "AS1S1.ADCMUX",				"Memory",	0x4015010C,		4,			base=16,	bitRange=12-14
+
+sfr = "AS1R1",						"Memory",	0x40150110,		4,			base=16
+sfr = "AS1R1.ADCRESULT",			"Memory",	0x40150110,		4,			base=16,	bitRange=0-9
+
+sfr = "AS1S2",						"Memory",	0x40150114,		4,			base=16
+sfr = "AS1S2.EMUXD",				"Memory",	0x40150114,		4,			base=16,	bitRange=0-7
+sfr = "AS1S2.EMUXS",				"Memory",	0x40150114,		4,			base=16,	bitRange=8-9
+sfr = "AS1S2.DELAY",				"Memory",	0x40150114,		4,			base=16,	bitRange=10-11
+sfr = "AS1S2.ADCMUX",				"Memory",	0x40150114,		4,			base=16,	bitRange=12-14
+
+sfr = "AS1R2",						"Memory",	0x40150118,		4,			base=16
+sfr = "AS1R2.ADCRESULT",			"Memory",	0x40150118,		4,			base=16,	bitRange=0-9
+
+sfr = "AS1S3",						"Memory",	0x4015011C,		4,			base=16
+sfr = "AS1S3.EMUXD",				"Memory",	0x4015011C,		4,			base=16,	bitRange=0-7
+sfr = "AS1S3.EMUXS",				"Memory",	0x4015011C,		4,			base=16,	bitRange=8-9
+sfr = "AS1S3.DELAY",				"Memory",	0x4015011C,		4,			base=16,	bitRange=10-11
+sfr = "AS1S3.ADCMUX",				"Memory",	0x4015011C,		4,			base=16,	bitRange=12-14
+
+sfr = "AS1R3",						"Memory",	0x40150120,		4,			base=16
+sfr = "AS1R3.ADCRESULT",			"Memory",	0x40150120,		4,			base=16,	bitRange=0-9
+
+sfr = "AS1S4",						"Memory",	0x40150124,		4,			base=16
+sfr = "AS1S4.EMUXD",				"Memory",	0x40150124,		4,			base=16,	bitRange=0-7
+sfr = "AS1S4.EMUXS",				"Memory",	0x40150124,		4,			base=16,	bitRange=8-9
+sfr = "AS1S4.DELAY",				"Memory",	0x40150124,		4,			base=16,	bitRange=10-11
+sfr = "AS1S4.ADCMUX",				"Memory",	0x40150124,		4,			base=16,	bitRange=12-14
+
+sfr = "AS1R4",						"Memory",	0x40150128,		4,			base=16
+sfr = "AS1R4.ADCRESULT",			"Memory",	0x40150128,		4,			base=16,	bitRange=0-9
+
+sfr = "AS1S5",						"Memory",	0x4015012C,		4,			base=16
+sfr = "AS1S5.EMUXD",				"Memory",	0x4015012C,		4,			base=16,	bitRange=0-7
+sfr = "AS1S5.EMUXS",				"Memory",	0x4015012C,		4,			base=16,	bitRange=8-9
+sfr = "AS1S5.DELAY",				"Memory",	0x4015012C,		4,			base=16,	bitRange=10-11
+sfr = "AS1S5.ADCMUX",				"Memory",	0x4015012C,		4,			base=16,	bitRange=12-14
+
+sfr = "AS1R5",						"Memory",	0x40150130,		4,			base=16
+sfr = "AS1R5.ADCRESULT",			"Memory",	0x40150130,		4,			base=16,	bitRange=0-9
+
+sfr = "AS1S6",						"Memory",	0x40150134,		4,			base=16
+sfr = "AS1S6.EMUXD",				"Memory",	0x40150134,		4,			base=16,	bitRange=0-7
+sfr = "AS1S6.EMUXS",				"Memory",	0x40150134,		4,			base=16,	bitRange=8-9
+sfr = "AS1S6.DELAY",				"Memory",	0x40150134,		4,			base=16,	bitRange=10-11
+sfr = "AS1S6.ADCMUX",				"Memory",	0x40150134,		4,			base=16,	bitRange=12-14
+
+sfr = "AS1R6",						"Memory",	0x40150138,		4,			base=16
+sfr = "AS1R6.ADCRESULT",			"Memory",	0x40150138,		4,			base=16,	bitRange=0-9
+
+sfr = "AS1S7",						"Memory",	0x4015013C,		4,			base=16
+sfr = "AS1S7.EMUXD",				"Memory",	0x4015013C,		4,			base=16,	bitRange=0-7
+sfr = "AS1S7.EMUXS",				"Memory",	0x4015013C,		4,			base=16,	bitRange=8-9
+sfr = "AS1S7.DELAY",				"Memory",	0x4015013C,		4,			base=16,	bitRange=10-11
+sfr = "AS1S7.ADCMUX",				"Memory",	0x4015013C,		4,			base=16,	bitRange=12-14
+
+sfr = "AS1R7",						"Memory",	0x40150140,		4,			base=16
+sfr = "AS1R7.ADCRESULT",			"Memory",	0x40150140,		4,			base=16,	bitRange=0-9
+
+;
+;               I2C Controller (I2C)
+;
+;     Name                          Zone      	Address     	Bytesize	Displaybase	Bitrange
+;     ----                          ----      	-------     	--------  	----------- --------
+;
+
+sfr = "I2CCFG",						"Memory",	0x401B0000,		4,			base=16
+sfr = "I2CCFG.SLEN",				"Memory",	0x401B0000,		4,			base=16,	bitRange=0-0
+sfr = "I2CCFG.MAEN",				"Memory",	0x401B0000,		4,			base=16,	bitRange=2-2
+sfr = "I2CCFG.ADDRMODE",			"Memory",	0x401B0000,		4,			base=16,	bitRange=4-4
+sfr = "I2CCFG.PFILTER",				"Memory",	0x401B0000,		4,			base=16,	bitRange=5-5
+
+sfr = "I2CINT",						"Memory",	0x401B0004,		4,			base=16
+sfr = "I2CINT.MATXE",				"Memory",	0x401B0004,		4,			base=16,	bitRange=0-0
+sfr = "I2CINT.MACTLE",				"Memory",	0x401B0004,		4,			base=16,	bitRange=1-1
+sfr = "I2CINT.MARXF",				"Memory",	0x401B0004,		4,			base=16,	bitRange=2-2
+sfr = "I2CINT.MAXFERDONEINT",		"Memory",	0x401B0004,		4,			base=16,	bitRange=8-8
+sfr = "I2CINT.MAADDRACKINT",		"Memory",	0x401B0004,		4,			base=16,	bitRange=9-9
+sfr = "I2CINT.MAARBLINT",			"Memory",	0x401B0004,		4,			base=16,	bitRange=10-10
+sfr = "I2CINT.MADACKINT",			"Memory",	0x401B0004,		4,			base=16,	bitRange=11-11
+sfr = "I2CINT.SLADDRMINT",			"Memory",	0x401B0004,		4,			base=16,	bitRange=16-16
+sfr = "I2CINT.SLTXEINT",			"Memory",	0x401B0004,		4,			base=16,	bitRange=17-17
+sfr = "I2CINT.SLRXFINT",			"Memory",	0x401B0004,		4,			base=16,	bitRange=18-18
+sfr = "I2CINT.SLXVERDONEINT",		"Memory",	0x401B0004,		4,			base=16,	bitRange=24-24
+
+sfr = "I2CINTEN",					"Memory",	0x401B0008,		4,			base=16
+sfr = "I2CINTEN.MATXE",				"Memory",	0x401B0008,		4,			base=16,	bitRange=0-0
+sfr = "I2CINTEN.MACTLE",			"Memory",	0x401B0008,		4,			base=16,	bitRange=1-1
+sfr = "I2CINTEN.MARXF",				"Memory",	0x401B0008,		4,			base=16,	bitRange=2-2
+sfr = "I2CINTEN.MAXFERDONE",		"Memory",	0x401B0008,		4,			base=16,	bitRange=8-8
+sfr = "I2CINTEN.SLADDRM",			"Memory",	0x401B0008,		4,			base=16,	bitRange=16-16
+sfr = "I2CINTEN.SLTXE",				"Memory",	0x401B0008,		4,			base=16,	bitRange=17-17
+sfr = "I2CINTEN.SLRXF",				"Memory",	0x401B0008,		4,			base=16,	bitRange=18-18
+sfr = "I2CINTEN.SLXFERDONEINTEN",	"Memory",	0x401B0008,		4,			base=16,	bitRange=24-24
+
+sfr = "I2CMCTL",					"Memory",	0x401B0030,		4,			base=16
+sfr = "I2CMCTL.I2CADDRL",			"Memory",	0x401B0030,		4,			base=16,	bitRange=0-6
+sfr = "I2CMCTL.I2CADDRU",			"Memory",	0x401B0030,		4,			base=16,	bitRange=7-9
+sfr = "I2CMCTL.RSTART",				"Memory",	0x401B0030,		4,			base=16,	bitRange=10-10
+sfr = "I2CMCTL.XFERTYPE",			"Memory",	0x401B0030,		4,			base=16,	bitRange=11-11
+sfr = "I2CMCTL.I2CMACTLF",			"Memory",	0x401B0030,		4,			base=16,	bitRange=13-13
+
+sfr = "I2CMARXDATA",				"Memory",	0x401B0034,		4,			base=16
+sfr = "I2CMARXDATA.MARXDATA",		"Memory",	0x401B0034,		4,			base=16,	bitRange=0-7
+sfr = "I2CMARXDATA.I2CMARXDATAF",	"Memory",	0x401B0034,		4,			base=16,	bitRange=8-8
+
+sfr = "I2CMATXDATA",				"Memory",	0x401B0038,		4,			base=16
+sfr = "I2CMATXDATA.MATXDATA",		"Memory",	0x401B0038,		4,			base=16,	bitRange=0-7
+sfr = "I2CMATXDATA.I2CMATXDATAF",	"Memory",	0x401B0038,		4,			base=16,	bitRange=8-8
+sfr = "I2CMATXDATA.LBYTE",			"Memory",	0x401B0038,		4,			base=16,	bitRange=9-9
+
+sfr = "I2CBAUD",					"Memory",	0x401B0040,		4,			base=16
+sfr = "I2CBAUD.SCLL",				"Memory",	0x401B0040,		4,			base=16,	bitRange=0-7
+sfr = "I2CBAUD.SCLH",				"Memory",	0x401B0040,		4,			base=16,	bitRange=16-26
+
+sfr = "I2CSRXDATA",					"Memory",	0x401B0070,		4,			base=16
+sfr = "I2CSRXDATA.SLRXDATA",		"Memory",	0x401B0070,		4,			base=16,	bitRange=0-7
+sfr = "I2CSRXDATA.I2CSLRXDATAF",	"Memory",	0x401B0070,		4,			base=16,	bitRange=8-8
+
+sfr = "I2CSLTXDATA",				"Memory",	0x401B0074,		4,			base=16
+sfr = "I2CSLTXDATA.SLTXDATA",		"Memory",	0x401B0074,		4,			base=16,	bitRange=0-7
+sfr = "I2CSLTXDATA.NACK",			"Memory",	0x401B0074,		4,			base=16,	bitRange=8-8
+sfr = "I2CSLTXDATA.I2CSLTXDATAF",	"Memory",	0x401B0074,		4,			base=16,	bitRange=9-9
+
+sfr = "I2CSLADDR",					"Memory",	0x401B0078,		4,			base=16
+sfr = "I2CSLADDR.SLADDRL",			"Memory",	0x401B0078,		4,			base=16,	bitRange=0-6
+sfr = "I2CSLADDR.ALADDRH",			"Memory",	0x401B0078,		4,			base=16,	bitRange=7-9
+
+
+;               UART Controller (UART)
+;
+;     Name                          Zone      	Address     	Bytesize	Displaybase	Bitrange
+;     ----                          ----      	-------     	--------  	----------- --------
+;
+
+sfr = "UARTRXTX",					"Memory",	0x401D0000,		4,			base=16
+sfr = "UARTRXTX.RXTX",				"Memory",	0x401D0000,		4,			base=16,	bitRange=0-7
+
+sfr = "UARTIEN",					"Memory",	0x401D0004,		4,			base=16
+sfr = "UARTIEN.RXINTEN",			"Memory",	0x401D0004,		4,			base=16,	bitRange=0-0
+sfr = "UARTIEN.TXINTEN",			"Memory",	0x401D0004,		4,			base=16,	bitRange=1-1
+sfr = "UARTIEN.RSINTEN",			"Memory",	0x401D0004,		4,			base=16,	bitRange=2-2
+sfr = "UARTIEN.MSITNEN",			"Memory",	0x401D0004,		4,			base=16,	bitRange=3-3
+
+sfr = "UARTII",						"Memory",	0x401D0008,		4,			base=16
+sfr = "UARTII.UARTINT",				"Memory",	0x401D0008,		4,			base=16,	bitRange=0-0
+sfr = "UARTII.UARTINTID",			"Memory",	0x401D0008,		4,			base=16,	bitRange=1-3
+sfr = "UARTII.TXFEN",				"Memory",	0x401D0008,		4,			base=16,	bitRange=6-6
+sfr = "UARTII.RXFEN",				"Memory",	0x401D0008,		4,			base=16,	bitRange=7-7
+
+sfr = "UARTLC",						"Memory",	0x401D000C,		4,			base=16
+sfr = "UARTLC.BPC",					"Memory",	0x401D000C,		4,			base=16,	bitRange=0-1
+sfr = "UARTLC.STB",					"Memory",	0x401D000C,		4,			base=16,	bitRange=2-2
+sfr = "UARTLC.PEN",					"Memory",	0x401D000C,		4,			base=16,	bitRange=3-3
+sfr = "UARTLC.EPS",					"Memory",	0x401D000C,		4,			base=16,	bitRange=4-4
+sfr = "UARTLC.SP",					"Memory",	0x401D000C,		4,			base=16,	bitRange=5-5
+sfr = "UARTLC.SB",					"Memory",	0x401D000C,		4,			base=16,	bitRange=6-6
+
+sfr = "UARTLS",						"Memory",	0x401D0014,		4,			base=16
+sfr = "UARTLS.RXDR",				"Memory",	0x401D0014,		4,			base=16,	bitRange=0-0
+sfr = "UARTLS.RXOE",				"Memory",	0x401D0014,		4,			base=16,	bitRange=1-1
+sfr = "UARTLS.RXPE",				"Memory",	0x401D0014,		4,			base=16,	bitRange=2-2
+sfr = "UARTLS.RXFE",				"Memory",	0x401D0014,		4,			base=16,	bitRange=3-3
+sfr = "UARTLS.RXBE",				"Memory",	0x401D0014,		4,			base=16,	bitRange=4-4
+sfr = "UARTLS.TCFE",				"Memory",	0x401D0014,		4,			base=16,	bitRange=5-5
+sfr = "UARTLS.TXE",					"Memory",	0x401D0014,		4,			base=16,	bitRange=6-6
+sfr = "UARTLS.RXE",					"Memory",	0x401D0014,		4,			base=16,	bitRange=7-7
+
+sfr = "UARTSP",						"Memory",	0x401D001C,		4,			base=16
+sfr = "UARTSP.SP",					"Memory",	0x401D001C,		4,			base=16,	bitRange=0-7
+
+sfr = "UARTFCTL",					"Memory",	0x401D0020,		4,			base=16
+sfr = "UARTFCTL.FEN",				"Memory",	0x401D0020,		4,			base=16,	bitRange=0-0
+sfr = "UARTFCTL.RXFRESET",			"Memory",	0x401D0020,		4,			base=16,	bitRange=1-1
+sfr = "UARTFCTL.TXFRESET",			"Memory",	0x401D0020,		4,			base=16,	bitRange=2-2
+sfr = "UARTFCTL.RXFT",				"Memory",	0x401D0020,		4,			base=16,	bitRange=6-7
+
+sfr = "UARTDL_L",					"Memory",	0x401D0028,		4,			base=16
+sfr = "UARTDL_L.DL_L",				"Memory",	0x401D0028,		4,			base=16,	bitRange=0-7
+
+sfr = "UARTDL_H",					"Memory",	0x401D002C,		4,			base=16
+sfr = "UARTDL_H.DL_H",				"Memory",	0x401D002C,		4,			base=16,	bitRange=0-7
+
+sfr = "UARTFD_F",					"Memory",	0x401D0038,		4,			base=16
+sfr = "UARTFD_F.FRAC",				"Memory",	0x401D0038,		4,			base=16,	bitRange=0-7
+
+sfr = "UARTFD_CTL",					"Memory",	0x401D003C,		4,			base=16
+sfr = "UARTFD_CTL.FDCLK",			"Memory",	0x401D003C,		4,			base=16,	bitRange=7-7
+
+sfr = "UARTFSTAT",					"Memory",	0x401D0040,		4,			base=16
+sfr = "UARTFSTAT.TXFE",				"Memory",	0x401D0040,		4,			base=16,	bitRange=0-0
+sfr = "UARTFSTAT.TXFF",				"Memory",	0x401D0040,		4,			base=16,	bitRange=1-1
+sfr = "UARTFSTAT.RXFE",				"Memory",	0x401D0040,		4,			base=16,	bitRange=2-2
+sfr = "UARTFSTAT.RXFF",				"Memory",	0x401D0040,		4,			base=16,	bitRange=3-3
+
+;               SOC Bus Bridge (SOCB)
+;
+;     Name                          Zone      	Address     	Bytesize	Displaybase	Bitrange
+;     ----                          ----      	-------     	--------  	----------- --------
+;
+
+sfr = "SOCBCTL",					"Memory",	0x40200000,		4,			base=16
+sfr = "SOCBCTL.SSEN",				"Memory",	0x40200000,		4,			base=16,	bitRange=0-0
+sfr = "SOCBCTL.SIE",				"Memory",	0x40200000,		4,			base=16,	bitRange=1-1
+
+sfr = "SOCBCFG",					"Memory",	0x40200004,		4,			base=16
+sfr = "SOCBCFG.MRST",				"Memory",	0x40200004,		4,			base=16,	bitRange=2-2
+
+sfr = "SOCBCLKDIV",					"Memory",	0x40200008,		4,			base=16
+sfr = "SOCBCLKDIV.CLKDIV",			"Memory",	0x40200008,		4,			base=16,	bitRange=0-15
+
+sfr = "SOCBSTAT",					"Memory",	0x40200014,		4,			base=16
+sfr = "SOCBSTAT.SOCB_INT",			"Memory",	0x40200014,		4,			base=16,	bitRange=0-0
+sfr = "SOCBSTAT.RDOFL",				"Memory",	0x40200014,		4,			base=16,	bitRange=2-2
+sfr = "SOCBSTAT.CYC_DONE",			"Memory",	0x40200014,		4,			base=16,	bitRange=5-5
+sfr = "SOCBSTAT.WRUFL",				"Memory",	0x40200014,		4,			base=16,	bitRange=8-8
+sfr = "SOCBSTAT.TXFULL",			"Memory",	0x40200014,		4,			base=16,	bitRange=9-9
+sfr = "SOCBSTAT.RXFULL",			"Memory",	0x40200014,		4,			base=16,	bitRange=10-10
+sfr = "SOCBSTAT.CURSTATE",			"Memory",	0x40200014,		4,			base=16,	bitRange=12-14
+
+sfr = "SOCBCSSTR",					"Memory",	0x40200018,		4,			base=16
+sfr = "SOCBCSSTR.CSSETUP",			"Memory",	0x40200018,		4,			base=16,	bitRange=8-11
+sfr = "SOCBCSSTR.CSHOLD",			"Memory",	0x40200018,		4,			base=16,	bitRange=12-15
+sfr = "SOCBCSSTR.CSWAIT",			"Memory",	0x40200018,		4,			base=16,	bitRange=16-19
+
+sfr = "SOCBD",						"Memory",	0x4020001C,		4,			base=16
+sfr = "SOCBD.DATA",					"Memory",	0x4020001C,		4,			base=16,	bitRange=0-7
+
+sfr = "SOCBINT_EN",					"Memory",	0x40200020,		4,			base=16
+sfr = "SOCBINT_EN.RDOFL_EN",		"Memory",	0x40200020,		4,			base=16,	bitRange=2-2
+sfr = "SOCBINT_EN.CYC_DONE_EN",		"Memory",	0x40200020,		4,			base=16,	bitRange=5-5
+sfr = "SOCBINT_EN.WRUFL_EN",		"Memory",	0x40200020,		4,			base=16,	bitRange=8-8
+
+
+;               Serial Peripheral Interface (SPI)
+;
+;     Name                          Zone      	Address     	Bytesize	Displaybase	Bitrange
+;     ----                          ----      	-------     	--------  	----------- --------
+;
+
+sfr = "SPICTL",						"Memory",	0x40210000,		4,			base=16
+sfr = "SPICTL.SSEN",				"Memory",	0x40210000,		4,			base=16,	bitRange=0-0
+sfr = "SPICTL.SIE",					"Memory",	0x40210000,		4,			base=16,	bitRange=1-1
+sfr = "SPICTL.LPBK",				"Memory",	0x40210000,		4,			base=16,	bitRange=2-2
+sfr = "SPICTL.SE",					"Memory",	0x40210000,		4,			base=16,	bitRange=3-3
+sfr = "SPICTL.MTRARM",				"Memory",	0x40210000,		4,			base=16,	bitRange=5-5
+sfr = "SPICTL.MTRANS",				"Memory",	0x40210000,		4,			base=16,	bitRange=6-6
+sfr = "SPICTL.MMST_N",				"Memory",	0x40210000,		4,			base=16,	bitRange=7-7
+sfr = "SPICTL.RTRANS",				"Memory",	0x40210000,		4,			base=16,	bitRange=8-8
+
+sfr = "SPICFG",						"Memory",	0x40210004,		4,			base=16
+sfr = "SPICFG.WL",					"Memory",	0x40210004,		4,			base=16,	bitRange=0-1
+sfr = "SPICFG.MRST",				"Memory",	0x40210004,		4,			base=16,	bitRange=2-2
+sfr = "SPICFG.LB1ST",				"Memory",	0x40210004,		4,			base=16,	bitRange=3-3
+sfr = "SPICFG.CP",					"Memory",	0x40210004,		4,			base=16,	bitRange=4-4
+sfr = "SPICFG.CPH",					"Memory",	0x40210004,		4,			base=16,	bitRange=5-5
+sfr = "SPICFG.RCVCP",				"Memory",	0x40210004,		4,			base=16,	bitRange=6-6
+sfr = "SPICFG.RCVCPH",				"Memory",	0x40210004,		4,			base=16,	bitRange=7-7
+sfr = "SPICFG.TXDAT_PH",			"Memory",	0x40210004,		4,			base=16,	bitRange=9-9
+sfr = "SPICFG.TXDBUF",				"Memory",	0x40210004,		4,			base=16,	bitRange=10-10
+sfr = "SPICFG.MTURBO",				"Memory",	0x40210004,		4,			base=16,	bitRange=11-11
+sfr = "SPICFG.BP_EN",				"Memory",	0x40210004,		4,			base=16,	bitRange=12-12
+sfr = "SPICFG.BP_MTRANS",			"Memory",	0x40210004,		4,			base=16,	bitRange=13-13
+
+sfr = "SPICLKDIV",					"Memory",	0x40210008,		4,			base=16
+sfr = "SPICLKDIV.CLKDIV",			"Memory",	0x40210008,		4,			base=16,	bitRange=0-15
+
+sfr = "SPISTAT",					"Memory",	0x40210014,		4,			base=16
+sfr = "SPISTAT.SPI_INT",			"Memory",	0x40210014,		4,			base=16,	bitRange=0-0
+sfr = "SPISTAT.RDOFL",				"Memory",	0x40210014,		4,			base=16,	bitRange=2-2
+sfr = "SPISTAT.LE",					"Memory",	0x40210014,		4,			base=16,	bitRange=3-3
+sfr = "SPISTAT.UCLK",				"Memory",	0x40210014,		4,			base=16,	bitRange=4-4
+sfr = "SPISTAT.CYC_DONE",			"Memory",	0x40210014,		4,			base=16,	bitRange=5-5
+sfr = "SPISTAT.TE",					"Memory",	0x40210014,		4,			base=16,	bitRange=6-6
+sfr = "SPISTAT.BP_DONE",			"Memory",	0x40210014,		4,			base=16,	bitRange=7-7
+sfr = "SPISTAT.WRUFL",				"Memory",	0x40210014,		4,			base=16,	bitRange=8-8
+sfr = "SPISTAT.TXFULL",				"Memory",	0x40210014,		4,			base=16,	bitRange=9-9
+sfr = "SPISTAT.RXFULL",				"Memory",	0x40210014,		4,			base=16,	bitRange=10-10
+sfr = "SPISTAT.CURSTATE",			"Memory",	0x40210014,		4,			base=16,	bitRange=12-14
+
+sfr = "SPICSSTR",					"Memory",	0x40210018,		4,			base=16
+sfr = "SPICSSTR.CSNUM",				"Memory",	0x40210018,		4,			base=16,	bitRange=0-1
+sfr = "SPICSSTR.CSL",				"Memory",	0x40210018,		4,			base=16,	bitRange=2-2
+sfr = "SPICSSTR.CSSETUP",			"Memory",	0x40210018,		4,			base=16,	bitRange=8-11
+sfr = "SPICSSTR.CSHOLD",			"Memory",	0x40210018,		4,			base=16,	bitRange=12-15
+sfr = "SPICSSTR.CSWAIT",			"Memory",	0x40210018,		4,			base=16,	bitRange=16-19
+sfr = "SPICSSTR.CKWAIT",			"Memory",	0x40210018,		4,			base=16,	bitRange=20-23
+
+sfr = "SPID",						"Memory",	0x4021001C,		4,			base=16
+sfr = "SPID.DATA",					"Memory",	0x4021001C,		4,			base=16,	bitRange=0-31
+
+sfr = "SPIINT_EN",					"Memory",	0x40210020,		4,			base=16
+sfr = "SPIINT_EN.RDOFL_EN",			"Memory",	0x40210020,		4,			base=16,	bitRange=2-2
+sfr = "SPIINT_EN.LE_EN",			"Memory",	0x40210020,		4,			base=16,	bitRange=3-3
+sfr = "SPIINT_EN.UCLK_EN",			"Memory",	0x40210020,		4,			base=16,	bitRange=4-4
+sfr = "SPIINT_EN.CYC_DONE_EN",		"Memory",	0x40210020,		4,			base=16,	bitRange=5-5
+sfr = "SPIINT_EN.TE_EN",			"Memory",	0x40210020,		4,			base=16,	bitRange=6-6
+sfr = "SPIINT_EN.BP_DONE",			"Memory",	0x40210020,		4,			base=16,	bitRange=7-7
+sfr = "SPIINT_EN.WRUFL_EN",			"Memory",	0x40210020,		4,			base=16,	bitRange=8-8
+
+
+;;
+;; Group info for SFR Window.
+;;
+
+[SfrGroupInfo]
+
+group = "NVIC","ISER","ICER","ISPR","ICPR","IPR0","IPR1","IPR2","IPR3","IPR4","IPR5","IPR6","IPR7","CPUIDBR","CPUID","ICSR","AIRCR","SCR","CCR","SHPR2","SHPR3"
+group = "SCC","SCCTL","PLLCTL","ROSCCTL","XTALCTL"
+group = "MEMCTL","FLASHLOCK","FLASHSTATUS","FLASHPAGE","FLASHPERASE","SWDACCESS","FLASHWSTATE","FLASHBWRITE","FLASHBWDATA"
+group = "WDT","WDTCTL","WDTCDV","WDTCTR"
+group = "RTC","RTCCTL","RTCCDV","RTCCTR"
+group = "GPIOA","GPIOAO","GPIOAOE","GPIOADS","GPIOAORUP","GPIOAORDN","GPIOAI","GPIOAPSEL","GPIOAINTP","GPIOAINTEN","GPIOAINT","GPIOAINTM"
+group = "GPIOB","GPIOBO","GPIOBOE","GPIOBDS","GPIOBORUP","GPIOBORDN","GPIOBI","GPIOBPSEL","GPIOBINTP","GPIOBINTEN","GPIOBINT","GPIOBINTM"
+group = "GPIOC","GPIOCO","GPIOCOE","GPIOCI","GPIOCIEN","GPIOCINTP","GPIOCINTEN","GPIOCINT","GPIOCINTM"
+group = "GPIOD","GPIODO","GPIODOE","GPIODDS","GPIODORUP","GPIODORDN","GPIODI","GPIODPSEL","GPIODINTP","GPIODINTEN","GPIODINT","GPIODINTM"
+group = "GPIOE","GPIOEO","GPIOEOE","GPIOEDS","GPIOEORUP","GPIOEORDN","GPIOEI","GPIOEPSEL","GPIOEINTP","GPIOEINTEN","GPIOEINT","GPIOEINTM"
+group = "TIMERA","TACTL","TAPRD","TACTR","TACCTL0","TACTR0","TACCTL1","TACTR1","TACCTL2","TACTR2","TACCTL3","TACTR3","TACCTL4","TACTR4","TACCTL5","TACTR5","TACCTL6","TACTR6","TACCTL7","TACTR7","DTGA0CTL","DTGA0LED","DTGA0TED","DTGA1CTL","DTGA1LED","DTGA1TED","DTGA2CTL","DTGA2LED","DTGA2TED","DTGA3CTL","DTGA03LED","DTGA3TED"
+group = "TIMERB","TBCTL","TBPRD","TBCTR","TBCCTL0","TBCTR0","TBCCTL1","TBCTR1","TBCCTL2","TBCTR2","TBCCTL3","TBCTR3","DTGB0CTL","DTGB0LED","DTGB0TED"
+group = "TIMERC","TCCTL","TCPRD","TCCTR","TCCCTL0","TCCTR0","TCCCTL1","TCCTR1","DTGC0CTL","DTGC0LED","DTGC0TED"
+group = "TIMERD","TDCTL","TDPRD","TDCTR","TDCCTL0","TDCTR0","TDCCTL1","TDCTR1","DTGD0CTL","DTGD0LED","DTGD0TED"
+group = "ADC","EMUXCTL","EMUXDATA","ADCCTL","ADCR","ADCINT","ASCTL0","AS0S0","AS0R0","AS0S1","AS0R1","AS0S2","AS0R2","AS0S3","AS0R3","AS0S4","AS0R4","AS0S5","AS0R5","AS0S6","AS0R6","AS0S7","AS0R7","ASCTL1","AS1S0","AS1R0","AS1S1","AS1R1","AS1S2","AS1R2","AS1S3","AS1R3","AS1S4","AS1R4","AS1S5","AS1R5","AS1S6","AS1R6","AS1S7","AS1R7"
+group = "I2C","I2CCFG","I2CSTATUS","I2CINTEN","I2CMCTL","I2CMRXDATA","I2CMTXDATA","I2CBAUD","I2CSRXDATA","I2CSTXDATA","I2CSADDR"
+group = "UART","UARTRXTX","UARTIEN","UARTII","UARTLC","UARTLS","UARTSP","UARTFCTL","UARTIEN","UARTDL_L","UARTDL_H","UARTFD_F","UARTFD_CTL","UARTFSTAT"
+group = "SOCB","SOCBCTL","SOCBCFG","SOCBCLKDIV","SOCBSTAT","SOCBCSSTR","SOCBD","SOCBINT_EN"
+group = "SPI","SPICTL","SPICFG","SPICLKDIV","SPISTAT","SPICSSTR","SPID","SPIINT_EN"
+

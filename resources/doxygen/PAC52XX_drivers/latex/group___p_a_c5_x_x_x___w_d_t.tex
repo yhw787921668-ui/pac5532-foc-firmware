@@ -1,0 +1,624 @@
+\hypertarget{group___p_a_c5_x_x_x___w_d_t}{}\doxysection{P\+A\+C5\+X\+XX Watchdog Timer (W\+DT)}
+\label{group___p_a_c5_x_x_x___w_d_t}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+Collaboration diagram for P\+A\+C5\+X\+XX Watchdog Timer (W\+DT)\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___p_a_c5_x_x_x___w_d_t}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_p_a_c5_x_x_x___w_d_t___type_def}{P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac93dee4d007d0961db514e75f6235c1a}{W\+D\+T\+C\+T\+L\+\_\+\+P\+A\+S\+S\+\_\+\+W\+R\+I\+TE}}~0x4\+A000000
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gab23507e267de26a073aa0ca2d09b9a6f}{W\+D\+T\+C\+T\+L\+\_\+\+P\+A\+S\+S\+\_\+\+R\+E\+AD}}~0x63000000
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga59b5dfc10b50988a854dd68a1ed85e12}{W\+D\+T\+C\+T\+L\+\_\+\+I\+F\+\_\+\+S\+H\+I\+FT}}~4
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga5d7376885230bd7b685788dc49491db1}{W\+D\+T\+C\+T\+L\+\_\+\+I\+F\+\_\+\+M\+A\+SK}}~0x00000010
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga98f90fe7c4701ffa44252d4aac759f09}{W\+D\+T\+C\+T\+L\+\_\+\+R\+S\+T\+\_\+\+S\+H\+I\+FT}}~0
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga31fcf4b246934e1fd4763456a3d75188}{W\+D\+T\+C\+T\+L\+\_\+\+R\+S\+T\+\_\+\+V\+AL}}~0x00000005
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gaa3016224f7659866b99b3c79af7b9556}{W\+D\+T\+C\+T\+L\+\_\+\+I\+E\+\_\+\+S\+H\+I\+FT}}~3
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga7b0bfe4b5ce68759589c03668ff532aa}{W\+D\+T\+C\+T\+L\+\_\+\+I\+E\+\_\+\+M\+A\+SK}}~0x00000008
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga79cb17352ff2279d6c5f313aacc6fb12}{W\+D\+T\+C\+T\+L\+\_\+\+P\+O\+R\+E\+N\+\_\+\+S\+H\+I\+FT}}~5
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac835dd80b8b187fc6ee9abe110bcfec2}{W\+D\+T\+C\+T\+L\+\_\+\+P\+O\+R\+E\+N\+\_\+\+M\+A\+SK}}~0x00000020
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga45e6037c67818db9c09faa8945998786}{W\+D\+T\+C\+T\+L\+\_\+\+W\+R\+B\+U\+S\+Y\+\_\+\+S\+H\+I\+FT}}~11
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga61602f2e0ee886ebd9a2800007357523}{W\+D\+T\+C\+T\+L\+\_\+\+W\+R\+B\+U\+S\+Y\+\_\+\+M\+A\+SK}}~0x00000800
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga1cf05fa2cb59fa6a4a00e56bbf3f374b}{W\+D\+T\+\_\+\+W\+A\+I\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+B\+L\+O\+CK}}~while ((\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga3082175172de9fed5f1aa8dee41c37b5}{P\+A\+C5\+X\+X\+X\+\_\+\+W\+DT}}-\/$>$W\+D\+T\+C\+TL \& \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga61602f2e0ee886ebd9a2800007357523}{W\+D\+T\+C\+T\+L\+\_\+\+W\+R\+B\+U\+S\+Y\+\_\+\+M\+A\+SK}}) != 0);
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gaf2e5f09e84b6fe2acbb408655ed701ac}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+S\+H\+I\+FT}}~6
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga6eb8fc00debe5bb6b92b444703356037}{W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+S\+H\+I\+FT}}~10
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gaa00713baf2d47e6d0b8d85bf4acda187}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+Type}} \{ \newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a4190a144aa55c3af39702c6407be25dd}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V2}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a37c4a8fd4f9ef0046dfe1eb3b373edc3}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V4}} = 1, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187aad8d0b1a403b42c210c95dbd99d8f9bd}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V8}} = 2, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a6e461cc6afbd38e63098396c0ebf2222}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V16}} = 3, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a5002bcac6b92b5c2b9887b65b0170e4e}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V32}} = 4, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a21625adad9b4b88f70d062f39adaf5cb}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V64}} = 5, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a885e46f03bfa2c5c9e51836863a573ee}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V128}} = 6, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187aabe1bc30c95f383b3abf76334dddb2d8}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V256}} = 7, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a54e348be7127af29a5418b439938d94e}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V512}} = 8, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187ab9279711fdd29edeee822c1a6c320bf1}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V1024}} = 9, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187ae01518332f349c225c34ab3995ae2d2e}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V2048}} = 10, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a505e829f802bfab2d609c90997944497}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V4096}} = 11, 
+\newline
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a79c8d495e417269cdf4691a159147e9f}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V8192}} = 12, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a15e2a2efd9289863a2eced6389707023}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V16384}} = 13, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187ae8a0cac6c39db970db9e46ff5d2dced7}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V32767}} = 14, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187aceb4d50ffa0cafab3dff8e052afc6094}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V65536}} = 15
+ \}
+\item 
+enum \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gad192221f140f88fed295ffada6aa9266}{W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+Type}} \{ \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggad192221f140f88fed295ffada6aa9266a54bcbbad53acce307a2c3ec55b2c86e7}{W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+F\+R\+C\+LK}} = 0, 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggad192221f140f88fed295ffada6aa9266a7fcfcb56a2d37ce1e22a1ca18d061590}{W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+P\+L\+L\+C\+LK}} = 1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gae5ecb2fd9bd5807942b3216aa027b377}{P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def\+::\+W\+D\+T\+C\+TL}}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga9b4260a81fe1a4c24d0cde3aac472a62}{P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def\+::\+W\+D\+T\+C\+DV}}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gae664fd30a9792e0c7bbd5ef6881687e8}{P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def\+::w}}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga1ceea5990dad20511d9ea5375e83536d}{P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def\+::s}}\+: 16
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac93f161cfa1ab3cbc843cb050ab258b6}{P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 16
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga1ceea5990dad20511d9ea5375e83536d}{PAC5XXX\_WDT\_TypeDef::s}}: 16\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac93f161cfa1ab3cbc843cb050ab258b6}{PAC5XXX\_WDT\_TypeDef::\_\_pad0\_\_}}: 16\\
+\} \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga28ab629331a803d8c91d1ae4423f0421}{P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def\+::b}}\+: 8
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac93f161cfa1ab3cbc843cb050ab258b6}{P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 24
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga28ab629331a803d8c91d1ae4423f0421}{PAC5XXX\_WDT\_TypeDef::b}}: 8\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac93f161cfa1ab3cbc843cb050ab258b6}{PAC5XXX\_WDT\_TypeDef::\_\_pad0\_\_}}: 24\\
+\} \\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga2af2cd508a546adbf7dbed2ef385e72e}{P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def\+::\+V\+AL}}\+: 24
+\item 
+uint32\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac93f161cfa1ab3cbc843cb050ab258b6}{P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}}\+: 8
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\_\_I}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga2af2cd508a546adbf7dbed2ef385e72e}{PAC5XXX\_WDT\_TypeDef::VAL}}: 24\\
+\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac93f161cfa1ab3cbc843cb050ab258b6}{PAC5XXX\_WDT\_TypeDef::\_\_pad0\_\_}}: 8\\
+\} \\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gae664fd30a9792e0c7bbd5ef6881687e8}{PAC5XXX\_WDT\_TypeDef::w}}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga1ceea5990dad20511d9ea5375e83536d}{PAC5XXX\_WDT\_TypeDef::s}}: 16\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac93f161cfa1ab3cbc843cb050ab258b6}{PAC5XXX\_WDT\_TypeDef::\_\_pad0\_\_}}: 16\\
+\>\} \\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\_\_IO}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga28ab629331a803d8c91d1ae4423f0421}{PAC5XXX\_WDT\_TypeDef::b}}: 8\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac93f161cfa1ab3cbc843cb050ab258b6}{PAC5XXX\_WDT\_TypeDef::\_\_pad0\_\_}}: 24\\
+\>\} \\
+\>struct \{\\
+\>\>\mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\_\_I}} uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga2af2cd508a546adbf7dbed2ef385e72e}{PAC5XXX\_WDT\_TypeDef::VAL}}: 24\\
+\>\>uint32\_t \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gac93f161cfa1ab3cbc843cb050ab258b6}{PAC5XXX\_WDT\_TypeDef::\_\_pad0\_\_}}: 8\\
+\>\} \\
+\} \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga5adc9a811cf02105b4ba28ac053dcd86}{PAC5XXX\_WDT\_TypeDef::WDTCTR}}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga1cf05fa2cb59fa6a4a00e56bbf3f374b}\label{group___p_a_c5_x_x_x___w_d_t_ga1cf05fa2cb59fa6a4a00e56bbf3f374b}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDT\_WAIT\_WRITE\_BLOCK@{WDT\_WAIT\_WRITE\_BLOCK}}
+\index{WDT\_WAIT\_WRITE\_BLOCK@{WDT\_WAIT\_WRITE\_BLOCK}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDT\_WAIT\_WRITE\_BLOCK}{WDT\_WAIT\_WRITE\_BLOCK}}
+{\footnotesize\ttfamily \#define W\+D\+T\+\_\+\+W\+A\+I\+T\+\_\+\+W\+R\+I\+T\+E\+\_\+\+B\+L\+O\+CK~while ((\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_ga3082175172de9fed5f1aa8dee41c37b5}{P\+A\+C5\+X\+X\+X\+\_\+\+W\+DT}}-\/$>$W\+D\+T\+C\+TL \& \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ga61602f2e0ee886ebd9a2800007357523}{W\+D\+T\+C\+T\+L\+\_\+\+W\+R\+B\+U\+S\+Y\+\_\+\+M\+A\+SK}}) != 0);}
+
+
+
+Definition at line 44 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga6eb8fc00debe5bb6b92b444703356037}\label{group___p_a_c5_x_x_x___w_d_t_ga6eb8fc00debe5bb6b92b444703356037}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_CLKSEL\_SHIFT@{WDTCTL\_CLKSEL\_SHIFT}}
+\index{WDTCTL\_CLKSEL\_SHIFT@{WDTCTL\_CLKSEL\_SHIFT}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCTL\_CLKSEL\_SHIFT}{WDTCTL\_CLKSEL\_SHIFT}}
+{\footnotesize\ttfamily \#define W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+S\+H\+I\+FT~10}
+
+W\+DT C\+L\+K\+S\+EL shift ~\newline
+ 
+
+Definition at line 74 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga7b0bfe4b5ce68759589c03668ff532aa}\label{group___p_a_c5_x_x_x___w_d_t_ga7b0bfe4b5ce68759589c03668ff532aa}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_IE\_MASK@{WDTCTL\_IE\_MASK}}
+\index{WDTCTL\_IE\_MASK@{WDTCTL\_IE\_MASK}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCTL\_IE\_MASK}{WDTCTL\_IE\_MASK}}
+{\footnotesize\ttfamily \#define W\+D\+T\+C\+T\+L\+\_\+\+I\+E\+\_\+\+M\+A\+SK~0x00000008}
+
+W\+DT interrupt enable mask ~\newline
+ 
+
+Definition at line 36 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_gaa3016224f7659866b99b3c79af7b9556}\label{group___p_a_c5_x_x_x___w_d_t_gaa3016224f7659866b99b3c79af7b9556}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_IE\_SHIFT@{WDTCTL\_IE\_SHIFT}}
+\index{WDTCTL\_IE\_SHIFT@{WDTCTL\_IE\_SHIFT}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCTL\_IE\_SHIFT}{WDTCTL\_IE\_SHIFT}}
+{\footnotesize\ttfamily \#define W\+D\+T\+C\+T\+L\+\_\+\+I\+E\+\_\+\+S\+H\+I\+FT~3}
+
+W\+DT interrupt enable bit-\/shift ~\newline
+ 
+
+Definition at line 35 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga5d7376885230bd7b685788dc49491db1}\label{group___p_a_c5_x_x_x___w_d_t_ga5d7376885230bd7b685788dc49491db1}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_IF\_MASK@{WDTCTL\_IF\_MASK}}
+\index{WDTCTL\_IF\_MASK@{WDTCTL\_IF\_MASK}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCTL\_IF\_MASK}{WDTCTL\_IF\_MASK}}
+{\footnotesize\ttfamily \#define W\+D\+T\+C\+T\+L\+\_\+\+I\+F\+\_\+\+M\+A\+SK~0x00000010}
+
+W\+DT interrupt flag mask ~\newline
+ 
+
+Definition at line 30 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga59b5dfc10b50988a854dd68a1ed85e12}\label{group___p_a_c5_x_x_x___w_d_t_ga59b5dfc10b50988a854dd68a1ed85e12}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_IF\_SHIFT@{WDTCTL\_IF\_SHIFT}}
+\index{WDTCTL\_IF\_SHIFT@{WDTCTL\_IF\_SHIFT}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCTL\_IF\_SHIFT}{WDTCTL\_IF\_SHIFT}}
+{\footnotesize\ttfamily \#define W\+D\+T\+C\+T\+L\+\_\+\+I\+F\+\_\+\+S\+H\+I\+FT~4}
+
+W\+DT interrupt flag bit-\/shift ~\newline
+ 
+
+Definition at line 29 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_gab23507e267de26a073aa0ca2d09b9a6f}\label{group___p_a_c5_x_x_x___w_d_t_gab23507e267de26a073aa0ca2d09b9a6f}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PASS\_READ@{WDTCTL\_PASS\_READ}}
+\index{WDTCTL\_PASS\_READ@{WDTCTL\_PASS\_READ}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCTL\_PASS\_READ}{WDTCTL\_PASS\_READ}}
+{\footnotesize\ttfamily \#define W\+D\+T\+C\+T\+L\+\_\+\+P\+A\+S\+S\+\_\+\+R\+E\+AD~0x63000000}
+
+W\+DT Read Register Password ~\newline
+ 
+
+Definition at line 27 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_gac93dee4d007d0961db514e75f6235c1a}\label{group___p_a_c5_x_x_x___w_d_t_gac93dee4d007d0961db514e75f6235c1a}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PASS\_WRITE@{WDTCTL\_PASS\_WRITE}}
+\index{WDTCTL\_PASS\_WRITE@{WDTCTL\_PASS\_WRITE}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCTL\_PASS\_WRITE}{WDTCTL\_PASS\_WRITE}}
+{\footnotesize\ttfamily \#define W\+D\+T\+C\+T\+L\+\_\+\+P\+A\+S\+S\+\_\+\+W\+R\+I\+TE~0x4\+A000000}
+
+W\+DT Write Register Password ~\newline
+ 
+
+Definition at line 26 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_gac835dd80b8b187fc6ee9abe110bcfec2}\label{group___p_a_c5_x_x_x___w_d_t_gac835dd80b8b187fc6ee9abe110bcfec2}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_POREN\_MASK@{WDTCTL\_POREN\_MASK}}
+\index{WDTCTL\_POREN\_MASK@{WDTCTL\_POREN\_MASK}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCTL\_POREN\_MASK}{WDTCTL\_POREN\_MASK}}
+{\footnotesize\ttfamily \#define W\+D\+T\+C\+T\+L\+\_\+\+P\+O\+R\+E\+N\+\_\+\+M\+A\+SK~0x00000020}
+
+W\+DT P\+OR enable mask ~\newline
+ 
+
+Definition at line 39 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga79cb17352ff2279d6c5f313aacc6fb12}\label{group___p_a_c5_x_x_x___w_d_t_ga79cb17352ff2279d6c5f313aacc6fb12}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_POREN\_SHIFT@{WDTCTL\_POREN\_SHIFT}}
+\index{WDTCTL\_POREN\_SHIFT@{WDTCTL\_POREN\_SHIFT}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCTL\_POREN\_SHIFT}{WDTCTL\_POREN\_SHIFT}}
+{\footnotesize\ttfamily \#define W\+D\+T\+C\+T\+L\+\_\+\+P\+O\+R\+E\+N\+\_\+\+S\+H\+I\+FT~5}
+
+W\+DT P\+OR enable bit-\/shift ~\newline
+ 
+
+Definition at line 38 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_gaf2e5f09e84b6fe2acbb408655ed701ac}\label{group___p_a_c5_x_x_x___w_d_t_gaf2e5f09e84b6fe2acbb408655ed701ac}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PS\_SHIFT@{WDTCTL\_PS\_SHIFT}}
+\index{WDTCTL\_PS\_SHIFT@{WDTCTL\_PS\_SHIFT}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCTL\_PS\_SHIFT}{WDTCTL\_PS\_SHIFT}}
+{\footnotesize\ttfamily \#define W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+S\+H\+I\+FT~6}
+
+W\+DT Pre-\/scaler bit-\/shift ~\newline
+ 
+
+Definition at line 66 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga98f90fe7c4701ffa44252d4aac759f09}\label{group___p_a_c5_x_x_x___w_d_t_ga98f90fe7c4701ffa44252d4aac759f09}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_RST\_SHIFT@{WDTCTL\_RST\_SHIFT}}
+\index{WDTCTL\_RST\_SHIFT@{WDTCTL\_RST\_SHIFT}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCTL\_RST\_SHIFT}{WDTCTL\_RST\_SHIFT}}
+{\footnotesize\ttfamily \#define W\+D\+T\+C\+T\+L\+\_\+\+R\+S\+T\+\_\+\+S\+H\+I\+FT~0}
+
+W\+DT reset key bit-\/shift ~\newline
+ 
+
+Definition at line 32 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga31fcf4b246934e1fd4763456a3d75188}\label{group___p_a_c5_x_x_x___w_d_t_ga31fcf4b246934e1fd4763456a3d75188}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_RST\_VAL@{WDTCTL\_RST\_VAL}}
+\index{WDTCTL\_RST\_VAL@{WDTCTL\_RST\_VAL}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCTL\_RST\_VAL}{WDTCTL\_RST\_VAL}}
+{\footnotesize\ttfamily \#define W\+D\+T\+C\+T\+L\+\_\+\+R\+S\+T\+\_\+\+V\+AL~0x00000005}
+
+W\+DT reset key value ~\newline
+ 
+
+Definition at line 33 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga61602f2e0ee886ebd9a2800007357523}\label{group___p_a_c5_x_x_x___w_d_t_ga61602f2e0ee886ebd9a2800007357523}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_WRBUSY\_MASK@{WDTCTL\_WRBUSY\_MASK}}
+\index{WDTCTL\_WRBUSY\_MASK@{WDTCTL\_WRBUSY\_MASK}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCTL\_WRBUSY\_MASK}{WDTCTL\_WRBUSY\_MASK}}
+{\footnotesize\ttfamily \#define W\+D\+T\+C\+T\+L\+\_\+\+W\+R\+B\+U\+S\+Y\+\_\+\+M\+A\+SK~0x00000800}
+
+W\+DT Write Busy mask ~\newline
+ 
+
+Definition at line 42 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga45e6037c67818db9c09faa8945998786}\label{group___p_a_c5_x_x_x___w_d_t_ga45e6037c67818db9c09faa8945998786}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_WRBUSY\_SHIFT@{WDTCTL\_WRBUSY\_SHIFT}}
+\index{WDTCTL\_WRBUSY\_SHIFT@{WDTCTL\_WRBUSY\_SHIFT}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCTL\_WRBUSY\_SHIFT}{WDTCTL\_WRBUSY\_SHIFT}}
+{\footnotesize\ttfamily \#define W\+D\+T\+C\+T\+L\+\_\+\+W\+R\+B\+U\+S\+Y\+\_\+\+S\+H\+I\+FT~11}
+
+W\+DT Write Busy bit-\/shift ~\newline
+ 
+
+Definition at line 41 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_gad192221f140f88fed295ffada6aa9266}\label{group___p_a_c5_x_x_x___w_d_t_gad192221f140f88fed295ffada6aa9266}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_CLKSEL\_Type@{WDTCTL\_CLKSEL\_Type}}
+\index{WDTCTL\_CLKSEL\_Type@{WDTCTL\_CLKSEL\_Type}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCTL\_CLKSEL\_Type}{WDTCTL\_CLKSEL\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gad192221f140f88fed295ffada6aa9266}{W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+Type}}}
+
+W\+D\+T\+C\+TL Clock Select Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WDTCTL\_CLKSEL\_FRCLK@{WDTCTL\_CLKSEL\_FRCLK}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_CLKSEL\_FRCLK@{WDTCTL\_CLKSEL\_FRCLK}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ggad192221f140f88fed295ffada6aa9266a54bcbbad53acce307a2c3ec55b2c86e7}\label{group___p_a_c5_x_x_x___w_d_t_ggad192221f140f88fed295ffada6aa9266a54bcbbad53acce307a2c3ec55b2c86e7}} 
+W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+F\+R\+C\+LK&W\+DT Clock Select (F\+R\+C\+LK) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WDTCTL\_CLKSEL\_PLLCLK@{WDTCTL\_CLKSEL\_PLLCLK}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_CLKSEL\_PLLCLK@{WDTCTL\_CLKSEL\_PLLCLK}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ggad192221f140f88fed295ffada6aa9266a7fcfcb56a2d37ce1e22a1ca18d061590}\label{group___p_a_c5_x_x_x___w_d_t_ggad192221f140f88fed295ffada6aa9266a7fcfcb56a2d37ce1e22a1ca18d061590}} 
+W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+P\+L\+L\+C\+LK&W\+DT Clock Select (P\+L\+L\+C\+LK) ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 69 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{69              \{}
+\DoxyCodeLine{70   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggad192221f140f88fed295ffada6aa9266a54bcbbad53acce307a2c3ec55b2c86e7}{WDTCTL\_CLKSEL\_FRCLK}} = 0,                       }
+\DoxyCodeLine{71   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggad192221f140f88fed295ffada6aa9266a7fcfcb56a2d37ce1e22a1ca18d061590}{WDTCTL\_CLKSEL\_PLLCLK}} = 1                       }
+\DoxyCodeLine{72 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gad192221f140f88fed295ffada6aa9266}{WDTCTL\_CLKSEL\_Type}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_gaa00713baf2d47e6d0b8d85bf4acda187}\label{group___p_a_c5_x_x_x___w_d_t_gaa00713baf2d47e6d0b8d85bf4acda187}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PS\_Type@{WDTCTL\_PS\_Type}}
+\index{WDTCTL\_PS\_Type@{WDTCTL\_PS\_Type}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCTL\_PS\_Type}{WDTCTL\_PS\_Type}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gaa00713baf2d47e6d0b8d85bf4acda187}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+Type}}}
+
+W\+D\+T\+C\+TL Pre-\/scaler Enumeration Type \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WDTCTL\_PS\_DIV2@{WDTCTL\_PS\_DIV2}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PS\_DIV2@{WDTCTL\_PS\_DIV2}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a4190a144aa55c3af39702c6407be25dd}\label{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a4190a144aa55c3af39702c6407be25dd}} 
+W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V2&W\+DT Pre-\/\+Scaler (/2) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WDTCTL\_PS\_DIV4@{WDTCTL\_PS\_DIV4}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PS\_DIV4@{WDTCTL\_PS\_DIV4}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a37c4a8fd4f9ef0046dfe1eb3b373edc3}\label{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a37c4a8fd4f9ef0046dfe1eb3b373edc3}} 
+W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V4&W\+DT Pre-\/\+Scaler (/4) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WDTCTL\_PS\_DIV8@{WDTCTL\_PS\_DIV8}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PS\_DIV8@{WDTCTL\_PS\_DIV8}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187aad8d0b1a403b42c210c95dbd99d8f9bd}\label{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187aad8d0b1a403b42c210c95dbd99d8f9bd}} 
+W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V8&W\+DT Pre-\/\+Scaler (/8) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WDTCTL\_PS\_DIV16@{WDTCTL\_PS\_DIV16}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PS\_DIV16@{WDTCTL\_PS\_DIV16}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a6e461cc6afbd38e63098396c0ebf2222}\label{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a6e461cc6afbd38e63098396c0ebf2222}} 
+W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V16&W\+DT Pre-\/\+Scaler (/16) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WDTCTL\_PS\_DIV32@{WDTCTL\_PS\_DIV32}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PS\_DIV32@{WDTCTL\_PS\_DIV32}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a5002bcac6b92b5c2b9887b65b0170e4e}\label{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a5002bcac6b92b5c2b9887b65b0170e4e}} 
+W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V32&W\+DT Pre-\/\+Scaler (/32) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WDTCTL\_PS\_DIV64@{WDTCTL\_PS\_DIV64}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PS\_DIV64@{WDTCTL\_PS\_DIV64}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a21625adad9b4b88f70d062f39adaf5cb}\label{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a21625adad9b4b88f70d062f39adaf5cb}} 
+W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V64&W\+DT Pre-\/\+Scaler (/64) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WDTCTL\_PS\_DIV128@{WDTCTL\_PS\_DIV128}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PS\_DIV128@{WDTCTL\_PS\_DIV128}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a885e46f03bfa2c5c9e51836863a573ee}\label{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a885e46f03bfa2c5c9e51836863a573ee}} 
+W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V128&W\+DT Pre-\/\+Scaler (/128) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WDTCTL\_PS\_DIV256@{WDTCTL\_PS\_DIV256}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PS\_DIV256@{WDTCTL\_PS\_DIV256}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187aabe1bc30c95f383b3abf76334dddb2d8}\label{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187aabe1bc30c95f383b3abf76334dddb2d8}} 
+W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V256&W\+DT Pre-\/\+Scaler (/128) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WDTCTL\_PS\_DIV512@{WDTCTL\_PS\_DIV512}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PS\_DIV512@{WDTCTL\_PS\_DIV512}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a54e348be7127af29a5418b439938d94e}\label{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a54e348be7127af29a5418b439938d94e}} 
+W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V512&W\+DT Pre-\/\+Scaler (/512) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WDTCTL\_PS\_DIV1024@{WDTCTL\_PS\_DIV1024}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PS\_DIV1024@{WDTCTL\_PS\_DIV1024}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187ab9279711fdd29edeee822c1a6c320bf1}\label{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187ab9279711fdd29edeee822c1a6c320bf1}} 
+W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V1024&W\+DT Pre-\/\+Scaler (/1024) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WDTCTL\_PS\_DIV2048@{WDTCTL\_PS\_DIV2048}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PS\_DIV2048@{WDTCTL\_PS\_DIV2048}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187ae01518332f349c225c34ab3995ae2d2e}\label{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187ae01518332f349c225c34ab3995ae2d2e}} 
+W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V2048&W\+DT Pre-\/\+Scaler (/2048) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WDTCTL\_PS\_DIV4096@{WDTCTL\_PS\_DIV4096}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PS\_DIV4096@{WDTCTL\_PS\_DIV4096}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a505e829f802bfab2d609c90997944497}\label{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a505e829f802bfab2d609c90997944497}} 
+W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V4096&W\+DT Pre-\/\+Scaler (/4096) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WDTCTL\_PS\_DIV8192@{WDTCTL\_PS\_DIV8192}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PS\_DIV8192@{WDTCTL\_PS\_DIV8192}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a79c8d495e417269cdf4691a159147e9f}\label{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a79c8d495e417269cdf4691a159147e9f}} 
+W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V8192&W\+DT Pre-\/\+Scaler (/8192) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WDTCTL\_PS\_DIV16384@{WDTCTL\_PS\_DIV16384}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PS\_DIV16384@{WDTCTL\_PS\_DIV16384}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a15e2a2efd9289863a2eced6389707023}\label{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a15e2a2efd9289863a2eced6389707023}} 
+W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V16384&W\+DT Pre-\/\+Scaler (/16384) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WDTCTL\_PS\_DIV32767@{WDTCTL\_PS\_DIV32767}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PS\_DIV32767@{WDTCTL\_PS\_DIV32767}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187ae8a0cac6c39db970db9e46ff5d2dced7}\label{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187ae8a0cac6c39db970db9e46ff5d2dced7}} 
+W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V32767&W\+DT Pre-\/\+Scaler (/32767) ~\newline
+ \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WDTCTL\_PS\_DIV65536@{WDTCTL\_PS\_DIV65536}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL\_PS\_DIV65536@{WDTCTL\_PS\_DIV65536}}}\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187aceb4d50ffa0cafab3dff8e052afc6094}\label{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187aceb4d50ffa0cafab3dff8e052afc6094}} 
+W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V65536&W\+DT Pre-\/\+Scaler (/65536) ~\newline
+ \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 47 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{47              \{}
+\DoxyCodeLine{48   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a4190a144aa55c3af39702c6407be25dd}{WDTCTL\_PS\_DIV2}} = 0,                            }
+\DoxyCodeLine{49   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a37c4a8fd4f9ef0046dfe1eb3b373edc3}{WDTCTL\_PS\_DIV4}} = 1,                            }
+\DoxyCodeLine{50   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187aad8d0b1a403b42c210c95dbd99d8f9bd}{WDTCTL\_PS\_DIV8}} = 2,                            }
+\DoxyCodeLine{51   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a6e461cc6afbd38e63098396c0ebf2222}{WDTCTL\_PS\_DIV16}} = 3,                           }
+\DoxyCodeLine{52   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a5002bcac6b92b5c2b9887b65b0170e4e}{WDTCTL\_PS\_DIV32}} = 4,                           }
+\DoxyCodeLine{53   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a21625adad9b4b88f70d062f39adaf5cb}{WDTCTL\_PS\_DIV64}} = 5,                           }
+\DoxyCodeLine{54   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a885e46f03bfa2c5c9e51836863a573ee}{WDTCTL\_PS\_DIV128}} = 6,                          }
+\DoxyCodeLine{55   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187aabe1bc30c95f383b3abf76334dddb2d8}{WDTCTL\_PS\_DIV256}} = 7,                          }
+\DoxyCodeLine{56   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a54e348be7127af29a5418b439938d94e}{WDTCTL\_PS\_DIV512}} = 8,                          }
+\DoxyCodeLine{57   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187ab9279711fdd29edeee822c1a6c320bf1}{WDTCTL\_PS\_DIV1024}} = 9,                         }
+\DoxyCodeLine{58   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187ae01518332f349c225c34ab3995ae2d2e}{WDTCTL\_PS\_DIV2048}} = 10,                        }
+\DoxyCodeLine{59   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a505e829f802bfab2d609c90997944497}{WDTCTL\_PS\_DIV4096}} = 11,                        }
+\DoxyCodeLine{60   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a79c8d495e417269cdf4691a159147e9f}{WDTCTL\_PS\_DIV8192}} = 12,                        }
+\DoxyCodeLine{61   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187a15e2a2efd9289863a2eced6389707023}{WDTCTL\_PS\_DIV16384}} = 13,                       }
+\DoxyCodeLine{62   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187ae8a0cac6c39db970db9e46ff5d2dced7}{WDTCTL\_PS\_DIV32767}} = 14,                       }
+\DoxyCodeLine{63   \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_ggaa00713baf2d47e6d0b8d85bf4acda187aceb4d50ffa0cafab3dff8e052afc6094}{WDTCTL\_PS\_DIV65536}} = 15                        }
+\DoxyCodeLine{64 \} \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gaa00713baf2d47e6d0b8d85bf4acda187}{WDTCTL\_PS\_Type}};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga5c9760fddec69c5acb48a37bea93ed6e}\label{group___p_a_c5_x_x_x___w_d_t_ga5c9760fddec69c5acb48a37bea93ed6e}} 
+\doxysubsubsection{\texorpdfstring{"@2}{@2}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_gaa614e563410795980a7464daa48f3c11}\label{group___p_a_c5_x_x_x___w_d_t_gaa614e563410795980a7464daa48f3c11}} 
+\doxysubsubsection{\texorpdfstring{"@4}{@4}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga1c7f75644ed40987c32e8e9351da56bf}\label{group___p_a_c5_x_x_x___w_d_t_ga1c7f75644ed40987c32e8e9351da56bf}} 
+\doxysubsubsection{\texorpdfstring{"@6}{@6}}
+{\footnotesize\ttfamily struct \{ ... \} }
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_gac93f161cfa1ab3cbc843cb050ab258b6}\label{group___p_a_c5_x_x_x___w_d_t_gac93f161cfa1ab3cbc843cb050ab258b6}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def\+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 89 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga8d14e4b0a9004d857c0d3179cde26231}\label{group___p_a_c5_x_x_x___w_d_t_ga8d14e4b0a9004d857c0d3179cde26231}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 89 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga9aeed17d264508109a9f7edc2e7c140c}\label{group___p_a_c5_x_x_x___w_d_t_ga9aeed17d264508109a9f7edc2e7c140c}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 93 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_gab9e2fb00353aa2b7df978d1bd0ef7eaa}\label{group___p_a_c5_x_x_x___w_d_t_gab9e2fb00353aa2b7df978d1bd0ef7eaa}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!\_\_pad0\_\_@{\_\_pad0\_\_}}
+\index{\_\_pad0\_\_@{\_\_pad0\_\_}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{\_\_pad0\_\_}{\_\_pad0\_\_}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily uint32\+\_\+t \{ ... \} \+::\+\_\+\+\_\+pad0\+\_\+\+\_\+}
+
+
+
+Definition at line 97 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga28ab629331a803d8c91d1ae4423f0421}\label{group___p_a_c5_x_x_x___w_d_t_ga28ab629331a803d8c91d1ae4423f0421}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!b@{b}}
+\index{b@{b}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def\+::b}
+
+
+
+Definition at line 92 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga59122b91f63aaa10ee37acdad8034a71}\label{group___p_a_c5_x_x_x___w_d_t_ga59122b91f63aaa10ee37acdad8034a71}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!b@{b}}
+\index{b@{b}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{b}{b}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::b}
+
+
+
+Definition at line 92 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga1ceea5990dad20511d9ea5375e83536d}\label{group___p_a_c5_x_x_x___w_d_t_ga1ceea5990dad20511d9ea5375e83536d}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!s@{s}}
+\index{s@{s}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{s}{s}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def\+::s}
+
+
+
+Definition at line 88 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga6e7bd566e1faa9cdb37a5af51afcea2d}\label{group___p_a_c5_x_x_x___w_d_t_ga6e7bd566e1faa9cdb37a5af51afcea2d}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!s@{s}}
+\index{s@{s}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{s}{s}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::s}
+
+
+
+Definition at line 88 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga844b6a8439a21acdd997221ccc8daefd}\label{group___p_a_c5_x_x_x___w_d_t_ga844b6a8439a21acdd997221ccc8daefd}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!VAL@{VAL}}
+\index{VAL@{VAL}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{VAL}{VAL}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+I \{ ... \} \+::V\+AL}
+
+Countdown Register Value ~\newline
+ 
+
+Definition at line 96 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga2af2cd508a546adbf7dbed2ef385e72e}\label{group___p_a_c5_x_x_x___w_d_t_ga2af2cd508a546adbf7dbed2ef385e72e}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!VAL@{VAL}}
+\index{VAL@{VAL}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{VAL}{VAL}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaf63697ed9952cc71e1225efe205f6cd3}{\+\_\+\+\_\+I}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def\+::\+V\+AL}
+
+Countdown Register Value ~\newline
+ 
+
+Definition at line 96 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_gae664fd30a9792e0c7bbd5ef6881687e8}\label{group___p_a_c5_x_x_x___w_d_t_gae664fd30a9792e0c7bbd5ef6881687e8}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!w@{w}}
+\index{w@{w}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{w}{w}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def\+::w}
+
+
+
+Definition at line 86 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_gac9cfa0411a7d8607e0651cde6846f025}\label{group___p_a_c5_x_x_x___w_d_t_gac9cfa0411a7d8607e0651cde6846f025}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!w@{w}}
+\index{w@{w}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{w}{w}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+IO \{ ... \} \+::w}
+
+
+
+Definition at line 86 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga9b4260a81fe1a4c24d0cde3aac472a62}\label{group___p_a_c5_x_x_x___w_d_t_ga9b4260a81fe1a4c24d0cde3aac472a62}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCDV@{WDTCDV}}
+\index{WDTCDV@{WDTCDV}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCDV}{WDTCDV}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def\+::\+W\+D\+T\+C\+DV}
+
+W\+D\+T\+C\+DR\+: Offset\+: 0x0008 Watchdog Timer Countdown Register ~\newline
+ 
+
+Definition at line 82 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_gae5ecb2fd9bd5807942b3216aa027b377}\label{group___p_a_c5_x_x_x___w_d_t_gae5ecb2fd9bd5807942b3216aa027b377}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTL@{WDTCTL}}
+\index{WDTCTL@{WDTCTL}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCTL}{WDTCTL}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___c_m_s_i_s___c_m0__core__definitions_gaec43007d9998a0a0e01faede4133d6be}{\+\_\+\+\_\+\+IO}} uint32\+\_\+t P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def\+::\+W\+D\+T\+C\+TL}
+
+$<$ W\+D\+T\+C\+TL\+: Offset\+: 0x0000 Watchdog Timer Control Register ~\newline
+ W\+D\+T\+C\+DV\+: Offset\+: 0x0004 Watchdog Timer Countdown Value Reg ~\newline
+ 
+
+Definition at line 79 of file pac5xxx\+\_\+\+W\+D\+T.\+h.
+
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___w_d_t_ga5adc9a811cf02105b4ba28ac053dcd86}\label{group___p_a_c5_x_x_x___w_d_t_ga5adc9a811cf02105b4ba28ac053dcd86}} 
+\index{PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}!WDTCTR@{WDTCTR}}
+\index{WDTCTR@{WDTCTR}!PAC5XXX Watchdog Timer (WDT)@{PAC5XXX Watchdog Timer (WDT)}}
+\doxysubsubsection{\texorpdfstring{WDTCTR}{WDTCTR}}
+{\footnotesize\ttfamily union \{ ... \}  P\+A\+C5\+X\+X\+X\+\_\+\+W\+D\+T\+\_\+\+Type\+Def\+::\+W\+D\+T\+C\+TR}
+

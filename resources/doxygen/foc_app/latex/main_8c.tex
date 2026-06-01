@@ -1,0 +1,88 @@
+\hypertarget{main_8c}{}\doxysection{pac\+\_\+foc/src/main.c File Reference}
+\label{main_8c}\index{pac\_foc/src/main.c@{pac\_foc/src/main.c}}
+
+
+Use for motor control hardware and software initialization.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}app\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac\+\_\+init.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fault.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+adc.\+h\char`\"{}}\newline
+Include dependency graph for main.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em This function use for initializing hardware and motor control F\+OC firmware. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for motor control hardware and software initialization. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function use for initializing hardware and motor control F\+OC firmware. 
+
+
+
+Definition at line 29 of file main.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31     \textcolor{comment}{// Disable global interrupts until initialization is complete}}
+\DoxyCodeLine{32     \_\_disable\_irq();}
+\DoxyCodeLine{33      }
+\DoxyCodeLine{34     \textcolor{comment}{// Set pointers to data structure for current motor}}
+\DoxyCodeLine{35     \mbox{\hyperlink{struct_struct___motor}{Struct\_Motor}}* motor\_ptr = \&\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}};}
+\DoxyCodeLine{36     }
+\DoxyCodeLine{37     \textcolor{comment}{// Initialize main -\/ FOC state machines and system variables}}
+\DoxyCodeLine{38     \mbox{\hyperlink{app__funcs_8c_a8e17db15306b65de4d99d9d51745a45d}{systemvar\_init}}(motor\_ptr);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{comment}{// Initialize all MCU peripherals}}
+\DoxyCodeLine{41     \mbox{\hyperlink{pac__init_8c_a51d400da26702bfd3d0cd5966b0679bf}{peripheral\_init}}();}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{comment}{// Initialize CAFE}}
+\DoxyCodeLine{44     \mbox{\hyperlink{pac__init_8h_abfea2b62d7b1fdb0383354907a106348}{cafe\_init}}();}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{comment}{// Start ADC sequencer}}
+\DoxyCodeLine{47     pac5xxx\_adc\_start();}
+\DoxyCodeLine{48              }
+\DoxyCodeLine{49     \textcolor{comment}{// Enable global interrupts}}
+\DoxyCodeLine{50     \_\_enable\_irq();}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{comment}{// All the processing is interrupt driven}}
+\DoxyCodeLine{53     \textcolor{keywordflow}{while}(1) \{\}}
+\DoxyCodeLine{54 \}}
+
+\end{DoxyCode}
+
+
+References cafe\+\_\+init(), motor, peripheral\+\_\+init(), and systemvar\+\_\+init().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph}
+\end{center}
+\end{figure}

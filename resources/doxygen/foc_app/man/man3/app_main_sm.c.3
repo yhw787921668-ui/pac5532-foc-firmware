@@ -1,0 +1,503 @@
+.TH "pac_foc/src/app/app_main_sm.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/app/app_main_sm.c \- Application main state machine, use to control various motor control state flow\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'app_funcs\&.h'\fP
+.br
+\fC#include 'driver_funcs\&.h'\fP
+.br
+\fC#include 'parameter_process\&.h'\fP
+.br
+\fC#include 'fault\&.h'\fP
+.br
+\fC#include 'control_funcs\&.h'\fP
+.br
+\fC#include 'utils\&.h'\fP
+.br
+\fC#include 'mpos_funcs\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_OPTIMIZE_SPEED_ON void \fBstatemachine_appmain\fP (void)"
+.br
+.RI "This function use to FOC motor control state flow, FAULT, RUN, START, STOP, RESET, COAST, DISABLE\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Application main state machine, use to control various motor control state flow\&. 
+
+
+.PP
+Definition in file \fBapp_main_sm\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "PAC5XXX_OPTIMIZE_SPEED_ON void statemachine_appmain (void)"
+
+.PP
+This function use to FOC motor control state flow, FAULT, RUN, START, STOP, RESET, COAST, DISABLE\&. 
+.PP
+Definition at line 55 of file app_main_sm\&.c\&.
+.PP
+.nf
+56 {
+57     static Struct_Motor* motor_ptr = &motor;
+58 
+59     // Handle terminal faults
+60     if (motor_ptr->fault\&.fault_terminal_flag)
+61     {
+62         // Clear flag
+63         motor_ptr->fault\&.fault_terminal_flag = 0;
+64 
+65         // Clear motor enable command
+66         motor_ptr->app\&.motor_enable_cmd = 0;
+67 
+68         // Send to terminal state
+69         __disable_irq();
+70         motor_ptr->state\&.appcontrol = STATE_APPCONTROL_IDLE;
+71         motor_ptr->state\&.main = STATE_MAIN_TERMINAL;
+72         __enable_irq();
+73 
+74         // Clear status
+75         motor_ptr->status\&.motor &= ~STATUS_MAIN_ALLSTATUS;
+76 
+77         // Disable motor and PWMDAC's
+78         m1_disable();
+79 #ifdef ENABLE_DEBUG_PWMDAC
+80         pwmdac_disable();
+81 #endif
+82     }
+83     // Handle state faults except when in terminal state
+84     if ((motor_ptr->fault\&.fault_state_flag) && (motor_ptr->state\&.main != STATE_MAIN_TERMINAL)
+85             // Wait until sm_main is not in one of the states below before processing fault so that power up sequence is not interrupted and bypassed
+86             && (motor_ptr->state\&.main != STATE_MAIN_RESET)
+87             && (motor_ptr->state\&.main != STATE_MAIN_POST)
+88             && (motor_ptr->state\&.main != STATE_MAIN_PRESTART)
+89             && (motor_ptr->state\&.main != STATE_MAIN_MID1))
+90     {
+91         // Clear flag
+92         motor_ptr->fault\&.fault_state_flag = 0;
+93 
+94         // Clear motor enable command
+95         motor_ptr->app\&.motor_enable_cmd = 0;
+96 
+97         // Send to FAULT state
+98         __disable_irq();
+99         motor_ptr->state\&.appcontrol = STATE_APPCONTROL_IDLE;
+100         motor_ptr->state\&.main = STATE_MAIN_FAULT;
+101         __enable_irq();
+102 
+103         // Clear status
+104         motor_ptr->status\&.motor &= ~STATUS_MAIN_ALLSTATUS;
+105 
+106         // Disable motor (Special handling for over-current fault)
+107         if (motor_ptr->fault\&.motor & FAULT_CAFE_OC)
+108             set_drivers_gpio();
+109         else
+110             m1_disable();
+111     }
+112     // Handle stop faults except when in terminal or fault states
+113     else if ((motor_ptr->fault\&.fault_stop_flag) && (motor_ptr->state\&.main != STATE_MAIN_TERMINAL) && (motor_ptr->state\&.main != STATE_MAIN_FAULT))
+114     {
+115         __disable_irq();
+116 
+117         // Clear flag
+118         motor_ptr->fault\&.fault_stop_flag = FALSE;
+119 
+120         // Clear motor enable command
+121         motor_ptr->app\&.motor_enable_cmd = 0;
+122 
+123         // Send to DISABLE state
+124         switch (motor_ptr->state\&.main)
+125         {
+126             case STATE_MAIN_STARTUP:
+127             case STATE_MAIN_RUN:
+128             case STATE_MAIN_COASTING:
+129                 motor_ptr->state\&.main = STATE_MAIN_DISABLE;
+130                 break;
+131             default:
+132                 break;
+133         }
+134 
+135         __enable_irq();
+136     }
+137 
+138     switch (motor_ptr->state\&.main)
+139     {
+140         case STATE_MAIN_RESET:
+141             __disable_irq();
+142             // Initialize variables for operation
+143             init_default_parameters(motor_ptr);
+144             motor_init(motor_ptr);
+145 
+146 #if (MODULE_MPOS_HALL == ENABLED)
+147             hall_init(motor_ptr);
+148 #endif
+149 
+150 #if (MODULE_MPOS_QEP == ENABLED)
+151             qep_init(motor_ptr);
+152 #endif
+153 
+154 #ifdef ENABLE_OPD_CL
+155             opdcl_init(motor_ptr);
+156 #endif
+157 
+158 #ifdef ENABLE_DEBUG_PWMDAC
+159             pwmdac_enable();
+160 #endif
+161 
+162 #if defined(ENABLE_POWERUP_AUTOSTART)
+163             motor_ptr->app\&.flag_first_start = 1;
+164 #endif
+165 
+166             // Transition Main state machine to POST state
+167             motor_ptr->state\&.main = STATE_MAIN_POST;
+168             motor_ptr->state\&.post = STATE_POST_RESET;
+169             __enable_irq();
+170             break;
+171 
+172         case STATE_MAIN_POST:
+173             // Execute Power On Self Test until complete
+174             sm_mainsub_post(motor_ptr);
+175             // If POST is complete, transition to DISABLE state
+176             if (motor_ptr->state\&.post == STATE_POST_COMPLETE)
+177             {
+178                 __disable_irq();
+179                 motor_ptr->state\&.appcontrol = STATE_APPCONTROL_IDLE;
+180                 motor_ptr->state\&.main = STATE_MAIN_DISABLE;
+181                 __enable_irq();
+182             }
+183             break;
+184 
+185         case STATE_MAIN_DISABLE:
+186 //            debugio1_off();
+187             __disable_irq();
+188             // Disable the motor and PWM DACs
+189             m1_disable();
+190 
+191 #if (MODULE_MPOS_HALL == ENABLED)
+192             // Hall disable routine
+193             hall_timer_disable();
+194             hall_int_hallport_disable();
+195 #endif
+196 
+197 #if defined(ENABLE_AUTOTUNE_PI)
+198             at_reset_state(motor_ptr);
+199 #endif
+200 
+201             // Next state and status
+202             motor_ptr->fault\&.fault_stop_flag = FALSE;
+203             motor_ptr->mpos\&.state = STATE_MPOS_IDLE;
+204             motor_ptr->state\&.control = STATE_CONTROL_IDLE;
+205             motor_ptr->status\&.motor &= ~(STATUS_MAIN_ALLSTATUS);
+206             motor_ptr->state\&.main = STATE_MAIN_STOPPED;
+207             motor_ptr->state\&.appcontrol = STATE_APPCONTROL_IDLE;
+208             motor_ptr->status\&.motor |= STATUS_MOTOR_STOPPED;
+209             // Initialize sub-state machines
+210             motor_ptr->state\&.prestart = STATE_PRESTART_RESET;
+211             startup_reset_state(motor_ptr);
+212 
+213 #if defined(TM_SIM_REVERSE)
+214             // Handle SIM_Reverse test mode
+215             if (motor_ptr->debug\&.testmode_enable != 0)
+216             {
+217                 if (motor_ptr->app\&.direction_reverse_cmd)
+218                     motor_ptr->app\&.direction_reverse_cmd = 0;
+219                 else
+220                     motor_ptr->app\&.direction_reverse_cmd = 1;
+221             }
+222 #endif
+223             __enable_irq();
+224             break;
+225 
+226 #ifdef ENABLE_SIMBRAKE_MOTORDISABLE
+227         case STATE_MAIN_BRAKE:
+228             // Exit brake state if SIM is complete
+229             if (motor_ptr->sim\&.status_sim & STATUS_SIM_COMPLETE)
+230             {
+231                 motor_ptr->state\&.main = STATE_MAIN_DISABLE;
+232                 config_control_dt(motor_ptr, motor_ptr->foc\&.dt_control_q26, motor_ptr->foc\&.ctrl_divider_foc);
+233                 motor_ptr->status\&.motor &= ~STATUS_MOTOR_BRAKING;
+234             }
+235             break;
+236 #endif
+237 
+238         case STATE_MAIN_STOPPED:
+239 #if defined(ENABLE_TM) && defined(ENABLE_TM_SIM)
+240             // Handle testmode
+241             if (motor_ptr->debug\&.testmode_enable != 0)
+242             {
+243                 motor_ptr->app\&.motor_enable_cmd = 1;
+244             }
+245 #endif
+246             // Logic to reverse direction only when the motor is stopped
+247             if (motor_ptr->app\&.direction_reverse_flag != motor_ptr->app\&.direction_reverse_cmd)
+248             {
+249                 motor_ptr->app\&.direction_reverse_flag = motor_ptr->app\&.direction_reverse_cmd;
+250                 if (motor_ptr->app\&.direction_reverse_flag)
+251                     motor_ptr->status\&.motor |= STATUS_MOTOR_REVERSE;
+252                 else
+253                     motor_ptr->status\&.motor &= ~STATUS_MOTOR_REVERSE;
+254             }
+255 
+256 #if defined(ENABLE_HALL_TUNING)
+257             halltune_process_cmd_enable(motor_ptr);
+258 #endif
+259 
+260 #if defined(ENABLE_AUTOTUNE_MID)
+261             mid1_process_motor_enable(motor_ptr);
+262 #endif
+263 
+264 #if defined(ENABLE_POWERUP_AUTOSTART)
+265             if (motor_ptr->app\&.flag_first_start)
+266             {
+267                 motor_ptr->app\&.motor_enable_cmd = 1;
+268                 motor_ptr->app\&.flag_first_start = 0;
+269             }
+270 #endif
+271             // Wait for the motor enable command and then transition to the STARTUP state
+272             if (motor_ptr->app\&.motor_enable_cmd)
+273             {
+274                 __disable_irq();
+275                 motor_ptr->state\&.main = STATE_MAIN_PRESTART;
+276                 motor_ptr->status\&.motor |= STATUS_MOTOR_ENABLED;
+277                 motor_ptr->status\&.motor &= ~STATUS_MOTOR_STOPPED;
+278                 __enable_irq();
+279             }
+280             break;
+281 
+282         case STATE_MAIN_PRESTART:
+283             // Execute Startup state machine until complete
+284             sm_mainsub_prestart();
+285             // If startup is complete and no faults, then go to Open Loop; otherwise go to Disable state
+286             if (motor_ptr->state\&.prestart == STATE_PRESTART_COMPLETE)
+287             {
+288                 if (motor_ptr->status\&.prestart == STATUS_PRESTART_COMPLETED)
+289                 {
+290                     __disable_irq();
+291                     motor_ptr->state\&.main = STATE_MAIN_STARTUP;
+292                     __enable_irq();
+293                 }
+294                 else if (motor_ptr->status\&.prestart == STATUS_PRESTART_FAILED)
+295                 {
+296                     motor_ptr->app\&.motor_enable_cmd = 0;
+297                     motor_ptr->state\&.main = STATE_MAIN_DISABLE;
+298                 }
+299             }
+300             break;
+301 
+302         case STATE_MAIN_STARTUP:
+303             // Call run state machine
+304             startup_controller(motor_ptr);
+305 
+306             // Next state
+307             if (startup_complete(motor_ptr))
+308                 motor_ptr->state\&.main = STATE_MAIN_RUN;
+309             else if (!motor_ptr->app\&.motor_enable_cmd)
+310                 motor_ptr->state\&.main = STATE_MAIN_DISABLE;
+311             break;
+312 
+313         case STATE_MAIN_RUN:
+314             // If motor is no longer enabled, transition to the COASTING state
+315             if (!motor_ptr->app\&.motor_enable_cmd)
+316             {
+317                 __disable_irq();
+318 #ifdef ENABLE_SIM
+319                 //JAGTAG: Move this to inside SIM
+320                 if (motor_ptr->app\&.direction_reverse_flag)
+321                     motor_ptr->sim\&.sim_spd_scaled_q28 = -motor_ptr->mpos\&.mpos_spd_scaled_q28;
+322                 else
+323                     motor_ptr->sim\&.sim_spd_scaled_q28 = motor_ptr->mpos\&.mpos_spd_scaled_q28;
+324 #endif
+325 #ifdef ENABLE_COASTING
+326                 // Need to write ramp as well to bypass ramp, in case iqref was at ripple peak when stop is commanded
+327                 motor_ptr->control\&.iqrefcl_target_f16 = motor_ptr->foc\&.iqref_ramp_q14 = motor_ptr->foc\&.iqref_ramp_f16 = 0;
+328                 motor_ptr->app\&.coast_timeout_counter = 0;
+329                 motor_ptr->status\&.motor |= STATUS_MOTOR_CL_RAMPDOWN;
+330                 motor_ptr->state\&.main = STATE_MAIN_COASTING;
+331                 motor_ptr->state\&.control = STATE_CONTROL_TORQUE;
+332 #elif defined(ENABLE_SIMBRAKE_MOTORDISABLE)
+333                 // Disable gate drivers
+334                 m1_disable();
+335                 // Reset sim state machine
+336                 sim_smstate_reset(motor_ptr);
+337                 // Initialize SIM speed
+338                 motor_ptr->sim\&.sim_spd_scaled_q28 = 0;
+339                 // Next state and configure sequencers and control divider for SIM mode
+340                 motor_ptr->mpos\&.state = STATE_MPOS_IDLE;
+341                 motor_ptr->state\&.control = STATE_CONTROL_IDLE;
+342                 config_control_timing_sim();
+343                 config_control_dt(motor_ptr, motor_ptr->sim\&.dt_control_q26, SIM_CONTROL_DIVIDER);
+344                 motor_ptr->state\&.appcontrol = STATE_APPCONTROL_SIM_RUN;
+345                 motor_ptr->state\&.main = STATE_MAIN_BRAKE;
+346                 motor_ptr->status\&.motor |= STATUS_MOTOR_BRAKING;
+347 #else
+348                 // Next state
+349                 motor_ptr->state\&.main = STATE_MAIN_DISABLE;
+350 #endif
+351                 __enable_irq();
+352             }
+353             else
+354             {
+355                 // Switch to speed mode if motor is in torque mode and speed mode is commanded
+356                 if ((motor_ptr->app\&.speed_mode_flag) && (motor_ptr->state\&.control != STATE_CONTROL_OUTERLOOP))
+357                 {
+358                     __disable_irq();
+359                     // Initialize outer loop before switching to CL mode
+360                     init_pi(&motor_ptr->control\&.outerloop_pid, motor_ptr->foc\&.iqref_ramp_q14);
+361                     update_outerloop_ramp_sw(motor_ptr);
+362                     motor_ptr->state\&.control = STATE_CONTROL_OUTERLOOP;
+363                     __enable_irq();
+364                 }
+365                 // Switch to torque mode if motor is in speed mode and torque mode is commanded
+366                 else if ((!motor_ptr->app\&.speed_mode_flag) && (motor_ptr->state\&.control != STATE_CONTROL_TORQUE))
+367                 {
+368                     __disable_irq();
+369                     motor_ptr->foc\&.iqref_ramp_f16 = (motor_ptr->foc\&.iqref_ramp_q14 << 2);
+370                     motor_ptr->control\&.iqrefcl_target_f16 = motor_ptr->app\&.iqrefcl_cmd_f16;
+371                     motor_ptr->state\&.control = STATE_CONTROL_TORQUE;
+372                     __enable_irq();
+373                 }
+374 
+375 #if (MODULE_MPOS_HALL == ENABLED) && (MODULE_MPOS_LBG1 == ENABLED)
+376                 hall_hall2est_controller(motor_ptr);
+377 #endif
+378             }
+379             break;
+380 
+381 #ifdef ENABLE_COASTING
+382         case STATE_MAIN_COASTING:
+383             // Update outer loop ramp and feedback (for stall detection and display)
+384             update_outerloop_ramp_sw(motor_ptr);
+385             update_outerloop_fdbk_scaled(motor_ptr);
+386             // Handle case when motor is re-enabled while coasting but direction was changed
+387 #ifdef ENABLE_NEGATIVE_IQ_COASTING
+388             if ((motor_ptr->app\&.motor_enable_cmd) && (motor_ptr->app\&.direction_reverse_cmd != motor_ptr->app\&.direction_reverse_flag))
+389             {
+390                 // Need to write ramp as well to bypass ramp, in case iqref was at ripple peak when stop is commanded
+391                 motor_ptr->control\&.iqrefcl_target_f16 = fix16_mul((0 - motor_ptr->control\&.outerloop_pid\&.max_value), NEGATIVE_IQ_CURRENT_PER_FOR_COAST);
+392                 // Check if iqrefcl_target is +ve than set it to 0
+393                 if (motor_ptr->control\&.iqrefcl_target_f16 > 0)
+394                     motor_ptr->control\&.iqrefcl_target_f16 = 0;
+395                 motor_ptr->control\&.idiqref_rate_f16 = fix16_mul(motor_ptr->idiqref_rate_gui_f16, IDIQ_RAMP_RATE_PER_FOR_COAST);
+396                 // Check if idiqref_rate is 0 than set it to default
+397                 if (motor_ptr->control\&.idiqref_rate_f16 <= 0)
+398                     motor_ptr->control\&.idiqref_rate_f16 = DEFAULT_IDIQ_RAMP_RATE_PER_FOR_COAST;
+399             }
+400 
+401             // Handle case when motor is re-enabled while coasting
+402             if ((motor_ptr->app\&.motor_enable_cmd) && (motor_ptr->app\&.direction_reverse_cmd == motor_ptr->app\&.direction_reverse_flag))
+403 #else
+404             // Handle case when motor is re-enabled while coasting
+405             if (motor_ptr->app\&.motor_enable_cmd)
+406 #endif
+407             {
+408                 __disable_irq();
+409                 if (motor_ptr->mpos\&.mpos_spd_radps >= conv_ol2cl_speed(motor_ptr->control\&.dt_control_1div_q6, motor_ptr->startup\&.aligngo\&.speedrefol_target))
+410                 {
+411                     motor_ptr->status\&.motor &= ~STATUS_MOTOR_CL_RAMPDOWN;
+412                     motor_ptr->state\&.main = STATE_MAIN_RUN;
+413                     if (motor_ptr->app\&.speed_mode_flag)
+414                     {
+415                         update_outerloop_ramp_sw(motor_ptr);
+416                         motor_ptr->state\&.control = STATE_CONTROL_OUTERLOOP;
+417                     }
+418                     else
+419                     {
+420                         motor_ptr->control\&.iqrefcl_target_f16 = motor_ptr->app\&.iqrefcl_cmd_f16;
+421                         motor_ptr->state\&.control = STATE_CONTROL_TORQUE;
+422                     }
+423                 }
+424                 else
+425                     motor_ptr->state\&.main = STATE_MAIN_DISABLE;
+426 #ifdef ENABLE_NEGATIVE_IQ_COASTING
+427                 // Restore value because it is overwritten by coast mode
+428                 motor_ptr->control\&.idiqref_rate_f16 = motor_ptr->idiqref_rate_gui_f16;
+429 #endif
+430                 __enable_irq();
+431             }
+432             // Check if estimated speed less than switchover speed then disable motor
+433             else if (motor_ptr->mpos\&.mpos_spd_radps < conv_ol2cl_speed(motor_ptr->control\&.dt_control_1div_q6, motor_ptr->startup\&.aligngo\&.speedrefol_target))
+434             {
+435                 motor_ptr->state\&.main = STATE_MAIN_DISABLE;
+436             }
+437             // If coast has timed out, then go to DISABLE state
+438             else if (motor_ptr->app\&.coast_timeout_counter++ >= motor_ptr->app\&.coast_timeout_target)
+439             {
+440 #ifdef ENABLE_NEGATIVE_IQ_COASTING
+441                 if (!motor_ptr->app\&.motor_enable_cmd)
+442                     set_fault(FAULT_COAST_TIMEOUT);
+443 #else
+444                 set_fault(FAULT_COAST_TIMEOUT);
+445 #endif
+446                 motor_ptr->state\&.main = STATE_MAIN_DISABLE;
+447             }
+448             break;
+449 #endif
+450 
+451         case STATE_MAIN_FAULT:
+452             // Exit fault state if all fault conditions are clear
+453             if ((motor_ptr->fault\&.motor & FAULT_MAIN_GRP_STATE) == 0)
+454             {
+455                 __disable_irq();
+456                 motor_ptr->state\&.main = STATE_MAIN_DISABLE;
+457                 __enable_irq();
+458             }
+459             break;
+460 
+461         case STATE_MAIN_TERMINAL:
+462             break;
+463 
+464 #if defined(ENABLE_HALL_TUNING)
+465         case STATE_MAIN_HALLTUNE:
+466             // Hall tuning controller
+467             halltune_controller(motor_ptr);
+468 
+469             // Next state
+470             halltune_process_cmd_disable(motor_ptr);
+471             break;
+472 #endif
+473 
+474 #if defined(ENABLE_AUTOTUNE_MID)
+475         case STATE_MAIN_MID1:
+476             // MID1 main state machine
+477             mid1_main_subsm(motor_ptr);
+478 
+479             // Next state
+480             if (motor_ptr->atune\&.state_mainsub_mid1 & STATE_MAINSUB_MID1_COMPLETE)
+481 //            if (motor_ptr->atune\&.status_atune & (STATUS_ATUNE_MID1_COMPLETE | STATUS_ATUNE_MID1_FAILED))
+482             {
+483                 // Next state
+484                 motor_ptr->state\&.main = STATE_MAIN_DISABLE;
+485             }
+486             break;
+487 #endif
+488 
+489         default:
+490             // If the state is not one of the above, then it's an error, so go to DISABLE state
+491             if (motor_ptr->app\&.motor_enable_cmd)
+492             {
+493                 __disable_irq();
+494                 motor_ptr->app\&.motor_enable_cmd = 0;
+495                 motor_ptr->state\&.main = STATE_MAIN_DISABLE;
+496                 motor_ptr->state\&.appcontrol = STATE_APPCONTROL_IDLE;
+497                 __enable_irq();
+498             }
+499             break;
+500     }
+501 }
+.fi
+.PP
+References Struct_Motor::app, Struct_State::appcontrol, FALSE, Struct_Motor::fault, FAULT_CAFE_OC, Struct_Fault::fault_state_flag, Struct_Fault::fault_stop_flag, Struct_Fault::fault_terminal_flag, init_default_parameters(), m1_disable(), Struct_State::main, motor, Struct_Fault::motor, Struct_Status::motor, Struct_App::motor_enable_cmd, set_drivers_gpio(), Struct_Motor::state, STATE_APPCONTROL_IDLE, STATE_MAIN_COASTING, STATE_MAIN_DISABLE, STATE_MAIN_FAULT, STATE_MAIN_MID1, STATE_MAIN_POST, STATE_MAIN_PRESTART, STATE_MAIN_RESET, STATE_MAIN_RUN, STATE_MAIN_STARTUP, STATE_MAIN_TERMINAL, Struct_Motor::status, and STATUS_MAIN_ALLSTATUS\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

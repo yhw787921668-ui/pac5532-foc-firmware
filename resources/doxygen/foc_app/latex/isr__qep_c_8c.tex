@@ -1,0 +1,51 @@
+\hypertarget{isr__qep_c_8c}{}\doxysection{pac\+\_\+foc/src/isr/isr\+\_\+qepC.c File Reference}
+\label{isr__qep_c_8c}\index{pac\_foc/src/isr/isr\_qepC.c@{pac\_foc/src/isr/isr\_qepC.c}}
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}qep\+\_\+funcs.\+h\char`\"{}}\newline
+Include dependency graph for isr\+\_\+qep\+C.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{isr__qep_c_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{isr__qep_c_8c_adae58ed2aa433bedcfad9187a7f2119d}{Q\+E\+P\+C\+\_\+\+I\+R\+Q\+Handler}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{isr__qep_c_8c_adae58ed2aa433bedcfad9187a7f2119d}\label{isr__qep_c_8c_adae58ed2aa433bedcfad9187a7f2119d}} 
+\index{isr\_qepC.c@{isr\_qepC.c}!QEPC\_IRQHandler@{QEPC\_IRQHandler}}
+\index{QEPC\_IRQHandler@{QEPC\_IRQHandler}!isr\_qepC.c@{isr\_qepC.c}}
+\doxysubsubsection{\texorpdfstring{QEPC\_IRQHandler()}{QEPC\_IRQHandler()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void Q\+E\+P\+C\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 20 of file isr\+\_\+qep\+C.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_QEP == ENABLED)}}
+\DoxyCodeLine{23     \mbox{\hyperlink{qep__funcs_8c_aa3d250b320a69386fb8941e7feb062df}{qep\_isr}}();}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{25 \}}
+
+\end{DoxyCode}
+
+
+References qep\+\_\+isr().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=263pt]{isr__qep_c_8c_adae58ed2aa433bedcfad9187a7f2119d_cgraph}
+\end{center}
+\end{figure}

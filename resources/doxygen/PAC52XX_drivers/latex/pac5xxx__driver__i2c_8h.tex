@@ -1,0 +1,76 @@
+\hypertarget{pac5xxx__driver__i2c_8h}{}\doxysection{pac\+\_\+foc/pac52xx/pac5xxx\+\_\+sdk/pac5xxx\+\_\+drivers/pac5xxx\+\_\+driver\+\_\+i2c.h File Reference}
+\label{pac5xxx__driver__i2c_8h}\index{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_drivers/pac5xxx\_driver\_i2c.h@{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_drivers/pac5xxx\_driver\_i2c.h}}
+
+
+Firmware driver for the P\+A\+C5\+X\+XX I2C Peripheral.  
+
+
+{\ttfamily \#include \char`\"{}pac52\+X\+X.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+config.\+h\char`\"{}}\newline
+Include dependency graph for pac5xxx\+\_\+driver\+\_\+i2c.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__driver__i2c_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__driver__i2c_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga715b96f63bc255c2c8b375b2953b2c99}{pac5xxx\+\_\+i2c\+\_\+master\+\_\+config}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___i2_c_ga9f3aaaae596b0fff29cf483f0483948e}{I2\+C\+\_\+\+Addr\+Mode\+\_\+\+Type}} addr\+\_\+type, int disable\+\_\+pulse\+\_\+filter)
+\begin{DoxyCompactList}\small\item\em This function configures I2C peripheral for master mode. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga49709b46516adaaf84dc60ae8adba355}{pac5xxx\+\_\+i2c\+\_\+io\+\_\+config}} (int master)
+\begin{DoxyCompactList}\small\item\em This function configures the IO for use with the I2C peripheral. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga43dfb791a6913d75c60942f3d24ee35c}{pac5xxx\+\_\+i2c\+\_\+set\+\_\+baud}} (int scl\+\_\+low\+\_\+clocks, int scl\+\_\+high\+\_\+clocks)
+\begin{DoxyCompactList}\small\item\em This function sets the I2C baud rate when configured for master mode. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} int \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga6a0821dca8bb3f0e641f3781c6b6f98d}{pac5xxx\+\_\+i2c\+\_\+master\+\_\+write}} (uint8\+\_\+t address, uint8\+\_\+t $\ast$write\+\_\+data, int bytes\+\_\+to\+\_\+write)
+\begin{DoxyCompactList}\small\item\em This function writes multiple bytes of data to the I2C slave. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} int \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa3d9fdcd8cf9e4aa5d5470cb40c300cd}{pac5xxx\+\_\+i2c\+\_\+master\+\_\+write\+\_\+byte}} (uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em This function writes one byte to the I2C slave. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} int \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga39ca75fa50d76bbe3a075bce5b09da17}{act02\+\_\+i2c\+\_\+master\+\_\+read}} (uint8\+\_\+t $\ast$write\+\_\+data, int bytes\+\_\+to\+\_\+write, uint8\+\_\+t $\ast$read\+\_\+data, int bytes\+\_\+to\+\_\+read)
+\begin{DoxyCompactList}\small\item\em This function performs and I2C read to the slave by writing a set of bytes, then reading the given number of bytes back from the slave. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaf168fb0781fc83e9a32a9864272920ee}{pac5xxx\+\_\+i2c\+\_\+slave\+\_\+config}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___i2_c_ga9f3aaaae596b0fff29cf483f0483948e}{I2\+C\+\_\+\+Addr\+Mode\+\_\+\+Type}} addr\+\_\+type, int disable\+\_\+pulse\+\_\+filter)
+\begin{DoxyCompactList}\small\item\em This function configures the I2C bus for slave mode. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga30521905013a792f5b8b4df4eb33540b}{pac5xxx\+\_\+i2c\+\_\+disable}} (void)
+\begin{DoxyCompactList}\small\item\em This function disables the I2C bus controller. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga43293c80f8d18366a707b6847c8f659a}{pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+M\+S\+T\+\_\+\+T\+X\+\_\+\+E\+M\+P\+T\+I\+ED}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function enables or disables the M\+S\+T\+\_\+\+T\+X\+\_\+\+E\+M\+P\+T\+I\+ED interrupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga8d3346f6103d0db5babe272316cce4db}{pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+M\+S\+T\+\_\+\+A\+C\+C\+\_\+\+C\+T\+L\+\_\+\+E\+MP}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function enables or disables the M\+S\+T\+\_\+\+A\+C\+C\+\_\+\+C\+T\+L\+\_\+\+E\+MP interrupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga0d7eb88c28c530b82a548fb387030e50}{pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+M\+S\+T\+\_\+\+R\+X\+\_\+\+F\+I\+L\+L\+ED}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function enables or disables the M\+S\+T\+\_\+\+R\+X\+\_\+\+F\+I\+L\+L\+ED interrupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gad1d60fead31384f0336d5b75bc7da10a}{pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+M\+S\+T\+\_\+\+X\+F\+E\+R\+\_\+\+D\+O\+NE}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function enables or disables the M\+S\+T\+\_\+\+X\+F\+E\+R\+\_\+\+D\+O\+NE interrupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga1579a224e33ac85f79d2eddd3f90706d}{pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+M\+S\+T\+\_\+\+L\+O\+S\+T\+\_\+\+A\+RB}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function enables or disables the M\+S\+T\+\_\+\+L\+O\+S\+T\+\_\+\+A\+RB interrupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gac6ea4410aa384918700175e7c1aa4d48}{pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+S\+L\+V\+\_\+\+A\+D\+D\+R\+\_\+\+M\+A\+T\+CH}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function enables or disables the S\+L\+V\+\_\+\+A\+D\+D\+R\+\_\+\+M\+A\+T\+CH interrupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gae4571b45f24843d342a26b8dc25a266a}{pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+S\+L\+V\+\_\+\+T\+X\+\_\+\+E\+M\+P\+T\+I\+ED}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function enables or disables the S\+L\+V\+\_\+\+T\+X\+\_\+\+E\+M\+P\+T\+I\+ED interrupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gad3d9692f97180eca6d3051c8e90594f1}{pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+S\+L\+V\+\_\+\+R\+X\+\_\+\+F\+I\+L\+L\+ED}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function enables or disables the S\+L\+V\+\_\+\+R\+X\+\_\+\+F\+I\+L\+L\+ED interrupt. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_gaa0be8e89b955642bc0e30789c56829be}{R\+A\+M\+F\+U\+N\+C\+\_\+\+I2C}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___i2_c_ga83efff28f77cc63e1e7e63108bcc552e}{pac5xxx\+\_\+i2c\+\_\+int\+\_\+enable\+\_\+\+S\+L\+V\+\_\+\+X\+F\+E\+R\+\_\+\+D\+O\+NE}} (int enable)
+\begin{DoxyCompactList}\small\item\em This function enables or disables the S\+L\+V\+\_\+\+X\+F\+E\+R\+\_\+\+D\+O\+NE interrupt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Firmware driver for the P\+A\+C5\+X\+XX I2C Peripheral. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2015-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 

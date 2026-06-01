@@ -1,0 +1,106 @@
+//=============================================================================
+// Copyright (C) 2018-2019, Qorvo, Inc.
+//
+// THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES,
+// AMONG OTHER THINGS:  (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S
+// APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC.;
+// (ii) THAT  IT IS PROVIDED "AS IS" WITHOUT WARRANTY;  (iii) THAT
+// QORVO, INC. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT
+// DAMAGES EXCEEDING US$1,500;  AND (iv) THAT IT CAN BE DISCLOSED TO AND USED
+// ONLY BY CERTAIN AUTHORIZED PERSONS.
+//
+//=============================================================================
+
+#include "can_func.h"
+#include "motor_struct.h"
+#include "config_app.h"
+#include "pac_init.h"
+#include "driver_funcs.h"
+#include "param.h"
+#include "parameter_process.h"
+#include "comm.h"
+#include "fault.h"
+#include "pac5xxx_driver_adc.h"
+#include "pac5xxx_driver_timer.h"
+#include "pac5xxx_driver_socbridge.h"
+#include "pac5xxx_driver_tile.h"
+#include "pac5xxx_driver_system.h"
+#include "pac5xxx_driver_memory.h"
+#include "control_funcs.h"
+#include "mpos_funcs.h"
+#include "app_funcs.h"
+#include "vbus_funcs.h"
+
+
+
+void CAN_Receive(void)
+{   
+	Struct_Motor* motor_ptr = &motor;
+    uint32_t bufferr;
+    static Struct_CAN* can_ptr = &User_CAN;
+    bufferr = PAC55XX_CAN->RXBUF;    //  read RX buffer, RX buffer bit order same as TX buffer 
+
+    if(bufferr&0x80)    // 扩展帧。Extended Frame
+    {
+        id_frame_format = 1;
+        can_ptr->e_receive.m1 = bufferr;
+        bufferr = PAC55XX_CAN->RXBUF;
+        can_ptr->e_receive.m2 = bufferr;        
+        rx_dataLen = can_ptr->e_receive.dlc;
+        rx_id_e = (can_ptr->e_receive.id00to04) + (can_ptr->e_receive.id05to12<<5) + (can_ptr->e_receive.id13to20<<13)  + (can_ptr->e_receive.id21to28<<21); 
+
+        rx_dataa[0] = can_ptr->e_receive.data1;//uint32_t
+        rx_dataa[1] = can_ptr->e_receive.data2;
+        rx_dataa[2] = can_ptr->e_receive.data3;    
+        if(rx_dataLen > 3)
+        {
+            bufferr = PAC55XX_CAN->RXBUF;
+            can_ptr->e_receive.m3 = bufferr;    
+            rx_dataa[3] = can_ptr->e_receive.data4;    
+            rx_dataa[4] = can_ptr->e_receive.data5;    
+            rx_dataa[5] = can_ptr->e_receive.data6;    
+            rx_dataa[6] = can_ptr->e_receive.data7;    
+            if(rx_dataLen > 7)
+            {
+                bufferr = PAC55XX_CAN->RXBUF;
+                can_ptr->e_receive.m4 = bufferr;                
+                rx_dataa[7] = can_ptr->e_receive.data8;
+            }                
+        }
+    }
+    else  // Standard Frame。标准帧
+    {
+        id_frame_format = 0;
+        
+        can_ptr->s_receive.m1 = bufferr;//第1个32位
+        
+        rx_dataLen = can_ptr->s_receive.dlc;//数据长度：几个DATA数据字节
+        rx_id_s = (can_ptr->s_receive.id00to02) + (can_ptr->s_receive.id03to10<<3);  //ID   
+        
+        rx_dataa[0] = can_ptr->s_receive.data1;   // DATA1     
+        if(rx_dataLen > 1)
+        {
+            bufferr = PAC55XX_CAN->RXBUF;//第2个32位
+            can_ptr->s_receive.m2 = bufferr;    
+            rx_dataa[1] = can_ptr->s_receive.data2;// DATA2 
+            rx_dataa[2] = can_ptr->s_receive.data3;// DATA3 
+            rx_dataa[3] = can_ptr->s_receive.data4;// DATA4    
+            rx_dataa[4] = can_ptr->s_receive.data5;// DATA5 
+            if(rx_dataLen > 5)
+            {
+                bufferr = PAC55XX_CAN->RXBUF;//第3个32位
+                can_ptr->s_receive.m3 = bufferr;                        
+                rx_dataa[5] = can_ptr->s_receive.data6;// DATA6 
+                rx_dataa[6] = can_ptr->s_receive.data7;// DATA7 
+                rx_dataa[7] = can_ptr->s_receive.data8;// DATA8 
+            }
+        } 
+       if(rx_id_s==0xA1)
+       {
+			   motoruser.Assist_Rate = rx_dataa[0] & 0x0F;
+			 }
+	 
+  //  can_flag = 1;
+  //  PAC55XX_CAN->ISR_SR_CMR_MR = (PAC55XX_CAN->ISR_SR_CMR_MR & 0x00FFFFFF) | ISR_RI; // Clear RX interrupt
+		}
+}

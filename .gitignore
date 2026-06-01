@@ -1,0 +1,38 @@
+# Keil MDK build outputs
+*.o
+*.axf
+*.hex
+*.bin
+*.lst
+*.map
+*.dep
+*.crf
+*.d
+*.elf
+*.htm
+*.lnp
+*.plg
+*.tra
+*.iex
+*.sct.bak
+*.uvguix.*
+*.scvd
+*.uvoptx
+
+# Keil Objects & Listings directories
+pac55xx/keil_proj/Objects/
+pac55xx/keil_proj/Listings/
+pac52xx/eclipse_proj/launch/
+
+# JLink settings
+JLinkSettings.ini
+JLinkLog.txt
+
+# Eclipse / IDE
+.metadata/
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini

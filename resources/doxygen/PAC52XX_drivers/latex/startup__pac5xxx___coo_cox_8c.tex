@@ -1,0 +1,349 @@
+\hypertarget{startup__pac5xxx___coo_cox_8c}{}\doxysection{pac\+\_\+foc/pac52xx/pac5xxx\+\_\+sdk/pac5xxx\+\_\+boot\+\_\+\+C\+O\+I\+D\+E/startup\+\_\+pac5xxx\+\_\+\+Coo\+Cox.c File Reference}
+\label{startup__pac5xxx___coo_cox_8c}\index{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_boot\_COIDE/startup\_pac5xxx\_CooCox.c@{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_boot\_COIDE/startup\_pac5xxx\_CooCox.c}}
+
+
+P\+A\+C5\+X\+XX startup code for Coo\+Cox I\+DE (Co\+Ide)  
+
+
+{\ttfamily \#include \char`\"{}pac52\+X\+X.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}system\+\_\+pac5xxx.\+h\char`\"{}}\newline
+Include dependency graph for startup\+\_\+pac5xxx\+\_\+\+Coo\+Cox.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{startup__pac5xxx___coo_cox_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{startup__pac5xxx___coo_cox_8c_a6423a880df59733d2d9b509c7718d3a9}{S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE}}~0x000000\+B0
+\item 
+\#define \mbox{\hyperlink{startup__pac5xxx___coo_cox_8c_ad1480e9557edcc543498ca259cee6c7d}{W\+E\+AK}}~\mbox{\hyperlink{startup__pac5xxx__gcc_8c_ad62826e478a753740ffb406eeb04f274}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((weak))
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{startup__pac5xxx___coo_cox_8c_abb7807c0a455033fda4ec8a824b82f9c}{pac\+\_\+recovery}} (void)
+\item 
+\mbox{\hyperlink{startup__pac5xxx___coo_cox_8c_a15ef44219320e11dd82b4db680796652}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((section(\char`\"{}.co\+\_\+stack\char`\"{})))
+\begin{DoxyCompactList}\small\item\em The minimal vector table for a Cortex M0. Note that the proper constructs must be placed on this to ensure that it ends up at physical address 0x00000000. ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{startup__pac5xxx___coo_cox_8c_a0b25f0c80528ba782dfb09214c5b1737}{Default\+\_\+\+Reset\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This is the code that gets called when the processor first starts execution following a reset event. Only the absolutely necessary set is performed, after which the application supplied main() routine is called. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{startup__pac5xxx___coo_cox_8c_ad62826e478a753740ffb406eeb04f274}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((noinline))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+P\+A\+C5\+X\+XX startup code for Coo\+Cox I\+DE (Co\+Ide) 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2015-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{startup__pac5xxx___coo_cox_8c_a6423a880df59733d2d9b509c7718d3a9}\label{startup__pac5xxx___coo_cox_8c_a6423a880df59733d2d9b509c7718d3a9}} 
+\index{startup\_pac5xxx\_CooCox.c@{startup\_pac5xxx\_CooCox.c}!STACK\_SIZE@{STACK\_SIZE}}
+\index{STACK\_SIZE@{STACK\_SIZE}!startup\_pac5xxx\_CooCox.c@{startup\_pac5xxx\_CooCox.c}}
+\doxysubsubsection{\texorpdfstring{STACK\_SIZE}{STACK\_SIZE}}
+{\footnotesize\ttfamily \#define S\+T\+A\+C\+K\+\_\+\+S\+I\+ZE~0x000000\+B0}
+
+Stack size (in Words) ~\newline
+ 
+
+Definition at line 21 of file startup\+\_\+pac5xxx\+\_\+\+Coo\+Cox.\+c.
+
+\mbox{\Hypertarget{startup__pac5xxx___coo_cox_8c_ad1480e9557edcc543498ca259cee6c7d}\label{startup__pac5xxx___coo_cox_8c_ad1480e9557edcc543498ca259cee6c7d}} 
+\index{startup\_pac5xxx\_CooCox.c@{startup\_pac5xxx\_CooCox.c}!WEAK@{WEAK}}
+\index{WEAK@{WEAK}!startup\_pac5xxx\_CooCox.c@{startup\_pac5xxx\_CooCox.c}}
+\doxysubsubsection{\texorpdfstring{WEAK}{WEAK}}
+{\footnotesize\ttfamily \#define W\+E\+AK~\mbox{\hyperlink{startup__pac5xxx__gcc_8c_ad62826e478a753740ffb406eeb04f274}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((weak))}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{startup__pac5xxx___coo_cox_8c_ad62826e478a753740ffb406eeb04f274}\label{startup__pac5xxx___coo_cox_8c_ad62826e478a753740ffb406eeb04f274}} 
+\index{startup\_pac5xxx\_CooCox.c@{startup\_pac5xxx\_CooCox.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!startup\_pac5xxx\_CooCox.c@{startup\_pac5xxx\_CooCox.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(noinline)}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 214 of file startup\+\_\+pac5xxx\+\_\+\+Coo\+Cox.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{216 \{}
+\DoxyCodeLine{217     \_\_ASM}
+\DoxyCodeLine{218     (}
+\DoxyCodeLine{219         \textcolor{stringliteral}{"{}       push \{r1\}           \(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{220         \textcolor{stringliteral}{"{}       movs r1, \#1         \(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{221         \textcolor{stringliteral}{"{}delay\_loop1:               \(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{222         \textcolor{stringliteral}{"{}       sub  r0,r0,r1      \(\backslash\)n\(\backslash\)t"{}}   \textcolor{comment}{// Decrement r0=counts by r1=decrement value}}
+\DoxyCodeLine{223         \textcolor{stringliteral}{"{}       bne  delay\_loop1    \(\backslash\)n\(\backslash\)t"{}}   \textcolor{comment}{// Keep looping until counts == 0}}
+\DoxyCodeLine{224         \textcolor{stringliteral}{"{}       pop \{r1\}            \(\backslash\)n\(\backslash\)t"{}}}
+\DoxyCodeLine{225     );}
+\DoxyCodeLine{226 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{startup__pac5xxx___coo_cox_8c_a15ef44219320e11dd82b4db680796652}\label{startup__pac5xxx___coo_cox_8c_a15ef44219320e11dd82b4db680796652}} 
+\index{startup\_pac5xxx\_CooCox.c@{startup\_pac5xxx\_CooCox.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!startup\_pac5xxx\_CooCox.c@{startup\_pac5xxx\_CooCox.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(section(\char`\"{}.co\+\_\+stack\char`\"{}))}]{ }\end{DoxyParamCaption})}
+
+
+
+The minimal vector table for a Cortex M0. Note that the proper constructs must be placed on this to ensure that it ends up at physical address 0x00000000. ~\newline
+ 
+
+$<$ The initial stack pointer ~\newline
+
+
+$<$ The reset handler ~\newline
+
+
+$<$ The N\+MI handler ~\newline
+
+
+$<$ The hard fault handler ~\newline
+
+
+$<$ Reserved ~\newline
+
+
+$<$ S\+V\+Call handler ~\newline
+
+
+$<$ Reserved ~\newline
+
+
+$<$ The Pend\+SV handler ~\newline
+
+
+$<$ The Sys\+Tick handler ~\newline
+
+
+$<$ Memory controller handler ~\newline
+
+
+$<$ unused ~\newline
+
+
+$<$ W\+DT handler ~\newline
+
+
+$<$ G\+P\+I\+OA handler ~\newline
+
+
+$<$ G\+P\+I\+OB handler ~\newline
+
+
+$<$ G\+P\+I\+OC handler ~\newline
+
+
+$<$ G\+P\+I\+OD handler ~\newline
+
+
+$<$ G\+P\+I\+OE handler ~\newline
+
+
+$<$ Timer A handler ~\newline
+
+
+$<$ Timer A Extended handler ~\newline
+
+
+$<$ Timer B handler ~\newline
+
+
+$<$ Timer C handler ~\newline
+
+
+$<$ Timer D handler ~\newline
+
+
+$<$ A\+DC handler ~\newline
+
+
+$<$ Soc\+Bridge handler ~\newline
+
+
+$<$ S\+P\+I-\/B handler ~\newline
+
+
+$<$ U\+A\+RT handler ~\newline
+
+
+$<$ I2C handler ~\newline
+
+
+$<$ A\+DC E\+M\+UX handler ~\newline
+
+
+$<$ R\+TC handler ~\newline
+
+
+Definition at line 22 of file startup\+\_\+pac5xxx\+\_\+\+Coo\+Cox.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{84 \{}
+\DoxyCodeLine{85   \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/Core Exceptions-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/ */}}
+\DoxyCodeLine{86   (\textcolor{keywordtype}{void} *)\&pulStack[\mbox{\hyperlink{startup__pac5xxx___coo_cox_8c_a6423a880df59733d2d9b509c7718d3a9}{STACK\_SIZE}}],       }
+\DoxyCodeLine{87   Reset\_Handler,                       }
+\DoxyCodeLine{88   NMI\_Handler,                         }
+\DoxyCodeLine{89   HardFault\_Handler,                   }
+\DoxyCodeLine{90   0,0,0,0,0,0,0,                       }
+\DoxyCodeLine{91   SVC\_Handler,                         }
+\DoxyCodeLine{92   0, 0,                                }
+\DoxyCodeLine{93   PendSV\_Handler,                      }
+\DoxyCodeLine{94   SysTick\_Handler,                     }
+\DoxyCodeLine{96   \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/External Exceptions-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{97   MemCtl\_IRQHandler,                   }
+\DoxyCodeLine{98   SysClk\_IRQHandler,                   }
+\DoxyCodeLine{99   Wdt\_IRQHandler,                      }
+\DoxyCodeLine{100   GpioA\_IRQHandler,                    }
+\DoxyCodeLine{101   GpioB\_IRQHandler,                    }
+\DoxyCodeLine{102   GpioC\_IRQHandler,                    }
+\DoxyCodeLine{103   GpioD\_IRQHandler,                    }
+\DoxyCodeLine{104   GpioE\_IRQHandler,                    }
+\DoxyCodeLine{105   TimerA\_IRQHandler,                   }
+\DoxyCodeLine{106   TimerAExt\_IRQHandler,                }
+\DoxyCodeLine{107   TimerB\_IRQHandler,                   }
+\DoxyCodeLine{108   TimerC\_IRQHandler,                   }
+\DoxyCodeLine{109   TimerD\_IRQHandler,                   }
+\DoxyCodeLine{110   ADC\_IRQHandler,                      }
+\DoxyCodeLine{111   SocBridge\_IRQHandler,                }
+\DoxyCodeLine{112   SPIB\_IRQHandler,                     }
+\DoxyCodeLine{113   \mbox{\hyperlink{family__52xx_8c_a0114082a550d6f5055c7bdd6bcbd3e94}{UART\_IRQHandler}},                     }
+\DoxyCodeLine{114   I2C\_IRQHandler,                      }
+\DoxyCodeLine{115   EMUX\_IRQHandler,                     }
+\DoxyCodeLine{116   RTC\_IRQHandler                       }
+\DoxyCodeLine{117 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{startup__pac5xxx___coo_cox_8c_a0b25f0c80528ba782dfb09214c5b1737}\label{startup__pac5xxx___coo_cox_8c_a0b25f0c80528ba782dfb09214c5b1737}} 
+\index{startup\_pac5xxx\_CooCox.c@{startup\_pac5xxx\_CooCox.c}!Default\_Reset\_Handler@{Default\_Reset\_Handler}}
+\index{Default\_Reset\_Handler@{Default\_Reset\_Handler}!startup\_pac5xxx\_CooCox.c@{startup\_pac5xxx\_CooCox.c}}
+\doxysubsubsection{\texorpdfstring{Default\_Reset\_Handler()}{Default\_Reset\_Handler()}}
+{\footnotesize\ttfamily void Default\+\_\+\+Reset\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This is the code that gets called when the processor first starts execution following a reset event. Only the absolutely necessary set is performed, after which the application supplied main() routine is called. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 128 of file startup\+\_\+pac5xxx\+\_\+\+Coo\+Cox.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{129 \{}
+\DoxyCodeLine{130   \textcolor{comment}{// Call pac\_recovery function to allow recovery of mis-\/configured device}}
+\DoxyCodeLine{131   \mbox{\hyperlink{startup__pac5xxx___coo_cox_8c_abb7807c0a455033fda4ec8a824b82f9c}{pac\_recovery}}();}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133   \textcolor{comment}{/* Initialize data and bss */}}
+\DoxyCodeLine{134   \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} *pulSrc, *pulDest;}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136   \textcolor{comment}{/* Copy the data segment initializers from flash to SRAM */}}
+\DoxyCodeLine{137   pulSrc = \&\_sidata;}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139   \textcolor{keywordflow}{for}(pulDest = \&\_sdata; pulDest < \&\_edata; )}
+\DoxyCodeLine{140   \{}
+\DoxyCodeLine{141     *(pulDest++) = *(pulSrc++);}
+\DoxyCodeLine{142   \}}
+\DoxyCodeLine{143   }
+\DoxyCodeLine{144   \textcolor{comment}{/* Zero fill the bss segment. */}}
+\DoxyCodeLine{145   \textcolor{keywordflow}{for}(pulDest = \&\_sbss; pulDest < \&\_ebss; )}
+\DoxyCodeLine{146   \{}
+\DoxyCodeLine{147     *(pulDest++) = 0;}
+\DoxyCodeLine{148   \}}
+\DoxyCodeLine{149     }
+\DoxyCodeLine{150   \textcolor{comment}{/* Call SystemInit for device initialization before letting user have control */}}
+\DoxyCodeLine{151   \mbox{\hyperlink{pac5xxx__boot___c_o_i_d_e_2system__pac5xxx_8c_ae8d5544c14f3b4c6d8e932641a11ed14}{SystemInit}}();}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153   \textcolor{comment}{/* Call the application's entry point.*/}}
+\DoxyCodeLine{154   main();}
+\DoxyCodeLine{155 \}}
+
+\end{DoxyCode}
+
+
+References pac\+\_\+recovery(), and System\+Init().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{startup__pac5xxx___coo_cox_8c_a0b25f0c80528ba782dfb09214c5b1737_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{startup__pac5xxx___coo_cox_8c_abb7807c0a455033fda4ec8a824b82f9c}\label{startup__pac5xxx___coo_cox_8c_abb7807c0a455033fda4ec8a824b82f9c}} 
+\index{startup\_pac5xxx\_CooCox.c@{startup\_pac5xxx\_CooCox.c}!pac\_recovery@{pac\_recovery}}
+\index{pac\_recovery@{pac\_recovery}!startup\_pac5xxx\_CooCox.c@{startup\_pac5xxx\_CooCox.c}}
+\doxysubsubsection{\texorpdfstring{pac\_recovery()}{pac\_recovery()}}
+{\footnotesize\ttfamily void pac\+\_\+recovery (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 42 of file pac5xxx\+\_\+driver\+\_\+system\+\_\+ccs\+\_\+config.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43 \{}
+\DoxyCodeLine{44     \textcolor{keyword}{volatile} uint32\_t i;}
+\DoxyCodeLine{45     uint32\_t perform\_delay = 1;}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{comment}{// PE2 is already an input, just need to Enable Pull Up}}
+\DoxyCodeLine{48     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_gad78cc83b594e9306e4027ef035791bc2}{PAC5XXX\_GPIOE}}-\/>PU.P2 = 1;                         \textcolor{comment}{// Enable Pull Up}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{comment}{// If PE2 is high a delay is not needed}}
+\DoxyCodeLine{51     \textcolor{comment}{// Must check over the length of a full UART packet at 115kbps (78uS) in case UART is talking and making PE2 low for short durations}}
+\DoxyCodeLine{52     \textcolor{keywordflow}{for} (i=0; i < 12; i++)  \textcolor{comment}{// Value of 12 = at least 140 uS, which is enough for 1 UART packet}}
+\DoxyCodeLine{53     \{}
+\DoxyCodeLine{54         \textcolor{comment}{// If PE2 is high at any time, then a delay is not needed}}
+\DoxyCodeLine{55         \textcolor{keywordflow}{if} (\mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_gad78cc83b594e9306e4027ef035791bc2}{PAC5XXX\_GPIOE}}-\/>IN.P2 == 1)}
+\DoxyCodeLine{56         \{}
+\DoxyCodeLine{57             perform\_delay = 0;}
+\DoxyCodeLine{58         \}}
+\DoxyCodeLine{59     \}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{comment}{// If PE2 was low, delay required, add 6 second delay}}
+\DoxyCodeLine{62     \textcolor{keywordflow}{if}(perform\_delay)}
+\DoxyCodeLine{63     \{}
+\DoxyCodeLine{64         \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_ga36dd8d0224d2dfb94869b084607d7bb5}{pac\_delay\_asm}}(1400000);}
+\DoxyCodeLine{65     \}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{comment}{// Restore PE2 to reset state}}
+\DoxyCodeLine{68     \mbox{\hyperlink{group___p_a_c5_x_x_x___peripheral_decl_gad78cc83b594e9306e4027ef035791bc2}{PAC5XXX\_GPIOE}}-\/>PU.P2 = 0;                         \textcolor{comment}{// Disable Pull Up}}
+\DoxyCodeLine{69 \}}
+
+\end{DoxyCode}
+
+
+Referenced by Default\+\_\+\+Reset\+\_\+\+Handler().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{startup__pac5xxx___coo_cox_8c_abb7807c0a455033fda4ec8a824b82f9c_icgraph}
+\end{center}
+\end{figure}

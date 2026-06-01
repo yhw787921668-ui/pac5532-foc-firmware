@@ -1,0 +1,56 @@
+.TH "pac_foc/src/isr/isr_gpioD.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/isr/isr_gpioD.c \- Use for PortD ISR\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'pac_init\&.h'\fP
+.br
+\fC#include 'fault\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_gpio\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_tile\&.h'\fP
+.br
+\fC#include 'hall_funcs\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBGpioD_IRQHandler\fP (void)"
+.br
+.RI "Process GPIOD interrupts to handle hall inputs\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for PortD ISR\&. 
+
+
+.PP
+Definition in file \fBisr_gpioD\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "PAC5XXX_RAMFUNC void GpioD_IRQHandler (void)"
+
+.PP
+Process GPIOD interrupts to handle hall inputs\&. 
+.PP
+Definition at line 34 of file isr_gpioD\&.c\&.
+.PP
+.nf
+35 {
+36 #if (MODULE_MPOS_HALL == ENABLED) & (HALL_METHOD_SELECT == HALL_METHOD_INTERRUPT) & (Hall_Gpio_IRQn == GpioD_IRQn)
+37     hall_isr_handler();
+38 #endif
+39 }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

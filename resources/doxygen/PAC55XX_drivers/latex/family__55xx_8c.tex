@@ -1,0 +1,487 @@
+\hypertarget{family__55xx_8c}{}\doxysection{pac\+\_\+foc/pac55xx/device/family\+\_\+55xx.c File Reference}
+\label{family__55xx_8c}\index{pac\_foc/pac55xx/device/family\_55xx.c@{pac\_foc/pac55xx/device/family\_55xx.c}}
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac\+\_\+init.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}driver\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}param.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sim\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parameter\+\_\+process.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}comm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fault.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+adc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+socbridge.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+tile.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+system.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+memory.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+uart.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}debug\+\_\+dac.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}watchdog.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stack\+\_\+check.\+h\char`\"{}}\newline
+Include dependency graph for family\+\_\+55xx.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{family__55xx_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{family__55xx_8c_ab47f3f1955e99044b752f04d2083b02a}{N\+I\+R\+Q1\+\_\+\+P\+IN}}~7
+\item 
+\#define \mbox{\hyperlink{family__55xx_8c_a5280cd9da9440d71c2f9d73071efdfe4}{N\+I\+R\+Q1\+\_\+\+P\+I\+N\+\_\+\+M\+A\+SK}}~(1 $<$$<$ \mbox{\hyperlink{family__55xx_8c_ab47f3f1955e99044b752f04d2083b02a}{N\+I\+R\+Q1\+\_\+\+P\+IN}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{family__55xx_8c_afceb890a6ab9be73cc5481369538c705}{init\+\_\+system}} ()
+\item 
+void \mbox{\hyperlink{family__55xx_8c_a342e538d81a8a976fe9ea32e10b02a15}{configure\+\_\+cafe\+\_\+fault\+\_\+interrupt}} (void)
+\item 
+void \mbox{\hyperlink{family__55xx_8c_aee589939154360b7d27f88a7a5bf1ca7}{configure\+\_\+foc\+\_\+timer}} (void)
+\item 
+void \mbox{\hyperlink{family__55xx_8c_a26922e7f9dd8a143f6dde86bdf3e5a1f}{configure\+\_\+pwm\+\_\+dac}} (void)
+\item 
+void \mbox{\hyperlink{family__55xx_8c_a1f9a46bd9153cadecc7823383f4d1220}{configure\+\_\+adc\+\_\+emux\+\_\+engine}} (void)
+\item 
+void \mbox{\hyperlink{family__55xx_8c_abde806d922bef5df3f73d9c9a4066211}{config\+\_\+systick\+\_\+timer}} (void)
+\item 
+void \mbox{\hyperlink{family__55xx_8c_a62cfe802dd949b93ae131f5b695d975c}{U\+S\+A\+R\+T\+C\+\_\+\+I\+R\+Q\+Handler}} (void)
+\item 
+void \mbox{\hyperlink{family__55xx_8c_a2f2f0a30f21c222cfb9846f79c9ccc5c}{config\+\_\+uart}} (void)
+\item 
+void \mbox{\hyperlink{family__55xx_8c_a27dd8e4f1545e337699791b88547cf34}{uart\+\_\+scratch\+\_\+write}} (int32\+\_\+t value)
+\item 
+int32\+\_\+t \mbox{\hyperlink{family__55xx_8c_aa5cf91153d9801749819abb5a5c7bfd7}{uart\+\_\+scratch\+\_\+read}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{family__55xx_8c_ab47f3f1955e99044b752f04d2083b02a}\label{family__55xx_8c_ab47f3f1955e99044b752f04d2083b02a}} 
+\index{family\_55xx.c@{family\_55xx.c}!NIRQ1\_PIN@{NIRQ1\_PIN}}
+\index{NIRQ1\_PIN@{NIRQ1\_PIN}!family\_55xx.c@{family\_55xx.c}}
+\doxysubsubsection{\texorpdfstring{NIRQ1\_PIN}{NIRQ1\_PIN}}
+{\footnotesize\ttfamily \#define N\+I\+R\+Q1\+\_\+\+P\+IN~7}
+
+
+
+Definition at line 46 of file family\+\_\+55xx.\+c.
+
+\mbox{\Hypertarget{family__55xx_8c_a5280cd9da9440d71c2f9d73071efdfe4}\label{family__55xx_8c_a5280cd9da9440d71c2f9d73071efdfe4}} 
+\index{family\_55xx.c@{family\_55xx.c}!NIRQ1\_PIN\_MASK@{NIRQ1\_PIN\_MASK}}
+\index{NIRQ1\_PIN\_MASK@{NIRQ1\_PIN\_MASK}!family\_55xx.c@{family\_55xx.c}}
+\doxysubsubsection{\texorpdfstring{NIRQ1\_PIN\_MASK}{NIRQ1\_PIN\_MASK}}
+{\footnotesize\ttfamily \#define N\+I\+R\+Q1\+\_\+\+P\+I\+N\+\_\+\+M\+A\+SK~(1 $<$$<$ \mbox{\hyperlink{family__55xx_8c_ab47f3f1955e99044b752f04d2083b02a}{N\+I\+R\+Q1\+\_\+\+P\+IN}})}
+
+
+
+Definition at line 47 of file family\+\_\+55xx.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{family__55xx_8c_abde806d922bef5df3f73d9c9a4066211}\label{family__55xx_8c_abde806d922bef5df3f73d9c9a4066211}} 
+\index{family\_55xx.c@{family\_55xx.c}!config\_systick\_timer@{config\_systick\_timer}}
+\index{config\_systick\_timer@{config\_systick\_timer}!family\_55xx.c@{family\_55xx.c}}
+\doxysubsubsection{\texorpdfstring{config\_systick\_timer()}{config\_systick\_timer()}}
+{\footnotesize\ttfamily void config\+\_\+systick\+\_\+timer (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 156 of file family\+\_\+55xx.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{157 \{}
+\DoxyCodeLine{158     \mbox{\hyperlink{group___c_m_s_i_s___core___sys_tick_functions_gae4e8f0238527c69f522029b93c8e5b78}{SysTick\_Config}}(SYSTICK\_TICKS);}
+\DoxyCodeLine{159     \mbox{\hyperlink{group___c_m_s_i_s___core___n_v_i_c_functions_ga2305cbd44aaad792e3a4e538bdaf14f9}{NVIC\_SetPriority}}(\mbox{\hyperlink{pac5xxx_8h_a666eb0caeb12ec0e281415592ae89083a6dbff8f8543325f3474cbae2446776e7}{SysTick\_IRQn}}, 2);}
+\DoxyCodeLine{160     \mbox{\hyperlink{group___c_m_s_i_s__core__base_gacd96c53beeaff8f603fcda425eb295de}{SysTick}}-\/>VAL = SYSTICK\_TICKS;}
+\DoxyCodeLine{161 \}}
+
+\end{DoxyCode}
+
+
+References N\+V\+I\+C\+\_\+\+Set\+Priority(), Sys\+Tick, Sys\+Tick\+\_\+\+Config(), and Sys\+Tick\+\_\+\+I\+R\+Qn.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{family__55xx_8c_abde806d922bef5df3f73d9c9a4066211_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{family__55xx_8c_a2f2f0a30f21c222cfb9846f79c9ccc5c}\label{family__55xx_8c_a2f2f0a30f21c222cfb9846f79c9ccc5c}} 
+\index{family\_55xx.c@{family\_55xx.c}!config\_uart@{config\_uart}}
+\index{config\_uart@{config\_uart}!family\_55xx.c@{family\_55xx.c}}
+\doxysubsubsection{\texorpdfstring{config\_uart()}{config\_uart()}}
+{\footnotesize\ttfamily void config\+\_\+uart (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 218 of file family\+\_\+55xx.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{219 \{}
+\DoxyCodeLine{220     \textcolor{comment}{// Configure UART C (Depends on pclk input, Expects 150MHz PCLK)}}
+\DoxyCodeLine{221     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>CCSCTL.USCMODE = 1;                                \textcolor{comment}{// UART mode}}
+\DoxyCodeLine{222     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___u_a_r_t_ga5f60b0330989731886d4876b5a927cd4}{pac5xxx\_uart\_config\_LCR2}}(\mbox{\hyperlink{pac5xxx_8h_a331f2b57590d4f293a8b0e8367602a8c}{PAC55XX\_UARTC}}, }
+\DoxyCodeLine{223                              \mbox{\hyperlink{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391ea5d542a882fc1c7a2a1d4d92110e06ee2}{UARTLCR\_WL\_BPC\_8}},}
+\DoxyCodeLine{224                              \mbox{\hyperlink{pac5xxx__uart_8h_a2da3b7b812ea657ba4c2a855e7d03de4a44b3bfbe90aebe2b23227f5c011f41cc}{UART\_STOP\_BITS\_1}},}
+\DoxyCodeLine{225                              \mbox{\hyperlink{pac5xxx__uart_8h_a1158f3630ca209c3df76bfb7b637433ea785e912068b11dfbde5a2a397dd70293}{UART\_PEN\_DISABLE}},}
+\DoxyCodeLine{226                              \mbox{\hyperlink{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857aa455b7d100454a7be7f9e642de4bfcb0}{UART\_PARITY\_FORCE\_STICK\_1}},}
+\DoxyCodeLine{227                              \mbox{\hyperlink{pac5xxx__uart_8h_a5ca6d1a5eb09548491ecf326bd5fb890a147debc9578db4a4ef1f349b05030c3f}{UART\_BRKCTL\_DISABLE}});}
+\DoxyCodeLine{228     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___u_a_r_t_ga0b126eb85a2624a8cdb5bc8272caa87b}{pac5xxx\_uart\_config\_divisor\_latch2}}(\mbox{\hyperlink{pac5xxx_8h_a331f2b57590d4f293a8b0e8367602a8c}{PAC55XX\_UARTC}}, 81);           \textcolor{comment}{// 115kbps = PCLK / (16 * DLR)}}
+\DoxyCodeLine{229     pac5xxx\_uart\_fifo\_enable2(\mbox{\hyperlink{pac5xxx_8h_a331f2b57590d4f293a8b0e8367602a8c}{PAC55XX\_UARTC}}, 1);}
+\DoxyCodeLine{230     pac5xxx\_uart\_rx\_fifo\_reset2(\mbox{\hyperlink{pac5xxx_8h_a331f2b57590d4f293a8b0e8367602a8c}{PAC55XX\_UARTC}});}
+\DoxyCodeLine{231     pac5xxx\_uart\_rx\_fifo\_threshold2(\mbox{\hyperlink{pac5xxx_8h_a331f2b57590d4f293a8b0e8367602a8c}{PAC55XX\_UARTC}}, \mbox{\hyperlink{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413a4e736f9e340ee7c6c16baee1fe23f7a4}{UARTFCR\_TL\_1B}});}
+\DoxyCodeLine{232     pac5xxx\_uart\_tx\_fifo\_threshold2(\mbox{\hyperlink{pac5xxx_8h_a331f2b57590d4f293a8b0e8367602a8c}{PAC55XX\_UARTC}}, \mbox{\hyperlink{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413a4e736f9e340ee7c6c16baee1fe23f7a4}{UARTFCR\_TL\_1B}});}
+\DoxyCodeLine{233     pac5xxx\_uart\_int\_enable\_RDAI2(\mbox{\hyperlink{pac5xxx_8h_a331f2b57590d4f293a8b0e8367602a8c}{PAC55XX\_UARTC}}, 1); }
+\DoxyCodeLine{234     pac5xxx\_uart\_int\_enable\_THREI2(\mbox{\hyperlink{pac5xxx_8h_a331f2b57590d4f293a8b0e8367602a8c}{PAC55XX\_UARTC}}, 1);}
+\DoxyCodeLine{235     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___u_a_r_t_ga8e174fed1417ca827ff7e764e7e45f32}{pac5xxx\_uart\_io\_config2}}();}
+\DoxyCodeLine{236     \mbox{\hyperlink{group___c_m_s_i_s___core___n_v_i_c_functions_ga332e10ef9605dc6eb10b9e14511930f8}{NVIC\_ClearPendingIRQ}}(\mbox{\hyperlink{pac5xxx_8h_a666eb0caeb12ec0e281415592ae89083a4a00fd792fa0ee62a9d7163c4118c023}{USARTC\_IRQn}});    }
+\DoxyCodeLine{237     \mbox{\hyperlink{group___c_m_s_i_s___core___n_v_i_c_functions_ga2305cbd44aaad792e3a4e538bdaf14f9}{NVIC\_SetPriority}}(\mbox{\hyperlink{pac5xxx_8h_a666eb0caeb12ec0e281415592ae89083a4a00fd792fa0ee62a9d7163c4118c023}{USARTC\_IRQn}},3);}
+\DoxyCodeLine{238     \mbox{\hyperlink{group___c_m_s_i_s___core___n_v_i_c_functions_ga3349f2e3580d7ce22d6530b7294e5921}{NVIC\_EnableIRQ}}(\mbox{\hyperlink{pac5xxx_8h_a666eb0caeb12ec0e281415592ae89083a4a00fd792fa0ee62a9d7163c4118c023}{USARTC\_IRQn}});}
+\DoxyCodeLine{239 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C55\+X\+X\+\_\+\+S\+CC, P\+A\+C55\+X\+X\+\_\+\+U\+A\+R\+TC, pac5xxx\+\_\+uart\+\_\+config\+\_\+divisor\+\_\+latch2(), pac5xxx\+\_\+uart\+\_\+config\+\_\+\+L\+C\+R2(), U\+A\+R\+T\+\_\+\+B\+R\+K\+C\+T\+L\+\_\+\+D\+I\+S\+A\+B\+LE, U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+F\+O\+R\+C\+E\+\_\+\+S\+T\+I\+C\+K\+\_\+1, U\+A\+R\+T\+\_\+\+P\+E\+N\+\_\+\+D\+I\+S\+A\+B\+LE, U\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+1, and U\+A\+R\+T\+L\+C\+R\+\_\+\+W\+L\+\_\+\+B\+P\+C\+\_\+8.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{family__55xx_8c_a2f2f0a30f21c222cfb9846f79c9ccc5c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{family__55xx_8c_a1f9a46bd9153cadecc7823383f4d1220}\label{family__55xx_8c_a1f9a46bd9153cadecc7823383f4d1220}} 
+\index{family\_55xx.c@{family\_55xx.c}!configure\_adc\_emux\_engine@{configure\_adc\_emux\_engine}}
+\index{configure\_adc\_emux\_engine@{configure\_adc\_emux\_engine}!family\_55xx.c@{family\_55xx.c}}
+\doxysubsubsection{\texorpdfstring{configure\_adc\_emux\_engine()}{configure\_adc\_emux\_engine()}}
+{\footnotesize\ttfamily void configure\+\_\+adc\+\_\+emux\+\_\+engine (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 147 of file family\+\_\+55xx.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{148 \{}
+\DoxyCodeLine{149     \textcolor{comment}{// EMUX configuration}}
+\DoxyCodeLine{150     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga75617cb8e17879fcb4414d2164359757}{pac5xxx\_adc\_config\_emux\_io}}();}
+\DoxyCodeLine{151 }
+\DoxyCodeLine{152     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga1a7c8875ca56a19653d333362e9de2f4}{pac5xxx\_adc\_emux\_config}}(\mbox{\hyperlink{pac5xxx__adc_8h_a80b075752bc961a8ec9991cc6a25a620a716cb649ee42c67ef1a00f771faca02c}{ADCEMUXCTL\_DTSE\_SEQ}}, \mbox{\hyperlink{pac5xxx__adc_8h_aea31f7f802c79c229b6a1a80252c6abda93402d54cfac094dc2d1cd567bb890bd}{ADCEMUXCTL\_EMUXDIV\_DIV16}});}
+\DoxyCodeLine{153     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_gab25d0ce3bf393a9043ee4d177f5c5829}{pac5xxx\_adc\_config}}(\mbox{\hyperlink{pac5xxx__adc_8h_a94d68ef0e76c1f35f59801a9cf63e2daac976fdbf670b540f7371d53ca0957ae4}{ADCCTL\_MODE\_DTSE}}, \mbox{\hyperlink{pac5xxx__adc_8h_a053fdacea0f0d76b7586daa521fc988da63e4267c8eff3e696309ddfd54c289b2}{ADCCTL\_CLKDIV\_DIV8}}, 0);}
+\DoxyCodeLine{154 \}}
+
+\end{DoxyCode}
+
+
+References A\+D\+C\+C\+T\+L\+\_\+\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V8, A\+D\+C\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+D\+T\+SE, A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+D\+T\+S\+E\+\_\+\+S\+EQ, A\+D\+C\+E\+M\+U\+X\+C\+T\+L\+\_\+\+E\+M\+U\+X\+D\+I\+V\+\_\+\+D\+I\+V16, pac5xxx\+\_\+adc\+\_\+config(), pac5xxx\+\_\+adc\+\_\+config\+\_\+emux\+\_\+io(), and pac5xxx\+\_\+adc\+\_\+emux\+\_\+config().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{family__55xx_8c_a1f9a46bd9153cadecc7823383f4d1220_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{family__55xx_8c_a342e538d81a8a976fe9ea32e10b02a15}\label{family__55xx_8c_a342e538d81a8a976fe9ea32e10b02a15}} 
+\index{family\_55xx.c@{family\_55xx.c}!configure\_cafe\_fault\_interrupt@{configure\_cafe\_fault\_interrupt}}
+\index{configure\_cafe\_fault\_interrupt@{configure\_cafe\_fault\_interrupt}!family\_55xx.c@{family\_55xx.c}}
+\doxysubsubsection{\texorpdfstring{configure\_cafe\_fault\_interrupt()}{configure\_cafe\_fault\_interrupt()}}
+{\footnotesize\ttfamily void configure\+\_\+cafe\+\_\+fault\+\_\+interrupt (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 94 of file family\+\_\+55xx.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{95 \{    }
+\DoxyCodeLine{96     \textcolor{comment}{// Configure nIRQ1, CAFE fault interrupt, as digital input -\/ active low}}
+\DoxyCodeLine{97     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>PAMUXSEL.w \&= 0x0FFFFFFF;      \textcolor{comment}{// PA7 as input for n1RQ1, over current interrupt }}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{comment}{//    PAC55XX\_GPIOA-\/>CLKSYNC.P7 = 1;}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___g_p_i_o_gab66dd98ce2dffe2a574b4875a7728f2d}{pac5xxx\_gpio\_configure\_interrupt\_a}}(\mbox{\hyperlink{family__55xx_8c_a5280cd9da9440d71c2f9d73071efdfe4}{NIRQ1\_PIN\_MASK}}, 0);}
+\DoxyCodeLine{102 \textcolor{preprocessor}{    \#ifdef ENABLE\_CBC\_CURRENT\_LIMIT}}
+\DoxyCodeLine{103         \mbox{\hyperlink{group___c_m_s_i_s___core___n_v_i_c_functions_ga2305cbd44aaad792e3a4e538bdaf14f9}{NVIC\_SetPriority}}(\mbox{\hyperlink{pac5xxx_8h_a666eb0caeb12ec0e281415592ae89083aee73f326e3c2f67a7536c3526ed7cc7f}{GpioA\_IRQn}},0);}
+\DoxyCodeLine{104 \textcolor{preprocessor}{    \#else}}
+\DoxyCodeLine{105         \mbox{\hyperlink{group___c_m_s_i_s___core___n_v_i_c_functions_ga2305cbd44aaad792e3a4e538bdaf14f9}{NVIC\_SetPriority}}(\mbox{\hyperlink{pac5xxx_8h_a666eb0caeb12ec0e281415592ae89083aee73f326e3c2f67a7536c3526ed7cc7f}{GpioA\_IRQn}},3);}
+\DoxyCodeLine{106 \textcolor{preprocessor}{    \#endif}}
+\DoxyCodeLine{107 \}}
+
+\end{DoxyCode}
+
+
+References Gpio\+A\+\_\+\+I\+R\+Qn, N\+I\+R\+Q1\+\_\+\+P\+I\+N\+\_\+\+M\+A\+SK, N\+V\+I\+C\+\_\+\+Set\+Priority(), P\+A\+C55\+X\+X\+\_\+\+S\+CC, and pac5xxx\+\_\+gpio\+\_\+configure\+\_\+interrupt\+\_\+a().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{family__55xx_8c_a342e538d81a8a976fe9ea32e10b02a15_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{family__55xx_8c_aee589939154360b7d27f88a7a5bf1ca7}\label{family__55xx_8c_aee589939154360b7d27f88a7a5bf1ca7}} 
+\index{family\_55xx.c@{family\_55xx.c}!configure\_foc\_timer@{configure\_foc\_timer}}
+\index{configure\_foc\_timer@{configure\_foc\_timer}!family\_55xx.c@{family\_55xx.c}}
+\doxysubsubsection{\texorpdfstring{configure\_foc\_timer()}{configure\_foc\_timer()}}
+{\footnotesize\ttfamily void configure\+\_\+foc\+\_\+timer (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 109 of file family\+\_\+55xx.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{110 \{}
+\DoxyCodeLine{111     \textcolor{comment}{// Configure Timer A Controls}}
+\DoxyCodeLine{112     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga90647c7abf592b1dc85ce89754eb157b}{pac5xxx\_timer\_clock\_config}}(\mbox{\hyperlink{device__5523_8h_abf19219ee118d4028c0bdc78a30f4ab6}{FOC\_PWM\_Timer}}, \mbox{\hyperlink{pac5xxx__timers_8h_ad8a01a242d83603e1631d0652ab2aff3adaa3ff4704f1ba94f4dc8b6eb12f7705}{TXCTL\_CS\_ACLK}}, \mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87bafa9d7d73c85f945888845de9627ae86e}{TXCTL\_PS\_DIV1}});                           \textcolor{comment}{// Configure timer clock input for ACLK, /1 divider}}
+\DoxyCodeLine{113     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga477610d3b23d0c368c787b57ccd4fbb7}{pac5xxx\_timer\_base\_config}}(\mbox{\hyperlink{device__5523_8h_abf19219ee118d4028c0bdc78a30f4ab6}{FOC\_PWM\_Timer}}, motor.control.motor\_period\_ticks, 0, \mbox{\hyperlink{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079a99407b6b2602f4e92948eb3ae3ece866}{TxCTL\_MODE\_UPDOWN}}, 0);   \textcolor{comment}{// Enable base timer}}
+\DoxyCodeLine{114     \textcolor{comment}{// Update duty cycle when TACTR counts from 1 to 0}}
+\DoxyCodeLine{115     \mbox{\hyperlink{device__5523_8h_a738d6123b808d5a104af4fa940510728}{FOC\_PWM\_Timer\_Ptr}}-\/>CTL.PRDLATCH = 0;}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117     \textcolor{comment}{// Configure Dead time generators}}
+\DoxyCodeLine{118     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga68efe7c061f6cf627576aa9a7afb5cd2}{pac5xxx\_dtg\_config2}}(\&(\mbox{\hyperlink{device__5523_8h_a738d6123b808d5a104af4fa940510728}{FOC\_PWM\_Timer\_Ptr}}-\/>DTGCTL0), MOTOR1\_LED\_TICKS, MOTOR1\_TED\_TICKS);     \textcolor{comment}{// Configure DTGA0 for phase U}}
+\DoxyCodeLine{119     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga68efe7c061f6cf627576aa9a7afb5cd2}{pac5xxx\_dtg\_config2}}(\&(\mbox{\hyperlink{device__5523_8h_a738d6123b808d5a104af4fa940510728}{FOC\_PWM\_Timer\_Ptr}}-\/>DTGCTL1), MOTOR1\_LED\_TICKS, MOTOR1\_TED\_TICKS);     \textcolor{comment}{// Configure DTGA1 for phase V}}
+\DoxyCodeLine{120     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga68efe7c061f6cf627576aa9a7afb5cd2}{pac5xxx\_dtg\_config2}}(\&(\mbox{\hyperlink{device__5523_8h_a738d6123b808d5a104af4fa940510728}{FOC\_PWM\_Timer\_Ptr}}-\/>DTGCTL2), MOTOR1\_LED\_TICKS, MOTOR1\_TED\_TICKS);     \textcolor{comment}{// Configure DTGA2 for phase W}}
+\DoxyCodeLine{121 \}}
+
+\end{DoxyCode}
+
+
+References F\+O\+C\+\_\+\+P\+W\+M\+\_\+\+Timer, F\+O\+C\+\_\+\+P\+W\+M\+\_\+\+Timer\+\_\+\+Ptr, pac5xxx\+\_\+dtg\+\_\+config2(), pac5xxx\+\_\+timer\+\_\+base\+\_\+config(), pac5xxx\+\_\+timer\+\_\+clock\+\_\+config(), T\+X\+C\+T\+L\+\_\+\+C\+S\+\_\+\+A\+C\+LK, Tx\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+U\+P\+D\+O\+WN, and T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V1.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{family__55xx_8c_aee589939154360b7d27f88a7a5bf1ca7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{family__55xx_8c_a26922e7f9dd8a143f6dde86bdf3e5a1f}\label{family__55xx_8c_a26922e7f9dd8a143f6dde86bdf3e5a1f}} 
+\index{family\_55xx.c@{family\_55xx.c}!configure\_pwm\_dac@{configure\_pwm\_dac}}
+\index{configure\_pwm\_dac@{configure\_pwm\_dac}!family\_55xx.c@{family\_55xx.c}}
+\doxysubsubsection{\texorpdfstring{configure\_pwm\_dac()}{configure\_pwm\_dac()}}
+{\footnotesize\ttfamily void configure\+\_\+pwm\+\_\+dac (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 123 of file family\+\_\+55xx.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{124 \{}
+\DoxyCodeLine{125 \textcolor{preprocessor}{\#ifdef ENABLE\_DEBUG\_PWMDAC }}
+\DoxyCodeLine{126     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga90647c7abf592b1dc85ce89754eb157b}{pac5xxx\_timer\_clock\_config}}(\mbox{\hyperlink{device__5523_8h_a862f24cd7894326e555c4c34c79f1603}{FOC\_DAC\_Timer}}, \mbox{\hyperlink{pac5xxx__timers_8h_ad8a01a242d83603e1631d0652ab2aff3adaa3ff4704f1ba94f4dc8b6eb12f7705}{TXCTL\_CS\_ACLK}}, \mbox{\hyperlink{pac5xxx__timers_8h_a42fc532590124b41658bbd030c54b87bafa9d7d73c85f945888845de9627ae86e}{TXCTL\_PS\_DIV1}});                  \textcolor{comment}{// Configure timer clock input for ACLK, /1 divider}}
+\DoxyCodeLine{127     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_ga477610d3b23d0c368c787b57ccd4fbb7}{pac5xxx\_timer\_base\_config}}(\mbox{\hyperlink{device__5523_8h_a862f24cd7894326e555c4c34c79f1603}{FOC\_DAC\_Timer}}, PWMDAC\_PERIOD\_TICKS, 0, \mbox{\hyperlink{pac5xxx__timers_8h_ac24f181e6d08a62b7663870f61059079a99407b6b2602f4e92948eb3ae3ece866}{TxCTL\_MODE\_UPDOWN}}, 0);   \textcolor{comment}{// Enable base timer}}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129     \textcolor{keywordflow}{switch} (\mbox{\hyperlink{device__5523_8h_a862f24cd7894326e555c4c34c79f1603}{FOC\_DAC\_Timer}})}
+\DoxyCodeLine{130     \{}
+\DoxyCodeLine{131         \textcolor{keywordflow}{case} \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a3240360e2fe7977664e0942ec716863b}{TimerB}}:}
+\DoxyCodeLine{132             pac5xxx\_timer\_b\_ccctr0\_value\_set(PWMDAC\_PERIOD\_TICKS >> 1);}
+\DoxyCodeLine{133             pac5xxx\_timer\_b\_ccctr1\_value\_set(PWMDAC\_PERIOD\_TICKS >> 1);}
+\DoxyCodeLine{134             pac5xxx\_timer\_b\_ccctr2\_value\_set(PWMDAC\_PERIOD\_TICKS >> 1);}
+\DoxyCodeLine{135             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{136         \textcolor{keywordflow}{case} \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___timer_gga810f094890ec42303bad6850e0f779c5a03dad59a44f48b5826e00e09bc1a499d}{TimerC}}:}
+\DoxyCodeLine{137             pac5xxx\_timer\_c\_ccctr4\_value\_set(PWMDAC\_PERIOD\_TICKS >> 1);}
+\DoxyCodeLine{138             pac5xxx\_timer\_c\_ccctr5\_value\_set(PWMDAC\_PERIOD\_TICKS >> 1);}
+\DoxyCodeLine{139             pac5xxx\_timer\_c\_ccctr6\_value\_set(PWMDAC\_PERIOD\_TICKS >> 1);}
+\DoxyCodeLine{140             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{141         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{142             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{143     \}}
+\DoxyCodeLine{144 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{145 \}}
+
+\end{DoxyCode}
+
+
+References F\+O\+C\+\_\+\+D\+A\+C\+\_\+\+Timer, pac5xxx\+\_\+timer\+\_\+base\+\_\+config(), pac5xxx\+\_\+timer\+\_\+clock\+\_\+config(), TimerB, T\+X\+C\+T\+L\+\_\+\+C\+S\+\_\+\+A\+C\+LK, Tx\+C\+T\+L\+\_\+\+M\+O\+D\+E\+\_\+\+U\+P\+D\+O\+WN, and T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V1.
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{family__55xx_8c_a26922e7f9dd8a143f6dde86bdf3e5a1f_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{family__55xx_8c_afceb890a6ab9be73cc5481369538c705}\label{family__55xx_8c_afceb890a6ab9be73cc5481369538c705}} 
+\index{family\_55xx.c@{family\_55xx.c}!init\_system@{init\_system}}
+\index{init\_system@{init\_system}!family\_55xx.c@{family\_55xx.c}}
+\doxysubsubsection{\texorpdfstring{init\_system()}{init\_system()}}
+{\footnotesize\ttfamily void init\+\_\+system (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 49 of file family\+\_\+55xx.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{50 \{}
+\DoxyCodeLine{51     \textcolor{comment}{// Set Flash Lock to allow write access to MEMCTL register for configuring clocks}}
+\DoxyCodeLine{52     \mbox{\hyperlink{pac5xxx_8h_a4ff366b5eb03bad73ae9e5aff4ccad2e}{PAC55XX\_MEMCTL}}-\/>FLASHLOCK = \mbox{\hyperlink{pac5xxx__memory_8h_a72fa4c30977090817fc17e2063ea2740}{FLASH\_LOCK\_ALLOW\_WRITE\_MEMCTL}};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{comment}{// Set safe clock defaults}}
+\DoxyCodeLine{55     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>CCSCTL.FRCLKMUXSEL = \mbox{\hyperlink{pac5xxx__scc_8h_a5edb53614c1db747463ad78c98cd7c6fac767dd29c2fb05b18dffcd1ff2a23862}{CCSCTL\_CLKIN\_ROSC}};}
+\DoxyCodeLine{56     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>CCSCTL.SCLKMUXSEL = \mbox{\hyperlink{pac5xxx__scc_8h_a1dbe85f74b10c0d422d9a74500d7bd4fa6400103213893afba76523da8bc7d163}{CCSCTL\_SCLK\_FRCLK}};}
+\DoxyCodeLine{57     \mbox{\hyperlink{pac5xxx_8h_a4ff366b5eb03bad73ae9e5aff4ccad2e}{PAC55XX\_MEMCTL}}-\/>MEMCTL.MCLKSEL = \mbox{\hyperlink{pac5xxx__memory_8h_aff2a39bd39a8a05fd115a1a27a30770da7f4cb852e6cdea76cd8111c98cd4ee69}{MEMCTL\_MCLK\_ROSCCLK}};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{comment}{// Turn on Flache Cache}}
+\DoxyCodeLine{60     \mbox{\hyperlink{pac5xxx_8h_a4ff366b5eb03bad73ae9e5aff4ccad2e}{PAC55XX\_MEMCTL}}-\/>MEMCTL.CACHEDIS = 0;                        \textcolor{comment}{// enable Flash CACHE}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{comment}{// Select 4 MHz CLKREF for Free Running Clock FRCLK}}
+\DoxyCodeLine{63     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>CCSCTL.FRCLKMUXSEL = \mbox{\hyperlink{pac5xxx__scc_8h_a5edb53614c1db747463ad78c98cd7c6fa7e2f9b8c56ed02668cdc497296739ce4}{CCSCTL\_CLKIN\_CLKREF}};}
+\DoxyCodeLine{64  }
+\DoxyCodeLine{65     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___system_gae1b6cdc389194cb026984ef5d8a5077e}{pac5xxx\_sys\_pll\_config\_enable}}(4, 300, 0);                   \textcolor{comment}{// PLLCLK = 300 MHz = (4/4 * 300) /1}}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{comment}{// Configure SCLK=PLLCLK=300 MHz, HCLK=150 MHz, PCLK=150 MHz, ACLK=50 MHz and WaitStates;  Use default PCLKDIV=1}}
+\DoxyCodeLine{68     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>CCSCTL.HCLKDIV = \mbox{\hyperlink{pac5xxx__scc_8h_ab7e794e976add4a98145bc0033aa5c34a3874669c405364a6d9af0673aecc77f5}{CCSCTL\_HCLKDIV\_DIV2}};          \textcolor{comment}{// HCLK = 150 MHz = SCLK/2; when SCLK = PLLCLK}}
+\DoxyCodeLine{69     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>CCSCTL.ACLKDIV = \mbox{\hyperlink{pac5xxx__scc_8h_aa2b71eb9422b5346cb140329eab0e99da248093179b9da9a6f934c5011eea62ad}{CCSCTL\_ACLKDIV\_DIV6}};          \textcolor{comment}{// ACLK =  50 MHz = SCLK/6; when SCLK = PLLCLK}}
+\DoxyCodeLine{70     \mbox{\hyperlink{pac5xxx_8h_a4ff366b5eb03bad73ae9e5aff4ccad2e}{PAC55XX\_MEMCTL}}-\/>MEMCTL.WSTATE = 5 + 1;                      \textcolor{comment}{// Flash = 150/25 = 6 clocks = 5 WS; So, need 5 + 1 Extra WS}}
+\DoxyCodeLine{71     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>CCSCTL.SCLKMUXSEL = \mbox{\hyperlink{pac5xxx__scc_8h_a1dbe85f74b10c0d422d9a74500d7bd4fa58315f11d6d8c0fb78d62d1512d426b9}{CCSCTL\_SCLK\_PLLCLK}};        \textcolor{comment}{// SCLK = PLLCLK}}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{comment}{// Set MCLK for Flash write \& erase in addition to read}}
+\DoxyCodeLine{74     \mbox{\hyperlink{pac5xxx_8h_a4ff366b5eb03bad73ae9e5aff4ccad2e}{PAC55XX\_MEMCTL}}-\/>MEMCTL.MCLKDIV = \mbox{\hyperlink{pac5xxx__memory_8h_aa3217f81c72f497fa4b4d43e1a3b3688ab12810c3248706af8cc303bff6bad00e}{MEMCTL\_MCLK\_DIV5}};          \textcolor{comment}{// MCLK will = HCLK/5 when MCLKSEL = MEMCTL\_MCLK\_HCLKDIV}}
+\DoxyCodeLine{75     \mbox{\hyperlink{pac5xxx_8h_a4ff366b5eb03bad73ae9e5aff4ccad2e}{PAC55XX\_MEMCTL}}-\/>MEMCTL.MCLKSEL = \mbox{\hyperlink{pac5xxx__memory_8h_aff2a39bd39a8a05fd115a1a27a30770da2c28bf995491f1f3c2505d0e669d2f86}{MEMCTL\_MCLK\_HCLKDIV}};       \textcolor{comment}{// MCLK = HCLK/5 = 30 MHz; allows reading and writing of Flash}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \mbox{\hyperlink{pac5xxx_8h_a4ff366b5eb03bad73ae9e5aff4ccad2e}{PAC55XX\_MEMCTL}}-\/>FLASHLOCK = 0;                              \textcolor{comment}{// Disallow write access to MEMCTL}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{comment}{// Enable GPIO Input clock synchronization; should always be enabled, especially when using GPIO edge based interrupts}}
+\DoxyCodeLine{80     \mbox{\hyperlink{pac5xxx_8h_aecf1334ed01bcde25e1e48157f4b4dc0}{PAC55XX\_GPIOA}}-\/>CLKSYNC.w = 0xFF;}
+\DoxyCodeLine{81     \mbox{\hyperlink{pac5xxx_8h_a405a9efdeba62160dcc74ef51df4291f}{PAC55XX\_GPIOB}}-\/>CLKSYNC.w = 0xFF;}
+\DoxyCodeLine{82     \mbox{\hyperlink{pac5xxx_8h_a309c6932851abfe91b7373d7ebdf13f1}{PAC55XX\_GPIOC}}-\/>CLKSYNC.w = 0xFF;}
+\DoxyCodeLine{83     \mbox{\hyperlink{pac5xxx_8h_a0eca33af40cf10f57f9f4d3f42b153c2}{PAC55XX\_GPIOD}}-\/>CLKSYNC.w = 0xFF;}
+\DoxyCodeLine{84     \mbox{\hyperlink{pac5xxx_8h_a51ce743cd2ecdabe8777a4edae318c9f}{PAC55XX\_GPIOE}}-\/>CLKSYNC.w = 0xFF;}
+\DoxyCodeLine{85     \mbox{\hyperlink{pac5xxx_8h_a23accd5854985e271a41087026cf89ae}{PAC55XX\_GPIOF}}-\/>CLKSYNC.w = 0xFF;}
+\DoxyCodeLine{86     \mbox{\hyperlink{pac5xxx_8h_a56dc13986e72cd76248814729c54600a}{PAC55XX\_GPIOG}}-\/>CLKSYNC.w = 0xFF;}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#ifdef ENABLE\_FLASH\_CRC\_TEST}}
+\DoxyCodeLine{89     \textcolor{comment}{// Set USARTC to UART mode for scratch pad}}
+\DoxyCodeLine{90     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>CCSCTL.USCMODE = 1;                            \textcolor{comment}{// UART mode}}
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{92 \}}
+
+\end{DoxyCode}
+
+
+References C\+C\+S\+C\+T\+L\+\_\+\+A\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V6, C\+C\+S\+C\+T\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+C\+L\+K\+R\+EF, C\+C\+S\+C\+T\+L\+\_\+\+C\+L\+K\+I\+N\+\_\+\+R\+O\+SC, C\+C\+S\+C\+T\+L\+\_\+\+H\+C\+L\+K\+D\+I\+V\+\_\+\+D\+I\+V2, C\+C\+S\+C\+T\+L\+\_\+\+S\+C\+L\+K\+\_\+\+F\+R\+C\+LK, C\+C\+S\+C\+T\+L\+\_\+\+S\+C\+L\+K\+\_\+\+P\+L\+L\+C\+LK, F\+L\+A\+S\+H\+\_\+\+L\+O\+C\+K\+\_\+\+A\+L\+L\+O\+W\+\_\+\+W\+R\+I\+T\+E\+\_\+\+M\+E\+M\+C\+TL, M\+E\+M\+C\+T\+L\+\_\+\+M\+C\+L\+K\+\_\+\+D\+I\+V5, M\+E\+M\+C\+T\+L\+\_\+\+M\+C\+L\+K\+\_\+\+H\+C\+L\+K\+D\+IV, M\+E\+M\+C\+T\+L\+\_\+\+M\+C\+L\+K\+\_\+\+R\+O\+S\+C\+C\+LK, P\+A\+C55\+X\+X\+\_\+\+G\+P\+I\+OA, P\+A\+C55\+X\+X\+\_\+\+G\+P\+I\+OB, P\+A\+C55\+X\+X\+\_\+\+G\+P\+I\+OC, P\+A\+C55\+X\+X\+\_\+\+G\+P\+I\+OD, P\+A\+C55\+X\+X\+\_\+\+G\+P\+I\+OE, P\+A\+C55\+X\+X\+\_\+\+G\+P\+I\+OF, P\+A\+C55\+X\+X\+\_\+\+G\+P\+I\+OG, P\+A\+C55\+X\+X\+\_\+\+M\+E\+M\+C\+TL, P\+A\+C55\+X\+X\+\_\+\+S\+CC, and pac5xxx\+\_\+sys\+\_\+pll\+\_\+config\+\_\+enable().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{family__55xx_8c_afceb890a6ab9be73cc5481369538c705_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{family__55xx_8c_aa5cf91153d9801749819abb5a5c7bfd7}\label{family__55xx_8c_aa5cf91153d9801749819abb5a5c7bfd7}} 
+\index{family\_55xx.c@{family\_55xx.c}!uart\_scratch\_read@{uart\_scratch\_read}}
+\index{uart\_scratch\_read@{uart\_scratch\_read}!family\_55xx.c@{family\_55xx.c}}
+\doxysubsubsection{\texorpdfstring{uart\_scratch\_read()}{uart\_scratch\_read()}}
+{\footnotesize\ttfamily int32\+\_\+t uart\+\_\+scratch\+\_\+read (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 249 of file family\+\_\+55xx.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{250 \{}
+\DoxyCodeLine{251     \textcolor{comment}{// Return the value stored in the UART Scratch Pad Register}}
+\DoxyCodeLine{252     \textcolor{keywordflow}{return} \mbox{\hyperlink{pac5xxx_8h_a331f2b57590d4f293a8b0e8367602a8c}{PAC55XX\_UARTC}}-\/>SCR.PAD;}
+\DoxyCodeLine{253 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C55\+X\+X\+\_\+\+U\+A\+R\+TC.
+
+\mbox{\Hypertarget{family__55xx_8c_a27dd8e4f1545e337699791b88547cf34}\label{family__55xx_8c_a27dd8e4f1545e337699791b88547cf34}} 
+\index{family\_55xx.c@{family\_55xx.c}!uart\_scratch\_write@{uart\_scratch\_write}}
+\index{uart\_scratch\_write@{uart\_scratch\_write}!family\_55xx.c@{family\_55xx.c}}
+\doxysubsubsection{\texorpdfstring{uart\_scratch\_write()}{uart\_scratch\_write()}}
+{\footnotesize\ttfamily void uart\+\_\+scratch\+\_\+write (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 243 of file family\+\_\+55xx.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{244 \{}
+\DoxyCodeLine{245     \textcolor{comment}{// Set the UART Scratch Pad Register value}}
+\DoxyCodeLine{246     \mbox{\hyperlink{pac5xxx_8h_a331f2b57590d4f293a8b0e8367602a8c}{PAC55XX\_UARTC}}-\/>SCR.PAD = value;}
+\DoxyCodeLine{247 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C55\+X\+X\+\_\+\+U\+A\+R\+TC.
+
+\mbox{\Hypertarget{family__55xx_8c_a62cfe802dd949b93ae131f5b695d975c}\label{family__55xx_8c_a62cfe802dd949b93ae131f5b695d975c}} 
+\index{family\_55xx.c@{family\_55xx.c}!USARTC\_IRQHandler@{USARTC\_IRQHandler}}
+\index{USARTC\_IRQHandler@{USARTC\_IRQHandler}!family\_55xx.c@{family\_55xx.c}}
+\doxysubsubsection{\texorpdfstring{USARTC\_IRQHandler()}{USARTC\_IRQHandler()}}
+{\footnotesize\ttfamily void U\+S\+A\+R\+T\+C\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 168 of file family\+\_\+55xx.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{169 \{}
+\DoxyCodeLine{170     uint8\_t int\_type;}
+\DoxyCodeLine{171     uint8\_t data;}
+\DoxyCodeLine{172     \textcolor{keyword}{volatile} int32\_t var;}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174     \textcolor{keywordflow}{for} (var = 0; var < 6; ++var)}
+\DoxyCodeLine{175     \{}
+\DoxyCodeLine{176         \_\_NOP();}
+\DoxyCodeLine{177     \}}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179     int\_type = pac5xxx\_uart\_interrupt\_identification2(\mbox{\hyperlink{pac5xxx_8h_a331f2b57590d4f293a8b0e8367602a8c}{PAC55XX\_UARTC}});}
+\DoxyCodeLine{180 }
+\DoxyCodeLine{181     \textcolor{keywordflow}{if} (int\_type == \mbox{\hyperlink{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73fa187347e5c00e17b337f9c0565fcb67ab}{UARTIIR\_INTID\_TX\_HOLD\_EMPTY}})}
+\DoxyCodeLine{182     \{}
+\DoxyCodeLine{183         pac5xxx\_uart\_write2(\mbox{\hyperlink{pac5xxx_8h_a331f2b57590d4f293a8b0e8367602a8c}{PAC55XX\_UARTC}}, uart\_tx\_buffer[uart\_tx\_byte\_count++]);}
+\DoxyCodeLine{184 }
+\DoxyCodeLine{185         \textcolor{keywordflow}{if} (uart\_tx\_byte\_count == UART\_MESSAGE\_SIZE)                \textcolor{comment}{// Last byte of message to transmit}}
+\DoxyCodeLine{186         \{}
+\DoxyCodeLine{187             pac5xxx\_uart\_int\_enable\_THREI2(\mbox{\hyperlink{pac5xxx_8h_a331f2b57590d4f293a8b0e8367602a8c}{PAC55XX\_UARTC}}, 0);        \textcolor{comment}{// Disable transmit interrupt}}
+\DoxyCodeLine{188             pac5xxx\_uart\_int\_enable\_RDAI2(\mbox{\hyperlink{pac5xxx_8h_a331f2b57590d4f293a8b0e8367602a8c}{PAC55XX\_UARTC}}, 1);         \textcolor{comment}{// Enable receive data interrupt for next incoming message}}
+\DoxyCodeLine{189             uart\_tx\_byte\_count = 0;}
+\DoxyCodeLine{190         \}}
+\DoxyCodeLine{191     \}}
+\DoxyCodeLine{192     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{193     \{}
+\DoxyCodeLine{194         data = pac5xxx\_uart\_read2(\mbox{\hyperlink{pac5xxx_8h_a331f2b57590d4f293a8b0e8367602a8c}{PAC55XX\_UARTC}});}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196         \textcolor{keywordflow}{if} (uart\_rx\_byte\_count == 0)                                \textcolor{comment}{// For the first byte received, the start byte must be 0x89}}
+\DoxyCodeLine{197         \{}
+\DoxyCodeLine{198             \textcolor{keywordflow}{if} (data != 0x89)}
+\DoxyCodeLine{199                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{200         \}}
+\DoxyCodeLine{201 }
+\DoxyCodeLine{202         uart\_rx\_buffer[uart\_rx\_byte\_count++] = data;                \textcolor{comment}{// Store data in buffer and increment index}}
+\DoxyCodeLine{203 }
+\DoxyCodeLine{204         \textcolor{keywordflow}{if} (uart\_rx\_byte\_count == UART\_MESSAGE\_SIZE)                \textcolor{comment}{// Received all bytes of message}}
+\DoxyCodeLine{205         \{}
+\DoxyCodeLine{206             uart\_message\_process();                                 \textcolor{comment}{// Process incoming message in uart\_rx\_buffer and put response in uart\_tx\_buffer}}
+\DoxyCodeLine{207             uart\_rx\_byte\_count = 0;}
+\DoxyCodeLine{208             uart\_tx\_byte\_count = 0;}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210             pac5xxx\_uart\_int\_enable\_RDAI2(\mbox{\hyperlink{pac5xxx_8h_a331f2b57590d4f293a8b0e8367602a8c}{PAC55XX\_UARTC}}, 0);          \textcolor{comment}{// Disable receive data interrupt  }}
+\DoxyCodeLine{211             pac5xxx\_uart\_rx\_fifo\_reset2(\mbox{\hyperlink{pac5xxx_8h_a331f2b57590d4f293a8b0e8367602a8c}{PAC55XX\_UARTC}});               \textcolor{comment}{// Reset RX FIFO, to clear RDAI interrupt}}
+\DoxyCodeLine{212             pac5xxx\_uart\_int\_enable\_THREI2(\mbox{\hyperlink{pac5xxx_8h_a331f2b57590d4f293a8b0e8367602a8c}{PAC55XX\_UARTC}}, 1);         \textcolor{comment}{// Enable transmit intrerrupt to send reponse to host                        }}
+\DoxyCodeLine{213         \}}
+\DoxyCodeLine{214     \}}
+\DoxyCodeLine{215 \}}
+
+\end{DoxyCode}

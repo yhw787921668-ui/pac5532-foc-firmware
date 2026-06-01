@@ -1,0 +1,393 @@
+\hypertarget{atune__libfuncs_8h}{}\doxysection{pac\+\_\+foc/src/features/autotune/atune\+\_\+libfuncs.h File Reference}
+\label{atune__libfuncs_8h}\index{pac\_foc/src/features/autotune/atune\_libfuncs.h@{pac\_foc/src/features/autotune/atune\_libfuncs.h}}
+
+
+Use for atune lib function definition.  
+
+
+{\ttfamily \#include \char`\"{}pac5xxx.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}atune\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pid.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}control\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}app\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}foc\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mparam\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}state\+\_\+struct.\+h\char`\"{}}\newline
+Include dependency graph for atune\+\_\+libfuncs.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{atune__libfuncs_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{atune__libfuncs_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{atune__libfuncs_8h_a5c18a697c1f395367439fc105788afc3}{mid1\+\_\+process\+\_\+control\+\_\+lib}} (\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$atune\+\_\+ptr, int32\+\_\+t va2mid\+\_\+q14, int32\+\_\+t vb2mid\+\_\+q14, int32\+\_\+t vc2mid\+\_\+q14, int32\+\_\+t ia\+\_\+q14, int32\+\_\+t ib\+\_\+q14, int32\+\_\+t ic\+\_\+q14)
+\begin{DoxyCompactList}\small\item\em Process mid1 control injection process. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{atune__libfuncs_8h_ae11fcc921faa0e47ab1e40d98e3d31c7}{mid1\+\_\+controller}} (\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$atune\+\_\+ptr, \mbox{\hyperlink{struct_struct___app}{Struct\+\_\+\+App}} $\ast$app\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Runh mid1 controller. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{atune__libfuncs_8h_a1d327124f9939aef8e9fc6a62e63dd87}{mid1\+\_\+calc\+\_\+inverter\+\_\+mos}} (\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$atune\+\_\+ptr, int32\+\_\+t dcbus\+\_\+voltage\+\_\+1div\+\_\+q16, int32\+\_\+t v\+\_\+diode\+\_\+q14, int32\+\_\+t i\+\_\+scale\+\_\+q16, int32\+\_\+t rdson\+\_\+q16)
+\begin{DoxyCompactList}\small\item\em Calculate inverter mos compensation parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{atune__libfuncs_8h_abcc597371955923e060f14e360531b87}{mid1\+\_\+calc\+\_\+inverter\+\_\+igbt}} (\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$atune\+\_\+ptr, int32\+\_\+t dcbus\+\_\+voltage\+\_\+1div\+\_\+q16, int32\+\_\+t v\+\_\+diode\+\_\+q14, int32\+\_\+t v\+\_\+ce\+\_\+q14)
+\begin{DoxyCompactList}\small\item\em Calculate inverter bipolar compensation parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{atune__libfuncs_8h_aeebe5127eacb87bc0cfb1a1b8d47b239}{mid1\+\_\+calc\+\_\+ls}} (int32\+\_\+t finj\+\_\+q6, int32\+\_\+t p\+\_\+app\+\_\+sq\+\_\+scaled\+\_\+q40, int32\+\_\+t p\+\_\+real\+\_\+sq\+\_\+scaled\+\_\+q40, int32\+\_\+t i\+\_\+rms\+\_\+sq\+\_\+scaled\+\_\+q28, int32\+\_\+t v\+\_\+scale\+\_\+q16, int32\+\_\+t i\+\_\+scale\+\_\+q16, int32\+\_\+t $\ast$ls\+\_\+q26)
+\begin{DoxyCompactList}\small\item\em Calculate motor coil inductance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{atune__libfuncs_8h_a4312644983d52b1677f4e8ca8e1ef236}{mid1\+\_\+calc\+\_\+rs}} (int32\+\_\+t vdc1\+\_\+scaled\+\_\+q14, int32\+\_\+t vdc2\+\_\+scaled\+\_\+q14, int32\+\_\+t idc1\+\_\+scaled\+\_\+q14, int32\+\_\+t idc2\+\_\+scaled\+\_\+q14, int32\+\_\+t v\+\_\+scale\+\_\+q16, int32\+\_\+t i\+\_\+scale\+\_\+q16, int32\+\_\+t $\ast$rs\+\_\+q16)
+\begin{DoxyCompactList}\small\item\em Calculate motor coil resistance. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{atune__libfuncs_8h_acb04b44da12d9b509358d6e749cb227a}{mid1\+\_\+reset\+\_\+subsm}} (\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$atune\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Reset mid1 sub state machine and variables. \end{DoxyCompactList}\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{atune__libfuncs_8h_ae208d08f42d8c54d67bb75d47f0c5dc8}{mid2\+\_\+process\+\_\+control\+\_\+lib}} (\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$atune\+\_\+ptr, int32\+\_\+t speed\+\_\+scaled\+\_\+q14, int32\+\_\+t vq\+\_\+q14, int32\+\_\+t vd\+\_\+q14, int32\+\_\+t iq\+\_\+q14, int32\+\_\+t angle)
+\begin{DoxyCompactList}\small\item\em Run mid2 process in control. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{atune__libfuncs_8h_a9f95285c7b602d1c9c6b8e38e8d32922}{mid2\+\_\+controller}} (\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$atune\+\_\+ptr, \mbox{\hyperlink{struct_struct___control}{Struct\+\_\+\+Control}} $\ast$control\+\_\+ptr, \mbox{\hyperlink{struct_struct___app}{Struct\+\_\+\+App}} $\ast$app\+\_\+ptr, \mbox{\hyperlink{struct_struct___f_o_c}{Struct\+\_\+\+F\+OC}} $\ast$foc\+\_\+ptr, \mbox{\hyperlink{struct_struct___m_param}{Struct\+\_\+\+M\+Param}} $\ast$mparam\+\_\+ptr, \mbox{\hyperlink{struct_struct___state}{Struct\+\_\+\+State}} $\ast$state\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Run mid2 controller. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{atune__libfuncs_8h_a83e3caaf261c6bee31b8ed758f2c3448}{mid2\+\_\+process\+\_\+systick\+\_\+lib}} (\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$atune\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Run mid2 process in systick. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{atune__libfuncs_8h_aefc6921e999922abaf68e3287545a420}{mid2\+\_\+calc\+\_\+kt\+\_\+j}} (\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$atune\+\_\+ptr, int32\+\_\+t v\+\_\+scale\+\_\+q16, int32\+\_\+t current\+\_\+scale\+\_\+q16, int32\+\_\+t speed\+\_\+scale\+\_\+q0, int32\+\_\+t ls\+\_\+q26, int32\+\_\+t rs\+\_\+q16, int32\+\_\+t pole\+\_\+pairs\+\_\+q0)
+\begin{DoxyCompactList}\small\item\em Run mid2 calculation to calculate kt and j. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{atune__libfuncs_8h_aab3cb9f00403a9d2a2c3a5674d77e895}{mid2\+\_\+reset\+\_\+vars}} (\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$atune\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Reset mid2 variables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{atune__libfuncs_8h_a0c39c73d64700e71550a5242e2eb7aad}{atpi\+\_\+controller}} (\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$atune\+\_\+ptr, \mbox{\hyperlink{struct_struct___control}{Struct\+\_\+\+Control}} $\ast$control\+\_\+ptr, \mbox{\hyperlink{struct_struct___app}{Struct\+\_\+\+App}} $\ast$app\+\_\+ptr, \mbox{\hyperlink{struct_struct___m_param}{Struct\+\_\+\+M\+Param}} $\ast$mparam\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Run auto tune controller to calculate current and speed PI gains. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{atune__libfuncs_8h_ad067cdf338f588453d18f49b126ff3d2}{atpi\+\_\+calc\+\_\+gain\+\_\+current}} (\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$atune\+\_\+ptr, int32\+\_\+t ls\+\_\+q26, int32\+\_\+t rs\+\_\+q16, int32\+\_\+t $\ast$i\+\_\+ka\+\_\+q16, int32\+\_\+t $\ast$i\+\_\+kb\+\_\+q16)
+\begin{DoxyCompactList}\small\item\em Run to calculate current controller gain. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{atune__libfuncs_8h_ad91797b81c5f6dda698e18156d569372}{atpi\+\_\+calc\+\_\+gain\+\_\+speed}} (\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$atune\+\_\+ptr, int32\+\_\+t ke\+\_\+q26, int32\+\_\+t j\+\_\+q26, uint8\+\_\+t pole\+\_\+pairs)
+\begin{DoxyCompactList}\small\item\em Run to calculate speed controller gain. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for atune lib function definition. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{atune__libfuncs_8h_ad067cdf338f588453d18f49b126ff3d2}\label{atune__libfuncs_8h_ad067cdf338f588453d18f49b126ff3d2}} 
+\index{atune\_libfuncs.h@{atune\_libfuncs.h}!atpi\_calc\_gain\_current@{atpi\_calc\_gain\_current}}
+\index{atpi\_calc\_gain\_current@{atpi\_calc\_gain\_current}!atune\_libfuncs.h@{atune\_libfuncs.h}}
+\doxysubsubsection{\texorpdfstring{atpi\_calc\_gain\_current()}{atpi\_calc\_gain\_current()}}
+{\footnotesize\ttfamily void atpi\+\_\+calc\+\_\+gain\+\_\+current (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$}]{atune\+\_\+ptr,  }\item[{int32\+\_\+t}]{ls\+\_\+q26,  }\item[{int32\+\_\+t}]{rs\+\_\+q16,  }\item[{int32\+\_\+t $\ast$}]{i\+\_\+ka\+\_\+q16,  }\item[{int32\+\_\+t $\ast$}]{i\+\_\+kb\+\_\+q16 }\end{DoxyParamCaption})}
+
+
+
+Run to calculate current controller gain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}}} & $\ast$atune\+\_\+ptr \\
+\hline
+{\em int32\+\_\+t} & ls\+\_\+q26 \\
+\hline
+{\em int32\+\_\+t} & rs\+\_\+q16 \\
+\hline
+{\em int32\+\_\+t} & $\ast$i\+\_\+ka\+\_\+q16 \\
+\hline
+{\em int32\+\_\+t} & $\ast$i\+\_\+kb\+\_\+q16 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{atune__libfuncs_8h_ad91797b81c5f6dda698e18156d569372}\label{atune__libfuncs_8h_ad91797b81c5f6dda698e18156d569372}} 
+\index{atune\_libfuncs.h@{atune\_libfuncs.h}!atpi\_calc\_gain\_speed@{atpi\_calc\_gain\_speed}}
+\index{atpi\_calc\_gain\_speed@{atpi\_calc\_gain\_speed}!atune\_libfuncs.h@{atune\_libfuncs.h}}
+\doxysubsubsection{\texorpdfstring{atpi\_calc\_gain\_speed()}{atpi\_calc\_gain\_speed()}}
+{\footnotesize\ttfamily void atpi\+\_\+calc\+\_\+gain\+\_\+speed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$}]{atune\+\_\+ptr,  }\item[{int32\+\_\+t}]{ke\+\_\+q26,  }\item[{int32\+\_\+t}]{j\+\_\+q26,  }\item[{uint8\+\_\+t}]{pole\+\_\+pairs }\end{DoxyParamCaption})}
+
+
+
+Run to calculate speed controller gain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}}} & $\ast$atune\+\_\+ptr \\
+\hline
+{\em int32\+\_\+t} & ke\+\_\+q26 \\
+\hline
+{\em int32\+\_\+t} & j\+\_\+q26 \\
+\hline
+{\em uint8\+\_\+t} & pole\+\_\+pairs \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{atune__libfuncs_8h_a0c39c73d64700e71550a5242e2eb7aad}\label{atune__libfuncs_8h_a0c39c73d64700e71550a5242e2eb7aad}} 
+\index{atune\_libfuncs.h@{atune\_libfuncs.h}!atpi\_controller@{atpi\_controller}}
+\index{atpi\_controller@{atpi\_controller}!atune\_libfuncs.h@{atune\_libfuncs.h}}
+\doxysubsubsection{\texorpdfstring{atpi\_controller()}{atpi\_controller()}}
+{\footnotesize\ttfamily void atpi\+\_\+controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$}]{atune\+\_\+ptr,  }\item[{\mbox{\hyperlink{struct_struct___control}{Struct\+\_\+\+Control}} $\ast$}]{control\+\_\+ptr,  }\item[{\mbox{\hyperlink{struct_struct___app}{Struct\+\_\+\+App}} $\ast$}]{app\+\_\+ptr,  }\item[{\mbox{\hyperlink{struct_struct___m_param}{Struct\+\_\+\+M\+Param}} $\ast$}]{mparam\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Run auto tune controller to calculate current and speed PI gains. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}}} & $\ast$atune\+\_\+ptr \\
+\hline
+{\em \mbox{\hyperlink{struct_struct___control}{Struct\+\_\+\+Control}}} & $\ast$control\+\_\+ptr \\
+\hline
+{\em \mbox{\hyperlink{struct_struct___app}{Struct\+\_\+\+App}}} & $\ast$app\+\_\+ptr \\
+\hline
+{\em \mbox{\hyperlink{struct_struct___m_param}{Struct\+\_\+\+M\+Param}}} & $\ast$mparam\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{atune__libfuncs_8h_abcc597371955923e060f14e360531b87}\label{atune__libfuncs_8h_abcc597371955923e060f14e360531b87}} 
+\index{atune\_libfuncs.h@{atune\_libfuncs.h}!mid1\_calc\_inverter\_igbt@{mid1\_calc\_inverter\_igbt}}
+\index{mid1\_calc\_inverter\_igbt@{mid1\_calc\_inverter\_igbt}!atune\_libfuncs.h@{atune\_libfuncs.h}}
+\doxysubsubsection{\texorpdfstring{mid1\_calc\_inverter\_igbt()}{mid1\_calc\_inverter\_igbt()}}
+{\footnotesize\ttfamily void mid1\+\_\+calc\+\_\+inverter\+\_\+igbt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$}]{atune\+\_\+ptr,  }\item[{int32\+\_\+t}]{dcbus\+\_\+voltage\+\_\+1div\+\_\+q16,  }\item[{int32\+\_\+t}]{v\+\_\+diode\+\_\+q14,  }\item[{int32\+\_\+t}]{v\+\_\+ce\+\_\+q14 }\end{DoxyParamCaption})}
+
+
+
+Calculate inverter bipolar compensation parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}}} & $\ast$atune\+\_\+ptr \\
+\hline
+{\em int32\+\_\+t} & dcbus\+\_\+voltage\+\_\+1div\+\_\+q16 \\
+\hline
+{\em int32\+\_\+t} & v\+\_\+diode\+\_\+q14 \\
+\hline
+{\em int32\+\_\+t} & v\+\_\+ce\+\_\+q14 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{atune__libfuncs_8h_a1d327124f9939aef8e9fc6a62e63dd87}\label{atune__libfuncs_8h_a1d327124f9939aef8e9fc6a62e63dd87}} 
+\index{atune\_libfuncs.h@{atune\_libfuncs.h}!mid1\_calc\_inverter\_mos@{mid1\_calc\_inverter\_mos}}
+\index{mid1\_calc\_inverter\_mos@{mid1\_calc\_inverter\_mos}!atune\_libfuncs.h@{atune\_libfuncs.h}}
+\doxysubsubsection{\texorpdfstring{mid1\_calc\_inverter\_mos()}{mid1\_calc\_inverter\_mos()}}
+{\footnotesize\ttfamily void mid1\+\_\+calc\+\_\+inverter\+\_\+mos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$}]{atune\+\_\+ptr,  }\item[{int32\+\_\+t}]{dcbus\+\_\+voltage\+\_\+1div\+\_\+q16,  }\item[{int32\+\_\+t}]{v\+\_\+diode\+\_\+q14,  }\item[{int32\+\_\+t}]{i\+\_\+scale\+\_\+q16,  }\item[{int32\+\_\+t}]{rdson\+\_\+q16 }\end{DoxyParamCaption})}
+
+
+
+Calculate inverter mos compensation parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}}} & $\ast$atune\+\_\+ptr \\
+\hline
+{\em int32\+\_\+t} & dcbus\+\_\+voltage\+\_\+1div\+\_\+q16 \\
+\hline
+{\em int32\+\_\+t} & v\+\_\+diode\+\_\+q14 \\
+\hline
+{\em int32\+\_\+t} & i\+\_\+scale\+\_\+q16 \\
+\hline
+{\em int32\+\_\+t} & rdson\+\_\+q16 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{atune__libfuncs_8h_aeebe5127eacb87bc0cfb1a1b8d47b239}\label{atune__libfuncs_8h_aeebe5127eacb87bc0cfb1a1b8d47b239}} 
+\index{atune\_libfuncs.h@{atune\_libfuncs.h}!mid1\_calc\_ls@{mid1\_calc\_ls}}
+\index{mid1\_calc\_ls@{mid1\_calc\_ls}!atune\_libfuncs.h@{atune\_libfuncs.h}}
+\doxysubsubsection{\texorpdfstring{mid1\_calc\_ls()}{mid1\_calc\_ls()}}
+{\footnotesize\ttfamily void mid1\+\_\+calc\+\_\+ls (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{finj\+\_\+q6,  }\item[{int32\+\_\+t}]{p\+\_\+app\+\_\+sq\+\_\+scaled\+\_\+q40,  }\item[{int32\+\_\+t}]{p\+\_\+real\+\_\+sq\+\_\+scaled\+\_\+q40,  }\item[{int32\+\_\+t}]{i\+\_\+rms\+\_\+sq\+\_\+scaled\+\_\+q28,  }\item[{int32\+\_\+t}]{v\+\_\+scale\+\_\+q16,  }\item[{int32\+\_\+t}]{i\+\_\+scale\+\_\+q16,  }\item[{int32\+\_\+t $\ast$}]{ls\+\_\+q26 }\end{DoxyParamCaption})}
+
+
+
+Calculate motor coil inductance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int32\+\_\+t} & finj\+\_\+q6 \\
+\hline
+{\em v\+\_\+q16} & \\
+\hline
+{\em int32\+\_\+t} & v\+\_\+diode\+\_\+q14 \\
+\hline
+{\em int32\+\_\+t} & v\+\_\+ce\+\_\+q14 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{atune__libfuncs_8h_a4312644983d52b1677f4e8ca8e1ef236}\label{atune__libfuncs_8h_a4312644983d52b1677f4e8ca8e1ef236}} 
+\index{atune\_libfuncs.h@{atune\_libfuncs.h}!mid1\_calc\_rs@{mid1\_calc\_rs}}
+\index{mid1\_calc\_rs@{mid1\_calc\_rs}!atune\_libfuncs.h@{atune\_libfuncs.h}}
+\doxysubsubsection{\texorpdfstring{mid1\_calc\_rs()}{mid1\_calc\_rs()}}
+{\footnotesize\ttfamily void mid1\+\_\+calc\+\_\+rs (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{vdc1\+\_\+scaled\+\_\+q14,  }\item[{int32\+\_\+t}]{vdc2\+\_\+scaled\+\_\+q14,  }\item[{int32\+\_\+t}]{idc1\+\_\+scaled\+\_\+q14,  }\item[{int32\+\_\+t}]{idc2\+\_\+scaled\+\_\+q14,  }\item[{int32\+\_\+t}]{v\+\_\+scale\+\_\+q16,  }\item[{int32\+\_\+t}]{i\+\_\+scale\+\_\+q16,  }\item[{int32\+\_\+t $\ast$}]{rs\+\_\+q16 }\end{DoxyParamCaption})}
+
+
+
+Calculate motor coil resistance. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int32\+\_\+t} & vdc1\+\_\+scaled\+\_\+q14 \\
+\hline
+{\em int32\+\_\+t} & vdc2\+\_\+scaled\+\_\+q14 \\
+\hline
+{\em int32\+\_\+t} & idc1\+\_\+scaled\+\_\+q14 \\
+\hline
+{\em int32\+\_\+t} & idc2\+\_\+scaled\+\_\+q14 \\
+\hline
+{\em int32\+\_\+t} & v\+\_\+scale\+\_\+q16 \\
+\hline
+{\em int32\+\_\+t} & i\+\_\+scale\+\_\+q16 \\
+\hline
+{\em int32\+\_\+t} & $\ast$rs\+\_\+q16 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{atune__libfuncs_8h_ae11fcc921faa0e47ab1e40d98e3d31c7}\label{atune__libfuncs_8h_ae11fcc921faa0e47ab1e40d98e3d31c7}} 
+\index{atune\_libfuncs.h@{atune\_libfuncs.h}!mid1\_controller@{mid1\_controller}}
+\index{mid1\_controller@{mid1\_controller}!atune\_libfuncs.h@{atune\_libfuncs.h}}
+\doxysubsubsection{\texorpdfstring{mid1\_controller()}{mid1\_controller()}}
+{\footnotesize\ttfamily void mid1\+\_\+controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$}]{atune\+\_\+ptr,  }\item[{\mbox{\hyperlink{struct_struct___app}{Struct\+\_\+\+App}} $\ast$}]{app\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Runh mid1 controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}}} & $\ast$atune\+\_\+ptr \\
+\hline
+{\em \mbox{\hyperlink{struct_struct___app}{Struct\+\_\+\+App}}} & $\ast$app\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{atune__libfuncs_8h_a5c18a697c1f395367439fc105788afc3}\label{atune__libfuncs_8h_a5c18a697c1f395367439fc105788afc3}} 
+\index{atune\_libfuncs.h@{atune\_libfuncs.h}!mid1\_process\_control\_lib@{mid1\_process\_control\_lib}}
+\index{mid1\_process\_control\_lib@{mid1\_process\_control\_lib}!atune\_libfuncs.h@{atune\_libfuncs.h}}
+\doxysubsubsection{\texorpdfstring{mid1\_process\_control\_lib()}{mid1\_process\_control\_lib()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void mid1\+\_\+process\+\_\+control\+\_\+lib (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$}]{atune\+\_\+ptr,  }\item[{int32\+\_\+t}]{va2mid\+\_\+q14,  }\item[{int32\+\_\+t}]{vb2mid\+\_\+q14,  }\item[{int32\+\_\+t}]{vc2mid\+\_\+q14,  }\item[{int32\+\_\+t}]{ia\+\_\+q14,  }\item[{int32\+\_\+t}]{ib\+\_\+q14,  }\item[{int32\+\_\+t}]{ic\+\_\+q14 }\end{DoxyParamCaption})}
+
+
+
+Process mid1 control injection process. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}}} & $\ast$atune\+\_\+ptr \\
+\hline
+{\em int32\+\_\+t} & va2mid\+\_\+q14 \\
+\hline
+{\em int32\+\_\+t} & vb2mid\+\_\+q14 \\
+\hline
+{\em int32\+\_\+t} & vb2mid\+\_\+q14 \\
+\hline
+{\em int32\+\_\+t} & ia\+\_\+q14 \\
+\hline
+{\em int32\+\_\+t} & ib\+\_\+q14 \\
+\hline
+{\em int32\+\_\+t} & ic\+\_\+q14 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{atune__libfuncs_8h_acb04b44da12d9b509358d6e749cb227a}\label{atune__libfuncs_8h_acb04b44da12d9b509358d6e749cb227a}} 
+\index{atune\_libfuncs.h@{atune\_libfuncs.h}!mid1\_reset\_subsm@{mid1\_reset\_subsm}}
+\index{mid1\_reset\_subsm@{mid1\_reset\_subsm}!atune\_libfuncs.h@{atune\_libfuncs.h}}
+\doxysubsubsection{\texorpdfstring{mid1\_reset\_subsm()}{mid1\_reset\_subsm()}}
+{\footnotesize\ttfamily void mid1\+\_\+reset\+\_\+subsm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$}]{atune\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Reset mid1 sub state machine and variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}}} & $\ast$atune\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{atune__libfuncs_8h_aefc6921e999922abaf68e3287545a420}\label{atune__libfuncs_8h_aefc6921e999922abaf68e3287545a420}} 
+\index{atune\_libfuncs.h@{atune\_libfuncs.h}!mid2\_calc\_kt\_j@{mid2\_calc\_kt\_j}}
+\index{mid2\_calc\_kt\_j@{mid2\_calc\_kt\_j}!atune\_libfuncs.h@{atune\_libfuncs.h}}
+\doxysubsubsection{\texorpdfstring{mid2\_calc\_kt\_j()}{mid2\_calc\_kt\_j()}}
+{\footnotesize\ttfamily void mid2\+\_\+calc\+\_\+kt\+\_\+j (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$}]{atune\+\_\+ptr,  }\item[{int32\+\_\+t}]{v\+\_\+scale\+\_\+q16,  }\item[{int32\+\_\+t}]{current\+\_\+scale\+\_\+q16,  }\item[{int32\+\_\+t}]{speed\+\_\+scale\+\_\+q0,  }\item[{int32\+\_\+t}]{ls\+\_\+q26,  }\item[{int32\+\_\+t}]{rs\+\_\+q16,  }\item[{int32\+\_\+t}]{pole\+\_\+pairs\+\_\+q0 }\end{DoxyParamCaption})}
+
+
+
+Run mid2 calculation to calculate kt and j. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}}} & $\ast$atune\+\_\+ptr \\
+\hline
+{\em int32\+\_\+t} & v\+\_\+scale\+\_\+q16 \\
+\hline
+{\em int32\+\_\+t} & current\+\_\+scale\+\_\+q16 \\
+\hline
+{\em int32\+\_\+t} & speed\+\_\+scale\+\_\+q0 \\
+\hline
+{\em int32\+\_\+t} & ls\+\_\+q26 \\
+\hline
+{\em int32\+\_\+t} & rs\+\_\+q16 \\
+\hline
+{\em int32\+\_\+t} & pole\+\_\+pairs\+\_\+q0 \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{atune__libfuncs_8h_a9f95285c7b602d1c9c6b8e38e8d32922}\label{atune__libfuncs_8h_a9f95285c7b602d1c9c6b8e38e8d32922}} 
+\index{atune\_libfuncs.h@{atune\_libfuncs.h}!mid2\_controller@{mid2\_controller}}
+\index{mid2\_controller@{mid2\_controller}!atune\_libfuncs.h@{atune\_libfuncs.h}}
+\doxysubsubsection{\texorpdfstring{mid2\_controller()}{mid2\_controller()}}
+{\footnotesize\ttfamily void mid2\+\_\+controller (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$}]{atune\+\_\+ptr,  }\item[{\mbox{\hyperlink{struct_struct___control}{Struct\+\_\+\+Control}} $\ast$}]{control\+\_\+ptr,  }\item[{\mbox{\hyperlink{struct_struct___app}{Struct\+\_\+\+App}} $\ast$}]{app\+\_\+ptr,  }\item[{\mbox{\hyperlink{struct_struct___f_o_c}{Struct\+\_\+\+F\+OC}} $\ast$}]{foc\+\_\+ptr,  }\item[{\mbox{\hyperlink{struct_struct___m_param}{Struct\+\_\+\+M\+Param}} $\ast$}]{mparam\+\_\+ptr,  }\item[{\mbox{\hyperlink{struct_struct___state}{Struct\+\_\+\+State}} $\ast$}]{state\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Run mid2 controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_struct___control}{Struct\+\_\+\+Control}}} & $\ast$control\+\_\+ptr \\
+\hline
+{\em \mbox{\hyperlink{struct_struct___app}{Struct\+\_\+\+App}}} & $\ast$app\+\_\+ptr \\
+\hline
+{\em \mbox{\hyperlink{struct_struct___f_o_c}{Struct\+\_\+\+F\+OC}}} & $\ast$foc\+\_\+ptr \\
+\hline
+{\em \mbox{\hyperlink{struct_struct___m_param}{Struct\+\_\+\+M\+Param}}} & $\ast$mparam\+\_\+ptr \\
+\hline
+{\em \mbox{\hyperlink{struct_struct___state}{Struct\+\_\+\+State}}} & $\ast$state\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{atune__libfuncs_8h_ae208d08f42d8c54d67bb75d47f0c5dc8}\label{atune__libfuncs_8h_ae208d08f42d8c54d67bb75d47f0c5dc8}} 
+\index{atune\_libfuncs.h@{atune\_libfuncs.h}!mid2\_process\_control\_lib@{mid2\_process\_control\_lib}}
+\index{mid2\_process\_control\_lib@{mid2\_process\_control\_lib}!atune\_libfuncs.h@{atune\_libfuncs.h}}
+\doxysubsubsection{\texorpdfstring{mid2\_process\_control\_lib()}{mid2\_process\_control\_lib()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void mid2\+\_\+process\+\_\+control\+\_\+lib (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$}]{atune\+\_\+ptr,  }\item[{int32\+\_\+t}]{speed\+\_\+scaled\+\_\+q14,  }\item[{int32\+\_\+t}]{vq\+\_\+q14,  }\item[{int32\+\_\+t}]{vd\+\_\+q14,  }\item[{int32\+\_\+t}]{iq\+\_\+q14,  }\item[{int32\+\_\+t}]{angle }\end{DoxyParamCaption})}
+
+
+
+Run mid2 process in control. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}}} & $\ast$atune\+\_\+ptr \\
+\hline
+{\em int32\+\_\+t} & speed\+\_\+scaled\+\_\+q14 \\
+\hline
+{\em int32\+\_\+t} & vq\+\_\+q14 \\
+\hline
+{\em int32\+\_\+t} & vd\+\_\+q14 \\
+\hline
+{\em int32\+\_\+t} & iq\+\_\+q14 \\
+\hline
+{\em int32\+\_\+t} & angle \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{atune__libfuncs_8h_a83e3caaf261c6bee31b8ed758f2c3448}\label{atune__libfuncs_8h_a83e3caaf261c6bee31b8ed758f2c3448}} 
+\index{atune\_libfuncs.h@{atune\_libfuncs.h}!mid2\_process\_systick\_lib@{mid2\_process\_systick\_lib}}
+\index{mid2\_process\_systick\_lib@{mid2\_process\_systick\_lib}!atune\_libfuncs.h@{atune\_libfuncs.h}}
+\doxysubsubsection{\texorpdfstring{mid2\_process\_systick\_lib()}{mid2\_process\_systick\_lib()}}
+{\footnotesize\ttfamily void mid2\+\_\+process\+\_\+systick\+\_\+lib (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$}]{atune\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Run mid2 process in systick. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}}} & $\ast$atune\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{atune__libfuncs_8h_aab3cb9f00403a9d2a2c3a5674d77e895}\label{atune__libfuncs_8h_aab3cb9f00403a9d2a2c3a5674d77e895}} 
+\index{atune\_libfuncs.h@{atune\_libfuncs.h}!mid2\_reset\_vars@{mid2\_reset\_vars}}
+\index{mid2\_reset\_vars@{mid2\_reset\_vars}!atune\_libfuncs.h@{atune\_libfuncs.h}}
+\doxysubsubsection{\texorpdfstring{mid2\_reset\_vars()}{mid2\_reset\_vars()}}
+{\footnotesize\ttfamily void mid2\+\_\+reset\+\_\+vars (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}} $\ast$}]{atune\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Reset mid2 variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_struct___a_tune}{Struct\+\_\+\+A\+Tune}}} & $\ast$atune\+\_\+ptr \\
+\hline
+\end{DoxyParams}

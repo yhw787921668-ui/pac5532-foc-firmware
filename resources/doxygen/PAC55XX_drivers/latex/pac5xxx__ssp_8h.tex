@@ -1,0 +1,493 @@
+\hypertarget{pac5xxx__ssp_8h}{}\doxysection{pac\+\_\+foc/pac55xx/pac55xx\+\_\+sdk/peripheral/pac5xxx\+\_\+ssp.h File Reference}
+\label{pac5xxx__ssp_8h}\index{pac\_foc/pac55xx/pac55xx\_sdk/peripheral/pac5xxx\_ssp.h@{pac\_foc/pac55xx/pac55xx\_sdk/peripheral/pac5xxx\_ssp.h}}
+
+
+C\+M\+S\+IS Cortex-\/M Header File for the P\+A\+C55\+XX S\+SP Controller.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__ssp_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_p_a_c55_x_x___s_s_p___t_y_p_e_d_e_f}{P\+A\+C55\+X\+X\+\_\+\+S\+S\+P\+\_\+\+T\+Y\+P\+E\+D\+EF}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{pac5xxx__ssp_8h_a1df6ffb3af1739357f5b83ffd2ab8b1b}{S\+S\+P\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__ssp_8h_a1df6ffb3af1739357f5b83ffd2ab8b1ba11f6cb1498dfb79e1b131980eb9be934}{S\+S\+P\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+M\+SB}} = 0, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_a1df6ffb3af1739357f5b83ffd2ab8b1ba8273b5bce68907c91bc14a9166830a32}{S\+S\+P\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+L\+SB}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__ssp_8h_ad497da277b615b0f1b50d2177a123a49}{S\+S\+P\+\_\+\+L\+O\+O\+P\+B\+A\+C\+K\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__ssp_8h_ad497da277b615b0f1b50d2177a123a49af4b95f37efb0a446cc7066893331737f}{S\+S\+P\+\_\+\+L\+P\+\_\+\+N\+O\+R\+M\+AL}} = 0, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_ad497da277b615b0f1b50d2177a123a49ab6c608fbe92beb34a5d334da6df833e2}{S\+S\+P\+\_\+\+L\+P\+\_\+\+L\+O\+O\+P\+B\+A\+CK}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__ssp_8h_a03ea53c3c9e733de4dc155bfa522a888}{S\+S\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__ssp_8h_a03ea53c3c9e733de4dc155bfa522a888aa440fe9014fc9bce5971c2dd1d5925fc}{S\+S\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+D\+I\+S\+A\+B\+LE}} = 0, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_a03ea53c3c9e733de4dc155bfa522a888aa018e87623cf48bb07227ddfe32fea5e}{S\+S\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+E\+N\+A\+B\+LE}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__ssp_8h_a6876af8c3d5af59f022cdc44eca02ef8}{S\+S\+P\+\_\+\+M\+S\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__ssp_8h_a6876af8c3d5af59f022cdc44eca02ef8ad73b541df99cdee508525586b3a40bf8}{S\+S\+P\+\_\+\+M\+S\+\_\+\+M\+A\+S\+T\+ER}} = 0, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_a6876af8c3d5af59f022cdc44eca02ef8ab4ec8e8f25cc732a200e586bf3e31c6e}{S\+S\+P\+\_\+\+M\+S\+\_\+\+S\+L\+A\+VE}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__ssp_8h_a350ab5b0bf37fe868ff6d83a2b2ed7b2}{S\+S\+P\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__ssp_8h_a350ab5b0bf37fe868ff6d83a2b2ed7b2ab4cecab7e6a426d626574d4584c4fbdb}{S\+S\+P\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+R\+I\+VE}} = 0, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_a350ab5b0bf37fe868ff6d83a2b2ed7b2aa1ed61ba324e1aad042d9965b4f44d1c}{S\+S\+P\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+N\+O\+T\+\_\+\+D\+R\+I\+VE}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__ssp_8h_a5a1ebbcae0ed34a5989e2dbbca71f7b0}{S\+S\+P\+\_\+\+P\+U\+T\+\_\+\+P\+H\+A\+S\+E\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__ssp_8h_a5a1ebbcae0ed34a5989e2dbbca71f7b0a74104bd04baa1ce8fc4c5735e93773f8}{S\+S\+P\+\_\+\+P\+U\+T\+\_\+\+P\+H\+A\+S\+E\+\_\+1}} = 0, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_a5a1ebbcae0ed34a5989e2dbbca71f7b0a2508fb7520e236eb98978b7635e0916e}{S\+S\+P\+\_\+\+P\+U\+T\+\_\+\+P\+H\+A\+S\+E\+\_\+2}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__ssp_8h_a5a1cff1847c0a80e2ae0533e0ab4fae3}{S\+S\+P\+\_\+\+C\+L\+K\+\_\+\+P\+O\+L\+A\+R\+I\+T\+Y\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__ssp_8h_a5a1cff1847c0a80e2ae0533e0ab4fae3aea38fe798355a15788687aa0f454552d}{S\+S\+P\+\_\+\+C\+L\+K\+\_\+\+P\+O\+L\+A\+R\+I\+T\+Y\+\_\+\+L\+OW}} = 0, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_a5a1cff1847c0a80e2ae0533e0ab4fae3a1e7f12100565e1f1cbf3e16d606a542b}{S\+S\+P\+\_\+\+C\+L\+K\+\_\+\+P\+O\+L\+A\+R\+I\+T\+Y\+\_\+\+H\+I\+GH}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__ssp_8h_ae29141749827a525f7827c855d2462ab}{S\+S\+P\+\_\+\+F\+R\+A\+M\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__ssp_8h_ae29141749827a525f7827c855d2462aba6f9253ad15ad10c728a392a2df3b0d57}{S\+S\+P\+\_\+\+F\+R\+A\+M\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+S\+PI}} = 0, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_ae29141749827a525f7827c855d2462aba1902f442d7daf7c039b94ffe3b1e245e}{S\+S\+P\+\_\+\+F\+R\+A\+M\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+TI}} = 1, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_ae29141749827a525f7827c855d2462aba5013b31024cabba573692ea2d3e5465b}{S\+S\+P\+\_\+\+F\+R\+A\+M\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+M\+I\+C\+R\+O\+W\+I\+RE}} = 2
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222e}{S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+\+T\+Y\+PE}} \{ \newline
+\mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea818b3628a8256d1b4df7397acfa5932f}{S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+4}} = 3, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eae59cd98b3490383d1176695590ebf520}{S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+5}} = 4, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eab6e46ec165e61a7870a6e9f7df554b12}{S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+6}} = 5, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eaa999dac92a9af63fae73bda31f6e4a8c}{S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+7}} = 6, 
+\newline
+\mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eac331eb44456bddba916d6a4bf231a7d7}{S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+8}} = 7, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eae1421a875a8f0adb6ff22f2e2d170173}{S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+9}} = 8, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eae183f56a1f4699b2ab1f54873b1bd6ea}{S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+10}} = 9, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea91955a0aa03cd83cfbb7b29052cdeb40}{S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+11}} = 10, 
+\newline
+\mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea644bc33b820fe54db80a552742ae8dba}{S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+12}} = 11, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea7fe92f1e3e37d49030d3115f6ba5e78a}{S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+13}} = 12, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea124723e9d6e582088c21c9120f83bb88}{S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+14}} = 13, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea88d5a1f5a9dd30d87081814f96681e0b}{S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+15}} = 14, 
+\newline
+\mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eaa88074e3f2d266999025a9ef9a1320b6}{S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+16}} = 15
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__ssp_8h_ade00b47278a4891a0979956945887f31}{S\+S\+P\+\_\+\+C\+S\+\_\+\+P\+U\+L\+L\+\_\+\+H\+I\+G\+H\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__ssp_8h_ade00b47278a4891a0979956945887f31ae6d00c7dabef8e6f4cb4ffb5dbc0986d}{S\+S\+P\+\_\+\+C\+S\+\_\+\+P\+U\+L\+L\+\_\+\+H\+I\+G\+H\+\_\+\+N\+O\+NE}} = 0, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_ade00b47278a4891a0979956945887f31aaee7564efc5d62cc8a062b50710dcc9f}{S\+S\+P\+\_\+\+C\+S\+\_\+\+P\+U\+L\+L\+\_\+\+H\+I\+G\+H\+\_\+\+M\+U\+ST}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__ssp_8h_aa1cbe9fddf9db8d7c1d9a708181ff3ba}{S\+S\+P\+\_\+\+C\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__ssp_8h_aa1cbe9fddf9db8d7c1d9a708181ff3baa16ef9292c9dc49727caab42bac89a15d}{S\+S\+P\+\_\+\+C\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+L\+OW}} = 0, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_aa1cbe9fddf9db8d7c1d9a708181ff3baa9b0036a20d1d789030c5ecf403c48608}{S\+S\+P\+\_\+\+C\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+H\+I\+GH}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__ssp_8h_a9823000e9a20d2ceb6a1e4a2af39308e}{S\+S\+P\+\_\+\+C\+S\+\_\+\+S\+W\+S\+E\+L\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__ssp_8h_a9823000e9a20d2ceb6a1e4a2af39308ea0e54d153586914b769560943f8d3a6fa}{S\+S\+P\+\_\+\+C\+S\+\_\+\+S\+W\+S\+E\+L\+\_\+\+A\+U\+TO}} = 0, 
+\mbox{\hyperlink{pac5xxx__ssp_8h_a9823000e9a20d2ceb6a1e4a2af39308ead10e917452cff71473d927cab7780f42}{S\+S\+P\+\_\+\+C\+S\+\_\+\+S\+W\+S\+E\+L\+\_\+\+S\+O\+FT}} = 1
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+M\+S\+IS Cortex-\/M Header File for the P\+A\+C55\+XX S\+SP Controller. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2017-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{pac5xxx__ssp_8h_a5a1cff1847c0a80e2ae0533e0ab4fae3}\label{pac5xxx__ssp_8h_a5a1cff1847c0a80e2ae0533e0ab4fae3}} 
+\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_CLK\_POLARITY\_TYPE@{SSP\_CLK\_POLARITY\_TYPE}}
+\index{SSP\_CLK\_POLARITY\_TYPE@{SSP\_CLK\_POLARITY\_TYPE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}
+\doxysubsubsection{\texorpdfstring{SSP\_CLK\_POLARITY\_TYPE}{SSP\_CLK\_POLARITY\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__ssp_8h_a5a1cff1847c0a80e2ae0533e0ab4fae3}{S\+S\+P\+\_\+\+C\+L\+K\+\_\+\+P\+O\+L\+A\+R\+I\+T\+Y\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_CLK\_POLARITY\_LOW@{SSP\_CLK\_POLARITY\_LOW}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_CLK\_POLARITY\_LOW@{SSP\_CLK\_POLARITY\_LOW}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_a5a1cff1847c0a80e2ae0533e0ab4fae3aea38fe798355a15788687aa0f454552d}\label{pac5xxx__ssp_8h_a5a1cff1847c0a80e2ae0533e0ab4fae3aea38fe798355a15788687aa0f454552d}} 
+S\+S\+P\+\_\+\+C\+L\+K\+\_\+\+P\+O\+L\+A\+R\+I\+T\+Y\+\_\+\+L\+OW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_CLK\_POLARITY\_HIGH@{SSP\_CLK\_POLARITY\_HIGH}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_CLK\_POLARITY\_HIGH@{SSP\_CLK\_POLARITY\_HIGH}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_a5a1cff1847c0a80e2ae0533e0ab4fae3a1e7f12100565e1f1cbf3e16d606a542b}\label{pac5xxx__ssp_8h_a5a1cff1847c0a80e2ae0533e0ab4fae3a1e7f12100565e1f1cbf3e16d606a542b}} 
+S\+S\+P\+\_\+\+C\+L\+K\+\_\+\+P\+O\+L\+A\+R\+I\+T\+Y\+\_\+\+H\+I\+GH&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 58 of file pac5xxx\+\_\+ssp.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58              \{}
+\DoxyCodeLine{59     \mbox{\hyperlink{pac5xxx__ssp_8h_a5a1cff1847c0a80e2ae0533e0ab4fae3aea38fe798355a15788687aa0f454552d}{SSP\_CLK\_POLARITY\_LOW}}   = 0,             \textcolor{comment}{//The SSP controller maintains the bus clock low between frames}}
+\DoxyCodeLine{60     \mbox{\hyperlink{pac5xxx__ssp_8h_a5a1cff1847c0a80e2ae0533e0ab4fae3a1e7f12100565e1f1cbf3e16d606a542b}{SSP\_CLK\_POLARITY\_HIGH}}  = 1              \textcolor{comment}{//The SSP controller maintains the bus clock hight between frames}}
+\DoxyCodeLine{61 \} \mbox{\hyperlink{pac5xxx__ssp_8h_a5a1cff1847c0a80e2ae0533e0ab4fae3}{SSP\_CLK\_POLARITY\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__ssp_8h_a03ea53c3c9e733de4dc155bfa522a888}\label{pac5xxx__ssp_8h_a03ea53c3c9e733de4dc155bfa522a888}} 
+\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_CONTROL\_TYPE@{SSP\_CONTROL\_TYPE}}
+\index{SSP\_CONTROL\_TYPE@{SSP\_CONTROL\_TYPE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}
+\doxysubsubsection{\texorpdfstring{SSP\_CONTROL\_TYPE}{SSP\_CONTROL\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__ssp_8h_a03ea53c3c9e733de4dc155bfa522a888}{S\+S\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_CONTROL\_DISABLE@{SSP\_CONTROL\_DISABLE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_CONTROL\_DISABLE@{SSP\_CONTROL\_DISABLE}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_a03ea53c3c9e733de4dc155bfa522a888aa440fe9014fc9bce5971c2dd1d5925fc}\label{pac5xxx__ssp_8h_a03ea53c3c9e733de4dc155bfa522a888aa440fe9014fc9bce5971c2dd1d5925fc}} 
+S\+S\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+D\+I\+S\+A\+B\+LE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_CONTROL\_ENABLE@{SSP\_CONTROL\_ENABLE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_CONTROL\_ENABLE@{SSP\_CONTROL\_ENABLE}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_a03ea53c3c9e733de4dc155bfa522a888aa018e87623cf48bb07227ddfe32fea5e}\label{pac5xxx__ssp_8h_a03ea53c3c9e733de4dc155bfa522a888aa018e87623cf48bb07227ddfe32fea5e}} 
+S\+S\+P\+\_\+\+C\+O\+N\+T\+R\+O\+L\+\_\+\+E\+N\+A\+B\+LE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 34 of file pac5xxx\+\_\+ssp.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34              \{}
+\DoxyCodeLine{35     \mbox{\hyperlink{pac5xxx__ssp_8h_a03ea53c3c9e733de4dc155bfa522a888aa440fe9014fc9bce5971c2dd1d5925fc}{SSP\_CONTROL\_DISABLE}} = 0,}
+\DoxyCodeLine{36     \mbox{\hyperlink{pac5xxx__ssp_8h_a03ea53c3c9e733de4dc155bfa522a888aa018e87623cf48bb07227ddfe32fea5e}{SSP\_CONTROL\_ENABLE}}  = 1}
+\DoxyCodeLine{37 \} \mbox{\hyperlink{pac5xxx__ssp_8h_a03ea53c3c9e733de4dc155bfa522a888}{SSP\_CONTROL\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__ssp_8h_ade00b47278a4891a0979956945887f31}\label{pac5xxx__ssp_8h_ade00b47278a4891a0979956945887f31}} 
+\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_CS\_PULL\_HIGH\_TYPE@{SSP\_CS\_PULL\_HIGH\_TYPE}}
+\index{SSP\_CS\_PULL\_HIGH\_TYPE@{SSP\_CS\_PULL\_HIGH\_TYPE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}
+\doxysubsubsection{\texorpdfstring{SSP\_CS\_PULL\_HIGH\_TYPE}{SSP\_CS\_PULL\_HIGH\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__ssp_8h_ade00b47278a4891a0979956945887f31}{S\+S\+P\+\_\+\+C\+S\+\_\+\+P\+U\+L\+L\+\_\+\+H\+I\+G\+H\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_CS\_PULL\_HIGH\_NONE@{SSP\_CS\_PULL\_HIGH\_NONE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_CS\_PULL\_HIGH\_NONE@{SSP\_CS\_PULL\_HIGH\_NONE}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_ade00b47278a4891a0979956945887f31ae6d00c7dabef8e6f4cb4ffb5dbc0986d}\label{pac5xxx__ssp_8h_ade00b47278a4891a0979956945887f31ae6d00c7dabef8e6f4cb4ffb5dbc0986d}} 
+S\+S\+P\+\_\+\+C\+S\+\_\+\+P\+U\+L\+L\+\_\+\+H\+I\+G\+H\+\_\+\+N\+O\+NE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_CS\_PULL\_HIGH\_MUST@{SSP\_CS\_PULL\_HIGH\_MUST}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_CS\_PULL\_HIGH\_MUST@{SSP\_CS\_PULL\_HIGH\_MUST}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_ade00b47278a4891a0979956945887f31aaee7564efc5d62cc8a062b50710dcc9f}\label{pac5xxx__ssp_8h_ade00b47278a4891a0979956945887f31aaee7564efc5d62cc8a062b50710dcc9f}} 
+S\+S\+P\+\_\+\+C\+S\+\_\+\+P\+U\+L\+L\+\_\+\+H\+I\+G\+H\+\_\+\+M\+U\+ST&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 88 of file pac5xxx\+\_\+ssp.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{88              \{}
+\DoxyCodeLine{89     \mbox{\hyperlink{pac5xxx__ssp_8h_ade00b47278a4891a0979956945887f31ae6d00c7dabef8e6f4cb4ffb5dbc0986d}{SSP\_CS\_PULL\_HIGH\_NONE}} = 0,              \textcolor{comment}{// SS cannot pull high after frame transfer}}
+\DoxyCodeLine{90     \mbox{\hyperlink{pac5xxx__ssp_8h_ade00b47278a4891a0979956945887f31aaee7564efc5d62cc8a062b50710dcc9f}{SSP\_CS\_PULL\_HIGH\_MUST}} = 1               \textcolor{comment}{// SS must pull high after frame transfer}}
+\DoxyCodeLine{91 \} \mbox{\hyperlink{pac5xxx__ssp_8h_ade00b47278a4891a0979956945887f31}{SSP\_CS\_PULL\_HIGH\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__ssp_8h_aa1cbe9fddf9db8d7c1d9a708181ff3ba}\label{pac5xxx__ssp_8h_aa1cbe9fddf9db8d7c1d9a708181ff3ba}} 
+\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_CS\_STATE\_TYPE@{SSP\_CS\_STATE\_TYPE}}
+\index{SSP\_CS\_STATE\_TYPE@{SSP\_CS\_STATE\_TYPE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}
+\doxysubsubsection{\texorpdfstring{SSP\_CS\_STATE\_TYPE}{SSP\_CS\_STATE\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__ssp_8h_aa1cbe9fddf9db8d7c1d9a708181ff3ba}{S\+S\+P\+\_\+\+C\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_CS\_STATE\_LOW@{SSP\_CS\_STATE\_LOW}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_CS\_STATE\_LOW@{SSP\_CS\_STATE\_LOW}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_aa1cbe9fddf9db8d7c1d9a708181ff3baa16ef9292c9dc49727caab42bac89a15d}\label{pac5xxx__ssp_8h_aa1cbe9fddf9db8d7c1d9a708181ff3baa16ef9292c9dc49727caab42bac89a15d}} 
+S\+S\+P\+\_\+\+C\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+L\+OW&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_CS\_STATE\_HIGH@{SSP\_CS\_STATE\_HIGH}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_CS\_STATE\_HIGH@{SSP\_CS\_STATE\_HIGH}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_aa1cbe9fddf9db8d7c1d9a708181ff3baa9b0036a20d1d789030c5ecf403c48608}\label{pac5xxx__ssp_8h_aa1cbe9fddf9db8d7c1d9a708181ff3baa9b0036a20d1d789030c5ecf403c48608}} 
+S\+S\+P\+\_\+\+C\+S\+\_\+\+S\+T\+A\+T\+E\+\_\+\+H\+I\+GH&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 94 of file pac5xxx\+\_\+ssp.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{94              \{}
+\DoxyCodeLine{95     \mbox{\hyperlink{pac5xxx__ssp_8h_aa1cbe9fddf9db8d7c1d9a708181ff3baa16ef9292c9dc49727caab42bac89a15d}{SSP\_CS\_STATE\_LOW}}  = 0,                  \textcolor{comment}{// SS is low}}
+\DoxyCodeLine{96     \mbox{\hyperlink{pac5xxx__ssp_8h_aa1cbe9fddf9db8d7c1d9a708181ff3baa9b0036a20d1d789030c5ecf403c48608}{SSP\_CS\_STATE\_HIGH}} = 1                   \textcolor{comment}{// SS is high}}
+\DoxyCodeLine{97 \} \mbox{\hyperlink{pac5xxx__ssp_8h_aa1cbe9fddf9db8d7c1d9a708181ff3ba}{SSP\_CS\_STATE\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__ssp_8h_a9823000e9a20d2ceb6a1e4a2af39308e}\label{pac5xxx__ssp_8h_a9823000e9a20d2ceb6a1e4a2af39308e}} 
+\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_CS\_SWSEL\_TYPE@{SSP\_CS\_SWSEL\_TYPE}}
+\index{SSP\_CS\_SWSEL\_TYPE@{SSP\_CS\_SWSEL\_TYPE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}
+\doxysubsubsection{\texorpdfstring{SSP\_CS\_SWSEL\_TYPE}{SSP\_CS\_SWSEL\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__ssp_8h_a9823000e9a20d2ceb6a1e4a2af39308e}{S\+S\+P\+\_\+\+C\+S\+\_\+\+S\+W\+S\+E\+L\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_CS\_SWSEL\_AUTO@{SSP\_CS\_SWSEL\_AUTO}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_CS\_SWSEL\_AUTO@{SSP\_CS\_SWSEL\_AUTO}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_a9823000e9a20d2ceb6a1e4a2af39308ea0e54d153586914b769560943f8d3a6fa}\label{pac5xxx__ssp_8h_a9823000e9a20d2ceb6a1e4a2af39308ea0e54d153586914b769560943f8d3a6fa}} 
+S\+S\+P\+\_\+\+C\+S\+\_\+\+S\+W\+S\+E\+L\+\_\+\+A\+U\+TO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_CS\_SWSEL\_SOFT@{SSP\_CS\_SWSEL\_SOFT}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_CS\_SWSEL\_SOFT@{SSP\_CS\_SWSEL\_SOFT}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_a9823000e9a20d2ceb6a1e4a2af39308ead10e917452cff71473d927cab7780f42}\label{pac5xxx__ssp_8h_a9823000e9a20d2ceb6a1e4a2af39308ead10e917452cff71473d927cab7780f42}} 
+S\+S\+P\+\_\+\+C\+S\+\_\+\+S\+W\+S\+E\+L\+\_\+\+S\+O\+FT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 100 of file pac5xxx\+\_\+ssp.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{100              \{}
+\DoxyCodeLine{101     \mbox{\hyperlink{pac5xxx__ssp_8h_a9823000e9a20d2ceb6a1e4a2af39308ea0e54d153586914b769560943f8d3a6fa}{SSP\_CS\_SWSEL\_AUTO}} = 0,                  \textcolor{comment}{// SS is automatically controlled by the SPI module}}
+\DoxyCodeLine{102     \mbox{\hyperlink{pac5xxx__ssp_8h_a9823000e9a20d2ceb6a1e4a2af39308ead10e917452cff71473d927cab7780f42}{SSP\_CS\_SWSEL\_SOFT}} = 1                   \textcolor{comment}{// SS is software controlled by SSPACSCR.SWCS}}
+\DoxyCodeLine{103 \} \mbox{\hyperlink{pac5xxx__ssp_8h_a9823000e9a20d2ceb6a1e4a2af39308e}{SSP\_CS\_SWSEL\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222e}\label{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222e}} 
+\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_DATA\_SIZE\_TYPE@{SSP\_DATA\_SIZE\_TYPE}}
+\index{SSP\_DATA\_SIZE\_TYPE@{SSP\_DATA\_SIZE\_TYPE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}
+\doxysubsubsection{\texorpdfstring{SSP\_DATA\_SIZE\_TYPE}{SSP\_DATA\_SIZE\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222e}{S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_DATA\_SIZE\_4@{SSP\_DATA\_SIZE\_4}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_DATA\_SIZE\_4@{SSP\_DATA\_SIZE\_4}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea818b3628a8256d1b4df7397acfa5932f}\label{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea818b3628a8256d1b4df7397acfa5932f}} 
+S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_DATA\_SIZE\_5@{SSP\_DATA\_SIZE\_5}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_DATA\_SIZE\_5@{SSP\_DATA\_SIZE\_5}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eae59cd98b3490383d1176695590ebf520}\label{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eae59cd98b3490383d1176695590ebf520}} 
+S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_DATA\_SIZE\_6@{SSP\_DATA\_SIZE\_6}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_DATA\_SIZE\_6@{SSP\_DATA\_SIZE\_6}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eab6e46ec165e61a7870a6e9f7df554b12}\label{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eab6e46ec165e61a7870a6e9f7df554b12}} 
+S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_DATA\_SIZE\_7@{SSP\_DATA\_SIZE\_7}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_DATA\_SIZE\_7@{SSP\_DATA\_SIZE\_7}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eaa999dac92a9af63fae73bda31f6e4a8c}\label{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eaa999dac92a9af63fae73bda31f6e4a8c}} 
+S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+7&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_DATA\_SIZE\_8@{SSP\_DATA\_SIZE\_8}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_DATA\_SIZE\_8@{SSP\_DATA\_SIZE\_8}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eac331eb44456bddba916d6a4bf231a7d7}\label{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eac331eb44456bddba916d6a4bf231a7d7}} 
+S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+8&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_DATA\_SIZE\_9@{SSP\_DATA\_SIZE\_9}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_DATA\_SIZE\_9@{SSP\_DATA\_SIZE\_9}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eae1421a875a8f0adb6ff22f2e2d170173}\label{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eae1421a875a8f0adb6ff22f2e2d170173}} 
+S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+9&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_DATA\_SIZE\_10@{SSP\_DATA\_SIZE\_10}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_DATA\_SIZE\_10@{SSP\_DATA\_SIZE\_10}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eae183f56a1f4699b2ab1f54873b1bd6ea}\label{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eae183f56a1f4699b2ab1f54873b1bd6ea}} 
+S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+10&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_DATA\_SIZE\_11@{SSP\_DATA\_SIZE\_11}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_DATA\_SIZE\_11@{SSP\_DATA\_SIZE\_11}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea91955a0aa03cd83cfbb7b29052cdeb40}\label{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea91955a0aa03cd83cfbb7b29052cdeb40}} 
+S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+11&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_DATA\_SIZE\_12@{SSP\_DATA\_SIZE\_12}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_DATA\_SIZE\_12@{SSP\_DATA\_SIZE\_12}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea644bc33b820fe54db80a552742ae8dba}\label{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea644bc33b820fe54db80a552742ae8dba}} 
+S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+12&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_DATA\_SIZE\_13@{SSP\_DATA\_SIZE\_13}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_DATA\_SIZE\_13@{SSP\_DATA\_SIZE\_13}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea7fe92f1e3e37d49030d3115f6ba5e78a}\label{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea7fe92f1e3e37d49030d3115f6ba5e78a}} 
+S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+13&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_DATA\_SIZE\_14@{SSP\_DATA\_SIZE\_14}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_DATA\_SIZE\_14@{SSP\_DATA\_SIZE\_14}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea124723e9d6e582088c21c9120f83bb88}\label{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea124723e9d6e582088c21c9120f83bb88}} 
+S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+14&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_DATA\_SIZE\_15@{SSP\_DATA\_SIZE\_15}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_DATA\_SIZE\_15@{SSP\_DATA\_SIZE\_15}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea88d5a1f5a9dd30d87081814f96681e0b}\label{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea88d5a1f5a9dd30d87081814f96681e0b}} 
+S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+15&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_DATA\_SIZE\_16@{SSP\_DATA\_SIZE\_16}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_DATA\_SIZE\_16@{SSP\_DATA\_SIZE\_16}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eaa88074e3f2d266999025a9ef9a1320b6}\label{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eaa88074e3f2d266999025a9ef9a1320b6}} 
+S\+S\+P\+\_\+\+D\+A\+T\+A\+\_\+\+S\+I\+Z\+E\+\_\+16&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 71 of file pac5xxx\+\_\+ssp.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{71              \{}
+\DoxyCodeLine{72     \mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea818b3628a8256d1b4df7397acfa5932f}{SSP\_DATA\_SIZE\_4}}  = 3,                   \textcolor{comment}{// 4-\/bit transfer}}
+\DoxyCodeLine{73     \mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eae59cd98b3490383d1176695590ebf520}{SSP\_DATA\_SIZE\_5}}  = 4,                   \textcolor{comment}{// 5-\/bit transfer}}
+\DoxyCodeLine{74     \mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eab6e46ec165e61a7870a6e9f7df554b12}{SSP\_DATA\_SIZE\_6}}  = 5,                   \textcolor{comment}{// 6-\/bit transfer}}
+\DoxyCodeLine{75     \mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eaa999dac92a9af63fae73bda31f6e4a8c}{SSP\_DATA\_SIZE\_7}}  = 6,                   \textcolor{comment}{// 7-\/bit transfer}}
+\DoxyCodeLine{76     \mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eac331eb44456bddba916d6a4bf231a7d7}{SSP\_DATA\_SIZE\_8}}  = 7,                   \textcolor{comment}{// 8-\/bit transfer}}
+\DoxyCodeLine{77     \mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eae1421a875a8f0adb6ff22f2e2d170173}{SSP\_DATA\_SIZE\_9}}  = 8,                   \textcolor{comment}{// 9-\/bit transfer}}
+\DoxyCodeLine{78     \mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eae183f56a1f4699b2ab1f54873b1bd6ea}{SSP\_DATA\_SIZE\_10}} = 9,                   \textcolor{comment}{// 10-\/bit transfer}}
+\DoxyCodeLine{79     \mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea91955a0aa03cd83cfbb7b29052cdeb40}{SSP\_DATA\_SIZE\_11}} = 10,                  \textcolor{comment}{// 11-\/bit transfer}}
+\DoxyCodeLine{80     \mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea644bc33b820fe54db80a552742ae8dba}{SSP\_DATA\_SIZE\_12}} = 11,                  \textcolor{comment}{// 12-\/bit transfer}}
+\DoxyCodeLine{81     \mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea7fe92f1e3e37d49030d3115f6ba5e78a}{SSP\_DATA\_SIZE\_13}} = 12,                  \textcolor{comment}{// 13-\/bit transfer}}
+\DoxyCodeLine{82     \mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea124723e9d6e582088c21c9120f83bb88}{SSP\_DATA\_SIZE\_14}} = 13,                  \textcolor{comment}{// 14-\/bit transfer}}
+\DoxyCodeLine{83     \mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222ea88d5a1f5a9dd30d87081814f96681e0b}{SSP\_DATA\_SIZE\_15}} = 14,                  \textcolor{comment}{// 15-\/bit transfer}}
+\DoxyCodeLine{84     \mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222eaa88074e3f2d266999025a9ef9a1320b6}{SSP\_DATA\_SIZE\_16}} = 15                   \textcolor{comment}{// 16-\/bit transfer}}
+\DoxyCodeLine{85 \} \mbox{\hyperlink{pac5xxx__ssp_8h_aca934e46cb338627b49521d2bea9222e}{SSP\_DATA\_SIZE\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__ssp_8h_a1df6ffb3af1739357f5b83ffd2ab8b1b}\label{pac5xxx__ssp_8h_a1df6ffb3af1739357f5b83ffd2ab8b1b}} 
+\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_ENDIAN\_TYPE@{SSP\_ENDIAN\_TYPE}}
+\index{SSP\_ENDIAN\_TYPE@{SSP\_ENDIAN\_TYPE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}
+\doxysubsubsection{\texorpdfstring{SSP\_ENDIAN\_TYPE}{SSP\_ENDIAN\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__ssp_8h_a1df6ffb3af1739357f5b83ffd2ab8b1b}{S\+S\+P\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_ENDIAN\_MSB@{SSP\_ENDIAN\_MSB}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_ENDIAN\_MSB@{SSP\_ENDIAN\_MSB}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_a1df6ffb3af1739357f5b83ffd2ab8b1ba11f6cb1498dfb79e1b131980eb9be934}\label{pac5xxx__ssp_8h_a1df6ffb3af1739357f5b83ffd2ab8b1ba11f6cb1498dfb79e1b131980eb9be934}} 
+S\+S\+P\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+M\+SB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_ENDIAN\_LSB@{SSP\_ENDIAN\_LSB}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_ENDIAN\_LSB@{SSP\_ENDIAN\_LSB}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_a1df6ffb3af1739357f5b83ffd2ab8b1ba8273b5bce68907c91bc14a9166830a32}\label{pac5xxx__ssp_8h_a1df6ffb3af1739357f5b83ffd2ab8b1ba8273b5bce68907c91bc14a9166830a32}} 
+S\+S\+P\+\_\+\+E\+N\+D\+I\+A\+N\+\_\+\+L\+SB&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 22 of file pac5xxx\+\_\+ssp.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22              \{}
+\DoxyCodeLine{23     \mbox{\hyperlink{pac5xxx__ssp_8h_a1df6ffb3af1739357f5b83ffd2ab8b1ba11f6cb1498dfb79e1b131980eb9be934}{SSP\_ENDIAN\_MSB}} = 0,                     \textcolor{comment}{// MSB transmit / receive first}}
+\DoxyCodeLine{24     \mbox{\hyperlink{pac5xxx__ssp_8h_a1df6ffb3af1739357f5b83ffd2ab8b1ba8273b5bce68907c91bc14a9166830a32}{SSP\_ENDIAN\_LSB}} = 1                      \textcolor{comment}{// LSB transmit / receive first}}
+\DoxyCodeLine{25 \} \mbox{\hyperlink{pac5xxx__ssp_8h_a1df6ffb3af1739357f5b83ffd2ab8b1b}{SSP\_ENDIAN\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__ssp_8h_ae29141749827a525f7827c855d2462ab}\label{pac5xxx__ssp_8h_ae29141749827a525f7827c855d2462ab}} 
+\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_FRAME\_FORMAT\_TYPE@{SSP\_FRAME\_FORMAT\_TYPE}}
+\index{SSP\_FRAME\_FORMAT\_TYPE@{SSP\_FRAME\_FORMAT\_TYPE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}
+\doxysubsubsection{\texorpdfstring{SSP\_FRAME\_FORMAT\_TYPE}{SSP\_FRAME\_FORMAT\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__ssp_8h_ae29141749827a525f7827c855d2462ab}{S\+S\+P\+\_\+\+F\+R\+A\+M\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_FRAME\_FORMAT\_SPI@{SSP\_FRAME\_FORMAT\_SPI}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_FRAME\_FORMAT\_SPI@{SSP\_FRAME\_FORMAT\_SPI}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_ae29141749827a525f7827c855d2462aba6f9253ad15ad10c728a392a2df3b0d57}\label{pac5xxx__ssp_8h_ae29141749827a525f7827c855d2462aba6f9253ad15ad10c728a392a2df3b0d57}} 
+S\+S\+P\+\_\+\+F\+R\+A\+M\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+S\+PI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_FRAME\_FORMAT\_TI@{SSP\_FRAME\_FORMAT\_TI}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_FRAME\_FORMAT\_TI@{SSP\_FRAME\_FORMAT\_TI}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_ae29141749827a525f7827c855d2462aba1902f442d7daf7c039b94ffe3b1e245e}\label{pac5xxx__ssp_8h_ae29141749827a525f7827c855d2462aba1902f442d7daf7c039b94ffe3b1e245e}} 
+S\+S\+P\+\_\+\+F\+R\+A\+M\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+TI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_FRAME\_FORMAT\_MICROWIRE@{SSP\_FRAME\_FORMAT\_MICROWIRE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_FRAME\_FORMAT\_MICROWIRE@{SSP\_FRAME\_FORMAT\_MICROWIRE}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_ae29141749827a525f7827c855d2462aba5013b31024cabba573692ea2d3e5465b}\label{pac5xxx__ssp_8h_ae29141749827a525f7827c855d2462aba5013b31024cabba573692ea2d3e5465b}} 
+S\+S\+P\+\_\+\+F\+R\+A\+M\+E\+\_\+\+F\+O\+R\+M\+A\+T\+\_\+\+M\+I\+C\+R\+O\+W\+I\+RE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 64 of file pac5xxx\+\_\+ssp.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64              \{}
+\DoxyCodeLine{65     \mbox{\hyperlink{pac5xxx__ssp_8h_ae29141749827a525f7827c855d2462aba6f9253ad15ad10c728a392a2df3b0d57}{SSP\_FRAME\_FORMAT\_SPI}}        = 0,}
+\DoxyCodeLine{66     \mbox{\hyperlink{pac5xxx__ssp_8h_ae29141749827a525f7827c855d2462aba1902f442d7daf7c039b94ffe3b1e245e}{SSP\_FRAME\_FORMAT\_TI}}         = 1,}
+\DoxyCodeLine{67     \mbox{\hyperlink{pac5xxx__ssp_8h_ae29141749827a525f7827c855d2462aba5013b31024cabba573692ea2d3e5465b}{SSP\_FRAME\_FORMAT\_MICROWIRE}}  = 2 }
+\DoxyCodeLine{68 \} \mbox{\hyperlink{pac5xxx__ssp_8h_ae29141749827a525f7827c855d2462ab}{SSP\_FRAME\_FORMAT\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__ssp_8h_ad497da277b615b0f1b50d2177a123a49}\label{pac5xxx__ssp_8h_ad497da277b615b0f1b50d2177a123a49}} 
+\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_LOOPBACK\_TYPE@{SSP\_LOOPBACK\_TYPE}}
+\index{SSP\_LOOPBACK\_TYPE@{SSP\_LOOPBACK\_TYPE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}
+\doxysubsubsection{\texorpdfstring{SSP\_LOOPBACK\_TYPE}{SSP\_LOOPBACK\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__ssp_8h_ad497da277b615b0f1b50d2177a123a49}{S\+S\+P\+\_\+\+L\+O\+O\+P\+B\+A\+C\+K\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_LP\_NORMAL@{SSP\_LP\_NORMAL}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_LP\_NORMAL@{SSP\_LP\_NORMAL}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_ad497da277b615b0f1b50d2177a123a49af4b95f37efb0a446cc7066893331737f}\label{pac5xxx__ssp_8h_ad497da277b615b0f1b50d2177a123a49af4b95f37efb0a446cc7066893331737f}} 
+S\+S\+P\+\_\+\+L\+P\+\_\+\+N\+O\+R\+M\+AL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_LP\_LOOPBACK@{SSP\_LP\_LOOPBACK}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_LP\_LOOPBACK@{SSP\_LP\_LOOPBACK}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_ad497da277b615b0f1b50d2177a123a49ab6c608fbe92beb34a5d334da6df833e2}\label{pac5xxx__ssp_8h_ad497da277b615b0f1b50d2177a123a49ab6c608fbe92beb34a5d334da6df833e2}} 
+S\+S\+P\+\_\+\+L\+P\+\_\+\+L\+O\+O\+P\+B\+A\+CK&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 28 of file pac5xxx\+\_\+ssp.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28              \{}
+\DoxyCodeLine{29     \mbox{\hyperlink{pac5xxx__ssp_8h_ad497da277b615b0f1b50d2177a123a49af4b95f37efb0a446cc7066893331737f}{SSP\_LP\_NORMAL}}   = 0,                    \textcolor{comment}{// Normal mode}}
+\DoxyCodeLine{30     \mbox{\hyperlink{pac5xxx__ssp_8h_ad497da277b615b0f1b50d2177a123a49ab6c608fbe92beb34a5d334da6df833e2}{SSP\_LP\_LOOPBACK}} = 1                     \textcolor{comment}{// Loopback mode}}
+\DoxyCodeLine{31 \} \mbox{\hyperlink{pac5xxx__ssp_8h_ad497da277b615b0f1b50d2177a123a49}{SSP\_LOOPBACK\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__ssp_8h_a6876af8c3d5af59f022cdc44eca02ef8}\label{pac5xxx__ssp_8h_a6876af8c3d5af59f022cdc44eca02ef8}} 
+\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_MS\_TYPE@{SSP\_MS\_TYPE}}
+\index{SSP\_MS\_TYPE@{SSP\_MS\_TYPE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}
+\doxysubsubsection{\texorpdfstring{SSP\_MS\_TYPE}{SSP\_MS\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__ssp_8h_a6876af8c3d5af59f022cdc44eca02ef8}{S\+S\+P\+\_\+\+M\+S\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_MS\_MASTER@{SSP\_MS\_MASTER}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_MS\_MASTER@{SSP\_MS\_MASTER}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_a6876af8c3d5af59f022cdc44eca02ef8ad73b541df99cdee508525586b3a40bf8}\label{pac5xxx__ssp_8h_a6876af8c3d5af59f022cdc44eca02ef8ad73b541df99cdee508525586b3a40bf8}} 
+S\+S\+P\+\_\+\+M\+S\+\_\+\+M\+A\+S\+T\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_MS\_SLAVE@{SSP\_MS\_SLAVE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_MS\_SLAVE@{SSP\_MS\_SLAVE}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_a6876af8c3d5af59f022cdc44eca02ef8ab4ec8e8f25cc732a200e586bf3e31c6e}\label{pac5xxx__ssp_8h_a6876af8c3d5af59f022cdc44eca02ef8ab4ec8e8f25cc732a200e586bf3e31c6e}} 
+S\+S\+P\+\_\+\+M\+S\+\_\+\+S\+L\+A\+VE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 40 of file pac5xxx\+\_\+ssp.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40              \{}
+\DoxyCodeLine{41     \mbox{\hyperlink{pac5xxx__ssp_8h_a6876af8c3d5af59f022cdc44eca02ef8ad73b541df99cdee508525586b3a40bf8}{SSP\_MS\_MASTER}} = 0,                      \textcolor{comment}{// The SSP controller acts as a bus master, driving the SCLK, MOSI, and SS signals and receiving MISO}}
+\DoxyCodeLine{42     \mbox{\hyperlink{pac5xxx__ssp_8h_a6876af8c3d5af59f022cdc44eca02ef8ab4ec8e8f25cc732a200e586bf3e31c6e}{SSP\_MS\_SLAVE}}  = 1                       \textcolor{comment}{// The SSP controller acts as a bus slave, driving the MISO and receiving SCLK, MOSI, and SS}}
+\DoxyCodeLine{43 \} \mbox{\hyperlink{pac5xxx__ssp_8h_a6876af8c3d5af59f022cdc44eca02ef8}{SSP\_MS\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__ssp_8h_a350ab5b0bf37fe868ff6d83a2b2ed7b2}\label{pac5xxx__ssp_8h_a350ab5b0bf37fe868ff6d83a2b2ed7b2}} 
+\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_OUTPUT\_TYPE@{SSP\_OUTPUT\_TYPE}}
+\index{SSP\_OUTPUT\_TYPE@{SSP\_OUTPUT\_TYPE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}
+\doxysubsubsection{\texorpdfstring{SSP\_OUTPUT\_TYPE}{SSP\_OUTPUT\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__ssp_8h_a350ab5b0bf37fe868ff6d83a2b2ed7b2}{S\+S\+P\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_OUTPUT\_DRIVE@{SSP\_OUTPUT\_DRIVE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_OUTPUT\_DRIVE@{SSP\_OUTPUT\_DRIVE}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_a350ab5b0bf37fe868ff6d83a2b2ed7b2ab4cecab7e6a426d626574d4584c4fbdb}\label{pac5xxx__ssp_8h_a350ab5b0bf37fe868ff6d83a2b2ed7b2ab4cecab7e6a426d626574d4584c4fbdb}} 
+S\+S\+P\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+D\+R\+I\+VE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_OUTPUT\_NOT\_DRIVE@{SSP\_OUTPUT\_NOT\_DRIVE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_OUTPUT\_NOT\_DRIVE@{SSP\_OUTPUT\_NOT\_DRIVE}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_a350ab5b0bf37fe868ff6d83a2b2ed7b2aa1ed61ba324e1aad042d9965b4f44d1c}\label{pac5xxx__ssp_8h_a350ab5b0bf37fe868ff6d83a2b2ed7b2aa1ed61ba324e1aad042d9965b4f44d1c}} 
+S\+S\+P\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+N\+O\+T\+\_\+\+D\+R\+I\+VE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 46 of file pac5xxx\+\_\+ssp.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46              \{}
+\DoxyCodeLine{47     \mbox{\hyperlink{pac5xxx__ssp_8h_a350ab5b0bf37fe868ff6d83a2b2ed7b2ab4cecab7e6a426d626574d4584c4fbdb}{SSP\_OUTPUT\_DRIVE}}     = 0,               \textcolor{comment}{// The SSP can drive the MISO output in slave mode}}
+\DoxyCodeLine{48     \mbox{\hyperlink{pac5xxx__ssp_8h_a350ab5b0bf37fe868ff6d83a2b2ed7b2aa1ed61ba324e1aad042d9965b4f44d1c}{SSP\_OUTPUT\_NOT\_DRIVE}} = 1                \textcolor{comment}{// The SSP must not drive the MISO output in slave mode}}
+\DoxyCodeLine{49 \} \mbox{\hyperlink{pac5xxx__ssp_8h_a350ab5b0bf37fe868ff6d83a2b2ed7b2}{SSP\_OUTPUT\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__ssp_8h_a5a1ebbcae0ed34a5989e2dbbca71f7b0}\label{pac5xxx__ssp_8h_a5a1ebbcae0ed34a5989e2dbbca71f7b0}} 
+\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_PUT\_PHASE\_TYPE@{SSP\_PUT\_PHASE\_TYPE}}
+\index{SSP\_PUT\_PHASE\_TYPE@{SSP\_PUT\_PHASE\_TYPE}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}
+\doxysubsubsection{\texorpdfstring{SSP\_PUT\_PHASE\_TYPE}{SSP\_PUT\_PHASE\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__ssp_8h_a5a1ebbcae0ed34a5989e2dbbca71f7b0}{S\+S\+P\+\_\+\+P\+U\+T\+\_\+\+P\+H\+A\+S\+E\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_PUT\_PHASE\_1@{SSP\_PUT\_PHASE\_1}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_PUT\_PHASE\_1@{SSP\_PUT\_PHASE\_1}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_a5a1ebbcae0ed34a5989e2dbbca71f7b0a74104bd04baa1ce8fc4c5735e93773f8}\label{pac5xxx__ssp_8h_a5a1ebbcae0ed34a5989e2dbbca71f7b0a74104bd04baa1ce8fc4c5735e93773f8}} 
+S\+S\+P\+\_\+\+P\+U\+T\+\_\+\+P\+H\+A\+S\+E\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SSP\_PUT\_PHASE\_2@{SSP\_PUT\_PHASE\_2}!pac5xxx\_ssp.h@{pac5xxx\_ssp.h}}\index{pac5xxx\_ssp.h@{pac5xxx\_ssp.h}!SSP\_PUT\_PHASE\_2@{SSP\_PUT\_PHASE\_2}}}\mbox{\Hypertarget{pac5xxx__ssp_8h_a5a1ebbcae0ed34a5989e2dbbca71f7b0a2508fb7520e236eb98978b7635e0916e}\label{pac5xxx__ssp_8h_a5a1ebbcae0ed34a5989e2dbbca71f7b0a2508fb7520e236eb98978b7635e0916e}} 
+S\+S\+P\+\_\+\+P\+U\+T\+\_\+\+P\+H\+A\+S\+E\+\_\+2&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 52 of file pac5xxx\+\_\+ssp.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52              \{}
+\DoxyCodeLine{53     \mbox{\hyperlink{pac5xxx__ssp_8h_a5a1ebbcae0ed34a5989e2dbbca71f7b0a74104bd04baa1ce8fc4c5735e93773f8}{SSP\_PUT\_PHASE\_1}} = 0,                    \textcolor{comment}{// The SSP controller captures serial data on the first edge transition of the frame.}}
+\DoxyCodeLine{54     \mbox{\hyperlink{pac5xxx__ssp_8h_a5a1ebbcae0ed34a5989e2dbbca71f7b0a2508fb7520e236eb98978b7635e0916e}{SSP\_PUT\_PHASE\_2}} = 1                     \textcolor{comment}{// The SSP controller captures serial data on the second edge transition of the frame.}}
+\DoxyCodeLine{55 \} \mbox{\hyperlink{pac5xxx__ssp_8h_a5a1ebbcae0ed34a5989e2dbbca71f7b0}{SSP\_PUT\_PHASE\_TYPE}};}
+
+\end{DoxyCode}

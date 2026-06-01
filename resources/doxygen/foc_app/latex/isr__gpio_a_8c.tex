@@ -1,0 +1,96 @@
+\hypertarget{isr__gpio_a_8c}{}\doxysection{pac\+\_\+foc/src/isr/isr\+\_\+gpioA.c File Reference}
+\label{isr__gpio_a_8c}\index{pac\_foc/src/isr/isr\_gpioA.c@{pac\_foc/src/isr/isr\_gpioA.c}}
+
+
+Use for PortA I\+SR.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac\+\_\+init.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fault.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+gpio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+tile.\+h\char`\"{}}\newline
+Include dependency graph for isr\+\_\+gpio\+A.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{isr__gpio_a_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{isr__gpio_a_8c_a8dc26630cdc67d36ec756c49882f974c}{Gpio\+A\+\_\+\+I\+R\+Q\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Process G\+P\+I\+OB interrupts (C\+A\+FE interrupt on P\+A7) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for PortA I\+SR. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{isr__gpio_a_8c_a8dc26630cdc67d36ec756c49882f974c}\label{isr__gpio_a_8c_a8dc26630cdc67d36ec756c49882f974c}} 
+\index{isr\_gpioA.c@{isr\_gpioA.c}!GpioA\_IRQHandler@{GpioA\_IRQHandler}}
+\index{GpioA\_IRQHandler@{GpioA\_IRQHandler}!isr\_gpioA.c@{isr\_gpioA.c}}
+\doxysubsubsection{\texorpdfstring{GpioA\_IRQHandler()}{GpioA\_IRQHandler()}}
+{\footnotesize\ttfamily void Gpio\+A\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Process G\+P\+I\+OB interrupts (C\+A\+FE interrupt on P\+A7) 
+
+Process G\+P\+I\+OA interrupts (C\+A\+FE interrupt on P\+A7) to handle over current 
+
+Definition at line 32 of file isr\+\_\+gpio\+A.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33 \{}
+\DoxyCodeLine{34     \textcolor{keyword}{volatile} uint8\_t overcurrent;}
+\DoxyCodeLine{35   }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#ifdef ENABLE\_CBC\_CURRENT\_LIMIT}}
+\DoxyCodeLine{37     \textcolor{keyword}{volatile} uint8\_t cbc;}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{39     }
+\DoxyCodeLine{40     \textcolor{comment}{// clear interrupt}}
+\DoxyCodeLine{41     clear\_oc\_interrupt();}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#ifdef ENABLE\_CBC\_CURRENT\_LIMIT}}
+\DoxyCodeLine{44     cbc = (pac5xxx\_tile\_register\_read(ADDR\_PROTSTAT) \& 0x07);}
+\DoxyCodeLine{45     overcurrent = (pac5xxx\_tile\_register\_read(ADDR\_PROTSTAT) \& 0x70);}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{47     overcurrent = (pac5xxx\_tile\_register\_read(ADDR\_PROTSTAT) \& 0x07);}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{comment}{// Respond to over-\/current condition and set flag}}
+\DoxyCodeLine{51     \textcolor{keywordflow}{if} (overcurrent)}
+\DoxyCodeLine{52     \{}
+\DoxyCodeLine{53         \textcolor{comment}{// Set OC flag}}
+\DoxyCodeLine{54         \mbox{\hyperlink{fault_8c_a27e9497981905b8f49967f8b4bffb194}{set\_fault}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a7a320981168744eb5cf94199073647fc}{FAULT\_CAFE\_OC}});}
+\DoxyCodeLine{55     \}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#ifdef ENABLE\_CBC\_CURRENT\_LIMIT}}
+\DoxyCodeLine{57     \textcolor{comment}{// Respond to CBC current condition}}
+\DoxyCodeLine{58     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (cbc)}
+\DoxyCodeLine{59     \{}
+\DoxyCodeLine{60         \mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}}.stall.flag\_cbc\_triggered = 1;}
+\DoxyCodeLine{61         cbc\_current\_reset();}
+\DoxyCodeLine{62         \mbox{\hyperlink{fault_8c_a8ea8474835dbcb70ebc28b77e48207fc}{set\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a9f505a4192ab5f2559d410f07ecf3d07}{WARNING\_CBC\_OC}});}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#endif    }}
+\DoxyCodeLine{65 \}}
+
+\end{DoxyCode}
+
+
+References F\+A\+U\+L\+T\+\_\+\+C\+A\+F\+E\+\_\+\+OC, motor, set\+\_\+fault(), set\+\_\+warning(), and W\+A\+R\+N\+I\+N\+G\+\_\+\+C\+B\+C\+\_\+\+OC.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{isr__gpio_a_8c_a8dc26630cdc67d36ec756c49882f974c_cgraph}
+\end{center}
+\end{figure}

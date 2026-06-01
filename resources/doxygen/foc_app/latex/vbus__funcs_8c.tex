@@ -1,0 +1,277 @@
+\hypertarget{vbus__funcs_8c}{}\doxysection{pac\+\_\+foc/src/app/vbus\+\_\+funcs.c File Reference}
+\label{vbus__funcs_8c}\index{pac\_foc/src/app/vbus\_funcs.c@{pac\_foc/src/app/vbus\_funcs.c}}
+
+
+Use to calculate internal and external vbus and slope factor from flash.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vbus\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}foc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mpos\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}param.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fault.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}control\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}foc\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}comm.\+h\char`\"{}}\newline
+Include dependency graph for vbus\+\_\+funcs.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vbus__funcs_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{vbus__funcs_8c_a73f901776af2781519785c1654b406c4}{calc\+\_\+vbus\+\_\+external}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr, unsigned int adc\+\_\+counts)
+\begin{DoxyCompactList}\small\item\em This function use to calculate vbus external. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} \mbox{\hyperlink{vbus__funcs_8c_a4811e5828e91ab7dfc854c5f67e5f355}{calc\+\_\+vbus\+\_\+internal}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr, unsigned int adc\+\_\+counts)
+\begin{DoxyCompactList}\small\item\em This function use to calculate vbus internal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vbus__funcs_8c_ab8fb6271a554c7be7b0c74504b5fc7fb}{cal\+\_\+vm\+\_\+const}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em This function use to calculate vms constant. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{vbus__funcs_8c_ae6124558347e63e47b823ddffe430e1d}{sample\+\_\+dcbus}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em This function use to calculate average value of dc bus voltage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use to calculate internal and external vbus and slope factor from flash. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{vbus__funcs_8c_ab8fb6271a554c7be7b0c74504b5fc7fb}\label{vbus__funcs_8c_ab8fb6271a554c7be7b0c74504b5fc7fb}} 
+\index{vbus\_funcs.c@{vbus\_funcs.c}!cal\_vm\_const@{cal\_vm\_const}}
+\index{cal\_vm\_const@{cal\_vm\_const}!vbus\_funcs.c@{vbus\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{cal\_vm\_const()}{cal\_vm\_const()}}
+{\footnotesize\ttfamily void cal\+\_\+vm\+\_\+const (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+This function use to calculate vms constant. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr pointer to motor structure \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 149 of file vbus\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{150 \{}
+\DoxyCodeLine{151     \textcolor{comment}{// Convert VMS100 and VMS200 in mV to q16}}
+\DoxyCodeLine{152     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad12f772cdb19c1432c7b9c6ca291f0fd}{vms\_v100}} = \mbox{\hyperlink{config__options_8h_a7074242cc2fbe0f5fd708a57342d25b8}{READ\_UINT16}}(VMS100\_ADDRESS) << 16;}
+\DoxyCodeLine{153     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ae7758fd0839b3411ab73a8e08499a7e6}{vms\_v200}} = \mbox{\hyperlink{config__options_8h_a7074242cc2fbe0f5fd708a57342d25b8}{READ\_UINT16}}(VMS200\_ADDRESS) << 16;}
+\DoxyCodeLine{154     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ac77f08291cce78289af18d88227076f7}{one\_div\_vms200\_minus\_vms100}} = \mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}(\mbox{\hyperlink{fix16_8h_ab8732af29723661b66f6570881cebc6c}{FIX16\_ONE}}, fix16\_sub(motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ae7758fd0839b3411ab73a8e08499a7e6}{vms\_v200}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad12f772cdb19c1432c7b9c6ca291f0fd}{vms\_v100}}));}
+\DoxyCodeLine{155 \}}
+
+\end{DoxyCode}
+
+
+References fix16\+\_\+div(), F\+I\+X16\+\_\+\+O\+NE, Struct\+\_\+\+Motor\+::one\+\_\+div\+\_\+vms200\+\_\+minus\+\_\+vms100, R\+E\+A\+D\+\_\+\+U\+I\+N\+T16, Struct\+\_\+\+Motor\+::vms\+\_\+v100, and Struct\+\_\+\+Motor\+::vms\+\_\+v200.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vbus__funcs_8c_ab8fb6271a554c7be7b0c74504b5fc7fb_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{vbus__funcs_8c_a73f901776af2781519785c1654b406c4}\label{vbus__funcs_8c_a73f901776af2781519785c1654b406c4}} 
+\index{vbus\_funcs.c@{vbus\_funcs.c}!calc\_vbus\_external@{calc\_vbus\_external}}
+\index{calc\_vbus\_external@{calc\_vbus\_external}!vbus\_funcs.c@{vbus\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{calc\_vbus\_external()}{calc\_vbus\_external()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} calc\+\_\+vbus\+\_\+external (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr,  }\item[{unsigned int}]{adc\+\_\+counts }\end{DoxyParamCaption})}
+
+
+
+This function use to calculate vbus external. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr pointer to motor structure \\
+\hline
+{\em unsigned} & int adc\+\_\+counts \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 76 of file vbus\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{77 \{}
+\DoxyCodeLine{78     \textcolor{keywordflow}{return} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}}) (adc\_counts * (\mbox{\hyperlink{config__features_8h_a0d7a71f64a00a3c86a9b8cc07fcafc81}{CONV\_ADC2DCBUS\_Q14}} << 2));                        \textcolor{comment}{// Q0 * (Q14 << 2) = Q16}}
+\DoxyCodeLine{79 \}}
+
+\end{DoxyCode}
+
+
+References C\+O\+N\+V\+\_\+\+A\+D\+C2\+D\+C\+B\+U\+S\+\_\+\+Q14.
+
+
+
+Referenced by sample\+\_\+dcbus().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{vbus__funcs_8c_a73f901776af2781519785c1654b406c4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{vbus__funcs_8c_a4811e5828e91ab7dfc854c5f67e5f355}\label{vbus__funcs_8c_a4811e5828e91ab7dfc854c5f67e5f355}} 
+\index{vbus\_funcs.c@{vbus\_funcs.c}!calc\_vbus\_internal@{calc\_vbus\_internal}}
+\index{calc\_vbus\_internal@{calc\_vbus\_internal}!vbus\_funcs.c@{vbus\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{calc\_vbus\_internal()}{calc\_vbus\_internal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} calc\+\_\+vbus\+\_\+internal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr,  }\item[{unsigned int}]{adc\+\_\+counts }\end{DoxyParamCaption})}
+
+
+
+This function use to calculate vbus internal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr pointer to motor structure \\
+\hline
+{\em unsigned} & int adc\+\_\+counts \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 92 of file vbus\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{93 \{}
+\DoxyCodeLine{94 \textcolor{preprocessor}{\#if (INTERNAL\_VMS == TRUE)}}
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#if ((DEVICE\_SELECT == DEVICE\_5256) || (DEVICE\_SELECT == DEVICE\_5556))}}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{comment}{//\#define CAL\_TECHNIQUE\_1}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#ifdef CAL\_TECHNIQUE\_1}}
+\DoxyCodeLine{100     \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}} vms100, vms200, vms\_adc, temp1, vm;}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{102     \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}} vms\_adc, temp\_vms, vm;}
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{105     \textcolor{comment}{//vms\_adc = adc\_counts * Q16\_mV\_PER\_ADC\_COUNT;}}
+\DoxyCodeLine{106     vms\_adc = adc\_counts;}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#ifdef CAL\_TECHNIQUE\_1}}
+\DoxyCodeLine{109     \textcolor{comment}{// Convert VMS100 and VMS200 in mV to q16}}
+\DoxyCodeLine{110     vms100 = \mbox{\hyperlink{config__options_8h_a7074242cc2fbe0f5fd708a57342d25b8}{READ\_UINT16}}(VMS100\_ADDRESS) << 16;}
+\DoxyCodeLine{111     vms200 = \mbox{\hyperlink{config__options_8h_a7074242cc2fbe0f5fd708a57342d25b8}{READ\_UINT16}}(VMS200\_ADDRESS) << 16;}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113     temp1 = \mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}( (vms\_adc -\/ vms100), (vms200 -\/ vms100));}
+\DoxyCodeLine{114     vm = \mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\_mul}}(\mbox{\hyperlink{maths_8h_a772a958b7cb140a8bd3049ceeedfbbc4}{Q16\_100}}, temp1) + \mbox{\hyperlink{maths_8h_a772a958b7cb140a8bd3049ceeedfbbc4}{Q16\_100}};}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116     \textcolor{keywordflow}{return} vm;}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{119     temp\_vms = \mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\_mul}}( (vms\_adc -\/ motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad12f772cdb19c1432c7b9c6ca291f0fd}{vms\_v100}}), motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ac77f08291cce78289af18d88227076f7}{one\_div\_vms200\_minus\_vms100}});}
+\DoxyCodeLine{120     vm = \mbox{\hyperlink{fix16_8c_a5f174fe16d8a2824fd9c558783b7bd3b}{fix16\_mul}}(\mbox{\hyperlink{maths_8h_a772a958b7cb140a8bd3049ceeedfbbc4}{Q16\_100}}, temp\_vms) + \mbox{\hyperlink{maths_8h_a772a958b7cb140a8bd3049ceeedfbbc4}{Q16\_100}};}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122     \textcolor{keywordflow}{return} vm;}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{124 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 \textcolor{preprocessor}{\#if (DEVICE\_SELECT == DEVICE\_5527) || (DEVICE\_SELECT == DEVICE\_5526)}}
+\DoxyCodeLine{127 \textcolor{preprocessor}{\#if (CONFIG\_ADC\_OFFSET\_GAIN \& VMS\_INPUT)}}
+\DoxyCodeLine{128     int32\_t temp1;}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130     temp1 = ((readseq\_vbus\_vms() << 16)-\/ motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_af7998a7813aa69c23be95f495d221300}{post}}.\mbox{\hyperlink{struct_struct___p_o_s_t_a9f20af2d680c63563a289830b0c89b05}{adc\_offset\_in\_counts\_q16}}) >> 13;   \textcolor{comment}{// q16 >> 13 = q3}}
+\DoxyCodeLine{131     temp1 = (temp1 * motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_af7998a7813aa69c23be95f495d221300}{post}}.\mbox{\hyperlink{struct_struct___p_o_s_t_a262de24d98982f9d923f339f80a9b934}{adc\_gain\_in\_counts\_one\_div\_q16}}) >> 3;  \textcolor{comment}{// q3 * q16 = q19>>3 = q16}}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133     }
+\DoxyCodeLine{134 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{135     \textcolor{keywordflow}{return} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}}) ((readseq\_vbus\_vms() >> 2) * (\mbox{\hyperlink{config__features_8h_a0d7a71f64a00a3c86a9b8cc07fcafc81}{CONV\_ADC2DCBUS\_Q14}} << 2));                        \textcolor{comment}{// Q0 * (Q14 << 2) = Q16}}
+\DoxyCodeLine{136 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{140     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{141 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{142 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+P\+O\+S\+T\+::adc\+\_\+gain\+\_\+in\+\_\+counts\+\_\+one\+\_\+div\+\_\+q16, Struct\+\_\+\+P\+O\+S\+T\+::adc\+\_\+offset\+\_\+in\+\_\+counts\+\_\+q16, C\+O\+N\+V\+\_\+\+A\+D\+C2\+D\+C\+B\+U\+S\+\_\+\+Q14, fix16\+\_\+div(), fix16\+\_\+mul(), Struct\+\_\+\+Motor\+::one\+\_\+div\+\_\+vms200\+\_\+minus\+\_\+vms100, Struct\+\_\+\+Motor\+::post, Q16\+\_\+100, R\+E\+A\+D\+\_\+\+U\+I\+N\+T16, and Struct\+\_\+\+Motor\+::vms\+\_\+v100.
+
+
+
+Referenced by sample\+\_\+dcbus().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vbus__funcs_8c_a4811e5828e91ab7dfc854c5f67e5f355_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{vbus__funcs_8c_a4811e5828e91ab7dfc854c5f67e5f355_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{vbus__funcs_8c_ae6124558347e63e47b823ddffe430e1d}\label{vbus__funcs_8c_ae6124558347e63e47b823ddffe430e1d}} 
+\index{vbus\_funcs.c@{vbus\_funcs.c}!sample\_dcbus@{sample\_dcbus}}
+\index{sample\_dcbus@{sample\_dcbus}!vbus\_funcs.c@{vbus\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{sample\_dcbus()}{sample\_dcbus()}}
+{\footnotesize\ttfamily void sample\+\_\+dcbus (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+This function use to calculate average value of dc bus voltage. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr pointer to motor structure \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 164 of file vbus\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{165 \{}
+\DoxyCodeLine{166     \textcolor{keywordtype}{long} \textcolor{keywordtype}{int} vbus\_vms;}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#if (INTERNAL\_VMS == TRUE)}}
+\DoxyCodeLine{169     vbus\_vms = \mbox{\hyperlink{vbus__funcs_8c_a4811e5828e91ab7dfc854c5f67e5f355}{calc\_vbus\_internal}}(motor\_ptr, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4fe0be004a91be8830a86266e2939d7b}{vms\_adc\_vlaue}});}
+\DoxyCodeLine{170 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{171     vbus\_vms = \mbox{\hyperlink{vbus__funcs_8c_a73f901776af2781519785c1654b406c4}{calc\_vbus\_external}}(motor\_ptr, readseq\_vbus());}
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174     \textcolor{comment}{// Filter bus voltage}}
+\DoxyCodeLine{175     filter\_shift2(vbus\_vms, \&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a24717758fcd5f480bb165d0b1d0631e5}{dcbus\_voltage}}, 2);}
+\DoxyCodeLine{176 }
+\DoxyCodeLine{177     \textcolor{comment}{// Calculate voltage factors}}
+\DoxyCodeLine{178     vbus\_calc\_vfactors(motor\_ptr);}
+\DoxyCodeLine{179 \}}
+
+\end{DoxyCode}
+
+
+References calc\+\_\+vbus\+\_\+external(), calc\+\_\+vbus\+\_\+internal(), and Struct\+\_\+\+Motor\+::vms\+\_\+adc\+\_\+vlaue.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{vbus__funcs_8c_ae6124558347e63e47b823ddffe430e1d_cgraph}
+\end{center}
+\end{figure}

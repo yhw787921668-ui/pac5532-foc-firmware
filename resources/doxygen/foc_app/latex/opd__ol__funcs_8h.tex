@@ -1,0 +1,116 @@
+\hypertarget{opd__ol__funcs_8h}{}\doxysection{pac\+\_\+foc/src/features/opd/opd\+\_\+ol\+\_\+funcs.h File Reference}
+\label{opd__ol__funcs_8h}\index{pac\_foc/src/features/opd/opd\_ol\_funcs.h@{pac\_foc/src/features/opd/opd\_ol\_funcs.h}}
+
+
+Use for defining control functions in O\+PD.  
+
+
+{\ttfamily \#include \char`\"{}opd\+\_\+ol.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+Include dependency graph for opd\+\_\+ol\+\_\+funcs.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{opd__ol__funcs_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{opd__ol__funcs_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{opd__ol__funcs_8h_a59f47bb119c8ed57d2ef87d0816d0e1a}{statemachine\+\_\+opdol\+\_\+ctl}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Use for the control-\/level state machine in open-\/loop O\+PD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{opd__ol__funcs_8h_a05adc5be4da3995b718a148b90fe47bb}{statemachine\+\_\+opdol\+\_\+main}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Use for the main state machine in open-\/loop O\+PD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{opd__ol__funcs_8h_a72746826f3c5577a6d4bf78b58a29333}{init\+\_\+opdol}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Initialize the open-\/loop O\+PD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{opd__ol__funcs_8h_a3436b9896c4e83fb5d4e11aa2e3d4c51}{reset\+\_\+opdol}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Reset the open-\/loop O\+PD. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for defining control functions in O\+PD. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{opd__ol__funcs_8h_a72746826f3c5577a6d4bf78b58a29333}\label{opd__ol__funcs_8h_a72746826f3c5577a6d4bf78b58a29333}} 
+\index{opd\_ol\_funcs.h@{opd\_ol\_funcs.h}!init\_opdol@{init\_opdol}}
+\index{init\_opdol@{init\_opdol}!opd\_ol\_funcs.h@{opd\_ol\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{init\_opdol()}{init\_opdol()}}
+{\footnotesize\ttfamily void init\+\_\+opdol (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Initialize the open-\/loop O\+PD. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}}} & $\ast$motor\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+
+
+Referenced by motor\+\_\+reset().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{opd__ol__funcs_8h_a72746826f3c5577a6d4bf78b58a29333_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{opd__ol__funcs_8h_a3436b9896c4e83fb5d4e11aa2e3d4c51}\label{opd__ol__funcs_8h_a3436b9896c4e83fb5d4e11aa2e3d4c51}} 
+\index{opd\_ol\_funcs.h@{opd\_ol\_funcs.h}!reset\_opdol@{reset\_opdol}}
+\index{reset\_opdol@{reset\_opdol}!opd\_ol\_funcs.h@{opd\_ol\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{reset\_opdol()}{reset\_opdol()}}
+{\footnotesize\ttfamily void reset\+\_\+opdol (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Reset the open-\/loop O\+PD. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}}} & $\ast$motor\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{opd__ol__funcs_8h_a59f47bb119c8ed57d2ef87d0816d0e1a}\label{opd__ol__funcs_8h_a59f47bb119c8ed57d2ef87d0816d0e1a}} 
+\index{opd\_ol\_funcs.h@{opd\_ol\_funcs.h}!statemachine\_opdol\_ctl@{statemachine\_opdol\_ctl}}
+\index{statemachine\_opdol\_ctl@{statemachine\_opdol\_ctl}!opd\_ol\_funcs.h@{opd\_ol\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{statemachine\_opdol\_ctl()}{statemachine\_opdol\_ctl()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void statemachine\+\_\+opdol\+\_\+ctl (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Use for the control-\/level state machine in open-\/loop O\+PD. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}}} & $\ast$motor\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{opd__ol__funcs_8h_a05adc5be4da3995b718a148b90fe47bb}\label{opd__ol__funcs_8h_a05adc5be4da3995b718a148b90fe47bb}} 
+\index{opd\_ol\_funcs.h@{opd\_ol\_funcs.h}!statemachine\_opdol\_main@{statemachine\_opdol\_main}}
+\index{statemachine\_opdol\_main@{statemachine\_opdol\_main}!opd\_ol\_funcs.h@{opd\_ol\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{statemachine\_opdol\_main()}{statemachine\_opdol\_main()}}
+{\footnotesize\ttfamily void statemachine\+\_\+opdol\+\_\+main (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Use for the main state machine in open-\/loop O\+PD. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}}} & $\ast$motor\+\_\+ptr \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,111 @@
+\hypertarget{pac5xxx__driver__arm_8h}{}\doxysection{pac\+\_\+foc/pac52xx/pac5xxx\+\_\+sdk/pac5xxx\+\_\+drivers/pac5xxx\+\_\+driver\+\_\+arm.h File Reference}
+\label{pac5xxx__driver__arm_8h}\index{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_drivers/pac5xxx\_driver\_arm.h@{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_drivers/pac5xxx\_driver\_arm.h}}
+
+
+Firmware driver for the P\+A\+C5\+X\+XX A\+RM functions.  
+
+
+{\ttfamily \#include \char`\"{}pac52\+X\+X.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+config.\+h\char`\"{}}\newline
+Include dependency graph for pac5xxx\+\_\+driver\+\_\+arm.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__driver__arm_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{pac5xxx__driver__arm_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{pac5xxx__driver__arm_8h_aa572ec50a1f7e893dd643b113761eb74}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+RM}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{pac5xxx__driver__arm_8h_aa572ec50a1f7e893dd643b113761eb74}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+RM}} void \mbox{\hyperlink{pac5xxx__driver__arm_8h_aba7da887d9de278d2a685977a8ee6d10}{pac5xxx\+\_\+arm\+\_\+sleep\+\_\+wfi}} (void)
+\begin{DoxyCompactList}\small\item\em This function enters the sleep mode on the A\+RM using the W\+FI (wait for interrupt) instruction and performs clock management before entering sleep mode. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{pac5xxx__driver__arm_8h_aa572ec50a1f7e893dd643b113761eb74}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+RM}} void \mbox{\hyperlink{pac5xxx__driver__arm_8h_a6450fa620473179108521f18ca3b5158}{pac5xxx\+\_\+arm\+\_\+sleep\+\_\+wfe}} (void)
+\begin{DoxyCompactList}\small\item\em This function enters the sleep mode on the A\+RM using the W\+FE (wait for event) instruction and performs clock management before entering sleep mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Firmware driver for the P\+A\+C5\+X\+XX A\+RM functions. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2015-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{pac5xxx__driver__arm_8h_aa572ec50a1f7e893dd643b113761eb74}\label{pac5xxx__driver__arm_8h_aa572ec50a1f7e893dd643b113761eb74}} 
+\index{pac5xxx\_driver\_arm.h@{pac5xxx\_driver\_arm.h}!RAMFUNC\_ARM@{RAMFUNC\_ARM}}
+\index{RAMFUNC\_ARM@{RAMFUNC\_ARM}!pac5xxx\_driver\_arm.h@{pac5xxx\_driver\_arm.h}}
+\doxysubsubsection{\texorpdfstring{RAMFUNC\_ARM}{RAMFUNC\_ARM}}
+{\footnotesize\ttfamily \#define R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+RM}
+
+
+
+Definition at line 27 of file pac5xxx\+\_\+driver\+\_\+arm.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pac5xxx__driver__arm_8h_a6450fa620473179108521f18ca3b5158}\label{pac5xxx__driver__arm_8h_a6450fa620473179108521f18ca3b5158}} 
+\index{pac5xxx\_driver\_arm.h@{pac5xxx\_driver\_arm.h}!pac5xxx\_arm\_sleep\_wfe@{pac5xxx\_arm\_sleep\_wfe}}
+\index{pac5xxx\_arm\_sleep\_wfe@{pac5xxx\_arm\_sleep\_wfe}!pac5xxx\_driver\_arm.h@{pac5xxx\_driver\_arm.h}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_arm\_sleep\_wfe()}{pac5xxx\_arm\_sleep\_wfe()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pac5xxx__driver__arm_8h_aa572ec50a1f7e893dd643b113761eb74}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+RM}} void pac5xxx\+\_\+arm\+\_\+sleep\+\_\+wfe (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function enters the sleep mode on the A\+RM using the W\+FE (wait for event) instruction and performs clock management before entering sleep mode. 
+
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 27 of file pac5xxx\+\_\+driver\+\_\+arm\+\_\+sleep.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29   \textcolor{comment}{// Execute WFE to enter sleep mode}}
+\DoxyCodeLine{30   \_\_WFE();}
+\DoxyCodeLine{31 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__driver__arm_8h_aba7da887d9de278d2a685977a8ee6d10}\label{pac5xxx__driver__arm_8h_aba7da887d9de278d2a685977a8ee6d10}} 
+\index{pac5xxx\_driver\_arm.h@{pac5xxx\_driver\_arm.h}!pac5xxx\_arm\_sleep\_wfi@{pac5xxx\_arm\_sleep\_wfi}}
+\index{pac5xxx\_arm\_sleep\_wfi@{pac5xxx\_arm\_sleep\_wfi}!pac5xxx\_driver\_arm.h@{pac5xxx\_driver\_arm.h}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_arm\_sleep\_wfi()}{pac5xxx\_arm\_sleep\_wfi()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{pac5xxx__driver__arm_8h_aa572ec50a1f7e893dd643b113761eb74}{R\+A\+M\+F\+U\+N\+C\+\_\+\+A\+RM}} void pac5xxx\+\_\+arm\+\_\+sleep\+\_\+wfi (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function enters the sleep mode on the A\+RM using the W\+FI (wait for interrupt) instruction and performs clock management before entering sleep mode. 
+
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+arm\+\_\+sleep.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22   \textcolor{comment}{// Execute WFI to enter sleep mode}}
+\DoxyCodeLine{23   \_\_WFI();}
+\DoxyCodeLine{24 \}}
+
+\end{DoxyCode}

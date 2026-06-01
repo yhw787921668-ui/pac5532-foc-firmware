@@ -1,0 +1,314 @@
+\hypertarget{app__funcs_8c}{}\doxysection{pac\+\_\+foc/src/app/app\+\_\+funcs.c File Reference}
+\label{app__funcs_8c}\index{pac\_foc/src/app/app\_funcs.c@{pac\_foc/src/app/app\_funcs.c}}
+
+
+Use to reset variables associated to F\+OC, Control, Faults, Stall, O\+PD, P\+PM.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}app\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}foc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mpos\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}param.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fault.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}control\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}foc\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}comm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}harmonic\+\_\+inj\+\_\+funcs.\+h\char`\"{}}\newline
+Include dependency graph for app\+\_\+funcs.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{app__funcs_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{app__funcs_8c_a147615c6e0532c9180a8a3a5a7b5b537}{motor\+\_\+reset}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em This function use to reset variables associated to F\+OC, Control, Faults, Stall, O\+PD, P\+PM. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{app__funcs_8c_a8e17db15306b65de4d99d9d51745a45d}{systemvar\+\_\+init}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em This function use to initialize debug, application, hall and other system variables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{app__funcs_8c_a68bfe593e658da6039ea5dc036645923}{app\+\_\+param\+\_\+process}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr, \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28}{Parameter\+Code}} param\+\_\+code, int32\+\_\+t rx\+\_\+data)
+\begin{DoxyCompactList}\small\item\em This function use for copying peak value of vdrive and speed for app level processing. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} \mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use to reset variables associated to F\+OC, Control, Faults, Stall, O\+PD, P\+PM. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{app__funcs_8c_a68bfe593e658da6039ea5dc036645923}\label{app__funcs_8c_a68bfe593e658da6039ea5dc036645923}} 
+\index{app\_funcs.c@{app\_funcs.c}!app\_param\_process@{app\_param\_process}}
+\index{app\_param\_process@{app\_param\_process}!app\_funcs.c@{app\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{app\_param\_process()}{app\_param\_process()}}
+{\footnotesize\ttfamily void app\+\_\+param\+\_\+process (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr,  }\item[{\mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28}{Parameter\+Code}}}]{param\+\_\+code,  }\item[{int32\+\_\+t}]{rx\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+This function use for copying peak value of vdrive and speed for app level processing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr pointer to motor structure\\
+\hline
+\end{DoxyParams}
+This function use for copying OL target speed and CL max speed ref to app level variable 
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr pointer to motor structure \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 217 of file app\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{218 \{}
+\DoxyCodeLine{219     \textcolor{keywordflow}{switch}(param\_code)}
+\DoxyCodeLine{220     \{}
+\DoxyCodeLine{221 \textcolor{preprocessor}{\#if (MPOS\_SELECT == MPOS\_LBG1\_START\_ALIGNGO)}}
+\DoxyCodeLine{222     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a25e06420f9ab5543450dbbec24e55ce3}{open\_loop\_speed\_setpoint}}:}
+\DoxyCodeLine{223         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a093e6357057e7fbb9336907174aea134}{speedrefcl\_min}} = motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}{startup}}.\mbox{\hyperlink{struct_struct___startup_align_go_ab8bafb11c8cd7169afca6bef8a499b64}{aligngo}}.\mbox{\hyperlink{struct_struct___align_go_ae03872772a84fb783223559dcb11ef43}{speedrefol\_target\_radps}} >> 1;}
+\DoxyCodeLine{224 \textcolor{preprocessor}{\#elif (MPOS\_SELECT == MPOS\_HALL\_ONLY) || (MPOS\_SELECT == MPOS\_LBG1\_START\_HALL)}}
+\DoxyCodeLine{225     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a40af65c50dbe2da755c82a0e2afb3b92}{max\_cl\_speed\_limit}}:}
+\DoxyCodeLine{226         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a093e6357057e7fbb9336907174aea134}{speedrefcl\_min}} = 0;}
+\DoxyCodeLine{227 \textcolor{preprocessor}{\#elif (MPOS\_SELECT == MPOS\_QEP\_START\_ALIGNGO)}}
+\DoxyCodeLine{228     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a40af65c50dbe2da755c82a0e2afb3b92}{max\_cl\_speed\_limit}}:}
+\DoxyCodeLine{229         \textcolor{comment}{// Set speed fault minimum to -\/max/4}}
+\DoxyCodeLine{230         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a093e6357057e7fbb9336907174aea134}{speedrefcl\_min}} = -\/motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a5e3562e64dea445ae286b80b54b7cdf7}{speedrefcl\_max}} >> 2;}
+\DoxyCodeLine{231 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{232         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{233     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{234         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{235     \}}
+\DoxyCodeLine{236 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Startup\+Align\+Go\+::aligngo, Struct\+\_\+\+Motor\+::app, max\+\_\+cl\+\_\+speed\+\_\+limit, open\+\_\+loop\+\_\+speed\+\_\+setpoint, Struct\+\_\+\+App\+::speedrefcl\+\_\+max, Struct\+\_\+\+App\+::speedrefcl\+\_\+min, Struct\+\_\+\+Align\+Go\+::speedrefol\+\_\+target\+\_\+radps, and Struct\+\_\+\+Motor\+::startup.
+
+\mbox{\Hypertarget{app__funcs_8c_a147615c6e0532c9180a8a3a5a7b5b537}\label{app__funcs_8c_a147615c6e0532c9180a8a3a5a7b5b537}} 
+\index{app\_funcs.c@{app\_funcs.c}!motor\_reset@{motor\_reset}}
+\index{motor\_reset@{motor\_reset}!app\_funcs.c@{app\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{motor\_reset()}{motor\_reset()}}
+{\footnotesize\ttfamily void motor\+\_\+reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+This function use to reset variables associated to F\+OC, Control, Faults, Stall, O\+PD, P\+PM. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr pointer to motor structure \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 74 of file app\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{75 \{}
+\DoxyCodeLine{76     \mbox{\hyperlink{foc__funcs_8c_a069f0a934297643ec1a9143c06342bc4}{foc\_reset}}(motor\_ptr);}
+\DoxyCodeLine{77     \mbox{\hyperlink{control__funcs_8c_a9e4e20411d13aecee7ea6375f79917fc}{control\_reset}}(motor\_ptr);}
+\DoxyCodeLine{78     \mbox{\hyperlink{fault_8c_acb1b29532be372e85eb02188e6255e47}{clear\_fault}}(\mbox{\hyperlink{fault__struct_8h_acf4bc86c68b182367df13c0c4c5633b2}{FAULT\_MAIN\_GRP\_CLEARSTART}});}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_abe938a34b99fdbffd835366edba3b1b0}{direction\_reverse\_flag}} = motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_aa18e2135661f9851385f746bf538fddf}{direction\_reverse\_cmd}};}
+\DoxyCodeLine{81     \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_abe938a34b99fdbffd835366edba3b1b0}{direction\_reverse\_flag}})}
+\DoxyCodeLine{82         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}{status}}.\mbox{\hyperlink{struct_struct___status_a207cca7ac0b21684b8f5ec6588fd4171}{motor}} |= \mbox{\hyperlink{status__struct_8h_a6407485be68fd07aff7ecdae720e1528a02ad651ad6da7435245e291d5dfb497d}{STATUS\_MOTOR\_REVERSE}};}
+\DoxyCodeLine{83     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{84         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}{status}}.\mbox{\hyperlink{struct_struct___status_a207cca7ac0b21684b8f5ec6588fd4171}{motor}} \&= \string~\mbox{\hyperlink{status__struct_8h_a6407485be68fd07aff7ecdae720e1528a02ad651ad6da7435245e291d5dfb497d}{STATUS\_MOTOR\_REVERSE}};}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 \textcolor{preprocessor}{\#if defined(ENABLE\_STALL\_DETECT)}}
+\DoxyCodeLine{87     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_ab4c20fa422da1a4525ced590eb8bf5c7}{vdrvsq\_q14\_peak\_stored}} = 0;}
+\DoxyCodeLine{88     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a0afa2604a8d75b76a4030fd2203b5498}{vdrvsq\_q14\_peak}} = 0;}
+\DoxyCodeLine{89 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \textcolor{preprocessor}{\#ifdef ENABLE\_STALL\_DETECT}}
+\DoxyCodeLine{92     \mbox{\hyperlink{stalldet__funcs_8h_a2cf93adf7a41196f8858a7ea7ccf28b0}{stalldet\_reset}}(motor\_ptr);}
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 \textcolor{preprocessor}{\#ifdef ENABLE\_OPDOL}}
+\DoxyCodeLine{96     \mbox{\hyperlink{opd__ol__funcs_8h_a72746826f3c5577a6d4bf78b58a29333}{init\_opdol}}(motor\_ptr);}
+\DoxyCodeLine{97 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{preprocessor}{\#if (COMMSEL\_PPM == TRUE)}}
+\DoxyCodeLine{100     \mbox{\hyperlink{ppm_8c_a4928e9d284310db78e9a1d7ed653bff8}{ppm\_init}}(motor\_ptr);}
+\DoxyCodeLine{101 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{preprocessor}{\#ifdef ENABLE\_IPD}}
+\DoxyCodeLine{104     motor\_ptr-\/>ipd.ipd\_state = \mbox{\hyperlink{ipd_8h_ac4fa5c5d9448624b9ae58eab1699dbe7a25b0fe65c1ffeb1fdf883b9eb3305c1b}{IPD\_DONE}};}
+\DoxyCodeLine{105 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 \textcolor{preprocessor}{\#if defined(ENABLE\_POWERMEASURE)}}
+\DoxyCodeLine{108     power\_reset(motor\_ptr);}
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111 \textcolor{preprocessor}{\#if defined(ENABLE\_AUTOTUNE\_PI)}}
+\DoxyCodeLine{112     at\_reset\_state(motor\_ptr);}
+\DoxyCodeLine{113 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115 \textcolor{preprocessor}{\#if defined(ENABLE\_OPD\_CL)}}
+\DoxyCodeLine{116     opdcl\_reset(motor\_ptr);}
+\DoxyCodeLine{117 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119 \textcolor{preprocessor}{\#ifdef ENABLE\_MTPA}}
+\DoxyCodeLine{120     \mbox{\hyperlink{mtpa__funcs_8h_af0c9c50607923e3a267a742024ca13a5}{mtpa\_reset}}(motor\_ptr);}
+\DoxyCodeLine{121 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{122 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::app, clear\+\_\+fault(), control\+\_\+reset(), Struct\+\_\+\+App\+::direction\+\_\+reverse\+\_\+cmd, Struct\+\_\+\+App\+::direction\+\_\+reverse\+\_\+flag, F\+A\+U\+L\+T\+\_\+\+M\+A\+I\+N\+\_\+\+G\+R\+P\+\_\+\+C\+L\+E\+A\+R\+S\+T\+A\+RT, foc\+\_\+reset(), init\+\_\+opdol(), I\+P\+D\+\_\+\+D\+O\+NE, Struct\+\_\+\+Status\+::motor, mtpa\+\_\+reset(), ppm\+\_\+init(), stalldet\+\_\+reset(), Struct\+\_\+\+Motor\+::status, S\+T\+A\+T\+U\+S\+\_\+\+M\+O\+T\+O\+R\+\_\+\+R\+E\+V\+E\+R\+SE, Struct\+\_\+\+App\+::vdrvsq\+\_\+q14\+\_\+peak, and Struct\+\_\+\+App\+::vdrvsq\+\_\+q14\+\_\+peak\+\_\+stored.
+
+
+
+Referenced by sm\+\_\+mainsub\+\_\+prestart().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{app__funcs_8c_a147615c6e0532c9180a8a3a5a7b5b537_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{app__funcs_8c_a147615c6e0532c9180a8a3a5a7b5b537_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{app__funcs_8c_a8e17db15306b65de4d99d9d51745a45d}\label{app__funcs_8c_a8e17db15306b65de4d99d9d51745a45d}} 
+\index{app\_funcs.c@{app\_funcs.c}!systemvar\_init@{systemvar\_init}}
+\index{systemvar\_init@{systemvar\_init}!app\_funcs.c@{app\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{systemvar\_init()}{systemvar\_init()}}
+{\footnotesize\ttfamily void systemvar\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+This function use to initialize debug, application, hall and other system variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr pointer to motor structure \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 129 of file app\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{130 \{}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#ifdef ENABLE\_DEBUG\_DISPLAY}}
+\DoxyCodeLine{132     \mbox{\hyperlink{debug__display_8h_a50b31de9a3e91f8994206b354b529fff}{test\_ptr1}} = (\mbox{\hyperlink{struct_my___g_u_i___debug___q14}{My\_GUI\_Debug\_Q14}}*) \&\mbox{\hyperlink{debug__display_8h_ac76ef0450471c4748ee9f4e9758801f1}{GUI\_Debug\_Var\_Q14}}[0].ptr\_gui\_debug\_value\_q14;    \textcolor{comment}{// make sure pointer is pointing to array index 0 at power up}}
+\DoxyCodeLine{133     \mbox{\hyperlink{debug__display_8h_a237c604340345beb7022f2e0b79c1f5d}{test\_ptr2}} = (\mbox{\hyperlink{struct_my___g_u_i___debug___q14}{My\_GUI\_Debug\_Q14}}*) \&\mbox{\hyperlink{debug__display_8h_ac76ef0450471c4748ee9f4e9758801f1}{GUI\_Debug\_Var\_Q14}}[0].ptr\_gui\_debug\_value\_q14;    \textcolor{comment}{// make sure pointer is pointing to array index 0 at power up}}
+\DoxyCodeLine{134     \mbox{\hyperlink{debug__display_8h_ae95cb6c7a8e277f0e7bee5b4d4c3313c}{test\_ptr3}} = (\mbox{\hyperlink{struct_my___g_u_i___debug___q14}{My\_GUI\_Debug\_Q14}}*) \&\mbox{\hyperlink{debug__display_8h_ac76ef0450471c4748ee9f4e9758801f1}{GUI\_Debug\_Var\_Q14}}[0].ptr\_gui\_debug\_value\_q14;    \textcolor{comment}{// make sure pointer is pointing to array index 0 at power up}}
+\DoxyCodeLine{135 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137 \textcolor{preprocessor}{\#if defined (ENABLE\_DEBUG\_PWMDAC) || defined (ENABLE\_DEBUG\_DAS)}}
+\DoxyCodeLine{138     motor\_ptr-\/>debug.debug\_buffer\_command1 = 0;                         \textcolor{comment}{// make sure index never exceed array length}}
+\DoxyCodeLine{139     motor\_ptr-\/>debug.debug\_buffer\_command2 = 0;                         \textcolor{comment}{// make sure index never exceed array length}}
+\DoxyCodeLine{140     motor\_ptr-\/>debug.debug\_buffer\_command3 = 0;                         \textcolor{comment}{// make sure index never exceed array length}}
+\DoxyCodeLine{141     motor\_ptr-\/>debug.debug\_buffer\_command4 = 0;                         \textcolor{comment}{// make sure index never exceed array length}}
+\DoxyCodeLine{142     dac\_ptr1 = (int32\_t*) \&DAC\_ARRAY\_Q14[0];                            \textcolor{comment}{// make sure pointer points to something}}
+\DoxyCodeLine{143     dac\_ptr2 = (int32\_t*) \&DAC\_ARRAY\_Q14[0];                            \textcolor{comment}{// make sure pointer points to something}}
+\DoxyCodeLine{144     dac\_ptr3 = (int32\_t*) \&DAC\_ARRAY\_Q14[0];                            \textcolor{comment}{// make sure pointer points to something}}
+\DoxyCodeLine{145     dac\_ptr4 = (int32\_t*) \&DAC\_ARRAY\_Q14[0];                            \textcolor{comment}{// make sure pointer points to something}}
+\DoxyCodeLine{146 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_a28e623cb9655637e77e5034672d2d6da}{main}} = \mbox{\hyperlink{state__struct_8h_aa8e22117a90ffe040effed82279010daaa3f8351726ef20a7963ea52f88c68bd5}{STATE\_MAIN\_RESET}};}
+\DoxyCodeLine{149     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ad31c1c9c3034518e2d06f4ffe233408a}{state}}.\mbox{\hyperlink{struct_struct___state_ac5675164c81fc41c78401168980d99ff}{appcontrol}} = \mbox{\hyperlink{state__struct_8h_a9ecbedf9b6d53bd3488d18b07060a343a1254467072c4d1b5f0eda9d1980469a3}{STATE\_APPCONTROL\_IDLE}};}
+\DoxyCodeLine{150     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_ab071c675f63006f73bd4e6b649ffc266}{current\_limit}} = \mbox{\hyperlink{param__calc_8h_a8fd03a1db7206c68da2b10c5f3a2b2bf}{MOTOR\_CURRENT\_LIMIT\_DEFAULT\_VALUE}};}
+\DoxyCodeLine{151 \textcolor{preprocessor}{\#if defined(CAFE\_ARCH3) \&\& (DEVICE\_SELECT == DEVICE\_5285)}}
+\DoxyCodeLine{152     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a0668fe8cd000768cc38b34d4c1140c75}{iphase\_amp\_gain}} = UVW\_PHASE\_RSENSE\_GAIN\_DEFAULT\_VALUE\_5285;}
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{154     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a0668fe8cd000768cc38b34d4c1140c75}{iphase\_amp\_gain}} = \mbox{\hyperlink{param__calc_8h_a6a14ce1cf61a07880800b32962f699b7}{UVW\_PHASE\_RSENSE\_GAIN\_DEFAULT\_VALUE}};}
+\DoxyCodeLine{155 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{156     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a277764d812710517042c2ba07e4882b8}{systick\_counter}} = 0;                                 \textcolor{comment}{// this is the timer that starts as soon ADC ISR called}}
+\DoxyCodeLine{157     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a7a238eb6e649df9d0e5ef3e883c4fc3a}{systick\_div\_counter}} = 0;                             \textcolor{comment}{// this is the timer that starts as soon ADC ISR called}}
+\DoxyCodeLine{158     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a2fa673e3839d6c739f33df980d037f1a}{systick\_divider\_cnt}} = 0;                             \textcolor{comment}{// this is the timer that starts as soon ADC ISR called}}
+\DoxyCodeLine{159     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_afb11a2f76e7ba3a8eda8bfa6fb05a9ad}{motor\_led\_ticks}} = \mbox{\hyperlink{config__features_8h_a29a80ece2f04e6f3a6f3459fd8d30946}{MOTOR1\_LED\_TICKS}};                  \textcolor{comment}{// Timer ticks in LED for this motor (for SVM)}}
+\DoxyCodeLine{160     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_ae5c0ea6e74b230917a495f137840149a}{motor\_ted\_ticks}} = \mbox{\hyperlink{config__features_8h_ad802f0e438c5e9e59816da34bf6c5141}{MOTOR1\_TED\_TICKS}};                  \textcolor{comment}{// Timer ticks in TED for this motor (for SVM)}}
+\DoxyCodeLine{161     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a05bfcc9db9f49747874e3ba576409fd2}{motor\_enable\_cmd}} = 0;}
+\DoxyCodeLine{162     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ab5cb8005de9170d4aa643bd52e46a684}{status}}.\mbox{\hyperlink{struct_struct___status_a207cca7ac0b21684b8f5ec6588fd4171}{motor}} = (\mbox{\hyperlink{status__struct_8h_a6407485be68fd07aff7ecdae720e1528}{eStatusMotor}}) 0;}
+\DoxyCodeLine{163     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}{fault}}.\mbox{\hyperlink{struct_struct___fault_a8fa790ee68f0bef321d01018158e5d23}{fault\_stop\_flag}} = \mbox{\hyperlink{maths_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{164     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a2fadc739c92fb4d145db8e7eee2673f4}{ctrl\_counter}} = 0;}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166     \mbox{\hyperlink{foc__funcs_8c_a68ac936da8e293880bdfe4a6a1092075}{foc\_systemvar\_init}}(motor\_ptr);}
+\DoxyCodeLine{167 }
+\DoxyCodeLine{168 \textcolor{preprocessor}{\#ifdef ENABLE\_CLSPEED\_LIMIT\_CHANGE\_CHECK}}
+\DoxyCodeLine{169     motor\_ptr-\/>debug.cl\_speed\_test\_enable = \mbox{\hyperlink{maths_8h_aa93f0eb578d23995850d61f7d61c55c1}{FALSE}};}
+\DoxyCodeLine{170     motor\_ptr-\/>debug.cl\_speed\_test\_limit1 = \mbox{\hyperlink{param__calc_8h_a1a2b30a889e560936a1ea0bd2ba52662}{FOC\_CLOSE\_LOOP\_SPEED\_SETPOINT\_DEFAULT\_VALUE}};}
+\DoxyCodeLine{171     motor\_ptr-\/>debug.cl\_speed\_test\_limit2 = \mbox{\hyperlink{param__calc_8h_a1a2b30a889e560936a1ea0bd2ba52662}{FOC\_CLOSE\_LOOP\_SPEED\_SETPOINT\_DEFAULT\_VALUE}};}
+\DoxyCodeLine{172 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{173 }
+\DoxyCodeLine{174 \textcolor{preprocessor}{\#if (COMMSEL\_PPM == TRUE)}}
+\DoxyCodeLine{175     \textcolor{comment}{// Set power up flag, so we know system just power up, motor will not start until throttle will move back to minimum position}}
+\DoxyCodeLine{176     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2abb6c0c82c94d5cb7e0637cab985fd3}{ppm}}.\mbox{\hyperlink{struct_struct___p_p_m_a56c6b299bcc8267df0b4e16202012780}{motor\_powerup\_flag}} = 1;}
+\DoxyCodeLine{177 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179 \textcolor{preprocessor}{\#ifdef ENABLE\_FLASH\_CRC\_TEST}}
+\DoxyCodeLine{180     \textcolor{comment}{// Get the results of the Reset Handler CRC Test; Passed = 0, Failed = 1}}
+\DoxyCodeLine{181     \textcolor{comment}{// !!!!! Actions taken due to a Flash CRC Test failure are application specific; please modify accordingly !!!!!}}
+\DoxyCodeLine{182     \textcolor{comment}{// In this case, the status is set so the FOC GUI can display the CRC failure}}
+\DoxyCodeLine{183     \textcolor{keywordflow}{if} (uart\_scratch\_read() != 0)}
+\DoxyCodeLine{184         \mbox{\hyperlink{fault_8c_a27e9497981905b8f49967f8b4bffb194}{set\_fault}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a39559c440b738adb255d9493768bad30}{FAULT\_FLASH\_CRC\_TEST}});}
+\DoxyCodeLine{185 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{186 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::app, Struct\+\_\+\+State\+::appcontrol, Struct\+\_\+\+Motor\+::control, Struct\+\_\+\+Control\+::ctrl\+\_\+counter, Struct\+\_\+\+App\+::current\+\_\+limit, F\+A\+L\+SE, Struct\+\_\+\+Motor\+::fault, F\+A\+U\+L\+T\+\_\+\+F\+L\+A\+S\+H\+\_\+\+C\+R\+C\+\_\+\+T\+E\+ST, Struct\+\_\+\+Fault\+::fault\+\_\+stop\+\_\+flag, F\+O\+C\+\_\+\+C\+L\+O\+S\+E\+\_\+\+L\+O\+O\+P\+\_\+\+S\+P\+E\+E\+D\+\_\+\+S\+E\+T\+P\+O\+I\+N\+T\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+A\+L\+UE, foc\+\_\+systemvar\+\_\+init(), G\+U\+I\+\_\+\+Debug\+\_\+\+Var\+\_\+\+Q14, Struct\+\_\+\+App\+::iphase\+\_\+amp\+\_\+gain, Struct\+\_\+\+State\+::main, Struct\+\_\+\+Status\+::motor, M\+O\+T\+O\+R1\+\_\+\+L\+E\+D\+\_\+\+T\+I\+C\+KS, M\+O\+T\+O\+R1\+\_\+\+T\+E\+D\+\_\+\+T\+I\+C\+KS, M\+O\+T\+O\+R\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+L\+I\+M\+I\+T\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+A\+L\+UE, Struct\+\_\+\+App\+::motor\+\_\+enable\+\_\+cmd, Struct\+\_\+\+App\+::motor\+\_\+led\+\_\+ticks, Struct\+\_\+\+P\+P\+M\+::motor\+\_\+powerup\+\_\+flag, Struct\+\_\+\+App\+::motor\+\_\+ted\+\_\+ticks, Struct\+\_\+\+Motor\+::ppm, set\+\_\+fault(), Struct\+\_\+\+Motor\+::state, S\+T\+A\+T\+E\+\_\+\+A\+P\+P\+C\+O\+N\+T\+R\+O\+L\+\_\+\+I\+D\+LE, S\+T\+A\+T\+E\+\_\+\+M\+A\+I\+N\+\_\+\+R\+E\+S\+ET, Struct\+\_\+\+Motor\+::status, Struct\+\_\+\+App\+::systick\+\_\+counter, Struct\+\_\+\+App\+::systick\+\_\+div\+\_\+counter, Struct\+\_\+\+App\+::systick\+\_\+divider\+\_\+cnt, test\+\_\+ptr1, test\+\_\+ptr2, test\+\_\+ptr3, and U\+V\+W\+\_\+\+P\+H\+A\+S\+E\+\_\+\+R\+S\+E\+N\+S\+E\+\_\+\+G\+A\+I\+N\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+A\+L\+UE.
+
+
+
+Referenced by main().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{app__funcs_8c_a8e17db15306b65de4d99d9d51745a45d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{app__funcs_8c_a8e17db15306b65de4d99d9d51745a45d_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}\label{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}} 
+\index{app\_funcs.c@{app\_funcs.c}!motor@{motor}}
+\index{motor@{motor}!app\_funcs.c@{app\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{motor}{motor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} motor}
+
+
+
+Definition at line 72 of file app\+\_\+funcs.\+c.
+
+
+
+Referenced by A\+D\+C\+\_\+\+I\+R\+Q\+Handler(), clear\+\_\+fault(), clear\+\_\+warning(), Gpio\+A\+\_\+\+I\+R\+Q\+Handler(), Gpio\+B\+\_\+\+I\+R\+Q\+Handler(), hall\+\_\+timer\+\_\+isr(), init\+\_\+over\+\_\+current\+\_\+limit(), m1\+\_\+disable(), m1\+\_\+enable(), main(), peripheral\+\_\+init(), qep\+\_\+isr(), set\+\_\+fault(), set\+\_\+warning(), sm\+\_\+mainsub\+\_\+prestart(), statemachine\+\_\+appmain(), statemachine\+\_\+buttoncontrol(), Sys\+Tick\+\_\+\+Handler(), Timer\+A\+\_\+\+I\+R\+Q\+Handler(), Timer\+B\+\_\+\+I\+R\+Q\+Handler(), and uart\+\_\+message\+\_\+process().
+

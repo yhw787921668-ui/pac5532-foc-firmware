@@ -1,0 +1,283 @@
+.TH "PAC5XXX_Driver_System" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_System \- PAC5XXX System and Clock Controller Driver Functions
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_SYSTEM\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_SYSTEM\fP void \fBpac5xxx_sys_ccs_config\fP (\fBCCSCTL_CLKIN_Type\fP clock_select, \fBCCSCTL_ACLKDIV_Type\fP aclk_div, \fBCCSCTL_HCLKDIV_Type\fP fclk_div)"
+.br
+.RI "This function configures the PAC5XXX clock control system\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SYSTEM\fP void \fBpac5xxx_sys_pll_config_dividers\fP (uint8_t input_div, uint16_t feedback_div, uint8_t output_div)"
+.br
+.RI "This function configures the PAC5XXX PLL dividers\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SYSTEM\fP void \fBpac5xxx_sys_pll_enable\fP (int delay)"
+.br
+.RI "This function enables the PAC5XXX PLL\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SYSTEM\fP void \fBpac5xxx_sys_pll_config_100mhz\fP (\fBCCSCTL_HCLKDIV_Type\fP fclk_div, \fBCCSCTL_ACLKDIV_Type\fP aclk_div)"
+.br
+.RI "This function configures and enables the PLL for a 100MHz output\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SYSTEM\fP void \fBpac5xxx_sys_pll_config\fP (int frequency_mhz)"
+.br
+.RI "This function configures and enables the PLL with the given frequency output\&. "
+.ti -1c
+.RI "void \fBpac_recovery\fP (void)"
+.br
+.ti -1c
+.RI "void \fBpac_delay_asm\fP (uint32_t counts)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_SYSTEM"
+
+.PP
+Definition at line 32 of file pac5xxx_driver_system\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_SYSTEM\fP void pac5xxx_sys_ccs_config (\fBCCSCTL_CLKIN_Type\fP clock_select, \fBCCSCTL_ACLKDIV_Type\fP aclk_div, \fBCCSCTL_HCLKDIV_Type\fP fclk_div)"
+
+.PP
+This function configures the PAC5XXX clock control system\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIclock_select\fP The input clock select for FRCLK 
+.br
+\fIaclk_div\fP The ACLK divider 
+.br
+\fIfclk_div\fP The FCLK divider 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_system_ccs_config\&.c\&.
+.PP
+.nf
+21 {
+22     PAC5XXX_SYSCTL->CCSCTL\&.CLKIN = clock_select;
+23     PAC5XXX_SYSCTL->CCSCTL\&.ACLKDIV = aclk_div;
+24     PAC5XXX_SYSCTL->CCSCTL\&.HCLKDIV = fclk_div;
+25 }
+.fi
+.PP
+References PAC5XXX_SYSCTL\&.
+.PP
+Referenced by init_system()\&.
+.SS "\fBRAMFUNC_SYSTEM\fP void pac5xxx_sys_pll_config (int frequency_mhz)"
+
+.PP
+This function configures and enables the PLL with the given frequency output\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfrequency_mhz\fP Output frequency in MHz
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function configures and enables the PLL from the internal reference (CLKREF)\&. After the 500us wait time (for the PLL to lock), the FCLK output is switched from CLKREF to the PLL output\&. 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file pac5xxx_driver_system_pll_config_mhz\&.c\&.
+.PP
+.nf
+22 {
+23     // Switch to the CLKREF input from internal oscillator, Configure FCLK /2, ACLK /1
+24     PAC5XXX_SYSCTL->CCSCTL\&.CLKIN = CCSCTL_CLKIN_CLKREF;
+25 
+26     // Turn off internal oscillator, we don't need it anymore
+27     pac5xxx_sys_osc_disable();
+28 
+29     // Enable PLL (carefully)
+30 
+31     //
+32     // PLLOUT = PLLIN * (PLLFD / (PLLID * PLLOD * 2))
+33     // Constraints:
+34     //   - PLLFD: 2-514
+35     //   - PLLID: 2-34
+36     //   - PLLOD: 0-16
+37     //
+38     // Configure PLL dividers: IN /2 [min], FDBK 100, OUT /1 [min]
+39     // should be PLLOUT at 100MHz: 4MHz * (100 / (2 * 100 * 2))
+40     pac5xxx_sys_pll_config_dividers(PLLCTL_INPUT_DIV(2), PLLCTL_FDBK_DIV(frequency_mhz), PLLCTL_OUTPUT_DIV(1));
+41 
+42     // SysTick is configured to use the reference clock (FRCLK)
+43     // The STCLK is CLKREF / 3, or 4MHz / 3 = 1\&.333MHz or 0\&.75us/tick\&. So to get a delay of 500us,
+44     // you need a count value of 500 / 0\&.75 = 666
+45     pac5xxx_sys_pll_enable(666);
+46 
+47     // Now we can switch to the PLLCLK for the ACLK and FCLK divider input
+48     pac5xxx_sys_ccs_pll_select();
+49 }
+.fi
+.PP
+References CCSCTL_CLKIN_CLKREF, and PAC5XXX_SYSCTL\&.
+.PP
+Referenced by init_system()\&.
+.SS "\fBRAMFUNC_SYSTEM\fP void pac5xxx_sys_pll_config_100mhz (\fBCCSCTL_HCLKDIV_Type\fP fclk_div, \fBCCSCTL_ACLKDIV_Type\fP aclk_div)"
+
+.PP
+This function configures and enables the PLL for a 100MHz output\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfclk_div\fP HCLK output divider after PLL stage 
+.br
+\fIaclk_div\fP ACLK output divider after PLL stage
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function configures and enables the PLL from the internal reference (CLKREF), with the given HCLK and FCLK dividers\&. After the 500us wait time (for the PLL to lock), the FCLK output is switched from CLKREF to the PLL output\&. 
+.RE
+.PP
+
+.SS "\fBRAMFUNC_SYSTEM\fP void pac5xxx_sys_pll_config_dividers (uint8_t input_div, uint16_t feedback_div, uint8_t output_div)"
+
+.PP
+This function configures the PAC5XXX PLL dividers\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIinput_div\fP Input clock divider 
+.br
+\fIfeedback_div\fP Feedback divider 
+.br
+\fIoutput_div\fP Output divider 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_system_pll_config\&.c\&.
+.PP
+.nf
+21 {
+22     PAC5XXX_SYSCTL->PLLCTL\&.PLLINDIV = input_div;
+23     PAC5XXX_SYSCTL->PLLCTL\&.PLLFBDIV = feedback_div;
+24     PAC5XXX_SYSCTL->PLLCTL\&.PLLOUTDIV = output_div;
+25 }
+.fi
+.PP
+References PAC5XXX_SYSCTL\&.
+.SS "\fBRAMFUNC_SYSTEM\fP void pac5xxx_sys_pll_enable (int delay)"
+
+.PP
+This function enables the PAC5XXX PLL\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdelay\fP The number of SysTick clocks to delay 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+The user should make sure that PLL bypass is active, by calling the function: \fIpac5xxx_sys_pll_bypass_enable()\fP before calling this function\&.
+.PP
+There is a mandatory 500us delay after the PLL is enabled before it is stable and ready to use\&. This function will enforce the passed in delay after it enables the PLL before it returns control to the user\&. At that point, the user may remove the PLL bypass by calling \fIpac5xxx_sys_pll_bypass_disable()\fP\&. This time delay is enforced by polling the SysTick timer\&. 
+.RE
+.PP
+
+.PP
+Definition at line 27 of file pac5xxx_driver_system_pll_config\&.c\&.
+.PP
+.nf
+28 {
+29   
+30   // Configure SysTick the number of SysTick clock ticks passed into this function\&.
+31   SysTick->LOAD = delay;
+32   SysTick->VAL = 0;
+33     
+34   // Enable PLL
+35   PAC5XXX_SYSCTL->PLLCTL\&.PLLEN = 1;
+36   
+37   // Enable SysTick timer countdown and set the clock to reference clock
+38   SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
+39   
+40   // Wait until it reaches 0 and then return
+41   while ((SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk) == 0);
+42   
+43   
+44 }
+.fi
+.PP
+References PAC5XXX_SYSCTL, SysTick, SysTick_CTRL_COUNTFLAG_Msk, and SysTick_CTRL_ENABLE_Msk\&.
+.SS "void pac_delay_asm (uint32_t counts)"
+
+.PP
+Referenced by pac_recovery()\&.
+.SS "void pac_recovery (void)"
+
+.PP
+Definition at line 42 of file pac5xxx_driver_system_ccs_config\&.c\&.
+.PP
+.nf
+43 {
+44     volatile uint32_t i;
+45     uint32_t perform_delay = 1;
+46 
+47     // PE2 is already an input, just need to Enable Pull Up
+48     PAC5XXX_GPIOE->PU\&.P2 = 1;                         // Enable Pull Up
+49 
+50     // If PE2 is high a delay is not needed
+51     // Must check over the length of a full UART packet at 115kbps (78uS) in case UART is talking and making PE2 low for short durations
+52     for (i=0; i < 12; i++)  // Value of 12 = at least 140 uS, which is enough for 1 UART packet
+53     {
+54         // If PE2 is high at any time, then a delay is not needed
+55         if (PAC5XXX_GPIOE->IN\&.P2 == 1)
+56         {
+57             perform_delay = 0;
+58         }
+59     }
+60 
+61     // If PE2 was low, delay required, add 6 second delay
+62     if(perform_delay)
+63     {
+64         pac_delay_asm(1400000);
+65     }
+66 
+67     // Restore PE2 to reset state
+68     PAC5XXX_GPIOE->PU\&.P2 = 0;                         // Disable Pull Up
+69 }
+.fi
+.PP
+References PAC5XXX_GPIOE, and pac_delay_asm()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

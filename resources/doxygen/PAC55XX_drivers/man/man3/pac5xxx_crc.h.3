@@ -1,0 +1,84 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_crc.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_crc.h \- CMSIS Cortex-M Header File for the PAC55XX CRC\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPAC55XX_CRC_TYPEDEF\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBCRC_POLYSEL_TYPE\fP { \fBCRC16_CCITT\fP = 0, \fBCRC16_IBM\fP = 1, \fBCRC8_DALLAS_MAXIM\fP = 2 }"
+.br
+.ti -1c
+.RI "enum \fBCRC_DATA_WIDTH_TYPE\fP { \fBCRC_DATA_WIDTH_32BITS\fP = 0, \fBCRC_DATA_WIDTH_8BITS\fP = 1 }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CMSIS Cortex-M Header File for the PAC55XX CRC\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2017-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_crc\&.h\fP\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBCRC_DATA_WIDTH_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICRC_DATA_WIDTH_32BITS \fP\fP
+.TP
+\fB\fICRC_DATA_WIDTH_8BITS \fP\fP
+.PP
+Definition at line 27 of file pac5xxx_crc\&.h\&.
+.PP
+.nf
+27             {
+28     CRC_DATA_WIDTH_32BITS       = 0,
+29     CRC_DATA_WIDTH_8BITS        = 1
+30 } CRC_DATA_WIDTH_TYPE;
+.fi
+.SS "enum \fBCRC_POLYSEL_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fICRC16_CCITT \fP\fP
+.TP
+\fB\fICRC16_IBM \fP\fP
+.TP
+\fB\fICRC8_DALLAS_MAXIM \fP\fP
+.PP
+Definition at line 20 of file pac5xxx_crc\&.h\&.
+.PP
+.nf
+20             {
+21     CRC16_CCITT        = 0,
+22     CRC16_IBM          = 1,
+23     CRC8_DALLAS_MAXIM  = 2
+24 } CRC_POLYSEL_TYPE;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

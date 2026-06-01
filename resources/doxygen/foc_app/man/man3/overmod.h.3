@@ -1,0 +1,68 @@
+.TH "pac_foc/src/control/overmod.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/control/overmod.h \- Use for FOC over modulation functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'overmod_struct\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBprocess_overmodulation\fP (\fBStruct_Overmod\fP *overmod, int32_t *valpha_ovmod_q14, int32_t *vbeta_ovmod_q14, uint32_t *svm_sector, int32_t *svm_ta_q14, int32_t *svm_tb_q14, int32_t *svm_tc_q14)"
+.br
+.RI "process_overmodulation, use for FOC over modulation "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const \fBfix16_t\fP \fBovermod_holdangle_tbl\fP []"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for FOC over modulation functions\&. 
+
+
+.PP
+Definition in file \fBovermod\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "PAC5XXX_RAMFUNC void process_overmodulation (\fBStruct_Overmod\fP * overmod, int32_t * valpha_ovmod_q14, int32_t * vbeta_ovmod_q14, uint32_t * svm_sector, int32_t * svm_ta_q14, int32_t * svm_tb_q14, int32_t * svm_tc_q14)"
+
+.PP
+process_overmodulation, use for FOC over modulation 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_Overmod\fP\fP *overmod over modulation structure 
+.br
+\fIint32_t\fP *valpha_ovmod_q14 
+.br
+\fIint32_t\fP *vbeta_ovmod_q14 
+.br
+\fIuint32_t\fP *svm_sector 
+.br
+\fIint32_t\fP *svm_ta_q14 
+.br
+\fIint32_t\fP *svm_tb_q14 
+.br
+\fIint32_t\fP *svm_tc_q14 
+.RE
+.PP
+
+.SH "Variable Documentation"
+.PP 
+.SS "const \fBfix16_t\fP overmod_holdangle_tbl[]\fC [extern]\fP"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

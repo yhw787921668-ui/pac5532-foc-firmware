@@ -1,0 +1,316 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_memory.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_memory.h \- CMSIS Cortex-M Header File for the PAC55XX Memory Controller\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPAC55XX_MEMCTL_TYPEDEF\fP"
+.br
+.ti -1c
+.RI "struct \fBPAC55XX_INFO1_TYPEDEF\fP"
+.br
+.ti -1c
+.RI "struct \fBPAC55XX_INFO2_TYPEDEF\fP"
+.br
+.ti -1c
+.RI "struct \fBPAC55XX_INFO3_TYPEDEF\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBFLASH_LOCK_ALLOW_WRITE_MEMCTL\fP   0xD513B490"
+.br
+.ti -1c
+.RI "#define \fBFLASH_LOCK_ALLOW_WRITE_ERASE_FLASH\fP   0x43DF140A"
+.br
+.ti -1c
+.RI "#define \fBFLASH_LOCK_ALLOW_WRITE_SWDFUSE\fP   0x79B4F762"
+.br
+.ti -1c
+.RI "#define \fBFLASH_LOCK_ALLOW_WRITE_SECEN\fP   0x1D855C1E"
+.br
+.ti -1c
+.RI "#define \fBFLASH_START_PAGE_ERASE\fP   0x8C799CA7"
+.br
+.ti -1c
+.RI "#define \fBFLASH_ERASE_INFO_3\fP   0x1266FF45"
+.br
+.ti -1c
+.RI "#define \fBFLASH_START_MASS_PAGE_ERASE\fP   0x09EE76C9"
+.br
+.ti -1c
+.RI "#define \fBFLASH_START_MASS_PROG_INFO_ERASE\fP   0x856E0E70"
+.br
+.ti -1c
+.RI "#define \fBSWDFUSE_ADDRESS\fP   (\fBPAC55XX_INFO2_FLASH_BASE\fP + 0x3C)"
+.br
+.ti -1c
+.RI "#define \fBSECEN_ADDRESS\fP   (\fBPAC55XX_INFO2_FLASH_BASE\fP + 0x20)"
+.br
+.ti -1c
+.RI "#define \fBSWD_DISABLE_PERMANENTLY\fP   0xDEAFDEAF"
+.br
+.ti -1c
+.RI "#define \fBFLASH_NUM_PAGES\fP   128"
+.br
+.ti -1c
+.RI "#define \fBFLASH_PAGE_SIZE_BYTES\fP   1024"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBMEMCTL_MCLK_TYPE\fP { \fBMEMCTL_MCLK_ROSCCLK\fP = 0, \fBMEMCTL_MCLK_HCLKDIV\fP = 1 }"
+.br
+.ti -1c
+.RI "enum \fBMEMCTL_MCLK_DIV_TYPEDEF\fP { \fBMEMCTL_MCLK_DIV1\fP = 0, \fBMEMCTL_MCLK_DIV2\fP = 1, \fBMEMCTL_MCLK_DIV3\fP = 2, \fBMEMCTL_MCLK_DIV4\fP = 3, \fBMEMCTL_MCLK_DIV5\fP = 4, \fBMEMCTL_MCLK_DIV6\fP = 5, \fBMEMCTL_MCLK_DIV7\fP = 6, \fBMEMCTL_MCLK_DIV8\fP = 7, \fBMEMCTL_MCLK_DIV9\fP = 8, \fBMEMCTL_MCLK_DIV10\fP = 9, \fBMEMCTL_MCLK_DIV11\fP = 10, \fBMEMCTL_MCLK_DIV12\fP = 11, \fBMEMCTL_MCLK_DIV13\fP = 12, \fBMEMCTL_MCLK_DIV14\fP = 13, \fBMEMCTL_MCLK_DIV15\fP = 14, \fBMEMCTL_MCLK_DIV16\fP = 15 }"
+.br
+.ti -1c
+.RI "enum \fBMEMCTL_FLASH_WSTATE_TYPEDEF\fP { \fBMEMCTL_WSTATE0\fP = 0, \fBMEMCTL_WSTATE1\fP = 1, \fBMEMCTL_WSTATE2\fP = 2, \fBMEMCTL_WSTATE3\fP = 3, \fBMEMCTL_WSTATE4\fP = 4, \fBMEMCTL_WSTATE5\fP = 5, \fBMEMCTL_WSTATE6\fP = 6, \fBMEMCTL_WSTATE7\fP = 7, \fBMEMCTL_WSTATE8\fP = 8, \fBMEMCTL_WSTATE9\fP = 9, \fBMEMCTL_WSTATE10\fP = 10, \fBMEMCTL_WSTATE11\fP = 11, \fBMEMCTL_WSTATE12\fP = 12, \fBMEMCTL_WSTATE13\fP = 13, \fBMEMCTL_WSTATE14\fP = 14, \fBMEMCTL_WSTATE15\fP = 15 }"
+.br
+.ti -1c
+.RI "enum \fBMEMCTL_SECURITY_LEVEL_TYPEDEF\fP { \fBMEMCTL_SEC_LEVEL0\fP = 0xFF, \fBMEMCTL_SEC_LEVEL1\fP = 0xFE, \fBMEMCTL_SEC_LEVEL2\fP = 0xFC }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CMSIS Cortex-M Header File for the PAC55XX Memory Controller\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2017-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_memory\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define FLASH_ERASE_INFO_3   0x1266FF45"
+
+.PP
+Definition at line 26 of file pac5xxx_memory\&.h\&.
+.SS "#define FLASH_LOCK_ALLOW_WRITE_ERASE_FLASH   0x43DF140A"
+
+.PP
+Definition at line 21 of file pac5xxx_memory\&.h\&.
+.SS "#define FLASH_LOCK_ALLOW_WRITE_MEMCTL   0xD513B490"
+
+.PP
+Definition at line 20 of file pac5xxx_memory\&.h\&.
+.SS "#define FLASH_LOCK_ALLOW_WRITE_SECEN   0x1D855C1E"
+
+.PP
+Definition at line 23 of file pac5xxx_memory\&.h\&.
+.SS "#define FLASH_LOCK_ALLOW_WRITE_SWDFUSE   0x79B4F762"
+
+.PP
+Definition at line 22 of file pac5xxx_memory\&.h\&.
+.SS "#define FLASH_NUM_PAGES   128"
+
+.PP
+Definition at line 36 of file pac5xxx_memory\&.h\&.
+.SS "#define FLASH_PAGE_SIZE_BYTES   1024"
+
+.PP
+Definition at line 37 of file pac5xxx_memory\&.h\&.
+.SS "#define FLASH_START_MASS_PAGE_ERASE   0x09EE76C9"
+
+.PP
+Definition at line 27 of file pac5xxx_memory\&.h\&.
+.SS "#define FLASH_START_MASS_PROG_INFO_ERASE   0x856E0E70"
+
+.PP
+Definition at line 28 of file pac5xxx_memory\&.h\&.
+.SS "#define FLASH_START_PAGE_ERASE   0x8C799CA7"
+
+.PP
+Definition at line 25 of file pac5xxx_memory\&.h\&.
+.SS "#define SECEN_ADDRESS   (\fBPAC55XX_INFO2_FLASH_BASE\fP + 0x20)"
+
+.PP
+Definition at line 33 of file pac5xxx_memory\&.h\&.
+.SS "#define SWD_DISABLE_PERMANENTLY   0xDEAFDEAF"
+
+.PP
+Definition at line 34 of file pac5xxx_memory\&.h\&.
+.SS "#define SWDFUSE_ADDRESS   (\fBPAC55XX_INFO2_FLASH_BASE\fP + 0x3C)"
+
+.PP
+Definition at line 32 of file pac5xxx_memory\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBMEMCTL_FLASH_WSTATE_TYPEDEF\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMEMCTL_WSTATE0 \fP\fP
+.TP
+\fB\fIMEMCTL_WSTATE1 \fP\fP
+.TP
+\fB\fIMEMCTL_WSTATE2 \fP\fP
+.TP
+\fB\fIMEMCTL_WSTATE3 \fP\fP
+.TP
+\fB\fIMEMCTL_WSTATE4 \fP\fP
+.TP
+\fB\fIMEMCTL_WSTATE5 \fP\fP
+.TP
+\fB\fIMEMCTL_WSTATE6 \fP\fP
+.TP
+\fB\fIMEMCTL_WSTATE7 \fP\fP
+.TP
+\fB\fIMEMCTL_WSTATE8 \fP\fP
+.TP
+\fB\fIMEMCTL_WSTATE9 \fP\fP
+.TP
+\fB\fIMEMCTL_WSTATE10 \fP\fP
+.TP
+\fB\fIMEMCTL_WSTATE11 \fP\fP
+.TP
+\fB\fIMEMCTL_WSTATE12 \fP\fP
+.TP
+\fB\fIMEMCTL_WSTATE13 \fP\fP
+.TP
+\fB\fIMEMCTL_WSTATE14 \fP\fP
+.TP
+\fB\fIMEMCTL_WSTATE15 \fP\fP
+.PP
+Definition at line 66 of file pac5xxx_memory\&.h\&.
+.PP
+.nf
+66              {
+67     MEMCTL_WSTATE0  = 0,                     // 0  wait states
+68     MEMCTL_WSTATE1  = 1,                     // 1  wait states
+69     MEMCTL_WSTATE2  = 2,                     // 2  wait states
+70     MEMCTL_WSTATE3  = 3,                     // 3  wait states
+71     MEMCTL_WSTATE4  = 4,                     // 4  wait states
+72     MEMCTL_WSTATE5  = 5,                     // 5  wait states
+73     MEMCTL_WSTATE6  = 6,                     // 6  wait states
+74     MEMCTL_WSTATE7  = 7,                     // 7  wait states
+75     MEMCTL_WSTATE8  = 8,                     // 8  wait states
+76     MEMCTL_WSTATE9  = 9,                     // 9  wait states
+77     MEMCTL_WSTATE10 = 10,                    // 10 wait states
+78     MEMCTL_WSTATE11 = 11,                    // 11 wait states
+79     MEMCTL_WSTATE12 = 12,                    // 12 wait states
+80     MEMCTL_WSTATE13 = 13,                    // 13 wait states
+81     MEMCTL_WSTATE14 = 14,                    // 14 wait states
+82     MEMCTL_WSTATE15 = 15                     // 15 wait states
+83 } MEMCTL_FLASH_WSTATE_TYPEDEF;
+.fi
+.SS "enum \fBMEMCTL_MCLK_DIV_TYPEDEF\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMEMCTL_MCLK_DIV1 \fP\fP
+.TP
+\fB\fIMEMCTL_MCLK_DIV2 \fP\fP
+.TP
+\fB\fIMEMCTL_MCLK_DIV3 \fP\fP
+.TP
+\fB\fIMEMCTL_MCLK_DIV4 \fP\fP
+.TP
+\fB\fIMEMCTL_MCLK_DIV5 \fP\fP
+.TP
+\fB\fIMEMCTL_MCLK_DIV6 \fP\fP
+.TP
+\fB\fIMEMCTL_MCLK_DIV7 \fP\fP
+.TP
+\fB\fIMEMCTL_MCLK_DIV8 \fP\fP
+.TP
+\fB\fIMEMCTL_MCLK_DIV9 \fP\fP
+.TP
+\fB\fIMEMCTL_MCLK_DIV10 \fP\fP
+.TP
+\fB\fIMEMCTL_MCLK_DIV11 \fP\fP
+.TP
+\fB\fIMEMCTL_MCLK_DIV12 \fP\fP
+.TP
+\fB\fIMEMCTL_MCLK_DIV13 \fP\fP
+.TP
+\fB\fIMEMCTL_MCLK_DIV14 \fP\fP
+.TP
+\fB\fIMEMCTL_MCLK_DIV15 \fP\fP
+.TP
+\fB\fIMEMCTL_MCLK_DIV16 \fP\fP
+.PP
+Definition at line 46 of file pac5xxx_memory\&.h\&.
+.PP
+.nf
+46              {
+47     MEMCTL_MCLK_DIV1 = 0,                   // HCLK /1
+48     MEMCTL_MCLK_DIV2 = 1,                   // HCLK /2
+49     MEMCTL_MCLK_DIV3 = 2,                   // HCLK /3
+50     MEMCTL_MCLK_DIV4 = 3,                   // HCLK /4
+51     MEMCTL_MCLK_DIV5 = 4,                   // HCLK /5
+52     MEMCTL_MCLK_DIV6 = 5,                   // HCLK /6
+53     MEMCTL_MCLK_DIV7 = 6,                   // HCLK /7
+54     MEMCTL_MCLK_DIV8 = 7,                   // HCLK /8
+55     MEMCTL_MCLK_DIV9 = 8,                   // HCLK /9
+56     MEMCTL_MCLK_DIV10 = 9,                  // HCLK /10
+57     MEMCTL_MCLK_DIV11 = 10,                 // HCLK /11
+58     MEMCTL_MCLK_DIV12 = 11,                 // HCLK /12
+59     MEMCTL_MCLK_DIV13 = 12,                 // HCLK /13
+60     MEMCTL_MCLK_DIV14 = 13,                 // HCLK /14
+61     MEMCTL_MCLK_DIV15 = 14,                 // HCLK /15
+62     MEMCTL_MCLK_DIV16 = 15                  // HCLK /16
+63 } MEMCTL_MCLK_DIV_TYPEDEF;
+.fi
+.SS "enum \fBMEMCTL_MCLK_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMEMCTL_MCLK_ROSCCLK \fP\fP
+.TP
+\fB\fIMEMCTL_MCLK_HCLKDIV \fP\fP
+.PP
+Definition at line 40 of file pac5xxx_memory\&.h\&.
+.PP
+.nf
+40              {
+41   MEMCTL_MCLK_ROSCCLK   = 0,                  // Select MCLK = ROSCCLK
+42   MEMCTL_MCLK_HCLKDIV   = 1                   // Select MCLK = HCLKDIV
+43 } MEMCTL_MCLK_TYPE;
+.fi
+.SS "enum \fBMEMCTL_SECURITY_LEVEL_TYPEDEF\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIMEMCTL_SEC_LEVEL0 \fP\fP
+.TP
+\fB\fIMEMCTL_SEC_LEVEL1 \fP\fP
+.TP
+\fB\fIMEMCTL_SEC_LEVEL2 \fP\fP
+.PP
+Definition at line 85 of file pac5xxx_memory\&.h\&.
+.PP
+.nf
+85              {
+86     MEMCTL_SEC_LEVEL0  = 0xFF,                 // Security Level 0
+87     MEMCTL_SEC_LEVEL1  = 0xFE,                 // Security Level 1
+88     MEMCTL_SEC_LEVEL2  = 0xFC                  // Security Level 2
+89 } MEMCTL_SECURITY_LEVEL_TYPEDEF;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

@@ -1,0 +1,97 @@
+\hypertarget{group___c_m_s_i_s___core___sys_tick_functions}{}\doxysection{Sys\+Tick Functions}
+\label{group___c_m_s_i_s___core___sys_tick_functions}\index{SysTick Functions@{SysTick Functions}}
+
+
+Functions that configure the System.  
+
+
+Collaboration diagram for Sys\+Tick Functions\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___c_m_s_i_s___core___sys_tick_functions}
+\end{center}
+\end{figure}
+\doxysubsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___c_m_s_i_s__core___debug_functions}{I\+T\+M Functions}}
+\begin{DoxyCompactList}\small\item\em Functions that access the I\+TM debug interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\+\_\+\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+I\+N\+L\+I\+NE uint32\+\_\+t \mbox{\hyperlink{group___c_m_s_i_s___core___sys_tick_functions_gae4e8f0238527c69f522029b93c8e5b78}{Sys\+Tick\+\_\+\+Config}} (uint32\+\_\+t ticks)
+\begin{DoxyCompactList}\small\item\em System Tick Configuration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Functions that configure the System. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___c_m_s_i_s___core___sys_tick_functions_gae4e8f0238527c69f522029b93c8e5b78}\label{group___c_m_s_i_s___core___sys_tick_functions_gae4e8f0238527c69f522029b93c8e5b78}} 
+\index{SysTick Functions@{SysTick Functions}!SysTick\_Config@{SysTick\_Config}}
+\index{SysTick\_Config@{SysTick\_Config}!SysTick Functions@{SysTick Functions}}
+\doxysubsubsection{\texorpdfstring{SysTick\_Config()}{SysTick\_Config()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+\+S\+T\+A\+T\+I\+C\+\_\+\+I\+N\+L\+I\+NE uint32\+\_\+t Sys\+Tick\+\_\+\+Config (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{ticks }\end{DoxyParamCaption})}
+
+
+
+System Tick Configuration. 
+
+The function initializes the System Timer and its interrupt, and starts the System Tick Timer. Counter is in free running mode to generate periodic interrupts.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ticks} & Number of ticks between two interrupts.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 Function succeeded. 
+
+1 Function failed.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+When the variable {\bfseries{\+\_\+\+\_\+\+Vendor\+\_\+\+Sys\+Tick\+Config}} is set to 1, then the function {\bfseries{Sys\+Tick\+\_\+\+Config}} is not included. In this case, the file {\bfseries{{\itshape device}.h}} must contain a vendor-\/specific implementation of this function. 
+\end{DoxyNote}
+
+
+Definition at line 1662 of file core\+\_\+cm4.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1663 \{}
+\DoxyCodeLine{1664   \textcolor{keywordflow}{if} (ticks > \mbox{\hyperlink{group___c_m_s_i_s___sys_tick_ga265912a7962f0e1abd170336e579b1b1}{SysTick\_LOAD\_RELOAD\_Msk}})  \textcolor{keywordflow}{return} (1);            \textcolor{comment}{/* Reload value impossible */}}
+\DoxyCodeLine{1665 }
+\DoxyCodeLine{1666   \mbox{\hyperlink{group___c_m_s_i_s__core__base_gacd96c53beeaff8f603fcda425eb295de}{SysTick}}-\/>LOAD  = (ticks \& \mbox{\hyperlink{group___c_m_s_i_s___sys_tick_ga265912a7962f0e1abd170336e579b1b1}{SysTick\_LOAD\_RELOAD\_Msk}}) -\/ 1;      \textcolor{comment}{/* set reload register */}}
+\DoxyCodeLine{1667   \mbox{\hyperlink{group___c_m_s_i_s___core___n_v_i_c_functions_ga2305cbd44aaad792e3a4e538bdaf14f9}{NVIC\_SetPriority}} (\mbox{\hyperlink{pac5xxx_8h_a666eb0caeb12ec0e281415592ae89083a6dbff8f8543325f3474cbae2446776e7}{SysTick\_IRQn}}, (1<<\mbox{\hyperlink{pac5xxx_8h_ae3fe3587d5100c787e02102ce3944460}{\_\_NVIC\_PRIO\_BITS}}) -\/ 1);  \textcolor{comment}{/* set Priority for Systick Interrupt */}}
+\DoxyCodeLine{1668   \mbox{\hyperlink{group___c_m_s_i_s__core__base_gacd96c53beeaff8f603fcda425eb295de}{SysTick}}-\/>VAL   = 0;                                          \textcolor{comment}{/* Load the SysTick Counter Value */}}
+\DoxyCodeLine{1669   \mbox{\hyperlink{group___c_m_s_i_s__core__base_gacd96c53beeaff8f603fcda425eb295de}{SysTick}}-\/>CTRL  = \mbox{\hyperlink{group___c_m_s_i_s___sys_tick_gaa41d06039797423a46596bd313d57373}{SysTick\_CTRL\_CLKSOURCE\_Msk}} |}
+\DoxyCodeLine{1670                    \mbox{\hyperlink{group___c_m_s_i_s___sys_tick_ga95bb984266ca764024836a870238a027}{SysTick\_CTRL\_TICKINT\_Msk}}   |}
+\DoxyCodeLine{1671                    \mbox{\hyperlink{group___c_m_s_i_s___sys_tick_ga16c9fee0ed0235524bdeb38af328fd1f}{SysTick\_CTRL\_ENABLE\_Msk}};                    \textcolor{comment}{/* Enable SysTick IRQ and SysTick Timer */}}
+\DoxyCodeLine{1672   \textcolor{keywordflow}{return} (0);                                                  \textcolor{comment}{/* Function successful */}}
+\DoxyCodeLine{1673 \}}
+
+\end{DoxyCode}
+
+
+References \+\_\+\+\_\+\+N\+V\+I\+C\+\_\+\+P\+R\+I\+O\+\_\+\+B\+I\+TS, N\+V\+I\+C\+\_\+\+Set\+Priority(), Sys\+Tick, Sys\+Tick\+\_\+\+C\+T\+R\+L\+\_\+\+C\+L\+K\+S\+O\+U\+R\+C\+E\+\_\+\+Msk, Sys\+Tick\+\_\+\+C\+T\+R\+L\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+Msk, Sys\+Tick\+\_\+\+C\+T\+R\+L\+\_\+\+T\+I\+C\+K\+I\+N\+T\+\_\+\+Msk, Sys\+Tick\+\_\+\+I\+R\+Qn, and Sys\+Tick\+\_\+\+L\+O\+A\+D\+\_\+\+R\+E\+L\+O\+A\+D\+\_\+\+Msk.
+
+
+
+Referenced by config\+\_\+systick\+\_\+timer().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{group___c_m_s_i_s___core___sys_tick_functions_gae4e8f0238527c69f522029b93c8e5b78_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{group___c_m_s_i_s___core___sys_tick_functions_gae4e8f0238527c69f522029b93c8e5b78_icgraph}
+\end{center}
+\end{figure}

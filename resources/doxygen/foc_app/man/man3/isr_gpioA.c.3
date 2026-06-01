@@ -1,0 +1,84 @@
+.TH "pac_foc/src/isr/isr_gpioA.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/isr/isr_gpioA.c \- Use for PortA ISR\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'pac_init\&.h'\fP
+.br
+\fC#include 'fault\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_gpio\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_tile\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBGpioA_IRQHandler\fP (void)"
+.br
+.RI "Process GPIOB interrupts (CAFE interrupt on PA7) "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for PortA ISR\&. 
+
+
+.PP
+Definition in file \fBisr_gpioA\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void GpioA_IRQHandler (void)"
+
+.PP
+Process GPIOB interrupts (CAFE interrupt on PA7) Process GPIOA interrupts (CAFE interrupt on PA7) to handle over current 
+.PP
+Definition at line 32 of file isr_gpioA\&.c\&.
+.PP
+.nf
+33 {
+34     volatile uint8_t overcurrent;
+35   
+36 #ifdef ENABLE_CBC_CURRENT_LIMIT
+37     volatile uint8_t cbc;
+38 #endif
+39     
+40     // clear interrupt
+41     clear_oc_interrupt();
+42 
+43 #ifdef ENABLE_CBC_CURRENT_LIMIT
+44     cbc = (pac5xxx_tile_register_read(ADDR_PROTSTAT) & 0x07);
+45     overcurrent = (pac5xxx_tile_register_read(ADDR_PROTSTAT) & 0x70);
+46 #else
+47     overcurrent = (pac5xxx_tile_register_read(ADDR_PROTSTAT) & 0x07);
+48 #endif
+49 
+50     // Respond to over-current condition and set flag
+51     if (overcurrent)
+52     {
+53         // Set OC flag
+54         set_fault(FAULT_CAFE_OC);
+55     }
+56 #ifdef ENABLE_CBC_CURRENT_LIMIT
+57     // Respond to CBC current condition
+58     else if (cbc)
+59     {
+60         motor\&.stall\&.flag_cbc_triggered = 1;
+61         cbc_current_reset();
+62         set_warning(WARNING_CBC_OC);
+63     }
+64 #endif    
+65 }
+.fi
+.PP
+References FAULT_CAFE_OC, motor, set_fault(), set_warning(), and WARNING_CBC_OC\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

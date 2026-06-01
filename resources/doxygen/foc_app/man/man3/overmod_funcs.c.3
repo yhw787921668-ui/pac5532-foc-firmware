@@ -1,0 +1,59 @@
+.TH "pac_foc/src/control/overmod_funcs.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/control/overmod_funcs.c \- Use for FOC over modulation function\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'overmod_funcs\&.h'\fP
+.br
+\fC#include 'fault\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcheck_overmod_status\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "check_overmod_status, use to check over modulation flag status "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for FOC over modulation function\&. 
+
+
+.PP
+Definition in file \fBovermod_funcs\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void check_overmod_status (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+check_overmod_status, use to check over modulation flag status 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr motor pointer to FOC structure 
+.RE
+.PP
+
+.PP
+Definition at line 24 of file overmod_funcs\&.c\&.
+.PP
+.nf
+25 {
+26     if (motor_ptr->overmod\&.overmod_flag == 1)
+27     {
+28         set_status(STATUS_MOTOR_OVERMOD);
+29         motor_ptr->overmod\&.overmod_flag = 0;
+30     }
+31 }
+.fi
+.PP
+References Struct_Motor::overmod, and Struct_Overmod::overmod_flag\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

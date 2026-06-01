@@ -1,0 +1,613 @@
+.TH "PAC5XXX_Driver_SPI" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_SPI \- PAC5XXX SPI Peripheral Drviers
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_SPI\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_master_config\fP (int int_enable, int loopback, int mtrans, int mtrans_rearm, int single_master, int rtrans)"
+.br
+.RI "This function configures the SPI peripheral for master mode\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_master_config2\fP (\fBSPISCFG_WordLength_Type\fP wl_select, int reset, int lsb_first, \fBSPISCFG_ClockPolarity_Type\fP clock_polarity, \fBSPISCFG_ClockPhase_Type\fP clock_phase, \fBSPICFG_EarlyXmitDataPhase_Type\fP xmit_data_phase)"
+.br
+.RI "This function configures additional parameters for the SPI for master mode operation\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_master_config_chip_select\fP (\fBSPICS_ChipSelectNumber_Type\fP cs_num, \fBSPICS_ChipSelectPolarity_Type\fP cs_polarity, uint8_t cs_setup, uint8_t cs_hold, uint8_t cs_wait, uint8_t spi_clock_wait)"
+.br
+.RI "This function configures the behavior of the SPI chip select signals, when configured for master mode\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_slave_config\fP (int int_enable, int loopback)"
+.br
+.RI "This function configures the SPI peripheral for slave mode\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_slave_config2\fP (\fBSPISCFG_WordLength_Type\fP wl_select, int reset, int lsb_first, \fBSPISCFG_ClockPolarity_Type\fP clock_polarity, \fBSPISCFG_ClockPhase_Type\fP clock_phase, \fBSPICFG_EarlyXmitDataPhase_Type\fP xmit_data_phase)"
+.br
+.RI "This function configures additional parameters for the SPI for slave mode operation\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_slave_config_chip_select\fP (\fBSPICS_ChipSelectNumber_Type\fP cs_num, \fBSPICS_ChipSelectPolarity_Type\fP chip_select_polarity)"
+.br
+.RI "This function configures the behavior of the SPI chip select signals, when configured for slave mode\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_config_io\fP (int master, unsigned char cs_mask)"
+.br
+.RI "This function configures the IO ports on the device for SPI master or slave operation\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_int_enable\fP (int enable)"
+.br
+.RI "This function configures SPI interrupts to the given state\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_int_enable_RDOFL\fP (int enable)"
+.br
+.RI "This function configures the state of the Read Buffer Overflow (RDOFL) interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_int_enable_LE\fP (int enable)"
+.br
+.RI "This function configures the state of the Chip Select Leading Edge Detect (LE) interupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_int_enable_UCLK\fP (int enable)"
+.br
+.RI "This function configures the state of the Underclock Condition (UCLK) interupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_int_enable_CYC_DONE\fP (int enable)"
+.br
+.RI "This function configures the state of the Cycle Done (CYC_DONE) interrupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_int_enable_TE\fP (int enable)"
+.br
+.RI "This function configures the state of the Chip Select Trailing Edge Detect (TE) interupt\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SPI\fP void \fBpac5xxx_spi_int_enable_WRUFL\fP (int enable)"
+.br
+.RI "This function configures the state of the Write Buffer Underflow (WRUFL) interupt\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_SPI"
+
+.PP
+Definition at line 31 of file pac5xxx_driver_spi\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_SPI\fP void pac5xxx_spi_config_io (int master, unsigned char cs_mask)"
+
+.PP
+This function configures the IO ports on the device for SPI master or slave operation\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImaster\fP Set to 1 for SPI master, set to 0 for SPI slave 
+.br
+\fIcs_mask\fP Chip select bit-mask (bit 0: SPICS0; bit1: SPICS1; bit2: SPICS2) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_spi_config_io\&.c\&.
+.PP
+.nf
+21 {
+22   // 
+23   // SPICS0:  GPIOESEL3 = 01b (PE3 - output [master], input [slave])
+24   // SPICS1:  GPIOESEL4 = 01b (PE4 - output [master], input [slave])
+25   // SPICS2:  GPIOESEL5 = 01b (PE5 - output [master], input [slave])
+26   // SPICLK:  GPIOESEL0 = 01b (PE0 - output [master], input [slave])
+27   // SPIMOSI: GPIOESEL1 = 01b (PE1 - output [master], input [slave])
+28   // SPIMISO: GPIOESEL2 = 01b (PE2 - input [master], output [slave])
+29   //
+30   
+31   PAC5XXX_GPIOE->PSEL\&.P0 = 1;         // SPICLK
+32   PAC5XXX_GPIOE->PSEL\&.P1 = 1;         // SPIMOSI
+33   PAC5XXX_GPIOE->PSEL\&.P2 = 1;         // SPIMISO
+34   
+35   if (cs_mask & 0x01)
+36   {
+37     PAC5XXX_GPIOE->PSEL\&.P3 = 1;       // SPICS0
+38     PAC5XXX_GPIOE->OUTEN\&.P3 = 0;      // Assume slave, correct below
+39   }
+40   if (cs_mask & 0x02)
+41   {
+42     PAC5XXX_GPIOE->PSEL\&.P4 = 1;       // SPICS1
+43     PAC5XXX_GPIOE->OUTEN\&.P4 = 0;      // Assume slave, correct below
+44   }
+45   if (cs_mask & 0x04)
+46   {
+47     PAC5XXX_GPIOE->PSEL\&.P5 = 1;       // SPICS2
+48     PAC5XXX_GPIOE->OUTEN\&.P5 = 0;      // Assume slave, correct below
+49   }
+50   
+51   if (master)
+52   {
+53     if (cs_mask & 0x01)
+54       PAC5XXX_GPIOE->OUTEN\&.P3 = 1;    // SPICS0
+55     if (cs_mask & 0x02)
+56       PAC5XXX_GPIOE->OUTEN\&.P4 = 1;    // SPICS1
+57     if (cs_mask & 0x04)
+58       PAC5XXX_GPIOE->OUTEN\&.P5 = 1;    // SPICS2
+59   }
+60 }
+.fi
+.PP
+References PAC5XXX_GPIOE\&.
+.SS "\fBRAMFUNC_SPI\fP void pac5xxx_spi_int_enable (int enable)"
+
+.PP
+This function configures SPI interrupts to the given state\&. Interrupts and status
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP When set to 1, enables SPI interrupts\&. When set to 0, disables SPI interrupts\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function must be used to enable any SPI interrupts\&. This must be used in conjunction with another function that enables specific SPI interrupts\&. 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_spi_config_int\&.c\&.
+.PP
+.nf
+21 {
+22     PAC5XXX_SPI->SPISTAT\&.s = 0xFF;   // write to clear any active interrupt flags
+23     PAC5XXX_SPI->SPICTL\&.SIE = enable;
+24 }
+.fi
+.PP
+References PAC5XXX_SPI\&.
+.SS "\fBRAMFUNC_SPI\fP void pac5xxx_spi_int_enable_CYC_DONE (int enable)"
+
+.PP
+This function configures the state of the Cycle Done (CYC_DONE) interrupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP When set to 1, enables this interrupt\&. When set to 0, disables this interrupt\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function must be used in conjunction with the \fI\fBpac5xxx_spi_int_enable()\fP\fP function to enable this interrupt\&. 
+.RE
+.PP
+
+.PP
+Definition at line 44 of file pac5xxx_driver_spi_config_int\&.c\&.
+.PP
+.nf
+45 {
+46     PAC5XXX_SPI->SPISTAT\&.CYC_DONE = 1; // Write to Clear
+47     PAC5XXX_SPI->SPIINT_EN\&.CYC_DONE_EN = enable;
+48 }
+.fi
+.PP
+References PAC5XXX_SPI\&.
+.SS "\fBRAMFUNC_SPI\fP void pac5xxx_spi_int_enable_LE (int enable)"
+
+.PP
+This function configures the state of the Chip Select Leading Edge Detect (LE) interupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpSpi\fP Pointer to the SPI registers for the desired instance of the SPI peripheral (can be more than one) 
+.br
+\fIenable\fP When set to 1, enables this interrupts\&. When set to 0, disables this interrupt\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function must be used in conjunction with the \fI\fBpac5xxx_spi_int_enable()\fP\fP function to enable this interrupt\&. 
+.RE
+.PP
+
+.PP
+Definition at line 32 of file pac5xxx_driver_spi_config_int\&.c\&.
+.PP
+.nf
+33 {   
+34     PAC5XXX_SPI->SPISTAT\&.LE = 1; // Write to Clear
+35     PAC5XXX_SPI->SPIINT_EN\&.LE_EN = enable;
+36 }
+.fi
+.PP
+References PAC5XXX_SPI\&.
+.SS "\fBRAMFUNC_SPI\fP void pac5xxx_spi_int_enable_RDOFL (int enable)"
+
+.PP
+This function configures the state of the Read Buffer Overflow (RDOFL) interrupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP When set to 1, enables this interrupts\&. When set to 0, disables this interrupt\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function must be used in conjunction with the \fI\fBpac5xxx_spi_int_enable()\fP\fP function to enable this interrupt\&. 
+.RE
+.PP
+
+.PP
+Definition at line 26 of file pac5xxx_driver_spi_config_int\&.c\&.
+.PP
+.nf
+27 {
+28     PAC5XXX_SPI->SPISTAT\&.RDOFL = 1; // Write to Clear
+29     PAC5XXX_SPI->SPIINT_EN\&.RDOFL_EN = enable;
+30 }
+.fi
+.PP
+References PAC5XXX_SPI\&.
+.SS "\fBRAMFUNC_SPI\fP void pac5xxx_spi_int_enable_TE (int enable)"
+
+.PP
+This function configures the state of the Chip Select Trailing Edge Detect (TE) interupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP When set to 1, enables this interrupts\&. When set to 0, disables this interrupt\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function must be used in conjunction with the \fI\fBpac5xxx_spi_int_enable()\fP\fP function to enable this interrupt\&. 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file pac5xxx_driver_spi_config_int\&.c\&.
+.PP
+.nf
+51 {
+52     PAC5XXX_SPI->SPISTAT\&.TE = 1; // Write to Clear
+53     PAC5XXX_SPI->SPIINT_EN\&.TE_EN = enable;
+54 }
+.fi
+.PP
+References PAC5XXX_SPI\&.
+.SS "\fBRAMFUNC_SPI\fP void pac5xxx_spi_int_enable_UCLK (int enable)"
+
+.PP
+This function configures the state of the Underclock Condition (UCLK) interupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP When set to 1, enables this interrupts\&. When set to 0, disables this interrupt\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function must be used in conjunction with the \fI\fBpac5xxx_spi_int_enable()\fP\fP function to enable this interrupt\&. 
+.RE
+.PP
+
+.PP
+Definition at line 38 of file pac5xxx_driver_spi_config_int\&.c\&.
+.PP
+.nf
+39 {
+40     PAC5XXX_SPI->SPISTAT\&.UCLK = 1; // Write to Clear
+41     PAC5XXX_SPI->SPIINT_EN\&.UCLK_EN = enable;
+42 }
+.fi
+.PP
+References PAC5XXX_SPI\&.
+.SS "\fBRAMFUNC_SPI\fP void pac5xxx_spi_int_enable_WRUFL (int enable)"
+
+.PP
+This function configures the state of the Write Buffer Underflow (WRUFL) interupt\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP When set to 1, enables this interrupts\&. When set to 0, disables this interrupt\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function must be used in conjunction with the \fI\fBpac5xxx_spi_int_enable()\fP\fP function to enable this interrupt\&. 
+.RE
+.PP
+
+.PP
+Definition at line 56 of file pac5xxx_driver_spi_config_int\&.c\&.
+.PP
+.nf
+57 {
+58     PAC5XXX_SPI->SPISTAT\&.WRUFL = 1; // Write to Clear
+59     PAC5XXX_SPI->SPIINT_EN\&.WRUFL_EN = enable;
+60 }
+.fi
+.PP
+References PAC5XXX_SPI\&.
+.SS "\fBRAMFUNC_SPI\fP void pac5xxx_spi_master_config (int int_enable, int loopback, int mtrans, int mtrans_rearm, int single_master, int rtrans)"
+
+.PP
+This function configures the SPI peripheral for master mode\&. Master Configuration
+.PP
+\fBParameters\fP
+.RS 4
+\fIint_enable\fP Set to 1 to enable SPI interrupts, 0 to disable SPI interrupts 
+.br
+\fIloopback\fP Set to 1 to enable SPI loopback mode, 0 to disable 
+.br
+\fImtrans\fP Set to 1 to enable multiple transfer mode (over single assertions of SPICS<n>), 0 to disable 
+.br
+\fImtrans_rearm\fP Set to 1 to re-arm the multiple transfer operation upon de-assertion of SPICS<n>, 0 to disable 
+.br
+\fIsingle_master\fP Set to 1 to enable single-master mode, 0 for single master mode 
+.br
+\fIrtrans\fP Set to 1 to auto-retransmit on SCLK error, 0 to disable this function 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function only configures the SPI peripheral, it does not enable the peripheral\&. 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_spi_config_master\&.c\&.
+.PP
+.nf
+26 {
+27       PAC5XXX_SPI->SPICTL\&.SSEN = 0;
+28       PAC5XXX_SPI->SPICTL\&.SIE = int_enable;
+29       PAC5XXX_SPI->SPICTL\&.LPBK = loopback;
+30       PAC5XXX_SPI->SPICTL\&.SE = 0;
+31       PAC5XXX_SPI->SPICTL\&.MTRANS = mtrans;
+32       PAC5XXX_SPI->SPICTL\&.MMST_N = single_master;
+33       PAC5XXX_SPI->SPICTL\&.RTRANS = rtrans;
+34       PAC5XXX_SPI->SPICTL\&.MTRARM = mtrans_rearm;
+35 }
+.fi
+.PP
+References PAC5XXX_SPI\&.
+.SS "\fBRAMFUNC_SPI\fP void pac5xxx_spi_master_config2 (\fBSPISCFG_WordLength_Type\fP wl_select, int reset, int lsb_first, \fBSPISCFG_ClockPolarity_Type\fP clock_polarity, \fBSPISCFG_ClockPhase_Type\fP clock_phase, \fBSPICFG_EarlyXmitDataPhase_Type\fP xmit_data_phase)"
+
+.PP
+This function configures additional parameters for the SPI for master mode operation\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwl_select\fP The word transmission length 
+.br
+\fIreset\fP Set to 1 to reset the SPI module 
+.br
+\fIlsb_first\fP Set to 1 to configure LSB bit-ordering, set to 0 to configure MSB bit-ordering 
+.br
+\fIclock_polarity\fP The SPICLK polarity configuration 
+.br
+\fIclock_phase\fP The clock phase for data sampling (setup/sample or sample/setup for first and second edges) 
+.br
+\fIxmit_data_phase\fP Configures normal or data transitions that are 1/2 cycle early 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function only configures the extended SPI functions, it does not enable the SPI module\&. 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file pac5xxx_driver_spi_config_master\&.c\&.
+.PP
+.nf
+43 {
+44     PAC5XXX_SPI->SPICFG\&.WL = wl_select;
+45     PAC5XXX_SPI->SPICFG\&.MRST = reset;
+46     PAC5XXX_SPI->SPICFG\&.LB1ST = lsb_first;
+47     PAC5XXX_SPI->SPICFG\&.CP = clock_polarity;
+48     PAC5XXX_SPI->SPICFG\&.CPH = clock_phase;
+49     PAC5XXX_SPI->SPICFG\&.TDAT_PH = xmit_data_phase;
+50     PAC5XXX_SPI->SPICFG\&.TXDBUF = 1;
+51     PAC5XXX_SPI->SPICFG\&.MTURBO = 1;
+52 }
+.fi
+.PP
+References PAC5XXX_SPI\&.
+.SS "\fBRAMFUNC_SPI\fP void pac5xxx_spi_master_config_chip_select (\fBSPICS_ChipSelectNumber_Type\fP cs_num, \fBSPICS_ChipSelectPolarity_Type\fP cs_polarity, uint8_t cs_setup, uint8_t cs_hold, uint8_t cs_wait, uint8_t spi_clock_wait)"
+
+.PP
+This function configures the behavior of the SPI chip select signals, when configured for master mode\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcs_num\fP The number of the chip select output to assert during the transactions (0 to n) 
+.br
+\fIcs_polarity\fP The polarity of the chip select signal 
+.br
+\fIcs_setup\fP This value is the minimum number of SPICLK (Baud) periods to wait from the assertion of SPICS<n> to the first SPICLK transition\&. 
+.br
+\fIcs_hold\fP This value is the minimum number of SPICLK (Baud) periods to wait from the last SPICLK transition to de-assertion of SPICS<n>\&. 
+.br
+\fIcs_wait\fP This value determines the minimum number of SPICLK (Baud) periods to wait between the de-assertion of SPICS<n> and the re-assertion of SPICS<n>\&. 
+.br
+\fIspi_clock_wait\fP If multiple transfer mode is active, this value determines the minimum number of SPICLK (Baud) periods to wait between back-to-back transfers\&. During this wait time, SPICLK does not toggle, but SPICS<n> remains active\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.SS "\fBRAMFUNC_SPI\fP void pac5xxx_spi_slave_config (int int_enable, int loopback)"
+
+.PP
+This function configures the SPI peripheral for slave mode\&. Slave Configuration
+.PP
+\fBParameters\fP
+.RS 4
+\fIint_enable\fP Set to 1 to enable SPI interrupts, 0 to disable SPI interrupts 
+.br
+\fIloopback\fP Set to 1 to enable SPI loopback mode, 0 to disable 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function only configures the SPI peripheral, it does not enable the peripheral\&. 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_spi_config_slave\&.c\&.
+.PP
+.nf
+22 {
+23       PAC5XXX_SPI->SPICTL\&.SSEN = 0;
+24       PAC5XXX_SPI->SPICTL\&.SIE = int_enable;
+25       PAC5XXX_SPI->SPICTL\&.LPBK = loopback;
+26       PAC5XXX_SPI->SPICTL\&.SE = 1;
+27 }
+.fi
+.PP
+References PAC5XXX_SPI\&.
+.SS "\fBRAMFUNC_SPI\fP void pac5xxx_spi_slave_config2 (\fBSPISCFG_WordLength_Type\fP wl_select, int reset, int lsb_first, \fBSPISCFG_ClockPolarity_Type\fP clock_polarity, \fBSPISCFG_ClockPhase_Type\fP clock_phase, \fBSPICFG_EarlyXmitDataPhase_Type\fP xmit_data_phase)"
+
+.PP
+This function configures additional parameters for the SPI for slave mode operation\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwl_select\fP The word transmission length 
+.br
+\fIreset\fP Set to 1 to reset the SPI module 
+.br
+\fIlsb_first\fP Set to 1 to configure LSB bit-ordering, set to 0 to configure MSB bit-ordering 
+.br
+\fIclock_polarity\fP The SPISCLK polarity configuration 
+.br
+\fIclock_phase\fP The clock phase for data sampling (setup/sample or sample/setup for first and second edges) 
+.br
+\fIxmit_data_phase\fP Configures normal or data transitions that are 1/2 cycle early 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function only configures the extended SPI functions, it does not enable the SPI module\&. 
+.RE
+.PP
+
+.PP
+Definition at line 29 of file pac5xxx_driver_spi_config_slave\&.c\&.
+.PP
+.nf
+35 {
+36       PAC5XXX_SPI->SPICFG\&.WL = wl_select;
+37       PAC5XXX_SPI->SPICFG\&.MRST = reset;
+38       PAC5XXX_SPI->SPICFG\&.LB1ST = lsb_first;
+39       PAC5XXX_SPI->SPICFG\&.RCVCP = clock_polarity;
+40       PAC5XXX_SPI->SPICFG\&.RCVCPH = clock_phase;
+41       PAC5XXX_SPI->SPICFG\&.TDAT_PH = xmit_data_phase;
+42 }
+.fi
+.PP
+References PAC5XXX_SPI\&.
+.SS "\fBRAMFUNC_SPI\fP void pac5xxx_spi_slave_config_chip_select (\fBSPICS_ChipSelectNumber_Type\fP cs_num, \fBSPICS_ChipSelectPolarity_Type\fP chip_select_polarity)"
+
+.PP
+This function configures the behavior of the SPI chip select signals, when configured for slave mode\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcs_num\fP The number of the chip select output to assert during the transactions (0 to n) 
+.br
+\fIchip_select_polarity\fP The polarity of the chip select signal 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 44 of file pac5xxx_driver_spi_config_slave\&.c\&.
+.PP
+.nf
+46 {
+47     PAC5XXX_SPI->SPICCSTR\&.CSNUM = cs_num;
+48     PAC5XXX_SPI->SPICCSTR\&.CSL = chip_select_polarity;
+49 }
+.fi
+.PP
+References PAC5XXX_SPI\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

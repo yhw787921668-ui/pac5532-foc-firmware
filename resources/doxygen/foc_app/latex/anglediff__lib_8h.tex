@@ -1,0 +1,53 @@
+\hypertarget{anglediff__lib_8h}{}\doxysection{pac\+\_\+foc/src/mpos/estimator/anglediff\+\_\+lib.h File Reference}
+\label{anglediff__lib_8h}\index{pac\_foc/src/mpos/estimator/anglediff\_lib.h@{pac\_foc/src/mpos/estimator/anglediff\_lib.h}}
+{\ttfamily \#include \char`\"{}maths.\+h\char`\"{}}\newline
+Include dependency graph for anglediff\+\_\+lib.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{anglediff__lib_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{anglediff__lib_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{anglediff__lib_8h_ada121ed49b3d1f2617abcb71a9672ade}{minimize\+\_\+anglediff}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} angle\+\_\+diff\+\_\+f16, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$idrefol\+\_\+target\+\_\+f16, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} iqrefol\+\_\+target\+\_\+f16, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} i\+\_\+total\+\_\+ol\+\_\+target\+\_\+f16, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} idref\+\_\+ramp\+\_\+f16, int32\+\_\+t autotune\+\_\+inc\+\_\+pct\+\_\+q10)
+\item 
+void \mbox{\hyperlink{anglediff__lib_8h_a8170070b63eeef80f1b49c9f14d2850b}{minimize\+\_\+anglediff\+\_\+2}} (\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} anglediff\+\_\+f16, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$idrefol\+\_\+target\+\_\+f16, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$i\+\_\+total\+\_\+ol\+\_\+target\+\_\+f16, \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} idref\+\_\+ramp\+\_\+f16, int32\+\_\+t autotune\+\_\+inc\+\_\+pct\+\_\+q10, int32\+\_\+t itot\+\_\+max\+\_\+q16, int32\+\_\+t filter\+\_\+alpha\+\_\+anglediff)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{anglediff__lib_8h_ada121ed49b3d1f2617abcb71a9672ade}\label{anglediff__lib_8h_ada121ed49b3d1f2617abcb71a9672ade}} 
+\index{anglediff\_lib.h@{anglediff\_lib.h}!minimize\_anglediff@{minimize\_anglediff}}
+\index{minimize\_anglediff@{minimize\_anglediff}!anglediff\_lib.h@{anglediff\_lib.h}}
+\doxysubsubsection{\texorpdfstring{minimize\_anglediff()}{minimize\_anglediff()}}
+{\footnotesize\ttfamily void minimize\+\_\+anglediff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{angle\+\_\+diff\+\_\+f16,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$}]{idrefol\+\_\+target\+\_\+f16,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{iqrefol\+\_\+target\+\_\+f16,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{i\+\_\+total\+\_\+ol\+\_\+target\+\_\+f16,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{idref\+\_\+ramp\+\_\+f16,  }\item[{int32\+\_\+t}]{autotune\+\_\+inc\+\_\+pct\+\_\+q10 }\end{DoxyParamCaption})}
+
+
+
+Referenced by est\+\_\+anglediff\+\_\+check().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{anglediff__lib_8h_ada121ed49b3d1f2617abcb71a9672ade_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{anglediff__lib_8h_a8170070b63eeef80f1b49c9f14d2850b}\label{anglediff__lib_8h_a8170070b63eeef80f1b49c9f14d2850b}} 
+\index{anglediff\_lib.h@{anglediff\_lib.h}!minimize\_anglediff\_2@{minimize\_anglediff\_2}}
+\index{minimize\_anglediff\_2@{minimize\_anglediff\_2}!anglediff\_lib.h@{anglediff\_lib.h}}
+\doxysubsubsection{\texorpdfstring{minimize\_anglediff\_2()}{minimize\_anglediff\_2()}}
+{\footnotesize\ttfamily void minimize\+\_\+anglediff\+\_\+2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{anglediff\+\_\+f16,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$}]{idrefol\+\_\+target\+\_\+f16,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}} $\ast$}]{i\+\_\+total\+\_\+ol\+\_\+target\+\_\+f16,  }\item[{\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}}}]{idref\+\_\+ramp\+\_\+f16,  }\item[{int32\+\_\+t}]{autotune\+\_\+inc\+\_\+pct\+\_\+q10,  }\item[{int32\+\_\+t}]{itot\+\_\+max\+\_\+q16,  }\item[{int32\+\_\+t}]{filter\+\_\+alpha\+\_\+anglediff }\end{DoxyParamCaption})}
+

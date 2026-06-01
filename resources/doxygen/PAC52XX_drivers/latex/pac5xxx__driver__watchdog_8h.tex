@@ -1,0 +1,50 @@
+\hypertarget{pac5xxx__driver__watchdog_8h}{}\doxysection{pac\+\_\+foc/pac52xx/pac5xxx\+\_\+sdk/pac5xxx\+\_\+drivers/pac5xxx\+\_\+driver\+\_\+watchdog.h File Reference}
+\label{pac5xxx__driver__watchdog_8h}\index{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_drivers/pac5xxx\_driver\_watchdog.h@{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_drivers/pac5xxx\_driver\_watchdog.h}}
+
+
+Firmware driver for the P\+A\+C5\+X\+XX watchdog timer.  
+
+
+{\ttfamily \#include \char`\"{}pac52\+X\+X.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+config.\+h\char`\"{}}\newline
+Include dependency graph for pac5xxx\+\_\+driver\+\_\+watchdog.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__driver__watchdog_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__driver__watchdog_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_gad9dba4faf8e3fc1c60cfff3dcc097506}{R\+A\+M\+F\+U\+N\+C\+\_\+\+W\+A\+T\+C\+H\+D\+OG}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_gad9dba4faf8e3fc1c60cfff3dcc097506}{R\+A\+M\+F\+U\+N\+C\+\_\+\+W\+A\+T\+C\+H\+D\+OG}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_ga54e4deeb313f2bef280093a108da0233}{pac5xxx\+\_\+watchdog\+\_\+config}} (int ie\+\_\+en, int por\+\_\+en, uint32\+\_\+t cdv)
+\begin{DoxyCompactList}\small\item\em This function configures watchdog timer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_gad9dba4faf8e3fc1c60cfff3dcc097506}{R\+A\+M\+F\+U\+N\+C\+\_\+\+W\+A\+T\+C\+H\+D\+OG}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_ga61384954569780e3a18e825f44b788bd}{pac5xxx\+\_\+watchdog\+\_\+config\+\_\+clock}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gad192221f140f88fed295ffada6aa9266}{W\+D\+T\+C\+T\+L\+\_\+\+C\+L\+K\+S\+E\+L\+\_\+\+Type}} clock\+\_\+select, \mbox{\hyperlink{group___p_a_c5_x_x_x___w_d_t_gaa00713baf2d47e6d0b8d85bf4acda187}{W\+D\+T\+C\+T\+L\+\_\+\+P\+S\+\_\+\+Type}} prescale)
+\begin{DoxyCompactList}\small\item\em This function configures watchdog timer clock input and pre-\/scaler. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_gad9dba4faf8e3fc1c60cfff3dcc097506}{R\+A\+M\+F\+U\+N\+C\+\_\+\+W\+A\+T\+C\+H\+D\+OG}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_ga4b6cb4093e43bbd324fe417f9a86c645}{pac5xxx\+\_\+watchdog\+\_\+reset}} (void)
+\begin{DoxyCompactList}\small\item\em This function resets the watchdog timer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_gad9dba4faf8e3fc1c60cfff3dcc097506}{R\+A\+M\+F\+U\+N\+C\+\_\+\+W\+A\+T\+C\+H\+D\+OG}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___watchdog_gaa0cd79ff1220d24efdfd430dff3a362f}{pac5xxx\+\_\+watchdog\+\_\+clear\+\_\+if}} (void)
+\begin{DoxyCompactList}\small\item\em This function clears the watchdog timer interrupt flag (for the interval timer) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Firmware driver for the P\+A\+C5\+X\+XX watchdog timer. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2015-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 

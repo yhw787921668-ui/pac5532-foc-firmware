@@ -1,0 +1,127 @@
+.TH "PAC5XXX_Driver_SocBridge" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_SocBridge \- PAC5XXX SOC Bridge Peripheral
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_SOCBRIDGE\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_SOCBRIDGE\fP void \fBpac5xxx_socbridge_config\fP (int enable, int int_enable)"
+.br
+.RI "This function configures and enables the SOC bridge\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SOCBRIDGE\fP void \fBpac5xxx_socbridge_config_io\fP (void)"
+.br
+.RI "This function configures the IO ports on the device for SOC bridge operation\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_SOCBRIDGE"
+
+.PP
+Definition at line 32 of file pac5xxx_driver_socbridge\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_SOCBRIDGE\fP void pac5xxx_socbridge_config (int enable, int int_enable)"
+
+.PP
+This function configures and enables the SOC bridge\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIenable\fP Set to 1 to enable SOC Bridge, 0 to disable 
+.br
+\fIint_enable\fP Set to 1 to enable interrupts, 0 to disable interrupts 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_socbridge\&.c\&.
+.PP
+.nf
+21 {
+22     PAC55XX_SCC->CCSCTL\&.USAMODE = 0;            // SET SSPA to SPI mode
+23     PAC55XX_SSPA->CLK\&.M = 2;                 // PCLK/((SSPxCLK\&.M + 1)*SSPxCLK\&.N)
+24     PAC55XX_SSPA->CLK\&.N = 2;                 // N nust be event value from 2 to 254  
+25     PAC55XX_SSPA->CON\&.FRF = 0;               // Frame Format, SPI frame format
+26     PAC55XX_SSPA->CON\&.MS = 0;                // Master/Slave mode, master mode
+27     PAC55XX_SSPA->CON\&.LSBFIRST = 0;          // Endian Order, MSB transmit 1st
+28     PAC55XX_SSPA->CON\&.LBM = 0;               // Loobback Mode, no loopback mode
+29     PAC55XX_SSPA->CON\&.CPH = 0;               // Clock Out Phase, SPI captuers data sat 1st edge transition of the frame
+30     PAC55XX_SSPA->CON\&.CPO = 0;               // Clock Out Polarity, SPI clock active high
+31     PAC55XX_SSPA->CON\&.DSS = 0xF;             // Data Size Select, 16 bit data
+32     PAC55XX_SSPA->CON\&.SOD = 1;               // Slave Output Disable
+33     PAC55XX_SSPA->SSCR\&.SELSS = 0;            // Slave Select Signal Control
+34     PAC55XX_SSPA->SSCR\&.SWSEL = 0;            // Slave Select controlled by SPI
+35     PAC55XX_SSPA->SSCR\&.SWSS = 0;             // Slave Select State, Low active
+36     PAC55XX_SSPA->SSCR\&.SPHDONTCARE = 1;      // Slave Select Pull High
+37     if (int_enable)
+38     {
+39         NVIC_ClearPendingIRQ(USARTA_IRQn);
+40         NVIC_EnableIRQ(USARTA_IRQn);
+41     }
+42     PAC55XX_SSPA->CON\&.SSPEN = enable;        // SSP Enable   
+43 }
+.fi
+.PP
+References NVIC_ClearPendingIRQ(), NVIC_EnableIRQ(), PAC55XX_SCC, PAC55XX_SSPA, and USARTA_IRQn\&.
+.PP
+Referenced by pac5xxx_tile_socbridge_config()\&.
+.SS "\fBRAMFUNC_SOCBRIDGE\fP void pac5xxx_socbridge_config_io (void)"
+
+.PP
+This function configures the IO ports on the device for SOC bridge operation\&. 
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 45 of file pac5xxx_driver_socbridge\&.c\&.
+.PP
+.nf
+46 {
+47 
+48     // ICBSS:    PAMUXSEL\&.P6 = 001b (PA6 - output)
+49     // ICBMISO:  PAMUXSEL\&.P5 = 001b (PA5 - input)
+50     // ICBMOSI:  PAMUXSEL\&.P4 = 001b (PA4 - output)
+51     // ICBCLK:   PAMUXSEL\&.P3 = 001b (PA3 - output)
+52 
+53     PAC55XX_SCC->PAMUXSEL\&.w &= 0xF0000FFF;      // Clear PMUX for SSP bits
+54     PAC55XX_SCC->PAMUXSEL\&.w |= 0x01111000;      // PA6 = ICBSS, PA5 = ICBMISO, PA4 = ICBMOSI, PA3 = ICBCLK
+55 
+56     // Select SSP peripherals
+57     PAC55XX_GPIOA->MODE\&.P3 = 1;                 // SCLK
+58     PAC55XX_GPIOA->MODE\&.P6 = 1;                 // SS
+59     PAC55XX_GPIOA->MODE\&.P4 = 1;                 // MOSI
+60     PAC55XX_GPIOA->MODE\&.P5 = 3;                 // MISO
+61 }
+.fi
+.PP
+References PAC55XX_GPIOA, and PAC55XX_SCC\&.
+.PP
+Referenced by pac5xxx_tile_socbridge_config()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

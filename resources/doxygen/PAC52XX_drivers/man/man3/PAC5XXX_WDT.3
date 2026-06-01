@@ -1,0 +1,492 @@
+.TH "PAC5XXX_WDT" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_WDT \- PAC5XXX Watchdog Timer (WDT)
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBPAC5XXX_WDT_TypeDef\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBWDTCTL_PASS_WRITE\fP   0x4A000000"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_PASS_READ\fP   0x63000000"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_IF_SHIFT\fP   4"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_IF_MASK\fP   0x00000010"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_RST_SHIFT\fP   0"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_RST_VAL\fP   0x00000005"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_IE_SHIFT\fP   3"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_IE_MASK\fP   0x00000008"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_POREN_SHIFT\fP   5"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_POREN_MASK\fP   0x00000020"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_WRBUSY_SHIFT\fP   11"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_WRBUSY_MASK\fP   0x00000800"
+.br
+.ti -1c
+.RI "#define \fBWDT_WAIT_WRITE_BLOCK\fP   while ((\fBPAC5XXX_WDT\fP\->WDTCTL & \fBWDTCTL_WRBUSY_MASK\fP) != 0);"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_PS_SHIFT\fP   6"
+.br
+.ti -1c
+.RI "#define \fBWDTCTL_CLKSEL_SHIFT\fP   10"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBWDTCTL_PS_Type\fP { \fBWDTCTL_PS_DIV2\fP = 0, \fBWDTCTL_PS_DIV4\fP = 1, \fBWDTCTL_PS_DIV8\fP = 2, \fBWDTCTL_PS_DIV16\fP = 3, \fBWDTCTL_PS_DIV32\fP = 4, \fBWDTCTL_PS_DIV64\fP = 5, \fBWDTCTL_PS_DIV128\fP = 6, \fBWDTCTL_PS_DIV256\fP = 7, \fBWDTCTL_PS_DIV512\fP = 8, \fBWDTCTL_PS_DIV1024\fP = 9, \fBWDTCTL_PS_DIV2048\fP = 10, \fBWDTCTL_PS_DIV4096\fP = 11, \fBWDTCTL_PS_DIV8192\fP = 12, \fBWDTCTL_PS_DIV16384\fP = 13, \fBWDTCTL_PS_DIV32767\fP = 14, \fBWDTCTL_PS_DIV65536\fP = 15 }"
+.br
+.ti -1c
+.RI "enum \fBWDTCTL_CLKSEL_Type\fP { \fBWDTCTL_CLKSEL_FRCLK\fP = 0, \fBWDTCTL_CLKSEL_PLLCLK\fP = 1 }"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_WDT_TypeDef::WDTCTL\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_WDT_TypeDef::WDTCDV\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_WDT_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_WDT_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_WDT_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_WDT_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_WDT_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__IO\fP uint32_t \fBPAC5XXX_WDT_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_WDT_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_WDT_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_WDT_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "\fB__I\fP uint32_t \fBPAC5XXX_WDT_TypeDef::VAL\fP: 24"
+.br
+.ti -1c
+.RI "uint32_t \fBPAC5XXX_WDT_TypeDef::__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fB__I\fP uint32_t \fBPAC5XXX_WDT_TypeDef::VAL\fP: 24"
+.br
+.ti -1c
+.RI "   uint32_t \fBPAC5XXX_WDT_TypeDef::__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "} "
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   \fB__IO\fP uint32_t \fBPAC5XXX_WDT_TypeDef::w\fP"
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_WDT_TypeDef::s\fP: 16"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_WDT_TypeDef::__pad0__\fP: 16"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__IO\fP uint32_t \fBPAC5XXX_WDT_TypeDef::b\fP: 8"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_WDT_TypeDef::__pad0__\fP: 24"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "   struct {"
+.br
+.ti -1c
+.RI "      \fB__I\fP uint32_t \fBPAC5XXX_WDT_TypeDef::VAL\fP: 24"
+.br
+.ti -1c
+.RI "      uint32_t \fBPAC5XXX_WDT_TypeDef::__pad0__\fP: 8"
+.br
+.ti -1c
+.RI "   } "
+.br
+.ti -1c
+.RI "} \fBPAC5XXX_WDT_TypeDef::WDTCTR\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define WDT_WAIT_WRITE_BLOCK   while ((\fBPAC5XXX_WDT\fP\->WDTCTL & \fBWDTCTL_WRBUSY_MASK\fP) != 0);"
+
+.PP
+Definition at line 44 of file pac5xxx_WDT\&.h\&.
+.SS "#define WDTCTL_CLKSEL_SHIFT   10"
+WDT CLKSEL shift 
+.br
+ 
+.PP
+Definition at line 74 of file pac5xxx_WDT\&.h\&.
+.SS "#define WDTCTL_IE_MASK   0x00000008"
+WDT interrupt enable mask 
+.br
+ 
+.PP
+Definition at line 36 of file pac5xxx_WDT\&.h\&.
+.SS "#define WDTCTL_IE_SHIFT   3"
+WDT interrupt enable bit-shift 
+.br
+ 
+.PP
+Definition at line 35 of file pac5xxx_WDT\&.h\&.
+.SS "#define WDTCTL_IF_MASK   0x00000010"
+WDT interrupt flag mask 
+.br
+ 
+.PP
+Definition at line 30 of file pac5xxx_WDT\&.h\&.
+.SS "#define WDTCTL_IF_SHIFT   4"
+WDT interrupt flag bit-shift 
+.br
+ 
+.PP
+Definition at line 29 of file pac5xxx_WDT\&.h\&.
+.SS "#define WDTCTL_PASS_READ   0x63000000"
+WDT Read Register Password 
+.br
+ 
+.PP
+Definition at line 27 of file pac5xxx_WDT\&.h\&.
+.SS "#define WDTCTL_PASS_WRITE   0x4A000000"
+WDT Write Register Password 
+.br
+ 
+.PP
+Definition at line 26 of file pac5xxx_WDT\&.h\&.
+.SS "#define WDTCTL_POREN_MASK   0x00000020"
+WDT POR enable mask 
+.br
+ 
+.PP
+Definition at line 39 of file pac5xxx_WDT\&.h\&.
+.SS "#define WDTCTL_POREN_SHIFT   5"
+WDT POR enable bit-shift 
+.br
+ 
+.PP
+Definition at line 38 of file pac5xxx_WDT\&.h\&.
+.SS "#define WDTCTL_PS_SHIFT   6"
+WDT Pre-scaler bit-shift 
+.br
+ 
+.PP
+Definition at line 66 of file pac5xxx_WDT\&.h\&.
+.SS "#define WDTCTL_RST_SHIFT   0"
+WDT reset key bit-shift 
+.br
+ 
+.PP
+Definition at line 32 of file pac5xxx_WDT\&.h\&.
+.SS "#define WDTCTL_RST_VAL   0x00000005"
+WDT reset key value 
+.br
+ 
+.PP
+Definition at line 33 of file pac5xxx_WDT\&.h\&.
+.SS "#define WDTCTL_WRBUSY_MASK   0x00000800"
+WDT Write Busy mask 
+.br
+ 
+.PP
+Definition at line 42 of file pac5xxx_WDT\&.h\&.
+.SS "#define WDTCTL_WRBUSY_SHIFT   11"
+WDT Write Busy bit-shift 
+.br
+ 
+.PP
+Definition at line 41 of file pac5xxx_WDT\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBWDTCTL_CLKSEL_Type\fP"
+WDTCTL Clock Select Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIWDTCTL_CLKSEL_FRCLK \fP\fP
+WDT Clock Select (FRCLK) 
+.br
+ 
+.TP
+\fB\fIWDTCTL_CLKSEL_PLLCLK \fP\fP
+WDT Clock Select (PLLCLK) 
+.br
+ 
+.PP
+Definition at line 69 of file pac5xxx_WDT\&.h\&.
+.PP
+.nf
+69              {
+70   WDTCTL_CLKSEL_FRCLK = 0,                       
+71   WDTCTL_CLKSEL_PLLCLK = 1                       
+72 } WDTCTL_CLKSEL_Type;
+.fi
+.SS "enum \fBWDTCTL_PS_Type\fP"
+WDTCTL Pre-scaler Enumeration Type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIWDTCTL_PS_DIV2 \fP\fP
+WDT Pre-Scaler (/2) 
+.br
+ 
+.TP
+\fB\fIWDTCTL_PS_DIV4 \fP\fP
+WDT Pre-Scaler (/4) 
+.br
+ 
+.TP
+\fB\fIWDTCTL_PS_DIV8 \fP\fP
+WDT Pre-Scaler (/8) 
+.br
+ 
+.TP
+\fB\fIWDTCTL_PS_DIV16 \fP\fP
+WDT Pre-Scaler (/16) 
+.br
+ 
+.TP
+\fB\fIWDTCTL_PS_DIV32 \fP\fP
+WDT Pre-Scaler (/32) 
+.br
+ 
+.TP
+\fB\fIWDTCTL_PS_DIV64 \fP\fP
+WDT Pre-Scaler (/64) 
+.br
+ 
+.TP
+\fB\fIWDTCTL_PS_DIV128 \fP\fP
+WDT Pre-Scaler (/128) 
+.br
+ 
+.TP
+\fB\fIWDTCTL_PS_DIV256 \fP\fP
+WDT Pre-Scaler (/128) 
+.br
+ 
+.TP
+\fB\fIWDTCTL_PS_DIV512 \fP\fP
+WDT Pre-Scaler (/512) 
+.br
+ 
+.TP
+\fB\fIWDTCTL_PS_DIV1024 \fP\fP
+WDT Pre-Scaler (/1024) 
+.br
+ 
+.TP
+\fB\fIWDTCTL_PS_DIV2048 \fP\fP
+WDT Pre-Scaler (/2048) 
+.br
+ 
+.TP
+\fB\fIWDTCTL_PS_DIV4096 \fP\fP
+WDT Pre-Scaler (/4096) 
+.br
+ 
+.TP
+\fB\fIWDTCTL_PS_DIV8192 \fP\fP
+WDT Pre-Scaler (/8192) 
+.br
+ 
+.TP
+\fB\fIWDTCTL_PS_DIV16384 \fP\fP
+WDT Pre-Scaler (/16384) 
+.br
+ 
+.TP
+\fB\fIWDTCTL_PS_DIV32767 \fP\fP
+WDT Pre-Scaler (/32767) 
+.br
+ 
+.TP
+\fB\fIWDTCTL_PS_DIV65536 \fP\fP
+WDT Pre-Scaler (/65536) 
+.br
+ 
+.PP
+Definition at line 47 of file pac5xxx_WDT\&.h\&.
+.PP
+.nf
+47              {
+48   WDTCTL_PS_DIV2 = 0,                            
+49   WDTCTL_PS_DIV4 = 1,                            
+50   WDTCTL_PS_DIV8 = 2,                            
+51   WDTCTL_PS_DIV16 = 3,                           
+52   WDTCTL_PS_DIV32 = 4,                           
+53   WDTCTL_PS_DIV64 = 5,                           
+54   WDTCTL_PS_DIV128 = 6,                          
+55   WDTCTL_PS_DIV256 = 7,                          
+56   WDTCTL_PS_DIV512 = 8,                          
+57   WDTCTL_PS_DIV1024 = 9,                         
+58   WDTCTL_PS_DIV2048 = 10,                        
+59   WDTCTL_PS_DIV4096 = 11,                        
+60   WDTCTL_PS_DIV8192 = 12,                        
+61   WDTCTL_PS_DIV16384 = 13,                       
+62   WDTCTL_PS_DIV32767 = 14,                       
+63   WDTCTL_PS_DIV65536 = 15                        
+64 } WDTCTL_PS_Type;
+.fi
+.SH "Variable Documentation"
+.PP 
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "struct { \&.\&.\&. } "
+
+.SS "uint32_t PAC5XXX_WDT_TypeDef::__pad0__"
+
+.PP
+Definition at line 89 of file pac5xxx_WDT\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 89 of file pac5xxx_WDT\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 93 of file pac5xxx_WDT\&.h\&.
+.SS "uint32_t { \&.\&.\&. } ::__pad0__"
+
+.PP
+Definition at line 97 of file pac5xxx_WDT\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_WDT_TypeDef::b"
+
+.PP
+Definition at line 92 of file pac5xxx_WDT\&.h\&.
+.SS "__IO { \&.\&.\&. } ::b"
+
+.PP
+Definition at line 92 of file pac5xxx_WDT\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_WDT_TypeDef::s"
+
+.PP
+Definition at line 88 of file pac5xxx_WDT\&.h\&.
+.SS "__IO { \&.\&.\&. } ::s"
+
+.PP
+Definition at line 88 of file pac5xxx_WDT\&.h\&.
+.SS "__I { \&.\&.\&. } ::VAL"
+Countdown Register Value 
+.br
+ 
+.PP
+Definition at line 96 of file pac5xxx_WDT\&.h\&.
+.SS "\fB__I\fP uint32_t PAC5XXX_WDT_TypeDef::VAL"
+Countdown Register Value 
+.br
+ 
+.PP
+Definition at line 96 of file pac5xxx_WDT\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_WDT_TypeDef::w"
+
+.PP
+Definition at line 86 of file pac5xxx_WDT\&.h\&.
+.SS "__IO { \&.\&.\&. } ::w"
+
+.PP
+Definition at line 86 of file pac5xxx_WDT\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_WDT_TypeDef::WDTCDV"
+WDTCDR: Offset: 0x0008 Watchdog Timer Countdown Register 
+.br
+ 
+.PP
+Definition at line 82 of file pac5xxx_WDT\&.h\&.
+.SS "\fB__IO\fP uint32_t PAC5XXX_WDT_TypeDef::WDTCTL"
+< WDTCTL: Offset: 0x0000 Watchdog Timer Control Register 
+.br
+ WDTCDV: Offset: 0x0004 Watchdog Timer Countdown Value Reg 
+.br
+ 
+.PP
+Definition at line 79 of file pac5xxx_WDT\&.h\&.
+.SS "union { \&.\&.\&. }  PAC5XXX_WDT_TypeDef::WDTCTR"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

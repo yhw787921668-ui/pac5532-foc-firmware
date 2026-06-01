@@ -1,0 +1,253 @@
+.TH "PAC5XXX_CMSIS" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_CMSIS \- Device CMSIS Definitions
+.SH SYNOPSIS
+.br
+.PP
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBPAC5XXX Peripherals\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fB__CM0_REV\fP   0x0201"
+.br
+.ti -1c
+.RI "#define \fB__NVIC_PRIO_BITS\fP   2"
+.br
+.ti -1c
+.RI "#define \fB__Vendor_SysTickConfig\fP   0"
+.br
+.ti -1c
+.RI "#define \fB__MPU_PRESENT\fP   0"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBIRQn\fP \fBIRQn_Type\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBIRQn\fP { \fBReset_IRQn\fP = -15, \fBNonMaskableInt_IRQn\fP = -14, \fBHardFault_IRQn\fP = -13, \fBSVCall_IRQn\fP = -5, \fBPendSV_IRQn\fP = -2, \fBSysTick_IRQn\fP = -1, \fBMemCtl_IRQn\fP = 0, \fBSysClk_IRQn\fP = 1, \fBWdt_IRQn\fP = 2, \fBGpioA_IRQn\fP = 3, \fBGpioB_IRQn\fP = 4, \fBGpioC_IRQn\fP = 5, \fBGpioD_IRQn\fP = 6, \fBGpioE_IRQn\fP = 7, \fBTimerA_IRQn\fP = 8, \fBTimerAExt_IRQn\fP = 9, \fBTimerB_IRQn\fP = 10, \fBTimerC_IRQn\fP = 11, \fBTimerD_IRQn\fP = 12, \fBADC_IRQn\fP = 13, \fBSocBridge_IRQn\fP = 14, \fBSPI_IRQn\fP = 15, \fBUART_IRQn\fP = 16, \fBI2C_IRQn\fP = 17, \fBEMUX_IRQn\fP = 18, \fBRTC_IRQn\fP = 19 }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Configuration of the Cortex-M0 Processor and Core Peripherals 
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define __CM0_REV   0x0201"
+Core Revision r2p1 
+.br
+ 
+.PP
+Definition at line 124 of file pac52XX\&.h\&.
+.SS "#define __MPU_PRESENT   0"
+MPU present or not 
+.br
+ 
+.PP
+Definition at line 127 of file pac52XX\&.h\&.
+.SS "#define __NVIC_PRIO_BITS   2"
+Number of Bits used for Priority Levels 
+.br
+ 
+.PP
+Definition at line 125 of file pac52XX\&.h\&.
+.SS "#define __Vendor_SysTickConfig   0"
+Set to 1 if different SysTick Config is used 
+.br
+ 
+.PP
+Definition at line 126 of file pac52XX\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef enum \fBIRQn\fP \fBIRQn_Type\fP"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBIRQn\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIReset_IRQn \fP\fP
+1 Reset Vector, invoked on Power up and warm reset 
+.br
+ 
+.TP
+\fB\fINonMaskableInt_IRQn \fP\fP
+2 Non Maskable Interrupt 
+.br
+ 
+.TP
+\fB\fIHardFault_IRQn \fP\fP
+3 Hard Fault Interrupt 
+.br
+ 
+.TP
+\fB\fISVCall_IRQn \fP\fP
+11 SV Call Interrupt 
+.br
+ 
+.TP
+\fB\fIPendSV_IRQn \fP\fP
+14 Pend SV Interrupt 
+.br
+ 
+.TP
+\fB\fISysTick_IRQn \fP\fP
+15 System Tick Interrupt 
+.br
+ 
+.TP
+\fB\fIMemCtl_IRQn \fP\fP
+Memory Controller Interrupt 
+.br
+ 
+.TP
+\fB\fISysClk_IRQn \fP\fP
+Clock/System Controller Interrupt 
+.br
+ 
+.TP
+\fB\fIWdt_IRQn \fP\fP
+Watchdog Timer Interrupt 
+.br
+ 
+.TP
+\fB\fIGpioA_IRQn \fP\fP
+GPIO Port A Interrupt 
+.br
+ 
+.TP
+\fB\fIGpioB_IRQn \fP\fP
+GPIO Port B Interrupt 
+.br
+ 
+.TP
+\fB\fIGpioC_IRQn \fP\fP
+GPIO Port C Interrupt 
+.br
+ 
+.TP
+\fB\fIGpioD_IRQn \fP\fP
+GPIO Port D Interrupt 
+.br
+ 
+.TP
+\fB\fIGpioE_IRQn \fP\fP
+GPIO Port E Interrupt 
+.br
+ 
+.TP
+\fB\fITimerA_IRQn \fP\fP
+Timer A Interrupt (Base, CC0-5) 
+.br
+ 
+.TP
+\fB\fITimerAExt_IRQn \fP\fP
+Timer A Extended Interrupt (CC6-7) 
+.br
+ 
+.TP
+\fB\fITimerB_IRQn \fP\fP
+Timer B Interrupt 
+.br
+ 
+.TP
+\fB\fITimerC_IRQn \fP\fP
+Timer C Interrupt 
+.br
+ 
+.TP
+\fB\fITimerD_IRQn \fP\fP
+Timer D Interrupt 
+.br
+ 
+.TP
+\fB\fIADC_IRQn \fP\fP
+ADC Interrupt 
+.br
+ 
+.TP
+\fB\fISocBridge_IRQn \fP\fP
+SocBridge Interrupt 
+.br
+ 
+.TP
+\fB\fISPI_IRQn \fP\fP
+SPI_B Interrupt 
+.br
+ 
+.TP
+\fB\fIUART_IRQn \fP\fP
+UART Interrupt 
+.br
+ 
+.TP
+\fB\fII2C_IRQn \fP\fP
+I2C Interrupt 
+.br
+ 
+.TP
+\fB\fIEMUX_IRQn \fP\fP
+EMUX Interrupt 
+.br
+ 
+.TP
+\fB\fIRTC_IRQn \fP\fP
+RTC Interrupt 
+.br
+ 
+.PP
+Definition at line 85 of file pac52XX\&.h\&.
+.PP
+.nf
+86 {
+87 /* -------------------  Cortex-M0 Processor Exceptions Numbers  --------------------------------- */
+88   Reset_IRQn                    = -15,      
+89   NonMaskableInt_IRQn           = -14,      
+90   HardFault_IRQn                = -13,      
+91   SVCall_IRQn                   = -5,       
+92   PendSV_IRQn                   = -2,       
+93   SysTick_IRQn                  = -1,       
+95 /* ---------------------  PAC52XX Specific Interrupt Numbers  ----------------------------------- */
+96   MemCtl_IRQn                   = 0,        
+97   SysClk_IRQn                   = 1,        
+98   Wdt_IRQn                      = 2,        
+99   GpioA_IRQn                    = 3,        
+100   GpioB_IRQn                    = 4,        
+101   GpioC_IRQn                    = 5,        
+102   GpioD_IRQn                    = 6,        
+103   GpioE_IRQn                    = 7,        
+104   TimerA_IRQn                   = 8,        
+105   TimerAExt_IRQn                = 9,        
+106   TimerB_IRQn                   = 10,       
+107   TimerC_IRQn                   = 11,       
+108   TimerD_IRQn                   = 12,       
+109   ADC_IRQn                      = 13,       
+110   SocBridge_IRQn                = 14,       
+111   SPI_IRQn                      = 15,       
+112   UART_IRQn                     = 16,       
+113   I2C_IRQn                      = 17,       
+114   EMUX_IRQn                     = 18,       
+115   RTC_IRQn                      = 19        
+116 } IRQn_Type;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

@@ -1,0 +1,39 @@
+.TH "pac_foc/src/isr/isr_qepD.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/isr/isr_qepD.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'qep_funcs\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBQEPD_IRQHandler\fP (void)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "PAC5XXX_RAMFUNC void QEPD_IRQHandler (void)"
+
+.PP
+Definition at line 20 of file isr_qepD\&.c\&.
+.PP
+.nf
+21 {
+22 #if (MODULE_MPOS_QEP == ENABLED)
+23     qep_isr();
+24 #endif
+25 }
+.fi
+.PP
+References qep_isr()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

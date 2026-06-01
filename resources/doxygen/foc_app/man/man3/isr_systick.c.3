@@ -1,0 +1,168 @@
+.TH "pac_foc/src/isr/isr_systick.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/isr/isr_systick.c
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'app_funcs\&.h'\fP
+.br
+\fC#include 'dcbus_check\&.h'\fP
+.br
+\fC#include 'speed_check\&.h'\fP
+.br
+\fC#include 'parameter_process\&.h'\fP
+.br
+\fC#include 'control_funcs\&.h'\fP
+.br
+\fC#include 'mpos_funcs\&.h'\fP
+.br
+\fC#include 'vbus_funcs\&.h'\fP
+.br
+\fC#include 'satmon\&.h'\fP
+.br
+\fC#include 'ppm\&.h'\fP
+.br
+\fC#include 'stack_check\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_watchdog\&.h'\fP
+.br
+\fC#include 'overmod_funcs\&.h'\fP
+.br
+\fC#include 'push_button\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBSysTick_Handler\fP (void)"
+.br
+.RI "Process interrupt for SysTick_Handler to run non critical FOC functions\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void SysTick_Handler (void)"
+
+.PP
+Process interrupt for SysTick_Handler to run non critical FOC functions\&. 
+.PP
+Definition at line 77 of file isr_systick\&.c\&.
+.PP
+.nf
+78 {
+79     static Struct_Motor* motor_ptr = &motor;
+80 
+81     // Increment systick counter
+82     motor_ptr->app\&.systick_counter++;
+83 
+84 #if (MODULE_MPOS_LBG1 == ENABLED)
+85     lbg1_statemon(motor_ptr);
+86 #endif
+87 
+88 #if (COMMSEL_PPM == TRUE)
+89     ppm_convert_pulse_width_into_speed(&motor_ptr->app\&.motor_enable_cmd, &motor_ptr->control\&.outerloop_target, motor_ptr->state\&.main, motor_ptr);
+90 #endif
+91 
+92 #ifdef ENABLE_STALL_DETECT
+93     // Filter speed and speec command for stall detection
+94 //    stall_detect_filter(&motor_ptr->stall, motor_ptr->control\&.outerloop_ramp_scaled_q14, motor_ptr->control\&.outerloop_fdbk_scaled_q14);
+95     stall_detect_filter(&motor_ptr->stall, motor_ptr->foc\&.iqref_ramp_q14, motor_ptr->foc\&.iq_q14);
+96 #endif
+97 
+98 #ifndef DISABLE_AUTOVDC
+99     // Sample bus voltage
+100     sample_dcbus(motor_ptr);
+101 #if (MODULE_MPOS_LBG1 == ENABLED)
+102     lbg1_process_voltage_scale(motor_ptr);
+103 #endif
+104 #endif
+105 
+106 #if !defined(DISABLE_AUTOVDC) && defined(ENABLE_DCBUS_MIN_MAX_CHECK)
+107     // Check Min/Max Bus Voltage
+108     check_dcbus_fault(motor_ptr);
+109 #endif
+110 
+111     // Operations done at the divided systick frequency
+112     if (++motor_ptr->app\&.systick_divider_cnt >= SYSTICK_HANDLER_DIVIDER)
+113     {
+114         motor_ptr->app\&.systick_divider_cnt = 0;
+115         ++motor_ptr->app\&.systick_div_counter;
+116 
+117         // Check for voltage vector saturation
+118         check_pwm_sat(motor_ptr);
+119 
+120         #if (ENABLE_WATCHDOG == TRUE)
+121         // WDT Refresh
+122         pac5xxx_watchdog_reset();
+123         #endif
+124 
+125         #if (ENABLE_STACK_CHECK == TRUE)
+126         // Test stack over and under flow
+127         stack_test();
+128         #endif
+129 
+130         #if (MODULATION_SELECT == MODULATION_SVM_OVERMOD)
+131         check_overmod_status(motor_ptr);
+132         #endif
+133 
+134         #ifdef ENABLE_CLSPEED_MIN_MAX_CHECK
+135         // Check Min/Max Closed-Loop Speed
+136         check_speedlimitcl_fault(motor_ptr);
+137         #endif
+138 
+139         #ifdef ENABLE_FIELD_WEAKENING
+140         // Field Weakening
+141         fw_controller(motor_ptr);
+142         #endif
+143 
+144         #if defined(ENABLE_POWERMEASURE) && (POWER_MEASURE_SELECT == POWER_MEASURE_METHOD_2) && defined(ENABLE_LCORR_VBUS)
+145         // Power measurement compensation coefficient calculation
+146         power_compensation_coefficient_calc(motor_ptr);
+147         #endif
+148 
+149         #if defined(ENABLE_STALL_DETECT)
+150         // Stall Detection
+151         store_peak_speed_vdrive_value(motor_ptr);
+152         stall_detect_process(motor_ptr);
+153         #endif
+154 
+155         #ifdef ENABLE_OPD_CL
+156         // Closed-Loop Open Phase Detection
+157         check_opdcl_fault(motor_ptr);
+158         #endif
+159 
+160         #ifdef ENABLE_CLSPEED_LIMIT_CHANGE_CHECK
+161         check_speedlimitcl_need_to_change(motor_ptr);
+162         #endif
+163 
+164         // Periodic PI gain converter
+165         picon_convert_gain(&motor_ptr->foc\&.Id_pid, motor_ptr->app\&.descale_current_factor, motor_ptr->app\&.v_scale_q16);
+166         picon_convert_gain(&motor_ptr->foc\&.Iq_pid, motor_ptr->app\&.descale_current_factor, motor_ptr->app\&.v_scale_q16);
+167 
+168         #if defined(ENABLE_AUTOTUNE_MID)
+169         // Process AT systick ISR operations
+170         mid2_process_systick(motor_ptr);
+171         #endif
+172 
+173         #if (COMMSEL_PUSH_BUTTON == TRUE)
+174         statemachine_buttoncontrol();
+175         #endif
+176 
+177         #if defined(ENABLE_TEMPREAD)
+178         temp_read();
+179         #endif
+180 
+181         // Main State Machine
+182         statemachine_appmain();
+183     }
+184 }
+.fi
+.PP
+References Struct_Motor::app, lbg1_statemon(), motor, and Struct_App::systick_counter\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

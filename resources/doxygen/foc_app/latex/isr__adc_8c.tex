@@ -1,0 +1,97 @@
+\hypertarget{isr__adc_8c}{}\doxysection{pac\+\_\+foc/src/isr/isr\+\_\+adc.c File Reference}
+\label{isr__adc_8c}\index{pac\_foc/src/isr/isr\_adc.c@{pac\_foc/src/isr/isr\_adc.c}}
+
+
+Use for A\+DC I\+SR.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}control\+\_\+loop.\+h\char`\"{}}\newline
+Include dependency graph for isr\+\_\+adc.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{isr__adc_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+O\+P\+T\+I\+M\+I\+Z\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+\+ON P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{isr__adc_8c_a5294703cdce95fc6faa0522478ce2bc7}{A\+D\+C\+\_\+\+I\+R\+Q\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function use A\+DC Interrupt Handler to run main F\+OC control loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for A\+DC I\+SR. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{isr__adc_8c_a5294703cdce95fc6faa0522478ce2bc7}\label{isr__adc_8c_a5294703cdce95fc6faa0522478ce2bc7}} 
+\index{isr\_adc.c@{isr\_adc.c}!ADC\_IRQHandler@{ADC\_IRQHandler}}
+\index{ADC\_IRQHandler@{ADC\_IRQHandler}!isr\_adc.c@{isr\_adc.c}}
+\doxysubsubsection{\texorpdfstring{ADC\_IRQHandler()}{ADC\_IRQHandler()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+O\+P\+T\+I\+M\+I\+Z\+E\+\_\+\+S\+P\+E\+E\+D\+\_\+\+ON P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void A\+D\+C\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function use A\+DC Interrupt Handler to run main F\+OC control loop. 
+
+
+
+Definition at line 28 of file isr\+\_\+adc.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \textcolor{comment}{//debugio1\_on();}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#if (CONFIG\_SHUNT == CONFIG\_SHUNT\_1SHUNT) \&\& (MODE\_1SHUNT\_SELECT == MODE\_1SHUNT\_ASYMMETRIC)}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#ifdef ENABLE\_IPD}}
+\DoxyCodeLine{33     \textcolor{keyword}{static} \mbox{\hyperlink{struct_struct___motor}{Struct\_Motor}}* motor\_ptr = \&\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}};}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{36     }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#if (CONFIG\_SHUNT == CONFIG\_SHUNT\_3SHUNT)}}
+\DoxyCodeLine{38     \textcolor{keyword}{static} \mbox{\hyperlink{struct_struct___motor}{Struct\_Motor}}* motor\_ptr = \&\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{comment}{// Call 3-\/Shunt Mode ADC ISR Process}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#ifdef ENABLE\_IPD}}
+\DoxyCodeLine{42     motor\_ptr-\/>funcptr1(motor\_ptr);}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{44     control\_3shunt\_adc\_isr(motor\_ptr);}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{comment}{// Run motor control loop}}
+\DoxyCodeLine{48     control\_loop(motor\_ptr);}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#elif (CONFIG\_SHUNT == CONFIG\_SHUNT\_1SHUNT) \&\& (MODE\_1SHUNT\_SELECT == MODE\_1SHUNT\_EXTENSION)}}
+\DoxyCodeLine{50     \textcolor{keyword}{static} \mbox{\hyperlink{struct_struct___motor}{Struct\_Motor}}* motor\_ptr = \&\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{comment}{// Call 1-\/Shunt Extension Mode ADC ISR Process}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#ifdef ENABLE\_IPD}}
+\DoxyCodeLine{54     motor\_ptr-\/>funcptr1(motor\_ptr);}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{56     control\_1shunt\_extn\_adc\_isr(motor\_ptr);}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{comment}{// Run motor control loop}}
+\DoxyCodeLine{60     control\_loop(motor\_ptr);}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#if (CONFIG\_SHUNT == CONFIG\_SHUNT\_1SHUNT) \&\& (MODE\_1SHUNT\_SELECT == MODE\_1SHUNT\_ASYMMETRIC)}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#ifdef ENABLE\_IPD}}
+\DoxyCodeLine{65     \textcolor{comment}{// Run motor control loop}}
+\DoxyCodeLine{66     motor\_ptr-\/>funcptr2(motor\_ptr);}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{69     \textcolor{comment}{//debugio1\_off();}}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{comment}{// Clear interrupt flag}}
+\DoxyCodeLine{72     clear\_adc\_int\_flag();}
+\DoxyCodeLine{73 \}}
+
+\end{DoxyCode}
+
+
+References motor.
+

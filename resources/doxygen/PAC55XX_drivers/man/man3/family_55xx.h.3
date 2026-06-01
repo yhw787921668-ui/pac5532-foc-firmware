@@ -1,0 +1,266 @@
+.TH "pac_foc/pac55xx/device/family_55xx.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/device/family_55xx.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac5xxx\&.h'\fP
+.br
+\fC#include 'config_debug\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_timer\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBFAMILY_55XX\fP"
+.br
+.ti -1c
+.RI "#define \fBVMS100_ADDRESS\fP   0x00100410"
+.br
+.ti -1c
+.RI "#define \fBVMS200_ADDRESS\fP   0x00100412"
+.br
+.ti -1c
+.RI "#define \fBADC_OFFSET_ADDRESS\fP   0x00100414"
+.br
+.ti -1c
+.RI "#define \fBADC_GAIN_ADDRESS\fP   0x00100418"
+.br
+.ti -1c
+.RI "#define \fBADC_CHANNEL_MASK\fP   (1L << \fBADCCTL_CHANNEL_ADC0\fP)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBinit_system\fP (void)"
+.br
+.ti -1c
+.RI "void \fBconfigure_cafe_fault_interrupt\fP (void)"
+.br
+.ti -1c
+.RI "void \fBconfigure_foc_timer\fP (void)"
+.br
+.ti -1c
+.RI "void \fBconfigure_adc_emux_engine\fP (void)"
+.br
+.ti -1c
+.RI "void \fBconfigure_pwm_dac\fP (void)"
+.br
+.ti -1c
+.RI "void \fBuart_scratch_write\fP (int32_t value)"
+.br
+.ti -1c
+.RI "int32_t \fBuart_scratch_read\fP (void)"
+.br
+.ti -1c
+.RI "void \fBsim_update_seq_trigger_point\fP (int32_t value)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ADC_CHANNEL_MASK   (1L << \fBADCCTL_CHANNEL_ADC0\fP)"
+
+.PP
+Definition at line 31 of file family_55xx\&.h\&.
+.SS "#define ADC_GAIN_ADDRESS   0x00100418"
+
+.PP
+Definition at line 28 of file family_55xx\&.h\&.
+.SS "#define ADC_OFFSET_ADDRESS   0x00100414"
+
+.PP
+Definition at line 27 of file family_55xx\&.h\&.
+.SS "#define FAMILY_55XX"
+
+.PP
+Definition at line 18 of file family_55xx\&.h\&.
+.SS "#define VMS100_ADDRESS   0x00100410"
+
+.PP
+Definition at line 25 of file family_55xx\&.h\&.
+.SS "#define VMS200_ADDRESS   0x00100412"
+
+.PP
+Definition at line 26 of file family_55xx\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void configure_adc_emux_engine (void)"
+
+.PP
+Definition at line 147 of file family_55xx\&.c\&.
+.PP
+.nf
+148 {
+149     // EMUX configuration
+150     pac5xxx_adc_config_emux_io();
+151 
+152     pac5xxx_adc_emux_config(ADCEMUXCTL_DTSE_SEQ, ADCEMUXCTL_EMUXDIV_DIV16);
+153     pac5xxx_adc_config(ADCCTL_MODE_DTSE, ADCCTL_CLKDIV_DIV8, 0);
+154 }
+.fi
+.PP
+References ADCCTL_CLKDIV_DIV8, ADCCTL_MODE_DTSE, ADCEMUXCTL_DTSE_SEQ, ADCEMUXCTL_EMUXDIV_DIV16, pac5xxx_adc_config(), pac5xxx_adc_config_emux_io(), and pac5xxx_adc_emux_config()\&.
+.SS "void configure_cafe_fault_interrupt (void)"
+
+.PP
+Definition at line 94 of file family_55xx\&.c\&.
+.PP
+.nf
+95 {    
+96     // Configure nIRQ1, CAFE fault interrupt, as digital input - active low
+97     PAC55XX_SCC->PAMUXSEL\&.w &= 0x0FFFFFFF;      // PA7 as input for n1RQ1, over current interrupt 
+98 
+99 //    PAC55XX_GPIOA->CLKSYNC\&.P7 = 1;
+100 
+101     pac5xxx_gpio_configure_interrupt_a(NIRQ1_PIN_MASK, 0);
+102     #ifdef ENABLE_CBC_CURRENT_LIMIT
+103         NVIC_SetPriority(GpioA_IRQn,0);
+104     #else
+105         NVIC_SetPriority(GpioA_IRQn,3);
+106     #endif
+107 }
+.fi
+.PP
+References GpioA_IRQn, NIRQ1_PIN_MASK, NVIC_SetPriority(), PAC55XX_SCC, and pac5xxx_gpio_configure_interrupt_a()\&.
+.SS "void configure_foc_timer (void)"
+
+.PP
+Definition at line 109 of file family_55xx\&.c\&.
+.PP
+.nf
+110 {
+111     // Configure Timer A Controls
+112     pac5xxx_timer_clock_config(FOC_PWM_Timer, TXCTL_CS_ACLK, TXCTL_PS_DIV1);                           // Configure timer clock input for ACLK, /1 divider
+113     pac5xxx_timer_base_config(FOC_PWM_Timer, motor\&.control\&.motor_period_ticks, 0, TxCTL_MODE_UPDOWN, 0);   // Enable base timer
+114     // Update duty cycle when TACTR counts from 1 to 0
+115     FOC_PWM_Timer_Ptr->CTL\&.PRDLATCH = 0;
+116 
+117     // Configure Dead time generators
+118     pac5xxx_dtg_config2(&(FOC_PWM_Timer_Ptr->DTGCTL0), MOTOR1_LED_TICKS, MOTOR1_TED_TICKS);     // Configure DTGA0 for phase U
+119     pac5xxx_dtg_config2(&(FOC_PWM_Timer_Ptr->DTGCTL1), MOTOR1_LED_TICKS, MOTOR1_TED_TICKS);     // Configure DTGA1 for phase V
+120     pac5xxx_dtg_config2(&(FOC_PWM_Timer_Ptr->DTGCTL2), MOTOR1_LED_TICKS, MOTOR1_TED_TICKS);     // Configure DTGA2 for phase W
+121 }
+.fi
+.PP
+References FOC_PWM_Timer, FOC_PWM_Timer_Ptr, pac5xxx_dtg_config2(), pac5xxx_timer_base_config(), pac5xxx_timer_clock_config(), TXCTL_CS_ACLK, TxCTL_MODE_UPDOWN, and TXCTL_PS_DIV1\&.
+.SS "void configure_pwm_dac (void)"
+
+.PP
+Definition at line 123 of file family_55xx\&.c\&.
+.PP
+.nf
+124 {
+125 #ifdef ENABLE_DEBUG_PWMDAC 
+126     pac5xxx_timer_clock_config(FOC_DAC_Timer, TXCTL_CS_ACLK, TXCTL_PS_DIV1);                  // Configure timer clock input for ACLK, /1 divider
+127     pac5xxx_timer_base_config(FOC_DAC_Timer, PWMDAC_PERIOD_TICKS, 0, TxCTL_MODE_UPDOWN, 0);   // Enable base timer
+128 
+129     switch (FOC_DAC_Timer)
+130     {
+131         case TimerB:
+132             pac5xxx_timer_b_ccctr0_value_set(PWMDAC_PERIOD_TICKS >> 1);
+133             pac5xxx_timer_b_ccctr1_value_set(PWMDAC_PERIOD_TICKS >> 1);
+134             pac5xxx_timer_b_ccctr2_value_set(PWMDAC_PERIOD_TICKS >> 1);
+135             break;
+136         case TimerC:
+137             pac5xxx_timer_c_ccctr4_value_set(PWMDAC_PERIOD_TICKS >> 1);
+138             pac5xxx_timer_c_ccctr5_value_set(PWMDAC_PERIOD_TICKS >> 1);
+139             pac5xxx_timer_c_ccctr6_value_set(PWMDAC_PERIOD_TICKS >> 1);
+140             break;
+141         default:
+142             break;
+143     }
+144 #endif
+145 }
+.fi
+.PP
+References FOC_DAC_Timer, pac5xxx_timer_base_config(), pac5xxx_timer_clock_config(), TimerB, TXCTL_CS_ACLK, TxCTL_MODE_UPDOWN, and TXCTL_PS_DIV1\&.
+.SS "void init_system (void)"
+
+.PP
+Definition at line 49 of file family_55xx\&.c\&.
+.PP
+.nf
+50 {
+51     // Set Flash Lock to allow write access to MEMCTL register for configuring clocks
+52     PAC55XX_MEMCTL->FLASHLOCK = FLASH_LOCK_ALLOW_WRITE_MEMCTL;
+53 
+54     // Set safe clock defaults
+55     PAC55XX_SCC->CCSCTL\&.FRCLKMUXSEL = CCSCTL_CLKIN_ROSC;
+56     PAC55XX_SCC->CCSCTL\&.SCLKMUXSEL = CCSCTL_SCLK_FRCLK;
+57     PAC55XX_MEMCTL->MEMCTL\&.MCLKSEL = MEMCTL_MCLK_ROSCCLK;
+58 
+59     // Turn on Flache Cache
+60     PAC55XX_MEMCTL->MEMCTL\&.CACHEDIS = 0;                        // enable Flash CACHE
+61 
+62     // Select 4 MHz CLKREF for Free Running Clock FRCLK
+63     PAC55XX_SCC->CCSCTL\&.FRCLKMUXSEL = CCSCTL_CLKIN_CLKREF;
+64  
+65     pac5xxx_sys_pll_config_enable(4, 300, 0);                   // PLLCLK = 300 MHz = (4/4 * 300) /1
+66 
+67     // Configure SCLK=PLLCLK=300 MHz, HCLK=150 MHz, PCLK=150 MHz, ACLK=50 MHz and WaitStates;  Use default PCLKDIV=1
+68     PAC55XX_SCC->CCSCTL\&.HCLKDIV = CCSCTL_HCLKDIV_DIV2;          // HCLK = 150 MHz = SCLK/2; when SCLK = PLLCLK
+69     PAC55XX_SCC->CCSCTL\&.ACLKDIV = CCSCTL_ACLKDIV_DIV6;          // ACLK =  50 MHz = SCLK/6; when SCLK = PLLCLK
+70     PAC55XX_MEMCTL->MEMCTL\&.WSTATE = 5 + 1;                      // Flash = 150/25 = 6 clocks = 5 WS; So, need 5 + 1 Extra WS
+71     PAC55XX_SCC->CCSCTL\&.SCLKMUXSEL = CCSCTL_SCLK_PLLCLK;        // SCLK = PLLCLK
+72 
+73     // Set MCLK for Flash write & erase in addition to read
+74     PAC55XX_MEMCTL->MEMCTL\&.MCLKDIV = MEMCTL_MCLK_DIV5;          // MCLK will = HCLK/5 when MCLKSEL = MEMCTL_MCLK_HCLKDIV
+75     PAC55XX_MEMCTL->MEMCTL\&.MCLKSEL = MEMCTL_MCLK_HCLKDIV;       // MCLK = HCLK/5 = 30 MHz; allows reading and writing of Flash
+76 
+77     PAC55XX_MEMCTL->FLASHLOCK = 0;                              // Disallow write access to MEMCTL
+78 
+79     // Enable GPIO Input clock synchronization; should always be enabled, especially when using GPIO edge based interrupts
+80     PAC55XX_GPIOA->CLKSYNC\&.w = 0xFF;
+81     PAC55XX_GPIOB->CLKSYNC\&.w = 0xFF;
+82     PAC55XX_GPIOC->CLKSYNC\&.w = 0xFF;
+83     PAC55XX_GPIOD->CLKSYNC\&.w = 0xFF;
+84     PAC55XX_GPIOE->CLKSYNC\&.w = 0xFF;
+85     PAC55XX_GPIOF->CLKSYNC\&.w = 0xFF;
+86     PAC55XX_GPIOG->CLKSYNC\&.w = 0xFF;
+87 
+88 #ifdef ENABLE_FLASH_CRC_TEST
+89     // Set USARTC to UART mode for scratch pad
+90     PAC55XX_SCC->CCSCTL\&.USCMODE = 1;                            // UART mode
+91 #endif
+92 }
+.fi
+.PP
+References CCSCTL_ACLKDIV_DIV6, CCSCTL_CLKIN_CLKREF, CCSCTL_CLKIN_ROSC, CCSCTL_HCLKDIV_DIV2, CCSCTL_SCLK_FRCLK, CCSCTL_SCLK_PLLCLK, FLASH_LOCK_ALLOW_WRITE_MEMCTL, MEMCTL_MCLK_DIV5, MEMCTL_MCLK_HCLKDIV, MEMCTL_MCLK_ROSCCLK, PAC55XX_GPIOA, PAC55XX_GPIOB, PAC55XX_GPIOC, PAC55XX_GPIOD, PAC55XX_GPIOE, PAC55XX_GPIOF, PAC55XX_GPIOG, PAC55XX_MEMCTL, PAC55XX_SCC, and pac5xxx_sys_pll_config_enable()\&.
+.SS "void sim_update_seq_trigger_point (int32_t value)"
+
+.SS "int32_t uart_scratch_read (void)"
+
+.PP
+Definition at line 249 of file family_55xx\&.c\&.
+.PP
+.nf
+250 {
+251     // Return the value stored in the UART Scratch Pad Register
+252     return PAC55XX_UARTC->SCR\&.PAD;
+253 }
+.fi
+.PP
+References PAC55XX_UARTC\&.
+.SS "void uart_scratch_write (int32_t value)"
+
+.PP
+Definition at line 243 of file family_55xx\&.c\&.
+.PP
+.nf
+244 {
+245     // Set the UART Scratch Pad Register value
+246     PAC55XX_UARTC->SCR\&.PAD = value;
+247 }
+.fi
+.PP
+References PAC55XX_UARTC\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

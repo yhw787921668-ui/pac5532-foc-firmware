@@ -1,0 +1,54 @@
+\hypertarget{pac5xxx__driver__uart_8h}{}\doxysection{pac\+\_\+foc/pac52xx/pac5xxx\+\_\+sdk/pac5xxx\+\_\+drivers/pac5xxx\+\_\+driver\+\_\+uart.h File Reference}
+\label{pac5xxx__driver__uart_8h}\index{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_drivers/pac5xxx\_driver\_uart.h@{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_drivers/pac5xxx\_driver\_uart.h}}
+
+
+Firmware driver for the P\+A\+C5\+X\+XX U\+A\+RT.  
+
+
+{\ttfamily \#include \char`\"{}pac52\+X\+X.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+config.\+h\char`\"{}}\newline
+Include dependency graph for pac5xxx\+\_\+driver\+\_\+uart.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__driver__uart_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__driver__uart_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___u_a_r_t_gadd978ca3789a00409bfbd9ae9918e86f}{R\+A\+M\+F\+U\+N\+C\+\_\+\+U\+A\+RT}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___u_a_r_t_gadd978ca3789a00409bfbd9ae9918e86f}{R\+A\+M\+F\+U\+N\+C\+\_\+\+U\+A\+RT}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___u_a_r_t_gaa2d131ce1979a5a3e6438bc51d56c2b8}{pac5xxx\+\_\+uart\+\_\+io\+\_\+config}} (void)
+\begin{DoxyCompactList}\small\item\em This function configures IO for use with the U\+A\+RT peripheral. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___u_a_r_t_gadd978ca3789a00409bfbd9ae9918e86f}{R\+A\+M\+F\+U\+N\+C\+\_\+\+U\+A\+RT}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___u_a_r_t_gaf8ab44b21ff9b32635928b38309dcd52}{pac5xxx\+\_\+uart\+\_\+config\+\_\+\+L\+CR}} (\mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_gaab38d1f93bfa77bbf0465117cef8a313}{U\+A\+R\+T\+\_\+\+Bits\+Per\+Char\+\_\+\+Type}} bpc, \mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_ga131aefa5425069984d4b7cd1321950cc}{U\+A\+R\+T\+\_\+\+Stop\+Bits\+\_\+\+Type}} stop\+\_\+bits, int parity\+\_\+enabled, \mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_ga1b4014e4d992f576fc26f79307a3f18e}{U\+A\+R\+T\+\_\+\+Parity\+\_\+\+Type}} parity, int stick\+\_\+parity, \mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_gaa9c7215dc57f4caa7311208e82b667d5}{U\+A\+R\+T\+\_\+\+Break\+Control\+\_\+\+Type}} break\+\_\+control, \mbox{\hyperlink{group___p_a_c5_x_x_x___u_a_r_t_gad2e2087305218d219b829e17fbcf65f7}{U\+A\+R\+T\+\_\+\+Div\+Latch\+Access\+\_\+\+Type}} div\+\_\+latch\+\_\+access)
+\begin{DoxyCompactList}\small\item\em This function configures the U\+A\+RT L\+CR (Line Control Register) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___u_a_r_t_gadd978ca3789a00409bfbd9ae9918e86f}{R\+A\+M\+F\+U\+N\+C\+\_\+\+U\+A\+RT}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___u_a_r_t_ga4c3af143419775aa82d9cb0227b05e5c}{pac5xxx\+\_\+uart\+\_\+config\+\_\+\+M\+CR}} (int D\+T\+R\+\_\+asserted, int R\+T\+S\+\_\+asserted, int B\+I\+T1\+\_\+asserted, int B\+I\+T2\+\_\+asserted, int loopback\+\_\+mode)
+\begin{DoxyCompactList}\small\item\em This function configures the U\+A\+RT M\+CR (Modem Control Register) \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___u_a_r_t_gadd978ca3789a00409bfbd9ae9918e86f}{R\+A\+M\+F\+U\+N\+C\+\_\+\+U\+A\+RT}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___u_a_r_t_ga906b980eb4cb7810929229a48865e78f}{pac5xxx\+\_\+uart\+\_\+config\+\_\+divisor\+\_\+latch}} (uint16\+\_\+t latch\+\_\+value)
+\begin{DoxyCompactList}\small\item\em This function configures the divisor latch. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___u_a_r_t_gadd978ca3789a00409bfbd9ae9918e86f}{R\+A\+M\+F\+U\+N\+C\+\_\+\+U\+A\+RT}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___u_a_r_t_ga935c4d7b3e60959445f7b585ffccdd27}{pac5xxx\+\_\+uart\+\_\+config\+\_\+divisor\+\_\+latch\+\_\+remapped}} (uint16\+\_\+t latch\+\_\+value)
+\begin{DoxyCompactList}\small\item\em This function configures the divisor latch using the remapped D\+L\+\_\+\+L2 and D\+L\+\_\+\+H2 registers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___u_a_r_t_gadd978ca3789a00409bfbd9ae9918e86f}{R\+A\+M\+F\+U\+N\+C\+\_\+\+U\+A\+RT}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___u_a_r_t_ga3b582002cb1409393b96381cc0a4ee69}{pac5xxx\+\_\+uart\+\_\+config\+\_\+fractional\+\_\+divisor}} (uint8\+\_\+t divisor\+\_\+value)
+\begin{DoxyCompactList}\small\item\em This function configures the Fractional Divisor and U\+A\+RT clock source. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Firmware driver for the P\+A\+C5\+X\+XX U\+A\+RT. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2015-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 

@@ -1,0 +1,187 @@
+\hypertarget{board__pac5523evk1__1__1shunt__pwr2_8c}{}\doxysection{pac\+\_\+foc/pac55xx/board/board\+\_\+pac5523evk1\+\_\+1\+\_\+1shunt\+\_\+pwr2.c File Reference}
+\label{board__pac5523evk1__1__1shunt__pwr2_8c}\index{pac\_foc/pac55xx/board/board\_pac5523evk1\_1\_1shunt\_pwr2.c@{pac\_foc/pac55xx/board/board\_pac5523evk1\_1\_1shunt\_pwr2.c}}
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+tile\+\_\+signal\+\_\+manager.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+tile.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+adc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+timer.\+h\char`\"{}}\newline
+Include dependency graph for board\+\_\+pac5523evk1\+\_\+1\+\_\+1shunt\+\_\+pwr2.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{board__pac5523evk1__1__1shunt__pwr2_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{board__pac5523evk1__1__1shunt__pwr2_8c_ac12a9955fedf45671b4a40c4f3f64cee}{init\+\_\+diff\+\_\+amp\+\_\+gain}} (void)
+\item 
+void \mbox{\hyperlink{board__pac5523evk1__1__1shunt__pwr2_8c_a9e08e376793b944aeff8bd5a72237ce2}{config\+\_\+seq\+\_\+foc}} (void)
+\item 
+void \mbox{\hyperlink{board__pac5523evk1__1__1shunt__pwr2_8c_a5542c2db6b71eaa05e0c4ef206ffa183}{init\+\_\+emux}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{board__pac5523evk1__1__1shunt__pwr2_8c_a9e08e376793b944aeff8bd5a72237ce2}\label{board__pac5523evk1__1__1shunt__pwr2_8c_a9e08e376793b944aeff8bd5a72237ce2}} 
+\index{board\_pac5523evk1\_1\_1shunt\_pwr2.c@{board\_pac5523evk1\_1\_1shunt\_pwr2.c}!config\_seq\_foc@{config\_seq\_foc}}
+\index{config\_seq\_foc@{config\_seq\_foc}!board\_pac5523evk1\_1\_1shunt\_pwr2.c@{board\_pac5523evk1\_1\_1shunt\_pwr2.c}}
+\doxysubsubsection{\texorpdfstring{config\_seq\_foc()}{config\_seq\_foc()}}
+{\footnotesize\ttfamily void config\+\_\+seq\+\_\+foc (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 54 of file board\+\_\+pac5523evk1\+\_\+1\+\_\+1shunt\+\_\+pwr2.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55 \{}
+\DoxyCodeLine{56     Struct\_Motor* motor\_ptr = \&motor;}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{comment}{// Configure ADC input pin PG7(AD0) to read analog input from AFE and PF6(AD6) to read VBUS}}
+\DoxyCodeLine{59     \mbox{\hyperlink{pac5xxx__driver__adc_8c_a8bd220ee81d2352538c52fcbc135cc4e}{pac5xxx\_adc\_config\_io}}(0x01 | 0x40);                 \textcolor{comment}{// PG7 | PF6}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \mbox{\hyperlink{pac5xxx_8h_ade737a8e3d256f55f3fc72038c2b80c4}{PAC55XX\_ADC}}-\/>DTSETRIGENT0TO3.FORCE0 = 0;            \textcolor{comment}{// Reset to 0}}
+\DoxyCodeLine{62     \mbox{\hyperlink{pac5xxx_8h_ade737a8e3d256f55f3fc72038c2b80c4}{PAC55XX\_ADC}}-\/>DTSETRIGENT0TO3.TRIG0CFGIDX = 0;       \textcolor{comment}{// DTSE Trigger 0 Sequence Configuration Entry Index}}
+\DoxyCodeLine{63     \mbox{\hyperlink{pac5xxx_8h_ade737a8e3d256f55f3fc72038c2b80c4}{PAC55XX\_ADC}}-\/>DTSETRIGENT0TO3.TRIG0EDGE = 2;         \textcolor{comment}{// Trigger falling edge}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     motor\_ptr-\/>oneshunt.taccr0\_value = (motor\_ptr-\/>control.motor\_period\_ticks >> 1);}
+\DoxyCodeLine{66     motor\_ptr-\/>oneshunt.taccr1\_value = (motor\_ptr-\/>control.motor\_period\_ticks >> 1);}
+\DoxyCodeLine{67     pac5xxx\_timer\_a\_ccctr0\_value\_set(motor\_ptr-\/>control.motor\_period\_ticks >> 1);                              \textcolor{comment}{// Set value for AS0 trigger}}
+\DoxyCodeLine{68     pac5xxx\_timer\_a\_ccctr1\_value\_set(motor\_ptr-\/>control.motor\_period\_ticks >> 1);                              \textcolor{comment}{// Set value for AS1 trigger}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{comment}{// Dummy conversions are added to each sequence to work around a bug in the DTSE}}
+\DoxyCodeLine{71     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(0, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{ADC0}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59ae7d9d0c2be614bac3cd85d0d3d383253}{EMUX\_AIO32}}, 0, 0);    \textcolor{comment}{// Convert M1\_I, then change CAFE MUX to M1-\/I}}
+\DoxyCodeLine{72     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(1, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{ADC0}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59ae7d9d0c2be614bac3cd85d0d3d383253}{EMUX\_AIO32}}, 0, \mbox{\hyperlink{pac5xxx__adc_8h_afb362a5bc3609465e99eeaac37d5350a}{SEQ\_END}});    \textcolor{comment}{// Dummy Conversion, then change CAFE MUX to M1-\/I}}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#if (POWER\_MEASURE\_SELECT == POWER\_MEASURE\_METHOD\_1) || !defined(ENABLE\_POWERMEASURE)}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{preprocessor}{    \#ifndef SELECT\_I2SAMPLE\_MIDDLEPWM}}
+\DoxyCodeLine{77     \textcolor{comment}{// AS1 configuration}}
+\DoxyCodeLine{78     \mbox{\hyperlink{pac5xxx_8h_ade737a8e3d256f55f3fc72038c2b80c4}{PAC55XX\_ADC}}-\/>DTSETRIGENT0TO3.FORCE1 = 0;            \textcolor{comment}{// Reset to 0}}
+\DoxyCodeLine{79     \mbox{\hyperlink{pac5xxx_8h_ade737a8e3d256f55f3fc72038c2b80c4}{PAC55XX\_ADC}}-\/>DTSETRIGENT0TO3.TRIG1CFGIDX = 3;       \textcolor{comment}{// DTSE Trigger 1 Sequence Configuration Entry Index}}
+\DoxyCodeLine{80     \mbox{\hyperlink{pac5xxx_8h_ade737a8e3d256f55f3fc72038c2b80c4}{PAC55XX\_ADC}}-\/>DTSETRIGENT0TO3.TRIG1EDGE = 2;         \textcolor{comment}{// Trigger falling edge}}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(3, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{ADC0}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59ae7d9d0c2be614bac3cd85d0d3d383253}{EMUX\_AIO32}}, 0,           0);    \textcolor{comment}{// Convert M1-\/I, then change CAFE MUX to M1-\/I}}
+\DoxyCodeLine{83     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(4, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{ADC0}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59ae7d9d0c2be614bac3cd85d0d3d383253}{EMUX\_AIO32}}, \mbox{\hyperlink{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99a39b37b0c597269e230de801b5089c16b}{ADC\_IRQ0\_EN}}, 0);    \textcolor{comment}{// Dummy Conversion, then change CAFE MUX to M1-\/I}}
+\DoxyCodeLine{84     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(5, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881ac6bd2fccb9a4c4bd072f2f03a317fdf7}{ADC6}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59ae7d9d0c2be614bac3cd85d0d3d383253}{EMUX\_AIO32}}, 0,           0);    \textcolor{comment}{// Dummy Conversion, read vbus, then change CAFE MUX to M1-\/I}}
+\DoxyCodeLine{85     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(6, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881ac6bd2fccb9a4c4bd072f2f03a317fdf7}{ADC6}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59ae7d9d0c2be614bac3cd85d0d3d383253}{EMUX\_AIO32}}, 0,           0);    \textcolor{comment}{// Dummy Conversion, read vbus, then change CAFE MUX to M1-\/I}}
+\DoxyCodeLine{86     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(7, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{ADC0}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59a871a46a3f3d304d901c5967ca08b4cef}{EMUX\_AB6}},   0,           0);    \textcolor{comment}{// Dummy Conversion, read Iavg, then change CAFE MUX to M1-\/Iavg}}
+\DoxyCodeLine{87     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(8, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{ADC0}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59a871a46a3f3d304d901c5967ca08b4cef}{EMUX\_AB6}},   0,           0);    \textcolor{comment}{// Dummy Conversion, read Iavg, then change CAFE MUX to M1-\/I}}
+\DoxyCodeLine{88     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(9, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{ADC0}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59ae7d9d0c2be614bac3cd85d0d3d383253}{EMUX\_AIO32}}, 0,     \mbox{\hyperlink{pac5xxx__adc_8h_afb362a5bc3609465e99eeaac37d5350a}{SEQ\_END}});    \textcolor{comment}{// Dummy Conversion, then change CAFE MUX to M1-\/I}}
+\DoxyCodeLine{89 \textcolor{preprocessor}{    \#else   //\#ifndef SELECT\_I2SAMPLE\_MIDDLEPWM}}
+\DoxyCodeLine{90     \textcolor{comment}{// AS1 configuration}}
+\DoxyCodeLine{91     \mbox{\hyperlink{pac5xxx_8h_ade737a8e3d256f55f3fc72038c2b80c4}{PAC55XX\_ADC}}-\/>DTSETRIGENT0TO3.FORCE1 = 0;            \textcolor{comment}{// Reset to 0}}
+\DoxyCodeLine{92     \mbox{\hyperlink{pac5xxx_8h_ade737a8e3d256f55f3fc72038c2b80c4}{PAC55XX\_ADC}}-\/>DTSETRIGENT0TO3.TRIG1CFGIDX = 3;       \textcolor{comment}{// DTSE Trigger 1 Sequence Configuration Entry Index}}
+\DoxyCodeLine{93     \mbox{\hyperlink{pac5xxx_8h_ade737a8e3d256f55f3fc72038c2b80c4}{PAC55XX\_ADC}}-\/>DTSETRIGENT0TO3.TRIG1EDGE = 1;         \textcolor{comment}{// Trigger rising edge}}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(3, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{ADC0}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59ae7d9d0c2be614bac3cd85d0d3d383253}{EMUX\_AIO32}}, 0,           0);    \textcolor{comment}{// Convert M1-\/I, then change CAFE MUX to M1-\/I}}
+\DoxyCodeLine{96     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(4, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{ADC0}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59ae7d9d0c2be614bac3cd85d0d3d383253}{EMUX\_AIO32}}, \mbox{\hyperlink{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99a39b37b0c597269e230de801b5089c16b}{ADC\_IRQ0\_EN}}, 0);    \textcolor{comment}{// Dummy Conversion, then change CAFE MUX to M1-\/I}}
+\DoxyCodeLine{97     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(5, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881ac6bd2fccb9a4c4bd072f2f03a317fdf7}{ADC6}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59ae7d9d0c2be614bac3cd85d0d3d383253}{EMUX\_AIO32}}, 0,           0);    \textcolor{comment}{// Dummy Conversion, read vbus, then change CAFE MUX to M1-\/I}}
+\DoxyCodeLine{98     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(6, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881ac6bd2fccb9a4c4bd072f2f03a317fdf7}{ADC6}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59ae7d9d0c2be614bac3cd85d0d3d383253}{EMUX\_AIO32}}, 0,           0);    \textcolor{comment}{// Dummy Conversion, read vbus, then change CAFE MUX to M1-\/I}}
+\DoxyCodeLine{99     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(7, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{ADC0}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59a871a46a3f3d304d901c5967ca08b4cef}{EMUX\_AB6}},   0,           0);    \textcolor{comment}{// Dummy Conversion, read Iavg, then change CAFE MUX to M1-\/Iavg}}
+\DoxyCodeLine{100     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(8, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{ADC0}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59a871a46a3f3d304d901c5967ca08b4cef}{EMUX\_AB6}},   0,           0);    \textcolor{comment}{// Dummy Conversion, read Iavg, then change CAFE MUX to M1-\/Iavg}}
+\DoxyCodeLine{101     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(9, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{ADC0}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59ae7d9d0c2be614bac3cd85d0d3d383253}{EMUX\_AIO32}}, 0,     \mbox{\hyperlink{pac5xxx__adc_8h_afb362a5bc3609465e99eeaac37d5350a}{SEQ\_END}});    \textcolor{comment}{// Dummy Conversion, then change CAFE MUX to M1-\/I}}
+\DoxyCodeLine{102 \textcolor{preprocessor}{    \#endif  //\#ifndef SELECT\_I2SAMPLE\_MIDDLEPWM}}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104 \textcolor{preprocessor}{\#elif (POWER\_MEASURE\_SELECT == POWER\_MEASURE\_METHOD\_2)}}
+\DoxyCodeLine{105 \textcolor{comment}{//\#error: POWER\_MEASURE\_METHOD\_2 not supported BOARD\_EP5223LVM1\_1\_1SHUNT}}
+\DoxyCodeLine{106     \textcolor{comment}{// AS1 configuration}}
+\DoxyCodeLine{107     \mbox{\hyperlink{pac5xxx_8h_ade737a8e3d256f55f3fc72038c2b80c4}{PAC55XX\_ADC}}-\/>DTSETRIGENT0TO3.FORCE1 = 0;            \textcolor{comment}{// Reset to 0}}
+\DoxyCodeLine{108     \mbox{\hyperlink{pac5xxx_8h_ade737a8e3d256f55f3fc72038c2b80c4}{PAC55XX\_ADC}}-\/>DTSETRIGENT0TO3.TRIG1CFGIDX = 3;       \textcolor{comment}{// DTSE Trigger 1 Sequence Configuration Entry Index}}
+\DoxyCodeLine{109     \mbox{\hyperlink{pac5xxx_8h_ade737a8e3d256f55f3fc72038c2b80c4}{PAC55XX\_ADC}}-\/>DTSETRIGENT0TO3.TRIG1EDGE = 2;         \textcolor{comment}{// Trigger falling edge}}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(3, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{ADC0}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59ae7d9d0c2be614bac3cd85d0d3d383253}{EMUX\_AIO32}}, 0,           0);    \textcolor{comment}{// Convert M1-\/I, then change CAFE MUX to M1-\/I}}
+\DoxyCodeLine{112     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(4, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{ADC0}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59ae7d9d0c2be614bac3cd85d0d3d383253}{EMUX\_AIO32}}, \mbox{\hyperlink{pac5xxx__adc_8h_a5cec57663ee9894889e46fe04cf15a99a39b37b0c597269e230de801b5089c16b}{ADC\_IRQ0\_EN}}, 0);    \textcolor{comment}{// Dummy Conversion, then change CAFE MUX to M1-\/I}}
+\DoxyCodeLine{113     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(5, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881ac6bd2fccb9a4c4bd072f2f03a317fdf7}{ADC6}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59ae7d9d0c2be614bac3cd85d0d3d383253}{EMUX\_AIO32}}, 0,           0);    \textcolor{comment}{// Dummy Conversion, read vbus, then change CAFE MUX to M1\_I}}
+\DoxyCodeLine{114     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(6, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881ac6bd2fccb9a4c4bd072f2f03a317fdf7}{ADC6}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59ae7d9d0c2be614bac3cd85d0d3d383253}{EMUX\_AIO32}}, 0,           0);    \textcolor{comment}{// Read vbus, then change CAFE MUX to M1-\/Iavg}}
+\DoxyCodeLine{115     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(7, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{ADC0}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59a871a46a3f3d304d901c5967ca08b4cef}{EMUX\_AB6}},   0,           0);    \textcolor{comment}{// Dummy Conversion, read Iavg, then change CAFE MUX to M1-\/Iavg}}
+\DoxyCodeLine{116     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(8, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{ADC0}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59a871a46a3f3d304d901c5967ca08b4cef}{EMUX\_AB6}},   0,           0);    \textcolor{comment}{// Dummy Conversion, read Iavg, then change CAFE MUX to M1-\/I}}
+\DoxyCodeLine{117     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___a_d_c_ga27865bcc9f215be1f860ed1db32e2b4d}{pac5xxx\_dtse\_seq\_config}}(9, \mbox{\hyperlink{pac5xxx__adc_8h_a807b4ad94b82fcee8220ead279a6c881add0cc42ad708e87cf4dd8a5c43c94097}{ADC0}}, \mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggad030ec3ff416e08a2354344502e6cd59ae7d9d0c2be614bac3cd85d0d3d383253}{EMUX\_AIO32}}, 0,     \mbox{\hyperlink{pac5xxx__adc_8h_afb362a5bc3609465e99eeaac37d5350a}{SEQ\_END}});    \textcolor{comment}{// Dummy Conversion, then change CAFE MUX to M1-\/I}}
+\DoxyCodeLine{118 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{119 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C55\+X\+X\+\_\+\+A\+DC, and pac5xxx\+\_\+adc\+\_\+config\+\_\+io().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=315pt]{board__pac5523evk1__1__1shunt__pwr2_8c_a9e08e376793b944aeff8bd5a72237ce2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{board__pac5523evk1__1__1shunt__pwr2_8c_ac12a9955fedf45671b4a40c4f3f64cee}\label{board__pac5523evk1__1__1shunt__pwr2_8c_ac12a9955fedf45671b4a40c4f3f64cee}} 
+\index{board\_pac5523evk1\_1\_1shunt\_pwr2.c@{board\_pac5523evk1\_1\_1shunt\_pwr2.c}!init\_diff\_amp\_gain@{init\_diff\_amp\_gain}}
+\index{init\_diff\_amp\_gain@{init\_diff\_amp\_gain}!board\_pac5523evk1\_1\_1shunt\_pwr2.c@{board\_pac5523evk1\_1\_1shunt\_pwr2.c}}
+\doxysubsubsection{\texorpdfstring{init\_diff\_amp\_gain()}{init\_diff\_amp\_gain()}}
+{\footnotesize\ttfamily void init\+\_\+diff\+\_\+amp\+\_\+gain (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 22 of file board\+\_\+pac5523evk1\+\_\+1\+\_\+1shunt\+\_\+pwr2.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     Struct\_Motor* motor\_ptr = \&motor;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a}{pac5xxx\_tile\_register\_write}}(\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggaa68b8d46ea05abe1907571723a02825fa63622a27ee2300bea4503eb11e2fbffe}{ADDR\_CFGAIO0}}, ((((\mbox{\hyperlink{board__options_8h_aab26aa5d50c8fa86a4e08bfea0d93d37}{AIO50\_MODE\_DIFFAMP}} << 6) | (\mbox{\hyperlink{board__options_8h_a53ae66de3e5f3409cf4020d315207080}{AIO50\_GAIN\_X1}} << 3) | \mbox{\hyperlink{board__options_8h_a30c7b041f658906b754ca2bb687859bd}{AIO50\_LPCOMP\_2US}}) \& 0xC7) | (motor\_ptr-\/>app.iphase\_amp\_gain << 3)));}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#ifdef ENABLE\_CBC\_CURRENT\_LIMIT}}
+\DoxyCodeLine{28     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a}{pac5xxx\_tile\_register\_write}}(\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggaa68b8d46ea05abe1907571723a02825fa5b8b70b9281248dbabe3fb50ee9cfc95}{ADDR\_CFGAIO1}}, ((\mbox{\hyperlink{board__options_8h_a740f15b233bc0f95c5ed6961d5d2c001}{AIO50\_HPROT\_PR}} << 5) | (\mbox{\hyperlink{board__options_8h_a068eea8f42bb1c0a012a2c2bcdd53037}{AIO50\_LPROT\_PR}} << 4) | (\mbox{\hyperlink{board__options_8h_abda7ed77b68021e68beb7f855404fa8a}{AIO50\_OFFSET\_ENABLED}} << 3) | \mbox{\hyperlink{board__options_8h_acc13aa0a3966320bd2d1b158dc35a594}{AIO50\_HPCOMP\_1US}}));}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{30     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a}{pac5xxx\_tile\_register\_write}}(\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggaa68b8d46ea05abe1907571723a02825fa5b8b70b9281248dbabe3fb50ee9cfc95}{ADDR\_CFGAIO1}}, ((\mbox{\hyperlink{board__options_8h_ae2c44bef8c9483e603f80e8091fc6138}{AIO50\_LPROT\_PR1PR2}} << 4) | (\mbox{\hyperlink{board__options_8h_abda7ed77b68021e68beb7f855404fa8a}{AIO50\_OFFSET\_ENABLED}} << 3)));}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a}{pac5xxx\_tile\_register\_write}}(\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggaa68b8d46ea05abe1907571723a02825fa198e2e1691904291655ccfc280bdc30c}{ADDR\_CFGAIO2}}, ((((\mbox{\hyperlink{board__options_8h_aab26aa5d50c8fa86a4e08bfea0d93d37}{AIO50\_MODE\_DIFFAMP}} << 6) | (\mbox{\hyperlink{board__options_8h_a53ae66de3e5f3409cf4020d315207080}{AIO50\_GAIN\_X1}} << 3) | \mbox{\hyperlink{board__options_8h_a30c7b041f658906b754ca2bb687859bd}{AIO50\_LPCOMP\_2US}}) \& 0xC7) | (motor\_ptr-\/>app.iphase\_amp\_gain << 3)));}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#ifdef ENABLE\_CBC\_CURRENT\_LIMIT}}
+\DoxyCodeLine{35     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a}{pac5xxx\_tile\_register\_write}}(\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggaa68b8d46ea05abe1907571723a02825fa75cd9064e1fdb77fa62c443485c0cace}{ADDR\_CFGAIO3}}, ((\mbox{\hyperlink{board__options_8h_a740f15b233bc0f95c5ed6961d5d2c001}{AIO50\_HPROT\_PR}} << 5) | (\mbox{\hyperlink{board__options_8h_a068eea8f42bb1c0a012a2c2bcdd53037}{AIO50\_LPROT\_PR}} << 4) | (\mbox{\hyperlink{board__options_8h_abda7ed77b68021e68beb7f855404fa8a}{AIO50\_OFFSET\_ENABLED}} << 3) | \mbox{\hyperlink{board__options_8h_acc13aa0a3966320bd2d1b158dc35a594}{AIO50\_HPCOMP\_1US}}));}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{37     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a}{pac5xxx\_tile\_register\_write}}(\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggaa68b8d46ea05abe1907571723a02825fa75cd9064e1fdb77fa62c443485c0cace}{ADDR\_CFGAIO3}}, ((\mbox{\hyperlink{board__options_8h_ae2c44bef8c9483e603f80e8091fc6138}{AIO50\_LPROT\_PR1PR2}} << 4) | (\mbox{\hyperlink{board__options_8h_abda7ed77b68021e68beb7f855404fa8a}{AIO50\_OFFSET\_ENABLED}} << 3)));}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a}{pac5xxx\_tile\_register\_write}}(\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggaa68b8d46ea05abe1907571723a02825fa3b70479cd2d80a6f8bd88600d540a8c3}{ADDR\_CFGAIO4}}, ((((\mbox{\hyperlink{board__options_8h_aab26aa5d50c8fa86a4e08bfea0d93d37}{AIO50\_MODE\_DIFFAMP}} << 6) | (\mbox{\hyperlink{board__options_8h_a53ae66de3e5f3409cf4020d315207080}{AIO50\_GAIN\_X1}} << 3) | \mbox{\hyperlink{board__options_8h_a30c7b041f658906b754ca2bb687859bd}{AIO50\_LPCOMP\_2US}}) \& 0xC7) | (motor\_ptr-\/>app.iphase\_amp\_gain << 3)));}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#ifdef ENABLE\_CBC\_CURRENT\_LIMIT}}
+\DoxyCodeLine{42     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a}{pac5xxx\_tile\_register\_write}}(\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggaa68b8d46ea05abe1907571723a02825fa68b0f34495eed0dfff312afc9a458640}{ADDR\_CFGAIO5}}, ((\mbox{\hyperlink{board__options_8h_a740f15b233bc0f95c5ed6961d5d2c001}{AIO50\_HPROT\_PR}} << 5) | (\mbox{\hyperlink{board__options_8h_a068eea8f42bb1c0a012a2c2bcdd53037}{AIO50\_LPROT\_PR}} << 4) | (\mbox{\hyperlink{board__options_8h_abda7ed77b68021e68beb7f855404fa8a}{AIO50\_OFFSET\_ENABLED}} << 3) | \mbox{\hyperlink{board__options_8h_acc13aa0a3966320bd2d1b158dc35a594}{AIO50\_HPCOMP\_1US}}));}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{44     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a}{pac5xxx\_tile\_register\_write}}(\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggaa68b8d46ea05abe1907571723a02825fa68b0f34495eed0dfff312afc9a458640}{ADDR\_CFGAIO5}}, ((\mbox{\hyperlink{board__options_8h_ae2c44bef8c9483e603f80e8091fc6138}{AIO50\_LPROT\_PR1PR2}} << 4) | (\mbox{\hyperlink{board__options_8h_abda7ed77b68021e68beb7f855404fa8a}{AIO50\_OFFSET\_ENABLED}} << 3)));}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a}{pac5xxx\_tile\_register\_write}}(\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggaa68b8d46ea05abe1907571723a02825faf51812ed6a0cd8cfa768724f208ade7b}{ADDR\_CFGAIO6}}, ((\mbox{\hyperlink{board__options_8h_ac4879959500f193a82fea4c00cc4aa09}{AIO6789\_MODE\_GAIN}} << 6) | (\mbox{\hyperlink{board__pac5523evk1__1__1shunt__pwr2_8h_a7a7c28f2182992b734b5c5ea6cbc2474}{AIO6\_GAIN}} << 3) | \mbox{\hyperlink{board__options_8h_ad1aeb4edf69f07564f852f65eb0dd9ab}{AIO6789\_MUX\_AB6}}));                          \textcolor{comment}{// Gain Mode}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a}{pac5xxx\_tile\_register\_write}}(\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggaa68b8d46ea05abe1907571723a02825fa26a3f24a01dac95d7082b40e2a1cf5f0}{ADDR\_CFGAIO7}}, ((((\mbox{\hyperlink{board__options_8h_ac4879959500f193a82fea4c00cc4aa09}{AIO6789\_MODE\_GAIN}} << 6) | (\mbox{\hyperlink{board__options_8h_acbfe84caaa121f9e052c6157dc699c7b}{AIO6789\_GAIN\_X1}} << 3) | \mbox{\hyperlink{board__options_8h_a6e6bda339c001ebc0a0a98567ce3f24e}{AIO6789\_MUX\_DEFAULT}}) \& 0xC7) | (motor\_ptr-\/>app.vphase\_amp\_gain << 3)));}
+\DoxyCodeLine{50     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a}{pac5xxx\_tile\_register\_write}}(\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggaa68b8d46ea05abe1907571723a02825fa71301fe3bebf60502d686a579f02c5a4}{ADDR\_CFGAIO8}}, ((((\mbox{\hyperlink{board__options_8h_ac4879959500f193a82fea4c00cc4aa09}{AIO6789\_MODE\_GAIN}} << 6) | (\mbox{\hyperlink{board__options_8h_acbfe84caaa121f9e052c6157dc699c7b}{AIO6789\_GAIN\_X1}} << 3) | \mbox{\hyperlink{board__options_8h_a6e6bda339c001ebc0a0a98567ce3f24e}{AIO6789\_MUX\_DEFAULT}}) \& 0xC7) | (motor\_ptr-\/>app.vphase\_amp\_gain << 3)));}
+\DoxyCodeLine{51     \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a}{pac5xxx\_tile\_register\_write}}(\mbox{\hyperlink{group___p_a_c5_x_x_x___tile___signal_manager_ggaa68b8d46ea05abe1907571723a02825fa2b2ba96566cf39e506c0cbd24a9f0a4c}{ADDR\_CFGAIO9}}, ((((\mbox{\hyperlink{board__options_8h_ac4879959500f193a82fea4c00cc4aa09}{AIO6789\_MODE\_GAIN}} << 6) | (\mbox{\hyperlink{board__options_8h_acbfe84caaa121f9e052c6157dc699c7b}{AIO6789\_GAIN\_X1}} << 3) | \mbox{\hyperlink{board__options_8h_a6e6bda339c001ebc0a0a98567ce3f24e}{AIO6789\_MUX\_DEFAULT}}) \& 0xC7) | (motor\_ptr-\/>app.vphase\_amp\_gain << 3)));}
+\DoxyCodeLine{52 \}}
+
+\end{DoxyCode}
+
+
+References A\+D\+D\+R\+\_\+\+C\+F\+G\+A\+I\+O0, A\+D\+D\+R\+\_\+\+C\+F\+G\+A\+I\+O1, A\+D\+D\+R\+\_\+\+C\+F\+G\+A\+I\+O2, A\+D\+D\+R\+\_\+\+C\+F\+G\+A\+I\+O3, A\+D\+D\+R\+\_\+\+C\+F\+G\+A\+I\+O4, A\+D\+D\+R\+\_\+\+C\+F\+G\+A\+I\+O5, A\+D\+D\+R\+\_\+\+C\+F\+G\+A\+I\+O6, A\+D\+D\+R\+\_\+\+C\+F\+G\+A\+I\+O7, A\+D\+D\+R\+\_\+\+C\+F\+G\+A\+I\+O8, A\+D\+D\+R\+\_\+\+C\+F\+G\+A\+I\+O9, A\+I\+O50\+\_\+\+G\+A\+I\+N\+\_\+\+X1, A\+I\+O50\+\_\+\+H\+P\+C\+O\+M\+P\+\_\+1\+US, A\+I\+O50\+\_\+\+H\+P\+R\+O\+T\+\_\+\+PR, A\+I\+O50\+\_\+\+L\+P\+C\+O\+M\+P\+\_\+2\+US, A\+I\+O50\+\_\+\+L\+P\+R\+O\+T\+\_\+\+PR, A\+I\+O50\+\_\+\+L\+P\+R\+O\+T\+\_\+\+P\+R1\+P\+R2, A\+I\+O50\+\_\+\+M\+O\+D\+E\+\_\+\+D\+I\+F\+F\+A\+MP, A\+I\+O50\+\_\+\+O\+F\+F\+S\+E\+T\+\_\+\+E\+N\+A\+B\+L\+ED, A\+I\+O6789\+\_\+\+G\+A\+I\+N\+\_\+\+X1, A\+I\+O6789\+\_\+\+M\+O\+D\+E\+\_\+\+G\+A\+IN, A\+I\+O6789\+\_\+\+M\+U\+X\+\_\+\+A\+B6, A\+I\+O6789\+\_\+\+M\+U\+X\+\_\+\+D\+E\+F\+A\+U\+LT, A\+I\+O6\+\_\+\+G\+A\+IN, and pac5xxx\+\_\+tile\+\_\+register\+\_\+write().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{board__pac5523evk1__1__1shunt__pwr2_8c_ac12a9955fedf45671b4a40c4f3f64cee_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{board__pac5523evk1__1__1shunt__pwr2_8c_a5542c2db6b71eaa05e0c4ef206ffa183}\label{board__pac5523evk1__1__1shunt__pwr2_8c_a5542c2db6b71eaa05e0c4ef206ffa183}} 
+\index{board\_pac5523evk1\_1\_1shunt\_pwr2.c@{board\_pac5523evk1\_1\_1shunt\_pwr2.c}!init\_emux@{init\_emux}}
+\index{init\_emux@{init\_emux}!board\_pac5523evk1\_1\_1shunt\_pwr2.c@{board\_pac5523evk1\_1\_1shunt\_pwr2.c}}
+\doxysubsubsection{\texorpdfstring{init\_emux()}{init\_emux()}}
+{\footnotesize\ttfamily void init\+\_\+emux (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 186 of file board\+\_\+pac5523evk1\+\_\+1\+\_\+1shunt\+\_\+pwr2.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{187 \{}
+\DoxyCodeLine{188 \}}
+
+\end{DoxyCode}

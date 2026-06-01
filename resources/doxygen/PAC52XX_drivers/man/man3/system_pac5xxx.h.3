@@ -1,0 +1,119 @@
+.TH "pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_boot_KEIL/system_pac5xxx.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_boot_KEIL/system_pac5xxx.h \- System Header File for PAC52XX Devices\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBSystemInit\fP (void)"
+.br
+.RI "Setup the microcontroller system\&. Initialize the System and update the SystemCoreClock variable\&. "
+.ti -1c
+.RI "void \fBSystemCoreClockUpdate\fP (void)"
+.br
+.RI "Updates the SystemCoreClock with current core Clock retrieved from cpu registers\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBSystemCoreClock\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+System Header File for PAC52XX Devices\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBsystem_pac5xxx\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void SystemCoreClockUpdate (void)"
+
+.PP
+Updates the SystemCoreClock with current core Clock retrieved from cpu registers\&. Update SystemCoreClock variable
+.PP
+\fBReturns\fP
+.RS 4
+void 
+.RE
+.PP
+
+.PP
+Definition at line 40 of file system_pac5xxx\&.c\&.
+.PP
+.nf
+41 {
+42   SystemCoreClock = __SYSTEM_CLOCK;
+43 }
+.fi
+.PP
+References __SYSTEM_CLOCK, and SystemCoreClock\&.
+.SS "void SystemInit (void)"
+
+.PP
+Setup the microcontroller system\&. Initialize the System and update the SystemCoreClock variable\&. Initialize the system 
+.PP
+\fBReturns\fP
+.RS 4
+void
+.RE
+.PP
+Setup the microcontroller system\&. Initialize the System and update the SystemCoreClock variable\&.
+.PP
+Initialize the system
+.PP
+\fBParameters\fP
+.RS 4
+\fInone\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 54 of file system_pac5xxx\&.c\&.
+.PP
+.nf
+55 {
+56     SystemCoreClock = __SYSTEM_CLOCK;
+57 }
+.fi
+.PP
+References __SYSTEM_CLOCK, and SystemCoreClock\&.
+.PP
+Referenced by Default_Reset_Handler()\&.
+.SH "Variable Documentation"
+.PP 
+.SS "uint32_t SystemCoreClock\fC [extern]\fP"
+System Clock Frequency (Core Clock) 
+.br
+.PP
+System Clock Frequency (Core Clock) 
+.PP
+Definition at line 34 of file system_pac5xxx\&.c\&.
+.PP
+Referenced by SystemCoreClockUpdate(), and SystemInit()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

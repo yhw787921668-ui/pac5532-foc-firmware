@@ -1,0 +1,137 @@
+.TH "pac_foc/src/features/ipd/ipd.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/features/ipd/ipd.h \- Use for ipd basic functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'ipd_struct\&.h'\fP
+.br
+
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBIPD_STATUS\fP { \fBIPD_SUCCESS\fP = 0, \fBIPD_FAILED\fP = 1 << 0, \fBIPD_PHASE_LOST_DETECTED\fP = 1 << 1, \fBIPD_INSUFFICENT_CURRENT_DELTA\fP = 1 << 2 }"
+.br
+.RI "IPD_STATUS enum\&. "
+.ti -1c
+.RI "enum \fBIPD_STATE\fP { \fBIPD_START\fP, \fBIPD_WAIT_TIMER_SYNC\fP, \fBIPD_WAIT_TIMER_DUTY_CYCLE_SYNC\fP, \fBIPD_MEASURE_CURRENTS\fP, \fBIPD_DONE\fP }"
+.br
+.RI "IPD_STATE enum\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBipd_state_machine\fP (\fBStruct_IPD\fP *ipd_ptr, void *motor_ptr)"
+.br
+.RI "Use run ipd state machine\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "void(* \fBipd_state_machine_ptr\fP )(\fBStruct_IPD\fP *ipd_ptr, void *motor_ptr)"
+.br
+.RI "Use for ipd state machine function\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for ipd basic functions\&. 
+
+
+.PP
+Definition in file \fBipd\&.h\fP\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBIPD_STATE\fP"
+
+.PP
+IPD_STATE enum\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIPD_START \fP\fP
+.TP
+\fB\fIIPD_WAIT_TIMER_SYNC \fP\fP
+.TP
+\fB\fIIPD_WAIT_TIMER_DUTY_CYCLE_SYNC \fP\fP
+.TP
+\fB\fIIPD_MEASURE_CURRENTS \fP\fP
+.TP
+\fB\fIIPD_DONE \fP\fP
+.PP
+Definition at line 38 of file ipd\&.h\&.
+.PP
+.nf
+38              {
+39     IPD_START,
+40     IPD_WAIT_TIMER_SYNC,
+41     IPD_WAIT_TIMER_DUTY_CYCLE_SYNC,
+42     IPD_MEASURE_CURRENTS,
+43     IPD_DONE
+44 } IPD_STATE;
+.fi
+.SS "enum \fBIPD_STATUS\fP"
+
+.PP
+IPD_STATUS enum\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIPD_SUCCESS \fP\fP
+.TP
+\fB\fIIPD_FAILED \fP\fP
+.TP
+\fB\fIIPD_PHASE_LOST_DETECTED \fP\fP
+.TP
+\fB\fIIPD_INSUFFICENT_CURRENT_DELTA \fP\fP
+.PP
+Definition at line 28 of file ipd\&.h\&.
+.PP
+.nf
+28              {
+29     IPD_SUCCESS             = 0,
+30     IPD_FAILED              = 1 << 0,
+31     IPD_PHASE_LOST_DETECTED = 1 << 1,
+32     IPD_INSUFFICENT_CURRENT_DELTA = 1 << 2
+33 } IPD_STATUS;
+.fi
+.SH "Function Documentation"
+.PP 
+.SS "void ipd_state_machine (\fBStruct_IPD\fP * ipd_ptr, void * motor_ptr)"
+
+.PP
+Use run ipd state machine\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_IPD\fP\fP *ipd_ptr 
+.br
+\fIvoid\fP *motor_ptr 
+.RE
+.PP
+
+.SH "Variable Documentation"
+.PP 
+.SS "void(* ipd_state_machine_ptr) (\fBStruct_IPD\fP *ipd_ptr, void *motor_ptr)\fC [extern]\fP"
+
+.PP
+Use for ipd state machine function\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_IPD\fP\fP *ipd_ptr 
+.br
+\fIvoid\fP *motor_ptr 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

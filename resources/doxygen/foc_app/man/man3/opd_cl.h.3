@@ -1,0 +1,62 @@
+.TH "pac_foc/src/features/opd/opd_cl.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/features/opd/opd_cl.h \- Use to process control functions in OPD\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'opd_cl_struct\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "uint8_t \fBprocess_opdcl\fP (\fBStruct_OPDCL\fP *opdcl_ptr, int32_t dutysat_flag)"
+.br
+.RI "Use to process the regular OPD function calls\&. "
+.ti -1c
+.RI "uint8_t \fBprocess_opdcl_fast\fP (\fBStruct_OPDCL\fP *opdcl_ptr, uint8_t bit_shift)"
+.br
+.RI "Use to process the fast OPD algorithm\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use to process control functions in OPD\&. 
+
+
+.PP
+Definition in file \fBopd_cl\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "uint8_t process_opdcl (\fBStruct_OPDCL\fP * opdcl_ptr, int32_t dutysat_flag)"
+
+.PP
+Use to process the regular OPD function calls\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_OPDCL*\fP opdcl_ptr 
+.br
+\fIint32_t\fP dutysat_flag 
+.RE
+.PP
+
+.SS "uint8_t process_opdcl_fast (\fBStruct_OPDCL\fP * opdcl_ptr, uint8_t bit_shift)"
+
+.PP
+Use to process the fast OPD algorithm\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_OPDCL*\fP opdcl_ptr 
+.br
+\fIuint8_t\fP bit_shift 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

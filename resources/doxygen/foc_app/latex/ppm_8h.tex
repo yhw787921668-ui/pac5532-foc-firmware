@@ -1,0 +1,471 @@
+\hypertarget{ppm_8h}{}\doxysection{pac\+\_\+foc/src/comm/ppm/ppm.h File Reference}
+\label{ppm_8h}\index{pac\_foc/src/comm/ppm/ppm.h@{pac\_foc/src/comm/ppm/ppm.h}}
+{\ttfamily \#include \char`\"{}pac5xxx.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+timers.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parameter\+\_\+process.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fault.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}board.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config\+\_\+app.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config\+\_\+features.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config\+\_\+debug.\+h\char`\"{}}\newline
+Include dependency graph for ppm.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ppm_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ppm_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a7d1aa002a5191b793a04cb8f3ba7a813}{P\+P\+M\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+C\+Y\+\_\+\+HZ}}~50
+\item 
+\#define \mbox{\hyperlink{ppm_8h_aff2c1eb2d2a7f1c443a5be7955b48ef2}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+I\+N\+\_\+\+S\+EC}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+000850, \mbox{\hyperlink{maths_8h_a6b6408dd9fe19d0d285d4617ae200b40}{Q26}})
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a80082afe68bdb78d2c9e208e117c6ba6}{M\+A\+X\+\_\+\+P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+I\+N\+\_\+\+S\+EC}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+002200, \mbox{\hyperlink{maths_8h_a6b6408dd9fe19d0d285d4617ae200b40}{Q26}})
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a05e4780874f4740fcac4081f0f9cd30e}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+\_\+\+S\+EC}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+0016200, \mbox{\hyperlink{maths_8h_a6b6408dd9fe19d0d285d4617ae200b40}{Q26}})
+\item 
+\#define \mbox{\hyperlink{ppm_8h_ae0336e26a9dca8c6d07c50053056aa7c}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+H\+Y\+S\+T\+\_\+\+I\+N\+\_\+\+S\+EC}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+000012, \mbox{\hyperlink{maths_8h_a6b6408dd9fe19d0d285d4617ae200b40}{Q26}})
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a1cdadd7088aec61fe4d4bddcc7eca593}{M\+A\+X\+\_\+\+P\+P\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+\+M\+A\+X\+\_\+\+S\+P\+D\+\_\+\+S\+EC}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+002000, \mbox{\hyperlink{maths_8h_a6b6408dd9fe19d0d285d4617ae200b40}{Q26}})
+\item 
+\#define \mbox{\hyperlink{ppm_8h_ac373c164d7adba66f1307da278e7cdf1}{P\+P\+M\+\_\+\+M\+O\+T\+O\+R\+\_\+\+O\+F\+F\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+I\+N\+\_\+\+S\+E\+C\+\_\+\+F\+I\+X16}}~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+00, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})
+\item 
+\#define \mbox{\hyperlink{ppm_8h_adf8598747dfd85b8454a79fb55b5f79f}{P\+P\+M\+\_\+\+G\+O\+O\+D\+\_\+\+P\+U\+L\+S\+E\+\_\+\+C\+O\+U\+NT}}~5
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a9a501747389e6108e7cb2043635c7b52}{P\+P\+M\+\_\+\+C\+C\+R\+\_\+\+T\+I\+M\+E\+R\+\_\+\+C\+L\+O\+C\+K\+\_\+\+D\+I\+V\+I\+D\+ER}}~T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V128
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a2dab4c9762a798b8a49f4a02736acf83}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+N\+\_\+\+S\+E\+C\+O\+N\+DS}}~(\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1, \mbox{\hyperlink{maths_8h_a6b6408dd9fe19d0d285d4617ae200b40}{Q26}})/(T\+I\+M\+E\+R\+C\+L\+K\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ/(1 $<$$<$ \mbox{\hyperlink{ppm_8h_a9a501747389e6108e7cb2043635c7b52}{P\+P\+M\+\_\+\+C\+C\+R\+\_\+\+T\+I\+M\+E\+R\+\_\+\+C\+L\+O\+C\+K\+\_\+\+D\+I\+V\+I\+D\+ER}})))
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a2c9fc031372d4013113ec632e94db80c}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+T\+I\+M\+E\+\_\+\+P\+E\+R\+I\+OD}}~((\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1, \mbox{\hyperlink{maths_8h_a6b6408dd9fe19d0d285d4617ae200b40}{Q26}})/\mbox{\hyperlink{ppm_8h_a7d1aa002a5191b793a04cb8f3ba7a813}{P\+P\+M\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+C\+Y\+\_\+\+HZ}})/\mbox{\hyperlink{ppm_8h_a2dab4c9762a798b8a49f4a02736acf83}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+N\+\_\+\+S\+E\+C\+O\+N\+DS}}) $\ast$ (\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+75, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))/(\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a29fc0a1fbb5bd2b8546d08da769318ac}{P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+V\+A\+L\+I\+D\+\_\+\+C\+H\+E\+C\+K\+\_\+\+I\+N\+\_\+\+S\+E\+C\+\_\+\+F\+I\+X16}}~((\mbox{\hyperlink{ppm_8h_a2c9fc031372d4013113ec632e94db80c}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+T\+I\+M\+E\+\_\+\+P\+E\+R\+I\+OD}} $\ast$ \mbox{\hyperlink{ppm_8h_a2dab4c9762a798b8a49f4a02736acf83}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+N\+\_\+\+S\+E\+C\+O\+N\+DS}})/\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1, \mbox{\hyperlink{maths_8h_a693e3a9063a1e7582e682ffd4fe06f46}{Q10}}))
+\item 
+\#define \mbox{\hyperlink{ppm_8h_aed6074dfa39ab945302b7216178802a5}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+T\+C\+O\+U\+N\+TS}}~(\mbox{\hyperlink{ppm_8h_aff2c1eb2d2a7f1c443a5be7955b48ef2}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+I\+N\+\_\+\+S\+EC}}/\mbox{\hyperlink{ppm_8h_a2dab4c9762a798b8a49f4a02736acf83}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+N\+\_\+\+S\+E\+C\+O\+N\+DS}})
+\item 
+\#define \mbox{\hyperlink{ppm_8h_acbdbb6264009c90dd85dc5b8b1d5a257}{M\+A\+X\+\_\+\+P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+T\+C\+O\+U\+N\+TS}}~(\mbox{\hyperlink{ppm_8h_a80082afe68bdb78d2c9e208e117c6ba6}{M\+A\+X\+\_\+\+P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+I\+N\+\_\+\+S\+EC}}/\mbox{\hyperlink{ppm_8h_a2dab4c9762a798b8a49f4a02736acf83}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+N\+\_\+\+S\+E\+C\+O\+N\+DS}})
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a635315a73aa84269b73fca3a2530c526}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+C\+O\+U\+N\+TS}}~(\mbox{\hyperlink{ppm_8h_a05e4780874f4740fcac4081f0f9cd30e}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+\_\+\+S\+EC}}/\mbox{\hyperlink{ppm_8h_a2dab4c9762a798b8a49f4a02736acf83}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+N\+\_\+\+S\+E\+C\+O\+N\+DS}})
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a6dba179f61eecb5ef466f03eb8193c01}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+H\+Y\+S\+T\+\_\+\+T\+C\+O\+U\+N\+TS}}~(\mbox{\hyperlink{ppm_8h_ae0336e26a9dca8c6d07c50053056aa7c}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+H\+Y\+S\+T\+\_\+\+I\+N\+\_\+\+S\+EC}}/\mbox{\hyperlink{ppm_8h_a2dab4c9762a798b8a49f4a02736acf83}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+N\+\_\+\+S\+E\+C\+O\+N\+DS}})
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a6d1fa39529b3eb8fa3f062a99c2f9006}{M\+A\+X\+\_\+\+P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+M\+A\+X\+\_\+\+S\+P\+D\+\_\+\+T\+C\+O\+U\+N\+TS}}~(\mbox{\hyperlink{ppm_8h_a1cdadd7088aec61fe4d4bddcc7eca593}{M\+A\+X\+\_\+\+P\+P\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+\+M\+A\+X\+\_\+\+S\+P\+D\+\_\+\+S\+EC}}/\mbox{\hyperlink{ppm_8h_a2dab4c9762a798b8a49f4a02736acf83}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+N\+\_\+\+S\+E\+C\+O\+N\+DS}})
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a6e5d35a30716d24ac233eec00601a85e}{M\+O\+T\+O\+R\+\_\+\+M\+I\+N\+I\+M\+U\+M\+\_\+\+C\+L\+O\+S\+E\+\_\+\+L\+O\+O\+P\+\_\+\+S\+P\+E\+ED}}~\mbox{\hyperlink{param__calc_8h_a79750dcc4587168db9a65418b4988a01}{C\+L\+O\+S\+E\+\_\+\+L\+O\+O\+P\+\_\+\+M\+I\+N\+\_\+\+S\+P\+E\+E\+D\+\_\+\+L\+I\+M\+I\+T\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+A\+L\+UE}}
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a426ac584dfbf9c20444fb7b0d00b5f1a}{M\+O\+T\+O\+R\+\_\+\+M\+A\+X\+I\+M\+U\+M\+\_\+\+C\+L\+O\+S\+E\+\_\+\+L\+O\+O\+P\+\_\+\+S\+P\+E\+ED}}~\mbox{\hyperlink{param__calc_8h_a388401a1aaccb7cfe93067b7b8084c64}{N\+O\+M\+I\+N\+A\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+A\+L\+UE}}
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a808f7b02e5a2f0233fea5d8c2cd9fd79}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+L\+I\+M\+I\+T\+\_\+\+T\+C\+O\+U\+N\+TS}}~(\mbox{\hyperlink{ppm_8h_a635315a73aa84269b73fca3a2530c526}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+C\+O\+U\+N\+TS}} + \mbox{\hyperlink{ppm_8h_a6dba179f61eecb5ef466f03eb8193c01}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+H\+Y\+S\+T\+\_\+\+T\+C\+O\+U\+N\+TS}})
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a1655770572bc2a2c9a726de2ff2385a9}{M\+O\+T\+O\+R\+\_\+\+S\+P\+E\+E\+D\+\_\+\+T\+O\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+S\+L\+O\+PE}}~(\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}})((1.\+0) $\ast$ (\mbox{\hyperlink{ppm_8h_a426ac584dfbf9c20444fb7b0d00b5f1a}{M\+O\+T\+O\+R\+\_\+\+M\+A\+X\+I\+M\+U\+M\+\_\+\+C\+L\+O\+S\+E\+\_\+\+L\+O\+O\+P\+\_\+\+S\+P\+E\+ED}} -\/ \mbox{\hyperlink{ppm_8h_a6e5d35a30716d24ac233eec00601a85e}{M\+O\+T\+O\+R\+\_\+\+M\+I\+N\+I\+M\+U\+M\+\_\+\+C\+L\+O\+S\+E\+\_\+\+L\+O\+O\+P\+\_\+\+S\+P\+E\+ED}}))/(\mbox{\hyperlink{ppm_8h_a6d1fa39529b3eb8fa3f062a99c2f9006}{M\+A\+X\+\_\+\+P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+M\+A\+X\+\_\+\+S\+P\+D\+\_\+\+T\+C\+O\+U\+N\+TS}} -\/ \mbox{\hyperlink{ppm_8h_a808f7b02e5a2f0233fea5d8c2cd9fd79}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+L\+I\+M\+I\+T\+\_\+\+T\+C\+O\+U\+N\+TS}})
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a1fe02af659a8a572bc341032a2fb5848}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+B}}~1
+\item 
+\#define \mbox{\hyperlink{ppm_8h_ae60c039cea4e550ab005c8a6bbcddf5e}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+E\+L\+E\+CT}}~\mbox{\hyperlink{ppm_8h_a1fe02af659a8a572bc341032a2fb5848}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+B}}
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a22de2fceff20d10b9ac860b009ae1725}{P\+P\+M\+T\+I\+M\+ER}}~P\+A\+C55\+X\+X\+\_\+\+T\+I\+M\+E\+RB
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a90606c46c6227d8f69a120e15c0c0295}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+C\+TR}}~C\+T\+R0
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a0d3f026aaa0323314f636f6a56234d97}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+C\+C\+T\+RL}}~C\+C\+T\+R\+L0
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a9a087e9a746b298c454bf34b6493d9ff}{P\+P\+M\+G\+P\+IO}}~P\+A\+C55\+X\+X\+\_\+\+G\+P\+I\+OD
+\item 
+\#define \mbox{\hyperlink{ppm_8h_aa47f9c9324344581ee684b4bf0834693}{P\+P\+M\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT}}~P2
+\item 
+\#define \mbox{\hyperlink{ppm_8h_a6e53f2a003be7db070cc32321bceaec6}{P\+P\+M\+\_\+\+G\+P\+I\+O\+\_\+\+P\+S\+EL}}~3
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ppm_8h_a6d4d5cfa5bea13ce5ff0db616d7ae1c3}{config\+\_\+ppm}} (Timer\+Instance timer)
+\item 
+void \mbox{\hyperlink{ppm_8h_a4928e9d284310db78e9a1d7ed653bff8}{ppm\+\_\+init}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ppm_8h_a80082afe68bdb78d2c9e208e117c6ba6}\label{ppm_8h_a80082afe68bdb78d2c9e208e117c6ba6}} 
+\index{ppm.h@{ppm.h}!MAX\_PPM\_PULSE\_WIDTH\_IN\_SEC@{MAX\_PPM\_PULSE\_WIDTH\_IN\_SEC}}
+\index{MAX\_PPM\_PULSE\_WIDTH\_IN\_SEC@{MAX\_PPM\_PULSE\_WIDTH\_IN\_SEC}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_PPM\_PULSE\_WIDTH\_IN\_SEC}{MAX\_PPM\_PULSE\_WIDTH\_IN\_SEC}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+I\+N\+\_\+\+S\+EC~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+002200, \mbox{\hyperlink{maths_8h_a6b6408dd9fe19d0d285d4617ae200b40}{Q26}})}
+
+
+
+Definition at line 41 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a6d1fa39529b3eb8fa3f062a99c2f9006}\label{ppm_8h_a6d1fa39529b3eb8fa3f062a99c2f9006}} 
+\index{ppm.h@{ppm.h}!MAX\_PPM\_PULSE\_WIDTH\_MAX\_SPD\_TCOUNTS@{MAX\_PPM\_PULSE\_WIDTH\_MAX\_SPD\_TCOUNTS}}
+\index{MAX\_PPM\_PULSE\_WIDTH\_MAX\_SPD\_TCOUNTS@{MAX\_PPM\_PULSE\_WIDTH\_MAX\_SPD\_TCOUNTS}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_PPM\_PULSE\_WIDTH\_MAX\_SPD\_TCOUNTS}{MAX\_PPM\_PULSE\_WIDTH\_MAX\_SPD\_TCOUNTS}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+M\+A\+X\+\_\+\+S\+P\+D\+\_\+\+T\+C\+O\+U\+N\+TS~(\mbox{\hyperlink{ppm_8h_a1cdadd7088aec61fe4d4bddcc7eca593}{M\+A\+X\+\_\+\+P\+P\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+\+M\+A\+X\+\_\+\+S\+P\+D\+\_\+\+S\+EC}}/\mbox{\hyperlink{ppm_8h_a2dab4c9762a798b8a49f4a02736acf83}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+N\+\_\+\+S\+E\+C\+O\+N\+DS}})}
+
+
+
+Definition at line 72 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_acbdbb6264009c90dd85dc5b8b1d5a257}\label{ppm_8h_acbdbb6264009c90dd85dc5b8b1d5a257}} 
+\index{ppm.h@{ppm.h}!MAX\_PPM\_PULSE\_WIDTH\_TCOUNTS@{MAX\_PPM\_PULSE\_WIDTH\_TCOUNTS}}
+\index{MAX\_PPM\_PULSE\_WIDTH\_TCOUNTS@{MAX\_PPM\_PULSE\_WIDTH\_TCOUNTS}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_PPM\_PULSE\_WIDTH\_TCOUNTS}{MAX\_PPM\_PULSE\_WIDTH\_TCOUNTS}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+T\+C\+O\+U\+N\+TS~(\mbox{\hyperlink{ppm_8h_a80082afe68bdb78d2c9e208e117c6ba6}{M\+A\+X\+\_\+\+P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+I\+N\+\_\+\+S\+EC}}/\mbox{\hyperlink{ppm_8h_a2dab4c9762a798b8a49f4a02736acf83}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+N\+\_\+\+S\+E\+C\+O\+N\+DS}})}
+
+
+
+Definition at line 68 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a1cdadd7088aec61fe4d4bddcc7eca593}\label{ppm_8h_a1cdadd7088aec61fe4d4bddcc7eca593}} 
+\index{ppm.h@{ppm.h}!MAX\_PPM\_WIDTH\_MAX\_SPD\_SEC@{MAX\_PPM\_WIDTH\_MAX\_SPD\_SEC}}
+\index{MAX\_PPM\_WIDTH\_MAX\_SPD\_SEC@{MAX\_PPM\_WIDTH\_MAX\_SPD\_SEC}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_PPM\_WIDTH\_MAX\_SPD\_SEC}{MAX\_PPM\_WIDTH\_MAX\_SPD\_SEC}}
+{\footnotesize\ttfamily \#define M\+A\+X\+\_\+\+P\+P\+M\+\_\+\+W\+I\+D\+T\+H\+\_\+\+M\+A\+X\+\_\+\+S\+P\+D\+\_\+\+S\+EC~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+002000, \mbox{\hyperlink{maths_8h_a6b6408dd9fe19d0d285d4617ae200b40}{Q26}})}
+
+
+
+Definition at line 50 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_aff2c1eb2d2a7f1c443a5be7955b48ef2}\label{ppm_8h_aff2c1eb2d2a7f1c443a5be7955b48ef2}} 
+\index{ppm.h@{ppm.h}!MIN\_PPM\_PULSE\_WIDTH\_IN\_SEC@{MIN\_PPM\_PULSE\_WIDTH\_IN\_SEC}}
+\index{MIN\_PPM\_PULSE\_WIDTH\_IN\_SEC@{MIN\_PPM\_PULSE\_WIDTH\_IN\_SEC}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{MIN\_PPM\_PULSE\_WIDTH\_IN\_SEC}{MIN\_PPM\_PULSE\_WIDTH\_IN\_SEC}}
+{\footnotesize\ttfamily \#define M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+I\+N\+\_\+\+S\+EC~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+000850, \mbox{\hyperlink{maths_8h_a6b6408dd9fe19d0d285d4617ae200b40}{Q26}})}
+
+
+
+Definition at line 40 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_aed6074dfa39ab945302b7216178802a5}\label{ppm_8h_aed6074dfa39ab945302b7216178802a5}} 
+\index{ppm.h@{ppm.h}!MIN\_PPM\_PULSE\_WIDTH\_TCOUNTS@{MIN\_PPM\_PULSE\_WIDTH\_TCOUNTS}}
+\index{MIN\_PPM\_PULSE\_WIDTH\_TCOUNTS@{MIN\_PPM\_PULSE\_WIDTH\_TCOUNTS}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{MIN\_PPM\_PULSE\_WIDTH\_TCOUNTS}{MIN\_PPM\_PULSE\_WIDTH\_TCOUNTS}}
+{\footnotesize\ttfamily \#define M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+T\+C\+O\+U\+N\+TS~(\mbox{\hyperlink{ppm_8h_aff2c1eb2d2a7f1c443a5be7955b48ef2}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+I\+N\+\_\+\+S\+EC}}/\mbox{\hyperlink{ppm_8h_a2dab4c9762a798b8a49f4a02736acf83}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+N\+\_\+\+S\+E\+C\+O\+N\+DS}})}
+
+
+
+Definition at line 67 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_ae0336e26a9dca8c6d07c50053056aa7c}\label{ppm_8h_ae0336e26a9dca8c6d07c50053056aa7c}} 
+\index{ppm.h@{ppm.h}!MIN\_PPM\_START\_HYST\_IN\_SEC@{MIN\_PPM\_START\_HYST\_IN\_SEC}}
+\index{MIN\_PPM\_START\_HYST\_IN\_SEC@{MIN\_PPM\_START\_HYST\_IN\_SEC}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{MIN\_PPM\_START\_HYST\_IN\_SEC}{MIN\_PPM\_START\_HYST\_IN\_SEC}}
+{\footnotesize\ttfamily \#define M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+H\+Y\+S\+T\+\_\+\+I\+N\+\_\+\+S\+EC~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+000012, \mbox{\hyperlink{maths_8h_a6b6408dd9fe19d0d285d4617ae200b40}{Q26}})}
+
+
+
+Definition at line 47 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a6dba179f61eecb5ef466f03eb8193c01}\label{ppm_8h_a6dba179f61eecb5ef466f03eb8193c01}} 
+\index{ppm.h@{ppm.h}!MIN\_PPM\_START\_HYST\_TCOUNTS@{MIN\_PPM\_START\_HYST\_TCOUNTS}}
+\index{MIN\_PPM\_START\_HYST\_TCOUNTS@{MIN\_PPM\_START\_HYST\_TCOUNTS}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{MIN\_PPM\_START\_HYST\_TCOUNTS}{MIN\_PPM\_START\_HYST\_TCOUNTS}}
+{\footnotesize\ttfamily \#define M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+H\+Y\+S\+T\+\_\+\+T\+C\+O\+U\+N\+TS~(\mbox{\hyperlink{ppm_8h_ae0336e26a9dca8c6d07c50053056aa7c}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+H\+Y\+S\+T\+\_\+\+I\+N\+\_\+\+S\+EC}}/\mbox{\hyperlink{ppm_8h_a2dab4c9762a798b8a49f4a02736acf83}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+N\+\_\+\+S\+E\+C\+O\+N\+DS}})}
+
+
+
+Definition at line 70 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a05e4780874f4740fcac4081f0f9cd30e}\label{ppm_8h_a05e4780874f4740fcac4081f0f9cd30e}} 
+\index{ppm.h@{ppm.h}!MIN\_PPM\_START\_IN\_SEC@{MIN\_PPM\_START\_IN\_SEC}}
+\index{MIN\_PPM\_START\_IN\_SEC@{MIN\_PPM\_START\_IN\_SEC}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{MIN\_PPM\_START\_IN\_SEC}{MIN\_PPM\_START\_IN\_SEC}}
+{\footnotesize\ttfamily \#define M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+\_\+\+S\+EC~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(0.\+0016200, \mbox{\hyperlink{maths_8h_a6b6408dd9fe19d0d285d4617ae200b40}{Q26}})}
+
+
+
+Definition at line 44 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a808f7b02e5a2f0233fea5d8c2cd9fd79}\label{ppm_8h_a808f7b02e5a2f0233fea5d8c2cd9fd79}} 
+\index{ppm.h@{ppm.h}!MIN\_PPM\_START\_LIMIT\_TCOUNTS@{MIN\_PPM\_START\_LIMIT\_TCOUNTS}}
+\index{MIN\_PPM\_START\_LIMIT\_TCOUNTS@{MIN\_PPM\_START\_LIMIT\_TCOUNTS}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{MIN\_PPM\_START\_LIMIT\_TCOUNTS}{MIN\_PPM\_START\_LIMIT\_TCOUNTS}}
+{\footnotesize\ttfamily \#define M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+L\+I\+M\+I\+T\+\_\+\+T\+C\+O\+U\+N\+TS~(\mbox{\hyperlink{ppm_8h_a635315a73aa84269b73fca3a2530c526}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+C\+O\+U\+N\+TS}} + \mbox{\hyperlink{ppm_8h_a6dba179f61eecb5ef466f03eb8193c01}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+H\+Y\+S\+T\+\_\+\+T\+C\+O\+U\+N\+TS}})}
+
+
+
+Definition at line 80 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a635315a73aa84269b73fca3a2530c526}\label{ppm_8h_a635315a73aa84269b73fca3a2530c526}} 
+\index{ppm.h@{ppm.h}!MIN\_PPM\_START\_TCOUNTS@{MIN\_PPM\_START\_TCOUNTS}}
+\index{MIN\_PPM\_START\_TCOUNTS@{MIN\_PPM\_START\_TCOUNTS}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{MIN\_PPM\_START\_TCOUNTS}{MIN\_PPM\_START\_TCOUNTS}}
+{\footnotesize\ttfamily \#define M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+T\+C\+O\+U\+N\+TS~(\mbox{\hyperlink{ppm_8h_a05e4780874f4740fcac4081f0f9cd30e}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+I\+N\+\_\+\+S\+EC}}/\mbox{\hyperlink{ppm_8h_a2dab4c9762a798b8a49f4a02736acf83}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+N\+\_\+\+S\+E\+C\+O\+N\+DS}})}
+
+
+
+Definition at line 69 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a426ac584dfbf9c20444fb7b0d00b5f1a}\label{ppm_8h_a426ac584dfbf9c20444fb7b0d00b5f1a}} 
+\index{ppm.h@{ppm.h}!MOTOR\_MAXIMUM\_CLOSE\_LOOP\_SPEED@{MOTOR\_MAXIMUM\_CLOSE\_LOOP\_SPEED}}
+\index{MOTOR\_MAXIMUM\_CLOSE\_LOOP\_SPEED@{MOTOR\_MAXIMUM\_CLOSE\_LOOP\_SPEED}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_MAXIMUM\_CLOSE\_LOOP\_SPEED}{MOTOR\_MAXIMUM\_CLOSE\_LOOP\_SPEED}}
+{\footnotesize\ttfamily \#define M\+O\+T\+O\+R\+\_\+\+M\+A\+X\+I\+M\+U\+M\+\_\+\+C\+L\+O\+S\+E\+\_\+\+L\+O\+O\+P\+\_\+\+S\+P\+E\+ED~\mbox{\hyperlink{param__calc_8h_a388401a1aaccb7cfe93067b7b8084c64}{N\+O\+M\+I\+N\+A\+L\+\_\+\+S\+P\+E\+E\+D\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+A\+L\+UE}}}
+
+
+
+Definition at line 77 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a6e5d35a30716d24ac233eec00601a85e}\label{ppm_8h_a6e5d35a30716d24ac233eec00601a85e}} 
+\index{ppm.h@{ppm.h}!MOTOR\_MINIMUM\_CLOSE\_LOOP\_SPEED@{MOTOR\_MINIMUM\_CLOSE\_LOOP\_SPEED}}
+\index{MOTOR\_MINIMUM\_CLOSE\_LOOP\_SPEED@{MOTOR\_MINIMUM\_CLOSE\_LOOP\_SPEED}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_MINIMUM\_CLOSE\_LOOP\_SPEED}{MOTOR\_MINIMUM\_CLOSE\_LOOP\_SPEED}}
+{\footnotesize\ttfamily \#define M\+O\+T\+O\+R\+\_\+\+M\+I\+N\+I\+M\+U\+M\+\_\+\+C\+L\+O\+S\+E\+\_\+\+L\+O\+O\+P\+\_\+\+S\+P\+E\+ED~\mbox{\hyperlink{param__calc_8h_a79750dcc4587168db9a65418b4988a01}{C\+L\+O\+S\+E\+\_\+\+L\+O\+O\+P\+\_\+\+M\+I\+N\+\_\+\+S\+P\+E\+E\+D\+\_\+\+L\+I\+M\+I\+T\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+V\+A\+L\+UE}}}
+
+
+
+Definition at line 76 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a1655770572bc2a2c9a726de2ff2385a9}\label{ppm_8h_a1655770572bc2a2c9a726de2ff2385a9}} 
+\index{ppm.h@{ppm.h}!MOTOR\_SPEED\_TO\_PULSE\_WIDTH\_SLOPE@{MOTOR\_SPEED\_TO\_PULSE\_WIDTH\_SLOPE}}
+\index{MOTOR\_SPEED\_TO\_PULSE\_WIDTH\_SLOPE@{MOTOR\_SPEED\_TO\_PULSE\_WIDTH\_SLOPE}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_SPEED\_TO\_PULSE\_WIDTH\_SLOPE}{MOTOR\_SPEED\_TO\_PULSE\_WIDTH\_SLOPE}}
+{\footnotesize\ttfamily \#define M\+O\+T\+O\+R\+\_\+\+S\+P\+E\+E\+D\+\_\+\+T\+O\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+S\+L\+O\+PE~(\mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\+\_\+t}})((1.\+0) $\ast$ (\mbox{\hyperlink{ppm_8h_a426ac584dfbf9c20444fb7b0d00b5f1a}{M\+O\+T\+O\+R\+\_\+\+M\+A\+X\+I\+M\+U\+M\+\_\+\+C\+L\+O\+S\+E\+\_\+\+L\+O\+O\+P\+\_\+\+S\+P\+E\+ED}} -\/ \mbox{\hyperlink{ppm_8h_a6e5d35a30716d24ac233eec00601a85e}{M\+O\+T\+O\+R\+\_\+\+M\+I\+N\+I\+M\+U\+M\+\_\+\+C\+L\+O\+S\+E\+\_\+\+L\+O\+O\+P\+\_\+\+S\+P\+E\+ED}}))/(\mbox{\hyperlink{ppm_8h_a6d1fa39529b3eb8fa3f062a99c2f9006}{M\+A\+X\+\_\+\+P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+W\+I\+D\+T\+H\+\_\+\+M\+A\+X\+\_\+\+S\+P\+D\+\_\+\+T\+C\+O\+U\+N\+TS}} -\/ \mbox{\hyperlink{ppm_8h_a808f7b02e5a2f0233fea5d8c2cd9fd79}{M\+I\+N\+\_\+\+P\+P\+M\+\_\+\+S\+T\+A\+R\+T\+\_\+\+L\+I\+M\+I\+T\+\_\+\+T\+C\+O\+U\+N\+TS}})}
+
+
+
+Definition at line 81 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a9a501747389e6108e7cb2043635c7b52}\label{ppm_8h_a9a501747389e6108e7cb2043635c7b52}} 
+\index{ppm.h@{ppm.h}!PPM\_CCR\_TIMER\_CLOCK\_DIVIDER@{PPM\_CCR\_TIMER\_CLOCK\_DIVIDER}}
+\index{PPM\_CCR\_TIMER\_CLOCK\_DIVIDER@{PPM\_CCR\_TIMER\_CLOCK\_DIVIDER}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{PPM\_CCR\_TIMER\_CLOCK\_DIVIDER}{PPM\_CCR\_TIMER\_CLOCK\_DIVIDER}}
+{\footnotesize\ttfamily \#define P\+P\+M\+\_\+\+C\+C\+R\+\_\+\+T\+I\+M\+E\+R\+\_\+\+C\+L\+O\+C\+K\+\_\+\+D\+I\+V\+I\+D\+ER~T\+X\+C\+T\+L\+\_\+\+P\+S\+\_\+\+D\+I\+V128}
+
+
+
+Definition at line 61 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a7d1aa002a5191b793a04cb8f3ba7a813}\label{ppm_8h_a7d1aa002a5191b793a04cb8f3ba7a813}} 
+\index{ppm.h@{ppm.h}!PPM\_FREQUENCY\_HZ@{PPM\_FREQUENCY\_HZ}}
+\index{PPM\_FREQUENCY\_HZ@{PPM\_FREQUENCY\_HZ}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{PPM\_FREQUENCY\_HZ}{PPM\_FREQUENCY\_HZ}}
+{\footnotesize\ttfamily \#define P\+P\+M\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+C\+Y\+\_\+\+HZ~50}
+
+
+
+Definition at line 37 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_adf8598747dfd85b8454a79fb55b5f79f}\label{ppm_8h_adf8598747dfd85b8454a79fb55b5f79f}} 
+\index{ppm.h@{ppm.h}!PPM\_GOOD\_PULSE\_COUNT@{PPM\_GOOD\_PULSE\_COUNT}}
+\index{PPM\_GOOD\_PULSE\_COUNT@{PPM\_GOOD\_PULSE\_COUNT}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{PPM\_GOOD\_PULSE\_COUNT}{PPM\_GOOD\_PULSE\_COUNT}}
+{\footnotesize\ttfamily \#define P\+P\+M\+\_\+\+G\+O\+O\+D\+\_\+\+P\+U\+L\+S\+E\+\_\+\+C\+O\+U\+NT~5}
+
+
+
+Definition at line 59 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_aa47f9c9324344581ee684b4bf0834693}\label{ppm_8h_aa47f9c9324344581ee684b4bf0834693}} 
+\index{ppm.h@{ppm.h}!PPM\_GPIO\_PORT@{PPM\_GPIO\_PORT}}
+\index{PPM\_GPIO\_PORT@{PPM\_GPIO\_PORT}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{PPM\_GPIO\_PORT}{PPM\_GPIO\_PORT}}
+{\footnotesize\ttfamily \#define P\+P\+M\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+RT~P2}
+
+
+
+Definition at line 92 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a6e53f2a003be7db070cc32321bceaec6}\label{ppm_8h_a6e53f2a003be7db070cc32321bceaec6}} 
+\index{ppm.h@{ppm.h}!PPM\_GPIO\_PSEL@{PPM\_GPIO\_PSEL}}
+\index{PPM\_GPIO\_PSEL@{PPM\_GPIO\_PSEL}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{PPM\_GPIO\_PSEL}{PPM\_GPIO\_PSEL}}
+{\footnotesize\ttfamily \#define P\+P\+M\+\_\+\+G\+P\+I\+O\+\_\+\+P\+S\+EL~3}
+
+
+
+Definition at line 93 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_ac373c164d7adba66f1307da278e7cdf1}\label{ppm_8h_ac373c164d7adba66f1307da278e7cdf1}} 
+\index{ppm.h@{ppm.h}!PPM\_MOTOR\_OFF\_TIMEOUT\_IN\_SEC\_FIX16@{PPM\_MOTOR\_OFF\_TIMEOUT\_IN\_SEC\_FIX16}}
+\index{PPM\_MOTOR\_OFF\_TIMEOUT\_IN\_SEC\_FIX16@{PPM\_MOTOR\_OFF\_TIMEOUT\_IN\_SEC\_FIX16}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{PPM\_MOTOR\_OFF\_TIMEOUT\_IN\_SEC\_FIX16}{PPM\_MOTOR\_OFF\_TIMEOUT\_IN\_SEC\_FIX16}}
+{\footnotesize\ttfamily \#define P\+P\+M\+\_\+\+M\+O\+T\+O\+R\+\_\+\+O\+F\+F\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+I\+N\+\_\+\+S\+E\+C\+\_\+\+F\+I\+X16~\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+00, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}})}
+
+
+
+Definition at line 53 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a29fc0a1fbb5bd2b8546d08da769318ac}\label{ppm_8h_a29fc0a1fbb5bd2b8546d08da769318ac}} 
+\index{ppm.h@{ppm.h}!PPM\_PULSE\_VALID\_CHECK\_IN\_SEC\_FIX16@{PPM\_PULSE\_VALID\_CHECK\_IN\_SEC\_FIX16}}
+\index{PPM\_PULSE\_VALID\_CHECK\_IN\_SEC\_FIX16@{PPM\_PULSE\_VALID\_CHECK\_IN\_SEC\_FIX16}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{PPM\_PULSE\_VALID\_CHECK\_IN\_SEC\_FIX16}{PPM\_PULSE\_VALID\_CHECK\_IN\_SEC\_FIX16}}
+{\footnotesize\ttfamily \#define P\+P\+M\+\_\+\+P\+U\+L\+S\+E\+\_\+\+V\+A\+L\+I\+D\+\_\+\+C\+H\+E\+C\+K\+\_\+\+I\+N\+\_\+\+S\+E\+C\+\_\+\+F\+I\+X16~((\mbox{\hyperlink{ppm_8h_a2c9fc031372d4013113ec632e94db80c}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+T\+I\+M\+E\+\_\+\+P\+E\+R\+I\+OD}} $\ast$ \mbox{\hyperlink{ppm_8h_a2dab4c9762a798b8a49f4a02736acf83}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+N\+\_\+\+S\+E\+C\+O\+N\+DS}})/\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1, \mbox{\hyperlink{maths_8h_a693e3a9063a1e7582e682ffd4fe06f46}{Q10}}))}
+
+
+
+Definition at line 65 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a1fe02af659a8a572bc341032a2fb5848}\label{ppm_8h_a1fe02af659a8a572bc341032a2fb5848}} 
+\index{ppm.h@{ppm.h}!PPM\_TIMER\_B@{PPM\_TIMER\_B}}
+\index{PPM\_TIMER\_B@{PPM\_TIMER\_B}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{PPM\_TIMER\_B}{PPM\_TIMER\_B}}
+{\footnotesize\ttfamily \#define P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+B~1}
+
+
+
+Definition at line 86 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a0d3f026aaa0323314f636f6a56234d97}\label{ppm_8h_a0d3f026aaa0323314f636f6a56234d97}} 
+\index{ppm.h@{ppm.h}!PPM\_TIMER\_CCTRL@{PPM\_TIMER\_CCTRL}}
+\index{PPM\_TIMER\_CCTRL@{PPM\_TIMER\_CCTRL}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{PPM\_TIMER\_CCTRL}{PPM\_TIMER\_CCTRL}}
+{\footnotesize\ttfamily \#define P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+C\+C\+T\+RL~C\+C\+T\+R\+L0}
+
+
+
+Definition at line 90 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a90606c46c6227d8f69a120e15c0c0295}\label{ppm_8h_a90606c46c6227d8f69a120e15c0c0295}} 
+\index{ppm.h@{ppm.h}!PPM\_TIMER\_CTR@{PPM\_TIMER\_CTR}}
+\index{PPM\_TIMER\_CTR@{PPM\_TIMER\_CTR}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{PPM\_TIMER\_CTR}{PPM\_TIMER\_CTR}}
+{\footnotesize\ttfamily \#define P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+C\+TR~C\+T\+R0}
+
+
+
+Definition at line 89 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_ae60c039cea4e550ab005c8a6bbcddf5e}\label{ppm_8h_ae60c039cea4e550ab005c8a6bbcddf5e}} 
+\index{ppm.h@{ppm.h}!PPM\_TIMER\_SELECT@{PPM\_TIMER\_SELECT}}
+\index{PPM\_TIMER\_SELECT@{PPM\_TIMER\_SELECT}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{PPM\_TIMER\_SELECT}{PPM\_TIMER\_SELECT}}
+{\footnotesize\ttfamily \#define P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+E\+L\+E\+CT~\mbox{\hyperlink{ppm_8h_a1fe02af659a8a572bc341032a2fb5848}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+B}}}
+
+
+
+Definition at line 87 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a2dab4c9762a798b8a49f4a02736acf83}\label{ppm_8h_a2dab4c9762a798b8a49f4a02736acf83}} 
+\index{ppm.h@{ppm.h}!PPM\_TIMER\_SINGLE\_COUNT\_IN\_SECONDS@{PPM\_TIMER\_SINGLE\_COUNT\_IN\_SECONDS}}
+\index{PPM\_TIMER\_SINGLE\_COUNT\_IN\_SECONDS@{PPM\_TIMER\_SINGLE\_COUNT\_IN\_SECONDS}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{PPM\_TIMER\_SINGLE\_COUNT\_IN\_SECONDS}{PPM\_TIMER\_SINGLE\_COUNT\_IN\_SECONDS}}
+{\footnotesize\ttfamily \#define P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+N\+\_\+\+S\+E\+C\+O\+N\+DS~(\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1, \mbox{\hyperlink{maths_8h_a6b6408dd9fe19d0d285d4617ae200b40}{Q26}})/(T\+I\+M\+E\+R\+C\+L\+K\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ/(1 $<$$<$ \mbox{\hyperlink{ppm_8h_a9a501747389e6108e7cb2043635c7b52}{P\+P\+M\+\_\+\+C\+C\+R\+\_\+\+T\+I\+M\+E\+R\+\_\+\+C\+L\+O\+C\+K\+\_\+\+D\+I\+V\+I\+D\+ER}})))}
+
+
+
+Definition at line 62 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a2c9fc031372d4013113ec632e94db80c}\label{ppm_8h_a2c9fc031372d4013113ec632e94db80c}} 
+\index{ppm.h@{ppm.h}!PPM\_TIMER\_TIME\_PERIOD@{PPM\_TIMER\_TIME\_PERIOD}}
+\index{PPM\_TIMER\_TIME\_PERIOD@{PPM\_TIMER\_TIME\_PERIOD}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{PPM\_TIMER\_TIME\_PERIOD}{PPM\_TIMER\_TIME\_PERIOD}}
+{\footnotesize\ttfamily \#define P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+T\+I\+M\+E\+\_\+\+P\+E\+R\+I\+OD~((\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1, \mbox{\hyperlink{maths_8h_a6b6408dd9fe19d0d285d4617ae200b40}{Q26}})/\mbox{\hyperlink{ppm_8h_a7d1aa002a5191b793a04cb8f3ba7a813}{P\+P\+M\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+C\+Y\+\_\+\+HZ}})/\mbox{\hyperlink{ppm_8h_a2dab4c9762a798b8a49f4a02736acf83}{P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+S\+I\+N\+G\+L\+E\+\_\+\+C\+O\+U\+N\+T\+\_\+\+I\+N\+\_\+\+S\+E\+C\+O\+N\+DS}}) $\ast$ (\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1.\+75, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))/(\mbox{\hyperlink{maths_8h_a5594e9873a700e4eb2350ae66e357a39}{Q\+C\+O\+N\+ST}}(1, \mbox{\hyperlink{maths_8h_a55d03ec8dc5eb836a164b74649ffe260}{Q16}}))}
+
+
+
+Definition at line 63 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a9a087e9a746b298c454bf34b6493d9ff}\label{ppm_8h_a9a087e9a746b298c454bf34b6493d9ff}} 
+\index{ppm.h@{ppm.h}!PPMGPIO@{PPMGPIO}}
+\index{PPMGPIO@{PPMGPIO}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{PPMGPIO}{PPMGPIO}}
+{\footnotesize\ttfamily \#define P\+P\+M\+G\+P\+IO~P\+A\+C55\+X\+X\+\_\+\+G\+P\+I\+OD}
+
+
+
+Definition at line 91 of file ppm.\+h.
+
+\mbox{\Hypertarget{ppm_8h_a22de2fceff20d10b9ac860b009ae1725}\label{ppm_8h_a22de2fceff20d10b9ac860b009ae1725}} 
+\index{ppm.h@{ppm.h}!PPMTIMER@{PPMTIMER}}
+\index{PPMTIMER@{PPMTIMER}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{PPMTIMER}{PPMTIMER}}
+{\footnotesize\ttfamily \#define P\+P\+M\+T\+I\+M\+ER~P\+A\+C55\+X\+X\+\_\+\+T\+I\+M\+E\+RB}
+
+
+
+Definition at line 88 of file ppm.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ppm_8h_a6d4d5cfa5bea13ce5ff0db616d7ae1c3}\label{ppm_8h_a6d4d5cfa5bea13ce5ff0db616d7ae1c3}} 
+\index{ppm.h@{ppm.h}!config\_ppm@{config\_ppm}}
+\index{config\_ppm@{config\_ppm}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{config\_ppm()}{config\_ppm()}}
+{\footnotesize\ttfamily void config\+\_\+ppm (\begin{DoxyParamCaption}\item[{Timer\+Instance}]{timer }\end{DoxyParamCaption})}
+
+
+
+Definition at line 22 of file ppm.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     pac5xxx\_timer\_clock\_config(timer, TXCTL\_CS\_ACLK, TXCTL\_PS\_DIV2);            \textcolor{comment}{// Configure timer clock input for ACLK (100MHz), /1 divider}}
+\DoxyCodeLine{25       \textcolor{comment}{//Set Timer frequency and mode}}
+\DoxyCodeLine{26     pac5xxx\_timer\_base\_config(timer,\mbox{\hyperlink{ppm_8h_a2c9fc031372d4013113ec632e94db80c}{PPM\_TIMER\_TIME\_PERIOD}},0,TxCTL\_MODE\_UP,0);    \textcolor{comment}{// 1 count = 1.28usec,  19531 * 1.28usec = 25 msec = 40 Hz}}
+\DoxyCodeLine{27       PPM\_Timer\_Ptr-\/>CTL.MODE = 1;}
+\DoxyCodeLine{28       PPM\_Timer\_Ptr-\/>CTL.BASEIE = 1;}
+\DoxyCodeLine{29       PPM\_Timer\_Ptr-\/>CTL.CLKSRC = 1;}
+\DoxyCodeLine{30       PPM\_Timer\_Ptr-\/>CTL.CLKDIV = TXCTL\_PS\_DIV128;}
+\DoxyCodeLine{31       PPM\_Timer\_Ptr-\/>INT.w = 0;}
+\DoxyCodeLine{32     }
+\DoxyCodeLine{33       \textcolor{comment}{// Configure GPIO pin for PPM input}}
+\DoxyCodeLine{34     PAC55XX\_SCC-\/>PPM\_IO\_MUXSEL.PPM\_INPUT\_PORTNUM = 2;}
+\DoxyCodeLine{35       \textcolor{comment}{// configuration as input}}
+\DoxyCodeLine{36     PAC5XXX\_GPIO\_PPM\_IN-\/>MODE.PPM\_INPUT\_PORTNUM = 3;}
+\DoxyCodeLine{37       \textcolor{comment}{// configuration pull up}}
+\DoxyCodeLine{38     PAC55XX\_SCC-\/>PFPUEN.PPM\_INPUT\_PORTNUM = 1;}
+\DoxyCodeLine{39     }
+\DoxyCodeLine{40       PPM\_Timer\_Ptr-\/>PPM\_CC\_CONTROL.CCINTEDGE = 2;}
+\DoxyCodeLine{41       PPM\_Timer\_Ptr-\/>PPM\_CC\_CONTROL.CCINTEN = 1;}
+\DoxyCodeLine{42       PPM\_Timer\_Ptr-\/>PPM\_CC\_CONTROL.CCMODE = 1;}
+\DoxyCodeLine{43       PPM\_Timer\_Ptr-\/>PPM\_CC\_CONTROL.CCLATCH = 2;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45       PPM\_Timer\_Ptr-\/>INT.w = 0;}
+\DoxyCodeLine{46         }
+\DoxyCodeLine{47         NVIC\_SetPriority(PPM\_Timer\_IRQn,4);}
+\DoxyCodeLine{48     NVIC\_EnableIRQ(PPM\_Timer\_IRQn);}
+\DoxyCodeLine{49 \}}
+
+\end{DoxyCode}
+
+
+References P\+P\+M\+\_\+\+T\+I\+M\+E\+R\+\_\+\+T\+I\+M\+E\+\_\+\+P\+E\+R\+I\+OD.
+
+\mbox{\Hypertarget{ppm_8h_a4928e9d284310db78e9a1d7ed653bff8}\label{ppm_8h_a4928e9d284310db78e9a1d7ed653bff8}} 
+\index{ppm.h@{ppm.h}!ppm\_init@{ppm\_init}}
+\index{ppm\_init@{ppm\_init}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{ppm\_init()}{ppm\_init()}}
+{\footnotesize\ttfamily void ppm\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 52 of file ppm.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53 \{}
+\DoxyCodeLine{54     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2abb6c0c82c94d5cb7e0637cab985fd3}{ppm}}.\mbox{\hyperlink{struct_struct___p_p_m_afc25a06112ec243a03327cdf9377b4ee}{valid\_motor\_on\_pulse\_detect}} = 0;}
+\DoxyCodeLine{55     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2abb6c0c82c94d5cb7e0637cab985fd3}{ppm}}.\mbox{\hyperlink{struct_struct___p_p_m_a7acf709d3c2bc9fc11972286b779bb9d}{invalid\_pulse\_detect\_count}} = 0;}
+\DoxyCodeLine{56 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+P\+P\+M\+::invalid\+\_\+pulse\+\_\+detect\+\_\+count, Struct\+\_\+\+Motor\+::ppm, and Struct\+\_\+\+P\+P\+M\+::valid\+\_\+motor\+\_\+on\+\_\+pulse\+\_\+detect.
+
+
+
+Referenced by motor\+\_\+reset().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ppm_8h_a4928e9d284310db78e9a1d7ed653bff8_icgraph}
+\end{center}
+\end{figure}

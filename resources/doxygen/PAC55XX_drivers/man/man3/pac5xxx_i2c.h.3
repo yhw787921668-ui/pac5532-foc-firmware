@@ -1,0 +1,79 @@
+.TH "pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_i2c.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac55xx/pac55xx_sdk/peripheral/pac5xxx_i2c.h \- CMSIS Cortex-M Header File for the PAC55XX I2C Controller\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBI2CADR_TYPEDEF\fP"
+.br
+.ti -1c
+.RI "union \fBI2CADR_MASK_TYPEDEF\fP"
+.br
+.ti -1c
+.RI "struct \fBPAC55XX_I2C_TYPEDEF\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBI2C_SOFT_RESET\fP   0x07"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBI2C_EN_TYPE\fP { \fBI2C_DISABLE\fP = 0, \fBI2C_ENABLE\fP = 1 }"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+CMSIS Cortex-M Header File for the PAC55XX I2C Controller\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2017-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_i2c\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define I2C_SOFT_RESET   0x07"
+
+.PP
+Definition at line 26 of file pac5xxx_i2c\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBI2C_EN_TYPE\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fII2C_DISABLE \fP\fP
+.TP
+\fB\fII2C_ENABLE \fP\fP
+.PP
+Definition at line 21 of file pac5xxx_i2c\&.h\&.
+.PP
+.nf
+21             {
+22     I2C_DISABLE = 0,
+23     I2C_ENABLE  = 1
+24 }I2C_EN_TYPE;
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

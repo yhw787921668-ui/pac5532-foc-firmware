@@ -1,0 +1,60 @@
+\hypertarget{isr__timer_d_8c}{}\doxysection{pac\+\_\+foc/src/isr/isr\+\_\+timerD.c File Reference}
+\label{isr__timer_d_8c}\index{pac\_foc/src/isr/isr\_timerD.c@{pac\_foc/src/isr/isr\_timerD.c}}
+
+
+Use for timerD timer interrupt handler to run critical F\+OC functions.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}comm.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hall\+\_\+funcs.\+h\char`\"{}}\newline
+Include dependency graph for isr\+\_\+timer\+D.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{isr__timer_d_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{isr__timer_d_8c_a7bc46673d51056fdc0008953468430b0}{Timer\+D\+\_\+\+I\+R\+Q\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Process interrupt for Timer\+D\+\_\+\+I\+R\+Q\+Handler to run critical F\+OC functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for timerD timer interrupt handler to run critical F\+OC functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{isr__timer_d_8c_a7bc46673d51056fdc0008953468430b0}\label{isr__timer_d_8c_a7bc46673d51056fdc0008953468430b0}} 
+\index{isr\_timerD.c@{isr\_timerD.c}!TimerD\_IRQHandler@{TimerD\_IRQHandler}}
+\index{TimerD\_IRQHandler@{TimerD\_IRQHandler}!isr\_timerD.c@{isr\_timerD.c}}
+\doxysubsubsection{\texorpdfstring{TimerD\_IRQHandler()}{TimerD\_IRQHandler()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void Timer\+D\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Process interrupt for Timer\+D\+\_\+\+I\+R\+Q\+Handler to run critical F\+OC functions. 
+
+
+
+Definition at line 34 of file isr\+\_\+timer\+D.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#if (COMMSEL\_PPM == TRUE) \&\& (PPM\_TIMER\_SELECT == PPM\_TIMER\_D)}}
+\DoxyCodeLine{37     ppm\_process\_capture\_timer\_events();}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#if (MODULE\_MPOS\_HALL == ENABLED)}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#if defined(FAMILY\_52XX)}}
+\DoxyCodeLine{42     \mbox{\hyperlink{hall__funcs_8c_a67c8208055b190ab203220ac8f3871a2}{hall\_timer\_isr}}();}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{45 \}}
+
+\end{DoxyCode}

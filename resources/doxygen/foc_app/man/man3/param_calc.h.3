@@ -1,0 +1,753 @@
+.TH "pac_foc/src/param/param_calc.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/param/param_calc.h \- Use for parameter processing\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'maths\&.h'\fP
+.br
+\fC#include 'config_app\&.h'\fP
+.br
+\fC#include 'param\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLPDAC\fP   0"
+.br
+.ti -1c
+.RI "#define \fBHPDAC\fP   1"
+.br
+.ti -1c
+.RI "#define \fBCURRENT_SCALE_FACTOR_FLT\fP   (float)(1\&.25f / (PCB_RSENSE_IUVW_OHMS * (float)\fBPUSER_VALUE_DIFFAMP_GAIN\fP))"
+.br
+.ti -1c
+.RI "#define \fBCURRENT_SCALE_FACTOR_Q16\fP   \fBQCONST\fP(\fBCURRENT_SCALE_FACTOR_FLT\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCURRENT_SCALE_FACTOR_X1_FLT\fP   (float)(1\&.25f / PCB_RSENSE_IUVW_OHMS)"
+.br
+.ti -1c
+.RI "#define \fBCURRENT_SCALE_FACTOR_X1_Q16\fP   \fBQCONST\fP(\fBCURRENT_SCALE_FACTOR_X1_FLT\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBMOTOR1_PERIOD_TICKS\fP   \fBQCONST\fP(((TIMERCLK_FREQ_HZ / (float)\fBPUSER_VALUE_PWM_FREQ_HZ\fP) + 0\&.5f), \fBQ00\fP)"
+.br
+.ti -1c
+.RI "#define \fBFOC_DIVIDER\fP   \fBPUSER_VALUE_CONTROL_FREQ_DIV\fP"
+.br
+.ti -1c
+.RI "#define \fBCONTROLFREQ_HZ_FLT\fP   (float)((float)\fBPUSER_VALUE_PWM_FREQ_HZ\fP / (float)\fBPUSER_VALUE_CONTROL_FREQ_DIV\fP)"
+.br
+.ti -1c
+.RI "#define \fBFOC_DT_FLT\fP   (float)(1\&.0f / \fBCONTROLFREQ_HZ_FLT\fP)"
+.br
+.ti -1c
+.RI "#define \fBFOC_DT_Q26\fP   \fBQCONST\fP(\fBFOC_DT_FLT\fP, \fBQ26\fP)"
+.br
+.ti -1c
+.RI "#define \fBUVW_PHASE_RSENSE_GAIN_DEFAULT_VALUE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBFOC_LD_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_LD_UH\fP / 1000000\&.0f, \fBQ26\fP)"
+.br
+.ti -1c
+.RI "#define \fBFOC_LQ_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_LQ_UH\fP / 1000000\&.0f, \fBQ26\fP)"
+.br
+.ti -1c
+.RI "#define \fBFOC_RALPHA_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_R_OHMS\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBFOC_NUM_POLE_PAIRS_DEFAULT_VALUE\fP   \fBPUSER_VALUE_POLE_PAIRS\fP"
+.br
+.ti -1c
+.RI "#define \fBNOMINAL_SPEED_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_NOMINAL_SPEED\fP * \fBFLT_2PI\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCLOSE_LOOP_MIN_SPEED_LIMIT_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_SPEED_SETPOINT_OL_HZ\fP * \fBFLT_PI\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCLOSE_LOOP_MAX_SPEED_LIMIT_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_SPEED_MAX_HZ\fP * \fBFLT_2PI\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCLOSE_LOOP_MAX_POWER_LIMIT_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_POWER_MAX_W\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPEED_PID_MIN_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_IQ_MIN_A\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPEED_PID_MAX_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_IQ_MAX_A\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBMOTOR_CURRENT_LIMIT_LPDAC\fP   (float)((((\fBPUSER_VALUE_OC_LIMIT_A\fP * PCB_RSENSE_IUVW_OHMS * \fBPUSER_VALUE_DIFFAMP_GAIN\fP) + 1\&.25f) / 2\&.5f) * 1023)"
+.br
+.ti -1c
+.RI "#define \fBMOTOR_CURRENT_LIMIT_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBMOTOR_CURRENT_LIMIT_LPDAC\fP + 0\&.5f), \fBQ00\fP)"
+.br
+.ti -1c
+.RI "#define \fBCOAST_TIMEOUT_DEFAULT_VALUE\fP   \fBQCONST\fP(((\fBPUSER_VALUE_CL_COAST_TIMEOUT_SEC\fP / \fBDT_DIVSYSTICK_FLT\fP) + 0\&.5f), \fBQ00\fP)"
+.br
+.ti -1c
+.RI "#define \fBFOC_OPEN_LOOP_SS_ALIGN_COUNT_DEFAULT_VALUE\fP   \fBQCONST\fP(((\fBPUSER_VALUE_ALIGN_TIME_SEC\fP * \fBCONTROLFREQ_HZ_FLT\fP) + 0\&.5f), \fBQ00\fP)"
+.br
+.ti -1c
+.RI "#define \fBID_REF_SP_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_ID_REF_OL_A\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBIQ_REF_SP_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_ITOTAL_REF_OL_A\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBFOC_CUR_CTRL_OPEN_LOOP_SLEW_RATE_DEFAULT_VALUE_Q26\fP   \fBQCONST\fP((\fBPUSER_VALUE_SPEED_RAMP_OL_HZPSEC\fP * \fBFLT_2PI\fP * \fBFOC_DT_FLT\fP * \fBFOC_DT_FLT\fP), \fBQ26\fP)"
+.br
+.ti -1c
+.RI "#define \fBFOC_OPEN_LOOP_SPEED_SET_POINT_DEFAULT_VALUE_Q26\fP   \fBQCONST\fP((\fBPUSER_VALUE_SPEED_SETPOINT_OL_HZ\fP * \fBFLT_2PI\fP * \fBFOC_DT_FLT\fP), \fBQ26\fP)"
+.br
+.ti -1c
+.RI "#define \fBAUTO_CLOSE_LOOP_DEFAULT_VALUE\fP   \fBPUSER_VALUE_AUTO_CLOSE_LOOP\fP"
+.br
+.ti -1c
+.RI "#define \fBID_PID_KP_REF_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_PI_ID_KP\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBID_PID_KI_REF_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_PI_ID_KI\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBID_PID_MIN_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_PI_ID_MIN\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBID_PID_MAX_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_PI_ID_MAX\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBID_FILTER_GAIN_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBFOC_DT_FLT\fP / (\fBFOC_DT_FLT\fP + (1 / (\fBFLT_2PI\fP * \fBPUSER_VALUE_FC_ID_HZ\fP)))), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBIQ_PID_KP_REF_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_PI_IQ_KP\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBIQ_PID_KI_REF_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_PI_IQ_KI\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBIQ_PID_MIN_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_PI_IQ_MIN\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBIQ_PID_MAX_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_PI_IQ_MAX\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBIQ_FILTER_GAIN_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBFOC_DT_FLT\fP / (\fBFOC_DT_FLT\fP + (1 / (\fBFLT_2PI\fP * \fBPUSER_VALUE_FC_IQ_HZ\fP)))), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBIDIQ_RAMP_RATE_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_IDIQ_RAMP_APSEC\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP * \fBFOC_DT_FLT\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPEED_PID_KP_REF_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_PI_SPEED_KP\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBSPEED_PID_KI_REF_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_PI_SPEED_KI\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBFOC_CLOSE_LOOP_SPEED_SLEW_RATE_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_SPEED_RAMP_HZPSEC\fP * \fBFLT_2PI\fP * \fBFOC_DT_FLT\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBPOWER_PID_KP_REF_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_PI_POWER_KP\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBPOWER_PID_KI_REF_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_PI_POWER_KI\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBFOC_CLOSE_LOOP_POWER_SLEW_RATE_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_POWER_RAMP_WPSEC\fP * \fBFOC_DT_FLT\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCLOSE_LOOP_SPEED_MODE_DEFAULT_VALUE\fP   \fBPUSER_VALUE_CL_MODE\fP"
+.br
+.ti -1c
+.RI "#define \fBMOTOR_DIRECTION_REVERSE_FLAG_DEFAULT_VALUE\fP   \fBPUSER_VALUE_REVERSE\fP"
+.br
+.ti -1c
+.RI "#define \fBFOC_CLOSE_LOOP_SPEED_SETPOINT_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_SPEED_SETPOINT_CL_HZ\fP * \fBFLT_2PI\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBFOC_CLOSE_LOOP_POWER_SETPOINT_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_POWER_SETPOINT_CL_W\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBID_REF_CLOSE_LOOP_REF_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_ID_REF_CL_A\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBIQ_REF_CLOSE_LOOP_REF_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_IQ_REF_CL_A\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBEST_LBG1_BANDWIDTH_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_LBG1_BANDWIDTH\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBEST_LBG1_DAMPINGFACTOR_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_LBG1_DAMPINGFACTOR\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBEST_LBG1_KSPEED_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_LBG1_FC_SPEED_HZ\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBEST_LBG1_ANGLE_OFFSET_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_LBG1_ANGLE_OFFSET_DEG\fP * \fBFLT_PI\fP / 180\&.0f), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBEST_LBG1_ANGLE_FACTOR_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_LBG1_ANGLE_FACTOR_DEGPHZ\fP / 360\&.0f * 16\&.0f), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBSIM_BRAKING_ALIGN_TIME_DEFAULT_VALUE\fP   \fBQCONST\fP(((\fBPUSER_VALUE_SIM_ALIGN_SEC\fP * \fBCONTROLFREQ_HZ_FLT\fP) + 0\&.5f), \fBQ00\fP)"
+.br
+.ti -1c
+.RI "#define \fBSIM_BRAKING_ID_REF_MUL_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_SIM_IDIQ_GAIN\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBSIM_BRAKING_IQ_REF_MUL_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_SIM_IDIQ_GAIN\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBSIM_BEMF_BRAKING_TIMEOUT_COUNT_DEFAULT_VALUE\fP   \fBQCONST\fP(((\fBPUSER_VALUE_SIM_BTO_SEC\fP * \fBCONTROLFREQ_HZ_FLT\fP) + 0\&.5f), \fBQ00\fP)"
+.br
+.ti -1c
+.RI "#define \fBSIM_BEMF_AMP_GAIN_DEFAULT_VALUE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBSIM_CURRENT_TRACK_GAIN_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_SIM_CURRENT_TRACK_GAIN\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBSTALL_BEMF_CONSTANT_DEFAULT_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_STALL_KE\fP / \fBFLT_2PI\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBSTALL_DETECT_TIME_DEFAULT_VALUE\fP   \fBQCONST\fP(((\fBPUSER_VALUE_STALL_WINDOW_SEC\fP / \fBDT_DIVSYSTICK_FLT\fP) + 0\&.5f), \fBQ00\fP)"
+.br
+.ti -1c
+.RI "#define \fBIPD_CHARGE_TICKS_DEFAULT_VALUE\fP   \fBPUSER_VALUE_IPD_CHARGE\fP"
+.br
+.ti -1c
+.RI "#define \fBIPD_DISCHARGE_PERCENT_DEFAULT_VALUE\fP   \fBPUSER_VALUE_IPD_DISCHARGE\fP"
+.br
+.ti -1c
+.RI "#define \fBIPD_PERIODS_PER_PULSE_DEFAULT_VALUE\fP   \fBPUSER_VALUE_IPD_PERIODS\fP"
+.br
+.ti -1c
+.RI "#define \fBIPD_ANGLE_FORWARD_OFFSET_DEFAULT_VALUE\fP   \fBPUSER_VALUE_IPD_OFFSET_FORWARD_DEG\fP"
+.br
+.ti -1c
+.RI "#define \fBIPD_ANGLE_REVERSE_OFFSET_DEFAULT_VALUE\fP   \fBPUSER_VALUE_IPD_OFFSET_REVERSE_DEG\fP"
+.br
+.ti -1c
+.RI "#define \fBFIELD_WEAKENING_SPEED_THRESHOLD_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_FW_SPEED\fP * \fBFLT_2PI\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBFIELD_WEAKENING_ID_REF_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_FW_ID\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBFIELD_WEAKENING_VDRIVE_THRESHOLD_VALUE\fP   \fBQCONST\fP((\fBPUSER_VALUE_FW_VDRIVE\fP / 100\&.0f), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBMTPA_DEGPAMP_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_MTPA_DEGPAMP_FIX16\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBAUTOTUNE_KE_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_AUTOTUNE_KE\fP, \fBQ26\fP)"
+.br
+.ti -1c
+.RI "#define \fBAUTOTUNE_J_DEFAULT_VALUE\fP   \fBQCONST\fP(\fBPUSER_VALUE_AUTOTUNE_J\fP, \fBQ26\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALL_ISTART_Q16\fP   \fBQCONST\fP((\fBPUSER_VALUE_HALL_ISTART_AMPS\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALL_ANGCORR_GAIN_FWD_Q20\fP   \fBQCONST\fP((\fBPUSER_VALUE_HALL_ANGCORR_GAIN_FWD_DEGPHZ\fP / 360\&.0f * 16\&.0f), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALL_ANGCORR_GAIN_REV_Q20\fP   \fBQCONST\fP((\fBPUSER_VALUE_HALL_ANGCORR_GAIN_REV_DEGPHZ\fP / 360\&.0f * 16\&.0f), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALL_ANGCORR_OFFSET_FWD_Q16\fP   \fBQCONST\fP((\fBPUSER_VALUE_HALL_ANGCORR_OFFSET_FWD_DEG\fP * \fBFLT_PI\fP / 180\&.0f), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALL_ANGCORR_OFFSET_REV_Q16\fP   \fBQCONST\fP((\fBPUSER_VALUE_HALL_ANGCORR_OFFSET_REV_DEG\fP * \fBFLT_PI\fP / 180\&.0f), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALL_SNAPANGLE_1_FWD_Q16\fP   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_1_FWD_RAD\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALL_SNAPANGLE_1_REV_Q16\fP   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_1_REV_RAD\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALL_SNAPANGLE_2_FWD_Q16\fP   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_2_FWD_RAD\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALL_SNAPANGLE_2_REV_Q16\fP   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_2_REV_RAD\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALL_SNAPANGLE_3_FWD_Q16\fP   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_3_FWD_RAD\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALL_SNAPANGLE_3_REV_Q16\fP   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_3_REV_RAD\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALL_SNAPANGLE_4_FWD_Q16\fP   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_4_FWD_RAD\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALL_SNAPANGLE_4_REV_Q16\fP   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_4_REV_RAD\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALL_SNAPANGLE_5_FWD_Q16\fP   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_5_FWD_RAD\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALL_SNAPANGLE_5_REV_Q16\fP   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_5_REV_RAD\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALL_SNAPANGLE_6_FWD_Q16\fP   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_6_FWD_RAD\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALL_SNAPANGLE_6_REV_Q16\fP   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_6_REV_RAD\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALL_HALL2EST_SWITCH_SPEED_Q16\fP   \fBQCONST\fP((\fBPUSER_VALUE_HALL_HALL2EST_SWITCH_SPEED_HZ\fP * \fBFLT_2PI\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALLTUNE_ISTART_Q16\fP   \fBQCONST\fP((\fBPUSER_VALUE_HALLTUNE_ISTART_AMPS\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALLTUNE_RAMPRATE_Q26\fP   \fBQCONST\fP((\fBPUSER_VALUE_HALLTUNE_RAMPRATE_HZPSEC\fP * \fBFLT_2PI\fP * \fBFOC_DT_FLT\fP * \fBFOC_DT_FLT\fP), \fBQ26\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_HALLTUNE_SPEED_Q26\fP   \fBQCONST\fP((\fBPUSER_VALUE_HALLTUNE_SPEED_HZ\fP * \fBFLT_2PI\fP * \fBFOC_DT_FLT\fP), \fBQ26\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_QEP_RESOLUTION_Q00\fP   \fBQCONST\fP(\fBPUSER_VALUE_QEP_RESOLUTION\fP, \fBQ00\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_QEP_ANGCORR_OFFSET_FWD_Q16\fP   \fBQCONST\fP((\fBPUSER_VALUE_QEP_ANGCORR_OFFSET_FWD_DEG\fP * \fBFLT_PI\fP / 180\&.0f), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_QEP_ANGCORR_OFFSET_REV_Q16\fP   \fBQCONST\fP((\fBPUSER_VALUE_QEP_ANGCORR_OFFSET_REV_DEG\fP * \fBFLT_PI\fP / 180\&.0f), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBDEFAULT_VALUE_QEP_FC_SPEED_HZ_Q16\fP   \fBQCONST\fP(\fBPUSER_VALUE_QEP_FC_HZ\fP, \fBQ16\fP)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for parameter processing\&. 
+
+
+.PP
+Definition in file \fBparam_calc\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define AUTO_CLOSE_LOOP_DEFAULT_VALUE   \fBPUSER_VALUE_AUTO_CLOSE_LOOP\fP"
+
+.PP
+Definition at line 95 of file param_calc\&.h\&.
+.SS "#define AUTOTUNE_J_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_AUTOTUNE_J\fP, \fBQ26\fP)"
+
+.PP
+Definition at line 188 of file param_calc\&.h\&.
+.SS "#define AUTOTUNE_KE_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_AUTOTUNE_KE\fP, \fBQ26\fP)"
+
+.PP
+Definition at line 187 of file param_calc\&.h\&.
+.SS "#define CLOSE_LOOP_MAX_POWER_LIMIT_DEFAULT_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_POWER_MAX_W\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 77 of file param_calc\&.h\&.
+.SS "#define CLOSE_LOOP_MAX_SPEED_LIMIT_DEFAULT_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_SPEED_MAX_HZ\fP * \fBFLT_2PI\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 76 of file param_calc\&.h\&.
+.SS "#define CLOSE_LOOP_MIN_SPEED_LIMIT_DEFAULT_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_SPEED_SETPOINT_OL_HZ\fP * \fBFLT_PI\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 75 of file param_calc\&.h\&.
+.SS "#define CLOSE_LOOP_SPEED_MODE_DEFAULT_VALUE   \fBPUSER_VALUE_CL_MODE\fP"
+
+.PP
+Definition at line 121 of file param_calc\&.h\&.
+.SS "#define COAST_TIMEOUT_DEFAULT_VALUE   \fBQCONST\fP(((\fBPUSER_VALUE_CL_COAST_TIMEOUT_SEC\fP / \fBDT_DIVSYSTICK_FLT\fP) + 0\&.5f), \fBQ00\fP)"
+
+.PP
+Definition at line 87 of file param_calc\&.h\&.
+.SS "#define CONTROLFREQ_HZ_FLT   (float)((float)\fBPUSER_VALUE_PWM_FREQ_HZ\fP / (float)\fBPUSER_VALUE_CONTROL_FREQ_DIV\fP)"
+
+.PP
+Definition at line 42 of file param_calc\&.h\&.
+.SS "#define CURRENT_SCALE_FACTOR_FLT   (float)(1\&.25f / (PCB_RSENSE_IUVW_OHMS * (float)\fBPUSER_VALUE_DIFFAMP_GAIN\fP))"
+
+.PP
+Definition at line 33 of file param_calc\&.h\&.
+.SS "#define CURRENT_SCALE_FACTOR_Q16   \fBQCONST\fP(\fBCURRENT_SCALE_FACTOR_FLT\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 35 of file param_calc\&.h\&.
+.SS "#define CURRENT_SCALE_FACTOR_X1_FLT   (float)(1\&.25f / PCB_RSENSE_IUVW_OHMS)"
+
+.PP
+Definition at line 36 of file param_calc\&.h\&.
+.SS "#define CURRENT_SCALE_FACTOR_X1_Q16   \fBQCONST\fP(\fBCURRENT_SCALE_FACTOR_X1_FLT\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 37 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALL_ANGCORR_GAIN_FWD_Q20   \fBQCONST\fP((\fBPUSER_VALUE_HALL_ANGCORR_GAIN_FWD_DEGPHZ\fP / 360\&.0f * 16\&.0f), \fBQ16\fP)"
+
+.PP
+Definition at line 192 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALL_ANGCORR_GAIN_REV_Q20   \fBQCONST\fP((\fBPUSER_VALUE_HALL_ANGCORR_GAIN_REV_DEGPHZ\fP / 360\&.0f * 16\&.0f), \fBQ16\fP)"
+
+.PP
+Definition at line 193 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALL_ANGCORR_OFFSET_FWD_Q16   \fBQCONST\fP((\fBPUSER_VALUE_HALL_ANGCORR_OFFSET_FWD_DEG\fP * \fBFLT_PI\fP / 180\&.0f), \fBQ16\fP)"
+
+.PP
+Definition at line 194 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALL_ANGCORR_OFFSET_REV_Q16   \fBQCONST\fP((\fBPUSER_VALUE_HALL_ANGCORR_OFFSET_REV_DEG\fP * \fBFLT_PI\fP / 180\&.0f), \fBQ16\fP)"
+
+.PP
+Definition at line 195 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALL_HALL2EST_SWITCH_SPEED_Q16   \fBQCONST\fP((\fBPUSER_VALUE_HALL_HALL2EST_SWITCH_SPEED_HZ\fP * \fBFLT_2PI\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 210 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALL_ISTART_Q16   \fBQCONST\fP((\fBPUSER_VALUE_HALL_ISTART_AMPS\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 191 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALL_SNAPANGLE_1_FWD_Q16   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_1_FWD_RAD\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 196 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALL_SNAPANGLE_1_REV_Q16   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_1_REV_RAD\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 197 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALL_SNAPANGLE_2_FWD_Q16   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_2_FWD_RAD\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 198 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALL_SNAPANGLE_2_REV_Q16   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_2_REV_RAD\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 199 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALL_SNAPANGLE_3_FWD_Q16   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_3_FWD_RAD\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 200 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALL_SNAPANGLE_3_REV_Q16   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_3_REV_RAD\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 201 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALL_SNAPANGLE_4_FWD_Q16   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_4_FWD_RAD\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 202 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALL_SNAPANGLE_4_REV_Q16   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_4_REV_RAD\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 203 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALL_SNAPANGLE_5_FWD_Q16   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_5_FWD_RAD\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 204 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALL_SNAPANGLE_5_REV_Q16   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_5_REV_RAD\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 205 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALL_SNAPANGLE_6_FWD_Q16   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_6_FWD_RAD\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 206 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALL_SNAPANGLE_6_REV_Q16   \fBQCONST\fP(\fBPUSER_VALUE_HALL_SNAPANGLE_6_REV_RAD\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 207 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALLTUNE_ISTART_Q16   \fBQCONST\fP((\fBPUSER_VALUE_HALLTUNE_ISTART_AMPS\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 213 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALLTUNE_RAMPRATE_Q26   \fBQCONST\fP((\fBPUSER_VALUE_HALLTUNE_RAMPRATE_HZPSEC\fP * \fBFLT_2PI\fP * \fBFOC_DT_FLT\fP * \fBFOC_DT_FLT\fP), \fBQ26\fP)"
+
+.PP
+Definition at line 214 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_HALLTUNE_SPEED_Q26   \fBQCONST\fP((\fBPUSER_VALUE_HALLTUNE_SPEED_HZ\fP * \fBFLT_2PI\fP * \fBFOC_DT_FLT\fP), \fBQ26\fP)"
+
+.PP
+Definition at line 215 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_QEP_ANGCORR_OFFSET_FWD_Q16   \fBQCONST\fP((\fBPUSER_VALUE_QEP_ANGCORR_OFFSET_FWD_DEG\fP * \fBFLT_PI\fP / 180\&.0f), \fBQ16\fP)"
+
+.PP
+Definition at line 219 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_QEP_ANGCORR_OFFSET_REV_Q16   \fBQCONST\fP((\fBPUSER_VALUE_QEP_ANGCORR_OFFSET_REV_DEG\fP * \fBFLT_PI\fP / 180\&.0f), \fBQ16\fP)"
+
+.PP
+Definition at line 220 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_QEP_FC_SPEED_HZ_Q16   \fBQCONST\fP(\fBPUSER_VALUE_QEP_FC_HZ\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 221 of file param_calc\&.h\&.
+.SS "#define DEFAULT_VALUE_QEP_RESOLUTION_Q00   \fBQCONST\fP(\fBPUSER_VALUE_QEP_RESOLUTION\fP, \fBQ00\fP)"
+
+.PP
+Definition at line 218 of file param_calc\&.h\&.
+.SS "#define EST_LBG1_ANGLE_FACTOR_DEFAULT_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_LBG1_ANGLE_FACTOR_DEGPHZ\fP / 360\&.0f * 16\&.0f), \fBQ16\fP)"
+
+.PP
+Definition at line 133 of file param_calc\&.h\&.
+.SS "#define EST_LBG1_ANGLE_OFFSET_DEFAULT_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_LBG1_ANGLE_OFFSET_DEG\fP * \fBFLT_PI\fP / 180\&.0f), \fBQ16\fP)"
+
+.PP
+Definition at line 132 of file param_calc\&.h\&.
+.SS "#define EST_LBG1_BANDWIDTH_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_LBG1_BANDWIDTH\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 129 of file param_calc\&.h\&.
+.SS "#define EST_LBG1_DAMPINGFACTOR_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_LBG1_DAMPINGFACTOR\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 130 of file param_calc\&.h\&.
+.SS "#define EST_LBG1_KSPEED_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_LBG1_FC_SPEED_HZ\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 131 of file param_calc\&.h\&.
+.SS "#define FIELD_WEAKENING_ID_REF_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_FW_ID\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 172 of file param_calc\&.h\&.
+.SS "#define FIELD_WEAKENING_SPEED_THRESHOLD_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_FW_SPEED\fP * \fBFLT_2PI\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 171 of file param_calc\&.h\&.
+.SS "#define FIELD_WEAKENING_VDRIVE_THRESHOLD_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_FW_VDRIVE\fP / 100\&.0f), \fBQ16\fP)"
+
+.PP
+Definition at line 173 of file param_calc\&.h\&.
+.SS "#define FOC_CLOSE_LOOP_POWER_SETPOINT_DEFAULT_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_POWER_SETPOINT_CL_W\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 124 of file param_calc\&.h\&.
+.SS "#define FOC_CLOSE_LOOP_POWER_SLEW_RATE_DEFAULT_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_POWER_RAMP_WPSEC\fP * \fBFOC_DT_FLT\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 118 of file param_calc\&.h\&.
+.SS "#define FOC_CLOSE_LOOP_SPEED_SETPOINT_DEFAULT_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_SPEED_SETPOINT_CL_HZ\fP * \fBFLT_2PI\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 123 of file param_calc\&.h\&.
+.SS "#define FOC_CLOSE_LOOP_SPEED_SLEW_RATE_DEFAULT_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_SPEED_RAMP_HZPSEC\fP * \fBFLT_2PI\fP * \fBFOC_DT_FLT\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 113 of file param_calc\&.h\&.
+.SS "#define FOC_CUR_CTRL_OPEN_LOOP_SLEW_RATE_DEFAULT_VALUE_Q26   \fBQCONST\fP((\fBPUSER_VALUE_SPEED_RAMP_OL_HZPSEC\fP * \fBFLT_2PI\fP * \fBFOC_DT_FLT\fP * \fBFOC_DT_FLT\fP), \fBQ26\fP)"
+
+.PP
+Definition at line 93 of file param_calc\&.h\&.
+.SS "#define FOC_DIVIDER   \fBPUSER_VALUE_CONTROL_FREQ_DIV\fP"
+
+.PP
+Definition at line 41 of file param_calc\&.h\&.
+.SS "#define FOC_DT_FLT   (float)(1\&.0f / \fBCONTROLFREQ_HZ_FLT\fP)"
+
+.PP
+Definition at line 43 of file param_calc\&.h\&.
+.SS "#define FOC_DT_Q26   \fBQCONST\fP(\fBFOC_DT_FLT\fP, \fBQ26\fP)"
+
+.PP
+Definition at line 44 of file param_calc\&.h\&.
+.SS "#define FOC_LD_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_LD_UH\fP / 1000000\&.0f, \fBQ26\fP)"
+
+.PP
+Definition at line 68 of file param_calc\&.h\&.
+.SS "#define FOC_LQ_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_LQ_UH\fP / 1000000\&.0f, \fBQ26\fP)"
+
+.PP
+Definition at line 69 of file param_calc\&.h\&.
+.SS "#define FOC_NUM_POLE_PAIRS_DEFAULT_VALUE   \fBPUSER_VALUE_POLE_PAIRS\fP"
+
+.PP
+Definition at line 71 of file param_calc\&.h\&.
+.SS "#define FOC_OPEN_LOOP_SPEED_SET_POINT_DEFAULT_VALUE_Q26   \fBQCONST\fP((\fBPUSER_VALUE_SPEED_SETPOINT_OL_HZ\fP * \fBFLT_2PI\fP * \fBFOC_DT_FLT\fP), \fBQ26\fP)"
+
+.PP
+Definition at line 94 of file param_calc\&.h\&.
+.SS "#define FOC_OPEN_LOOP_SS_ALIGN_COUNT_DEFAULT_VALUE   \fBQCONST\fP(((\fBPUSER_VALUE_ALIGN_TIME_SEC\fP * \fBCONTROLFREQ_HZ_FLT\fP) + 0\&.5f), \fBQ00\fP)"
+
+.PP
+Definition at line 90 of file param_calc\&.h\&.
+.SS "#define FOC_RALPHA_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_R_OHMS\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 70 of file param_calc\&.h\&.
+.SS "#define HPDAC   1"
+
+.PP
+Definition at line 28 of file param_calc\&.h\&.
+.SS "#define ID_FILTER_GAIN_DEFAULT_VALUE   \fBQCONST\fP((\fBFOC_DT_FLT\fP / (\fBFOC_DT_FLT\fP + (1 / (\fBFLT_2PI\fP * \fBPUSER_VALUE_FC_ID_HZ\fP)))), \fBQ16\fP)"
+
+.PP
+Definition at line 102 of file param_calc\&.h\&.
+.SS "#define ID_PID_KI_REF_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_PI_ID_KI\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 99 of file param_calc\&.h\&.
+.SS "#define ID_PID_KP_REF_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_PI_ID_KP\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 98 of file param_calc\&.h\&.
+.SS "#define ID_PID_MAX_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_PI_ID_MAX\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 101 of file param_calc\&.h\&.
+.SS "#define ID_PID_MIN_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_PI_ID_MIN\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 100 of file param_calc\&.h\&.
+.SS "#define ID_REF_CLOSE_LOOP_REF_DEFAULT_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_ID_REF_CL_A\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 125 of file param_calc\&.h\&.
+.SS "#define ID_REF_SP_DEFAULT_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_ID_REF_OL_A\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 91 of file param_calc\&.h\&.
+.SS "#define IDIQ_RAMP_RATE_DEFAULT_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_IDIQ_RAMP_APSEC\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP * \fBFOC_DT_FLT\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 108 of file param_calc\&.h\&.
+.SS "#define IPD_ANGLE_FORWARD_OFFSET_DEFAULT_VALUE   \fBPUSER_VALUE_IPD_OFFSET_FORWARD_DEG\fP"
+
+.PP
+Definition at line 167 of file param_calc\&.h\&.
+.SS "#define IPD_ANGLE_REVERSE_OFFSET_DEFAULT_VALUE   \fBPUSER_VALUE_IPD_OFFSET_REVERSE_DEG\fP"
+
+.PP
+Definition at line 168 of file param_calc\&.h\&.
+.SS "#define IPD_CHARGE_TICKS_DEFAULT_VALUE   \fBPUSER_VALUE_IPD_CHARGE\fP"
+
+.PP
+Definition at line 164 of file param_calc\&.h\&.
+.SS "#define IPD_DISCHARGE_PERCENT_DEFAULT_VALUE   \fBPUSER_VALUE_IPD_DISCHARGE\fP"
+
+.PP
+Definition at line 165 of file param_calc\&.h\&.
+.SS "#define IPD_PERIODS_PER_PULSE_DEFAULT_VALUE   \fBPUSER_VALUE_IPD_PERIODS\fP"
+
+.PP
+Definition at line 166 of file param_calc\&.h\&.
+.SS "#define IQ_FILTER_GAIN_DEFAULT_VALUE   \fBQCONST\fP((\fBFOC_DT_FLT\fP / (\fBFOC_DT_FLT\fP + (1 / (\fBFLT_2PI\fP * \fBPUSER_VALUE_FC_IQ_HZ\fP)))), \fBQ16\fP)"
+
+.PP
+Definition at line 107 of file param_calc\&.h\&.
+.SS "#define IQ_PID_KI_REF_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_PI_IQ_KI\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 104 of file param_calc\&.h\&.
+.SS "#define IQ_PID_KP_REF_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_PI_IQ_KP\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 103 of file param_calc\&.h\&.
+.SS "#define IQ_PID_MAX_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_PI_IQ_MAX\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 106 of file param_calc\&.h\&.
+.SS "#define IQ_PID_MIN_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_PI_IQ_MIN\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 105 of file param_calc\&.h\&.
+.SS "#define IQ_REF_CLOSE_LOOP_REF_DEFAULT_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_IQ_REF_CL_A\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 126 of file param_calc\&.h\&.
+.SS "#define IQ_REF_SP_DEFAULT_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_ITOTAL_REF_OL_A\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 92 of file param_calc\&.h\&.
+.SS "#define LPDAC   0"
+
+.PP
+Definition at line 27 of file param_calc\&.h\&.
+.SS "#define MOTOR1_PERIOD_TICKS   \fBQCONST\fP(((TIMERCLK_FREQ_HZ / (float)\fBPUSER_VALUE_PWM_FREQ_HZ\fP) + 0\&.5f), \fBQ00\fP)"
+
+.PP
+Definition at line 40 of file param_calc\&.h\&.
+.SS "#define MOTOR_CURRENT_LIMIT_DEFAULT_VALUE   \fBQCONST\fP((\fBMOTOR_CURRENT_LIMIT_LPDAC\fP + 0\&.5f), \fBQ00\fP)"
+
+.PP
+Definition at line 82 of file param_calc\&.h\&.
+.SS "#define MOTOR_CURRENT_LIMIT_LPDAC   (float)((((\fBPUSER_VALUE_OC_LIMIT_A\fP * PCB_RSENSE_IUVW_OHMS * \fBPUSER_VALUE_DIFFAMP_GAIN\fP) + 1\&.25f) / 2\&.5f) * 1023)"
+
+.PP
+Definition at line 81 of file param_calc\&.h\&.
+.SS "#define MOTOR_DIRECTION_REVERSE_FLAG_DEFAULT_VALUE   \fBPUSER_VALUE_REVERSE\fP"
+
+.PP
+Definition at line 122 of file param_calc\&.h\&.
+.SS "#define MTPA_DEGPAMP_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_MTPA_DEGPAMP_FIX16\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 176 of file param_calc\&.h\&.
+.SS "#define NOMINAL_SPEED_DEFAULT_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_NOMINAL_SPEED\fP * \fBFLT_2PI\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 72 of file param_calc\&.h\&.
+.SS "#define POWER_PID_KI_REF_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_PI_POWER_KI\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 117 of file param_calc\&.h\&.
+.SS "#define POWER_PID_KP_REF_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_PI_POWER_KP\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 116 of file param_calc\&.h\&.
+.SS "#define SIM_BEMF_AMP_GAIN_DEFAULT_VALUE   1"
+
+.PP
+Definition at line 143 of file param_calc\&.h\&.
+.SS "#define SIM_BEMF_BRAKING_TIMEOUT_COUNT_DEFAULT_VALUE   \fBQCONST\fP(((\fBPUSER_VALUE_SIM_BTO_SEC\fP * \fBCONTROLFREQ_HZ_FLT\fP) + 0\&.5f), \fBQ00\fP)"
+
+.PP
+Definition at line 139 of file param_calc\&.h\&.
+.SS "#define SIM_BRAKING_ALIGN_TIME_DEFAULT_VALUE   \fBQCONST\fP(((\fBPUSER_VALUE_SIM_ALIGN_SEC\fP * \fBCONTROLFREQ_HZ_FLT\fP) + 0\&.5f), \fBQ00\fP)"
+
+.PP
+Definition at line 136 of file param_calc\&.h\&.
+.SS "#define SIM_BRAKING_ID_REF_MUL_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_SIM_IDIQ_GAIN\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 137 of file param_calc\&.h\&.
+.SS "#define SIM_BRAKING_IQ_REF_MUL_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_SIM_IDIQ_GAIN\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 138 of file param_calc\&.h\&.
+.SS "#define SIM_CURRENT_TRACK_GAIN_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_SIM_CURRENT_TRACK_GAIN\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 157 of file param_calc\&.h\&.
+.SS "#define SPEED_PID_KI_REF_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_PI_SPEED_KI\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 112 of file param_calc\&.h\&.
+.SS "#define SPEED_PID_KP_REF_DEFAULT_VALUE   \fBQCONST\fP(\fBPUSER_VALUE_PI_SPEED_KP\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 111 of file param_calc\&.h\&.
+.SS "#define SPEED_PID_MAX_DEFAULT_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_IQ_MAX_A\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 79 of file param_calc\&.h\&.
+.SS "#define SPEED_PID_MIN_DEFAULT_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_IQ_MIN_A\fP / \fBCURRENT_SCALE_FACTOR_FLT\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 78 of file param_calc\&.h\&.
+.SS "#define STALL_BEMF_CONSTANT_DEFAULT_VALUE   \fBQCONST\fP((\fBPUSER_VALUE_STALL_KE\fP / \fBFLT_2PI\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 160 of file param_calc\&.h\&.
+.SS "#define STALL_DETECT_TIME_DEFAULT_VALUE   \fBQCONST\fP(((\fBPUSER_VALUE_STALL_WINDOW_SEC\fP / \fBDT_DIVSYSTICK_FLT\fP) + 0\&.5f), \fBQ00\fP)"
+
+.PP
+Definition at line 161 of file param_calc\&.h\&.
+.SS "#define UVW_PHASE_RSENSE_GAIN_DEFAULT_VALUE   1"
+
+.PP
+Definition at line 50 of file param_calc\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

@@ -1,0 +1,54 @@
+\hypertarget{pac5xxx__driver__tile_8h}{}\doxysection{pac\+\_\+foc/pac52xx/pac5xxx\+\_\+sdk/pac5xxx\+\_\+drivers/pac5xxx\+\_\+driver\+\_\+tile.h File Reference}
+\label{pac5xxx__driver__tile_8h}\index{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_drivers/pac5xxx\_driver\_tile.h@{pac\_foc/pac52xx/pac5xxx\_sdk/pac5xxx\_drivers/pac5xxx\_driver\_tile.h}}
+
+
+Firmware driver for communications with analog tiles.  
+
+
+{\ttfamily \#include \char`\"{}pac52\+X\+X.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}pac5xxx\+\_\+driver\+\_\+config.\+h\char`\"{}}\newline
+Include dependency graph for pac5xxx\+\_\+driver\+\_\+tile.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__driver__tile_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__driver__tile_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_gab5a6724517773ac079f1aa2ea688f0c5}{pac5xxx\+\_\+tile\+\_\+socbridge\+\_\+config}} (int enable, int int\+\_\+enable)
+\begin{DoxyCompactList}\small\item\em This function configures the device for configuration with the Analog tiles via S\+OC Bridge. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga54ac7c0a9b077155283d52f223e03e5a}{pac5xxx\+\_\+tile\+\_\+register\+\_\+write}} (uint8\+\_\+t address, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em This function writes a tile register. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}} uint8\+\_\+t \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga0e9f4d8741a4f9aae2da2257fe9a8968}{pac5xxx\+\_\+tile\+\_\+register\+\_\+read}} (uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em This function reads a tile register via polling. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}} int \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_gaae7af5613157ff3a5a46c96da427d138}{pac5xxx\+\_\+tile\+\_\+register\+\_\+write\+\_\+validate}} (uint8\+\_\+t address, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em This function writes the given data to the given tile address register, and then reads back the value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga411627a28fa3c326c4b7d25996a419dd}{pac5xxx\+\_\+tile\+\_\+register\+\_\+write\+\_\+burst}} (uint8\+\_\+t start\+\_\+address, int num\+\_\+bytes, uint8\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em This function writes a burst of data to the given register addresses via polling. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga6f3df93a59163a30d221bf276716cf13}{R\+A\+M\+F\+U\+N\+C\+\_\+\+T\+I\+LE}} int \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___tile_ga4e44db65e648192c307d9dc813878d03}{pac5xxx\+\_\+tile\+\_\+register\+\_\+read\+\_\+burst}} (uint8\+\_\+t start\+\_\+address, int num\+\_\+bytes, uint8\+\_\+t $\ast$data)
+\begin{DoxyCompactList}\small\item\em This function reads a burst of data starting from the given register address via polling. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Firmware driver for communications with analog tiles. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2015-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 

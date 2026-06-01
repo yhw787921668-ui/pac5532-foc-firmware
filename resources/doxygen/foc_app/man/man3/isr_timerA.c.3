@@ -1,0 +1,67 @@
+.TH "pac_foc/src/isr/isr_timerA.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/isr/isr_timerA.c \- Use for timerA timer interrupt handler to run critical FOC functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'control_1shunt_funcs\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBTimerA_IRQHandler\fP (void)"
+.br
+.RI "Process interrupt for TimerA_IRQHandler to run critical FOC functions\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for timerA timer interrupt handler to run critical FOC functions\&. 
+
+
+.PP
+Definition in file \fBisr_timerA\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "PAC5XXX_RAMFUNC void TimerA_IRQHandler (void)"
+
+.PP
+Process interrupt for TimerA_IRQHandler to run critical FOC functions\&. 
+.PP
+Definition at line 29 of file isr_timerA\&.c\&.
+.PP
+.nf
+30 {
+31 #if (CONFIG_SHUNT == CONFIG_SHUNT_1SHUNT) && (MODE_1SHUNT_SELECT == MODE_1SHUNT_ASYMMETRIC)
+32     static Struct_Motor* motor_ptr = &motor;
+33 
+34 //    debugio2_on();
+35 
+36     // Call 1-Shunt Asymmetric Mode TimerA ISR Process
+37     control_1shunt_asym_timera_isr(motor_ptr);
+38 
+39 //    debugio2_off();
+40 
+41     // Clear base interrupt
+42     PAC5XXX_TIMERA->CTL\&.INT = 1;
+43 #else
+44 
+45 #if (DEVICE_SELECT != DEVICE_5556)
+46     static Struct_Motor* motor_ptr = &motor;
+47 
+48     clear_timer_a_interrupt_flag_inc_isr_counter(&motor_ptr->control\&.ctrl_counter);
+49 #endif
+50 #endif
+51 }
+.fi
+.PP
+References motor\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

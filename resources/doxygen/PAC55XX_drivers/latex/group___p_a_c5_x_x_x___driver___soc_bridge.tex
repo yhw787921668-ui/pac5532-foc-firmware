@@ -1,0 +1,158 @@
+\hypertarget{group___p_a_c5_x_x_x___driver___soc_bridge}{}\doxysection{P\+A\+C5\+X\+XX S\+OC Bridge Peripheral}
+\label{group___p_a_c5_x_x_x___driver___soc_bridge}\index{PAC5XXX SOC Bridge Peripheral@{PAC5XXX SOC Bridge Peripheral}}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___soc_bridge_ga15e14c83bc3b22cd1b2cf0bd45235a59}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+O\+C\+B\+R\+I\+D\+GE}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___soc_bridge_ga15e14c83bc3b22cd1b2cf0bd45235a59}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+O\+C\+B\+R\+I\+D\+GE}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___soc_bridge_ga55d8fc5ab23539492663f36c7bedbfc4}{pac5xxx\+\_\+socbridge\+\_\+config}} (int enable, int int\+\_\+enable)
+\begin{DoxyCompactList}\small\item\em This function configures and enables the S\+OC bridge. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{group___p_a_c5_x_x_x___driver___soc_bridge_ga15e14c83bc3b22cd1b2cf0bd45235a59}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+O\+C\+B\+R\+I\+D\+GE}} void \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___soc_bridge_ga2a252b04d45691538bd36ab6cf3cf494}{pac5xxx\+\_\+socbridge\+\_\+config\+\_\+io}} (void)
+\begin{DoxyCompactList}\small\item\em This function configures the IO ports on the device for S\+OC bridge operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___soc_bridge_ga15e14c83bc3b22cd1b2cf0bd45235a59}\label{group___p_a_c5_x_x_x___driver___soc_bridge_ga15e14c83bc3b22cd1b2cf0bd45235a59}} 
+\index{PAC5XXX SOC Bridge Peripheral@{PAC5XXX SOC Bridge Peripheral}!RAMFUNC\_SOCBRIDGE@{RAMFUNC\_SOCBRIDGE}}
+\index{RAMFUNC\_SOCBRIDGE@{RAMFUNC\_SOCBRIDGE}!PAC5XXX SOC Bridge Peripheral@{PAC5XXX SOC Bridge Peripheral}}
+\doxysubsubsection{\texorpdfstring{RAMFUNC\_SOCBRIDGE}{RAMFUNC\_SOCBRIDGE}}
+{\footnotesize\ttfamily \#define R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+O\+C\+B\+R\+I\+D\+GE}
+
+
+
+Definition at line 32 of file pac5xxx\+\_\+driver\+\_\+socbridge.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___soc_bridge_ga55d8fc5ab23539492663f36c7bedbfc4}\label{group___p_a_c5_x_x_x___driver___soc_bridge_ga55d8fc5ab23539492663f36c7bedbfc4}} 
+\index{PAC5XXX SOC Bridge Peripheral@{PAC5XXX SOC Bridge Peripheral}!pac5xxx\_socbridge\_config@{pac5xxx\_socbridge\_config}}
+\index{pac5xxx\_socbridge\_config@{pac5xxx\_socbridge\_config}!PAC5XXX SOC Bridge Peripheral@{PAC5XXX SOC Bridge Peripheral}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_socbridge\_config()}{pac5xxx\_socbridge\_config()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___soc_bridge_ga15e14c83bc3b22cd1b2cf0bd45235a59}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+O\+C\+B\+R\+I\+D\+GE}} void pac5xxx\+\_\+socbridge\+\_\+config (\begin{DoxyParamCaption}\item[{int}]{enable,  }\item[{int}]{int\+\_\+enable }\end{DoxyParamCaption})}
+
+
+
+This function configures and enables the S\+OC bridge. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enable} & Set to 1 to enable S\+OC Bridge, 0 to disable \\
+\hline
+{\em int\+\_\+enable} & Set to 1 to enable interrupts, 0 to disable interrupts \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file pac5xxx\+\_\+driver\+\_\+socbridge.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>CCSCTL.USAMODE = 0;            \textcolor{comment}{// SET SSPA to SPI mode}}
+\DoxyCodeLine{23     \mbox{\hyperlink{pac5xxx_8h_a31de097adaeeb15ab3dfb454d390fb14}{PAC55XX\_SSPA}}-\/>CLK.M = 2;                 \textcolor{comment}{// PCLK/((SSPxCLK.M + 1)*SSPxCLK.N)}}
+\DoxyCodeLine{24     \mbox{\hyperlink{pac5xxx_8h_a31de097adaeeb15ab3dfb454d390fb14}{PAC55XX\_SSPA}}-\/>CLK.N = 2;                 \textcolor{comment}{// N nust be event value from 2 to 254     }}
+\DoxyCodeLine{25     \mbox{\hyperlink{pac5xxx_8h_a31de097adaeeb15ab3dfb454d390fb14}{PAC55XX\_SSPA}}-\/>CON.FRF = 0;               \textcolor{comment}{// Frame Format, SPI frame format}}
+\DoxyCodeLine{26     \mbox{\hyperlink{pac5xxx_8h_a31de097adaeeb15ab3dfb454d390fb14}{PAC55XX\_SSPA}}-\/>CON.MS = 0;                \textcolor{comment}{// Master/Slave mode, master mode}}
+\DoxyCodeLine{27     \mbox{\hyperlink{pac5xxx_8h_a31de097adaeeb15ab3dfb454d390fb14}{PAC55XX\_SSPA}}-\/>CON.LSBFIRST = 0;          \textcolor{comment}{// Endian Order, MSB transmit 1st}}
+\DoxyCodeLine{28     \mbox{\hyperlink{pac5xxx_8h_a31de097adaeeb15ab3dfb454d390fb14}{PAC55XX\_SSPA}}-\/>CON.LBM = 0;               \textcolor{comment}{// Loobback Mode, no loopback mode}}
+\DoxyCodeLine{29     \mbox{\hyperlink{pac5xxx_8h_a31de097adaeeb15ab3dfb454d390fb14}{PAC55XX\_SSPA}}-\/>CON.CPH = 0;               \textcolor{comment}{// Clock Out Phase, SPI captuers data sat 1st edge transition of the frame}}
+\DoxyCodeLine{30     \mbox{\hyperlink{pac5xxx_8h_a31de097adaeeb15ab3dfb454d390fb14}{PAC55XX\_SSPA}}-\/>CON.CPO = 0;               \textcolor{comment}{// Clock Out Polarity, SPI clock active high}}
+\DoxyCodeLine{31     \mbox{\hyperlink{pac5xxx_8h_a31de097adaeeb15ab3dfb454d390fb14}{PAC55XX\_SSPA}}-\/>CON.DSS = 0xF;             \textcolor{comment}{// Data Size Select, 16 bit data}}
+\DoxyCodeLine{32     \mbox{\hyperlink{pac5xxx_8h_a31de097adaeeb15ab3dfb454d390fb14}{PAC55XX\_SSPA}}-\/>CON.SOD = 1;               \textcolor{comment}{// Slave Output Disable}}
+\DoxyCodeLine{33     \mbox{\hyperlink{pac5xxx_8h_a31de097adaeeb15ab3dfb454d390fb14}{PAC55XX\_SSPA}}-\/>SSCR.SELSS = 0;            \textcolor{comment}{// Slave Select Signal Control}}
+\DoxyCodeLine{34     \mbox{\hyperlink{pac5xxx_8h_a31de097adaeeb15ab3dfb454d390fb14}{PAC55XX\_SSPA}}-\/>SSCR.SWSEL = 0;            \textcolor{comment}{// Slave Select controlled by SPI}}
+\DoxyCodeLine{35     \mbox{\hyperlink{pac5xxx_8h_a31de097adaeeb15ab3dfb454d390fb14}{PAC55XX\_SSPA}}-\/>SSCR.SWSS = 0;             \textcolor{comment}{// Slave Select State, Low active}}
+\DoxyCodeLine{36     \mbox{\hyperlink{pac5xxx_8h_a31de097adaeeb15ab3dfb454d390fb14}{PAC55XX\_SSPA}}-\/>SSCR.SPHDONTCARE = 1;      \textcolor{comment}{// Slave Select Pull High}}
+\DoxyCodeLine{37     \textcolor{keywordflow}{if} (int\_enable)}
+\DoxyCodeLine{38     \{}
+\DoxyCodeLine{39         \mbox{\hyperlink{group___c_m_s_i_s___core___n_v_i_c_functions_ga332e10ef9605dc6eb10b9e14511930f8}{NVIC\_ClearPendingIRQ}}(\mbox{\hyperlink{pac5xxx_8h_a666eb0caeb12ec0e281415592ae89083a4e03db3609b9d2dd80c6161447a78bf0}{USARTA\_IRQn}});}
+\DoxyCodeLine{40         \mbox{\hyperlink{group___c_m_s_i_s___core___n_v_i_c_functions_ga3349f2e3580d7ce22d6530b7294e5921}{NVIC\_EnableIRQ}}(\mbox{\hyperlink{pac5xxx_8h_a666eb0caeb12ec0e281415592ae89083a4e03db3609b9d2dd80c6161447a78bf0}{USARTA\_IRQn}});}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42     \mbox{\hyperlink{pac5xxx_8h_a31de097adaeeb15ab3dfb454d390fb14}{PAC55XX\_SSPA}}-\/>CON.SSPEN = enable;        \textcolor{comment}{// SSP Enable  }}
+\DoxyCodeLine{43 \}}
+
+\end{DoxyCode}
+
+
+References N\+V\+I\+C\+\_\+\+Clear\+Pending\+I\+R\+Q(), N\+V\+I\+C\+\_\+\+Enable\+I\+R\+Q(), P\+A\+C55\+X\+X\+\_\+\+S\+CC, P\+A\+C55\+X\+X\+\_\+\+S\+S\+PA, and U\+S\+A\+R\+T\+A\+\_\+\+I\+R\+Qn.
+
+
+
+Referenced by pac5xxx\+\_\+tile\+\_\+socbridge\+\_\+config().
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___p_a_c5_x_x_x___driver___soc_bridge_ga55d8fc5ab23539492663f36c7bedbfc4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___p_a_c5_x_x_x___driver___soc_bridge_ga55d8fc5ab23539492663f36c7bedbfc4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{group___p_a_c5_x_x_x___driver___soc_bridge_ga2a252b04d45691538bd36ab6cf3cf494}\label{group___p_a_c5_x_x_x___driver___soc_bridge_ga2a252b04d45691538bd36ab6cf3cf494}} 
+\index{PAC5XXX SOC Bridge Peripheral@{PAC5XXX SOC Bridge Peripheral}!pac5xxx\_socbridge\_config\_io@{pac5xxx\_socbridge\_config\_io}}
+\index{pac5xxx\_socbridge\_config\_io@{pac5xxx\_socbridge\_config\_io}!PAC5XXX SOC Bridge Peripheral@{PAC5XXX SOC Bridge Peripheral}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_socbridge\_config\_io()}{pac5xxx\_socbridge\_config\_io()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{group___p_a_c5_x_x_x___driver___soc_bridge_ga15e14c83bc3b22cd1b2cf0bd45235a59}{R\+A\+M\+F\+U\+N\+C\+\_\+\+S\+O\+C\+B\+R\+I\+D\+GE}} void pac5xxx\+\_\+socbridge\+\_\+config\+\_\+io (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function configures the IO ports on the device for S\+OC bridge operation. 
+
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+Definition at line 45 of file pac5xxx\+\_\+driver\+\_\+socbridge.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{46 \{}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{comment}{// ICBSS:    PAMUXSEL.P6 = 001b (PA6 -\/ output)}}
+\DoxyCodeLine{49     \textcolor{comment}{// ICBMISO:  PAMUXSEL.P5 = 001b (PA5 -\/ input)}}
+\DoxyCodeLine{50     \textcolor{comment}{// ICBMOSI:  PAMUXSEL.P4 = 001b (PA4 -\/ output)}}
+\DoxyCodeLine{51     \textcolor{comment}{// ICBCLK:   PAMUXSEL.P3 = 001b (PA3 -\/ output)}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>PAMUXSEL.w \&= 0xF0000FFF;      \textcolor{comment}{// Clear PMUX for SSP bits}}
+\DoxyCodeLine{54     \mbox{\hyperlink{pac5xxx_8h_a72ca639eaeeae0051ca9c404160641e0}{PAC55XX\_SCC}}-\/>PAMUXSEL.w |= 0x01111000;      \textcolor{comment}{// PA6 = ICBSS, PA5 = ICBMISO, PA4 = ICBMOSI, PA3 = ICBCLK}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{comment}{// Select SSP peripherals}}
+\DoxyCodeLine{57     \mbox{\hyperlink{pac5xxx_8h_aecf1334ed01bcde25e1e48157f4b4dc0}{PAC55XX\_GPIOA}}-\/>MODE.P3 = 1;                 \textcolor{comment}{// SCLK}}
+\DoxyCodeLine{58     \mbox{\hyperlink{pac5xxx_8h_aecf1334ed01bcde25e1e48157f4b4dc0}{PAC55XX\_GPIOA}}-\/>MODE.P6 = 1;                 \textcolor{comment}{// SS}}
+\DoxyCodeLine{59     \mbox{\hyperlink{pac5xxx_8h_aecf1334ed01bcde25e1e48157f4b4dc0}{PAC55XX\_GPIOA}}-\/>MODE.P4 = 1;                 \textcolor{comment}{// MOSI}}
+\DoxyCodeLine{60     \mbox{\hyperlink{pac5xxx_8h_aecf1334ed01bcde25e1e48157f4b4dc0}{PAC55XX\_GPIOA}}-\/>MODE.P5 = 3;                 \textcolor{comment}{// MISO}}
+\DoxyCodeLine{61 \}}
+
+\end{DoxyCode}
+
+
+References P\+A\+C55\+X\+X\+\_\+\+G\+P\+I\+OA, and P\+A\+C55\+X\+X\+\_\+\+S\+CC.
+
+
+
+Referenced by pac5xxx\+\_\+tile\+\_\+socbridge\+\_\+config().
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___p_a_c5_x_x_x___driver___soc_bridge_ga2a252b04d45691538bd36ab6cf3cf494_icgraph}
+\end{center}
+\end{figure}

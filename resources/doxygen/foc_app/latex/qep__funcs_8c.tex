@@ -1,0 +1,263 @@
+\hypertarget{qep__funcs_8c}{}\doxysection{pac\+\_\+foc/src/mpos/qep/qep\+\_\+funcs.c File Reference}
+\label{qep__funcs_8c}\index{pac\_foc/src/mpos/qep/qep\_funcs.c@{pac\_foc/src/mpos/qep/qep\_funcs.c}}
+{\ttfamily \#include \char`\"{}qep\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}maths.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}parameter\+\_\+process.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}calc\+\_\+speed.\+h\char`\"{}}\newline
+Include dependency graph for qep\+\_\+funcs.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{qep__funcs_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{qep__funcs_8c_a38d34893483b976e7066c2dc33099d91}{qep\+\_\+init}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\item 
+void \mbox{\hyperlink{qep__funcs_8c_a5040f1901fce0a65f5a44d50a9b6ff4d}{qep\+\_\+reset}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\item 
+void \mbox{\hyperlink{qep__funcs_8c_ac5a7bbfd0bf5546d511f2eb5a65250ea}{qep\+\_\+param\+\_\+calc}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\item 
+void \mbox{\hyperlink{qep__funcs_8c_a935c9f07596447bcf43e9ee92d9459ec}{qep\+\_\+param\+\_\+write}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr, \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28}{Parameter\+Code}} param\+\_\+code, int32\+\_\+t rx\+\_\+data)
+\item 
+void \mbox{\hyperlink{qep__funcs_8c_aad93894c7fb9377245bedb3588e7f060}{qep\+\_\+param\+\_\+process}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr, \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28}{Parameter\+Code}} param\+\_\+code, int32\+\_\+t rx\+\_\+data)
+\item 
+void \mbox{\hyperlink{qep__funcs_8c_aa3d250b320a69386fb8941e7feb062df}{qep\+\_\+isr}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{qep__funcs_8c_a38d34893483b976e7066c2dc33099d91}\label{qep__funcs_8c_a38d34893483b976e7066c2dc33099d91}} 
+\index{qep\_funcs.c@{qep\_funcs.c}!qep\_init@{qep\_init}}
+\index{qep\_init@{qep\_init}!qep\_funcs.c@{qep\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{qep\_init()}{qep\_init()}}
+{\footnotesize\ttfamily void qep\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 23 of file qep\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{qep__funcs_8c_aa3d250b320a69386fb8941e7feb062df}\label{qep__funcs_8c_aa3d250b320a69386fb8941e7feb062df}} 
+\index{qep\_funcs.c@{qep\_funcs.c}!qep\_isr@{qep\_isr}}
+\index{qep\_isr@{qep\_isr}!qep\_funcs.c@{qep\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{qep\_isr()}{qep\_isr()}}
+{\footnotesize\ttfamily void qep\+\_\+isr (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 121 of file qep\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{122 \{}
+\DoxyCodeLine{123 \textcolor{preprocessor}{\#if defined(FAMILY\_55XX)}}
+\DoxyCodeLine{124     \textcolor{keyword}{static} \mbox{\hyperlink{struct_struct___motor}{Struct\_Motor}}* motor\_ptr = \&\mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}};}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126     \textcolor{keywordflow}{if} (qep\_check\_index\_event\_interrupt\_flag())}
+\DoxyCodeLine{127     \{}
+\DoxyCodeLine{128         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_aca590c710c6edff60fcf6354b82626e5}{index\_counter}}++;}
+\DoxyCodeLine{129         NVIC\_DisableIRQ(QEP\_TIMER\_IRQn);}
+\DoxyCodeLine{130     \}}
+\DoxyCodeLine{131 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{132 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Q\+E\+P\+::index\+\_\+counter, motor, Struct\+\_\+\+Motor\+::mpos, and Struct\+\_\+\+M\+Pos\+::qep.
+
+
+
+Referenced by Q\+E\+P\+C\+\_\+\+I\+R\+Q\+Handler(), and Q\+E\+P\+D\+\_\+\+I\+R\+Q\+Handler().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=263pt]{qep__funcs_8c_aa3d250b320a69386fb8941e7feb062df_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{qep__funcs_8c_ac5a7bbfd0bf5546d511f2eb5a65250ea}\label{qep__funcs_8c_ac5a7bbfd0bf5546d511f2eb5a65250ea}} 
+\index{qep\_funcs.c@{qep\_funcs.c}!qep\_param\_calc@{qep\_param\_calc}}
+\index{qep\_param\_calc@{qep\_param\_calc}!qep\_funcs.c@{qep\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{qep\_param\_calc()}{qep\_param\_calc()}}
+{\footnotesize\ttfamily void qep\+\_\+param\+\_\+calc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 60 of file qep\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{61 \{}
+\DoxyCodeLine{62     \textcolor{comment}{// Calculate speed filter alpha gain}}
+\DoxyCodeLine{63     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_adb0c3b18bdaa4edecf03a60f82c6f94d}{filter\_alpha\_speed\_q16}} = calc\_filter\_alpha(motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_a75d92adeaa754a2a5ba655f63406a067}{filter\_fc\_speed\_q16}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a26545bb8d0166b9c61068c21c1d49369}{dt\_control\_q26}});}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{comment}{// Calculate speed conversion factors}}
+\DoxyCodeLine{66     \mbox{\hyperlink{calc__speed_8h_af547a0fa7f9d5a2cc0388d74bf2613ba}{calculate\_speed\_coefficients}}(motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a26545bb8d0166b9c61068c21c1d49369}{dt\_control\_q26}}, motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_a9d5bb2491a0253c5706583aeb3218226}{speed\_scale\_shift}}, \&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_a282843cead6c68106c1fde4f39abb226}{kspd\_radps\_q6}}, \&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_a546cdd143d254af63fe7266a59570690}{kspd\_scaled\_q14}});}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{comment}{// Calculate conversion factor from QEP counter to mechanical angle}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#if defined(ENABLE\_QEP\_QUAD\_MODE)}}
+\DoxyCodeLine{70     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_a0f3aa8d55bf92603da5078869a5be13e}{conv\_qep2mech\_q24}} = \mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}((\mbox{\hyperlink{maths_8h_a553eebbef4914d437475e1d36f6e281f}{FIX16\_2PI}} * motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}.\mbox{\hyperlink{struct_struct___m_param_a2692219064418831503873a599929af4}{pole\_pairs}}), (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_a6a9a563e825bf66e9dc127174c8f9f6b}{qep\_resolution}} << (8 + 2)));     \textcolor{comment}{// q24 = div(((q16*q0)=q16), (q0<<8)=q8)=q24}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{72     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_a0f3aa8d55bf92603da5078869a5be13e}{conv\_qep2mech\_q24}} = \mbox{\hyperlink{fix16_8c_abb488a2ab45695bda44d528c75556b99}{fix16\_div}}((\mbox{\hyperlink{maths_8h_a553eebbef4914d437475e1d36f6e281f}{FIX16\_2PI}} * motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}.\mbox{\hyperlink{struct_struct___m_param_a2692219064418831503873a599929af4}{pole\_pairs}}), (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_a6a9a563e825bf66e9dc127174c8f9f6b}{qep\_resolution}} << 8));           \textcolor{comment}{// q24 = div(((q16*q0)=q16), (q0<<8)=q8)=q24}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#if defined(ENABLE\_OLSPEED\_ANGLEDIFF\_TIMEOUT)}}
+\DoxyCodeLine{76     \textcolor{comment}{// Calculate num of electrical cycles required for AngleDiff Timeout in QEP Mechanical Rotation terms}}
+\DoxyCodeLine{77     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}{startup}}.qep\_elec\_angle\_counts\_threshold = motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4e51df8b244223d5ed960ec3814533d4}{mparam}}.\mbox{\hyperlink{struct_struct___m_param_a2692219064418831503873a599929af4}{pole\_pairs}} * NUM\_QEP\_MECH\_ROTATION;}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{79 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Q\+E\+P\+::filter\+\_\+alpha\+\_\+speed\+\_\+q16, Struct\+\_\+\+Motor\+::mpos, and Struct\+\_\+\+M\+Pos\+::qep.
+
+
+
+Referenced by qep\+\_\+param\+\_\+process().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{qep__funcs_8c_ac5a7bbfd0bf5546d511f2eb5a65250ea_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{qep__funcs_8c_aad93894c7fb9377245bedb3588e7f060}\label{qep__funcs_8c_aad93894c7fb9377245bedb3588e7f060}} 
+\index{qep\_funcs.c@{qep\_funcs.c}!qep\_param\_process@{qep\_param\_process}}
+\index{qep\_param\_process@{qep\_param\_process}!qep\_funcs.c@{qep\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{qep\_param\_process()}{qep\_param\_process()}}
+{\footnotesize\ttfamily void qep\+\_\+param\+\_\+process (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr,  }\item[{\mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28}{Parameter\+Code}}}]{param\+\_\+code,  }\item[{int32\+\_\+t}]{rx\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Definition at line 104 of file qep\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{105 \{}
+\DoxyCodeLine{106     \textcolor{keywordflow}{switch}(param\_code)}
+\DoxyCodeLine{107     \{}
+\DoxyCodeLine{108     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28ace72dfc61c6b4eec681c484e0afa7474}{dt}}:}
+\DoxyCodeLine{109     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a0bb19fb5c809b01ca7dd01a557261dfe}{num\_pole\_pairs}}:}
+\DoxyCodeLine{110     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a40af65c50dbe2da755c82a0e2afb3b92}{max\_cl\_speed\_limit}}:}
+\DoxyCodeLine{111     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a3f53f96b0ee383d2920c9a28a9cb1f06}{QEP\_Resolution}}:}
+\DoxyCodeLine{112     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28aabcd44970905380eb414288a85d9e43a}{QEP\_Fc}}:}
+\DoxyCodeLine{113         \mbox{\hyperlink{qep__funcs_8c_ac5a7bbfd0bf5546d511f2eb5a65250ea}{qep\_param\_calc}}(motor\_ptr);}
+\DoxyCodeLine{114         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{115     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{116         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{117     \}}
+\DoxyCodeLine{118 \}}
+
+\end{DoxyCode}
+
+
+References dt, max\+\_\+cl\+\_\+speed\+\_\+limit, num\+\_\+pole\+\_\+pairs, Q\+E\+P\+\_\+\+Fc, qep\+\_\+param\+\_\+calc(), and Q\+E\+P\+\_\+\+Resolution.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=308pt]{qep__funcs_8c_aad93894c7fb9377245bedb3588e7f060_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{qep__funcs_8c_a935c9f07596447bcf43e9ee92d9459ec}\label{qep__funcs_8c_a935c9f07596447bcf43e9ee92d9459ec}} 
+\index{qep\_funcs.c@{qep\_funcs.c}!qep\_param\_write@{qep\_param\_write}}
+\index{qep\_param\_write@{qep\_param\_write}!qep\_funcs.c@{qep\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{qep\_param\_write()}{qep\_param\_write()}}
+{\footnotesize\ttfamily void qep\+\_\+param\+\_\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr,  }\item[{\mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28}{Parameter\+Code}}}]{param\+\_\+code,  }\item[{int32\+\_\+t}]{rx\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Definition at line 82 of file qep\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{83 \{}
+\DoxyCodeLine{84     \textcolor{keywordflow}{switch}(param\_code)}
+\DoxyCodeLine{85     \{}
+\DoxyCodeLine{86     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a3f53f96b0ee383d2920c9a28a9cb1f06}{QEP\_Resolution}}:}
+\DoxyCodeLine{87         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_a6a9a563e825bf66e9dc127174c8f9f6b}{qep\_resolution}} = rx\_data;}
+\DoxyCodeLine{88         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{89     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28af48b38482a7b60b9b0232e4733c7565c}{QEP\_Offset\_Angle\_Fwd}}:}
+\DoxyCodeLine{90         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_af7ce837b0e8e0826dc759e35898699ed}{angcorr\_offset\_fwd}} = rx\_data;}
+\DoxyCodeLine{91         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{92     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a1bf6243e699d5c4def97fadd2bcc1f9b}{QEP\_Offset\_Angle\_Rev}}:}
+\DoxyCodeLine{93         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_ac74e2b6434d95a2a09e9630aa90654b9}{angcorr\_offset\_rev}} = rx\_data;}
+\DoxyCodeLine{94         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{95     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28aabcd44970905380eb414288a85d9e43a}{QEP\_Fc}}:}
+\DoxyCodeLine{96         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_a75d92adeaa754a2a5ba655f63406a067}{filter\_fc\_speed\_q16}} = rx\_data;}
+\DoxyCodeLine{97         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{98     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{99         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{100     \}}
+\DoxyCodeLine{101 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Q\+E\+P\+::angcorr\+\_\+offset\+\_\+fwd, Struct\+\_\+\+Q\+E\+P\+::angcorr\+\_\+offset\+\_\+rev, Struct\+\_\+\+Q\+E\+P\+::filter\+\_\+fc\+\_\+speed\+\_\+q16, Struct\+\_\+\+Motor\+::mpos, Struct\+\_\+\+M\+Pos\+::qep, Q\+E\+P\+\_\+\+Fc, Q\+E\+P\+\_\+\+Offset\+\_\+\+Angle\+\_\+\+Fwd, Q\+E\+P\+\_\+\+Offset\+\_\+\+Angle\+\_\+\+Rev, Struct\+\_\+\+Q\+E\+P\+::qep\+\_\+resolution, and Q\+E\+P\+\_\+\+Resolution.
+
+\mbox{\Hypertarget{qep__funcs_8c_a5040f1901fce0a65f5a44d50a9b6ff4d}\label{qep__funcs_8c_a5040f1901fce0a65f5a44d50a9b6ff4d}} 
+\index{qep\_funcs.c@{qep\_funcs.c}!qep\_reset@{qep\_reset}}
+\index{qep\_reset@{qep\_reset}!qep\_funcs.c@{qep\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{qep\_reset()}{qep\_reset()}}
+{\footnotesize\ttfamily void qep\+\_\+reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 28 of file qep\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \textcolor{comment}{// Status}}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{comment}{// Outputs}}
+\DoxyCodeLine{33     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_a31d111358c42784344e50889a361c8ff}{qep\_spd\_radps}} = 0;}
+\DoxyCodeLine{34     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_a0ad544304d4601ae8c21f74886cd5e45}{qep\_spd\_scaled\_q14}} = 0;}
+\DoxyCodeLine{35     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_a678bf1aa5c0fb48adebe9a8b598c584f}{qep\_spd\_scaled\_q28}} = 0;}
+\DoxyCodeLine{36     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_afb4b0720c10aea8ad60672228d8d2a14}{qep\_spd\_prefilt\_scaled\_q14}} = 0;}
+\DoxyCodeLine{37     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_a3e726a06e3c35a2e853a8dcee2f2e7d6}{qep\_angle}} = 0;}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{comment}{// Running Variables}}
+\DoxyCodeLine{40     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_a39ef1893988b882a3df70b50b94af6e4}{qep\_calculated\_angle}} = 0;}
+\DoxyCodeLine{41     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_a88352f24e97a01ce46bd30ec984cb000}{qep\_previous\_angle}} = 0;}
+\DoxyCodeLine{42     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_a3f9e0fda414ef6ddf18ab30a4311f9fb}{counter\_counts}} = 0;}
+\DoxyCodeLine{43     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_aca590c710c6edff60fcf6354b82626e5}{index\_counter}} = 0;}
+\DoxyCodeLine{44     motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}{startup}}.elec\_angle\_wrap\_around\_counts = 0;}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \textcolor{keywordflow}{if}(motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aba68dde0783a1f0f5b41b2a557c59551}{app}}.\mbox{\hyperlink{struct_struct___app_aa18e2135661f9851385f746bf538fddf}{direction\_reverse\_cmd}} == 0)}
+\DoxyCodeLine{47         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_aeb4e7bd3967e26820ddd6c1c144e23b0}{ptr\_angcorr\_offset}} = \&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_af7ce837b0e8e0826dc759e35898699ed}{angcorr\_offset\_fwd}};}
+\DoxyCodeLine{48     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{49         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_aeb4e7bd3967e26820ddd6c1c144e23b0}{ptr\_angcorr\_offset}} = \&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a7f5daea39f5189fa2f068cec8e3f85e4}{mpos}}.\mbox{\hyperlink{struct_struct___m_pos_ac507fd9263bfbe037bb3977f824ae7da}{qep}}.\mbox{\hyperlink{struct_struct___q_e_p_ac74e2b6434d95a2a09e9630aa90654b9}{angcorr\_offset\_rev}};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{comment}{// Enable QEP timer}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#if defined(FAMILY\_55XX)}}
+\DoxyCodeLine{54     qep\_timer\_enabled();}
+\DoxyCodeLine{55     qep\_index\_event\_clr\_interrupt();}
+\DoxyCodeLine{56     NVIC\_EnableIRQ(QEP\_TIMER\_IRQn);}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{58 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Q\+E\+P\+::angcorr\+\_\+offset\+\_\+fwd, Struct\+\_\+\+Q\+E\+P\+::angcorr\+\_\+offset\+\_\+rev, Struct\+\_\+\+Motor\+::app, Struct\+\_\+\+Q\+E\+P\+::counter\+\_\+counts, Struct\+\_\+\+App\+::direction\+\_\+reverse\+\_\+cmd, Struct\+\_\+\+Q\+E\+P\+::index\+\_\+counter, Struct\+\_\+\+Motor\+::mpos, Struct\+\_\+\+Q\+E\+P\+::ptr\+\_\+angcorr\+\_\+offset, Struct\+\_\+\+M\+Pos\+::qep, Struct\+\_\+\+Q\+E\+P\+::qep\+\_\+angle, Struct\+\_\+\+Q\+E\+P\+::qep\+\_\+calculated\+\_\+angle, Struct\+\_\+\+Q\+E\+P\+::qep\+\_\+previous\+\_\+angle, Struct\+\_\+\+Q\+E\+P\+::qep\+\_\+spd\+\_\+prefilt\+\_\+scaled\+\_\+q14, Struct\+\_\+\+Q\+E\+P\+::qep\+\_\+spd\+\_\+radps, Struct\+\_\+\+Q\+E\+P\+::qep\+\_\+spd\+\_\+scaled\+\_\+q14, Struct\+\_\+\+Q\+E\+P\+::qep\+\_\+spd\+\_\+scaled\+\_\+q28, and Struct\+\_\+\+Motor\+::startup.
+

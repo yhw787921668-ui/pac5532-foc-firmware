@@ -1,0 +1,150 @@
+.TH "PAC5XXX_Driver_System" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC55XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_System \- PAC5XXX System and Clock Controller
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_SYSTEM\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_SYSTEM\fP void \fBpac5xxx_sys_pll_config_enable\fP (uint32_t pllindiv, uint32_t pllfbdiv, uint32_t plloutdiv)"
+.br
+.RI "This function configures and enables the PLL with the given frequency output using CLKREF\&. "
+.ti -1c
+.RI "void \fBpac_recovery\fP (void)"
+.br
+.RI "When PAC_RECOVERY is defined, this function will insert a 3-second delay on startup if PE3 is low\&. "
+.ti -1c
+.RI "void \fBpac_delay_asm\fP (uint32_t counts)"
+.br
+.RI "Implements a delay in assembly\&. "
+.ti -1c
+.RI "\fBPAC5XXX_RAMFUNC\fP void \fBpac_delay_asm_ramfunc\fP (uint32_t counts)"
+.br
+.RI "Implementes a delay executing from SRAM\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_SYSTEM"
+
+.PP
+Definition at line 32 of file pac5xxx_driver_system\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_SYSTEM\fP void pac5xxx_sys_pll_config_enable (uint32_t pllindiv, uint32_t pllfbdiv, uint32_t plloutdiv)"
+
+.PP
+This function configures and enables the PLL with the given frequency output using CLKREF\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIpllindiv\fP PLL input divider 
+.br
+\fIpllfbdiv\fP PLL feedback divider 
+.br
+\fIplloutdiv\fP PLL output divider 
+.RE
+.PP
+\fBNote\fP
+.RS 4
+This function configures and enables the PLL from the internal reference (CLKREF)\&. After the PLL Lock time, the SCLK output is switched from CLKREF to the PLL output\&. 
+.RE
+.PP
+
+.PP
+Definition at line 21 of file pac5xxx_driver_system\&.c\&.
+.PP
+.nf
+22 {
+23     //  Configure PLL control reg and enable PLL
+24     PAC55XX_SCC->CCSPLLCTL\&.PLLEN = 0;
+25     PAC55XX_SCC->CCSPLLCTL\&.PLLFBDIV = pllfbdiv;
+26     PAC55XX_SCC->CCSPLLCTL\&.PLLOUTDIV = plloutdiv;
+27     PAC55XX_SCC->CCSPLLCTL\&.PLLINDIV = pllindiv;
+28     PAC55XX_SCC->CCSPLLCTL\&.PLLEN = 1;
+29     // Wait for Lock
+30     while(PAC55XX_SCC->CCSPLLCTL\&.PLLLOCK == 0);    
+31 }
+.fi
+.PP
+References PAC55XX_SCC\&.
+.PP
+Referenced by init_system()\&.
+.SS "void pac_delay_asm (uint32_t counts)"
+
+.PP
+Implements a delay in assembly\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcounts\fP Number of loop iterations 
+.RE
+.PP
+
+.PP
+Referenced by pac_recovery()\&.
+.SS "\fBPAC5XXX_RAMFUNC\fP void pac_delay_asm_ramfunc (uint32_t counts)"
+
+.PP
+Implementes a delay executing from SRAM\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcounts\fP Number of loop iterations 
+.RE
+.PP
+
+.SS "void pac_recovery (void)"
+
+.PP
+When PAC_RECOVERY is defined, this function will insert a 3-second delay on startup if PE3 is low\&. 
+.PP
+Definition at line 48 of file pac5xxx_driver_system\&.c\&.
+.PP
+.nf
+49 {
+50     volatile uint32_t i;
+51     uint32_t perform_delay = 1;
+52 
+53     // PE3 is already an input, just need to Enable Pull Up
+54     PAC55XX_SCC->PEPUEN\&.P3 = 1;                         // Enable Pull Up
+55 
+56     // If PE3 is high a delay is not needed
+57     // Must check over the length of a full UART packet at 115kbps in case UART is talking and making PE3 low for short durations
+58     for (i=0; i < 40; i++)  // Value of 40 = at least 145 uS, which is enough for 1 UART packet (78uS)
+59     {
+60         // If PE3 is high at any time, then a delay is not needed
+61         if (PAC55XX_GPIOE->IN\&.P3 == 1)
+62         {
+63             perform_delay = 0;
+64         }
+65     }
+66 
+67     // If PE3 was low, delay required, add 6 second delay
+68     if(perform_delay)
+69     {
+70         pac_delay_asm(2800000);
+71     }
+72 
+73     // Restore PE3 to reset state
+74     PAC55XX_SCC->PEPUEN\&.P3 = 0;                         // Disable Pull Up
+75 }
+.fi
+.PP
+References PAC55XX_GPIOE, PAC55XX_SCC, and pac_delay_asm()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC55XX from the source code\&.

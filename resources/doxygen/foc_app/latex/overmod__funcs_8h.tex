@@ -1,0 +1,71 @@
+\hypertarget{overmod__funcs_8h}{}\doxysection{pac\+\_\+foc/src/control/overmod\+\_\+funcs.h File Reference}
+\label{overmod__funcs_8h}\index{pac\_foc/src/control/overmod\_funcs.h@{pac\_foc/src/control/overmod\_funcs.h}}
+
+
+Use for F\+OC over modulation function.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+Include dependency graph for overmod\+\_\+funcs.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{overmod__funcs_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{overmod__funcs_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{overmod__funcs_8h_a973bd866fea1b335a077cb37d236ffef}{check\+\_\+overmod\+\_\+status}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em check\+\_\+overmod\+\_\+status, use to check over modulation flag status \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for F\+OC over modulation function. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{overmod__funcs_8h_a973bd866fea1b335a077cb37d236ffef}\label{overmod__funcs_8h_a973bd866fea1b335a077cb37d236ffef}} 
+\index{overmod\_funcs.h@{overmod\_funcs.h}!check\_overmod\_status@{check\_overmod\_status}}
+\index{check\_overmod\_status@{check\_overmod\_status}!overmod\_funcs.h@{overmod\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{check\_overmod\_status()}{check\_overmod\_status()}}
+{\footnotesize\ttfamily void check\+\_\+overmod\+\_\+status (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+check\+\_\+overmod\+\_\+status, use to check over modulation flag status 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr motor pointer to F\+OC structure \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 24 of file overmod\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26     \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ac8fbdcab49dd4f58bd6da78ceb06a953}{overmod}}.\mbox{\hyperlink{struct_struct___overmod_af3b4be8cba02ba0ca5b662aa9086f2fe}{overmod\_flag}} == 1)}
+\DoxyCodeLine{27     \{}
+\DoxyCodeLine{28         set\_status(\mbox{\hyperlink{status__struct_8h_a6407485be68fd07aff7ecdae720e1528af5a5fd64f3286ed47da6dddd60a399f2}{STATUS\_MOTOR\_OVERMOD}});}
+\DoxyCodeLine{29         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_ac8fbdcab49dd4f58bd6da78ceb06a953}{overmod}}.\mbox{\hyperlink{struct_struct___overmod_af3b4be8cba02ba0ca5b662aa9086f2fe}{overmod\_flag}} = 0;}
+\DoxyCodeLine{30     \}}
+\DoxyCodeLine{31 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::overmod, and Struct\+\_\+\+Overmod\+::overmod\+\_\+flag.
+

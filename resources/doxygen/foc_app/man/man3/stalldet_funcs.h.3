@@ -1,0 +1,153 @@
+.TH "pac_foc/src/features/stalldet/stalldet_funcs.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/features/stalldet/stalldet_funcs.h \- Use for stall detect utility functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'stalldet\&.h'\fP
+.br
+\fC#include 'motor_struct\&.h'\fP
+.br
+\fC#include 'parameter_process\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBstall_detect_filter\fP (\fBStruct_StallDet\fP *stall_ptr, \fBfix16_t\fP outerloop_ramp, \fBfix16_t\fP outerloop_fdbk)"
+.br
+.RI "Use for stall detector filter\&. "
+.ti -1c
+.RI "void \fBstall_detect_process\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Use for stall detection processing\&. "
+.ti -1c
+.RI "void \fBstall_detect_calculate_stall_sample_time\fP (\fBStruct_Motor\fP *motor_ptr, int32_t sample_window_freq_radps_q16)"
+.br
+.RI "Use to calculate stall detection sample time\&. "
+.ti -1c
+.RI "void \fBstalldet_reset\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Use to reset stall detect variables\&. "
+.ti -1c
+.RI "void \fBstalldet_calc_filter_alpha\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Use to stall detect filter parameters\&. "
+.ti -1c
+.RI "void \fBstalldet_param_write\fP (\fBStruct_Motor\fP *motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+.br
+.RI "Use to write stall detect parameters\&. "
+.ti -1c
+.RI "void \fBstalldet_param_process\fP (\fBStruct_Motor\fP *motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+.br
+.RI "Use to process stall detect parameters\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for stall detect utility functions\&. 
+
+
+.PP
+Definition in file \fBstalldet_funcs\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void stall_detect_calculate_stall_sample_time (\fBStruct_Motor\fP * motor_ptr, int32_t sample_window_freq_radps_q16)"
+
+.PP
+Use to calculate stall detection sample time\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.br
+\fIint32_t\fP sample_window_freq_radps_q16 
+.RE
+.PP
+
+.SS "void stall_detect_filter (\fBStruct_StallDet\fP * stall_ptr, \fBfix16_t\fP outerloop_ramp, \fBfix16_t\fP outerloop_fdbk)"
+
+.PP
+Use for stall detector filter\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.br
+\fIfix16_t\fP outerloop_ramp 
+.br
+\fIfix16_t\fP outerloop_fdbk 
+.RE
+.PP
+
+.SS "void stall_detect_process (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Use for stall detection processing\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.RE
+.PP
+
+.SS "void stalldet_calc_filter_alpha (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Use to stall detect filter parameters\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.RE
+.PP
+
+.SS "void stalldet_param_process (\fBStruct_Motor\fP * motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+
+.PP
+Use to process stall detect parameters\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.br
+\fIParameterCode\fP param_code 
+.br
+\fIint32_t\fP rx_data 
+.RE
+.PP
+
+.SS "void stalldet_param_write (\fBStruct_Motor\fP * motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+
+.PP
+Use to write stall detect parameters\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.br
+\fIParameterCode\fP param_code 
+.br
+\fIint32_t\fP rx_data 
+.RE
+.PP
+
+.SS "void stalldet_reset (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Use to reset stall detect variables\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.RE
+.PP
+
+.PP
+Referenced by motor_reset()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

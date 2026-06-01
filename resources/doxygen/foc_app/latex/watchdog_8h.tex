@@ -1,0 +1,87 @@
+\hypertarget{watchdog_8h}{}\doxysection{pac\+\_\+foc/src/features/watchdog.h File Reference}
+\label{watchdog_8h}\index{pac\_foc/src/features/watchdog.h@{pac\_foc/src/features/watchdog.h}}
+
+
+Use to initialize watchdog timer.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+Include dependency graph for watchdog.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{watchdog_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{watchdog_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{watchdog_8h_a290a41e938f547ab6c25190111a72c5d}{W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ}}~2
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{watchdog_8h_a788ade1632e3717b25b4103304e60db6}{init\+\_\+\+Watchdog\+\_\+time\+\_\+base}} (void)
+\begin{DoxyCompactList}\small\item\em Use to initialize watchdog timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use to initialize watchdog timer. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{watchdog_8h_a290a41e938f547ab6c25190111a72c5d}\label{watchdog_8h_a290a41e938f547ab6c25190111a72c5d}} 
+\index{watchdog.h@{watchdog.h}!WATCHDOG\_FREQ\_HZ@{WATCHDOG\_FREQ\_HZ}}
+\index{WATCHDOG\_FREQ\_HZ@{WATCHDOG\_FREQ\_HZ}!watchdog.h@{watchdog.h}}
+\doxysubsubsection{\texorpdfstring{WATCHDOG\_FREQ\_HZ}{WATCHDOG\_FREQ\_HZ}}
+{\footnotesize\ttfamily \#define W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ~2}
+
+
+
+Definition at line 25 of file watchdog.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{watchdog_8h_a788ade1632e3717b25b4103304e60db6}\label{watchdog_8h_a788ade1632e3717b25b4103304e60db6}} 
+\index{watchdog.h@{watchdog.h}!init\_Watchdog\_time\_base@{init\_Watchdog\_time\_base}}
+\index{init\_Watchdog\_time\_base@{init\_Watchdog\_time\_base}!watchdog.h@{watchdog.h}}
+\doxysubsubsection{\texorpdfstring{init\_Watchdog\_time\_base()}{init\_Watchdog\_time\_base()}}
+{\footnotesize\ttfamily void init\+\_\+\+Watchdog\+\_\+time\+\_\+base (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Use to initialize watchdog timer. 
+
+
+
+Definition at line 32 of file watchdog.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33 \{}
+\DoxyCodeLine{34    \textcolor{comment}{// FRCLK, 4MHz, clock divider of 2}}
+\DoxyCodeLine{35     pac5xxx\_watchdog\_config\_clock(WDTCTL\_CLKSEL\_FRCLK, WDTCTL\_PS\_DIV2);}
+\DoxyCodeLine{36     \textcolor{comment}{// Enable WDT -\/ When the WDT Interrupt is not enabled, a single count down to 0 will trigger a reset}}
+\DoxyCodeLine{37     pac5xxx\_watchdog\_config(\mbox{\hyperlink{watchdog_8c_a72751e98f56fdf83d77627058c6f6470}{WATCHDOG\_INTERRUPT\_DISABLED}},        \textcolor{comment}{// No Interrupt}}
+\DoxyCodeLine{38                             \mbox{\hyperlink{watchdog_8c_affb44c1757704c8a993765a9d5631818}{WATCHDOG\_POWER\_ON\_RESET\_ENABLE}},     \textcolor{comment}{// POR Enable}}
+\DoxyCodeLine{39                            \textcolor{comment}{// WDT Counter = FRCLK Freq / WDT Clock Divisor / Test Freq * 1.5 for 50\% margin}}
+\DoxyCodeLine{40                            ( (uint32\_t)(\mbox{\hyperlink{watchdog_8c_a78a552e2a45e3790861dc34a6b667a73}{WATCHDOG\_CLK\_FREQ\_SELECTED}} / \mbox{\hyperlink{watchdog_8c_a0d243a025a924159a9d5542f53d0cc29}{WATCHDOG\_DEFAULT\_FREQ\_DIVIDER}} / \mbox{\hyperlink{watchdog_8h_a290a41e938f547ab6c25190111a72c5d}{WATCHDOG\_FREQ\_HZ}}) ) );}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \}}
+
+\end{DoxyCode}
+
+
+References W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+C\+L\+K\+\_\+\+F\+R\+E\+Q\+\_\+\+S\+E\+L\+E\+C\+T\+ED, W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+F\+R\+E\+Q\+\_\+\+D\+I\+V\+I\+D\+ER, W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+F\+R\+E\+Q\+\_\+\+HZ, W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+I\+N\+T\+E\+R\+R\+U\+P\+T\+\_\+\+D\+I\+S\+A\+B\+L\+ED, and W\+A\+T\+C\+H\+D\+O\+G\+\_\+\+P\+O\+W\+E\+R\+\_\+\+O\+N\+\_\+\+R\+E\+S\+E\+T\+\_\+\+E\+N\+A\+B\+LE.
+

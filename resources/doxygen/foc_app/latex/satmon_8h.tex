@@ -1,0 +1,102 @@
+\hypertarget{satmon_8h}{}\doxysection{pac\+\_\+foc/src/features/satmon.h File Reference}
+\label{satmon_8h}\index{pac\_foc/src/features/satmon.h@{pac\_foc/src/features/satmon.h}}
+
+
+Use for P\+W\+M\+\_\+\+S\+A\+T\+U\+R\+A\+T\+ED check.  
+
+
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+Include dependency graph for satmon.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satmon_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{satmon_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{satmon_8h_af25fd63699dec9acf516565749bb5a1a}{check\+\_\+pwm\+\_\+sat}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Use to check is P\+WM saturated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for P\+W\+M\+\_\+\+S\+A\+T\+U\+R\+A\+T\+ED check. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{satmon_8h_af25fd63699dec9acf516565749bb5a1a}\label{satmon_8h_af25fd63699dec9acf516565749bb5a1a}} 
+\index{satmon.h@{satmon.h}!check\_pwm\_sat@{check\_pwm\_sat}}
+\index{check\_pwm\_sat@{check\_pwm\_sat}!satmon.h@{satmon.h}}
+\doxysubsubsection{\texorpdfstring{check\_pwm\_sat()}{check\_pwm\_sat()}}
+{\footnotesize\ttfamily void check\+\_\+pwm\+\_\+sat (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Use to check is P\+WM saturated. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 22 of file satmon.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{25     \textcolor{comment}{// Handle Logic AND case}}
+\DoxyCodeLine{27 \textcolor{comment}{}\textcolor{preprocessor}{\#if 0}}
+\DoxyCodeLine{28     \textcolor{comment}{// If saturated}}
+\DoxyCodeLine{29     \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a1711c16abe7e41ccf1fbe8958efe2e2d}{flag\_sat\_logicand}} == 1)}
+\DoxyCodeLine{30     \{}
+\DoxyCodeLine{31         \mbox{\hyperlink{fault_8c_a8ea8474835dbcb70ebc28b77e48207fc}{set\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af0728948480b841aa4248617c9ac2058}{WARNING\_PWM\_SATURATED}});}
+\DoxyCodeLine{32     \}}
+\DoxyCodeLine{33     \textcolor{comment}{// If not saturated}}
+\DoxyCodeLine{34     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36         \mbox{\hyperlink{fault_8c_a39db699740c3dffa0b3f76f14cb26e33}{clear\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af0728948480b841aa4248617c9ac2058}{WARNING\_PWM\_SATURATED}});}
+\DoxyCodeLine{37         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a1711c16abe7e41ccf1fbe8958efe2e2d}{flag\_sat\_logicand}} = 1;}
+\DoxyCodeLine{38     \}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{42     \textcolor{comment}{// Handle Logic OR case}}
+\DoxyCodeLine{44 \textcolor{comment}{}    \textcolor{comment}{// If saturated}}
+\DoxyCodeLine{45     \textcolor{keywordflow}{if} (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a6fc42bfc16c122a7effc29133919cf61}{flag\_sat\_logicor}} == 1)}
+\DoxyCodeLine{46     \{}
+\DoxyCodeLine{47         \mbox{\hyperlink{fault_8c_a8ea8474835dbcb70ebc28b77e48207fc}{set\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af0728948480b841aa4248617c9ac2058}{WARNING\_PWM\_SATURATED}});}
+\DoxyCodeLine{48         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_aa293ef6fdb477b83b7a36041b1158414}{foc}}.\mbox{\hyperlink{struct_struct___f_o_c_a6fc42bfc16c122a7effc29133919cf61}{flag\_sat\_logicor}} = 0;}
+\DoxyCodeLine{49     \}}
+\DoxyCodeLine{50     \textcolor{comment}{// If not saturated}}
+\DoxyCodeLine{51     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{52     \{}
+\DoxyCodeLine{53         \mbox{\hyperlink{fault_8c_a39db699740c3dffa0b3f76f14cb26e33}{clear\_warning}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8af0728948480b841aa4248617c9ac2058}{WARNING\_PWM\_SATURATED}});}
+\DoxyCodeLine{54     \}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \}}
+
+\end{DoxyCode}
+
+
+References clear\+\_\+warning(), Struct\+\_\+\+F\+O\+C\+::flag\+\_\+sat\+\_\+logicand, Struct\+\_\+\+F\+O\+C\+::flag\+\_\+sat\+\_\+logicor, Struct\+\_\+\+Motor\+::foc, set\+\_\+warning(), and W\+A\+R\+N\+I\+N\+G\+\_\+\+P\+W\+M\+\_\+\+S\+A\+T\+U\+R\+A\+T\+ED.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{satmon_8h_af25fd63699dec9acf516565749bb5a1a_cgraph}
+\end{center}
+\end{figure}

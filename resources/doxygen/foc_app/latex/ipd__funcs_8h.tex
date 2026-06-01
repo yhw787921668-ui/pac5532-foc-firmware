@@ -1,0 +1,249 @@
+\hypertarget{ipd__funcs_8h}{}\doxysection{pac\+\_\+foc/src/features/ipd/ipd\+\_\+funcs.h File Reference}
+\label{ipd__funcs_8h}\index{pac\_foc/src/features/ipd/ipd\_funcs.h@{pac\_foc/src/features/ipd/ipd\_funcs.h}}
+
+
+Use for ipd related utility functions.  
+
+
+{\ttfamily \#include \char`\"{}ipd.\+h\char`\"{}}\newline
+Include dependency graph for ipd\+\_\+funcs.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{ipd__funcs_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{ipd__funcs_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{ipd__funcs_8h_ae0defa91046ff840e27f138b050ca805}{ipd\+\_\+save\+\_\+and\+\_\+init\+\_\+config\+\_\+for\+\_\+ipd\+\_\+mode}} (void $\ast$v\+\_\+motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Use to save and init config for ipd mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ipd__funcs_8h_a357e89e3fa6792ff3bd3eb35ce4156ef}{ipd\+\_\+restore\+\_\+config\+\_\+for\+\_\+non\+\_\+ipd\+\_\+mode}} (void $\ast$v\+\_\+motor\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Use to restore config for non ipd mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ipd__funcs_8h_a8ab41f1554f97c017d46b2b20c670a44}{ipd\+\_\+m1\+\_\+u\+\_\+set\+\_\+duty}} (uint16\+\_\+t duty)
+\begin{DoxyCompactList}\small\item\em Use to set u duty cycle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ipd__funcs_8h_a8f4f6487e046018fad22fdfad6f0dae7}{ipd\+\_\+m1\+\_\+v\+\_\+set\+\_\+duty}} (uint16\+\_\+t duty)
+\begin{DoxyCompactList}\small\item\em Use to set v duty cycle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ipd__funcs_8h_a06fe647a8eca64c54fb55dfe4236a73b}{ipd\+\_\+m1\+\_\+w\+\_\+set\+\_\+duty}} (uint16\+\_\+t duty)
+\begin{DoxyCompactList}\small\item\em Use to set w duty cycle. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ipd__funcs_8h_a0160194b392ccf1b511ef51e9e93d2ab}{ipd\+\_\+read\+\_\+phase\+\_\+currents}} (\mbox{\hyperlink{struct_struct___i_p_d}{Struct\+\_\+\+I\+PD}} $\ast$ipd\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Use to read motor phase curents. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ipd__funcs_8h_a10ba7cf41c75b6dbe42701fd36065f5a}{config\+\_\+seq\+\_\+ipd}} (uint32\+\_\+t sequencer\+\_\+trigger\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Use to set ipd sequence configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ipd__funcs_8h_a4338ee633e47902e973b58bb60055210}{ipd\+\_\+empty\+\_\+function}} (void $\ast$m\+\_\+ptr)
+\begin{DoxyCompactList}\small\item\em Use to as ipd empty function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{ipd__funcs_8h_ab4f99b80dbbb98ddfb68ba4af053c278}{m1\+\_\+enable\+\_\+with\+\_\+duty}} (uint32\+\_\+t duty)
+\begin{DoxyCompactList}\small\item\em Use to enable motor with duty cycle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for ipd related utility functions. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ipd__funcs_8h_a10ba7cf41c75b6dbe42701fd36065f5a}\label{ipd__funcs_8h_a10ba7cf41c75b6dbe42701fd36065f5a}} 
+\index{ipd\_funcs.h@{ipd\_funcs.h}!config\_seq\_ipd@{config\_seq\_ipd}}
+\index{config\_seq\_ipd@{config\_seq\_ipd}!ipd\_funcs.h@{ipd\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{config\_seq\_ipd()}{config\_seq\_ipd()}}
+{\footnotesize\ttfamily void config\+\_\+seq\+\_\+ipd (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{sequencer\+\_\+trigger\+\_\+value }\end{DoxyParamCaption})}
+
+
+
+Use to set ipd sequence configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint32\+\_\+t} & sequencer\+\_\+trigger\+\_\+value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ipd__funcs_8h_a4338ee633e47902e973b58bb60055210}\label{ipd__funcs_8h_a4338ee633e47902e973b58bb60055210}} 
+\index{ipd\_funcs.h@{ipd\_funcs.h}!ipd\_empty\_function@{ipd\_empty\_function}}
+\index{ipd\_empty\_function@{ipd\_empty\_function}!ipd\_funcs.h@{ipd\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{ipd\_empty\_function()}{ipd\_empty\_function()}}
+{\footnotesize\ttfamily void ipd\+\_\+empty\+\_\+function (\begin{DoxyParamCaption}\item[{void $\ast$}]{m\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Use to as ipd empty function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & $\ast$m\+\_\+ptr void motor pointer \\
+\hline
+\end{DoxyParams}
+
+
+Referenced by sm\+\_\+mainsub\+\_\+prestart().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=327pt]{ipd__funcs_8h_a4338ee633e47902e973b58bb60055210_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{ipd__funcs_8h_a8ab41f1554f97c017d46b2b20c670a44}\label{ipd__funcs_8h_a8ab41f1554f97c017d46b2b20c670a44}} 
+\index{ipd\_funcs.h@{ipd\_funcs.h}!ipd\_m1\_u\_set\_duty@{ipd\_m1\_u\_set\_duty}}
+\index{ipd\_m1\_u\_set\_duty@{ipd\_m1\_u\_set\_duty}!ipd\_funcs.h@{ipd\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{ipd\_m1\_u\_set\_duty()}{ipd\_m1\_u\_set\_duty()}}
+{\footnotesize\ttfamily void ipd\+\_\+m1\+\_\+u\+\_\+set\+\_\+duty (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{duty }\end{DoxyParamCaption})}
+
+
+
+Use to set u duty cycle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint16\+\_\+t} & duty \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ipd__funcs_8h_a8f4f6487e046018fad22fdfad6f0dae7}\label{ipd__funcs_8h_a8f4f6487e046018fad22fdfad6f0dae7}} 
+\index{ipd\_funcs.h@{ipd\_funcs.h}!ipd\_m1\_v\_set\_duty@{ipd\_m1\_v\_set\_duty}}
+\index{ipd\_m1\_v\_set\_duty@{ipd\_m1\_v\_set\_duty}!ipd\_funcs.h@{ipd\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{ipd\_m1\_v\_set\_duty()}{ipd\_m1\_v\_set\_duty()}}
+{\footnotesize\ttfamily void ipd\+\_\+m1\+\_\+v\+\_\+set\+\_\+duty (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{duty }\end{DoxyParamCaption})}
+
+
+
+Use to set v duty cycle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint16\+\_\+t} & duty \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ipd__funcs_8h_a06fe647a8eca64c54fb55dfe4236a73b}\label{ipd__funcs_8h_a06fe647a8eca64c54fb55dfe4236a73b}} 
+\index{ipd\_funcs.h@{ipd\_funcs.h}!ipd\_m1\_w\_set\_duty@{ipd\_m1\_w\_set\_duty}}
+\index{ipd\_m1\_w\_set\_duty@{ipd\_m1\_w\_set\_duty}!ipd\_funcs.h@{ipd\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{ipd\_m1\_w\_set\_duty()}{ipd\_m1\_w\_set\_duty()}}
+{\footnotesize\ttfamily void ipd\+\_\+m1\+\_\+w\+\_\+set\+\_\+duty (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{duty }\end{DoxyParamCaption})}
+
+
+
+Use to set w duty cycle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint16\+\_\+t} & duty \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ipd__funcs_8h_a0160194b392ccf1b511ef51e9e93d2ab}\label{ipd__funcs_8h_a0160194b392ccf1b511ef51e9e93d2ab}} 
+\index{ipd\_funcs.h@{ipd\_funcs.h}!ipd\_read\_phase\_currents@{ipd\_read\_phase\_currents}}
+\index{ipd\_read\_phase\_currents@{ipd\_read\_phase\_currents}!ipd\_funcs.h@{ipd\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{ipd\_read\_phase\_currents()}{ipd\_read\_phase\_currents()}}
+{\footnotesize\ttfamily void ipd\+\_\+read\+\_\+phase\+\_\+currents (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___i_p_d}{Struct\+\_\+\+I\+PD}} $\ast$}]{ipd\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Use to read motor phase curents. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{struct_struct___i_p_d}{Struct\+\_\+\+I\+PD}}} & $\ast$ipd\+\_\+ptr \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ipd__funcs_8h_a357e89e3fa6792ff3bd3eb35ce4156ef}\label{ipd__funcs_8h_a357e89e3fa6792ff3bd3eb35ce4156ef}} 
+\index{ipd\_funcs.h@{ipd\_funcs.h}!ipd\_restore\_config\_for\_non\_ipd\_mode@{ipd\_restore\_config\_for\_non\_ipd\_mode}}
+\index{ipd\_restore\_config\_for\_non\_ipd\_mode@{ipd\_restore\_config\_for\_non\_ipd\_mode}!ipd\_funcs.h@{ipd\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{ipd\_restore\_config\_for\_non\_ipd\_mode()}{ipd\_restore\_config\_for\_non\_ipd\_mode()}}
+{\footnotesize\ttfamily void ipd\+\_\+restore\+\_\+config\+\_\+for\+\_\+non\+\_\+ipd\+\_\+mode (\begin{DoxyParamCaption}\item[{void $\ast$}]{v\+\_\+motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Use to restore config for non ipd mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & $\ast$v\+\_\+motor\+\_\+ptr void motor pointer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ipd__funcs_8h_ae0defa91046ff840e27f138b050ca805}\label{ipd__funcs_8h_ae0defa91046ff840e27f138b050ca805}} 
+\index{ipd\_funcs.h@{ipd\_funcs.h}!ipd\_save\_and\_init\_config\_for\_ipd\_mode@{ipd\_save\_and\_init\_config\_for\_ipd\_mode}}
+\index{ipd\_save\_and\_init\_config\_for\_ipd\_mode@{ipd\_save\_and\_init\_config\_for\_ipd\_mode}!ipd\_funcs.h@{ipd\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{ipd\_save\_and\_init\_config\_for\_ipd\_mode()}{ipd\_save\_and\_init\_config\_for\_ipd\_mode()}}
+{\footnotesize\ttfamily void ipd\+\_\+save\+\_\+and\+\_\+init\+\_\+config\+\_\+for\+\_\+ipd\+\_\+mode (\begin{DoxyParamCaption}\item[{void $\ast$}]{v\+\_\+motor\+\_\+ptr }\end{DoxyParamCaption})}
+
+
+
+Use to save and init config for ipd mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & $\ast$v\+\_\+motor\+\_\+ptr void motor pointer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ipd__funcs_8h_ab4f99b80dbbb98ddfb68ba4af053c278}\label{ipd__funcs_8h_ab4f99b80dbbb98ddfb68ba4af053c278}} 
+\index{ipd\_funcs.h@{ipd\_funcs.h}!m1\_enable\_with\_duty@{m1\_enable\_with\_duty}}
+\index{m1\_enable\_with\_duty@{m1\_enable\_with\_duty}!ipd\_funcs.h@{ipd\_funcs.h}}
+\doxysubsubsection{\texorpdfstring{m1\_enable\_with\_duty()}{m1\_enable\_with\_duty()}}
+{\footnotesize\ttfamily void m1\+\_\+enable\+\_\+with\+\_\+duty (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{duty\+\_\+cycle }\end{DoxyParamCaption})}
+
+
+
+Use to enable motor with duty cycle. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint32\+\_\+t} & duty\\
+\hline
+\end{DoxyParams}
+Use to enable motor with duty cycle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em duty\+\_\+cycle} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 40 of file driver\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41 \{}
+\DoxyCodeLine{42     \textcolor{comment}{// Set duty cycles to 50\%}}
+\DoxyCodeLine{43     m1\_u\_set\_duty(duty\_cycle);}
+\DoxyCodeLine{44     m1\_v\_set\_duty(duty\_cycle);}
+\DoxyCodeLine{45     m1\_w\_set\_duty(duty\_cycle);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{comment}{// Select PWM peripheral for Driver Port}}
+\DoxyCodeLine{48     motor\_psel\_pwm();}
+\DoxyCodeLine{49     }
+\DoxyCodeLine{50    \textcolor{comment}{// Select GPIO mode for Driver Port}}
+\DoxyCodeLine{51     motor\_modesel\_gpio();}
+\DoxyCodeLine{52     }
+\DoxyCodeLine{53     \textcolor{comment}{// Turn on output enables}}
+\DoxyCodeLine{54     motor\_outen\_enable();}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{comment}{// Enable driver manager and verify active -\/ need to enable even in PAC5210 to get ENHS pin to work}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#ifdef CAFE\_ARCH3}}
+\DoxyCodeLine{58     pac5xxx\_tile\_register\_write(ADDR\_ENDRV, 1 | (1 << 1));}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{60       pac5xxx\_tile\_register\_write(ADDR\_ENDRV, 1);   }
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{62 \}}
+
+\end{DoxyCode}
+
+
+Referenced by m1\+\_\+enable().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=290pt]{ipd__funcs_8h_ab4f99b80dbbb98ddfb68ba4af053c278_icgraph}
+\end{center}
+\end{figure}

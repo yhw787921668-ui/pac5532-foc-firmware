@@ -1,0 +1,292 @@
+.TH "pac_foc/src/mpos/estimator/lbg1_funcs.c" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/mpos/estimator/lbg1_funcs.c \- Estimator utility functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'config_app\&.h'\fP
+.br
+\fC#include 'lbg1_funcs\&.h'\fP
+.br
+\fC#include 'fault\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBlbg1_process_voltage_scale\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Use for scaling estimator gs and kpe variables\&. "
+.ti -1c
+.RI "void \fBlbg1_calculate_coefficients\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Use for scaling estimator gs and kpe variables\&. "
+.ti -1c
+.RI "void \fBlbg1_reset\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Use to initialize and reset estimator variables\&. "
+.ti -1c
+.RI "void \fBlbg1_statemon\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Use for estimator variable ramps and ialpha, valpha calculation\&. "
+.ti -1c
+.RI "void \fBlbg1_param_write\fP (\fBStruct_Motor\fP *motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+.br
+.RI "Use for writing estimator parameters\&. "
+.ti -1c
+.RI "void \fBlbg1_param_process\fP (\fBStruct_Motor\fP *motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+.br
+.RI "Use for calculating estimator coefficients\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Estimator utility functions\&. 
+
+
+.PP
+Definition in file \fBlbg1_funcs\&.c\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void lbg1_calculate_coefficients (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Use for scaling estimator gs and kpe variables\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file lbg1_funcs\&.c\&.
+.PP
+.nf
+42 {
+43     lbg1_calculate_coefficients_lib(&motor_ptr->mpos\&.est, motor_ptr->control\&.dt_control_q26, motor_ptr->app\&.descale_current_factor, motor_ptr->mparam\&.rs_q16,
+44             motor_ptr->mparam\&.lq_q26, motor_ptr->app\&.speed_scale_shift, LBG_GAIN_SCALER_Q06, motor_ptr->mparam\&.nom_spd_q16);
+45 
+46     // Set flag to indicate calculation is complete so that GUI can read it automatically
+47     set_status(FLAG_MPOS_UPDATE_CALC);
+48 
+49     // Set or clear warning for high estimator bandwidth
+50     if (motor_ptr->mpos\&.est\&.flag_estbw_high)
+51         set_warning(WARNING_ESTBW_HIGH);
+52     else
+53         clear_warning(WARNING_ESTBW_HIGH);
+54 }
+.fi
+.PP
+References Struct_Motor::app, Struct_Motor::control, Struct_App::descale_current_factor, Struct_Control::dt_control_q26, Struct_MPos::est, lbg1_calculate_coefficients_lib(), LBG_GAIN_SCALER_Q06, Struct_MParam::lq_q26, Struct_Motor::mparam, Struct_Motor::mpos, Struct_MParam::nom_spd_q16, Struct_MParam::rs_q16, and Struct_App::speed_scale_shift\&.
+.PP
+Referenced by lbg1_param_process()\&.
+.SS "void lbg1_param_process (\fBStruct_Motor\fP * motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+
+.PP
+Use for calculating estimator coefficients\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.br
+\fIParameterCode\fP param_code 
+.br
+\fIint32_t\fP rx_data 
+.RE
+.PP
+
+.PP
+Definition at line 168 of file lbg1_funcs\&.c\&.
+.PP
+.nf
+169 {
+170     // Parameter cases that require recalculation of estimator coefficients
+171     switch(param_code)
+172     {
+173     case dt:
+174     case diff_amp_gain:
+175     case Lq:
+176     case Ralpha:
+177     case NominalSpeed:
+178     case LBG1_BandWidth:
+179     case LBG1_DampingFactor:
+180     case LBG1_fc_speed:
+181         lbg1_calculate_coefficients(motor_ptr);
+182         break;
+183     default:
+184         break;
+185     }
+186 }
+.fi
+.PP
+References diff_amp_gain, dt, LBG1_BandWidth, lbg1_calculate_coefficients(), LBG1_DampingFactor, LBG1_fc_speed, Lq, NominalSpeed, and Ralpha\&.
+.SS "void lbg1_param_write (\fBStruct_Motor\fP * motor_ptr, \fBParameterCode\fP param_code, int32_t rx_data)"
+
+.PP
+Use for writing estimator parameters\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.br
+\fIParameterCode\fP param_code 
+.br
+\fIint32_t\fP rx_data 
+.RE
+.PP
+
+.PP
+Definition at line 134 of file lbg1_funcs\&.c\&.
+.PP
+.nf
+135 {
+136     // Parameter process handler
+137     switch(param_code)
+138     {
+139     case LBG1_BandWidth:
+140         motor_ptr->mpos\&.est\&.w0_q06 = rx_data >> 10;
+141         motor_ptr->mpos\&.est\&.w0_target_q06 = motor_ptr->mpos\&.est\&.w0_q06;
+142         break;
+143     case LBG1_DampingFactor:
+144         motor_ptr->mpos\&.est\&.dampfactor_q16 = rx_data;
+145         break;
+146     case LBG1_fc_speed:
+147         motor_ptr->mpos\&.est\&.filter_fc_speed_q16 = rx_data;
+148         break;
+149     case angle_correction_offset:
+150         motor_ptr->mpos\&.est\&.angcorr_offset = rx_data;
+151         break;
+152     case angle_correction_factor:
+153         // Value sent by GUI in Q20 format
+154         motor_ptr->mpos\&.est\&.angcorr_gain_q20 = rx_data;
+155         break;
+156     default:
+157         break;
+158     }
+159 }
+.fi
+.PP
+References Struct_Est::angcorr_gain_q20, Struct_Est::angcorr_offset, angle_correction_factor, angle_correction_offset, Struct_Est::dampfactor_q16, Struct_MPos::est, Struct_Est::filter_fc_speed_q16, LBG1_BandWidth, LBG1_DampingFactor, LBG1_fc_speed, Struct_Motor::mpos, Struct_Est::w0_q06, and Struct_Est::w0_target_q06\&.
+.SS "void lbg1_process_voltage_scale (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Use for scaling estimator gs and kpe variables\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.RE
+.PP
+
+.PP
+Definition at line 31 of file lbg1_funcs\&.c\&.
+.PP
+.nf
+32 {
+33     lbg1_process_voltage_scale_lib(&motor_ptr->mpos\&.est, motor_ptr->app\&.descale_voltage_factor);
+34 }
+.fi
+.PP
+References Struct_Motor::app, Struct_App::descale_voltage_factor, Struct_MPos::est, lbg1_process_voltage_scale_lib(), and Struct_Motor::mpos\&.
+.SS "void lbg1_reset (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Use to initialize and reset estimator variables\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.RE
+.PP
+
+.PP
+Definition at line 61 of file lbg1_funcs\&.c\&.
+.PP
+.nf
+62 {
+63     lbg1_init(&motor_ptr->mpos\&.est, motor_ptr->mparam\&.lq_q26, motor_ptr->mparam\&.rs_q16, motor_ptr->control\&.dt_control_q26, motor_ptr->app\&.descale_current_factor);
+64 
+65     motor_ptr->mpos\&.est\&.switchover_check_pass = 0;                                // flag set when we are ready to switch to close loop
+66     motor_ptr->mpos\&.est\&.angle_diff_timeout_counter = 0;
+67 
+68     motor_ptr->mpos\&.est\&.lbg_valid_fault_flag = 0;
+69     motor_ptr->mpos\&.est\&.lbg_valid_check_counter = 0;
+70 }
+.fi
+.PP
+References Struct_Est::angle_diff_timeout_counter, Struct_Motor::app, Struct_Motor::control, Struct_App::descale_current_factor, Struct_Control::dt_control_q26, Struct_MPos::est, lbg1_init(), Struct_Est::lbg_valid_check_counter, Struct_Est::lbg_valid_fault_flag, Struct_MParam::lq_q26, Struct_Motor::mparam, Struct_Motor::mpos, Struct_MParam::rs_q16, and Struct_Est::switchover_check_pass\&.
+.SS "void lbg1_statemon (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Use for estimator variable ramps and ialpha, valpha calculation\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIStruct_Motor*\fP motor_ptr 
+.RE
+.PP
+
+.PP
+Definition at line 77 of file lbg1_funcs\&.c\&.
+.PP
+.nf
+78 {
+79     int32_t ialpha_sq_q28;
+80     int32_t valpha_sq_q28;
+81 
+82     lbg1_statemon_lib(&motor_ptr->mpos\&.est, motor_ptr->mparam\&.lq_q26, motor_ptr->mparam\&.rs_q16, motor_ptr->control\&.dt_control_q26, motor_ptr->app\&.descale_current_factor);
+83 
+84 //    debug_dac_1a = (motor_ptr->mpos\&.est\&.w0_target_q06 >> 6);
+85 //    debug_dac_1b = (motor_ptr->mpos\&.est\&.w0_ramp_q06 >> 6);
+86 
+87 //    debug_dac_2a = motor_ptr->mpos\&.est\&.kpe_const_q14;
+88 //    debug_dac_2b = motor_ptr->mpos\&.est\&.kpi_const_q14;
+89 
+90 #if (MPOS_SELECT == MPOS_LBG1_START_ALIGNGO)
+91     if (motor_ptr->state\&.main == STATE_MAIN_RUN)
+92 #elif (MPOS_SELECT == MPOS_LBG1_START_HALL)
+93     if (motor_ptr->mpos\&.mposmode == STATE_MPOSMODE_EST)
+94 #endif
+95     {
+96         // Check that estimator inputs are valid
+97         ialpha_sq_q28 = ((motor_ptr->mpos\&.est\&.ialpha1_q14 * motor_ptr->mpos\&.est\&.ialpha1_q14) + (motor_ptr->mpos\&.est\&.ibeta1_q14 * motor_ptr->mpos\&.est\&.ibeta1_q14));
+98         valpha_sq_q28 = ((motor_ptr->mpos\&.est\&.valpha1_q14 * motor_ptr->mpos\&.est\&.valpha1_q14) + (motor_ptr->mpos\&.est\&.vbeta1_q14 * motor_ptr->mpos\&.est\&.vbeta1_q14));
+99 
+100         if ((ialpha_sq_q28 < LBG_CHK_THRESHOLD_CURRENT_SQ_Q28) && (valpha_sq_q28 < LBG_CHK_THRESHOLD_VOLTAGE_SQ_Q28))
+101         {
+102             if (motor_ptr->mpos\&.est\&.lbg_valid_check_counter++ > LBG_VALID_CHECK_COUNT_MAX)
+103             {
+104                 motor_ptr->mpos\&.est\&.lbg_valid_fault_flag = 1;
+105                 set_fault(FAULT_EST_INVALID_INPUT);
+106             }
+107         }
+108         else
+109         {
+110             if (motor_ptr->mpos\&.est\&.lbg_valid_check_counter-- < 0)
+111             {
+112                 motor_ptr->mpos\&.est\&.lbg_valid_check_counter = 0;
+113                 motor_ptr->mpos\&.est\&.lbg_valid_fault_flag = 0;
+114             }
+115 
+116         }
+117     }
+118 
+119 //    debug_var_1 = motor_ptr->mpos\&.est\&.lbg_valid_fault_flag << 16;
+120 //
+121 //    debug_dac_1a = LBG_CHK_THRESHOLD_CURRENT_SQ_Q28 >> 14;
+122 //    debug_dac_1b = ialpha_sq_q28 >> 14;
+123 //    debug_dac_2a = LBG_CHK_THRESHOLD_VOLTAGE_SQ_Q28 >> 14;
+124 //    debug_dac_2b = valpha_sq_q28 >> 14;
+125 }
+.fi
+.PP
+References Struct_Motor::app, Struct_Motor::control, Struct_App::descale_current_factor, Struct_Control::dt_control_q26, Struct_MPos::est, FAULT_EST_INVALID_INPUT, Struct_Est::ialpha1_q14, Struct_Est::ibeta1_q14, lbg1_statemon_lib(), LBG_CHK_THRESHOLD_CURRENT_SQ_Q28, LBG_CHK_THRESHOLD_VOLTAGE_SQ_Q28, LBG_VALID_CHECK_COUNT_MAX, Struct_Est::lbg_valid_check_counter, Struct_Est::lbg_valid_fault_flag, Struct_MParam::lq_q26, Struct_State::main, Struct_Motor::mparam, Struct_Motor::mpos, Struct_MPos::mposmode, Struct_MParam::rs_q16, set_fault(), Struct_Motor::state, STATE_MAIN_RUN, STATE_MPOSMODE_EST, Struct_Est::valpha1_q14, and Struct_Est::vbeta1_q14\&.
+.PP
+Referenced by SysTick_Handler()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

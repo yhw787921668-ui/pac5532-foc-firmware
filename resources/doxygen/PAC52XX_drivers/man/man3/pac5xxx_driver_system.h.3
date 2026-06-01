@@ -1,0 +1,68 @@
+.TH "pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_system.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/pac52xx/pac5xxx_sdk/pac5xxx_drivers/pac5xxx_driver_system.h \- Firmware driver for the PAC5XXX system and clock controllers\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'pac52XX\&.h'\fP
+.br
+\fC#include 'pac5xxx_driver_config\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_SYSTEM\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_SYSTEM\fP void \fBpac5xxx_sys_ccs_config\fP (\fBCCSCTL_CLKIN_Type\fP clock_select, \fBCCSCTL_ACLKDIV_Type\fP aclk_div, \fBCCSCTL_HCLKDIV_Type\fP fclk_div)"
+.br
+.RI "This function configures the PAC5XXX clock control system\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SYSTEM\fP void \fBpac5xxx_sys_pll_config_dividers\fP (uint8_t input_div, uint16_t feedback_div, uint8_t output_div)"
+.br
+.RI "This function configures the PAC5XXX PLL dividers\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SYSTEM\fP void \fBpac5xxx_sys_pll_enable\fP (int delay)"
+.br
+.RI "This function enables the PAC5XXX PLL\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SYSTEM\fP void \fBpac5xxx_sys_pll_config_100mhz\fP (\fBCCSCTL_HCLKDIV_Type\fP fclk_div, \fBCCSCTL_ACLKDIV_Type\fP aclk_div)"
+.br
+.RI "This function configures and enables the PLL for a 100MHz output\&. "
+.ti -1c
+.RI "\fBRAMFUNC_SYSTEM\fP void \fBpac5xxx_sys_pll_config\fP (int frequency_mhz)"
+.br
+.RI "This function configures and enables the PLL with the given frequency output\&. "
+.ti -1c
+.RI "void \fBpac_recovery\fP (void)"
+.br
+.ti -1c
+.RI "void \fBpac_delay_asm\fP (uint32_t counts)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Firmware driver for the PAC5XXX system and clock controllers\&. 
+
+
+.PP
+\fBNote\fP
+.RS 4
+Copyright (C) 2015-2019, Qorvo, Inc\&.
+.RE
+.PP
+THIS SOFTWARE IS SUBJECT TO A SOURCE CODE LICENSE AGREEMENT WHICH PROVIDES, AMONG OTHER THINGS: (i) THAT IT CAN BE USED ONLY TO ADAPT THE LICENSEE'S APPLICATION TO PAC PROCESSORS SUPPLIED BY QORVO, INC\&.; (ii) THAT IT IS PROVIDED 'AS IS' WITHOUT WARRANTY; (iii) THAT QORVO, INC\&. IS NOT LIABLE FOR ANY INDIRECT DAMAGES OR FOR DIRECT DAMAGES EXCEEDING US$1,500; AND (iv) THAT IT CAN BE DISCLOSED TO AND USED ONLY BY CERTAIN AUTHORIZED PERSONS\&. 
+.PP
+Definition in file \fBpac5xxx_driver_system\&.h\fP\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

@@ -1,0 +1,92 @@
+.TH "pac_foc/src/features/opd/opd_ol_funcs.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/features/opd/opd_ol_funcs.h \- Use for defining control functions in OPD\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'opd_ol\&.h'\fP
+.br
+\fC#include 'motor_struct\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "PAC5XXX_RAMFUNC void \fBstatemachine_opdol_ctl\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Use for the control-level state machine in open-loop OPD\&. "
+.ti -1c
+.RI "void \fBstatemachine_opdol_main\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Use for the main state machine in open-loop OPD\&. "
+.ti -1c
+.RI "void \fBinit_opdol\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Initialize the open-loop OPD\&. "
+.ti -1c
+.RI "void \fBreset_opdol\fP (\fBStruct_Motor\fP *motor_ptr)"
+.br
+.RI "Reset the open-loop OPD\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Use for defining control functions in OPD\&. 
+
+
+.PP
+Definition in file \fBopd_ol_funcs\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void init_opdol (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Initialize the open-loop OPD\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_Motor\fP\fP *motor_ptr 
+.RE
+.PP
+
+.PP
+Referenced by motor_reset()\&.
+.SS "void reset_opdol (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Reset the open-loop OPD\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_Motor\fP\fP *motor_ptr 
+.RE
+.PP
+
+.SS "PAC5XXX_RAMFUNC void statemachine_opdol_ctl (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Use for the control-level state machine in open-loop OPD\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_Motor\fP\fP *motor_ptr 
+.RE
+.PP
+
+.SS "void statemachine_opdol_main (\fBStruct_Motor\fP * motor_ptr)"
+
+.PP
+Use for the main state machine in open-loop OPD\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fI\fBStruct_Motor\fP\fP *motor_ptr 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

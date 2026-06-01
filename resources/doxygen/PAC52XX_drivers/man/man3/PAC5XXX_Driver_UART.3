@@ -1,0 +1,236 @@
+.TH "PAC5XXX_Driver_UART" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-PAC52XX" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PAC5XXX_Driver_UART \- PAC5XXX UART Driver Functions
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRAMFUNC_UART\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBRAMFUNC_UART\fP void \fBpac5xxx_uart_io_config\fP (void)"
+.br
+.RI "This function configures IO for use with the UART peripheral\&. "
+.ti -1c
+.RI "\fBRAMFUNC_UART\fP void \fBpac5xxx_uart_config_LCR\fP (\fBUART_BitsPerChar_Type\fP bpc, \fBUART_StopBits_Type\fP stop_bits, int parity_enabled, \fBUART_Parity_Type\fP parity, int stick_parity, \fBUART_BreakControl_Type\fP break_control, \fBUART_DivLatchAccess_Type\fP div_latch_access)"
+.br
+.RI "This function configures the UART LCR (Line Control Register) "
+.ti -1c
+.RI "\fBRAMFUNC_UART\fP void \fBpac5xxx_uart_config_MCR\fP (int DTR_asserted, int RTS_asserted, int BIT1_asserted, int BIT2_asserted, int loopback_mode)"
+.br
+.RI "This function configures the UART MCR (Modem Control Register) "
+.ti -1c
+.RI "\fBRAMFUNC_UART\fP void \fBpac5xxx_uart_config_divisor_latch\fP (uint16_t latch_value)"
+.br
+.RI "This function configures the divisor latch\&. "
+.ti -1c
+.RI "\fBRAMFUNC_UART\fP void \fBpac5xxx_uart_config_divisor_latch_remapped\fP (uint16_t latch_value)"
+.br
+.RI "This function configures the divisor latch using the remapped DL_L2 and DL_H2 registers\&. "
+.ti -1c
+.RI "\fBRAMFUNC_UART\fP void \fBpac5xxx_uart_config_fractional_divisor\fP (uint8_t divisor_value)"
+.br
+.RI "This function configures the Fractional Divisor and UART clock source\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RAMFUNC_UART"
+
+.PP
+Definition at line 31 of file pac5xxx_driver_uart\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "\fBRAMFUNC_UART\fP void pac5xxx_uart_config_divisor_latch (uint16_t latch_value)"
+
+.PP
+This function configures the divisor latch\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlatch_value\fP 16b divisor latch value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file pac5xxx_driver_uart_config\&.c\&.
+.PP
+.nf
+51 {
+52     PAC5XXX_UART->DL_H\&.VAL = (latch_value >> 8);
+53     PAC5XXX_UART->DL_L\&.VAL = (latch_value & 0xFF);
+54 }
+.fi
+.PP
+References PAC5XXX_UART\&.
+.SS "\fBRAMFUNC_UART\fP void pac5xxx_uart_config_divisor_latch_remapped (uint16_t latch_value)"
+
+.PP
+This function configures the divisor latch using the remapped DL_L2 and DL_H2 registers\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlatch_value\fP 16b divisor latch value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 56 of file pac5xxx_driver_uart_config\&.c\&.
+.PP
+.nf
+57 {
+58       PAC5XXX_UART->DL_H2\&.VAL = (latch_value >> 8);
+59       PAC5XXX_UART->DL_L2\&.VAL = (latch_value & 0xFF);
+60 }
+.fi
+.PP
+References PAC5XXX_UART\&.
+.SS "\fBRAMFUNC_UART\fP void pac5xxx_uart_config_fractional_divisor (uint8_t divisor_value)"
+
+.PP
+This function configures the Fractional Divisor and UART clock source\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdivisor_value\fP The Divisor Latch value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.SS "\fBRAMFUNC_UART\fP void pac5xxx_uart_config_LCR (\fBUART_BitsPerChar_Type\fP bpc, \fBUART_StopBits_Type\fP stop_bits, int parity_enabled, \fBUART_Parity_Type\fP parity, int stick_parity, \fBUART_BreakControl_Type\fP break_control, \fBUART_DivLatchAccess_Type\fP div_latch_access)"
+
+.PP
+This function configures the UART LCR (Line Control Register) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIbpc\fP Bits per character 
+.br
+\fIstop_bits\fP Number of Stop Bits 
+.br
+\fIparity_enabled\fP Set to 1 to enable parity, 0 to disable 
+.br
+\fIparity\fP The type of parity to apply, if parity is enabled (even or odd) 
+.br
+\fIstick_parity\fP Set to 1 to enable stick parity, 0 to disable 
+.br
+\fIbreak_control\fP Break Control 
+.br
+\fIdiv_latch_access\fP Divisor Latch Access 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file pac5xxx_driver_uart_config\&.c\&.
+.PP
+.nf
+27 {
+28   PAC5XXX_UART->LCR\&.BPC = bpc;
+29   PAC5XXX_UART->LCR\&.STB = stop_bits;
+30   PAC5XXX_UART->LCR\&.PEN = parity_enabled;
+31   PAC5XXX_UART->LCR\&.EPS = parity;
+32   PAC5XXX_UART->LCR\&.SP = stick_parity;
+33   PAC5XXX_UART->LCR\&.SB = break_control;
+34   PAC5XXX_UART->LCR\&.DLAB = div_latch_access;
+35 }
+.fi
+.PP
+References PAC5XXX_UART\&.
+.SS "\fBRAMFUNC_UART\fP void pac5xxx_uart_config_MCR (int DTR_asserted, int RTS_asserted, int BIT1_asserted, int BIT2_asserted, int loopback_mode)"
+
+.PP
+This function configures the UART MCR (Modem Control Register) 
+.PP
+\fBParameters\fP
+.RS 4
+\fIDTR_asserted\fP Set to 1 to assert DTR_N, 0 to de-assert 
+.br
+\fIRTS_asserted\fP Set to 1 to assert RTS_N, 0 to de-assert 
+.br
+\fIBIT1_asserted\fP Set to 1 to assert BIT_OUT1_N, 0 to de-assert 
+.br
+\fIBIT2_asserted\fP Set to 1 to assert BIT_OUT2_N, 0 to de-assert 
+.br
+\fIloopback_mode\fP Set to 1 to enable loopback mode, 0 to disable 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file pac5xxx_driver_uart_config\&.c\&.
+.PP
+.nf
+42 {
+43   PAC5XXX_UART->MCR\&.DTR = DTR_asserted;
+44   PAC5XXX_UART->MCR\&.RTS = RTS_asserted;
+45   PAC5XXX_UART->MCR\&.BIT1 = BIT1_asserted;
+46   PAC5XXX_UART->MCR\&.BIT2 = BIT2_asserted;
+47   PAC5XXX_UART->MCR\&.LP = loopback_mode;
+48 }
+.fi
+.PP
+References PAC5XXX_UART\&.
+.SS "\fBRAMFUNC_UART\fP void pac5xxx_uart_io_config (void)"
+
+.PP
+This function configures IO for use with the UART peripheral\&. Configuration
+.PP
+\fBReturns\fP
+.RS 4
+none 
+.RE
+.PP
+
+.PP
+Definition at line 67 of file pac5xxx_driver_uart_config\&.c\&.
+.PP
+.nf
+68 {
+69   PAC5XXX_GPIOE->PSEL\&.P1 = 2;      // UARTTX
+70   PAC5XXX_GPIOE->OUTEN\&.P1 = 1;
+71   
+72   PAC5XXX_GPIOE->PSEL\&.P2 = 2;      // UARTRX
+73   PAC5XXX_GPIOE->OUTEN\&.P2 = 0;
+74 }
+.fi
+.PP
+References PAC5XXX_GPIOE\&.
+.PP
+Referenced by config_uart()\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-PAC52XX from the source code\&.

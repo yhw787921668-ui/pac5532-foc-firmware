@@ -1,0 +1,95 @@
+\hypertarget{aligngo__funcs_8c}{}\doxysection{pac\+\_\+foc/src/mpos/aligngo/aligngo\+\_\+funcs.c File Reference}
+\label{aligngo__funcs_8c}\index{pac\_foc/src/mpos/aligngo/aligngo\_funcs.c@{pac\_foc/src/mpos/aligngo/aligngo\_funcs.c}}
+
+
+Use for writing align and go variables.  
+
+
+{\ttfamily \#include \char`\"{}config\+\_\+app.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}aligngo\+\_\+funcs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}opd\+\_\+cl\+\_\+funcs.\+h\char`\"{}}\newline
+Include dependency graph for aligngo\+\_\+funcs.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aligngo__funcs_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{aligngo__funcs_8c_a52f326f912256bfcf89f3af381c5b53e}{aligngo\+\_\+param\+\_\+write}} (\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$motor\+\_\+ptr, \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28}{Parameter\+Code}} param\+\_\+code, int32\+\_\+t rx\+\_\+data)
+\begin{DoxyCompactList}\small\item\em Process parameter write. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for writing align and go variables. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{aligngo__funcs_8c_a52f326f912256bfcf89f3af381c5b53e}\label{aligngo__funcs_8c_a52f326f912256bfcf89f3af381c5b53e}} 
+\index{aligngo\_funcs.c@{aligngo\_funcs.c}!aligngo\_param\_write@{aligngo\_param\_write}}
+\index{aligngo\_param\_write@{aligngo\_param\_write}!aligngo\_funcs.c@{aligngo\_funcs.c}}
+\doxysubsubsection{\texorpdfstring{aligngo\_param\_write()}{aligngo\_param\_write()}}
+{\footnotesize\ttfamily void aligngo\+\_\+param\+\_\+write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___motor}{Struct\+\_\+\+Motor}} $\ast$}]{motor\+\_\+ptr,  }\item[{\mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28}{Parameter\+Code}}}]{param\+\_\+code,  }\item[{int32\+\_\+t}]{rx\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Process parameter write. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Struct\+\_\+\+Motor$\ast$} & motor\+\_\+ptr \\
+\hline
+{\em Parameter\+Code} & param\+\_\+code \\
+\hline
+{\em int32\+\_\+t} & rx\+\_\+data \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 32 of file aligngo\+\_\+funcs.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33 \{}
+\DoxyCodeLine{34     \textcolor{keywordflow}{switch}(param\_code)}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28ad706127fc61b73c7999de35573cf3472}{open\_loop\_align\_hold\_num\_steps}}:}
+\DoxyCodeLine{37         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}{startup}}.\mbox{\hyperlink{struct_struct___startup_align_go_ab8bafb11c8cd7169afca6bef8a499b64}{aligngo}}.\mbox{\hyperlink{struct_struct___align_go_a629d1cb94da0e0ceace816c45a9802ef}{aligntime\_cmd}} = rx\_data;}
+\DoxyCodeLine{38         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{39     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a397e72d27a044d95e6a5c0e9dbfa32c9}{open\_loop\_speed\_slew\_rate}}:}
+\DoxyCodeLine{40         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}{startup}}.\mbox{\hyperlink{struct_struct___startup_align_go_ab8bafb11c8cd7169afca6bef8a499b64}{aligngo}}.\mbox{\hyperlink{struct_struct___align_go_a0c328e920d00107e1fe5f65a39c4efce}{speedrefol\_rate}} = rx\_data;}
+\DoxyCodeLine{41         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{42     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a25e06420f9ab5543450dbbec24e55ce3}{open\_loop\_speed\_setpoint}}:}
+\DoxyCodeLine{43         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}{startup}}.\mbox{\hyperlink{struct_struct___startup_align_go_ab8bafb11c8cd7169afca6bef8a499b64}{aligngo}}.\mbox{\hyperlink{struct_struct___align_go_abf2c6648232ae5fa7927049207522398}{speedrefol\_target}} = rx\_data;}
+\DoxyCodeLine{44         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}{startup}}.\mbox{\hyperlink{struct_struct___startup_align_go_ab8bafb11c8cd7169afca6bef8a499b64}{aligngo}}.\mbox{\hyperlink{struct_struct___align_go_ae03872772a84fb783223559dcb11ef43}{speedrefol\_target\_radps}} = ((rx\_data >> 9) * (motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a2ab0be3dd55dc079a0eac493b95c567d}{control}}.\mbox{\hyperlink{struct_struct___control_a40d4c5e3068f482417417f6b77de3fe2}{dt\_control\_1div\_q6}} >> 7));        \textcolor{comment}{// f16>>9=8q7 * f16>>7=6q9 = q16 (rad/s)}}
+\DoxyCodeLine{45         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{46     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28aa5d77f1098241649781ec666f164e24d}{id\_ref}}:}
+\DoxyCodeLine{47         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}{startup}}.\mbox{\hyperlink{struct_struct___startup_align_go_a5f78e98b41c5fe4b737fae514dbcb179}{idrefol\_gui\_q16}} = rx\_data;}
+\DoxyCodeLine{48         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}{startup}}.\mbox{\hyperlink{struct_struct___startup_align_go_ab8bafb11c8cd7169afca6bef8a499b64}{aligngo}}.\mbox{\hyperlink{struct_struct___align_go_a485612c70c78e10ff76c4436a358f89e}{idrefol\_target\_q16}} = rx\_data;}
+\DoxyCodeLine{49         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{50     \textcolor{keywordflow}{case} \mbox{\hyperlink{parameter__process_8h_a87f0d45be52a22db176e38b4a9a5ff28a6bf4f41c92bfc5995cce728553778cf0}{iq\_ref}}:}
+\DoxyCodeLine{51         motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}{startup}}.\mbox{\hyperlink{struct_struct___startup_align_go_a51f5cb092e942f5d48efafbbe9cd6f29}{itotrefol\_gui\_q16}} = rx\_data;}
+\DoxyCodeLine{52         \mbox{\hyperlink{parameter__process_8c_afd9d5a36f9d1a424a1b81903672f84e0}{write\_itotstart\_target}}(rx\_data, \&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}{startup}}.\mbox{\hyperlink{struct_struct___startup_align_go_ab8bafb11c8cd7169afca6bef8a499b64}{aligngo}}.\mbox{\hyperlink{struct_struct___align_go_a5895a0da80200c5cdb5bea059d7696f6}{itotrefol\_target\_q16}}, \&motor\_ptr-\/>\mbox{\hyperlink{struct_struct___motor_a4b54f15d761f1c45aaeef95d79d5c940}{startup}}.\mbox{\hyperlink{struct_struct___startup_align_go_ab8bafb11c8cd7169afca6bef8a499b64}{aligngo}}.\mbox{\hyperlink{struct_struct___align_go_a75dab7f88145af252142dee1503a308c}{itotrefol\_target\_1div\_q16}});}
+\DoxyCodeLine{53         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{54     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{55         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{56     \}}
+\DoxyCodeLine{57 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Startup\+Align\+Go\+::aligngo, Struct\+\_\+\+Align\+Go\+::aligntime\+\_\+cmd, Struct\+\_\+\+Motor\+::control, Struct\+\_\+\+Control\+::dt\+\_\+control\+\_\+1div\+\_\+q6, id\+\_\+ref, Struct\+\_\+\+Startup\+Align\+Go\+::idrefol\+\_\+gui\+\_\+q16, Struct\+\_\+\+Align\+Go\+::idrefol\+\_\+target\+\_\+q16, iq\+\_\+ref, Struct\+\_\+\+Startup\+Align\+Go\+::itotrefol\+\_\+gui\+\_\+q16, Struct\+\_\+\+Align\+Go\+::itotrefol\+\_\+target\+\_\+1div\+\_\+q16, Struct\+\_\+\+Align\+Go\+::itotrefol\+\_\+target\+\_\+q16, open\+\_\+loop\+\_\+align\+\_\+hold\+\_\+num\+\_\+steps, open\+\_\+loop\+\_\+speed\+\_\+setpoint, open\+\_\+loop\+\_\+speed\+\_\+slew\+\_\+rate, Struct\+\_\+\+Align\+Go\+::speedrefol\+\_\+rate, Struct\+\_\+\+Align\+Go\+::speedrefol\+\_\+target, Struct\+\_\+\+Align\+Go\+::speedrefol\+\_\+target\+\_\+radps, Struct\+\_\+\+Motor\+::startup, and write\+\_\+itotstart\+\_\+target().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{aligngo__funcs_8c_a52f326f912256bfcf89f3af381c5b53e_cgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,105 @@
+\hypertarget{control__1shunt__struct_8h}{}\doxysection{pac\+\_\+foc/src/control/control\+\_\+1shunt\+\_\+struct.h File Reference}
+\label{control__1shunt__struct_8h}\index{pac\_foc/src/control/control\_1shunt\_struct.h@{pac\_foc/src/control/control\_1shunt\_struct.h}}
+
+
+Use for single shunt control functions and structures.  
+
+
+{\ttfamily \#include \char`\"{}pac5xxx.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}maths.\+h\char`\"{}}\newline
+Include dependency graph for control\+\_\+1shunt\+\_\+struct.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{control__1shunt__struct_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{control__1shunt__struct_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_struct___one_shunt___extn}{Struct\+\_\+\+One\+Shunt\+\_\+\+Extn}}
+\item 
+struct \mbox{\hyperlink{struct_struct___one_shunt___asym}{Struct\+\_\+\+One\+Shunt\+\_\+\+Asym}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{control__1shunt__struct_8h_a7ccea2bc77e76875303ce28de24bec18}{S1\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+A\+D\+V\+A\+N\+C\+E\+\_\+\+T\+I\+C\+KS}}~15
+\item 
+\#define \mbox{\hyperlink{control__1shunt__struct_8h_a7c5caea1a5799b9d6259c42ce5614537}{S1\+\_\+\+M\+I\+N\+G\+AP}}~90
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{control__1shunt__struct_8h_aab209c0d27001a5a23f52f77d45bf871}{process\+\_\+phase\+\_\+currents\+\_\+1shunt\+\_\+extn}} (\mbox{\hyperlink{struct_struct___one_shunt___extn}{Struct\+\_\+\+One\+Shunt\+\_\+\+Extn}} $\ast$oneshunt\+\_\+ptr, int32\+\_\+t $\ast$Iu\+\_\+measured\+\_\+q14, int32\+\_\+t $\ast$Iv\+\_\+measured\+\_\+q14, int32\+\_\+t $\ast$Iw\+\_\+measured\+\_\+q14, uint32\+\_\+t direction\+\_\+reverse\+\_\+flag)
+\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{control__1shunt__struct_8h_acc8ddbd08fe6127fe65a29b67ce9798a}{process\+\_\+1shunt\+\_\+extn}} (\mbox{\hyperlink{struct_struct___one_shunt___extn}{Struct\+\_\+\+One\+Shunt\+\_\+\+Extn}} $\ast$oneshunt\+\_\+ptr, int32\+\_\+t $\ast$u\+\_\+duty\+\_\+value, int32\+\_\+t $\ast$v\+\_\+duty\+\_\+value, int32\+\_\+t $\ast$w\+\_\+duty\+\_\+value)
+\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{control__1shunt__struct_8h_a27d3a275c30b774da488a181eda6e501}{process\+\_\+phase\+\_\+currents\+\_\+1shunt\+\_\+asym}} (\mbox{\hyperlink{struct_struct___one_shunt___asym}{Struct\+\_\+\+One\+Shunt\+\_\+\+Asym}} $\ast$oneshunt\+\_\+ptr, int32\+\_\+t $\ast$Iu\+\_\+measured\+\_\+q14, int32\+\_\+t $\ast$Iv\+\_\+measured\+\_\+q14, int32\+\_\+t $\ast$Iw\+\_\+measured\+\_\+q14, uint32\+\_\+t direction\+\_\+reverse\+\_\+flag)
+\item 
+P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void \mbox{\hyperlink{control__1shunt__struct_8h_a7d96f890893c027279f179f2fdd78173}{process\+\_\+1shunt\+\_\+asym}} (\mbox{\hyperlink{struct_struct___one_shunt___asym}{Struct\+\_\+\+One\+Shunt\+\_\+\+Asym}} $\ast$oneshunt\+\_\+ptr, int32\+\_\+t u\+\_\+duty\+\_\+value, int32\+\_\+t v\+\_\+duty\+\_\+value, int32\+\_\+t w\+\_\+duty\+\_\+value)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Use for single shunt control functions and structures. 
+
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{control__1shunt__struct_8h_a7c5caea1a5799b9d6259c42ce5614537}\label{control__1shunt__struct_8h_a7c5caea1a5799b9d6259c42ce5614537}} 
+\index{control\_1shunt\_struct.h@{control\_1shunt\_struct.h}!S1\_MINGAP@{S1\_MINGAP}}
+\index{S1\_MINGAP@{S1\_MINGAP}!control\_1shunt\_struct.h@{control\_1shunt\_struct.h}}
+\doxysubsubsection{\texorpdfstring{S1\_MINGAP}{S1\_MINGAP}}
+{\footnotesize\ttfamily \#define S1\+\_\+\+M\+I\+N\+G\+AP~90}
+
+
+
+Definition at line 28 of file control\+\_\+1shunt\+\_\+struct.\+h.
+
+\mbox{\Hypertarget{control__1shunt__struct_8h_a7ccea2bc77e76875303ce28de24bec18}\label{control__1shunt__struct_8h_a7ccea2bc77e76875303ce28de24bec18}} 
+\index{control\_1shunt\_struct.h@{control\_1shunt\_struct.h}!S1\_SAMPLE\_ADVANCE\_TICKS@{S1\_SAMPLE\_ADVANCE\_TICKS}}
+\index{S1\_SAMPLE\_ADVANCE\_TICKS@{S1\_SAMPLE\_ADVANCE\_TICKS}!control\_1shunt\_struct.h@{control\_1shunt\_struct.h}}
+\doxysubsubsection{\texorpdfstring{S1\_SAMPLE\_ADVANCE\_TICKS}{S1\_SAMPLE\_ADVANCE\_TICKS}}
+{\footnotesize\ttfamily \#define S1\+\_\+\+S\+A\+M\+P\+L\+E\+\_\+\+A\+D\+V\+A\+N\+C\+E\+\_\+\+T\+I\+C\+KS~15}
+
+
+
+Definition at line 27 of file control\+\_\+1shunt\+\_\+struct.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{control__1shunt__struct_8h_a7d96f890893c027279f179f2fdd78173}\label{control__1shunt__struct_8h_a7d96f890893c027279f179f2fdd78173}} 
+\index{control\_1shunt\_struct.h@{control\_1shunt\_struct.h}!process\_1shunt\_asym@{process\_1shunt\_asym}}
+\index{process\_1shunt\_asym@{process\_1shunt\_asym}!control\_1shunt\_struct.h@{control\_1shunt\_struct.h}}
+\doxysubsubsection{\texorpdfstring{process\_1shunt\_asym()}{process\_1shunt\_asym()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void process\+\_\+1shunt\+\_\+asym (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___one_shunt___asym}{Struct\+\_\+\+One\+Shunt\+\_\+\+Asym}} $\ast$}]{oneshunt\+\_\+ptr,  }\item[{int32\+\_\+t}]{u\+\_\+duty\+\_\+value,  }\item[{int32\+\_\+t}]{v\+\_\+duty\+\_\+value,  }\item[{int32\+\_\+t}]{w\+\_\+duty\+\_\+value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{control__1shunt__struct_8h_acc8ddbd08fe6127fe65a29b67ce9798a}\label{control__1shunt__struct_8h_acc8ddbd08fe6127fe65a29b67ce9798a}} 
+\index{control\_1shunt\_struct.h@{control\_1shunt\_struct.h}!process\_1shunt\_extn@{process\_1shunt\_extn}}
+\index{process\_1shunt\_extn@{process\_1shunt\_extn}!control\_1shunt\_struct.h@{control\_1shunt\_struct.h}}
+\doxysubsubsection{\texorpdfstring{process\_1shunt\_extn()}{process\_1shunt\_extn()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void process\+\_\+1shunt\+\_\+extn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___one_shunt___extn}{Struct\+\_\+\+One\+Shunt\+\_\+\+Extn}} $\ast$}]{oneshunt\+\_\+ptr,  }\item[{int32\+\_\+t $\ast$}]{u\+\_\+duty\+\_\+value,  }\item[{int32\+\_\+t $\ast$}]{v\+\_\+duty\+\_\+value,  }\item[{int32\+\_\+t $\ast$}]{w\+\_\+duty\+\_\+value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{control__1shunt__struct_8h_a27d3a275c30b774da488a181eda6e501}\label{control__1shunt__struct_8h_a27d3a275c30b774da488a181eda6e501}} 
+\index{control\_1shunt\_struct.h@{control\_1shunt\_struct.h}!process\_phase\_currents\_1shunt\_asym@{process\_phase\_currents\_1shunt\_asym}}
+\index{process\_phase\_currents\_1shunt\_asym@{process\_phase\_currents\_1shunt\_asym}!control\_1shunt\_struct.h@{control\_1shunt\_struct.h}}
+\doxysubsubsection{\texorpdfstring{process\_phase\_currents\_1shunt\_asym()}{process\_phase\_currents\_1shunt\_asym()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void process\+\_\+phase\+\_\+currents\+\_\+1shunt\+\_\+asym (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___one_shunt___asym}{Struct\+\_\+\+One\+Shunt\+\_\+\+Asym}} $\ast$}]{oneshunt\+\_\+ptr,  }\item[{int32\+\_\+t $\ast$}]{Iu\+\_\+measured\+\_\+q14,  }\item[{int32\+\_\+t $\ast$}]{Iv\+\_\+measured\+\_\+q14,  }\item[{int32\+\_\+t $\ast$}]{Iw\+\_\+measured\+\_\+q14,  }\item[{uint32\+\_\+t}]{direction\+\_\+reverse\+\_\+flag }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{control__1shunt__struct_8h_aab209c0d27001a5a23f52f77d45bf871}\label{control__1shunt__struct_8h_aab209c0d27001a5a23f52f77d45bf871}} 
+\index{control\_1shunt\_struct.h@{control\_1shunt\_struct.h}!process\_phase\_currents\_1shunt\_extn@{process\_phase\_currents\_1shunt\_extn}}
+\index{process\_phase\_currents\_1shunt\_extn@{process\_phase\_currents\_1shunt\_extn}!control\_1shunt\_struct.h@{control\_1shunt\_struct.h}}
+\doxysubsubsection{\texorpdfstring{process\_phase\_currents\_1shunt\_extn()}{process\_phase\_currents\_1shunt\_extn()}}
+{\footnotesize\ttfamily P\+A\+C5\+X\+X\+X\+\_\+\+R\+A\+M\+F\+U\+NC void process\+\_\+phase\+\_\+currents\+\_\+1shunt\+\_\+extn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_struct___one_shunt___extn}{Struct\+\_\+\+One\+Shunt\+\_\+\+Extn}} $\ast$}]{oneshunt\+\_\+ptr,  }\item[{int32\+\_\+t $\ast$}]{Iu\+\_\+measured\+\_\+q14,  }\item[{int32\+\_\+t $\ast$}]{Iv\+\_\+measured\+\_\+q14,  }\item[{int32\+\_\+t $\ast$}]{Iw\+\_\+measured\+\_\+q14,  }\item[{uint32\+\_\+t}]{direction\+\_\+reverse\+\_\+flag }\end{DoxyParamCaption})}
+

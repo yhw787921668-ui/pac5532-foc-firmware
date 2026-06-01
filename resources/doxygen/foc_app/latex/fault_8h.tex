@@ -1,0 +1,435 @@
+\hypertarget{fault_8h}{}\doxysection{pac\+\_\+foc/src/app/fault.h File Reference}
+\label{fault_8h}\index{pac\_foc/src/app/fault.h@{pac\_foc/src/app/fault.h}}
+{\ttfamily \#include \char`\"{}motor\+\_\+struct.\+h\char`\"{}}\newline
+Include dependency graph for fault.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fault_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fault_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{fault_8h_ac1ca998bb5134cb1a95dc7c1fa8b573c}{oc\+\_\+reset}} (void)
+\begin{DoxyCompactList}\small\item\em This function use to reset over current fault. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fault_8h_aace1292fddb0bc3023763f890a5b8474}{fault}} (void)
+\begin{DoxyCompactList}\small\item\em This function use disable adc, motor disable and be in while loop. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fault_8h_a27e9497981905b8f49967f8b4bffb194}{set\+\_\+fault}} (uint32\+\_\+t fault\+\_\+mask)
+\begin{DoxyCompactList}\small\item\em This function use to set fault. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fault_8h_acb1b29532be372e85eb02188e6255e47}{clear\+\_\+fault}} (uint32\+\_\+t fault\+\_\+mask)
+\begin{DoxyCompactList}\small\item\em This function use to clear fault. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fault_8h_a8ea8474835dbcb70ebc28b77e48207fc}{set\+\_\+warning}} (uint32\+\_\+t fault\+\_\+mask)
+\begin{DoxyCompactList}\small\item\em This function use to set warning. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{fault_8h_a39db699740c3dffa0b3f76f14cb26e33}{clear\+\_\+warning}} (uint32\+\_\+t fault\+\_\+mask)
+\begin{DoxyCompactList}\small\item\em This function use to clear warning. \end{DoxyCompactList}\item 
+int32\+\_\+t \mbox{\hyperlink{fault_8h_a30d186784bc2ea742f0dc10498bc3ff1}{pac5xxx\+\_\+get\+\_\+over\+\_\+current\+\_\+status}} (void)
+\item 
+int32\+\_\+t \mbox{\hyperlink{fault_8h_a746d0b52c42f94990db2f2a4e55cd727}{pac5xxx\+\_\+get\+\_\+over\+\_\+temperature\+\_\+status}} (void)
+\item 
+int32\+\_\+t \mbox{\hyperlink{fault_8h_a227f77bf24e11bf3de328d525f819d66}{pac5xxx\+\_\+get\+\_\+driver\+\_\+fault}} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fault_8h_acb1b29532be372e85eb02188e6255e47}\label{fault_8h_acb1b29532be372e85eb02188e6255e47}} 
+\index{fault.h@{fault.h}!clear\_fault@{clear\_fault}}
+\index{clear\_fault@{clear\_fault}!fault.h@{fault.h}}
+\doxysubsubsection{\texorpdfstring{clear\_fault()}{clear\_fault()}}
+{\footnotesize\ttfamily void clear\+\_\+fault (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{fault\+\_\+mask }\end{DoxyParamCaption})}
+
+
+
+This function use to clear fault. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint32\+\_\+t} & fault\+\_\+mask \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 153 of file fault.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{154 \{}
+\DoxyCodeLine{155     \mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}}.\mbox{\hyperlink{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}{fault}}.\mbox{\hyperlink{struct_struct___fault_a873cbe07ef4988d4c164b357148934be}{motor}} \&= (\string~fault\_mask);}
+\DoxyCodeLine{156 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::fault, motor, and Struct\+\_\+\+Fault\+::motor.
+
+
+
+Referenced by motor\+\_\+reset().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fault_8h_acb1b29532be372e85eb02188e6255e47_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fault_8h_a39db699740c3dffa0b3f76f14cb26e33}\label{fault_8h_a39db699740c3dffa0b3f76f14cb26e33}} 
+\index{fault.h@{fault.h}!clear\_warning@{clear\_warning}}
+\index{clear\_warning@{clear\_warning}!fault.h@{fault.h}}
+\doxysubsubsection{\texorpdfstring{clear\_warning()}{clear\_warning()}}
+{\footnotesize\ttfamily void clear\+\_\+warning (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{fault\+\_\+mask }\end{DoxyParamCaption})}
+
+
+
+This function use to clear warning. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint32\+\_\+t} & fault\+\_\+mask \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 173 of file fault.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{174 \{}
+\DoxyCodeLine{175     \mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}}.\mbox{\hyperlink{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}{fault}}.\mbox{\hyperlink{struct_struct___fault_a873cbe07ef4988d4c164b357148934be}{motor}} \&= \string~fault\_mask;}
+\DoxyCodeLine{176 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::fault, motor, and Struct\+\_\+\+Fault\+::motor.
+
+
+
+Referenced by check\+\_\+pwm\+\_\+sat(), est\+\_\+anglediff\+\_\+check(), and init\+\_\+over\+\_\+current\+\_\+limit().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fault_8h_a39db699740c3dffa0b3f76f14cb26e33_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fault_8h_aace1292fddb0bc3023763f890a5b8474}\label{fault_8h_aace1292fddb0bc3023763f890a5b8474}} 
+\index{fault.h@{fault.h}!fault@{fault}}
+\index{fault@{fault}!fault.h@{fault.h}}
+\doxysubsubsection{\texorpdfstring{fault()}{fault()}}
+{\footnotesize\ttfamily void fault (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function use disable adc, motor disable and be in while loop. 
+
+
+
+Definition at line 31 of file fault.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32 \{}
+\DoxyCodeLine{33     \mbox{\hyperlink{fix16_8h_aca43c6dc0c416d1e27c18614b7ebcb73}{fix16\_t}} delay\_count;                            \textcolor{comment}{// Use this delay to blink LED during fault}}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     pac5xxx\_adc\_enable(0);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{comment}{// Disable motor if enter fault}}
+\DoxyCodeLine{38     \mbox{\hyperlink{driver__funcs_8c_ad98cb6be8dc3d2b416f8b2773a68c4fc}{m1\_disable}}();}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{comment}{// Go into an infinite loop.}}
+\DoxyCodeLine{41     \textcolor{keywordflow}{while} (1)}
+\DoxyCodeLine{42     \{}
+\DoxyCodeLine{43         \textcolor{keywordflow}{for} (delay\_count = 0; delay\_count < 0x00010000; delay\_count++)}
+\DoxyCodeLine{44         \{}
+\DoxyCodeLine{45         \}}
+\DoxyCodeLine{46     \}}
+\DoxyCodeLine{47 \}}
+
+\end{DoxyCode}
+
+
+References m1\+\_\+disable().
+
+
+
+Referenced by Default\+\_\+\+Handler(), fix16\+\_\+div(), Hard\+Fault\+\_\+\+Handler(), Mem\+Ctl\+\_\+\+I\+R\+Q\+Handler(), and N\+M\+I\+\_\+\+Handler().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=339pt]{fault_8h_aace1292fddb0bc3023763f890a5b8474_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fault_8h_aace1292fddb0bc3023763f890a5b8474_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fault_8h_ac1ca998bb5134cb1a95dc7c1fa8b573c}\label{fault_8h_ac1ca998bb5134cb1a95dc7c1fa8b573c}} 
+\index{fault.h@{fault.h}!oc\_reset@{oc\_reset}}
+\index{oc\_reset@{oc\_reset}!fault.h@{fault.h}}
+\doxysubsubsection{\texorpdfstring{oc\_reset()}{oc\_reset()}}
+{\footnotesize\ttfamily void oc\+\_\+reset (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function use to reset over current fault. 
+
+
+
+Definition at line 54 of file fault.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{55 \{}
+\DoxyCodeLine{56       uint16\_t register\_val;}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{comment}{// Disable global interrupts until OC reset is complete}}
+\DoxyCodeLine{59     \_\_disable\_irq();}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{comment}{// Set drivers to GPIO mode}}
+\DoxyCodeLine{62     \mbox{\hyperlink{driver__funcs_8c_a3279abfa1b04c56c14db266ccb0fab6a}{set\_drivers\_gpio}}();}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{comment}{// Clear int/fault flags}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#ifdef CAFE\_ARCH2}}
+\DoxyCodeLine{66     register\_val = pac5xxx\_tile\_register\_read(ADDR\_SIGINTF);}
+\DoxyCodeLine{67     \textcolor{keywordflow}{while} (register\_val\&0xA0)}
+\DoxyCodeLine{68     \{}
+\DoxyCodeLine{69         register\_val = pac5xxx\_tile\_register\_read(ADDR\_SIGINTF);}
+\DoxyCodeLine{70     \}}
+\DoxyCodeLine{71     register\_val = pac5xxx\_tile\_register\_read(ADDR\_PROTSTAT);}
+\DoxyCodeLine{72     \textcolor{keywordflow}{while} (register\_val\&0x80)}
+\DoxyCodeLine{73     \{}
+\DoxyCodeLine{74         register\_val = pac5xxx\_tile\_register\_read(ADDR\_PROTSTAT);}
+\DoxyCodeLine{75     \}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     register\_val = pac5xxx\_tile\_register\_read(ADDR\_SIGINTF);}
+\DoxyCodeLine{78     \textcolor{keywordflow}{while} (register\_val\&0x50)}
+\DoxyCodeLine{79     \{}
+\DoxyCodeLine{80         register\_val = pac5xxx\_tile\_register\_read(ADDR\_SIGINTF);}
+\DoxyCodeLine{81     \}}
+\DoxyCodeLine{82     register\_val = pac5xxx\_tile\_register\_read(ADDR\_PROTSTAT);}
+\DoxyCodeLine{83     \textcolor{keywordflow}{while} (register\_val\&0x08)}
+\DoxyCodeLine{84     \{}
+\DoxyCodeLine{85         register\_val = pac5xxx\_tile\_register\_read(ADDR\_PROTSTAT);}
+\DoxyCodeLine{86     \}}
+\DoxyCodeLine{87     pac5xxx\_tile\_register\_write(ADDR\_PROTSTAT, 0xFF);}
+\DoxyCodeLine{88 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#ifdef CAFE\_ARCH3}}
+\DoxyCodeLine{91     register\_val = pac5xxx\_tile\_register\_read(ADDR\_PROTSTAT);}
+\DoxyCodeLine{92     \textcolor{keywordflow}{while} (register\_val \& 0x11)}
+\DoxyCodeLine{93     \{}
+\DoxyCodeLine{94         pac5xxx\_tile\_register\_write(ADDR\_PROTSTAT, 0x11);    }
+\DoxyCodeLine{95         register\_val = pac5xxx\_tile\_register\_read(ADDR\_PROTSTAT);}
+\DoxyCodeLine{96     \}}
+\DoxyCodeLine{97     pac5xxx\_tile\_register\_write(ADDR\_PROTSTAT, 0x11); }
+\DoxyCodeLine{98 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{100     pac5xxx\_tile\_register\_write(ADDR\_PROTINTM, 0x00);}
+\DoxyCodeLine{101     \textcolor{keywordflow}{while} (pac5xxx\_tile\_register\_read(ADDR\_PROTSTAT));}
+\DoxyCodeLine{102     protint\_enable();}
+\DoxyCodeLine{103 }
+\DoxyCodeLine{104     \textcolor{comment}{// Disable driver}}
+\DoxyCodeLine{105     \textcolor{keywordflow}{do}}
+\DoxyCodeLine{106     \{}
+\DoxyCodeLine{107         pac5xxx\_tile\_register\_write(ADDR\_ENDRV, 0);}
+\DoxyCodeLine{108         register\_val = pac5xxx\_tile\_register\_read(ADDR\_ENDRV);}
+\DoxyCodeLine{109     \} \textcolor{keywordflow}{while} ((register\_val\&0x1) != 0x0);}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111     \textcolor{comment}{// Enable driver}}
+\DoxyCodeLine{112     \textcolor{keywordflow}{do} \{}
+\DoxyCodeLine{113         pac5xxx\_tile\_register\_write(ADDR\_ENDRV, 1);}
+\DoxyCodeLine{114         register\_val = pac5xxx\_tile\_register\_read(ADDR\_ENDRV);}
+\DoxyCodeLine{115     \} \textcolor{keywordflow}{while} ((register\_val\&0x1) != 0x1);}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117     \textcolor{comment}{// Clear OC flag}}
+\DoxyCodeLine{118     \mbox{\hyperlink{fault_8c_acb1b29532be372e85eb02188e6255e47}{clear\_fault}}(\mbox{\hyperlink{fault__struct_8h_a338dfc724e1abb85bb299ca3dc6fc2c8a7a320981168744eb5cf94199073647fc}{FAULT\_CAFE\_OC}});}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120     \textcolor{comment}{// Enable global interrupts}}
+\DoxyCodeLine{121     \_\_enable\_irq();}
+\DoxyCodeLine{122 \}}
+
+\end{DoxyCode}
+
+
+References set\+\_\+drivers\+\_\+gpio().
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{fault_8h_ac1ca998bb5134cb1a95dc7c1fa8b573c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fault_8h_a227f77bf24e11bf3de328d525f819d66}\label{fault_8h_a227f77bf24e11bf3de328d525f819d66}} 
+\index{fault.h@{fault.h}!pac5xxx\_get\_driver\_fault@{pac5xxx\_get\_driver\_fault}}
+\index{pac5xxx\_get\_driver\_fault@{pac5xxx\_get\_driver\_fault}!fault.h@{fault.h}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_get\_driver\_fault()}{pac5xxx\_get\_driver\_fault()}}
+{\footnotesize\ttfamily int32\+\_\+t pac5xxx\+\_\+get\+\_\+driver\+\_\+fault (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Referenced by Gpio\+B\+\_\+\+I\+R\+Q\+Handler().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{fault_8h_a227f77bf24e11bf3de328d525f819d66_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fault_8h_a30d186784bc2ea742f0dc10498bc3ff1}\label{fault_8h_a30d186784bc2ea742f0dc10498bc3ff1}} 
+\index{fault.h@{fault.h}!pac5xxx\_get\_over\_current\_status@{pac5xxx\_get\_over\_current\_status}}
+\index{pac5xxx\_get\_over\_current\_status@{pac5xxx\_get\_over\_current\_status}!fault.h@{fault.h}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_get\_over\_current\_status()}{pac5xxx\_get\_over\_current\_status()}}
+{\footnotesize\ttfamily int32\+\_\+t pac5xxx\+\_\+get\+\_\+over\+\_\+current\+\_\+status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Referenced by Gpio\+B\+\_\+\+I\+R\+Q\+Handler().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{fault_8h_a30d186784bc2ea742f0dc10498bc3ff1_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fault_8h_a746d0b52c42f94990db2f2a4e55cd727}\label{fault_8h_a746d0b52c42f94990db2f2a4e55cd727}} 
+\index{fault.h@{fault.h}!pac5xxx\_get\_over\_temperature\_status@{pac5xxx\_get\_over\_temperature\_status}}
+\index{pac5xxx\_get\_over\_temperature\_status@{pac5xxx\_get\_over\_temperature\_status}!fault.h@{fault.h}}
+\doxysubsubsection{\texorpdfstring{pac5xxx\_get\_over\_temperature\_status()}{pac5xxx\_get\_over\_temperature\_status()}}
+{\footnotesize\ttfamily int32\+\_\+t pac5xxx\+\_\+get\+\_\+over\+\_\+temperature\+\_\+status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Referenced by Gpio\+B\+\_\+\+I\+R\+Q\+Handler().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fault_8h_a746d0b52c42f94990db2f2a4e55cd727_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fault_8h_a27e9497981905b8f49967f8b4bffb194}\label{fault_8h_a27e9497981905b8f49967f8b4bffb194}} 
+\index{fault.h@{fault.h}!set\_fault@{set\_fault}}
+\index{set\_fault@{set\_fault}!fault.h@{fault.h}}
+\doxysubsubsection{\texorpdfstring{set\_fault()}{set\_fault()}}
+{\footnotesize\ttfamily void set\+\_\+fault (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{fault\+\_\+mask }\end{DoxyParamCaption})}
+
+
+
+This function use to set fault. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint32\+\_\+t} & fault\+\_\+mask \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 129 of file fault.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{130 \{}
+\DoxyCodeLine{131     \mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}}.\mbox{\hyperlink{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}{fault}}.\mbox{\hyperlink{struct_struct___fault_a873cbe07ef4988d4c164b357148934be}{motor}} |= fault\_mask;}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133     \textcolor{comment}{// Decide firmware response to fault}}
+\DoxyCodeLine{134     \textcolor{keywordflow}{if} (fault\_mask \& \mbox{\hyperlink{fault__struct_8h_a2c8428394f7dc31eeb87c2ddacfd479c}{FAULT\_MAIN\_GRP\_STOP}})}
+\DoxyCodeLine{135     \{}
+\DoxyCodeLine{136         \mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}}.\mbox{\hyperlink{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}{fault}}.\mbox{\hyperlink{struct_struct___fault_a8fa790ee68f0bef321d01018158e5d23}{fault\_stop\_flag}} = 1;}
+\DoxyCodeLine{137     \}}
+\DoxyCodeLine{138     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (fault\_mask \& \mbox{\hyperlink{fault__struct_8h_a4aade078bab9e4ead49cee8fe9f242b1}{FAULT\_MAIN\_GRP\_STATE}})}
+\DoxyCodeLine{139     \{}
+\DoxyCodeLine{140         \mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}}.\mbox{\hyperlink{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}{fault}}.\mbox{\hyperlink{struct_struct___fault_a733a94c47032c7b453118bc28ae060ec}{fault\_state\_flag}} = 1;}
+\DoxyCodeLine{141     \}}
+\DoxyCodeLine{142     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (fault\_mask \& \mbox{\hyperlink{fault__struct_8h_a3821cc3686cd84b8662f42712990cfda}{FAULT\_MAIN\_GRP\_TERMINAL}})}
+\DoxyCodeLine{143     \{}
+\DoxyCodeLine{144         \mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}}.\mbox{\hyperlink{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}{fault}}.\mbox{\hyperlink{struct_struct___fault_afc539896415e1aa2b2d7727941519e5d}{fault\_terminal\_flag}} = 1;}
+\DoxyCodeLine{145     \}}
+\DoxyCodeLine{146 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::fault, F\+A\+U\+L\+T\+\_\+\+M\+A\+I\+N\+\_\+\+G\+R\+P\+\_\+\+S\+T\+A\+TE, F\+A\+U\+L\+T\+\_\+\+M\+A\+I\+N\+\_\+\+G\+R\+P\+\_\+\+S\+T\+OP, F\+A\+U\+L\+T\+\_\+\+M\+A\+I\+N\+\_\+\+G\+R\+P\+\_\+\+T\+E\+R\+M\+I\+N\+AL, Struct\+\_\+\+Fault\+::fault\+\_\+state\+\_\+flag, Struct\+\_\+\+Fault\+::fault\+\_\+stop\+\_\+flag, Struct\+\_\+\+Fault\+::fault\+\_\+terminal\+\_\+flag, motor, and Struct\+\_\+\+Fault\+::motor.
+
+
+
+Referenced by check\+\_\+param\+\_\+while\+\_\+run(), est\+\_\+anglediff\+\_\+check(), Gpio\+A\+\_\+\+I\+R\+Q\+Handler(), Gpio\+B\+\_\+\+I\+R\+Q\+Handler(), hall\+\_\+timer\+\_\+isr(), lbg1\+\_\+statemon(), sm\+\_\+mainsub\+\_\+prestart(), and systemvar\+\_\+init().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fault_8h_a27e9497981905b8f49967f8b4bffb194_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{fault_8h_a8ea8474835dbcb70ebc28b77e48207fc}\label{fault_8h_a8ea8474835dbcb70ebc28b77e48207fc}} 
+\index{fault.h@{fault.h}!set\_warning@{set\_warning}}
+\index{set\_warning@{set\_warning}!fault.h@{fault.h}}
+\doxysubsubsection{\texorpdfstring{set\_warning()}{set\_warning()}}
+{\footnotesize\ttfamily void set\+\_\+warning (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{fault\+\_\+mask }\end{DoxyParamCaption})}
+
+
+
+This function use to set warning. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint32\+\_\+t} & fault\+\_\+mask \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 163 of file fault.\+c.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{164 \{}
+\DoxyCodeLine{165     \mbox{\hyperlink{app__funcs_8c_ab2ccd659dea3f8864fc558727d039e6a}{motor}}.\mbox{\hyperlink{struct_struct___motor_a4e491b398c5e8d64ff2e40932c42862c}{fault}}.\mbox{\hyperlink{struct_struct___fault_a873cbe07ef4988d4c164b357148934be}{motor}} |= fault\_mask;}
+\DoxyCodeLine{166 \}}
+
+\end{DoxyCode}
+
+
+References Struct\+\_\+\+Motor\+::fault, motor, and Struct\+\_\+\+Fault\+::motor.
+
+
+
+Referenced by check\+\_\+pwm\+\_\+sat(), est\+\_\+anglediff\+\_\+check(), Gpio\+A\+\_\+\+I\+R\+Q\+Handler(), Gpio\+B\+\_\+\+I\+R\+Q\+Handler(), init\+\_\+over\+\_\+current\+\_\+limit(), picon\+\_\+convert\+\_\+gain(), and stack\+\_\+test().
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{fault_8h_a8ea8474835dbcb70ebc28b77e48207fc_icgraph}
+\end{center}
+\end{figure}

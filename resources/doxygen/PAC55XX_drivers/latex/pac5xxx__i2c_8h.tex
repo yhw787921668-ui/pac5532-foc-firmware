@@ -1,0 +1,87 @@
+\hypertarget{pac5xxx__i2c_8h}{}\doxysection{pac\+\_\+foc/pac55xx/pac55xx\+\_\+sdk/peripheral/pac5xxx\+\_\+i2c.h File Reference}
+\label{pac5xxx__i2c_8h}\index{pac\_foc/pac55xx/pac55xx\_sdk/peripheral/pac5xxx\_i2c.h@{pac\_foc/pac55xx/pac55xx\_sdk/peripheral/pac5xxx\_i2c.h}}
+
+
+C\+M\+S\+IS Cortex-\/M Header File for the P\+A\+C55\+XX I2C Controller.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__i2c_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{union_i2_c_a_d_r___t_y_p_e_d_e_f}{I2\+C\+A\+D\+R\+\_\+\+T\+Y\+P\+E\+D\+EF}}
+\item 
+union \mbox{\hyperlink{union_i2_c_a_d_r___m_a_s_k___t_y_p_e_d_e_f}{I2\+C\+A\+D\+R\+\_\+\+M\+A\+S\+K\+\_\+\+T\+Y\+P\+E\+D\+EF}}
+\item 
+struct \mbox{\hyperlink{struct_p_a_c55_x_x___i2_c___t_y_p_e_d_e_f}{P\+A\+C55\+X\+X\+\_\+\+I2\+C\+\_\+\+T\+Y\+P\+E\+D\+EF}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{pac5xxx__i2c_8h_abad342a2c710b136625960a1883bce4e}{I2\+C\+\_\+\+S\+O\+F\+T\+\_\+\+R\+E\+S\+ET}}~0x07
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{pac5xxx__i2c_8h_a822c5a1702fe33dfd7e81456cceabae5}{I2\+C\+\_\+\+E\+N\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__i2c_8h_a822c5a1702fe33dfd7e81456cceabae5a24e1b190c36724278fc6d50895a1fcd4}{I2\+C\+\_\+\+D\+I\+S\+A\+B\+LE}} = 0, 
+\mbox{\hyperlink{pac5xxx__i2c_8h_a822c5a1702fe33dfd7e81456cceabae5a6676945d8a159e90debd5563f209f5d1}{I2\+C\+\_\+\+E\+N\+A\+B\+LE}} = 1
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+M\+S\+IS Cortex-\/M Header File for the P\+A\+C55\+XX I2C Controller. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2017-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{pac5xxx__i2c_8h_abad342a2c710b136625960a1883bce4e}\label{pac5xxx__i2c_8h_abad342a2c710b136625960a1883bce4e}} 
+\index{pac5xxx\_i2c.h@{pac5xxx\_i2c.h}!I2C\_SOFT\_RESET@{I2C\_SOFT\_RESET}}
+\index{I2C\_SOFT\_RESET@{I2C\_SOFT\_RESET}!pac5xxx\_i2c.h@{pac5xxx\_i2c.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_SOFT\_RESET}{I2C\_SOFT\_RESET}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+S\+O\+F\+T\+\_\+\+R\+E\+S\+ET~0x07}
+
+
+
+Definition at line 26 of file pac5xxx\+\_\+i2c.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{pac5xxx__i2c_8h_a822c5a1702fe33dfd7e81456cceabae5}\label{pac5xxx__i2c_8h_a822c5a1702fe33dfd7e81456cceabae5}} 
+\index{pac5xxx\_i2c.h@{pac5xxx\_i2c.h}!I2C\_EN\_TYPE@{I2C\_EN\_TYPE}}
+\index{I2C\_EN\_TYPE@{I2C\_EN\_TYPE}!pac5xxx\_i2c.h@{pac5xxx\_i2c.h}}
+\doxysubsubsection{\texorpdfstring{I2C\_EN\_TYPE}{I2C\_EN\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__i2c_8h_a822c5a1702fe33dfd7e81456cceabae5}{I2\+C\+\_\+\+E\+N\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_DISABLE@{I2C\_DISABLE}!pac5xxx\_i2c.h@{pac5xxx\_i2c.h}}\index{pac5xxx\_i2c.h@{pac5xxx\_i2c.h}!I2C\_DISABLE@{I2C\_DISABLE}}}\mbox{\Hypertarget{pac5xxx__i2c_8h_a822c5a1702fe33dfd7e81456cceabae5a24e1b190c36724278fc6d50895a1fcd4}\label{pac5xxx__i2c_8h_a822c5a1702fe33dfd7e81456cceabae5a24e1b190c36724278fc6d50895a1fcd4}} 
+I2\+C\+\_\+\+D\+I\+S\+A\+B\+LE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_ENABLE@{I2C\_ENABLE}!pac5xxx\_i2c.h@{pac5xxx\_i2c.h}}\index{pac5xxx\_i2c.h@{pac5xxx\_i2c.h}!I2C\_ENABLE@{I2C\_ENABLE}}}\mbox{\Hypertarget{pac5xxx__i2c_8h_a822c5a1702fe33dfd7e81456cceabae5a6676945d8a159e90debd5563f209f5d1}\label{pac5xxx__i2c_8h_a822c5a1702fe33dfd7e81456cceabae5a6676945d8a159e90debd5563f209f5d1}} 
+I2\+C\+\_\+\+E\+N\+A\+B\+LE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 21 of file pac5xxx\+\_\+i2c.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21             \{}
+\DoxyCodeLine{22     \mbox{\hyperlink{pac5xxx__i2c_8h_a822c5a1702fe33dfd7e81456cceabae5a24e1b190c36724278fc6d50895a1fcd4}{I2C\_DISABLE}} = 0,}
+\DoxyCodeLine{23     \mbox{\hyperlink{pac5xxx__i2c_8h_a822c5a1702fe33dfd7e81456cceabae5a6676945d8a159e90debd5563f209f5d1}{I2C\_ENABLE}}  = 1}
+\DoxyCodeLine{24 \}\mbox{\hyperlink{pac5xxx__i2c_8h_a822c5a1702fe33dfd7e81456cceabae5}{I2C\_EN\_TYPE}};}
+
+\end{DoxyCode}

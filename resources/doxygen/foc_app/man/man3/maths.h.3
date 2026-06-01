@@ -1,0 +1,1771 @@
+.TH "pac_foc/src/math/maths.h" 3 "Wed Sep 23 2020" "Version 4.1.2" "FOC-4.1.2-App" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+pac_foc/src/math/maths.h \- Math support function declarations\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <math\&.h>\fP
+.br
+\fC#include 'fix16\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTRUE\fP   1"
+.br
+.ti -1c
+.RI "#define \fBFALSE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBM_PI\fP   3\&.14159265358979323846"
+.br
+.ti -1c
+.RI "#define \fBFLT_PI\fP   3\&.14159f"
+.br
+.ti -1c
+.RI "#define \fBFLT_2PI\fP   (2\&.0f * \fBFLT_PI\fP)"
+.br
+.ti -1c
+.RI "#define \fBFLT_SQRT_3\fP   1\&.732051f"
+.br
+.ti -1c
+.RI "#define \fBFIX16_PI\fP   \fBQCONST\fP(\fBFLT_PI\fP, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBFIX16_PI_DIV_2\fP   \fBQCONST\fP((\fBFLT_PI\fP / 2), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBFIX16_PI_DIV_3\fP   \fBQCONST\fP((\fBFLT_PI\fP / 3), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBFIX16_PI_DIV_4\fP   \fBQCONST\fP((\fBFLT_PI\fP / 4), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBFIX16_PI_DIV_6\fP   \fBQCONST\fP((\fBFLT_PI\fP / 6), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBFIX16_2PI\fP   \fBQCONST\fP((2\&.0f * \fBFLT_PI\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBFIX16_2PI_DIV_3\fP   \fBQCONST\fP((\fBFLT_2PI\fP / 3), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBFIX16_1P5_PI\fP   \fBQCONST\fP((1\&.5f * \fBFLT_PI\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBFIX16_1P0_DIV_2_PI\fP   \fBQCONST\fP((1\&.0f / \fBFLT_2PI\fP), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBFIX16_PI_X_1024\fP   (\fBFIX16_PI\fP << 10)"
+.br
+.ti -1c
+.RI "#define \fBFIX16_2PI_X_1024\fP   (\fBFIX16_2PI\fP << 10)"
+.br
+.ti -1c
+.RI "#define \fBFIX16_MINUS_PI_X_1024\fP   ((int32_t)(((\-\fBM_PI\fP * 1024) * 0x10000) + 0\&.5))"
+.br
+.ti -1c
+.RI "#define \fBFIX16_PI_DIV_180_X_1024\fP   ((int32_t)(((\fBM_PI\fP/180 * 1024) * 0x10000) + 0\&.5))"
+.br
+.ti -1c
+.RI "#define \fBFIX16_NEG_PI\fP   0xFFFCDBC1"
+.br
+.ti -1c
+.RI "#define \fBFIX16_NEG_PI_DIV_4\fP   0xFFFF35C3"
+.br
+.ti -1c
+.RI "#define \fBFIX16_NEG_PI_DIV_3\fP   0xFFFEF3EB"
+.br
+.ti -1c
+.RI "#define \fBFIX16_NEG_PI_DIV_2\fP   0xFFFE6DE1"
+.br
+.ti -1c
+.RI "#define \fBFIX16_1P0\fP   0x00010000"
+.br
+.ti -1c
+.RI "#define \fBFIX16_1P5\fP   0x00018000"
+.br
+.ti -1c
+.RI "#define \fBFIX16_0P9\fP   0x0000E666"
+.br
+.ti -1c
+.RI "#define \fBFIX16_0P1\fP   0x0000199A"
+.br
+.ti -1c
+.RI "#define \fBFIX16_SQRT_3\fP   0x0001BB67"
+.br
+.ti -1c
+.RI "#define \fBFIX16_SQRT_3_DIV_2\fP   0x0000DDB3"
+.br
+.ti -1c
+.RI "#define \fBFIX16_1P0_DIV_SQRT_3\fP   0x000093CD"
+.br
+.ti -1c
+.RI "#define \fBFIX16_1P0_DIV_100\fP   0x0000028F"
+.br
+.ti -1c
+.RI "#define \fBFIX16_1_DIV_SQRT2\fP   0x0000B505"
+.br
+.ti -1c
+.RI "#define \fBFIX1Q14_1P0_DIV_SQRT_3\fP   0x49E6"
+.br
+.ti -1c
+.RI "#define \fBFIXQ1P14_1P5\fP   (0x00018000 >> 2)"
+.br
+.ti -1c
+.RI "#define \fBFIXQ1P14_0P9\fP   (0x0000E666 >> 2)"
+.br
+.ti -1c
+.RI "#define \fBFIXQ1P14_SQRT_3\fP   (0x0001BB67 >> 2)"
+.br
+.ti -1c
+.RI "#define \fBFIXQ1P14_SQRT_3_DIV_2\fP   (0x0000DDB3 >> 2)"
+.br
+.ti -1c
+.RI "#define \fBZERO_POINT_5773_IN_Q14\fP   0x24F2"
+.br
+.ti -1c
+.RI "#define \fBZERO_POINT_866_IN_Q14\fP   0x376C"
+.br
+.ti -1c
+.RI "#define \fBONE_DIVIDE_BY_5_FIX16\fP   0x00003333"
+.br
+.ti -1c
+.RI "#define \fBFIX16_1DIV3\fP   0x5555"
+.br
+.ti -1c
+.RI "#define \fBQ00\fP   0"
+.br
+.ti -1c
+.RI "#define \fBQ01\fP   1"
+.br
+.ti -1c
+.RI "#define \fBQ02\fP   2"
+.br
+.ti -1c
+.RI "#define \fBQ03\fP   3"
+.br
+.ti -1c
+.RI "#define \fBQ04\fP   4"
+.br
+.ti -1c
+.RI "#define \fBQ05\fP   5"
+.br
+.ti -1c
+.RI "#define \fBQ06\fP   6"
+.br
+.ti -1c
+.RI "#define \fBQ07\fP   7"
+.br
+.ti -1c
+.RI "#define \fBQ08\fP   8"
+.br
+.ti -1c
+.RI "#define \fBQ09\fP   9"
+.br
+.ti -1c
+.RI "#define \fBQ10\fP   10"
+.br
+.ti -1c
+.RI "#define \fBQ11\fP   11"
+.br
+.ti -1c
+.RI "#define \fBQ12\fP   12"
+.br
+.ti -1c
+.RI "#define \fBQ13\fP   13"
+.br
+.ti -1c
+.RI "#define \fBQ14\fP   14"
+.br
+.ti -1c
+.RI "#define \fBQ15\fP   15"
+.br
+.ti -1c
+.RI "#define \fBQ16\fP   16"
+.br
+.ti -1c
+.RI "#define \fBQ17\fP   17"
+.br
+.ti -1c
+.RI "#define \fBQ18\fP   18"
+.br
+.ti -1c
+.RI "#define \fBQ19\fP   19"
+.br
+.ti -1c
+.RI "#define \fBQ20\fP   20"
+.br
+.ti -1c
+.RI "#define \fBQ21\fP   21"
+.br
+.ti -1c
+.RI "#define \fBQ22\fP   22"
+.br
+.ti -1c
+.RI "#define \fBQ23\fP   23"
+.br
+.ti -1c
+.RI "#define \fBQ24\fP   24"
+.br
+.ti -1c
+.RI "#define \fBQ25\fP   25"
+.br
+.ti -1c
+.RI "#define \fBQ26\fP   26"
+.br
+.ti -1c
+.RI "#define \fBQ27\fP   27"
+.br
+.ti -1c
+.RI "#define \fBQ28\fP   28"
+.br
+.ti -1c
+.RI "#define \fBQ29\fP   29"
+.br
+.ti -1c
+.RI "#define \fBQ30\fP   30"
+.br
+.ti -1c
+.RI "#define \fBQCONST\fP(const_val,  q_num)   ( ((int32_t) ((const_val) * (1 << (q_num)))) )"
+.br
+.ti -1c
+.RI "#define \fBQ14_0P5\fP   \fBQCONST\fP(0\&.5f, \fBQ14\fP)"
+.br
+.ti -1c
+.RI "#define \fBQ14_1P0\fP   \fBQCONST\fP(1\&.0f, \fBQ14\fP)"
+.br
+.ti -1c
+.RI "#define \fBQ14_1P5\fP   \fBQCONST\fP(1\&.5f, \fBQ14\fP)"
+.br
+.ti -1c
+.RI "#define \fBQ14_1_DIV_3\fP   \fBQCONST\fP(0\&.33333333f, \fBQ14\fP)"
+.br
+.ti -1c
+.RI "#define \fBQ14_SQRT3_DIV_SQRT2\fP   \fBQCONST\fP(1\&.22474487f, \fBQ14\fP)"
+.br
+.ti -1c
+.RI "#define \fBQ14_1_DIV_SQRT2\fP   \fBQCONST\fP(0\&.70710678f, \fBQ14\fP)"
+.br
+.ti -1c
+.RI "#define \fBQ16_0P5\fP   \fBQCONST\fP(0\&.5f, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBQ16_1P0\fP   \fBQCONST\fP(1\&.0f, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBQ16_1P5\fP   \fBQCONST\fP(1\&.5f, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBQ16_SQRT_2\fP   \fBQCONST\fP(1\&.41421356f, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCONST_7PI_DIV_6_FIX16\fP   \fBQCONST\fP((7\&.0 * \fBFLT_PI\fP / 6\&.0), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCONST_5PI_DIV_6_FIX16\fP   \fBQCONST\fP((5\&.0 * \fBFLT_PI\fP / 6\&.0), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBQ16_ONE_DIV_SQRT3\fP   \fBQCONST\fP(0\&.57735027f, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBQ16_1000\fP   \fBQCONST\fP(1000\&.0f, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBQ16_100\fP   \fBQCONST\fP(100\&.0f, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBHZ2RAD_FIX16\fP   411775"
+.br
+.ti -1c
+.RI "#define \fBRAD2HZ_FIX16\fP   10430"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_0HZ\fP   0"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_0p5HZ\fP   (\fBHZ2RAD_FIX16\fP/2)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_0p75HZ\fP   (3*\fBHZ2RAD_FIX16\fP/4)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_1HZ\fP   (1*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_2HZ\fP   (2*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_3HZ\fP   (3*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_4HZ\fP   (4*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_5HZ\fP   (5*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_6HZ\fP   (6*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_7HZ\fP   (7*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_8HZ\fP   (8*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_9HZ\fP   (9*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_10HZ\fP   (10*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_20HZ\fP   (20*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_25HZ\fP   (25*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_50HZ\fP   (50*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_100HZ\fP   (100*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_150HZ\fP   (150*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_200HZ\fP   (200*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_250HZ\fP   (250*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_300HZ\fP   (300*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_400HZ\fP   (400*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_500HZ\fP   (500*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_600HZ\fP   (600*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_750HZ\fP   (750*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_1000HZ\fP   (1000*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_1500HZ\fP   (1500*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_2000HZ\fP   (2000*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_2500HZ\fP   (2500*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_3000HZ\fP   (3000*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBCL_SPEED_3500HZ\fP   (3500*\fBHZ2RAD_FIX16\fP)"
+.br
+.ti -1c
+.RI "#define \fBVDC_1V\fP   (1*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_5V\fP   (5*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_6V\fP   (6*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_7V\fP   (7*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_8V\fP   (8*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_9V\fP   (9*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_10V\fP   (10*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_11V\fP   (11*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_12V\fP   (12*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_13V\fP   (13*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_14V\fP   (14*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_15V\fP   (15*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_16V\fP   (16*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_17V\fP   (17*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_18V\fP   (18*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_19V\fP   (19*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_20V\fP   (20*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_24V\fP   (24*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_25V\fP   (25*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_30V\fP   (30*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_45V\fP   (45*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_50V\fP   (50*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_60V\fP   (60*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_70V\fP   (70*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_75V\fP   (75*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_100V\fP   (100*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_150V\fP   (150*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_200V\fP   (200*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_250V\fP   (250*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_300V\fP   (300*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_350V\fP   (350*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_400V\fP   (350*65536)"
+.br
+.ti -1c
+.RI "#define \fBVDC_450V\fP   (450*65536)"
+.br
+.ti -1c
+.RI "#define \fBDIFF_AMP_GAIN_1X\fP   1"
+.br
+.ti -1c
+.RI "#define \fBDIFF_AMP_GAIN_2X\fP   2"
+.br
+.ti -1c
+.RI "#define \fBDIFF_AMP_GAIN_4X\fP   3"
+.br
+.ti -1c
+.RI "#define \fBDIFF_AMP_GAIN_8X\fP   4"
+.br
+.ti -1c
+.RI "#define \fBDIFF_AMP_GAIN_16X\fP   5"
+.br
+.ti -1c
+.RI "#define \fBDIFF_AMP_GAIN_32X\fP   6"
+.br
+.ti -1c
+.RI "#define \fBDIFF_AMP_GAIN_48X\fP   7"
+.br
+.ti -1c
+.RI "#define \fBQ3_0P000\fP   0"
+.br
+.ti -1c
+.RI "#define \fBQ3_0P125\fP   1"
+.br
+.ti -1c
+.RI "#define \fBQ3_0P250\fP   2"
+.br
+.ti -1c
+.RI "#define \fBQ3_0P375\fP   3"
+.br
+.ti -1c
+.RI "#define \fBQ3_0P500\fP   4"
+.br
+.ti -1c
+.RI "#define \fBQ3_0P625\fP   5"
+.br
+.ti -1c
+.RI "#define \fBQ3_0P750\fP   6"
+.br
+.ti -1c
+.RI "#define \fBQ3_0P875\fP   7"
+.br
+.ti -1c
+.RI "#define \fBBIT_00\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBBIT_01\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBBIT_02\fP   (1 << 2)"
+.br
+.ti -1c
+.RI "#define \fBBIT_03\fP   (1 << 3)"
+.br
+.ti -1c
+.RI "#define \fBBIT_04\fP   (1 << 4)"
+.br
+.ti -1c
+.RI "#define \fBBIT_05\fP   (1 << 5)"
+.br
+.ti -1c
+.RI "#define \fBBIT_06\fP   (1 << 6)"
+.br
+.ti -1c
+.RI "#define \fBBIT_07\fP   (1 << 7)"
+.br
+.ti -1c
+.RI "#define \fBBIT_08\fP   (1 << 8)"
+.br
+.ti -1c
+.RI "#define \fBBIT_09\fP   (1 << 9)"
+.br
+.ti -1c
+.RI "#define \fBBIT_10\fP   (1 << 10)"
+.br
+.ti -1c
+.RI "#define \fBBIT_11\fP   (1 << 11)"
+.br
+.ti -1c
+.RI "#define \fBBIT_12\fP   (1 << 12)"
+.br
+.ti -1c
+.RI "#define \fBBIT_13\fP   (1 << 13)"
+.br
+.ti -1c
+.RI "#define \fBBIT_14\fP   (1 << 14)"
+.br
+.ti -1c
+.RI "#define \fBBIT_15\fP   (1 << 15)"
+.br
+.ti -1c
+.RI "#define \fBBIT_16\fP   (1 << 16)"
+.br
+.ti -1c
+.RI "#define \fBBIT_17\fP   (1 << 17)"
+.br
+.ti -1c
+.RI "#define \fBBIT_18\fP   (1 << 18)"
+.br
+.ti -1c
+.RI "#define \fBBIT_19\fP   (1 << 19)"
+.br
+.ti -1c
+.RI "#define \fBBIT_20\fP   (1 << 20)"
+.br
+.ti -1c
+.RI "#define \fBBIT_21\fP   (1 << 21)"
+.br
+.ti -1c
+.RI "#define \fBBIT_22\fP   (1 << 22)"
+.br
+.ti -1c
+.RI "#define \fBBIT_23\fP   (1 << 23)"
+.br
+.ti -1c
+.RI "#define \fBBIT_24\fP   (1 << 24)"
+.br
+.ti -1c
+.RI "#define \fBBIT_25\fP   (1 << 25)"
+.br
+.ti -1c
+.RI "#define \fBBIT_26\fP   (1 << 26)"
+.br
+.ti -1c
+.RI "#define \fBBIT_27\fP   (1 << 27)"
+.br
+.ti -1c
+.RI "#define \fBBIT_28\fP   (1 << 28)"
+.br
+.ti -1c
+.RI "#define \fBBIT_29\fP   (1 << 29)"
+.br
+.ti -1c
+.RI "#define \fBBIT_30\fP   (1 << 30)"
+.br
+.ti -1c
+.RI "#define \fBBIT_31\fP   (1 << 31)"
+.br
+.ti -1c
+.RI "#define \fBDEG_m180_IN_RAD_FIX16\fP   0xFFFCDBC1"
+.br
+.ti -1c
+.RI "#define \fBDEG_m150_IN_RAD_FIX16\fP   0xFFFD61CC"
+.br
+.ti -1c
+.RI "#define \fBDEG_m120_IN_RAD_FIX16\fP   0xFFFDE7F0"
+.br
+.ti -1c
+.RI "#define \fBDEG_m090_IN_RAD_FIX16\fP   0xFFFE6DE1"
+.br
+.ti -1c
+.RI "#define \fBDEG_m060_IN_RAD_FIX16\fP   0xFFFEF3EB"
+.br
+.ti -1c
+.RI "#define \fBDEG_m030_IN_RAD_FIX16\fP   0xFFFF79F6"
+.br
+.ti -1c
+.RI "#define \fBDEG_p000_IN_RAD_FIX16\fP   0x00000000"
+.br
+.ti -1c
+.RI "#define \fBDEG_p030_IN_RAD_FIX16\fP   0x0000860A"
+.br
+.ti -1c
+.RI "#define \fBDEG_p060_IN_RAD_FIX16\fP   0x00010C15"
+.br
+.ti -1c
+.RI "#define \fBDEG_p090_IN_RAD_FIX16\fP   0x0001921F"
+.br
+.ti -1c
+.RI "#define \fBDEG_p120_IN_RAD_FIX16\fP   0x00021810"
+.br
+.ti -1c
+.RI "#define \fBDEG_p150_IN_RAD_FIX16\fP   0x00029E34"
+.br
+.ti -1c
+.RI "#define \fBDEG_p180_IN_RAD_FIX16\fP   0x0003243F"
+.br
+.ti -1c
+.RI "#define \fBDEG_m135_IN_RAD_FIX16\fP   0xFFFDA4D0"
+.br
+.ti -1c
+.RI "#define \fBDEG_p045_IN_RAD_FIX16\fP   0x0000C910"
+.br
+.ti -1c
+.RI "#define \fBDEG_m015_IN_RAD_FIX16\fP   0xFFFFBCFB"
+.br
+.ti -1c
+.RI "#define \fBDEG_p165_IN_RAD_FIX16\fP   0x0002E13A"
+.br
+.ti -1c
+.RI "#define \fBDEG_p105_IN_RAD_FIX16\fP   0x0001D525"
+.br
+.ti -1c
+.RI "#define \fBDEG_m075_IN_RAD_FIX16\fP   0xFFFEB0E6"
+.br
+.ti -1c
+.RI "#define \fBZERO_POINT_FIVE\fP   0x00008000"
+.br
+.ti -1c
+.RI "#define \fBQ16_mV_PER_ADC_COUNT\fP   \fBQCONST\fP(2500\&.0/1023\&.0, \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBONE_THIRD_IN_FIX16\fP   0x00005555"
+.br
+.ti -1c
+.RI "#define \fBCONV_Q10TOQ14\fP   \fBQCONST\fP((16383\&.0f / 1023\&.0f), \fBQ14\fP)"
+.br
+.ti -1c
+.RI "#define \fBCONV_ADC2VAIO_Q10Q14\fP   \fBQCONST\fP((2\&.5f / 1023\&.0f), \fBQ14\fP)"
+.br
+.ti -1c
+.RI "#define \fBCONV_ADC2VAIO_Q10Q16\fP   \fBQCONST\fP((2\&.5f / 1023\&.0f), \fBQ16\fP)"
+.br
+.ti -1c
+.RI "#define \fBQ14_ONE\fP   \fBQCONST\fP(1\&.0f, \fBQ14\fP)"
+.br
+.ti -1c
+.RI "#define \fBQ14_0P5\fP   \fBQCONST\fP(0\&.5f, \fBQ14\fP)"
+.br
+.ti -1c
+.RI "#define \fBQ28_ONE\fP   \fBQCONST\fP(1\&.0f, \fBQ28\fP)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef \fBfix16_t\fP \fBq1p14_t\fP"
+.br
+.ti -1c
+.RI "typedef long int \fBq1p30_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBbubble_sort_array\fP (int32_t *sort_array, uint32_t size)"
+.br
+.RI "Bubble sort an array\&. "
+.ti -1c
+.RI "void \fBbubble_sort_array_descending\fP (int32_t *sort_array, uint32_t size)"
+.br
+.RI "Bubble sort an array in descending order\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const uint16_t \fBfoc_sin_tbl\fP []"
+.br
+.RI "Fixed point sine table for FOC controller\&. "
+.ti -1c
+.RI "const uint16_t \fBfoc_circle_tbl\fP []"
+.br
+.RI "Fixed point circle table for FOC controller\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Math support function declarations\&. 
+
+
+.PP
+Definition in file \fBmaths\&.h\fP\&.
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define BIT_00   (1 << 0)"
+
+.PP
+Definition at line 231 of file maths\&.h\&.
+.SS "#define BIT_01   (1 << 1)"
+
+.PP
+Definition at line 232 of file maths\&.h\&.
+.SS "#define BIT_02   (1 << 2)"
+
+.PP
+Definition at line 233 of file maths\&.h\&.
+.SS "#define BIT_03   (1 << 3)"
+
+.PP
+Definition at line 234 of file maths\&.h\&.
+.SS "#define BIT_04   (1 << 4)"
+
+.PP
+Definition at line 235 of file maths\&.h\&.
+.SS "#define BIT_05   (1 << 5)"
+
+.PP
+Definition at line 236 of file maths\&.h\&.
+.SS "#define BIT_06   (1 << 6)"
+
+.PP
+Definition at line 237 of file maths\&.h\&.
+.SS "#define BIT_07   (1 << 7)"
+
+.PP
+Definition at line 238 of file maths\&.h\&.
+.SS "#define BIT_08   (1 << 8)"
+
+.PP
+Definition at line 239 of file maths\&.h\&.
+.SS "#define BIT_09   (1 << 9)"
+
+.PP
+Definition at line 240 of file maths\&.h\&.
+.SS "#define BIT_10   (1 << 10)"
+
+.PP
+Definition at line 241 of file maths\&.h\&.
+.SS "#define BIT_11   (1 << 11)"
+
+.PP
+Definition at line 242 of file maths\&.h\&.
+.SS "#define BIT_12   (1 << 12)"
+
+.PP
+Definition at line 243 of file maths\&.h\&.
+.SS "#define BIT_13   (1 << 13)"
+
+.PP
+Definition at line 244 of file maths\&.h\&.
+.SS "#define BIT_14   (1 << 14)"
+
+.PP
+Definition at line 245 of file maths\&.h\&.
+.SS "#define BIT_15   (1 << 15)"
+
+.PP
+Definition at line 246 of file maths\&.h\&.
+.SS "#define BIT_16   (1 << 16)"
+
+.PP
+Definition at line 247 of file maths\&.h\&.
+.SS "#define BIT_17   (1 << 17)"
+
+.PP
+Definition at line 248 of file maths\&.h\&.
+.SS "#define BIT_18   (1 << 18)"
+
+.PP
+Definition at line 249 of file maths\&.h\&.
+.SS "#define BIT_19   (1 << 19)"
+
+.PP
+Definition at line 250 of file maths\&.h\&.
+.SS "#define BIT_20   (1 << 20)"
+
+.PP
+Definition at line 251 of file maths\&.h\&.
+.SS "#define BIT_21   (1 << 21)"
+
+.PP
+Definition at line 252 of file maths\&.h\&.
+.SS "#define BIT_22   (1 << 22)"
+
+.PP
+Definition at line 253 of file maths\&.h\&.
+.SS "#define BIT_23   (1 << 23)"
+
+.PP
+Definition at line 254 of file maths\&.h\&.
+.SS "#define BIT_24   (1 << 24)"
+
+.PP
+Definition at line 255 of file maths\&.h\&.
+.SS "#define BIT_25   (1 << 25)"
+
+.PP
+Definition at line 256 of file maths\&.h\&.
+.SS "#define BIT_26   (1 << 26)"
+
+.PP
+Definition at line 257 of file maths\&.h\&.
+.SS "#define BIT_27   (1 << 27)"
+
+.PP
+Definition at line 258 of file maths\&.h\&.
+.SS "#define BIT_28   (1 << 28)"
+
+.PP
+Definition at line 259 of file maths\&.h\&.
+.SS "#define BIT_29   (1 << 29)"
+
+.PP
+Definition at line 260 of file maths\&.h\&.
+.SS "#define BIT_30   (1 << 30)"
+
+.PP
+Definition at line 261 of file maths\&.h\&.
+.SS "#define BIT_31   (1 << 31)"
+
+.PP
+Definition at line 262 of file maths\&.h\&.
+.SS "#define CL_SPEED_0HZ   0"
+
+.PP
+Definition at line 148 of file maths\&.h\&.
+.SS "#define CL_SPEED_0p5HZ   (\fBHZ2RAD_FIX16\fP/2)"
+
+.PP
+Definition at line 149 of file maths\&.h\&.
+.SS "#define CL_SPEED_0p75HZ   (3*\fBHZ2RAD_FIX16\fP/4)"
+
+.PP
+Definition at line 150 of file maths\&.h\&.
+.SS "#define CL_SPEED_1000HZ   (1000*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 173 of file maths\&.h\&.
+.SS "#define CL_SPEED_100HZ   (100*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 164 of file maths\&.h\&.
+.SS "#define CL_SPEED_10HZ   (10*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 160 of file maths\&.h\&.
+.SS "#define CL_SPEED_1500HZ   (1500*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 174 of file maths\&.h\&.
+.SS "#define CL_SPEED_150HZ   (150*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 165 of file maths\&.h\&.
+.SS "#define CL_SPEED_1HZ   (1*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 151 of file maths\&.h\&.
+.SS "#define CL_SPEED_2000HZ   (2000*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 175 of file maths\&.h\&.
+.SS "#define CL_SPEED_200HZ   (200*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 166 of file maths\&.h\&.
+.SS "#define CL_SPEED_20HZ   (20*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 161 of file maths\&.h\&.
+.SS "#define CL_SPEED_2500HZ   (2500*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 176 of file maths\&.h\&.
+.SS "#define CL_SPEED_250HZ   (250*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 167 of file maths\&.h\&.
+.SS "#define CL_SPEED_25HZ   (25*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 162 of file maths\&.h\&.
+.SS "#define CL_SPEED_2HZ   (2*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 152 of file maths\&.h\&.
+.SS "#define CL_SPEED_3000HZ   (3000*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 177 of file maths\&.h\&.
+.SS "#define CL_SPEED_300HZ   (300*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 168 of file maths\&.h\&.
+.SS "#define CL_SPEED_3500HZ   (3500*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 178 of file maths\&.h\&.
+.SS "#define CL_SPEED_3HZ   (3*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 153 of file maths\&.h\&.
+.SS "#define CL_SPEED_400HZ   (400*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 169 of file maths\&.h\&.
+.SS "#define CL_SPEED_4HZ   (4*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 154 of file maths\&.h\&.
+.SS "#define CL_SPEED_500HZ   (500*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 170 of file maths\&.h\&.
+.SS "#define CL_SPEED_50HZ   (50*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 163 of file maths\&.h\&.
+.SS "#define CL_SPEED_5HZ   (5*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 155 of file maths\&.h\&.
+.SS "#define CL_SPEED_600HZ   (600*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 171 of file maths\&.h\&.
+.SS "#define CL_SPEED_6HZ   (6*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 156 of file maths\&.h\&.
+.SS "#define CL_SPEED_750HZ   (750*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 172 of file maths\&.h\&.
+.SS "#define CL_SPEED_7HZ   (7*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 157 of file maths\&.h\&.
+.SS "#define CL_SPEED_8HZ   (8*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 158 of file maths\&.h\&.
+.SS "#define CL_SPEED_9HZ   (9*\fBHZ2RAD_FIX16\fP)"
+
+.PP
+Definition at line 159 of file maths\&.h\&.
+.SS "#define CONST_5PI_DIV_6_FIX16   \fBQCONST\fP((5\&.0 * \fBFLT_PI\fP / 6\&.0), \fBQ16\fP)"
+
+.PP
+Definition at line 135 of file maths\&.h\&.
+.SS "#define CONST_7PI_DIV_6_FIX16   \fBQCONST\fP((7\&.0 * \fBFLT_PI\fP / 6\&.0), \fBQ16\fP)"
+
+.PP
+Definition at line 134 of file maths\&.h\&.
+.SS "#define CONV_ADC2VAIO_Q10Q14   \fBQCONST\fP((2\&.5f / 1023\&.0f), \fBQ14\fP)"
+
+.PP
+Definition at line 291 of file maths\&.h\&.
+.SS "#define CONV_ADC2VAIO_Q10Q16   \fBQCONST\fP((2\&.5f / 1023\&.0f), \fBQ16\fP)"
+
+.PP
+Definition at line 292 of file maths\&.h\&.
+.SS "#define CONV_Q10TOQ14   \fBQCONST\fP((16383\&.0f / 1023\&.0f), \fBQ14\fP)"
+
+.PP
+Definition at line 290 of file maths\&.h\&.
+.SS "#define DEG_m015_IN_RAD_FIX16   0xFFFFBCFB"
+
+.PP
+Definition at line 280 of file maths\&.h\&.
+.SS "#define DEG_m030_IN_RAD_FIX16   0xFFFF79F6"
+
+.PP
+Definition at line 269 of file maths\&.h\&.
+.SS "#define DEG_m060_IN_RAD_FIX16   0xFFFEF3EB"
+
+.PP
+Definition at line 268 of file maths\&.h\&.
+.SS "#define DEG_m075_IN_RAD_FIX16   0xFFFEB0E6"
+
+.PP
+Definition at line 283 of file maths\&.h\&.
+.SS "#define DEG_m090_IN_RAD_FIX16   0xFFFE6DE1"
+
+.PP
+Definition at line 267 of file maths\&.h\&.
+.SS "#define DEG_m120_IN_RAD_FIX16   0xFFFDE7F0"
+
+.PP
+Definition at line 266 of file maths\&.h\&.
+.SS "#define DEG_m135_IN_RAD_FIX16   0xFFFDA4D0"
+
+.PP
+Definition at line 278 of file maths\&.h\&.
+.SS "#define DEG_m150_IN_RAD_FIX16   0xFFFD61CC"
+
+.PP
+Definition at line 265 of file maths\&.h\&.
+.SS "#define DEG_m180_IN_RAD_FIX16   0xFFFCDBC1"
+
+.PP
+Definition at line 264 of file maths\&.h\&.
+.SS "#define DEG_p000_IN_RAD_FIX16   0x00000000"
+
+.PP
+Definition at line 270 of file maths\&.h\&.
+.SS "#define DEG_p030_IN_RAD_FIX16   0x0000860A"
+
+.PP
+Definition at line 271 of file maths\&.h\&.
+.SS "#define DEG_p045_IN_RAD_FIX16   0x0000C910"
+
+.PP
+Definition at line 279 of file maths\&.h\&.
+.SS "#define DEG_p060_IN_RAD_FIX16   0x00010C15"
+
+.PP
+Definition at line 272 of file maths\&.h\&.
+.SS "#define DEG_p090_IN_RAD_FIX16   0x0001921F"
+
+.PP
+Definition at line 273 of file maths\&.h\&.
+.SS "#define DEG_p105_IN_RAD_FIX16   0x0001D525"
+
+.PP
+Definition at line 282 of file maths\&.h\&.
+.SS "#define DEG_p120_IN_RAD_FIX16   0x00021810"
+
+.PP
+Definition at line 274 of file maths\&.h\&.
+.SS "#define DEG_p150_IN_RAD_FIX16   0x00029E34"
+
+.PP
+Definition at line 275 of file maths\&.h\&.
+.SS "#define DEG_p165_IN_RAD_FIX16   0x0002E13A"
+
+.PP
+Definition at line 281 of file maths\&.h\&.
+.SS "#define DEG_p180_IN_RAD_FIX16   0x0003243F"
+
+.PP
+Definition at line 276 of file maths\&.h\&.
+.SS "#define DIFF_AMP_GAIN_16X   5"
+
+.PP
+Definition at line 218 of file maths\&.h\&.
+.SS "#define DIFF_AMP_GAIN_1X   1"
+
+.PP
+Definition at line 214 of file maths\&.h\&.
+.SS "#define DIFF_AMP_GAIN_2X   2"
+
+.PP
+Definition at line 215 of file maths\&.h\&.
+.SS "#define DIFF_AMP_GAIN_32X   6"
+
+.PP
+Definition at line 219 of file maths\&.h\&.
+.SS "#define DIFF_AMP_GAIN_48X   7"
+
+.PP
+Definition at line 220 of file maths\&.h\&.
+.SS "#define DIFF_AMP_GAIN_4X   3"
+
+.PP
+Definition at line 216 of file maths\&.h\&.
+.SS "#define DIFF_AMP_GAIN_8X   4"
+
+.PP
+Definition at line 217 of file maths\&.h\&.
+.SS "#define FALSE   0"
+
+.PP
+Definition at line 34 of file maths\&.h\&.
+.SS "#define FIX16_0P1   0x0000199A"
+
+.PP
+Definition at line 65 of file maths\&.h\&.
+.SS "#define FIX16_0P9   0x0000E666"
+
+.PP
+Definition at line 64 of file maths\&.h\&.
+.SS "#define FIX16_1_DIV_SQRT2   0x0000B505"
+
+.PP
+Definition at line 71 of file maths\&.h\&.
+.SS "#define FIX16_1DIV3   0x5555"
+
+.PP
+Definition at line 83 of file maths\&.h\&.
+.SS "#define FIX16_1P0   0x00010000"
+
+.PP
+Definition at line 62 of file maths\&.h\&.
+.SS "#define FIX16_1P0_DIV_100   0x0000028F"
+
+.PP
+Definition at line 69 of file maths\&.h\&.
+.SS "#define FIX16_1P0_DIV_2_PI   \fBQCONST\fP((1\&.0f / \fBFLT_2PI\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 51 of file maths\&.h\&.
+.SS "#define FIX16_1P0_DIV_SQRT_3   0x000093CD"
+
+.PP
+Definition at line 68 of file maths\&.h\&.
+.SS "#define FIX16_1P5   0x00018000"
+
+.PP
+Definition at line 63 of file maths\&.h\&.
+.SS "#define FIX16_1P5_PI   \fBQCONST\fP((1\&.5f * \fBFLT_PI\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 50 of file maths\&.h\&.
+.SS "#define FIX16_2PI   \fBQCONST\fP((2\&.0f * \fBFLT_PI\fP), \fBQ16\fP)"
+
+.PP
+Definition at line 48 of file maths\&.h\&.
+.SS "#define FIX16_2PI_DIV_3   \fBQCONST\fP((\fBFLT_2PI\fP / 3), \fBQ16\fP)"
+
+.PP
+Definition at line 49 of file maths\&.h\&.
+.SS "#define FIX16_2PI_X_1024   (\fBFIX16_2PI\fP << 10)"
+
+.PP
+Definition at line 53 of file maths\&.h\&.
+.SS "#define FIX16_MINUS_PI_X_1024   ((int32_t)(((\-\fBM_PI\fP * 1024) * 0x10000) + 0\&.5))"
+
+.PP
+Definition at line 54 of file maths\&.h\&.
+.SS "#define FIX16_NEG_PI   0xFFFCDBC1"
+
+.PP
+Definition at line 57 of file maths\&.h\&.
+.SS "#define FIX16_NEG_PI_DIV_2   0xFFFE6DE1"
+
+.PP
+Definition at line 60 of file maths\&.h\&.
+.SS "#define FIX16_NEG_PI_DIV_3   0xFFFEF3EB"
+
+.PP
+Definition at line 59 of file maths\&.h\&.
+.SS "#define FIX16_NEG_PI_DIV_4   0xFFFF35C3"
+
+.PP
+Definition at line 58 of file maths\&.h\&.
+.SS "#define FIX16_PI   \fBQCONST\fP(\fBFLT_PI\fP, \fBQ16\fP)"
+
+.PP
+Definition at line 43 of file maths\&.h\&.
+.SS "#define FIX16_PI_DIV_180_X_1024   ((int32_t)(((\fBM_PI\fP/180 * 1024) * 0x10000) + 0\&.5))"
+
+.PP
+Definition at line 55 of file maths\&.h\&.
+.SS "#define FIX16_PI_DIV_2   \fBQCONST\fP((\fBFLT_PI\fP / 2), \fBQ16\fP)"
+
+.PP
+Definition at line 44 of file maths\&.h\&.
+.SS "#define FIX16_PI_DIV_3   \fBQCONST\fP((\fBFLT_PI\fP / 3), \fBQ16\fP)"
+
+.PP
+Definition at line 45 of file maths\&.h\&.
+.SS "#define FIX16_PI_DIV_4   \fBQCONST\fP((\fBFLT_PI\fP / 4), \fBQ16\fP)"
+
+.PP
+Definition at line 46 of file maths\&.h\&.
+.SS "#define FIX16_PI_DIV_6   \fBQCONST\fP((\fBFLT_PI\fP / 6), \fBQ16\fP)"
+
+.PP
+Definition at line 47 of file maths\&.h\&.
+.SS "#define FIX16_PI_X_1024   (\fBFIX16_PI\fP << 10)"
+
+.PP
+Definition at line 52 of file maths\&.h\&.
+.SS "#define FIX16_SQRT_3   0x0001BB67"
+
+.PP
+Definition at line 66 of file maths\&.h\&.
+.SS "#define FIX16_SQRT_3_DIV_2   0x0000DDB3"
+
+.PP
+Definition at line 67 of file maths\&.h\&.
+.SS "#define FIX1Q14_1P0_DIV_SQRT_3   0x49E6"
+
+.PP
+Definition at line 72 of file maths\&.h\&.
+.SS "#define FIXQ1P14_0P9   (0x0000E666 >> 2)"
+
+.PP
+Definition at line 74 of file maths\&.h\&.
+.SS "#define FIXQ1P14_1P5   (0x00018000 >> 2)"
+
+.PP
+Definition at line 73 of file maths\&.h\&.
+.SS "#define FIXQ1P14_SQRT_3   (0x0001BB67 >> 2)"
+
+.PP
+Definition at line 75 of file maths\&.h\&.
+.SS "#define FIXQ1P14_SQRT_3_DIV_2   (0x0000DDB3 >> 2)"
+
+.PP
+Definition at line 76 of file maths\&.h\&.
+.SS "#define FLT_2PI   (2\&.0f * \fBFLT_PI\fP)"
+
+.PP
+Definition at line 40 of file maths\&.h\&.
+.SS "#define FLT_PI   3\&.14159f"
+
+.PP
+Definition at line 39 of file maths\&.h\&.
+.SS "#define FLT_SQRT_3   1\&.732051f"
+
+.PP
+Definition at line 41 of file maths\&.h\&.
+.SS "#define HZ2RAD_FIX16   411775"
+
+.PP
+Definition at line 145 of file maths\&.h\&.
+.SS "#define M_PI   3\&.14159265358979323846"
+
+.PP
+Definition at line 37 of file maths\&.h\&.
+.SS "#define ONE_DIVIDE_BY_5_FIX16   0x00003333"
+
+.PP
+Definition at line 81 of file maths\&.h\&.
+.SS "#define ONE_THIRD_IN_FIX16   0x00005555"
+
+.PP
+Definition at line 288 of file maths\&.h\&.
+.SS "#define Q00   0"
+
+.PP
+Definition at line 86 of file maths\&.h\&.
+.SS "#define Q01   1"
+
+.PP
+Definition at line 87 of file maths\&.h\&.
+.SS "#define Q02   2"
+
+.PP
+Definition at line 88 of file maths\&.h\&.
+.SS "#define Q03   3"
+
+.PP
+Definition at line 89 of file maths\&.h\&.
+.SS "#define Q04   4"
+
+.PP
+Definition at line 90 of file maths\&.h\&.
+.SS "#define Q05   5"
+
+.PP
+Definition at line 91 of file maths\&.h\&.
+.SS "#define Q06   6"
+
+.PP
+Definition at line 92 of file maths\&.h\&.
+.SS "#define Q07   7"
+
+.PP
+Definition at line 93 of file maths\&.h\&.
+.SS "#define Q08   8"
+
+.PP
+Definition at line 94 of file maths\&.h\&.
+.SS "#define Q09   9"
+
+.PP
+Definition at line 95 of file maths\&.h\&.
+.SS "#define Q10   10"
+
+.PP
+Definition at line 96 of file maths\&.h\&.
+.SS "#define Q11   11"
+
+.PP
+Definition at line 97 of file maths\&.h\&.
+.SS "#define Q12   12"
+
+.PP
+Definition at line 98 of file maths\&.h\&.
+.SS "#define Q13   13"
+
+.PP
+Definition at line 99 of file maths\&.h\&.
+.SS "#define Q14   14"
+
+.PP
+Definition at line 100 of file maths\&.h\&.
+.SS "#define Q14_0P5   \fBQCONST\fP(0\&.5f, \fBQ14\fP)"
+
+.PP
+Definition at line 295 of file maths\&.h\&.
+.SS "#define Q14_0P5   \fBQCONST\fP(0\&.5f, \fBQ14\fP)"
+
+.PP
+Definition at line 295 of file maths\&.h\&.
+.SS "#define Q14_1_DIV_3   \fBQCONST\fP(0\&.33333333f, \fBQ14\fP)"
+
+.PP
+Definition at line 124 of file maths\&.h\&.
+.SS "#define Q14_1_DIV_SQRT2   \fBQCONST\fP(0\&.70710678f, \fBQ14\fP)"
+
+.PP
+Definition at line 126 of file maths\&.h\&.
+.SS "#define Q14_1P0   \fBQCONST\fP(1\&.0f, \fBQ14\fP)"
+
+.PP
+Definition at line 122 of file maths\&.h\&.
+.SS "#define Q14_1P5   \fBQCONST\fP(1\&.5f, \fBQ14\fP)"
+
+.PP
+Definition at line 123 of file maths\&.h\&.
+.SS "#define Q14_ONE   \fBQCONST\fP(1\&.0f, \fBQ14\fP)"
+
+.PP
+Definition at line 294 of file maths\&.h\&.
+.SS "#define Q14_SQRT3_DIV_SQRT2   \fBQCONST\fP(1\&.22474487f, \fBQ14\fP)"
+
+.PP
+Definition at line 125 of file maths\&.h\&.
+.SS "#define Q15   15"
+
+.PP
+Definition at line 101 of file maths\&.h\&.
+.SS "#define Q16   16"
+
+.PP
+Definition at line 102 of file maths\&.h\&.
+.SS "#define Q16_0P5   \fBQCONST\fP(0\&.5f, \fBQ16\fP)"
+
+.PP
+Definition at line 130 of file maths\&.h\&.
+.SS "#define Q16_100   \fBQCONST\fP(100\&.0f, \fBQ16\fP)"
+
+.PP
+Definition at line 138 of file maths\&.h\&.
+.SS "#define Q16_1000   \fBQCONST\fP(1000\&.0f, \fBQ16\fP)"
+
+.PP
+Definition at line 137 of file maths\&.h\&.
+.SS "#define Q16_1P0   \fBQCONST\fP(1\&.0f, \fBQ16\fP)"
+
+.PP
+Definition at line 131 of file maths\&.h\&.
+.SS "#define Q16_1P5   \fBQCONST\fP(1\&.5f, \fBQ16\fP)"
+
+.PP
+Definition at line 132 of file maths\&.h\&.
+.SS "#define Q16_mV_PER_ADC_COUNT   \fBQCONST\fP(2500\&.0/1023\&.0, \fBQ16\fP)"
+
+.PP
+Definition at line 286 of file maths\&.h\&.
+.SS "#define Q16_ONE_DIV_SQRT3   \fBQCONST\fP(0\&.57735027f, \fBQ16\fP)"
+
+.PP
+Definition at line 136 of file maths\&.h\&.
+.SS "#define Q16_SQRT_2   \fBQCONST\fP(1\&.41421356f, \fBQ16\fP)"
+
+.PP
+Definition at line 133 of file maths\&.h\&.
+.SS "#define Q17   17"
+
+.PP
+Definition at line 103 of file maths\&.h\&.
+.SS "#define Q18   18"
+
+.PP
+Definition at line 104 of file maths\&.h\&.
+.SS "#define Q19   19"
+
+.PP
+Definition at line 105 of file maths\&.h\&.
+.SS "#define Q20   20"
+
+.PP
+Definition at line 106 of file maths\&.h\&.
+.SS "#define Q21   21"
+
+.PP
+Definition at line 107 of file maths\&.h\&.
+.SS "#define Q22   22"
+
+.PP
+Definition at line 108 of file maths\&.h\&.
+.SS "#define Q23   23"
+
+.PP
+Definition at line 109 of file maths\&.h\&.
+.SS "#define Q24   24"
+
+.PP
+Definition at line 110 of file maths\&.h\&.
+.SS "#define Q25   25"
+
+.PP
+Definition at line 111 of file maths\&.h\&.
+.SS "#define Q26   26"
+
+.PP
+Definition at line 112 of file maths\&.h\&.
+.SS "#define Q27   27"
+
+.PP
+Definition at line 113 of file maths\&.h\&.
+.SS "#define Q28   28"
+
+.PP
+Definition at line 114 of file maths\&.h\&.
+.SS "#define Q28_ONE   \fBQCONST\fP(1\&.0f, \fBQ28\fP)"
+
+.PP
+Definition at line 296 of file maths\&.h\&.
+.SS "#define Q29   29"
+
+.PP
+Definition at line 115 of file maths\&.h\&.
+.SS "#define Q30   30"
+
+.PP
+Definition at line 116 of file maths\&.h\&.
+.SS "#define Q3_0P000   0"
+
+.PP
+Definition at line 222 of file maths\&.h\&.
+.SS "#define Q3_0P125   1"
+
+.PP
+Definition at line 223 of file maths\&.h\&.
+.SS "#define Q3_0P250   2"
+
+.PP
+Definition at line 224 of file maths\&.h\&.
+.SS "#define Q3_0P375   3"
+
+.PP
+Definition at line 225 of file maths\&.h\&.
+.SS "#define Q3_0P500   4"
+
+.PP
+Definition at line 226 of file maths\&.h\&.
+.SS "#define Q3_0P625   5"
+
+.PP
+Definition at line 227 of file maths\&.h\&.
+.SS "#define Q3_0P750   6"
+
+.PP
+Definition at line 228 of file maths\&.h\&.
+.SS "#define Q3_0P875   7"
+
+.PP
+Definition at line 229 of file maths\&.h\&.
+.SS "#define QCONST(const_val, q_num)   ( ((int32_t) ((const_val) * (1 << (q_num)))) )"
+
+.PP
+Definition at line 117 of file maths\&.h\&.
+.SS "#define RAD2HZ_FIX16   10430"
+
+.PP
+Definition at line 146 of file maths\&.h\&.
+.SS "#define TRUE   1"
+
+.PP
+Definition at line 33 of file maths\&.h\&.
+.SS "#define VDC_100V   (100*65536)"
+
+.PP
+Definition at line 205 of file maths\&.h\&.
+.SS "#define VDC_10V   (10*65536)"
+
+.PP
+Definition at line 186 of file maths\&.h\&.
+.SS "#define VDC_11V   (11*65536)"
+
+.PP
+Definition at line 187 of file maths\&.h\&.
+.SS "#define VDC_12V   (12*65536)"
+
+.PP
+Definition at line 188 of file maths\&.h\&.
+.SS "#define VDC_13V   (13*65536)"
+
+.PP
+Definition at line 189 of file maths\&.h\&.
+.SS "#define VDC_14V   (14*65536)"
+
+.PP
+Definition at line 190 of file maths\&.h\&.
+.SS "#define VDC_150V   (150*65536)"
+
+.PP
+Definition at line 206 of file maths\&.h\&.
+.SS "#define VDC_15V   (15*65536)"
+
+.PP
+Definition at line 191 of file maths\&.h\&.
+.SS "#define VDC_16V   (16*65536)"
+
+.PP
+Definition at line 192 of file maths\&.h\&.
+.SS "#define VDC_17V   (17*65536)"
+
+.PP
+Definition at line 193 of file maths\&.h\&.
+.SS "#define VDC_18V   (18*65536)"
+
+.PP
+Definition at line 194 of file maths\&.h\&.
+.SS "#define VDC_19V   (19*65536)"
+
+.PP
+Definition at line 195 of file maths\&.h\&.
+.SS "#define VDC_1V   (1*65536)"
+
+.PP
+Definition at line 180 of file maths\&.h\&.
+.SS "#define VDC_200V   (200*65536)"
+
+.PP
+Definition at line 207 of file maths\&.h\&.
+.SS "#define VDC_20V   (20*65536)"
+
+.PP
+Definition at line 196 of file maths\&.h\&.
+.SS "#define VDC_24V   (24*65536)"
+
+.PP
+Definition at line 197 of file maths\&.h\&.
+.SS "#define VDC_250V   (250*65536)"
+
+.PP
+Definition at line 208 of file maths\&.h\&.
+.SS "#define VDC_25V   (25*65536)"
+
+.PP
+Definition at line 198 of file maths\&.h\&.
+.SS "#define VDC_300V   (300*65536)"
+
+.PP
+Definition at line 209 of file maths\&.h\&.
+.SS "#define VDC_30V   (30*65536)"
+
+.PP
+Definition at line 199 of file maths\&.h\&.
+.SS "#define VDC_350V   (350*65536)"
+
+.PP
+Definition at line 210 of file maths\&.h\&.
+.SS "#define VDC_400V   (350*65536)"
+
+.PP
+Definition at line 211 of file maths\&.h\&.
+.SS "#define VDC_450V   (450*65536)"
+
+.PP
+Definition at line 212 of file maths\&.h\&.
+.SS "#define VDC_45V   (45*65536)"
+
+.PP
+Definition at line 200 of file maths\&.h\&.
+.SS "#define VDC_50V   (50*65536)"
+
+.PP
+Definition at line 201 of file maths\&.h\&.
+.SS "#define VDC_5V   (5*65536)"
+
+.PP
+Definition at line 181 of file maths\&.h\&.
+.SS "#define VDC_60V   (60*65536)"
+
+.PP
+Definition at line 202 of file maths\&.h\&.
+.SS "#define VDC_6V   (6*65536)"
+
+.PP
+Definition at line 182 of file maths\&.h\&.
+.SS "#define VDC_70V   (70*65536)"
+
+.PP
+Definition at line 203 of file maths\&.h\&.
+.SS "#define VDC_75V   (75*65536)"
+
+.PP
+Definition at line 204 of file maths\&.h\&.
+.SS "#define VDC_7V   (7*65536)"
+
+.PP
+Definition at line 183 of file maths\&.h\&.
+.SS "#define VDC_8V   (8*65536)"
+
+.PP
+Definition at line 184 of file maths\&.h\&.
+.SS "#define VDC_9V   (9*65536)"
+
+.PP
+Definition at line 185 of file maths\&.h\&.
+.SS "#define ZERO_POINT_5773_IN_Q14   0x24F2"
+
+.PP
+Definition at line 78 of file maths\&.h\&.
+.SS "#define ZERO_POINT_866_IN_Q14   0x376C"
+
+.PP
+Definition at line 79 of file maths\&.h\&.
+.SS "#define ZERO_POINT_FIVE   0x00008000"
+
+.PP
+Definition at line 285 of file maths\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef \fBfix16_t\fP \fBq1p14_t\fP"
+
+.PP
+Definition at line 141 of file maths\&.h\&.
+.SS "typedef long int \fBq1p30_t\fP"
+
+.PP
+Definition at line 142 of file maths\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void bubble_sort_array (int32_t * sort_array, uint32_t size)"
+
+.PP
+Bubble sort an array\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsort_array\fP pointer to array 
+.br
+\fIsize\fP length of array 
+.RE
+.PP
+
+.PP
+Definition at line 25 of file maths\&.c\&.
+.PP
+.nf
+26 {
+27     volatile int32_t temp;
+28     volatile uint32_t i,j;
+29 
+30     // Sort array with max at the end
+31     // Sort array in ascending order, Min to Max values
+32     for(i = 0 ; i < size ; i++)
+33     {
+34         for(j = 0 ; j < size-i-1 ; j++)
+35         {
+36             if(sort_array[j] > sort_array[j+1])
+37             {
+38                 temp = sort_array[j];
+39                 sort_array[j] = sort_array[j+1];
+40                 sort_array[j+1] = temp;
+41             }
+42         }
+43     }
+44 }
+.fi
+.PP
+Referenced by hall_sort_create_next_state_array()\&.
+.SS "void bubble_sort_array_descending (int32_t * sort_array, uint32_t size)"
+
+.PP
+Bubble sort an array in descending order\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsort_array\fP pointer to array 
+.br
+\fIsize\fP length of array 
+.RE
+.PP
+
+.PP
+Definition at line 48 of file maths\&.c\&.
+.PP
+.nf
+49 {
+50     volatile int32_t temp;
+51     volatile uint32_t i,j;
+52 
+53     // Sort array with max at the end
+54     // Sort array in ascending order, Min to Max values
+55     for(i = 0 ; i < size ; i++)
+56     {
+57         for(j = 0 ; j < size-i-1 ; j++)
+58         {
+59             if(sort_array[j] < sort_array[j+1])
+60             {
+61                 temp = sort_array[j];
+62                 sort_array[j] = sort_array[j+1];
+63                 sort_array[j+1] = temp;
+64             }
+65         }
+66     }
+67 }
+.fi
+.PP
+Referenced by hall_sort_create_prev_state_array()\&.
+.SH "Variable Documentation"
+.PP 
+.SS "const uint16_t foc_circle_tbl[]\fC [extern]\fP"
+
+.PP
+Fixed point circle table for FOC controller\&. 
+.PP
+Definition at line 32 of file circle_table\&.c\&.
+.SS "const uint16_t foc_sin_tbl[]\fC [extern]\fP"
+
+.PP
+Fixed point sine table for FOC controller\&. 360 degrees, from -1 to 1 
+.PP
+Definition at line 30 of file sin_table\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for FOC-4\&.1\&.2-App from the source code\&.

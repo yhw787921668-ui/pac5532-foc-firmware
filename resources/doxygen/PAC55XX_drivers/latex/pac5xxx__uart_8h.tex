@@ -1,0 +1,381 @@
+\hypertarget{pac5xxx__uart_8h}{}\doxysection{pac\+\_\+foc/pac55xx/pac55xx\+\_\+sdk/peripheral/pac5xxx\+\_\+uart.h File Reference}
+\label{pac5xxx__uart_8h}\index{pac\_foc/pac55xx/pac55xx\_sdk/peripheral/pac5xxx\_uart.h@{pac\_foc/pac55xx/pac55xx\_sdk/peripheral/pac5xxx\_uart.h}}
+
+
+C\+M\+S\+IS Cortex-\/M Header File for the P\+A\+C55\+XX U\+A\+RT Controller.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pac5xxx__uart_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_p_a_c55_x_x___u_a_r_t___t_y_p_e_d_e_f}{P\+A\+C55\+X\+X\+\_\+\+U\+A\+R\+T\+\_\+\+T\+Y\+P\+E\+D\+EF}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2}{U\+A\+R\+T\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2a84670f8aa001651d4ace5fabfe2566ef}{U\+A\+R\+TA}} = 0, 
+\mbox{\hyperlink{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2ad6d7af1a47db9661dfda2739b3b91f67}{U\+A\+R\+TB}} = 1, 
+\mbox{\hyperlink{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2a2f95f73eecc0f096456119af9ce043cf}{U\+A\+R\+TC}} = 2, 
+\mbox{\hyperlink{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2a4c43279e579598c249a9977f3d9ba143}{U\+A\+R\+TD}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__uart_8h_a2be635b419b6eb776d5416c1af0fd033}{U\+A\+R\+T\+\_\+\+I\+N\+T\+E\+R\+U\+P\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__uart_8h_a2be635b419b6eb776d5416c1af0fd033a047adf69b397419dfa08e964fd51c8bb}{U\+A\+R\+T\+\_\+\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+LE}} = 0, 
+\mbox{\hyperlink{pac5xxx__uart_8h_a2be635b419b6eb776d5416c1af0fd033a822427f1560dbf8c944e25a431993c3b}{U\+A\+R\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+LE}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73f}{U\+A\+R\+T\+I\+I\+R\+\_\+\+I\+N\+T\+I\+D\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73fa187347e5c00e17b337f9c0565fcb67ab}{U\+A\+R\+T\+I\+I\+R\+\_\+\+I\+N\+T\+I\+D\+\_\+\+T\+X\+\_\+\+H\+O\+L\+D\+\_\+\+E\+M\+P\+TY}} = 1, 
+\mbox{\hyperlink{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73fa436d9d6f029ecdb112f2a5beba051f30}{U\+A\+R\+T\+I\+I\+R\+\_\+\+I\+N\+T\+I\+D\+\_\+\+R\+X\+\_\+\+D\+A\+T\+A\+\_\+\+A\+V\+A\+IL}} = 2, 
+\mbox{\hyperlink{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73fac08a330e7e7f9aa5a4d4b8900b8da8bc}{U\+A\+R\+T\+I\+I\+R\+\_\+\+I\+N\+T\+I\+D\+\_\+\+R\+X\+\_\+\+L\+I\+N\+E\+\_\+\+S\+T\+A\+T\+US}} = 3, 
+\mbox{\hyperlink{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73fab4a9ae30413484ba7032ecfe9da403f9}{U\+A\+R\+T\+I\+I\+R\+\_\+\+I\+N\+T\+I\+D\+\_\+\+F\+I\+F\+O\+\_\+\+T\+I\+M\+E\+O\+UT}} = 6
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413}{U\+A\+R\+T\+F\+C\+R\+\_\+\+F\+I\+F\+O\+\_\+\+D\+E\+P\+T\+H\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413a4e736f9e340ee7c6c16baee1fe23f7a4}{U\+A\+R\+T\+F\+C\+R\+\_\+\+T\+L\+\_\+1B}} = 0, 
+\mbox{\hyperlink{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413a94cc56eb70cf4101d751e7a0c8e84366}{U\+A\+R\+T\+F\+C\+R\+\_\+\+T\+L\+\_\+4B}} = 1, 
+\mbox{\hyperlink{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413a67ecdff37f011dd935a0adf07083b580}{U\+A\+R\+T\+F\+C\+R\+\_\+\+T\+L\+\_\+8B}} = 2, 
+\mbox{\hyperlink{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413a04b8bec0dff66d5752a4cdd6aef0aa0d}{U\+A\+R\+T\+F\+C\+R\+\_\+\+T\+L\+\_\+14B}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391e}{U\+A\+R\+T\+L\+C\+R\+\_\+\+W\+L\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391eacb2e7da73fe3888ab69bded8fc735438}{U\+A\+R\+T\+L\+C\+R\+\_\+\+W\+L\+\_\+\+B\+P\+C\+\_\+5}} = 0, 
+\mbox{\hyperlink{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391ea22a9185bb9ce3dac94c3001840c83f04}{U\+A\+R\+T\+L\+C\+R\+\_\+\+W\+L\+\_\+\+B\+P\+C\+\_\+6}} = 1, 
+\mbox{\hyperlink{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391ea4d272c20c0e6bfc6cb42fb04e24708ee}{U\+A\+R\+T\+L\+C\+R\+\_\+\+W\+L\+\_\+\+B\+P\+C\+\_\+7}} = 2, 
+\mbox{\hyperlink{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391ea5d542a882fc1c7a2a1d4d92110e06ee2}{U\+A\+R\+T\+L\+C\+R\+\_\+\+W\+L\+\_\+\+B\+P\+C\+\_\+8}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__uart_8h_a5ca6d1a5eb09548491ecf326bd5fb890}{U\+A\+R\+T\+\_\+\+B\+R\+E\+A\+K\+C\+O\+N\+T\+R\+O\+L\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__uart_8h_a5ca6d1a5eb09548491ecf326bd5fb890a147debc9578db4a4ef1f349b05030c3f}{U\+A\+R\+T\+\_\+\+B\+R\+K\+C\+T\+L\+\_\+\+D\+I\+S\+A\+B\+LE}} = 0, 
+\mbox{\hyperlink{pac5xxx__uart_8h_a5ca6d1a5eb09548491ecf326bd5fb890afbe9e87763208ca7920cde2ac67e6aa4}{U\+A\+R\+T\+\_\+\+B\+R\+K\+C\+T\+L\+\_\+\+F\+O\+R\+C\+E\+\_\+0}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857}{U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857ad90cc425f5ba447773a44a75be6593e2}{U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+O\+DD}} = 0, 
+\mbox{\hyperlink{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857ad908a637b1dd23f93b149dd2d8bdfdb8}{U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+E\+V\+EN}} = 1, 
+\mbox{\hyperlink{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857aa455b7d100454a7be7f9e642de4bfcb0}{U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+F\+O\+R\+C\+E\+\_\+\+S\+T\+I\+C\+K\+\_\+1}} = 2, 
+\mbox{\hyperlink{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857abdde2713d0cf30f3489129a7562f0f9c}{U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+F\+O\+R\+C\+E\+\_\+\+S\+T\+I\+C\+K\+\_\+0}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__uart_8h_a1158f3630ca209c3df76bfb7b637433e}{U\+A\+R\+T\+\_\+\+P\+E\+N\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__uart_8h_a1158f3630ca209c3df76bfb7b637433ea785e912068b11dfbde5a2a397dd70293}{U\+A\+R\+T\+\_\+\+P\+E\+N\+\_\+\+D\+I\+S\+A\+B\+LE}} = 0, 
+\mbox{\hyperlink{pac5xxx__uart_8h_a1158f3630ca209c3df76bfb7b637433eac24642d509341321f6b452df36684bf1}{U\+A\+R\+T\+\_\+\+P\+E\+N\+\_\+\+E\+N\+A\+B\+LE}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{pac5xxx__uart_8h_a2da3b7b812ea657ba4c2a855e7d03de4}{U\+A\+R\+T\+\_\+\+S\+T\+O\+P\+B\+I\+T\+S\+\_\+\+T\+Y\+PE}} \{ \mbox{\hyperlink{pac5xxx__uart_8h_a2da3b7b812ea657ba4c2a855e7d03de4a44b3bfbe90aebe2b23227f5c011f41cc}{U\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+1}} = 0, 
+\mbox{\hyperlink{pac5xxx__uart_8h_a2da3b7b812ea657ba4c2a855e7d03de4a00c73c92b3d624bc86cfa63636dd99b3}{U\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+2}} = 1
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+C\+M\+S\+IS Cortex-\/M Header File for the P\+A\+C55\+XX U\+A\+RT Controller. 
+
+\begin{DoxyNote}{Note}
+Copyright (C) 2017-\/2019, Qorvo, Inc.
+\end{DoxyNote}
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS S\+U\+B\+J\+E\+CT TO A S\+O\+U\+R\+CE C\+O\+DE L\+I\+C\+E\+N\+SE A\+G\+R\+E\+E\+M\+E\+NT W\+H\+I\+CH P\+R\+O\+V\+I\+D\+ES, A\+M\+O\+NG O\+T\+H\+ER T\+H\+I\+N\+GS\+: (i) T\+H\+AT IT C\+AN BE U\+S\+ED O\+N\+LY TO A\+D\+A\+PT T\+HE L\+I\+C\+E\+N\+S\+EE\textquotesingle{}S A\+P\+P\+L\+I\+C\+A\+T\+I\+ON TO P\+AC P\+R\+O\+C\+E\+S\+S\+O\+RS S\+U\+P\+P\+L\+I\+ED BY Q\+O\+R\+VO, I\+NC.; (ii) T\+H\+AT IT IS P\+R\+O\+V\+I\+D\+ED \char`\"{}\+A\+S I\+S\char`\"{} W\+I\+T\+H\+O\+UT W\+A\+R\+R\+A\+N\+TY; (iii) T\+H\+AT Q\+O\+R\+VO, I\+NC. IS N\+OT L\+I\+A\+B\+LE F\+OR A\+NY I\+N\+D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES OR F\+OR D\+I\+R\+E\+CT D\+A\+M\+A\+G\+ES E\+X\+C\+E\+E\+D\+I\+NG US\$1,500; A\+ND (iv) T\+H\+AT IT C\+AN BE D\+I\+S\+C\+L\+O\+S\+ED TO A\+ND U\+S\+ED O\+N\+LY BY C\+E\+R\+T\+A\+IN A\+U\+T\+H\+O\+R\+I\+Z\+ED P\+E\+R\+S\+O\+NS. 
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{pac5xxx__uart_8h_a5ca6d1a5eb09548491ecf326bd5fb890}\label{pac5xxx__uart_8h_a5ca6d1a5eb09548491ecf326bd5fb890}} 
+\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UART\_BREAKCONTROL\_TYPE@{UART\_BREAKCONTROL\_TYPE}}
+\index{UART\_BREAKCONTROL\_TYPE@{UART\_BREAKCONTROL\_TYPE}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}
+\doxysubsubsection{\texorpdfstring{UART\_BREAKCONTROL\_TYPE}{UART\_BREAKCONTROL\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__uart_8h_a5ca6d1a5eb09548491ecf326bd5fb890}{U\+A\+R\+T\+\_\+\+B\+R\+E\+A\+K\+C\+O\+N\+T\+R\+O\+L\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_BRKCTL\_DISABLE@{UART\_BRKCTL\_DISABLE}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UART\_BRKCTL\_DISABLE@{UART\_BRKCTL\_DISABLE}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a5ca6d1a5eb09548491ecf326bd5fb890a147debc9578db4a4ef1f349b05030c3f}\label{pac5xxx__uart_8h_a5ca6d1a5eb09548491ecf326bd5fb890a147debc9578db4a4ef1f349b05030c3f}} 
+U\+A\+R\+T\+\_\+\+B\+R\+K\+C\+T\+L\+\_\+\+D\+I\+S\+A\+B\+LE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_BRKCTL\_FORCE\_0@{UART\_BRKCTL\_FORCE\_0}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UART\_BRKCTL\_FORCE\_0@{UART\_BRKCTL\_FORCE\_0}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a5ca6d1a5eb09548491ecf326bd5fb890afbe9e87763208ca7920cde2ac67e6aa4}\label{pac5xxx__uart_8h_a5ca6d1a5eb09548491ecf326bd5fb890afbe9e87763208ca7920cde2ac67e6aa4}} 
+U\+A\+R\+T\+\_\+\+B\+R\+K\+C\+T\+L\+\_\+\+F\+O\+R\+C\+E\+\_\+0&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 60 of file pac5xxx\+\_\+uart.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{60              \{}
+\DoxyCodeLine{61     \mbox{\hyperlink{pac5xxx__uart_8h_a5ca6d1a5eb09548491ecf326bd5fb890a147debc9578db4a4ef1f349b05030c3f}{UART\_BRKCTL\_DISABLE}} =   0,                  \textcolor{comment}{// Disable break transmission}}
+\DoxyCodeLine{62     \mbox{\hyperlink{pac5xxx__uart_8h_a5ca6d1a5eb09548491ecf326bd5fb890afbe9e87763208ca7920cde2ac67e6aa4}{UART\_BRKCTL\_FORCE\_0}} =   1                   \textcolor{comment}{// Force UARTxTXD to logic 0}}
+\DoxyCodeLine{63 \} \mbox{\hyperlink{pac5xxx__uart_8h_a5ca6d1a5eb09548491ecf326bd5fb890}{UART\_BREAKCONTROL\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__uart_8h_a2be635b419b6eb776d5416c1af0fd033}\label{pac5xxx__uart_8h_a2be635b419b6eb776d5416c1af0fd033}} 
+\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UART\_INTERUPT\_ENABLE\_TYPE@{UART\_INTERUPT\_ENABLE\_TYPE}}
+\index{UART\_INTERUPT\_ENABLE\_TYPE@{UART\_INTERUPT\_ENABLE\_TYPE}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}
+\doxysubsubsection{\texorpdfstring{UART\_INTERUPT\_ENABLE\_TYPE}{UART\_INTERUPT\_ENABLE\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__uart_8h_a2be635b419b6eb776d5416c1af0fd033}{U\+A\+R\+T\+\_\+\+I\+N\+T\+E\+R\+U\+P\+T\+\_\+\+E\+N\+A\+B\+L\+E\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_INT\_DISABLE@{UART\_INT\_DISABLE}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UART\_INT\_DISABLE@{UART\_INT\_DISABLE}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a2be635b419b6eb776d5416c1af0fd033a047adf69b397419dfa08e964fd51c8bb}\label{pac5xxx__uart_8h_a2be635b419b6eb776d5416c1af0fd033a047adf69b397419dfa08e964fd51c8bb}} 
+U\+A\+R\+T\+\_\+\+I\+N\+T\+\_\+\+D\+I\+S\+A\+B\+LE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_INT\_ENABLE@{UART\_INT\_ENABLE}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UART\_INT\_ENABLE@{UART\_INT\_ENABLE}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a2be635b419b6eb776d5416c1af0fd033a822427f1560dbf8c944e25a431993c3b}\label{pac5xxx__uart_8h_a2be635b419b6eb776d5416c1af0fd033a822427f1560dbf8c944e25a431993c3b}} 
+U\+A\+R\+T\+\_\+\+I\+N\+T\+\_\+\+E\+N\+A\+B\+LE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 30 of file pac5xxx\+\_\+uart.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30              \{}
+\DoxyCodeLine{31     \mbox{\hyperlink{pac5xxx__uart_8h_a2be635b419b6eb776d5416c1af0fd033a047adf69b397419dfa08e964fd51c8bb}{UART\_INT\_DISABLE}} =   0,}
+\DoxyCodeLine{32     \mbox{\hyperlink{pac5xxx__uart_8h_a2be635b419b6eb776d5416c1af0fd033a822427f1560dbf8c944e25a431993c3b}{UART\_INT\_ENABLE}}  =   1}
+\DoxyCodeLine{33 \} \mbox{\hyperlink{pac5xxx__uart_8h_a2be635b419b6eb776d5416c1af0fd033}{UART\_INTERUPT\_ENABLE\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857}\label{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857}} 
+\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UART\_PARITY\_TYPE@{UART\_PARITY\_TYPE}}
+\index{UART\_PARITY\_TYPE@{UART\_PARITY\_TYPE}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}
+\doxysubsubsection{\texorpdfstring{UART\_PARITY\_TYPE}{UART\_PARITY\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857}{U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_PARITY\_ODD@{UART\_PARITY\_ODD}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UART\_PARITY\_ODD@{UART\_PARITY\_ODD}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857ad90cc425f5ba447773a44a75be6593e2}\label{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857ad90cc425f5ba447773a44a75be6593e2}} 
+U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+O\+DD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_PARITY\_EVEN@{UART\_PARITY\_EVEN}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UART\_PARITY\_EVEN@{UART\_PARITY\_EVEN}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857ad908a637b1dd23f93b149dd2d8bdfdb8}\label{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857ad908a637b1dd23f93b149dd2d8bdfdb8}} 
+U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+E\+V\+EN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_PARITY\_FORCE\_STICK\_1@{UART\_PARITY\_FORCE\_STICK\_1}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UART\_PARITY\_FORCE\_STICK\_1@{UART\_PARITY\_FORCE\_STICK\_1}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857aa455b7d100454a7be7f9e642de4bfcb0}\label{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857aa455b7d100454a7be7f9e642de4bfcb0}} 
+U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+F\+O\+R\+C\+E\+\_\+\+S\+T\+I\+C\+K\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_PARITY\_FORCE\_STICK\_0@{UART\_PARITY\_FORCE\_STICK\_0}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UART\_PARITY\_FORCE\_STICK\_0@{UART\_PARITY\_FORCE\_STICK\_0}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857abdde2713d0cf30f3489129a7562f0f9c}\label{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857abdde2713d0cf30f3489129a7562f0f9c}} 
+U\+A\+R\+T\+\_\+\+P\+A\+R\+I\+T\+Y\+\_\+\+F\+O\+R\+C\+E\+\_\+\+S\+T\+I\+C\+K\+\_\+0&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 66 of file pac5xxx\+\_\+uart.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{66              \{}
+\DoxyCodeLine{67     \mbox{\hyperlink{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857ad90cc425f5ba447773a44a75be6593e2}{UART\_PARITY\_ODD}}           = 0,              \textcolor{comment}{// ODD parity}}
+\DoxyCodeLine{68     \mbox{\hyperlink{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857ad908a637b1dd23f93b149dd2d8bdfdb8}{UART\_PARITY\_EVEN}}          = 1,              \textcolor{comment}{// EVEN parity}}
+\DoxyCodeLine{69     \mbox{\hyperlink{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857aa455b7d100454a7be7f9e642de4bfcb0}{UART\_PARITY\_FORCE\_STICK\_1}} = 2,              \textcolor{comment}{// Forced 1 stick parity}}
+\DoxyCodeLine{70     \mbox{\hyperlink{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857abdde2713d0cf30f3489129a7562f0f9c}{UART\_PARITY\_FORCE\_STICK\_0}} = 3               \textcolor{comment}{// Forced 0 stick parity}}
+\DoxyCodeLine{71 \} \mbox{\hyperlink{pac5xxx__uart_8h_a27ed4c53addeb95421a4f92e0d4be857}{UART\_PARITY\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__uart_8h_a1158f3630ca209c3df76bfb7b637433e}\label{pac5xxx__uart_8h_a1158f3630ca209c3df76bfb7b637433e}} 
+\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UART\_PEN\_TYPE@{UART\_PEN\_TYPE}}
+\index{UART\_PEN\_TYPE@{UART\_PEN\_TYPE}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}
+\doxysubsubsection{\texorpdfstring{UART\_PEN\_TYPE}{UART\_PEN\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__uart_8h_a1158f3630ca209c3df76bfb7b637433e}{U\+A\+R\+T\+\_\+\+P\+E\+N\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_PEN\_DISABLE@{UART\_PEN\_DISABLE}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UART\_PEN\_DISABLE@{UART\_PEN\_DISABLE}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a1158f3630ca209c3df76bfb7b637433ea785e912068b11dfbde5a2a397dd70293}\label{pac5xxx__uart_8h_a1158f3630ca209c3df76bfb7b637433ea785e912068b11dfbde5a2a397dd70293}} 
+U\+A\+R\+T\+\_\+\+P\+E\+N\+\_\+\+D\+I\+S\+A\+B\+LE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_PEN\_ENABLE@{UART\_PEN\_ENABLE}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UART\_PEN\_ENABLE@{UART\_PEN\_ENABLE}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a1158f3630ca209c3df76bfb7b637433eac24642d509341321f6b452df36684bf1}\label{pac5xxx__uart_8h_a1158f3630ca209c3df76bfb7b637433eac24642d509341321f6b452df36684bf1}} 
+U\+A\+R\+T\+\_\+\+P\+E\+N\+\_\+\+E\+N\+A\+B\+LE&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 74 of file pac5xxx\+\_\+uart.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{74              \{}
+\DoxyCodeLine{75     \mbox{\hyperlink{pac5xxx__uart_8h_a1158f3630ca209c3df76bfb7b637433ea785e912068b11dfbde5a2a397dd70293}{UART\_PEN\_DISABLE}} = 0,                       \textcolor{comment}{// Disable parity generation and checking}}
+\DoxyCodeLine{76     \mbox{\hyperlink{pac5xxx__uart_8h_a1158f3630ca209c3df76bfb7b637433eac24642d509341321f6b452df36684bf1}{UART\_PEN\_ENABLE}}  = 1                        \textcolor{comment}{// Enable parity generation and checking}}
+\DoxyCodeLine{77 \} \mbox{\hyperlink{pac5xxx__uart_8h_a1158f3630ca209c3df76bfb7b637433e}{UART\_PEN\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__uart_8h_a2da3b7b812ea657ba4c2a855e7d03de4}\label{pac5xxx__uart_8h_a2da3b7b812ea657ba4c2a855e7d03de4}} 
+\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UART\_STOPBITS\_TYPE@{UART\_STOPBITS\_TYPE}}
+\index{UART\_STOPBITS\_TYPE@{UART\_STOPBITS\_TYPE}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}
+\doxysubsubsection{\texorpdfstring{UART\_STOPBITS\_TYPE}{UART\_STOPBITS\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__uart_8h_a2da3b7b812ea657ba4c2a855e7d03de4}{U\+A\+R\+T\+\_\+\+S\+T\+O\+P\+B\+I\+T\+S\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_STOP\_BITS\_1@{UART\_STOP\_BITS\_1}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UART\_STOP\_BITS\_1@{UART\_STOP\_BITS\_1}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a2da3b7b812ea657ba4c2a855e7d03de4a44b3bfbe90aebe2b23227f5c011f41cc}\label{pac5xxx__uart_8h_a2da3b7b812ea657ba4c2a855e7d03de4a44b3bfbe90aebe2b23227f5c011f41cc}} 
+U\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART\_STOP\_BITS\_2@{UART\_STOP\_BITS\_2}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UART\_STOP\_BITS\_2@{UART\_STOP\_BITS\_2}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a2da3b7b812ea657ba4c2a855e7d03de4a00c73c92b3d624bc86cfa63636dd99b3}\label{pac5xxx__uart_8h_a2da3b7b812ea657ba4c2a855e7d03de4a00c73c92b3d624bc86cfa63636dd99b3}} 
+U\+A\+R\+T\+\_\+\+S\+T\+O\+P\+\_\+\+B\+I\+T\+S\+\_\+2&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 80 of file pac5xxx\+\_\+uart.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80              \{}
+\DoxyCodeLine{81     \mbox{\hyperlink{pac5xxx__uart_8h_a2da3b7b812ea657ba4c2a855e7d03de4a44b3bfbe90aebe2b23227f5c011f41cc}{UART\_STOP\_BITS\_1}} = 0,                       \textcolor{comment}{// 1 stop bits}}
+\DoxyCodeLine{82     \mbox{\hyperlink{pac5xxx__uart_8h_a2da3b7b812ea657ba4c2a855e7d03de4a00c73c92b3d624bc86cfa63636dd99b3}{UART\_STOP\_BITS\_2}} = 1                        \textcolor{comment}{// 2 stop bits}}
+\DoxyCodeLine{83 \} \mbox{\hyperlink{pac5xxx__uart_8h_a2da3b7b812ea657ba4c2a855e7d03de4}{UART\_STOPBITS\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2}\label{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2}} 
+\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UART\_TYPE@{UART\_TYPE}}
+\index{UART\_TYPE@{UART\_TYPE}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}
+\doxysubsubsection{\texorpdfstring{UART\_TYPE}{UART\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2}{U\+A\+R\+T\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UARTA@{UARTA}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTA@{UARTA}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2a84670f8aa001651d4ace5fabfe2566ef}\label{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2a84670f8aa001651d4ace5fabfe2566ef}} 
+U\+A\+R\+TA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UARTB@{UARTB}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTB@{UARTB}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2ad6d7af1a47db9661dfda2739b3b91f67}\label{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2ad6d7af1a47db9661dfda2739b3b91f67}} 
+U\+A\+R\+TB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UARTC@{UARTC}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTC@{UARTC}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2a2f95f73eecc0f096456119af9ce043cf}\label{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2a2f95f73eecc0f096456119af9ce043cf}} 
+U\+A\+R\+TC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UARTD@{UARTD}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTD@{UARTD}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2a4c43279e579598c249a9977f3d9ba143}\label{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2a4c43279e579598c249a9977f3d9ba143}} 
+U\+A\+R\+TD&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 22 of file pac5xxx\+\_\+uart.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22              \{}
+\DoxyCodeLine{23     \mbox{\hyperlink{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2a84670f8aa001651d4ace5fabfe2566ef}{UARTA}} =   0,}
+\DoxyCodeLine{24     \mbox{\hyperlink{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2ad6d7af1a47db9661dfda2739b3b91f67}{UARTB}} =   1,}
+\DoxyCodeLine{25     \mbox{\hyperlink{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2a2f95f73eecc0f096456119af9ce043cf}{UARTC}} =   2,}
+\DoxyCodeLine{26     \mbox{\hyperlink{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2a4c43279e579598c249a9977f3d9ba143}{UARTD}} =   3}
+\DoxyCodeLine{27 \} \mbox{\hyperlink{pac5xxx__uart_8h_a123c04beea168806726edc1c20eb9ed2}{UART\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413}\label{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413}} 
+\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTFCR\_FIFO\_DEPTH\_TYPE@{UARTFCR\_FIFO\_DEPTH\_TYPE}}
+\index{UARTFCR\_FIFO\_DEPTH\_TYPE@{UARTFCR\_FIFO\_DEPTH\_TYPE}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}
+\doxysubsubsection{\texorpdfstring{UARTFCR\_FIFO\_DEPTH\_TYPE}{UARTFCR\_FIFO\_DEPTH\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413}{U\+A\+R\+T\+F\+C\+R\+\_\+\+F\+I\+F\+O\+\_\+\+D\+E\+P\+T\+H\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UARTFCR\_TL\_1B@{UARTFCR\_TL\_1B}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTFCR\_TL\_1B@{UARTFCR\_TL\_1B}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413a4e736f9e340ee7c6c16baee1fe23f7a4}\label{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413a4e736f9e340ee7c6c16baee1fe23f7a4}} 
+U\+A\+R\+T\+F\+C\+R\+\_\+\+T\+L\+\_\+1B&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UARTFCR\_TL\_4B@{UARTFCR\_TL\_4B}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTFCR\_TL\_4B@{UARTFCR\_TL\_4B}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413a94cc56eb70cf4101d751e7a0c8e84366}\label{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413a94cc56eb70cf4101d751e7a0c8e84366}} 
+U\+A\+R\+T\+F\+C\+R\+\_\+\+T\+L\+\_\+4B&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UARTFCR\_TL\_8B@{UARTFCR\_TL\_8B}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTFCR\_TL\_8B@{UARTFCR\_TL\_8B}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413a67ecdff37f011dd935a0adf07083b580}\label{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413a67ecdff37f011dd935a0adf07083b580}} 
+U\+A\+R\+T\+F\+C\+R\+\_\+\+T\+L\+\_\+8B&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UARTFCR\_TL\_14B@{UARTFCR\_TL\_14B}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTFCR\_TL\_14B@{UARTFCR\_TL\_14B}}}\mbox{\Hypertarget{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413a04b8bec0dff66d5752a4cdd6aef0aa0d}\label{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413a04b8bec0dff66d5752a4cdd6aef0aa0d}} 
+U\+A\+R\+T\+F\+C\+R\+\_\+\+T\+L\+\_\+14B&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 44 of file pac5xxx\+\_\+uart.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44              \{}
+\DoxyCodeLine{45     \mbox{\hyperlink{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413a4e736f9e340ee7c6c16baee1fe23f7a4}{UARTFCR\_TL\_1B}}  = 0,                         \textcolor{comment}{// 1 character}}
+\DoxyCodeLine{46     \mbox{\hyperlink{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413a94cc56eb70cf4101d751e7a0c8e84366}{UARTFCR\_TL\_4B}}  = 1,                         \textcolor{comment}{// 4 characters}}
+\DoxyCodeLine{47     \mbox{\hyperlink{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413a67ecdff37f011dd935a0adf07083b580}{UARTFCR\_TL\_8B}}  = 2,                         \textcolor{comment}{// 8 character}}
+\DoxyCodeLine{48     \mbox{\hyperlink{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413a04b8bec0dff66d5752a4cdd6aef0aa0d}{UARTFCR\_TL\_14B}} = 3                          \textcolor{comment}{// 14 characters}}
+\DoxyCodeLine{49 \} \mbox{\hyperlink{pac5xxx__uart_8h_a734bd1fdd42dd600939c53213a098413}{UARTFCR\_FIFO\_DEPTH\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73f}\label{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73f}} 
+\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTIIR\_INTID\_TYPE@{UARTIIR\_INTID\_TYPE}}
+\index{UARTIIR\_INTID\_TYPE@{UARTIIR\_INTID\_TYPE}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}
+\doxysubsubsection{\texorpdfstring{UARTIIR\_INTID\_TYPE}{UARTIIR\_INTID\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73f}{U\+A\+R\+T\+I\+I\+R\+\_\+\+I\+N\+T\+I\+D\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UARTIIR\_INTID\_TX\_HOLD\_EMPTY@{UARTIIR\_INTID\_TX\_HOLD\_EMPTY}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTIIR\_INTID\_TX\_HOLD\_EMPTY@{UARTIIR\_INTID\_TX\_HOLD\_EMPTY}}}\mbox{\Hypertarget{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73fa187347e5c00e17b337f9c0565fcb67ab}\label{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73fa187347e5c00e17b337f9c0565fcb67ab}} 
+U\+A\+R\+T\+I\+I\+R\+\_\+\+I\+N\+T\+I\+D\+\_\+\+T\+X\+\_\+\+H\+O\+L\+D\+\_\+\+E\+M\+P\+TY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UARTIIR\_INTID\_RX\_DATA\_AVAIL@{UARTIIR\_INTID\_RX\_DATA\_AVAIL}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTIIR\_INTID\_RX\_DATA\_AVAIL@{UARTIIR\_INTID\_RX\_DATA\_AVAIL}}}\mbox{\Hypertarget{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73fa436d9d6f029ecdb112f2a5beba051f30}\label{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73fa436d9d6f029ecdb112f2a5beba051f30}} 
+U\+A\+R\+T\+I\+I\+R\+\_\+\+I\+N\+T\+I\+D\+\_\+\+R\+X\+\_\+\+D\+A\+T\+A\+\_\+\+A\+V\+A\+IL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UARTIIR\_INTID\_RX\_LINE\_STATUS@{UARTIIR\_INTID\_RX\_LINE\_STATUS}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTIIR\_INTID\_RX\_LINE\_STATUS@{UARTIIR\_INTID\_RX\_LINE\_STATUS}}}\mbox{\Hypertarget{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73fac08a330e7e7f9aa5a4d4b8900b8da8bc}\label{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73fac08a330e7e7f9aa5a4d4b8900b8da8bc}} 
+U\+A\+R\+T\+I\+I\+R\+\_\+\+I\+N\+T\+I\+D\+\_\+\+R\+X\+\_\+\+L\+I\+N\+E\+\_\+\+S\+T\+A\+T\+US&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UARTIIR\_INTID\_FIFO\_TIMEOUT@{UARTIIR\_INTID\_FIFO\_TIMEOUT}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTIIR\_INTID\_FIFO\_TIMEOUT@{UARTIIR\_INTID\_FIFO\_TIMEOUT}}}\mbox{\Hypertarget{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73fab4a9ae30413484ba7032ecfe9da403f9}\label{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73fab4a9ae30413484ba7032ecfe9da403f9}} 
+U\+A\+R\+T\+I\+I\+R\+\_\+\+I\+N\+T\+I\+D\+\_\+\+F\+I\+F\+O\+\_\+\+T\+I\+M\+E\+O\+UT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 36 of file pac5xxx\+\_\+uart.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36              \{}
+\DoxyCodeLine{37     \mbox{\hyperlink{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73fa187347e5c00e17b337f9c0565fcb67ab}{UARTIIR\_INTID\_TX\_HOLD\_EMPTY}}     = 1,        \textcolor{comment}{// TX Holding Register Empty}}
+\DoxyCodeLine{38     \mbox{\hyperlink{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73fa436d9d6f029ecdb112f2a5beba051f30}{UARTIIR\_INTID\_RX\_DATA\_AVAIL}}     = 2,        \textcolor{comment}{// Receive Data Available}}
+\DoxyCodeLine{39     \mbox{\hyperlink{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73fac08a330e7e7f9aa5a4d4b8900b8da8bc}{UARTIIR\_INTID\_RX\_LINE\_STATUS}}    = 3,        \textcolor{comment}{// Receive Line Status}}
+\DoxyCodeLine{40     \mbox{\hyperlink{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73fab4a9ae30413484ba7032ecfe9da403f9}{UARTIIR\_INTID\_FIFO\_TIMEOUT}}      = 6         \textcolor{comment}{// Receive FIFO Character time-\/out}}
+\DoxyCodeLine{41 \} \mbox{\hyperlink{pac5xxx__uart_8h_af8eab5ffb2341d6b6729c2e19cfed73f}{UARTIIR\_INTID\_TYPE}};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391e}\label{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391e}} 
+\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTLCR\_WL\_TYPE@{UARTLCR\_WL\_TYPE}}
+\index{UARTLCR\_WL\_TYPE@{UARTLCR\_WL\_TYPE}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}
+\doxysubsubsection{\texorpdfstring{UARTLCR\_WL\_TYPE}{UARTLCR\_WL\_TYPE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391e}{U\+A\+R\+T\+L\+C\+R\+\_\+\+W\+L\+\_\+\+T\+Y\+PE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UARTLCR\_WL\_BPC\_5@{UARTLCR\_WL\_BPC\_5}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTLCR\_WL\_BPC\_5@{UARTLCR\_WL\_BPC\_5}}}\mbox{\Hypertarget{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391eacb2e7da73fe3888ab69bded8fc735438}\label{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391eacb2e7da73fe3888ab69bded8fc735438}} 
+U\+A\+R\+T\+L\+C\+R\+\_\+\+W\+L\+\_\+\+B\+P\+C\+\_\+5&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UARTLCR\_WL\_BPC\_6@{UARTLCR\_WL\_BPC\_6}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTLCR\_WL\_BPC\_6@{UARTLCR\_WL\_BPC\_6}}}\mbox{\Hypertarget{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391ea22a9185bb9ce3dac94c3001840c83f04}\label{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391ea22a9185bb9ce3dac94c3001840c83f04}} 
+U\+A\+R\+T\+L\+C\+R\+\_\+\+W\+L\+\_\+\+B\+P\+C\+\_\+6&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UARTLCR\_WL\_BPC\_7@{UARTLCR\_WL\_BPC\_7}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTLCR\_WL\_BPC\_7@{UARTLCR\_WL\_BPC\_7}}}\mbox{\Hypertarget{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391ea4d272c20c0e6bfc6cb42fb04e24708ee}\label{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391ea4d272c20c0e6bfc6cb42fb04e24708ee}} 
+U\+A\+R\+T\+L\+C\+R\+\_\+\+W\+L\+\_\+\+B\+P\+C\+\_\+7&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UARTLCR\_WL\_BPC\_8@{UARTLCR\_WL\_BPC\_8}!pac5xxx\_uart.h@{pac5xxx\_uart.h}}\index{pac5xxx\_uart.h@{pac5xxx\_uart.h}!UARTLCR\_WL\_BPC\_8@{UARTLCR\_WL\_BPC\_8}}}\mbox{\Hypertarget{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391ea5d542a882fc1c7a2a1d4d92110e06ee2}\label{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391ea5d542a882fc1c7a2a1d4d92110e06ee2}} 
+U\+A\+R\+T\+L\+C\+R\+\_\+\+W\+L\+\_\+\+B\+P\+C\+\_\+8&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 52 of file pac5xxx\+\_\+uart.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52              \{}
+\DoxyCodeLine{53     \mbox{\hyperlink{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391eacb2e7da73fe3888ab69bded8fc735438}{UARTLCR\_WL\_BPC\_5}} = 0,                       \textcolor{comment}{// 5 bits per character}}
+\DoxyCodeLine{54     \mbox{\hyperlink{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391ea22a9185bb9ce3dac94c3001840c83f04}{UARTLCR\_WL\_BPC\_6}} = 1,                       \textcolor{comment}{// 6 bits per character}}
+\DoxyCodeLine{55     \mbox{\hyperlink{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391ea4d272c20c0e6bfc6cb42fb04e24708ee}{UARTLCR\_WL\_BPC\_7}} = 2,                       \textcolor{comment}{// 7 bits per character}}
+\DoxyCodeLine{56     \mbox{\hyperlink{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391ea5d542a882fc1c7a2a1d4d92110e06ee2}{UARTLCR\_WL\_BPC\_8}} = 3                        \textcolor{comment}{// 8 bits per character}}
+\DoxyCodeLine{57 \} \mbox{\hyperlink{pac5xxx__uart_8h_aac2e27e449a4148596595291ff60391e}{UARTLCR\_WL\_TYPE}};}
+
+\end{DoxyCode}
