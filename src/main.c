@@ -28,7 +28,7 @@
 #include "usercom.h"              //add  by:owz
 
 //新增变量   by:owz
-uint8_t tx_dataa[8] =  {0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0};
+uint8_t tx_dataa[9] =  {0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0};  // data[8]=扭矩传感器
 fix16_t Vehicle_Speed = 0;
 fix16_t Bus_Current = 0;
 uint8_t MCU_CRC = 0;
@@ -129,7 +129,7 @@ int main(void)
                         }
                         else if (uart_rx_buf[0] == 0xA1)  // 档位下发帧
                         {
-                            motoruser.Assist_Rate = uart_rx_buf[1] & 0x0F;
+                            run_command.Assist_Rate = uart_rx_buf[1] & 0x0F;
                         }
                         else if (uart_rx_buf[0] == 0xA2)  // 心跳帧 (PC→MCU)
                         {
@@ -165,15 +165,12 @@ int main(void)
             // 握手帧: [0xAA][0xA0]["HI"] <-> [0xAA][0xA0]["OK"]
             // 数据帧: [0xAA][0xC1][8字节]
 
-            // ID=0xC1
-            if (task_500ms_timer_f == 1)
+            // 每 100ms 更新车速（从统一转速 mpos_spd_radps 计算）
+            // mpos_spd_radps 是 Q16 rad/s, >>13 得到近似值
+            Vehicle_Speed = motor_ptr->mpos.mpos_spd_radps >> 13;
+            if (Vehicle_Speed < 0)
             {
-                task_500ms_timer_f = 0;
-                Vehicle_Speed = (fix16_mul(motor_ptr->mpos.hall.hall_spd_radps,685)>>13)*1.14231; // M车型：1.04712  Y车型：1.14231
-                if (Vehicle_Speed <= 10 || motor_ptr->app.app_motor_direction == -1)
-                {
-                    Vehicle_Speed = 0;
-                }
+                Vehicle_Speed = 0;
             }
 
             Bus_Current = ((fix16_sqrt((motor_ptr->foc.id_prefilter_q14 * motor_ptr->foc.id_prefilter_q14 >>12) + (motor_ptr->foc.iq_prefilter_q14 * motor_ptr->foc.iq_prefilter_q14 >>12)))>>13)*19.95;
@@ -227,6 +224,9 @@ int main(void)
             MCU_CRC = calcCRC8(tx_dataa, 7);
             tx_dataa[7] = (MCU_CRC & 0x7F) | (pc_connected ? 0x80 : 0x00);
 
+            // data[8] 扭矩传感器 ADC 原始值 (0~1023 → 0~255)
+            tx_dataa[8] = (uint8_t)(readseq_test() >> 2);
+
             /*** UART轮询发送 ***/
             // 发送帧头
             pac5xxx_uart_write2(PAC55XX_UARTC, 0xAA);
@@ -234,8 +234,8 @@ int main(void)
             // 发送CMD
             pac5xxx_uart_write2(PAC55XX_UARTC, 0xC1);
             while (!(PAC55XX_UARTC->LSR.THRE));
-            // 发送8字节数据
-            for (int i = 0; i < 8; i++)
+            // 发送9字节数据
+            for (int i = 0; i < 9; i++)
             {
                 pac5xxx_uart_write2(PAC55XX_UARTC, tx_dataa[i]);
                 while (!(PAC55XX_UARTC->LSR.THRE));
